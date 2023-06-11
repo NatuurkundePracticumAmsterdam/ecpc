@@ -155,7 +155,7 @@ Die kunnen we bijvoorbeeld gebruiken om een lijst van alle beschikbare poorten t
 ``` py
 ports = rm.list_resources()
 ```
-Om nu daadwerkelijk verbinding te gaan maken met de Arduino moeten we die _openen_. Daarvoor geven we de poortnaam op en vertellen we meteen wat de instellingen moeten zijn voor de regeleindes bij het lezen (CRLF, \pythoninline{"\r\n"}) en het schrijven (LF, \pythoninline{"\n"}):
+Om nu daadwerkelijk verbinding te gaan maken met de Arduino moeten we die _openen_. Daarvoor geven we de poortnaam op en vertellen we meteen wat de instellingen moeten zijn voor de regeleindes bij het lezen (CRLF, `#!py "\r\n"`) en het schrijven (LF, `#!py "\n"`):
 ``` py
 device = rm.open_resource(
     "ASRL3::INSTR", read_termination="\r\n", write_termination="\n"
@@ -165,7 +165,7 @@ Ten slotte sturen we een query naar de Arduino:
 ``` py
 device.query("*IDN?")
 ```
-Het volledige script -- met een paar \pythoninline{print}-statements -- ziet er dan als volgt uit:
+Het volledige script -- met een paar `#!py print`-statements -- ziet er dan als volgt uit:
 ``` py
 import pyvisa
 
@@ -189,7 +189,7 @@ Draaien we het script, dan zien we, afhankelijk van het systeem en het aantal ap
 Arduino VISA firmware v1.0.0
 ```
 
-Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een \pythoninline{PermissionError}? Dan heb je vast nog een terminal openstaan waarin `pyvisa-shell` actief is. Een andere reden kan zijn dat het script probeert een poort te openen die bij jullie een andere naam heeft. Probeer met het lijstje instrumenten te raden welke de Arduino is en pas het script aan totdat het werkt.[^tip-aansluiten]
+Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een `#!py PermissionError`? Dan heb je vast nog een terminal openstaan waarin `pyvisa-shell` actief is. Een andere reden kan zijn dat het script probeert een poort te openen die bij jullie een andere naam heeft. Probeer met het lijstje instrumenten te raden welke de Arduino is en pas het script aan totdat het werkt.[^tip-aansluiten]
 
 [^tip-aansluiten]: Tip: als je de Arduino loshaalt en weer aansluit is het de nieuwe regel in het lijstje.
 
@@ -345,7 +345,7 @@ t,s
   \caption{Een CSV-bestand met kolommen $t$ en $s$. De getallen hebben een punt als decimaal scheidingsteken en de komma wordt gebruikt om de kolommen te scheiden.}
   \label{fig:csv-bestand}
 \end{figure}
-Je kunt CSV-bestanden schrijven en lezen met de modules \pythoninline{csv}, \pythoninline{numpy} of \pythoninline{pandas}. De eerste is altijd meegeleverd met Python en is speciaal geschreven voor het bestandsformaat [@csv-module], maar NumPy \cites{numpy}{numpy-paper} en Pandas \cites{pandas}{pandas-paper} bevatten veel meer functionaliteit op het gebied van wiskunde en data-analyse. Als je die modules toch al gebruikt kun je beter niet kiezen voor de <q>kale</q> csv module.
+Je kunt CSV-bestanden schrijven en lezen met de modules `#!py csv`, `#!py numpy` of `#!py pandas`. De eerste is altijd meegeleverd met Python en is speciaal geschreven voor het bestandsformaat [@csv-module], maar NumPy \cites{numpy}{numpy-paper} en Pandas \cites{pandas}{pandas-paper} bevatten veel meer functionaliteit op het gebied van wiskunde en data-analyse. Als je die modules toch al gebruikt kun je beter niet kiezen voor de <q>kale</q> csv module.
 
 \begin{inleveropdracht}[Pythondaq: csv]
   \label{opd:quickndirty-csv}
