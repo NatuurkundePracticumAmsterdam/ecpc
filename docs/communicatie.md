@@ -2,7 +2,9 @@
 \label{ch:gesprek}
 
 
-Het hart van ieder experiment wordt gevormd door de _metingen_ die worden uitgevoerd. Meetinstrumenten vervullen daarom een belangrijke rol bij het automatiseren van een experiment. De eerste stap die we zullen zetten tijdens het ontwikkelen van een applicatie is het communiceren met ons meetinstrument. We hebben gekozen voor een Arduino Nano 33 IoT \cite{arduino_device}, een zeer compact stukje elektronica rondom een ARM-microcontroller. Naast het uitvoeren van analoge spanningsmetingen kan dit model ook analoge spanningen afgeven dat voor ons heel nuttig gaat blijken. We hebben, speciaal voor dit vak, een stukje _firmware_\footnote{Firmware is software die in hardware is geprogrammeerd. Bijvoorbeeld het `computerprogramma' dat ervoor zorgt dat je magnetron reageert op de knoppen en je eten verwarmd.} ontwikkeld \cite{arduino_visa_firmware}.
+Het hart van ieder experiment wordt gevormd door de _metingen_ die worden uitgevoerd. Meetinstrumenten vervullen daarom een belangrijke rol bij het automatiseren van een experiment. De eerste stap die we zullen zetten tijdens het ontwikkelen van een applicatie is het communiceren met ons meetinstrument. We hebben gekozen voor een Arduino Nano 33 IoT \cite{arduino_device}, een zeer compact stukje elektronica rondom een ARM-microcontroller. Naast het uitvoeren van analoge spanningsmetingen kan dit model ook analoge spanningen afgeven dat voor ons heel nuttig gaat blijken. We hebben, speciaal voor dit vak, een stukje _firmware_[^firmware] ontwikkeld \cite{arduino_visa_firmware}.
+
+[^firmware]: Firmware is software die in hardware is geprogrammeerd. Bijvoorbeeld het `computerprogramma' dat ervoor zorgt dat je magnetron reageert op de knoppen en je eten verwarmd.
 
 
 ## Microcontrollers
@@ -19,8 +21,13 @@ Een Arduino is zo'n microcontroller. Vaak wordt een Arduino vergeleken met een R
 Hoe praat je eigenlijk met hardware? Voor fabrikanten zijn er een paar opties:
 \begin{enumerate}
   \item Je maakt gebruik van een al bestaand protocol (een bestaande _standaard_ en je schrijft vervolgens documentatie specifiek voor jouw instrument (bijvoorbeeld de VISA-standaard \cite{VISA}, o.a. gebruikt door _Tektronix_ digitale oscilloscopen \cite{tektronix})
-  \item Je schrijft een _proprietary_\footnote{_Proprietary_ betekent dat een bedrijf of individu exclusieve de rechten heeft over het protocol of de software en anderen geen toegang geeft tot de details.} protocol en een bijbehorende bibliotheek die software-ontwikke\-laars moeten gebruiken.\footnote{Niet zelden zijn dergelijke bibliotheken maar op een paar besturingssystemen beschikbaar als _driver_. Gebruik je MacOS in plaats van Windows en het wordt alleen op Windows ondersteund? Dan kun je je dure meetinstrument dus niet gebruiken totdat je overstapt.} Voorbeelden zijn instrumenten van _National Instruments_ \cite{national_instruments} of de _PicoScope_ digitale oscilloscopen\footnote{Die overigens op vrijwel alle platforms en voor veel programmeertalen bibliotheken leveren.} \cite{picoscope}.
+  \item Je schrijft een _proprietary_[^proprietary] protocol en een bijbehorende bibliotheek die software-ontwikke\-laars moeten gebruiken.[^drivers] Voorbeelden zijn instrumenten van _National Instruments_ \cite{national_instruments} of de _PicoScope_ digitale oscilloscopen[^picoscope] \cite{picoscope}.
 \end{enumerate}
+
+[^proprietary]: _Proprietary_ betekent dat een bedrijf of individu exclusieve de rechten heeft over het protocol of de software en anderen geen toegang geeft tot de details.
+[^drivers]: Niet zelden zijn dergelijke bibliotheken maar op een paar besturingssystemen beschikbaar als _driver_. Gebruik je MacOS in plaats van Windows en het wordt alleen op Windows ondersteund? Dan kun je je dure meetinstrument dus niet gebruiken totdat je overstapt.
+[^picoscope]: Die overigens op vrijwel alle platforms en voor veel programmeertalen bibliotheken leveren.
+
 De VISA-standaard is veelgebruikt, maar helaas komen _proprietary_ protocollen veel voor. Dat is jammer, want in het laatste geval moet je het doen met de software die geleverd wordt door de fabrikant. Als die jouw besturingssysteem of favoriete programmeertaal niet ondersteunt heb je simpelweg pech.
 
 Wij gaan gebruik maken van de VISA-standaard. VISA staat voor _Virtual Instrument Software Architecture_ en is héél breed en definieert protocollen om te communiceren via allerlei verouderde computerpoorten en kabels (\figref{fig:old_ports}).
@@ -58,7 +65,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 
 \begin{minopdracht}
   \label{opd:condaenv}
-  Omdat meerdere studenten gedurende de week achter dezelfde computer werken en environments aan gaan maken kun je het beste je initialen toevoegen aan de naam van je environment. Zo zit niemand elkaar in de weg. In dit voorbeeld gebruiken we `IK' als initialen. Maak de environment en installeer de juiste packages door een terminal te openen\footnote{Start de applicatie \texttt{Anaconda Powershell Prompt} of start een terminal binnen Visual Studio Code met het menu \menu{Terminal > New Terminal}.} en in te typen (_zonder_ het dollarteken aan het begin):
+  Omdat meerdere studenten gedurende de week achter dezelfde computer werken en environments aan gaan maken kun je het beste je initialen toevoegen aan de naam van je environment. Zo zit niemand elkaar in de weg. In dit voorbeeld gebruiken we `IK' als initialen. Maak de environment en installeer de juiste packages door een terminal te openen[^terminal] en in te typen (_zonder_ het dollarteken aan het begin):
   \begin{ps1concode*}{bgcolor={}}
     PS> conda create -n IK-pythondaq -c conda-forge python pyvisa-py
   \end{ps1concode*}
@@ -67,6 +74,8 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
     PS> conda activate IK-pythondaq
   \end{ps1concode*}
 \end{minopdracht}
+
+[^terminal]: Start de applicatie \texttt{Anaconda Powershell Prompt} of start een terminal binnen Visual Studio Code met het menu \menu{Terminal > New Terminal}.
 
 \begin{minopdracht}
   Sluit de Arduino met de USB-kabel aan op de computer. Om de communicatie met de Arduino te testen maken we gebruik van \verb|pyvisa-shell|. Open een terminal, zorg dat het goede conda environment actief is en type \texttt{help}:
@@ -108,7 +117,10 @@ Om verbinding te maken met onze Arduino gebruik je eerst \verb|list| om te kijke
   Probeer zelf ook de commando's \verb|list|, \verb|open|, en de \verb|query| uit. Krijg je hetzelfde resultaat?
 \end{minopdracht}
 
-Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de documentatie van de firmware (\appref{ch:firmware}) dan zie je dat er bepaalde _terminator characters_ nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een `enter' aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een _carriage return_ (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een _line feed_ (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van _carriage return + line feed_ (CRLF). Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer heb je nodig? Af en toe is dat lastig, vooral wanneer er elektronica in het spel is want dan willen de regeleindes voor schrijven en lezen nog wel eens verschillend zijn.\footnote{De regeleindes voor de Arduinofirmware zijn verschillend voor lezen en schrijven. Dit heeft een oninteressante reden: bij het ontvangen van commando's is het makkelijk om alles te lezen totdat je één bepaald karakter (LF) tegenkomt. Bij het schrijven gebruikt de standaard \texttt{println}-functie een Windows-stijl regeleinde (CRLF).} We gaan nu het gebruik van de karakters instellen:
+Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de documentatie van de firmware (\appref{ch:firmware}) dan zie je dat er bepaalde _terminator characters_ nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een `enter' aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een _carriage return_ (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een _line feed_ (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van _carriage return + line feed_ (CRLF). Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer heb je nodig? Af en toe is dat lastig, vooral wanneer er elektronica in het spel is want dan willen de regeleindes voor schrijven en lezen nog wel eens verschillend zijn.[^regeleindes] We gaan nu het gebruik van de karakters instellen:
+
+[^regeleindes]: De regeleindes voor de Arduinofirmware zijn verschillend voor lezen en schrijven. Dit heeft een oninteressante reden: bij het ontvangen van commando's is het makkelijk om alles te lezen totdat je één bepaald karakter (LF) tegenkomt. Bij het schrijven gebruikt de standaard \texttt{println}-functie een Windows-stijl regeleinde (CRLF).
+
 \begin{consolecode}
   (open) termchar
   Termchar read: None write: CRLF
@@ -184,7 +196,9 @@ Draaien we het script, dan zien we, afhankelijk van het systeem en het aantal ap
   Arduino VISA firmware v1.0.0
 \end{consolecode}
 
-Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een \pythoninline{PermissionError}? Dan heb je vast nog een terminal openstaan waarin \texttt{pyvisa-shell} actief is. Een andere reden kan zijn dat het script probeert een poort te openen die bij jullie een andere naam heeft. Probeer met het lijstje instrumenten te raden welke de Arduino is en pas het script aan totdat het werkt.\footnote{Tip: als je de Arduino loshaalt en weer aansluit is het de nieuwe regel in het lijstje.}
+Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een \pythoninline{PermissionError}? Dan heb je vast nog een terminal openstaan waarin \texttt{pyvisa-shell} actief is. Een andere reden kan zijn dat het script probeert een poort te openen die bij jullie een andere naam heeft. Probeer met het lijstje instrumenten te raden welke de Arduino is en pas het script aan totdat het werkt.[^tip-aansluiten]
+
+[^tip-aansluiten]: Tip: als je de Arduino loshaalt en weer aansluit is het de nieuwe regel in het lijstje.
 
 \begin{attention}
   In het vervolg gaan we commando's naar de Arduino sturen waar een variabele spanning in staat. Je kunt dit het makkelijkst doen met f-strings, zoals
@@ -214,7 +228,10 @@ Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een 
 
 We hebben tot nu toe gewerkt met getallen van \numrange{0}{1023} sturen en ontvangen. Wat is precies de betekenis van deze getallen? Daarvoor moeten we dieper ingaan op hoe de Arduino -- en computers in het algemeen -- getallen omzet in een spanning en hoe spanningen door de Arduino worden gemeten.
 
-Een _analoog_ signaal is continu in zowel de tijd als de waardes die het signaal aan kan nemen. Een _digitaal_ signaal is echter discreet: op vaste tijdstippen is er een waarde bekend en het signaal kan maar een beperkt aantal verschillende waardes aannemen. Een vallende bal is een continu proces. De bal heeft op elk willekeurig moment een positie. Je zou de positie kunnen meten op het tijdstip $t = \qty{2.0}{\second}$, maar ook op $t = \text{\qtylist[list-final-separator={ of }]{2.1;2.01;2.001;2.0001}{\second}}$. Ook kun je de positie net zo nauwkeurig bepalen als je wilt.\footnote{Uiteraard afhankelijk van de nauwkeurigheid van je meetinstrument.} De natuur is analoog,\footnote{Totdat je het domein van de kwantummechanica betreedt, dan blijkt de natuur ook een discrete kant te hebben.} maar moderne computers zijn digitaal en dus discreet. Als je een foto op je computer te ver inzoomt zie je blokjes. Je kunt verder inzoomen, maar je gaat niet meer detail zien. De hoeveelheid informatie is beperkt.
+Een _analoog_ signaal is continu in zowel de tijd als de waardes die het signaal aan kan nemen. Een _digitaal_ signaal is echter discreet: op vaste tijdstippen is er een waarde bekend en het signaal kan maar een beperkt aantal verschillende waardes aannemen. Een vallende bal is een continu proces. De bal heeft op elk willekeurig moment een positie. Je zou de positie kunnen meten op het tijdstip $t = \qty{2.0}{\second}$, maar ook op $t = \text{\qtylist[list-final-separator={ of }]{2.1;2.01;2.001;2.0001}{\second}}$. Ook kun je de positie net zo nauwkeurig bepalen als je wilt.[^nauwkeurigheid] De natuur is analoog,[^analoog] maar moderne computers zijn digitaal en dus discreet. Als je een foto op je computer te ver inzoomt zie je blokjes. Je kunt verder inzoomen, maar je gaat niet meer detail zien. De hoeveelheid informatie is beperkt.
+
+[^nauwkeurigheid]: Uiteraard afhankelijk van de nauwkeurigheid van je meetinstrument.
+[^analoog]: Totdat je het domein van de kwantummechanica betreedt, dan blijkt de natuur ook een discrete kant te hebben.
 
 \begin{bonus}
   \textbf{Binair talstelsel} \\
@@ -351,7 +368,9 @@ Je kunt CSV-bestanden schrijven en lezen met de modules \pythoninline{csv}, \pyt
 \begin{bonustekst}
   ### HDF5, PyTables
 
-  Een populair binair formaat in de wetenschappelijke wereld is HDF5\footnote{Hierarchical Data Format Version 5.} \cite{hdf5}. Je kunt hiermee verschillende datasets bewaren in één bestand. Je kunt een soort boomstructuur aanbrengen en zo verschillende datasets groeperen en er ook nog extra informatie (metadata) aanhangen zoals datum van de meting, beschrijving van de condities, etc. Je kunt een meetserie opslaan als reeks die in één keer in en uit het bestand wordt geladen maar ook als tabel. Die laatste biedt de mogelijkheid om -- net als in een database -- data te selecteren en alleen die data in te laden uit het bestand. Op die manier is het mogelijk om met datasets te werken die groter zijn dan het geheugen van je computer.
+  Een populair binair formaat in de wetenschappelijke wereld is HDF5[^HDF5] \cite{hdf5}. Je kunt hiermee verschillende datasets bewaren in één bestand. Je kunt een soort boomstructuur aanbrengen en zo verschillende datasets groeperen en er ook nog extra informatie (metadata) aanhangen zoals datum van de meting, beschrijving van de condities, etc. Je kunt een meetserie opslaan als reeks die in één keer in en uit het bestand wordt geladen maar ook als tabel. Die laatste biedt de mogelijkheid om -- net als in een database -- data te selecteren en alleen die data in te laden uit het bestand. Op die manier is het mogelijk om met datasets te werken die groter zijn dan het geheugen van je computer.
+
+  [^HDF5]: Hierarchical Data Format Version 5.
 
   PyTables \cite{pytables} is een Python bibliotheek die het werken met HDF5-bestanden makkelijker maakt. Er zijn uiteraard functies om de bestanden aan te maken en uit te lezen maar ook om _queries_ uit te voeren. Pandas kan -- via PyTables -- ook werken met HDF5-bestanden.
 \end{bonustekst}
