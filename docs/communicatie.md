@@ -30,10 +30,13 @@ Hoe praat je eigenlijk met hardware? Voor fabrikanten zijn er een paar opties:
 De VISA-standaard is veelgebruikt, maar helaas komen _proprietary_ protocollen veel voor. Dat is jammer, want in het laatste geval moet je het doen met de software die geleverd wordt door de fabrikant. Als die jouw besturingssysteem of favoriete programmeertaal niet ondersteunt heb je simpelweg pech.
 
 Wij gaan gebruik maken van de VISA-standaard. VISA staat voor _Virtual Instrument Software Architecture_ en is héél breed en definieert protocollen om te communiceren via allerlei verouderde computerpoorten en kabels (\figref{fig:old_ports}).
-\begin{figure}
-  \centering
-  \includegraphics[width=.5\linewidth]{figures/Digitaloszilloskop_Schnittstellen_IMGP1974_WP}
-  \caption{Een voorbeeld van verschillende poorten zoals RS232 en GPIB aan de achterkant van een Tektronix TDS210 oscilloscoop. Bron: \url{https://commons.wikimedia.org/wiki/File:Digitaloszilloskop_Schnittstellen_IMGP1974_WP.jpg}}
+
+<figure markdown>
+![Poorten op oscilloscoop](figures/Digitaloszilloskop_Schnittstellen_IMGP1974_WP.jpg)
+<figcaption>Een voorbeeld van verschillende poorten zoals RS232 en GPIB aan de achterkant van een Tektronix TDS210 oscilloscoop. Bron: <a href="https://commons.wikimedia.org/wiki/File:Digitaloszilloskop_Schnittstellen_IMGP1974_WP.jpg">Wikimedia Commons</a>.
+</figcaption>
+</figure>
+
   \label{fig:old_ports}
 \end{figure}
 Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderdeel van VISA is de SCPI standaard \cite{SCPI}, wat staat voor _Standard Commands for Programmable Instruments_. Dit onderdeel definieert een bepaald formaat voor commando's die we naar ons instrument zullen sturen. De lijst met commando's die door de firmware van onze Arduino worden ondersteund is gegeven in \appref{ch:firmware}.

@@ -2,4 +2,6 @@ site_name: My Docs
 theme:
   name: material
 markdown_extensions:
+  - attr_list
   - footnotes
+  - md_in_html
