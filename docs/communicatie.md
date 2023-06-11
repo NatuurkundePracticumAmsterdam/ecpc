@@ -58,63 +58,59 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
   </caption>
 </figure>
 
-\begin{attention}
-  Om met Python via het VISA-protocol te kunnen communiceren met apparaten hebben we specifieke packages nodig. Die gaan we installeren in een _conda environment_. Voor meer informatie over conda environments zie \secref{sec:conda-envs}.
-\end{attention}
+!!! note
+    Om met Python via het VISA-protocol te kunnen communiceren met apparaten hebben we specifieke packages nodig. Die gaan we installeren in een _conda environment_. Voor meer informatie over conda environments zie \secref{sec:conda-envs}.
 
-\begin{minopdracht}
-  \label{opd:condaenv}
-  Omdat meerdere studenten gedurende de week achter dezelfde computer werken en environments aan gaan maken kun je het beste je initialen toevoegen aan de naam van je environment. Zo zit niemand elkaar in de weg. In dit voorbeeld gebruiken we `IK' als initialen. Maak de environment en installeer de juiste packages door een terminal te openen[^terminal] en in te typen (_zonder_ het dollarteken aan het begin):
-  \begin{ps1concode*}{bgcolor={}}
+!!! question
+    \label{opd:condaenv}
+    Omdat meerdere studenten gedurende de week achter dezelfde computer werken en environments aan gaan maken kun je het beste je initialen toevoegen aan de naam van je environment. Zo zit niemand elkaar in de weg. In dit voorbeeld gebruiken we `IK' als initialen. Maak de environment en installeer de juiste packages door een terminal te openen[^terminal] en in te typen (_zonder_ het dollarteken aan het begin):
+    ``` ps1con
     PS> conda create -n IK-pythondaq -c conda-forge python pyvisa-py
-  \end{ps1concode*}
-  Om de conda environment daadwerkelijk te gebruiken moet je die altijd eerst _activeren_ met:
-  \begin{ps1concode*}{bgcolor={}}
+    ```
+    Om de conda environment daadwerkelijk te gebruiken moet je die altijd eerst _activeren_ met:
+    ``` ps1con
     PS> conda activate IK-pythondaq
-  \end{ps1concode*}
-\end{minopdracht}
+    ```
 
 [^terminal]: Start de applicatie \texttt{Anaconda Powershell Prompt} of start een terminal binnen Visual Studio Code met het menu \menu{Terminal > New Terminal}.
 
-\begin{minopdracht}
-  Sluit de Arduino met de USB-kabel aan op de computer. Om de communicatie met de Arduino te testen maken we gebruik van \verb|pyvisa-shell|. Open een terminal, zorg dat het goede conda environment actief is en type \texttt{help}:
-  \begin{ps1concode}
+!!! question
+    Sluit de Arduino met de USB-kabel aan op de computer. Om de communicatie met de Arduino te testen maken we gebruik van \verb|pyvisa-shell|. Open een terminal, zorg dat het goede conda environment actief is en type \texttt{help}:
+    ``` ps1con
     PS> pyvisa-shell -b py
-    
+
     Welcome to the VISA shell. Type help or ? to list commands.
-    
+
     (visa) help
-    
+
     Documented commands (type help <topic>):
     ========================================
     EOF  attr  close  exit  help  list  open  query  read  termchar  timeout  write
-    
+
     (visa) help list
     List all connected resources.
     (visa) exit
-  \end{ps1concode}
-\end{minopdracht}
+    ```
 
-\begin{attention}
-  We maken hier gebruik van de optie \texttt{-b py}, wat staat voor _gebruik backend: python_. Het kan namelijk dat er, naast \texttt{pyvisa-py}, ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. Maar de verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle types apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
-\end{attention}
+!!! note
+    We maken hier gebruik van de optie \texttt{-b py}, wat staat voor _gebruik backend: python_. Het kan namelijk dat er, naast \texttt{pyvisa-py}, ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. Maar de verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle types apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
 
 Om verbinding te maken met onze Arduino gebruik je eerst \verb|list| om te kijken welke apparaten aangesloten zijn en vervolgens \verb|open| om de verbinding te openen. Je kunt makkelijk zien welk apparaat de Arduino is door éérst \verb|list| te gebruiken zónder de Arduino aangesloten en vervolgens nog een keer mét de Arduino aangesloten -- het kan een paar seconden duren voor de Arduino wordt herkend. Het laatst bijgekomen apparaat is dan de Arduino. Een commando sturen en wachten op een antwoord doe je met \verb|query|. Als we de identificatiestring willen uitlezen wordt dit bijvoorbeeld:
-\begin{consolecode}
-  (visa) list
-  ( 0) ASRL3::INSTR
-  (visa) open 0
-  ASRL3::INSTR has been opened.
-  You can talk to the device using "write", "read" or "query".
-  The default end of message is added to each message.
-  (open) query *IDN?
-  Response: ERROR: UNKNOWN COMMAND *IDN?
+``` consolecode
+(visa) list
+( 0) ASRL3::INSTR
+(visa) open 0
+ASRL3::INSTR has been opened.
+You can talk to the device using "write", "read" or "query".
+The default end of message is added to each message.
+(open) query *IDN?
+Response: ERROR: UNKNOWN COMMAND *IDN?
 
-  (open) exit
-\end{consolecode}
-\begin{minopdracht}
-  Probeer zelf ook de commando's \verb|list|, \verb|open|, en de \verb|query| uit. Krijg je hetzelfde resultaat?
-\end{minopdracht}
+(open) exit
+```
+
+!!! question
+    Probeer zelf ook de commando's \verb|list|, \verb|open|, en de \verb|query| uit. Krijg je hetzelfde resultaat?
 
 Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de documentatie van de firmware (\appref{ch:firmware}) dan zie je dat er bepaalde _terminator characters_ nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een `enter' aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een _carriage return_ (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een _line feed_ (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van _carriage return + line feed_ (CRLF). Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer heb je nodig? Af en toe is dat lastig, vooral wanneer er elektronica in het spel is want dan willen de regeleindes voor schrijven en lezen nog wel eens verschillend zijn.[^regeleindes] We gaan nu het gebruik van de karakters instellen:
 
