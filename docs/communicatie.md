@@ -1,7 +1,6 @@
 # Communicatie met een meetinstrument
 \label{ch:gesprek}
 
-
 Het hart van ieder experiment wordt gevormd door de _metingen_ die worden uitgevoerd. Meetinstrumenten vervullen daarom een belangrijke rol bij het automatiseren van een experiment. De eerste stap die we zullen zetten tijdens het ontwikkelen van een applicatie is het communiceren met ons meetinstrument. We hebben gekozen voor een Arduino Nano 33 IoT \cite{arduino_device}, een zeer compact stukje elektronica rondom een ARM-microcontroller. Naast het uitvoeren van analoge spanningsmetingen kan dit model ook analoge spanningen afgeven dat voor ons heel nuttig gaat blijken. We hebben, speciaal voor dit vak, een stukje _firmware_[^firmware] ontwikkeld \cite{arduino_visa_firmware}.
 
 [^firmware]: Firmware is software die in hardware is geprogrammeerd. Bijvoorbeeld het `computerprogramma' dat ervoor zorgt dat je magnetron reageert op de knoppen en je eten verwarmd.
