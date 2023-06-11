@@ -33,7 +33,7 @@ Wij gaan gebruik maken van de VISA-standaard. VISA staat voor _Virtual Instrumen
 
 <figure markdown>
 ![Poorten op oscilloscoop](figures/Digitaloszilloskop_Schnittstellen_IMGP1974_WP.jpg)
-<figcaption>Een voorbeeld van verschillende poorten zoals RS232 en GPIB aan de achterkant van een Tektronix TDS210 oscilloscoop. Bron: <a href="https://commons.wikimedia.org/wiki/File:Digitaloszilloskop_Schnittstellen_IMGP1974_WP.jpg">Wikimedia Commons</a>.
+<figcaption markdown>Een voorbeeld van verschillende poorten zoals RS232 en GPIB aan de achterkant van een Tektronix TDS210 oscilloscoop. Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszilloskop_Schnittstellen_IMGP1974_WP.jpg).
 </figcaption>
 </figure>
 
