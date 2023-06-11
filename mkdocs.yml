@@ -2,6 +2,9 @@ site_name: My Docs
 theme:
   name: material
 markdown_extensions:
-  - attr_list
   - footnotes
+  - attr_list
   - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
