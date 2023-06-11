@@ -71,10 +71,10 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
     PS> conda activate IK-pythondaq
     ```
 
-[^terminal]: Start de applicatie \texttt{Anaconda Powershell Prompt} of start een terminal binnen Visual Studio Code met het menu \menu{Terminal > New Terminal}.
+[^terminal]: Start de applicatie `Anaconda Powershell Prompt` of start een terminal binnen Visual Studio Code met het menu \menu{Terminal > New Terminal}.
 
 !!! question
-    Sluit de Arduino met de USB-kabel aan op de computer. Om de communicatie met de Arduino te testen maken we gebruik van \verb|pyvisa-shell|. Open een terminal, zorg dat het goede conda environment actief is en type \texttt{help}:
+    Sluit de Arduino met de USB-kabel aan op de computer. Om de communicatie met de Arduino te testen maken we gebruik van `pyvisa-shell`. Open een terminal, zorg dat het goede conda environment actief is en type `help`:
     ``` ps1con
     PS> pyvisa-shell -b py
 
@@ -92,9 +92,9 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
     ```
 
 !!! note
-    We maken hier gebruik van de optie \texttt{-b py}, wat staat voor _gebruik backend: python_. Het kan namelijk dat er, naast \texttt{pyvisa-py}, ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. Maar de verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle types apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
+    We maken hier gebruik van de optie `-b py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er, naast `pyvisa-py`, ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. Maar de verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle types apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
 
-Om verbinding te maken met onze Arduino gebruik je eerst \verb|list| om te kijken welke apparaten aangesloten zijn en vervolgens \verb|open| om de verbinding te openen. Je kunt makkelijk zien welk apparaat de Arduino is door éérst \verb|list| te gebruiken zónder de Arduino aangesloten en vervolgens nog een keer mét de Arduino aangesloten -- het kan een paar seconden duren voor de Arduino wordt herkend. Het laatst bijgekomen apparaat is dan de Arduino. Een commando sturen en wachten op een antwoord doe je met \verb|query|. Als we de identificatiestring willen uitlezen wordt dit bijvoorbeeld:
+Om verbinding te maken met onze Arduino gebruik je eerst `list` om te kijken welke apparaten aangesloten zijn en vervolgens `open` om de verbinding te openen. Je kunt makkelijk zien welk apparaat de Arduino is door éérst `list` te gebruiken zónder de Arduino aangesloten en vervolgens nog een keer mét de Arduino aangesloten -- het kan een paar seconden duren voor de Arduino wordt herkend. Het laatst bijgekomen apparaat is dan de Arduino. Een commando sturen en wachten op een antwoord doe je met `query`. Als we de identificatiestring willen uitlezen wordt dit bijvoorbeeld:
 ``` consolecode
 (visa) list
 ( 0) ASRL3::INSTR
@@ -109,11 +109,11 @@ Response: ERROR: UNKNOWN COMMAND *IDN?
 ```
 
 !!! question
-    Probeer zelf ook de commando's \verb|list|, \verb|open|, en de \verb|query| uit. Krijg je hetzelfde resultaat?
+    Probeer zelf ook de commando's `list`, `open`, en de `query` uit. Krijg je hetzelfde resultaat?
 
 Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de documentatie van de firmware (\appref{ch:firmware}) dan zie je dat er bepaalde _terminator characters_ nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een `enter' aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een _carriage return_ (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een _line feed_ (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van _carriage return + line feed_ (CRLF). Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer heb je nodig? Af en toe is dat lastig, vooral wanneer er elektronica in het spel is want dan willen de regeleindes voor schrijven en lezen nog wel eens verschillend zijn.[^regeleindes] We gaan nu het gebruik van de karakters instellen:
 
-[^regeleindes]: De regeleindes voor de Arduinofirmware zijn verschillend voor lezen en schrijven. Dit heeft een oninteressante reden: bij het ontvangen van commando's is het makkelijk om alles te lezen totdat je één bepaald karakter (LF) tegenkomt. Bij het schrijven gebruikt de standaard \texttt{println}-functie een Windows-stijl regeleinde (CRLF).
+[^regeleindes]: De regeleindes voor de Arduinofirmware zijn verschillend voor lezen en schrijven. Dit heeft een oninteressante reden: bij het ontvangen van commando's is het makkelijk om alles te lezen totdat je één bepaald karakter (LF) tegenkomt. Bij het schrijven gebruikt de standaard `println`-functie een Windows-stijl regeleinde (CRLF).
 
 \begin{consolecode}
   (open) termchar
@@ -125,7 +125,7 @@ Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de documentatie van de
   (open) query *IDN?
   Response: Arduino VISA firmware v1.0.0
 \end{consolecode}
-Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het eind van de `zin') krijgen we antwoord! Dat antwoord heeft dan juist weer een CRLF aan het eind dus \texttt{pyvisa-shell} weet wanneer het kan stoppen met luisteren en print het antwoord op het scherm. De karakters CRLF en LF _zelf_ blijven onzichtbaar voor ons.
+Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het eind van de `zin') krijgen we antwoord! Dat antwoord heeft dan juist weer een CRLF aan het eind dus `pyvisa-shell` weet wanneer het kan stoppen met luisteren en print het antwoord op het scherm. De karakters CRLF en LF _zelf_ blijven onzichtbaar voor ons.
 
 \begin{minopdracht}
   Stel zelf ook de regeleindes goed in en probeer of je antwoord krijgt van de Arduino. Heeft jouw Arduino de nieuwste firmware?
@@ -144,7 +144,7 @@ Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het ein
 
 We hebben via de shell contact gelegd met de hardware. Nu wordt het tijd om, met de documentatie \cite{pyvisa} in de aanslag, hetzelfde vanuit Python te doen. Als je met een nieuw project begint is het helemaal geen gek idee om een kort script te schrijven waarin je wat dingen uitprobeert. Als alles lijkt te werken kun je het netjes gaan maken en gaan uitbreiden. We beginnen hier met een eenvoudig script en zullen dat daarna gaan verfijnen.
 
-We lopen het voorbeeldscript eerst regel voor regel door en geven het volledige script aan het eind. Allereerst importeren we de \texttt{pyvisa}-bibliotheek met
+We lopen het voorbeeldscript eerst regel voor regel door en geven het volledige script aan het eind. Allereerst importeren we de `pyvisa`-bibliotheek met
 \begin{pythoncode}
   import pyvisa
 \end{pythoncode}
@@ -190,7 +190,7 @@ Draaien we het script, dan zien we, afhankelijk van het systeem en het aantal ap
   Arduino VISA firmware v1.0.0
 \end{consolecode}
 
-Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een \pythoninline{PermissionError}? Dan heb je vast nog een terminal openstaan waarin \texttt{pyvisa-shell} actief is. Een andere reden kan zijn dat het script probeert een poort te openen die bij jullie een andere naam heeft. Probeer met het lijstje instrumenten te raden welke de Arduino is en pas het script aan totdat het werkt.[^tip-aansluiten]
+Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een \pythoninline{PermissionError}? Dan heb je vast nog een terminal openstaan waarin `pyvisa-shell` actief is. Een andere reden kan zijn dat het script probeert een poort te openen die bij jullie een andere naam heeft. Probeer met het lijstje instrumenten te raden welke de Arduino is en pas het script aan totdat het werkt.[^tip-aansluiten]
 
 [^tip-aansluiten]: Tip: als je de Arduino loshaalt en weer aansluit is het de nieuwe regel in het lijstje.
 
@@ -353,7 +353,7 @@ Je kunt CSV-bestanden schrijven en lezen met de modules \pythoninline{csv}, \pyt
 \end{inleveropdracht}
 
 \begin{bonusopdracht}
-  Pas de code zodanig aan dat een CSV-bestand nooit wordt overschreven. Je kunt bijvoorbeeld aan de bestandsnaam een oplopend getal toevoegen (\verb|data-001.csv|, \verb|data-002.csv|, etc.).
+  Pas de code zodanig aan dat een CSV-bestand nooit wordt overschreven. Je kunt bijvoorbeeld aan de bestandsnaam een oplopend getal toevoegen (`data-001.csv`, `data-002.csv`, etc.).
 \end{bonusopdracht}
 
 
