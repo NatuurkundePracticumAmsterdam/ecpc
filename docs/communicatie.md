@@ -1,7 +1,7 @@
 # Communicatie met een meetinstrument
 \label{ch:gesprek}
 
-Het hart van ieder experiment wordt gevormd door de _metingen_ die worden uitgevoerd. Meetinstrumenten vervullen daarom een belangrijke rol bij het automatiseren van een experiment. De eerste stap die we zullen zetten tijdens het ontwikkelen van een applicatie is het communiceren met ons meetinstrument. We hebben gekozen voor een Arduino Nano 33 IoT \cite{arduino_device}, een zeer compact stukje elektronica rondom een ARM-microcontroller. Naast het uitvoeren van analoge spanningsmetingen kan dit model ook analoge spanningen afgeven dat voor ons heel nuttig gaat blijken. We hebben, speciaal voor dit vak, een stukje _firmware_[^firmware] ontwikkeld \cite{arduino_visa_firmware}.
+Het hart van ieder experiment wordt gevormd door de _metingen_ die worden uitgevoerd. Meetinstrumenten vervullen daarom een belangrijke rol bij het automatiseren van een experiment. De eerste stap die we zullen zetten tijdens het ontwikkelen van een applicatie is het communiceren met ons meetinstrument. We hebben gekozen voor een Arduino Nano 33 IoT,[@arduino_device] een zeer compact stukje elektronica rondom een ARM-microcontroller. Naast het uitvoeren van analoge spanningsmetingen kan dit model ook analoge spanningen afgeven dat voor ons heel nuttig gaat blijken. We hebben, speciaal voor dit vak, een stukje _firmware_[^firmware] ontwikkeld.[@arduino_visa_firmware]
 
 [^firmware]: Firmware is software die in hardware is geprogrammeerd. Bijvoorbeeld het `computerprogramma' dat ervoor zorgt dat je magnetron reageert op de knoppen en je eten verwarmd.
 
@@ -19,8 +19,8 @@ Een Arduino is zo'n microcontroller. Vaak wordt een Arduino vergeleken met een R
 
 Hoe praat je eigenlijk met hardware? Voor fabrikanten zijn er een paar opties:
 
-  1. Je maakt gebruik van een al bestaand protocol (een bestaande _standaard_ en je schrijft vervolgens documentatie specifiek voor jouw instrument (bijvoorbeeld de VISA-standaard \cite{VISA}, o.a. gebruikt door _Tektronix_ digitale oscilloscopen \cite{tektronix})
-  1. Je schrijft een _proprietary_[^proprietary] protocol en een bijbehorende bibliotheek die software-ontwikke\-laars moeten gebruiken.[^drivers] Voorbeelden zijn instrumenten van _National Instruments_ \cite{national_instruments} of de _PicoScope_ digitale oscilloscopen[^picoscope] \cite{picoscope}.
+  1. Je maakt gebruik van een al bestaand protocol (een bestaande _standaard_ en je schrijft vervolgens documentatie specifiek voor jouw instrument (bijvoorbeeld de VISA-standaard [@VISA], o.a. gebruikt door _Tektronix_ digitale oscilloscopen [@tektronix])
+  1. Je schrijft een _proprietary_[^proprietary] protocol en een bijbehorende bibliotheek die software-ontwikke\-laars moeten gebruiken.[^drivers] Voorbeelden zijn instrumenten van _National Instruments_ [@national_instruments] of de _PicoScope_ digitale oscilloscopen[^picoscope] [@picoscope].
 
 [^proprietary]: _Proprietary_ betekent dat een bedrijf of individu exclusieve de rechten heeft over het protocol of de software en anderen geen toegang geeft tot de details.
 [^drivers]: Niet zelden zijn dergelijke bibliotheken maar op een paar besturingssystemen beschikbaar als _driver_. Gebruik je MacOS in plaats van Windows en het wordt alleen op Windows ondersteund? Dan kun je je dure meetinstrument dus niet gebruiken totdat je overstapt.
@@ -38,7 +38,7 @@ Wij gaan gebruik maken van de VISA-standaard. VISA staat voor _Virtual Instrumen
 
   \label{fig:old_ports}
 \end{figure}
-Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderdeel van VISA is de SCPI standaard \cite{SCPI}, wat staat voor _Standard Commands for Programmable Instruments_. Dit onderdeel definieert een bepaald formaat voor commando's die we naar ons instrument zullen sturen. De lijst met commando's die door de firmware van onze Arduino worden ondersteund is gegeven in \appref{ch:firmware}.
+Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Commands for Programmable Instruments_. Dit onderdeel definieert een bepaald formaat voor commando's die we naar ons instrument zullen sturen. De lijst met commando's die door de firmware van onze Arduino worden ondersteund is gegeven in \appref{ch:firmware}.
 
 
 ## Eerste stappen
@@ -142,7 +142,7 @@ Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het ein
 
 ## Een eenvoudig script
 
-We hebben via de shell contact gelegd met de hardware. Nu wordt het tijd om, met de documentatie \cite{pyvisa} in de aanslag, hetzelfde vanuit Python te doen. Als je met een nieuw project begint is het helemaal geen gek idee om een kort script te schrijven waarin je wat dingen uitprobeert. Als alles lijkt te werken kun je het netjes gaan maken en gaan uitbreiden. We beginnen hier met een eenvoudig script en zullen dat daarna gaan verfijnen.
+We hebben via de shell contact gelegd met de hardware. Nu wordt het tijd om, met de documentatie [@pyvisa] in de aanslag, hetzelfde vanuit Python te doen. Als je met een nieuw project begint is het helemaal geen gek idee om een kort script te schrijven waarin je wat dingen uitprobeert. Als alles lijkt te werken kun je het netjes gaan maken en gaan uitbreiden. We beginnen hier met een eenvoudig script en zullen dat daarna gaan verfijnen.
 
 We lopen het voorbeeldscript eerst regel voor regel door en geven het volledige script aan het eind. Allereerst importeren we de `pyvisa`-bibliotheek met
 \begin{pythoncode}
@@ -345,7 +345,7 @@ Het CSV-bestand is het werkpaard van de wetenschap. Als je data van het ene in h
   \caption{Een CSV-bestand met kolommen $t$ en $s$. De getallen hebben een punt als decimaal scheidingsteken en de komma wordt gebruikt om de kolommen te scheiden.}
   \label{fig:csv-bestand}
 \end{figure}
-Je kunt CSV-bestanden schrijven en lezen met de modules \pythoninline{csv}, \pythoninline{numpy} of \pythoninline{pandas}. De eerste is altijd meegeleverd met Python en is speciaal geschreven voor het bestandsformaat \cite{csv-module}, maar NumPy \cites{numpy}{numpy-paper} en Pandas \cites{pandas}{pandas-paper} bevatten veel meer functionaliteit op het gebied van wiskunde en data-analyse. Als je die modules toch al gebruikt kun je beter niet kiezen voor de `kale' csv module.
+Je kunt CSV-bestanden schrijven en lezen met de modules \pythoninline{csv}, \pythoninline{numpy} of \pythoninline{pandas}. De eerste is altijd meegeleverd met Python en is speciaal geschreven voor het bestandsformaat [@csv-module], maar NumPy \cites{numpy}{numpy-paper} en Pandas \cites{pandas}{pandas-paper} bevatten veel meer functionaliteit op het gebied van wiskunde en data-analyse. Als je die modules toch al gebruikt kun je beter niet kiezen voor de `kale' csv module.
 
 \begin{inleveropdracht}[Pythondaq: csv]
   \label{opd:quickndirty-csv}
@@ -360,13 +360,15 @@ Je kunt CSV-bestanden schrijven en lezen met de modules \pythoninline{csv}, \pyt
 \begin{bonustekst}
   ### HDF5, PyTables
 
-  Een populair binair formaat in de wetenschappelijke wereld is HDF5[^HDF5] \cite{hdf5}. Je kunt hiermee verschillende datasets bewaren in één bestand. Je kunt een soort boomstructuur aanbrengen en zo verschillende datasets groeperen en er ook nog extra informatie (metadata) aanhangen zoals datum van de meting, beschrijving van de condities, etc. Je kunt een meetserie opslaan als reeks die in één keer in en uit het bestand wordt geladen maar ook als tabel. Die laatste biedt de mogelijkheid om -- net als in een database -- data te selecteren en alleen die data in te laden uit het bestand. Op die manier is het mogelijk om met datasets te werken die groter zijn dan het geheugen van je computer.
+  Een populair binair formaat in de wetenschappelijke wereld is HDF5[^HDF5] [@hdf5]. Je kunt hiermee verschillende datasets bewaren in één bestand. Je kunt een soort boomstructuur aanbrengen en zo verschillende datasets groeperen en er ook nog extra informatie (metadata) aanhangen zoals datum van de meting, beschrijving van de condities, etc. Je kunt een meetserie opslaan als reeks die in één keer in en uit het bestand wordt geladen maar ook als tabel. Die laatste biedt de mogelijkheid om -- net als in een database -- data te selecteren en alleen die data in te laden uit het bestand. Op die manier is het mogelijk om met datasets te werken die groter zijn dan het geheugen van je computer.
 
   [^HDF5]: Hierarchical Data Format Version 5.
 
-  PyTables \cite{pytables} is een Python bibliotheek die het werken met HDF5-bestanden makkelijker maakt. Er zijn uiteraard functies om de bestanden aan te maken en uit te lezen maar ook om _queries_ uit te voeren. Pandas kan -- via PyTables -- ook werken met HDF5-bestanden.
+  PyTables [@pytables] is een Python bibliotheek die het werken met HDF5-bestanden makkelijker maakt. Er zijn uiteraard functies om de bestanden aan te maken en uit te lezen maar ook om _queries_ uit te voeren. Pandas kan -- via PyTables -- ook werken met HDF5-bestanden.
 \end{bonustekst}
 
 \begin{bonusopdracht}
-  Lees de tutorial van PyTables \cite{pytables} en pas je script aan zodat de meetserie van de LED wordt opgeslagen in een HDF5-bestand. Gebruik één bestand en maak daarin een nieuwe dataset voor iedere meetserie. Bewaar ook wat metadata (bijvoorbeeld tijdstip van de meting). Iedere keer dat je je script runt wordt er aan _hetzelfde_ databestand een nieuwe dataset toegevoegd.
+  Lees de tutorial van PyTables [@pytables] en pas je script aan zodat de meetserie van de LED wordt opgeslagen in een HDF5-bestand. Gebruik één bestand en maak daarin een nieuwe dataset voor iedere meetserie. Bewaar ook wat metadata (bijvoorbeeld tijdstip van de meting). Iedere keer dat je je script runt wordt er aan _hetzelfde_ databestand een nieuwe dataset toegevoegd.
 \end{bonusopdracht}
+
+\bibliography
