@@ -50,14 +50,13 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 !!! question "Schakeling bouwen"
     Als je geen kant-en-klare schakeling bij je werkplek hebt liggen, druk de Arduino in het breadboard en bouw een schakeling met een LED op de manier die is weergegeven in \figref{fig:arduino-LED-breadboard}. De weerstand heeft een waarde van \qty{220}{\ohm}. De LED heeft aan één zijde een platte kant in de dikkere ring onderaan de plastic behuizing (goed kijken!); schakel die aan de kant van de aarde. Als de pootjes van de LED niet afgeknipt zijn, dan zit het korte pootje aan de platte zijde van de LED. Het heeft geen zin om naar het plaatje te kijken hoe het er ín de LED uitziet -- dat verschilt per type LED.
 
-\begin{figure}
-  \centering
-  \includegraphics[scale=.75]{figures/I,U-curve-LED_bb}
-  % \includegraphics{figures/I,U-curve-LED_schem}
-  \raisebox{1.5cm}{\includestandalone{figures/LED-schakeling}}
-  \caption{In de linkerfiguur is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld met een LED en een weerstand van \qty{220}{\ohm}. In een breadboard zijn in iedere rij alle kolommen A t/m E met elkaar verbonden (zo ook kolommen F t/m J). Draadjes die naast elkaar zijn ingeprikt zijn dus met elkaar verbonden. Zo zie je in de figuur dat het rode draadje een verbinding maakt tussen pin A0 van de Arduino en de bovenste pin van de LED. De onderste pin van de LED is verbonden met de weerstand. De kleurcodes voor weerstanden vind je in \appref{ch:kleurcodes}. De kleur van de draden is niet belangrijk. Kies draden met een handige lengte. De platte zijde in de ring van de LED wordt richting aarde geschakeld. De Arduino kan met deze schakeling een variabele spanning aanbrengen over de LED met weerstand, en de spanning meten over alleen de weerstand. In de rechterfiguur is het equivalente circuit weergegeven zoals je dat zou bouwen met twee losse voltmeters. De cijfers 0, 1 en 2 bij $U_0$, $U_1$ en $U_2$ zijn de _kanalen_ waarmee de Arduino spanningen kan sturen of uitlezen.}
+<figure markdown>
+  ![Arduinoschakeling](figures/I,U-curve-LED_bb.svg){align=left}
+  ![LED schakelschema](figures/LED-schakeling.svg){align=right}
+  <figcaption style="clear:both">In de linkerfiguur is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld met een LED en een weerstand van \qty{220}{\ohm}. In een breadboard zijn in iedere rij alle kolommen A t/m E met elkaar verbonden (zo ook kolommen F t/m J). Draadjes die naast elkaar zijn ingeprikt zijn dus met elkaar verbonden. Zo zie je in de figuur dat het rode draadje een verbinding maakt tussen pin A0 van de Arduino en de bovenste pin van de LED. De onderste pin van de LED is verbonden met de weerstand. De kleurcodes voor weerstanden vind je in \appref{ch:kleurcodes}. De kleur van de draden is niet belangrijk. Kies draden met een handige lengte. De platte zijde in de ring van de LED wordt richting aarde geschakeld. De Arduino kan met deze schakeling een variabele spanning aanbrengen over de LED met weerstand, en de spanning meten over alleen de weerstand. In de rechterfiguur is het equivalente circuit weergegeven zoals je dat zou bouwen met twee losse voltmeters. De cijfers 0, 1 en 2 bij $U_0$, $U_1$ en $U_2$ zijn de _kanalen_ waarmee de Arduino spanningen kan sturen of uitlezen.}
   \label{fig:arduino-LED-breadboard}
-\end{figure}
+  </caption>
+</figure>
 
 \begin{attention}
   Om met Python via het VISA-protocol te kunnen communiceren met apparaten hebben we specifieke packages nodig. Die gaan we installeren in een _conda environment_. Voor meer informatie over conda environments zie \secref{sec:conda-envs}.
