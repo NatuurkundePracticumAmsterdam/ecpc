@@ -194,14 +194,14 @@ Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een 
 
 [^tip-aansluiten]: Tip: als je de Arduino loshaalt en weer aansluit is het de nieuwe regel in het lijstje.
 
-\begin{attention}
-  In het vervolg gaan we commando's naar de Arduino sturen waar een variabele spanning in staat. Je kunt dit het makkelijkst doen met f-strings, zoals
-  ``` py
+!!! tip
+    In het vervolg gaan we commando's naar de Arduino sturen waar een variabele spanning in staat. Je kunt dit het makkelijkst doen met f-strings, zoals
+    ``` py
     naam = "Alice"
     print(f"Hoi {naam}!")
-  ```
-  Als je (nog) geen idee hebt wat dat inhoudt, lees dan de tutorial \citetitle{f-strings} op Real Python \parencite{f-strings}.
-\end{attention}
+    ```
+    Als je (nog) geen idee hebt wat dat inhoudt, lees dan de tutorial \citetitle{f-strings} op Real Python \parencite{f-strings}.
+
 
 !!! question
     Schrijf een script dat de spanning over de LED laat oplopen van nul tot de maximale waarde. Wat gebeurt er als je de spanning laat oplopen tot twee keer die maximale waarde?
@@ -304,12 +304,12 @@ Je hebt op de middelbare school ongetwijfeld de $I,U$-karakteristiek van een ohm
 
 Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma of Python notebook o.i.d. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment hebben we ook alleen nog maar _ruwe_ metingen. We gaan hier voorbij aan het feit dat we graag de stroomsterkte door de LED $I$ zouden willen uitzetten tegen de spanning over de LED $U_\mathrm{LED}$.
 
-\begin{attention}
-  In de volgende opdracht gaan we een grafiek maken. Installeer Matplotlib in je conda environment (zorg dat die geactiveerd is!):
-  \begin{ps1concode*}{bgcolor={}}
+!!! tip
+    In de volgende opdracht gaan we een grafiek maken. Installeer Matplotlib in je conda environment (zorg dat die geactiveerd is!):
+    ``` ps1con
     PS> conda install -c conda-forge matplotlib
-  \end{ps1concode*}
-\end{attention}
+    ```
+
 
 \begin{inleveropdracht}[Pythondaq: Quick 'n dirty meting]
   \label{opd:quickndirty-meting}
@@ -327,21 +327,22 @@ Er zijn ontzettend veel verschillende bestandsformaten waarin je data kunt bewar
 ### Comma-separated values (CSV)
 
 Het CSV-bestand is het werkpaard van de wetenschap. Als je data van het ene in het andere programma moet krijgen of je download wetenschappelijke gegevens van een website dan is het CSV-bestand vaak de beste keuze. Het formaat bestaat uit kolommen met getallen, gescheiden door een komma. De eerste regels kunnen commentaar bevatten (uitleg over de kolommen, bijvoorbeeld) en de namen van de kolommen bevatten. Een voorbeeld voor de afstand die een vallend voorwerp aflegt in \qty{10}{\second}, gegeven door $s = \frac{1}{2} g t^2$, is weergegeven in \figref{fig:csv-bestand}.
-\begin{figure}
-  \begin{verbatim}
-    t,s
-    0.0,0.0
-    1.0,4.9
-    2.0,19.6
-    3.0,44.1
-    4.0,78.4
-    5.0,122.50000000000001
-    6.0,176.4
-    7.0,240.10000000000002
-    8.0,313.6
-    9.0,396.90000000000003
-    10.0,490.00000000000006
-  \end{verbatim}
+
+```
+t,s
+0.0,0.0
+1.0,4.9
+2.0,19.6
+3.0,44.1
+4.0,78.4
+5.0,122.50000000000001
+6.0,176.4
+7.0,240.10000000000002
+8.0,313.6
+9.0,396.90000000000003
+10.0,490.00000000000006
+```
+
   \caption{Een CSV-bestand met kolommen $t$ en $s$. De getallen hebben een punt als decimaal scheidingsteken en de komma wordt gebruikt om de kolommen te scheiden.}
   \label{fig:csv-bestand}
 \end{figure}
