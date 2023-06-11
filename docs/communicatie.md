@@ -19,10 +19,9 @@ Een Arduino is zo'n microcontroller. Vaak wordt een Arduino vergeleken met een R
 ## Communicatieprotocol
 
 Hoe praat je eigenlijk met hardware? Voor fabrikanten zijn er een paar opties:
-\begin{enumerate}
-  \item Je maakt gebruik van een al bestaand protocol (een bestaande _standaard_ en je schrijft vervolgens documentatie specifiek voor jouw instrument (bijvoorbeeld de VISA-standaard \cite{VISA}, o.a. gebruikt door _Tektronix_ digitale oscilloscopen \cite{tektronix})
-  \item Je schrijft een _proprietary_[^proprietary] protocol en een bijbehorende bibliotheek die software-ontwikke\-laars moeten gebruiken.[^drivers] Voorbeelden zijn instrumenten van _National Instruments_ \cite{national_instruments} of de _PicoScope_ digitale oscilloscopen[^picoscope] \cite{picoscope}.
-\end{enumerate}
+
+  1. Je maakt gebruik van een al bestaand protocol (een bestaande _standaard_ en je schrijft vervolgens documentatie specifiek voor jouw instrument (bijvoorbeeld de VISA-standaard \cite{VISA}, o.a. gebruikt door _Tektronix_ digitale oscilloscopen \cite{tektronix})
+  1. Je schrijft een _proprietary_[^proprietary] protocol en een bijbehorende bibliotheek die software-ontwikke\-laars moeten gebruiken.[^drivers] Voorbeelden zijn instrumenten van _National Instruments_ \cite{national_instruments} of de _PicoScope_ digitale oscilloscopen[^picoscope] \cite{picoscope}.
 
 [^proprietary]: _Proprietary_ betekent dat een bedrijf of individu exclusieve de rechten heeft over het protocol of de software en anderen geen toegang geeft tot de details.
 [^drivers]: Niet zelden zijn dergelijke bibliotheken maar op een paar besturingssystemen beschikbaar als _driver_. Gebruik je MacOS in plaats van Windows en het wordt alleen op Windows ondersteund? Dan kun je je dure meetinstrument dus niet gebruiken totdat je overstapt.
@@ -215,12 +214,12 @@ Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een 
 
 \begin{minopdracht}
   \label{opd:knipperled}
-  Je kunt de LED ook andere dingen laten doen. Schrijf voor iedere opdracht een apart script.
-  \begin{enumerate}
-    \item Laat de LED in een regelmatig tempo knipperen.
-    \item Maak een _breathing light_ -- een lamp die langzaam aan en uit gaat gevolgd door een pauze in het tempo dat iemand in- en uitademt.
-    \item Maak een _heartbeat light_ -- een lamp die twee keer kort na elkaar flitst gevolgd door een pauze in het tempo van een hartslag.
-  \end{enumerate}
+Je kunt de LED ook andere dingen laten doen. Schrijf voor iedere opdracht een apart script.
+
+1. Laat de LED in een regelmatig tempo knipperen.
+1. Maak een _breathing light_ -- een lamp die langzaam aan en uit gaat gevolgd door een pauze in het tempo dat iemand in- en uitademt.
+1. Maak een _heartbeat light_ -- een lamp die twee keer kort na elkaar flitst gevolgd door een pauze in het tempo van een hartslag.
+
 \end{minopdracht}
 
 
@@ -276,13 +275,12 @@ De conversie van een analoog signaal naar een digitaal signaal (en andersom!) is
 De Arduino die we gebruiken heeft een bereik van \qtyrange{0}{3.3}{\volt} en een resolutie van 10 bits, dus $2^{10} = \num{1024}$ stapjes. Als je een experiment ontwerpt is het dus van belang te weten dat je nooit kunt meten met een nauwkeurigheid kleiner dan de stapgrootte. Voor ons is deze resolutie prima.
 
 \begin{minopdracht}
-  We kunnen alleen maar de getallen 0 t/m 1023 naar de Arduino sturen. Ook krijgen we alleen maar dat bereik terug.
-  \begin{enumerate}
-    \item Schrijf de formule op waarmee je een spanning in \unit{\volt} omrekent naar een ruwe ADC waarde, én omgekeerd.
-    \item Wat is precies het kleinste spanningsverschil dat we nog kunnen meten in \unit{\volt}? Een meting kan dus nooit nauwkeuriger gedaan worden dan deze waarde.
-    \item Bereken welke spanning hoort bij een ruwe waarde van 700.
-    \item Bereken welke waarde we naar de Arduino moeten sturen als we een spanning willen instellen van \qty{2.0}{\volt}. En een spanning van \qty{2.28}{\volt}?
-  \end{enumerate}
+We kunnen alleen maar de getallen 0 t/m 1023 naar de Arduino sturen. Ook krijgen we alleen maar dat bereik terug.
+
+1. Schrijf de formule op waarmee je een spanning in \unit{\volt} omrekent naar een ruwe ADC waarde, én omgekeerd.
+1. Wat is precies het kleinste spanningsverschil dat we nog kunnen meten in \unit{\volt}? Een meting kan dus nooit nauwkeuriger gedaan worden dan deze waarde.
+1. Bereken welke spanning hoort bij een ruwe waarde van 700.
+1. Bereken welke waarde we naar de Arduino moeten sturen als we een spanning willen instellen van \qty{2.0}{\volt}. En een spanning van \qty{2.28}{\volt}?
 \end{minopdracht}
 
 
@@ -299,15 +297,14 @@ Je hebt op de middelbare school ongetwijfeld de $I,U$-karakteristiek van een ohm
 
 \begin{inleveropdracht}[Pythondaq: start script]
   Voer de volgende opdrachten uit:
-  \begin{enumerate}
-    \item Schrijf een script waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Kijk wat er gebeurt met de LED.
-    \item Overleg met elkaar welke spanningen je precies meet met de verschillende kanalen (_channels_) die op de Arduino zijn aangesloten. Kijk nog eens goed naar \figref{fig:arduino-LED-breadboard}.
-    \item Lees -- tijdens het laten oplopen van de spanning over de LED -- de spanning over de _weerstand_ uit. Je zult daarvoor het antwoord van de Arduino (een _string_) om moeten zetten naar een _integer_ en print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand. Voorbeeld van uitvoer:
+
+    1. Schrijf een script waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Kijk wat er gebeurt met de LED.
+    1. Overleg met elkaar welke spanningen je precies meet met de verschillende kanalen (_channels_) die op de Arduino zijn aangesloten. Kijk nog eens goed naar \figref{fig:arduino-LED-breadboard}.
+    1. Lees -- tijdens het laten oplopen van de spanning over de LED -- de spanning over de _weerstand_ uit. Je zult daarvoor het antwoord van de Arduino (een _string_) om moeten zetten naar een _integer_ en print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand. Voorbeeld van uitvoer:
           \begin{consolecode*}{bgcolor={}}
             On LED:  750 (2.4 V)    Over resistor:  189 (0.6 V)
           \end{consolecode*}
           Je hebt nu feitelijk je eerste metingen verricht!
-  \end{enumerate}
 \end{inleveropdracht}
 
 Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma of Python notebook o.i.d. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment hebben we ook alleen nog maar _ruwe_ metingen. We gaan hier voorbij aan het feit dat we graag de stroomsterkte door de LED $I$ zouden willen uitzetten tegen de spanning over de LED $U_\mathrm{LED}$.
