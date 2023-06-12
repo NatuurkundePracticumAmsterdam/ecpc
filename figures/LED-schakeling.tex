@@ -1,0 +1,12 @@
+\documentclass[11pt,tikz,border=5pt]{standalone}
+
+\usepackage[european,siunitx,EFvoltages]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}[yscale=2]
+  \draw (0, -2) node [ground] {} to[battery2,v=$U_0$] ++(0, 2);
+  \draw (0, 0) -- (2, 0) to[leD] ++(0, -1) to[resistor, l_=220<\ohm>] ++(0, -1) -- ++(-2, 0);
+  \draw (2, 0) -- ++(3, 0) to[rmeterwa, t=$U_1$] ++(0, -2) -- (2, -2);)
+  \draw (2, -1) -- ++(1.5, 0) to[rmeterwa, t=$U_2$] ++(0, -1) -- (2, -2);)
+\end{tikzpicture}
+\end{document}
