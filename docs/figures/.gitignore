@@ -2,5 +2,13 @@
 *.log
 
 I,U-curve-LED_bb.svg
+mvc-model.pdf
+mvc-model-concreet.pdf
+adc-process.pdf
+layout-schematic.pdf
 LED-schakeling.pdf
 LED-schakeling.svg
+p-n-overgang.pdf
+PV-schakeling.pdf
+PV-vervang-schakeling.pdf
+I,U-curve-resistor.pdf
