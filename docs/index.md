@@ -36,3 +36,9 @@ Bestand: :fontawesome-regular-file-lines:`docs/index.md` en ook :fontawesome-reg
 Eenheden: 220 &Omega; m/s of ms^-1^ of $220\,ms^{-1}$ en $220\,\Omega$.
 
 Voor menu's kan misschien `Code -> Add repository` en voor toetsen ++ctrl+f++.
+
+Voor vergelijkingen:
+\begin{equation}
+f(x) \sin x,
+\end{equation}
+met $f(x)$ een functie van $x$.
