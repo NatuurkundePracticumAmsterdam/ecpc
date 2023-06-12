@@ -38,3 +38,19 @@ extra_javascript:
 
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+
+nav:
+  - introductie.md
+  - communicatie.md
+  - mvc.md
+  - github.md
+  - poetry.md
+  - cli.md
+  - gui.md
+  - eindfeest.md
+  - Appendices:
+      - software-tools.md
+      - firmware.md
+      - kleurcodes.md
+      - diodes.md
+      - zonnecel.md
