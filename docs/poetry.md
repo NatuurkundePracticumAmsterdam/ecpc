@@ -1,47 +1,47 @@
-\chapter{Poetry}
+# Poetry
 \label{ch:poetry}
 
-In de vorige hoofdstukken heb je gewerkt met een eigen conda environment zodat je jouw pythonomgeving mooi gescheiden kan houden van andere studenten die op dezelfde computer werken. Dit is echt \emph{de} oplossing voor alle problemen waarbij volledige Pythoninstallaties onbruikbaar kunnen worden -- waarna je alles opnieuw moet installeren.
+In de vorige hoofdstukken heb je gewerkt met een eigen conda environment zodat je jouw pythonomgeving mooi gescheiden kan houden van andere studenten die op dezelfde computer werken. Dit is echt _de_ oplossing voor alle problemen waarbij volledige Pythoninstallaties onbruikbaar kunnen worden -- waarna je alles opnieuw moet installeren.
 
-Opnieuw beginnen of nieuwe environments aanmaken heeft wel een nadeel: je moet alle packages die je nodig hebt opnieuw installeren. Welke waren dat ook alweer? Vast \texttt{numpy}, en \texttt{matplotlib}, en\ldots? Niet handig. Als je code gaat delen met elkaar krijg je regelmatig te maken met een \pythoninline{ImportError} waarna je \emph{weer} één of ander package moet installeren.
+Opnieuw beginnen of nieuwe environments aanmaken heeft wel een nadeel: je moet alle packages die je nodig hebt opnieuw installeren. Welke waren dat ook alweer? Vast \texttt{numpy}, en \texttt{matplotlib}, en\ldots? Niet handig. Als je code gaat delen met elkaar krijg je regelmatig te maken met een `#!py ImportError` waarna je _weer_ één of ander package moet installeren.
 
 Nu pythondaq netjes is uitgesplitst in een MVC-structuur en de wijzigingen met Git worden bijgehouden, ga je er een package van maken zodat je het ook met anderen kan delen.
 
-Packages op PyPI geven altijd hun \emph{dependencies} op. Dat zijn de packages die verder nog nodig zijn om alles te laten werken. Installeer je \texttt{matplotlib}, dan krijg je er \texttt{six, python-dateutil, pyparsing, pillow, numpy, kiwisolver, cycler} automatisch bij. Maar dat is niet genoeg. Welke versies van \texttt{numpy} werken met de huidige versie van \texttt{matplotlib}? Allemaal zaken die je -- als je een package schrijft -- zelf moet bijhouden. Het voordeel is dat jouw gebruikers alleen maar \emph{jouw} pakket hoeven te installeren -- de rest gaat vanzelf.
+Packages op PyPI geven altijd hun _dependencies_ op. Dat zijn de packages die verder nog nodig zijn om alles te laten werken. Installeer je \texttt{matplotlib}, dan krijg je er \texttt{six, python-dateutil, pyparsing, pillow, numpy, kiwisolver, cycler} automatisch bij. Maar dat is niet genoeg. Welke versies van \texttt{numpy} werken met de huidige versie van \texttt{matplotlib}? Allemaal zaken die je -- als je een package schrijft -- zelf moet bijhouden. Het voordeel is dat jouw gebruikers alleen maar _jouw_ pakket hoeven te installeren -- de rest gaat vanzelf.
 
-En\ldots{} hoe test je je package zodat je zeker weet dat hij het bij een ander ook doet? Heel vaak werkt het bij jou wel, maar vergeet je een bestand mee te sturen dat wel echt nodig is.\footnote{Echt gebeurd: meerdere studenten leverden hun grafische applicatie in voor een beoordeling. We konden het niet draaien, want er misten bestanden. Bij de student werkte het wel, maar bij ons \emph{echt} niet.} Of: bij jou werkt \pythoninline{import my_new_cool_app.gui} wel, maar bij een ander geeft hij een \pythoninline{ImportError}. De bestanden zijn er wel, maar worden verkeerd geïmporteerd.
+En\ldots{} hoe test je je package zodat je zeker weet dat hij het bij een ander ook doet? Heel vaak werkt het bij jou wel, maar vergeet je een bestand mee te sturen dat wel echt nodig is.\footnote{Echt gebeurd: meerdere studenten leverden hun grafische applicatie in voor een beoordeling. We konden het niet draaien, want er misten bestanden. Bij de student werkte het wel, maar bij ons _echt_ niet.} Of: bij jou werkt `#!py import my_new_cool_app.gui` wel, maar bij een ander geeft hij een `#!py ImportError`. De bestanden zijn er wel, maar worden verkeerd geïmporteerd.
 
-Hoe \emph{krijg} je eigenlijk je code bij iemand anders? Liefst als één bestand, of zelfs met \shellinline{pip install my_new_cool_app}; dat zou wel mooi zijn.
+Hoe _krijg_ je eigenlijk je code bij iemand anders? Liefst als één bestand, of zelfs met \shellinline{pip install my_new_cool_app}; dat zou wel mooi zijn.
 
-En daar is \emph{Poetry}.
+En daar is _Poetry_.
 
-Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. Poetry is heel populair geworden. Het richt zich op het officiële ecosysteem: standaard Python packages, ofwel PyPI en \shellinline{pip}; niet \shellinline{conda}. Jammer, maar dit zorgt er wel voor dat iedereen mét of zónder Anaconda je package kan installeren. Dat is dan wel weer fijn. Wij gaan Anaconda gebruiken om een virtual environment met \emph{alleen} Python te maken. Vervolgens installeren we alles dat we nodig hebben met \shellinline{pip}. Dat werkt prima, want we mengen verder geen \shellinline{conda} met \shellinline{pip} packages. Het maken van conda packages valt daarmee buiten het bestek van deze cursus, al is dat een relatief kleine stap als je je standaard Python package af hebt.
+Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. Poetry is heel populair geworden. Het richt zich op het officiële ecosysteem: standaard Python packages, ofwel PyPI en \shellinline{pip}; niet \shellinline{conda}. Jammer, maar dit zorgt er wel voor dat iedereen mét of zónder Anaconda je package kan installeren. Dat is dan wel weer fijn. Wij gaan Anaconda gebruiken om een virtual environment met _alleen_ Python te maken. Vervolgens installeren we alles dat we nodig hebben met \shellinline{pip}. Dat werkt prima, want we mengen verder geen \shellinline{conda} met \shellinline{pip} packages. Het maken van conda packages valt daarmee buiten het bestek van deze cursus, al is dat een relatief kleine stap als je je standaard Python package af hebt.
 
 We gaan Poetry bedienen door commando's te geven in de terminal van Visual Studio Code. We laten de terminal weten welk programma wij willen gaan besturen, door \texttt{poetry} in te typen. En daarachter wat we willen dat Poetry gaat doen. We kunnen informatie over Poetry opvragen met het commando \texttt{about}.
 
-\begin{ps1concode}
-    PS> poetry about
-\end{ps1concode}
+``` ps1con
+poetry about
+```
 
 \begin{minopdracht}
     Open een terminal en vraag informatie over Poetry op met het commando \shellinline{poetry about}. Lees de tekst die Poetry aan je teruggeeft, waar kan je meer informatie vinden?
 \end{minopdracht}
 
-\section{Nieuw Poetry project}
+## Nieuw Poetry project
 \begin{attention}
     We gaan werken met modules en packages. Ben je daar nog niet zo bekent mee, zorg dan dat je \secref{sec:modules} en \secref{sec:packages} gemaakt hebt.
 \end{attention}
-Stel je wilt een package schrijven met wat handige functies om veelgebruikte statistische berekeningen makkelijk uit te voeren. Je noemt het \texttt{easystat}. Het doel is eerst om het in al je eigen analyses makkelijk te kunnen gebruiken (\pythoninline{import easystat}) maar je wilt het ook op GitHub zetten en wie weet vinden anderen het ook handig! Je wilt het dus ook \emph{netjes} doen. En niet later van anderen horen: ``leuk, maar bij mij werkt het niet!''
+Stel je wilt een package schrijven met wat handige functies om veelgebruikte statistische berekeningen makkelijk uit te voeren. Je noemt het \texttt{easystat}. Het doel is eerst om het in al je eigen analyses makkelijk te kunnen gebruiken (`#!py import easystat`) maar je wilt het ook op GitHub zetten en wie weet vinden anderen het ook handig! Je wilt het dus ook _netjes_ doen. En niet later van anderen horen: <q>leuk, maar bij mij werkt het niet!</q>
 
 \begin{minopdracht}
     Maak een nieuw Poetry project met de naam \texttt{easystat}, als volgt:
     \begin{enumerate}
         \item Open in Visual Studio Code een geschikte map\footnote{Bijvoorbeeld \folderpath{Documents/NSP2/Experimentautomatisering}} en open een terminal.
-        \item Dan maken we met Poetry als volgt een nieuw project\footnote{We gaan het package opbouwen in de zogenaamde src-layout \cite{srclayout}. We maken het daarmee \emph{expres} iets moeilijker om vanuit een script je package te importeren. Je kunt dat dan alleen nog maar doen door het package zelf ook te \emph{installeren} (zoals andere gebruikers ook moeten doen) en daardoor loop je zelf tegen eventuele problemen aan. Werkt het uiteindelijk bij jou? Dan werkt het \emph{ook} bij andere mensen.} \texttt{easystat} aan:
-              \begin{ps1concode}
-                PS> poetry new --src easystat
-                Created package easystat in easystat
-            \end{ps1concode}
+        \item Dan maken we met Poetry als volgt een nieuw project\footnote{We gaan het package opbouwen in de zogenaamde src-layout \cite{srclayout}. We maken het daarmee _expres_ iets moeilijker om vanuit een script je package te importeren. Je kunt dat dan alleen nog maar doen door het package zelf ook te _installeren_ (zoals andere gebruikers ook moeten doen) en daardoor loop je zelf tegen eventuele problemen aan. Werkt het uiteindelijk bij jou? Dan werkt het _ook_ bij andere mensen.} \texttt{easystat} aan:
+        ``` ps1con
+        PS> poetry new --src easystat
+        Created package easystat in easystat
+        ```
     \end{enumerate}
 \end{minopdracht}
 
@@ -68,7 +68,7 @@ Allereerst is er een projectmap \texttt{easystat} aangemaakt. Je kunt nu in GitH
 
 Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaakt. We zien een \filepath{README.md} in de projectmap staan. Hierin komt een algemene beschrijving van ons project.\footnote{Wanneer de repository op GitHub wordt geplaatst wordt deze README automatisch op de hoofdpagina van de repository getoond, onder de code.}
 
-Daarna is er een map \folderpath{tests}. Goede software wordt getest. In deze map komen bestanden te staan die delen van de code runnen en resultaten vergelijken met verwachte resultaten -- zoals je kunt doen in \opdref{opd:test_package}.\footnote{Python heeft een ingebouwde module \pythoninline{unittest} die deze tests kan vinden, kan runnen en daarna een handige weergave geeft van welke tests geslaagd zijn en welke faalden. Ook het package \pythoninline{pytest} is erg bekend. Op deze manier weet je altijd zeker dat wanneer je aanpassingen doet in je code, dat de rest van de code nog steeds is blijven werken -- zónder dat je zelf uitvoerig alles hebt hoeven uitproberen. Je draait gewoon even snel alle tests. Helaas, helaas -- in deze cursus is te weinig tijd om het schrijven van tests te behandelen.}
+Daarna is er een map \folderpath{tests}. Goede software wordt getest. In deze map komen bestanden te staan die delen van de code runnen en resultaten vergelijken met verwachte resultaten -- zoals je kunt doen in \opdref{opd:test_package}.\footnote{Python heeft een ingebouwde module `#!py unittest` die deze tests kan vinden, kan runnen en daarna een handige weergave geeft van welke tests geslaagd zijn en welke faalden. Ook het package `#!py pytest` is erg bekend. Op deze manier weet je altijd zeker dat wanneer je aanpassingen doet in je code, dat de rest van de code nog steeds is blijven werken -- zónder dat je zelf uitvoerig alles hebt hoeven uitproberen. Je draait gewoon even snel alle tests. Helaas, helaas -- in deze cursus is te weinig tijd om het schrijven van tests te behandelen.}
 
 Dan komt de \folderpath{src}-map. Daarin komt ons nieuwe package \folderpath{easystat}\footnote{Ja er is een map \folderpath{easystat} met daarin een map \folderpath{src} met daarin weer een map \folderpath{easystat} -- dat kan nog wel eens verwarrend zijn. Het is conventie om de projectmap dezelfde naam te geven als je package. Het pad is dus eigenlijk \folderpath{project/src/package} en dat wordt dan, in ons geval, \folderpath{easystat/src/easystat}.} te staan. Er is alvast voor ons een \filepath{\_\_init\_\_.py} aangemaakt. Handig!
 
@@ -91,7 +91,7 @@ En als laatste\ldots{} een \filepath{pyproject.toml}\footnote{Vroeger was er een
     build-backend = "poetry.core.masonry.api"
 \end{textcode}
 
-Het bestand is in het TOML-formaat \cite{TOML}. Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. Overal zie je \texttt{poetry} terugkomen, want dat is de tool die wij gebruiken. In de eerste sectie staat informatie over ons project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. De tweede sectie bevat de \emph{dependencies}. Dit zijn alle Pythonpackages die ons project nodig heeft. Op dit moment is dat alleen maar Python. Ook het versienummer van Python is belangrijk. Hier is dat 3.10 en het dakje geeft aan dat 3.11, 3.12, enz. ook prima zijn, maar 3.9 (te oud) 4.0 (te nieuw) \emph{niet}. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python -- bijvoorbeeld versie 3.9 -- kunnen nu het package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.10 nodig hebt kun je aangeven dat een iets oudere versie van Python ook prima is.
+Het bestand is in het TOML-formaat \cite{TOML}. Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. Overal zie je \texttt{poetry} terugkomen, want dat is de tool die wij gebruiken. In de eerste sectie staat informatie over ons project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. De tweede sectie bevat de _dependencies_. Dit zijn alle Pythonpackages die ons project nodig heeft. Op dit moment is dat alleen maar Python. Ook het versienummer van Python is belangrijk. Hier is dat 3.10 en het dakje geeft aan dat 3.11, 3.12, enz. ook prima zijn, maar 3.9 (te oud) 4.0 (te nieuw) _niet_. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python -- bijvoorbeeld versie 3.9 -- kunnen nu het package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.10 nodig hebt kun je aangeven dat een iets oudere versie van Python ook prima is.
 
 \begin{minopdracht}
     \begin{enumerate}
@@ -102,36 +102,36 @@ Het bestand is in het TOML-formaat \cite{TOML}. Tussen de vierkante haken staan 
 \end{minopdracht}
 
 
-\subsection{Environment aanmaken}
+### Environment aanmaken
 
-Bij het schrijven van een nieuw package is het zéker belangrijk om een environment te gebruiken. Anders loop je het risico dat je package \emph{lijkt} te werken maar bij iemand anders crasht. Immers, het kan best zijn dat jij NumPy gebruikt en al eerder geïnstalleerd had. Bij iemand die NumPy nog \emph{niet} geïnstalleerd had gaat het dan mis.
+Bij het schrijven van een nieuw package is het zéker belangrijk om een environment te gebruiken. Anders loop je het risico dat je package _lijkt_ te werken maar bij iemand anders crasht. Immers, het kan best zijn dat jij NumPy gebruikt en al eerder geïnstalleerd had. Bij iemand die NumPy nog _niet_ geïnstalleerd had gaat het dan mis.
 
 \begin{minopdracht}
     We maken -- speciaal voor \texttt{easystat} -- een environment.
     \begin{enumerate}
-        \item Open in Visual Studio Code de \emph{project}map \githubrepo{easystat}
+        \item Open in Visual Studio Code de _project_map \githubrepo{easystat}
         \item Open een terminal en maak een IK-easystat conda environment aan:
-              \begin{ps1concode}
-                  PS> conda create -n IK-easystat python=3.9
-              \end{ps1concode}
+              ``` ps1con
+              conda create -n IK-easystat python=3.9
+              ```
         \item Selecteer dit nieuwe conda environment in Visual Studio Code.
     \end{enumerate}
 \end{minopdracht}
 
-\subsection{Maken van de easystat-package}
+### Maken van de easystat-package
 
-We starten met ons package. Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige `shortcut'.
+We starten met ons package. Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige <q>shortcut</q>.
 \begin{minopdracht}
-    Maak het bestand \filepath{src/easystat/shortcuts.py}:\footnote{Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder \pythoninline{numpy} zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding \texttt{Import ``numpy'' could not be resolved}. Daar moeten we misschien wat mee.}
-    \begin{pythoncode}
-        # src/easystat/shortcuts.py
-        import numpy as np
-        
-        
-        def stdev_of_mean(values):
-            # Calculate the standard deviation of the mean
-            return np.std(values) / np.sqrt(len(values))    
-    \end{pythoncode}
+    Maak het bestand \filepath{src/easystat/shortcuts.py}:\footnote{Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding \texttt{Import <q>numpy</q> could not be resolved}. Daar moeten we misschien wat mee.}
+    ``` py
+    # src/easystat/shortcuts.py
+    import numpy as np
+    
+    
+    def stdev_of_mean(values):
+        # Calculate the standard deviation of the mean
+        return np.std(values) / np.sqrt(len(values))    
+    ```
 \end{minopdracht}
 
 
@@ -139,37 +139,37 @@ Nu willen we de package \texttt{easystat} importeren in een ander script zodat w
 
 \begin{minopdracht}
     Maak het bestand \filepath{tests/try\_shortcuts.py}:
-    \begin{pythoncode}
-        # tests/try_shortcuts.py
-        from easystat.shortcuts import stdev_of_mean
-    
-        print(f"{stdev_of_mean([1, 2, 2, 2, 3])=}")    
-    \end{pythoncode}
+    ``` py
+    # tests/try_shortcuts.py
+    from easystat.shortcuts import stdev_of_mean
+
+    print(f"{stdev_of_mean([1, 2, 2, 2, 3])=}")    
+    ```
 \end{minopdracht}
 
-In de eerste regel importeren we de functie uit het nieuwe package om uit te proberen. In de laatste regel gebruiken we een handige functie van f-strings.\footnote{In f-strings kunnen tussen de accolades variabelen of functieaanroepen staan. Voeg daar het \texttt{=}-teken aan toe en je krijgt niet alleen de \emph{waarde}, maar ook de variabele of aanroep zelf te zien. Bijvoorbeeld: als je definieert \pythoninline{name = "Alice"}, dan geeft \pythoninline{print(f"{name}")} als uitkomst \pythoninline{Alice}. Maar voeg je het \texttt{=}-teken toe \pythoninline{print(f"{name=}")} wordt de uitvoer \pythoninline{name='Alice'}.}
+In de eerste regel importeren we de functie uit het nieuwe package om uit te proberen. In de laatste regel gebruiken we een handige functie van f-strings.\footnote{In f-strings kunnen tussen de accolades variabelen of functieaanroepen staan. Voeg daar het \texttt{=}-teken aan toe en je krijgt niet alleen de _waarde_, maar ook de variabele of aanroep zelf te zien. Bijvoorbeeld: als je definieert `#!py name = "Alice"`, dan geeft `#!py print(f"{name`")} als uitkomst `#!py Alice`. Maar voeg je het \texttt{=}-teken toe `#!py print(f"{name=`")} wordt de uitvoer `#!py name='Alice'`.}
 
 \begin{minopdracht}
     Run \filepath{tests/try\_shortcuts.py} en kijk of het script het doet.
 \end{minopdracht}
 
 We krijgen de foutmelding:
-\begin{pythoncode}
-    ModuleNotFoundError: No module named 'easystat'
-\end{pythoncode}
+``` py
+ModuleNotFoundError: No module named 'easystat'
+```
 Dit konden we verwachten. We hebben ons package immers nog niet geïnstaleerd. Als we ons package gaan delen met andere mensen verwachten wij dat zij ons package ook gaan installeren, door dezelfde stappen te doorlopen als andere gebruikers komen we erachter of alles wel goed werkt.
 
-\subsection{Installeren van een package}
+### Installeren van een package
 Het installeren van de package kan makkelijk met Poetry:
-\begin{ps1concode}
-    PS> poetry install
-    Updating dependencies
-    Resolving dependencies... (0.1s)
-    
-    Writing lock file
-    
-    Installing the current project: easystat (0.1.0)
-\end{ps1concode}
+``` ps1con
+PS> poetry install
+Updating dependencies
+Resolving dependencies... (0.1s)
+
+Writing lock file
+
+Installing the current project: easystat (0.1.0)
+```
 
 Poetry is even bezig en ons package is geïnstalleerd.
 
@@ -182,16 +182,16 @@ Poetry is even bezig en ons package is geïnstalleerd.
 \end{minopdracht}
 
 Als we het testscript nu draaien krijgen we wéér een foutmelding:
-\begin{pythoncode}
-    ModuleNotFoundError: No module named 'numpy'
-\end{pythoncode}
-Ons package heeft NumPy nodig en dat hebben we nog niet geïnstalleerd. Dat kunnen we handmatig doen maar dan hebben andere gebruikers een probleem. Veel beter is het om netjes aan te geven dat ons package NumPy nodig heeft -- als \emph{dependency}.
+``` py
+ModuleNotFoundError: No module named 'numpy'
+```
+Ons package heeft NumPy nodig en dat hebben we nog niet geïnstalleerd. Dat kunnen we handmatig doen maar dan hebben andere gebruikers een probleem. Veel beter is het om netjes aan te geven dat ons package NumPy nodig heeft -- als _dependency_.
 
 
-\subsection{Dependencies toevoegen}
+### Dependencies toevoegen
 
 Om een dependency aan te geven vertellen we Poetry dat hij deze moet toevoegen met:
-\begin{ps1concode}
+``` ps1con
 PS> poetry add numpy
 Using version ^1.23.2 for numpy
 
@@ -203,7 +203,7 @@ Writing lock file
 Package operations: 1 install, 0 updates, 0 removals
 
   • Installing numpy (1.23.2)
-\end{ps1concode}
+```
 
 \begin{minopdracht}
     We voegen de dependency toe en runnen opnieuw de test, als volgt:
@@ -220,10 +220,10 @@ Ditmaal krijgen we:
 Fijn! Als je nu de \filepath{pyproject.toml} nog eens bekijkt zie je dat NumPy daar als dependency is toegevoegd. Het verwijderen van dependency \texttt{PACKAGE} gaat met \shellinline{poetry remove PACKAGE}. Poetry heeft Numpy nu toegevoegd aan de environment \texttt{IK-easystat}.\footnote{De lijst met packages in de active Conda enviornment vraag je in de terminal op met het \shellinline{conda list}, kijk maar of numpy daar tussen staat.} Andersom zal Conda geen packages toevoegen aan je Poetry project als je \shellinline{conda install package} aanroept. Gebruik daarom altijd \shellinline{poetry add package} als je met Poetry aan een package werkt.
 
 \begin{info}
-    Als we de code in ons package aanpassen dan hoeven we het niet opnieuw te installeren met Poetry, maar als we met de hand iets wijzigen in de \filepath{pyproject.toml} dan moet dat \emph{wel}. Als je een \pythoninline{ImportError} krijgt voor je eigen package -- bijvoorbeeld als je nieuwe mappen of bestanden hebt aangemaakt -- probeer dan \emph{eerst} voor de zekerheid \shellinline{poetry install}.
+    Als we de code in ons package aanpassen dan hoeven we het niet opnieuw te installeren met Poetry, maar als we met de hand iets wijzigen in de \filepath{pyproject.toml} dan moet dat _wel_. Als je een `#!py ImportError` krijgt voor je eigen package -- bijvoorbeeld als je nieuwe mappen of bestanden hebt aangemaakt -- probeer dan _eerst_ voor de zekerheid \shellinline{poetry install}.
 \end{info}
 
-\subsection{Uitdaging: Poetry.lock}
+### Uitdaging: Poetry.lock
 Na het toevoegen van Numpy is er ook een bestand \filepath{poetry.lock} bijgekomen. Hierin staan de exacte versies van alle geïnstalleerde packages. Vaak wordt dit bestand gecommit zodat collega-ontwikkelaars exact dezelfde versies installeren zodra ze \shellinline{poetry install} aanroepen. Om dat te proberen maken we even een schone conda environment:
 
 \begin{bonusopdracht}
@@ -246,8 +246,8 @@ We krijgen meteen foutmeldingen. Immers, we hebben nog niets geïnstalleerd.
 \end{bonusopdracht}
 
 % Installeren we nu de packages met Poetry dan zien we:
-% \begin{ps1concode}
-%     PS> poetry install  
+% ``` ps1con
+%poetry install  
 %     Installing dependencies from lock file
 
 %     Package operations: 1 install, 0 updates, 0 removals
@@ -255,11 +255,11 @@ We krijgen meteen foutmeldingen. Immers, we hebben nog niets geïnstalleerd.
 %       • Installing numpy (1.21.4)
 
 %     Installing the current project: easystat (0.1.0)
-% \end{ps1concode}
+% ```
 % In de tweede regel geeft Poetry aan dat hij informatie uit de lock file gaat halen. Vervolgens wordt eerst Numpy geïnstalleerd en vervolgens ons package. Daarna werkt het testscript weer als vanouds.
 
 
-\subsection{Uitdaging: Wheels}
+### Uitdaging: Wheels
 Wanneer we klaar zijn om ons package te delen met andere gebruikers gebruiken we het commando \texttt{build} om wheels te bouwen.
 
 \begin{bonusopdracht}
@@ -269,25 +269,25 @@ Wanneer we klaar zijn om ons package te delen met andere gebruikers gebruiken we
     \end{enumerate}
 \end{bonusopdracht}
 
-\begin{ps1concode}
-    PS> poetry build  
-    Building easystat (0.1.0)
-      - Building sdist
-      - Built easystat-0.1.0.tar.gz
-      - Building wheel
-      - Built easystat-0.1.0-py3-none-any.whl
-\end{ps1concode}
-Een `sdist' is een \emph{source distribution}. Een \texttt{.tar.gz}-bestand is een soort zipbestand met daarin de broncode van ons pakket. De tests worden daar niet in meegenomen. Een `wheel' is een soort bestand dat direct geïnstalleerd kan worden met \shellinline{pip}. Zogenaamde \emph{pure-python} packages bevatten alleen Pythoncode -- en geen C-code die gecompileerd moet worden voor verschillende besturingssystemen of hardwareplatforms. Je herkent ze aan \texttt{none-any} in de bestandsnaam. `None' voor `niet-OS-specifiek' en `any' voor 'draait op elk hardwareplatform'. We kunnen dit bestand als download neerzetten op een website of aan anderen mailen.
+``` ps1con
+PS> poetry build  
+Building easystat (0.1.0)
+    - Building sdist
+    - Built easystat-0.1.0.tar.gz
+    - Building wheel
+    - Built easystat-0.1.0-py3-none-any.whl
+```
+Een <q>sdist</q> is een _source distribution_. Een \texttt{.tar.gz}-bestand is een soort zipbestand met daarin de broncode van ons pakket. De tests worden daar niet in meegenomen. Een <q>wheel</q> is een soort bestand dat direct geïnstalleerd kan worden met \shellinline{pip}. Zogenaamde _pure-python_ packages bevatten alleen Pythoncode -- en geen C-code die gecompileerd moet worden voor verschillende besturingssystemen of hardwareplatforms. Je herkent ze aan \texttt{none-any} in de bestandsnaam. <q>None</q> voor <q>niet-OS-specifiek</q> en <q>any</q> voor <q>draait op elk hardwareplatform</q>. We kunnen dit bestand als download neerzetten op een website of aan anderen mailen.
 
 \begin{bonusopdracht}
     Laten we het wheel uitproberen. Maak een nieuwe conda environment aan, installeer het wheel en probeer het testscript te runnen -- één keer vóór het installeren van het wheel en één keer ná het installeren.
     \begin{enumerate}
         \item Maak een nieuwe conda environment aan met de naam \texttt{IK-test-wheel} en activeer deze.
-              \begin{ps1concode}
-        PS> conda create -n IK-test-wheel python=3.9
-        ...
-        PS> conda activate IK-test-wheel
-        \end{ps1concode}
+              ``` ps1con
+              PS> conda create -n IK-test-wheel python=3.9
+              ...
+              PS> conda activate IK-test-wheel
+              ```
         \item Draai \filepath{tests/try\_shortcuts.py} en bekijk de foutmelding.
         \item installeer het wheel met \shellinline{pip install dist/easystat-0.1.0-py3-none-any.whl}.
         \item Draai \filepath{tests/try\_shortcuts.py} en bekijk de uitkomst.
@@ -295,66 +295,66 @@ Een `sdist' is een \emph{source distribution}. Een \texttt{.tar.gz}-bestand is e
 \end{bonusopdracht}
 
 
-% \begin{ps1concode}
-%     PS> conda create -n test-wheel python=3.9
+% ``` ps1con
+%conda create -n test-wheel python=3.9
 %     ...
-%     PS> conda activate test-wheel
-%     PS> python tests/try_shortcuts.py
+%conda activate test-wheel
+%python tests/try_shortcuts.py
 %     Traceback (most recent call last):
 %       File "/Users/david/tmp/test-poetry/easystat/tests/try_shortcuts.py", line 1, in <module>
 %         from easystat.shortcuts import stdev_of_mean
 %     ModuleNotFoundError: No module named 'easystat'
-%     PS> pip install dist/easystat-0.1.0-py3-none-any.whl
+%pip install dist/easystat-0.1.0-py3-none-any.whl
 %     Processing ./dist/easystat-0.1.0-py3-none-any.whl
 %     Collecting numpy<2.0.0,>=1.21.4
 %       Using cached numpy-1.21.4-cp39-cp39-macosx_10_9_x86_64.whl (17.0 MB)
 %     Installing collected packages: numpy, easystat
 %     Successfully installed easystat-0.1.0 numpy-1.21.4
-%     PS> python tests/try_shortcuts.py
+%python tests/try_shortcuts.py
 %     stdev_of_mean([1, 2, 2, 2, 3])=0.282842712474619
-% \end{ps1concode}
-Het werkt! Je ziet dat \shellinline{pip install} niet alleen ons package \texttt{easystat} installeert, maar \emph{ook de dependency} \texttt{numpy}. Dat is precies wat we willen.
+% ```
+Het werkt! Je ziet dat \shellinline{pip install} niet alleen ons package \texttt{easystat} installeert, maar _ook de dependency_ \texttt{numpy}. Dat is precies wat we willen.
 
 
-\section{Poetry gebruiken voor een bestaand project}
+## Poetry gebruiken voor een bestaand project
 
-Met \shellinline{poetry new} start je een \emph{nieuw} project en maakt Poetry voor jou bestanden en mappen aan waarmee je aan de slag kunt. Maar vaak ben je al bezig met een project en wil je dat niet overschrijven. Ook is het een gedoe om een nieuw project te maken en daar je bestaande code in te kopieëren. Gelukkig kun je Poetry ook vertellen dat je al bezig bent en dat Poetry \emph{alleen} een \filepath{pyproject.toml}-bestand moet aanmaken. Dat doe je met:
-\begin{ps1concode}
-    PS> poetry init --no-interaction
-\end{ps1concode}
+Met \shellinline{poetry new} start je een _nieuw_ project en maakt Poetry voor jou bestanden en mappen aan waarmee je aan de slag kunt. Maar vaak ben je al bezig met een project en wil je dat niet overschrijven. Ook is het een gedoe om een nieuw project te maken en daar je bestaande code in te kopieëren. Gelukkig kun je Poetry ook vertellen dat je al bezig bent en dat Poetry _alleen_ een \filepath{pyproject.toml}-bestand moet aanmaken. Dat doe je met:
+``` ps1con
+poetry init --no-interaction
+```
 Je geeft met \shellinline{poetry init} de opdracht om Poetry alleen te initialiseren en \shellinline{--no-interaction} voorkomt je dat je eerst honderd vragen krijgt over je project. Meestal kies je toch de standaardantwoorden.\footnote{Het is eenvoudig om zelf de \filepath{pyproject.toml} te openen en daar wat in aan te passen voor zover nodig.}
 
 \begin{attention}
-    Als je al bezig bent met een project dan werk je als het goed is al in een conda environment. Daar heb je dan met \shellinline{conda install} al packages geïnstalleerd die je nodig hebt. Het gebeurt dan makkelijk dat je vergeet om dat aan te geven met \shellinline{poetry add}. Dat betekent alleen dat als iemand anders je package installeert dat er dependencies missen en dat jouw code dus \emph{niet} werkt! Dit is makkelijk op te lossen. Zodra je Poetry gaat gebruiken \emph{wis dan je environment en maak een nieuwe aan met alleen Python.} Dat gaat het makkelijkst als volgt. Stel dat je bezig bent in het environment \texttt{IK-pythondaq}. We maken dan een nieuw environment met dezelfde naam:
-    \begin{ps1concode}
-        PS> conda create -n IK-pythondaq python=3.9
-        WARNING: A conda environment already exists at '/Users/david/opt/anaconda3/envs/IK-pythondaq'
-        Remove existing environment (y/[n])? y
+    Als je al bezig bent met een project dan werk je als het goed is al in een conda environment. Daar heb je dan met \shellinline{conda install} al packages geïnstalleerd die je nodig hebt. Het gebeurt dan makkelijk dat je vergeet om dat aan te geven met \shellinline{poetry add}. Dat betekent alleen dat als iemand anders je package installeert dat er dependencies missen en dat jouw code dus _niet_ werkt! Dit is makkelijk op te lossen. Zodra je Poetry gaat gebruiken _wis dan je environment en maak een nieuwe aan met alleen Python._ Dat gaat het makkelijkst als volgt. Stel dat je bezig bent in het environment \texttt{IK-pythondaq}. We maken dan een nieuw environment met dezelfde naam:
+    ``` ps1con
+    conda create -n IK-pythondaq python=3.9
+    WARNING: A conda environment already exists at '/Users/david/opt/anaconda3/envs/IK-pythondaq'
+    Remove existing environment (y/[n])? y
 
-        ...
-    \end{ps1concode}
-    Je overschrijft dus je huidige environment met een nieuwe, lege. Je kunt daarna met \shellinline{poetry add} packages toevoegen net zo lang tot je geen \pythoninline{ImportError} meer krijgt.
+    ...
+    ```
+    Je overschrijft dus je huidige environment met een nieuwe, lege. Je kunt daarna met \shellinline{poetry add} packages toevoegen net zo lang tot je geen `#!py ImportError` meer krijgt.
 
-    Merk op dat we nu niet gebruik hoeven te maken van de \texttt{conda-forge} channel. Python zelf staat in \emph{alle} kanalen en we gaan verder geen software installeren met conda, dus ook niet uit \texttt{conda-forge}.
+    Merk op dat we nu niet gebruik hoeven te maken van de \texttt{conda-forge} channel. Python zelf staat in _alle_ kanalen en we gaan verder geen software installeren met conda, dus ook niet uit \texttt{conda-forge}.
 \end{attention}
 
 \begin{minopdracht}
     We gaan nu poetry gebruiken om van de scripts met de knipperende lichtjes uit \opdref{opd:knipperled} een package te maken én om ons environment te beheren. Voer de volgende stappen uit:
     \begin{enumerate}
-        \item Maak in GitHub Desktop een \emph{nieuwe} repository \githubrepo{flasher}.
+        \item Maak in GitHub Desktop een _nieuwe_ repository \githubrepo{flasher}.
         \item Maak een map \folderpath{src} met daarin een map \folderpath{flasher}.
         \item Kopieer uit de \githubrepo{Oefenopdrachten} die je bij \opdref{opd:add_repository} hebt aangemaakt de drie scriptjes uit \opdref{opd:knipperled} naar \folderpath{src/flasher}.
         \item Open \githubrepo{flasher} in Visual Studio Code.
         \item Commit alles dat je tot nu toe gedaan hebt.
         \item Open een terminal. Maak een nieuwe conda environment met alleen python 3.9:
-              \begin{ps1concode}
-                PS> conda create -n IK-flasher python=3.9
-              \end{ps1concode}
+              ``` ps1con
+              conda create -n IK-flasher python=3.9
+              ```
               en maak dat actief in Visual Studio Code.
         \item Voer dan het volgende commando uit:
-              \begin{ps1concode}
-                PS> poetry init --no-interaction
-              \end{ps1concode}
+              ``` ps1con
+              poetry init --no-interaction
+              ```
               om een \filepath{pyproject.toml} aan te maken.
         \item Gebruik \shellinline{poetry add} om de dependencies van je script toe te voegen (welke Pythonpackages gebruik je?).\footnote{In ieder geval pyvisa-py, maar wat nog meer?}\footnote{Waarschijnlijk krijg je een foutmelding: No module named 'serial'. Met de vraag om Pyserial te installeren. Het conda package van pyvisa gaf zelf al pyserial op als dependency om te communiceren over USB. Nu we conda niet gebruiken moeten we dat handmatig doen.}
         \item Installeer je \texttt{flasher} package met \shellinline{poetry install}.
@@ -362,7 +362,7 @@ Je geeft met \shellinline{poetry init} de opdracht om Poetry alleen te initialis
     \end{enumerate}
 \end{minopdracht}
 
-\section{Poetry gebruiken voor pythondaq}
+## Poetry gebruiken voor pythondaq
 Natuurlijk willen we Poetry ook gaan gebruiken bij \texttt{pythondaq}. Daarvoor moeten we twee dingen doen. Als eerste gaan we de \texttt{pythondaq} repository in een \texttt{src}-structuur zetten en daarna gaan we Poetry initialiseren.
 
 \begin{attention}
@@ -423,19 +423,19 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij \texttt{pythondaq}. Daarvoor 
                 ]
               \end{forest}
         \item Maak een script \filepath{tests/test\_imports.py} met de regel:
-              \begin{pythoncode}
-                import pythondaq.view
-              \end{pythoncode}
+              ``` py
+              import pythondaq.view
+              ```
               en run het script. Overleg met elkaar hoe je de import-errors op moet lossen zodat alles werkt. Als dat gelukt is dan werkt je package ook als je het aanroept van buiten de map met broncode.
     \end{enumerate}
-    Je \githubrepo{pythondaq}-repository is nu een volledig project dat je met andere gebruikers van Python kunt delen, bijvoorbeeld via een \emph{wheel}. We gaan pythondaq in de komende hoofdstukken steeds verder uitbouwen.
+    Je \githubrepo{pythondaq}-repository is nu een volledig project dat je met andere gebruikers van Python kunt delen, bijvoorbeeld via een _wheel_. We gaan pythondaq in de komende hoofdstukken steeds verder uitbouwen.
 \end{inleveropdracht}
 
-\section{Van script naar applicatie}
+## Van script naar applicatie
 Om onze python code te testen heb je tot nu toe waarschijnlijk op de \texttt{run}-knop in Visual Studio Code gedrukt. Of je hebt in de terminal aan python gevraagd om het \filepath{script.py} te runnen:
-\begin{ps1concode}
-    PS> python script.py
-\end{ps1concode}
+``` ps1con
+python script.py
+```
 Je moet dan wel de juiste map geopend hebben zodat python het bestand kan vinden. En als je de \texttt{run}-knop gebruikt moet wel het bestandje open hebben staan dat je wilt runnen. Kortom, best een beetje gedoe. Maar als we programma's zoals Poetry, Conda of Python willen gebruiken hoeven we helemaal niet het juiste bestandje op te zoeken en te runnen. We hoeven alleen maar een commando in de terminal te geven -- bijvoorbeeld \shellinline{python} of \shellinline{conda} -- en de computer start automatisch het juiste programma op.
 
 Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan een commando toevoegen om de module uit te voeren die je in \secref{sec:modules} kunt vinden. De twee bestanden \filepath{square.py} en \filepath{just\_count.py} zijn netjes in een package geplaats in de nieuwe repository \githubrepo{just\_count}:
@@ -459,20 +459,20 @@ Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we
 \end{forest}
 
 De bestanden \filepath{square.py} en \filepath{just\_count.py} zien er hetzelfde uit als in \secref{sec:modules}:
-\begin{pythoncode}
-    # square.py
-    def square(x):
-        return x ** 2
+``` py
+# square.py
+def square(x):
+    return x ** 2
 
-    if __name__ == "__main__":
-        print(f"The square of 4 is {square(4)}")
+if __name__ == "__main__":
+    print(f"The square of 4 is {square(4)}")
 
 
-    # just_count.py
-    import square
+# just_count.py
+import square
 
-    print(f"The square of 5 is {square.square(5)}")  
-\end{pythoncode}
+print(f"The square of 5 is {square.square(5)}")  
+```
 
 We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie uit te voeren.
 
@@ -480,15 +480,15 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
     \begin{enumerate}
         \item Ga naar \githubrepo{AnneliesVlaar/just\_count} en open de repository in GitHub desktop en daarna in Visual Studio Code.
         \item Maak een nieuwe conda environment met python 3.9, activeer deze en installeer de \texttt{just\_count} package.
-        \item Open \filepath{src/just\_count/just\_count.py} en voeg een functie \pythoninline{def main()} toe die de wortel van 5 print.
-        \begin{pythoncode}
+        \item Open \filepath{src/just\_count/just\_count.py} en voeg een functie `#!py def main()` toe die de wortel van 5 print.
+        ``` py
         # just_count.py
         from count_count.model import square
         
         def main():
             print(f"The square of 5 is {square.square(5)}")  
-        \end{pythoncode}
-    We zetten daarmee de `body' van de module in een functie. Als je het script nu runt doet hij niets meer, want hij roept de functie \pythoninline{main()} niet aan. Voeg een \pythoninline{if __name__ == '__main__'}-statement toe waarin je de functie \pythoninline{main()} aanroept. Als je het script runt, doet hij het weer.
+        ```
+    We zetten daarmee de <q>body</q> van de module in een functie. Als je het script nu runt doet hij niets meer, want hij roept de functie `#!py main()` niet aan. Voeg een `#!py if __name__ == '__main__'`-statement toe waarin je de functie `#!py main()` aanroept. Als je het script runt, doet hij het weer.
     \end{enumerate}
 \end{minopdracht}
 
@@ -531,22 +531,22 @@ Om de wijzigingen aan \filepath{pyproject.toml} door te voeren moet je de packag
         \item Snuffel door de bestanden en mappen, en open \filepath{src/erroranalysis/data\_analysis.py}. Dit is het script wat moet kunnen runnen.
         \item Run het script \filepath{data\_analysis.py} en los de errors één voor één op.
     \end{enumerate}
-    Om erachter te komen of de problemen die we hierboven hadden écht zijn opgelost maak je een nieuwe Conda environment aan, installeer je het package en run je het script. Werkt alles? Mooi! Dan gaan we nu een commando aanmaken om de functie \pythoninline{table()} aan te roepen.
+    Om erachter te komen of de problemen die we hierboven hadden écht zijn opgelost maak je een nieuwe Conda environment aan, installeer je het package en run je het script. Werkt alles? Mooi! Dan gaan we nu een commando aanmaken om de functie `#!py table()` aan te roepen.
     \begin{enumerate}
         \item Open \filepath{pyproject.toml} en voeg een kopje toe voor scripts.
               \begin{tomlcode}
                   [tool.poetry.scripts]
                   naam_commando = "package.module:naam_functie"
               \end{tomlcode}
-              pas de regel aan zodat jouw commando de functie \pythoninline{table()} aanroept in \filepath{src/erroranalysis/data\_analysis.py}. Je mag de naam van het commando zelf kiezen.
+              pas de regel aan zodat jouw commando de functie `#!py table()` aanroept in \filepath{src/erroranalysis/data\_analysis.py}. Je mag de naam van het commando zelf kiezen.
               %\item Typ onder het kopje een naam voor het commando.
               %\item Tussen aanhalingstekens type je de naam van het package (Oef, wat was dat ook al weer? In ieder geval de naam van een \folderpath{} mapje), gevolgd door een punt. Dan komt de naam van de module (Tsja, dat is altijd een \filepath{.py}-bestandje). Zet hier een :-dubbele punt. Daarachter de naam van de functie die moet worden uitgevoerd.
         \item Omdat we handmatig iets aan \filepath{pyproject.toml} hebben veranderd, gaan we de package opnieuw installeren.
         \item Ga naar de terminal en kijk of het werkt!
-              \begin{ps1concode}
-            PS> naam_commando
-            Area of the kitchen table is: 1.8386 ± 0.0049 m
-        \end{ps1concode}
+              ``` ps1con
+              PS> naam_commando
+              Area of the kitchen table is: 1.8386 ± 0.0049 m
+              ```
     \end{enumerate}
 \end{minopdracht}
 

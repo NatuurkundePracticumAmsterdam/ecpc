@@ -1,10 +1,10 @@
-\chapter{Zonnecel}
+# Zonnecel
 \label{ch:zonnecel}
 
 De toenemende behoefte aan energie heeft het zoeken naar nieuwe energiebronnen belangrijk gemaakt. Zonne-energie is \'{e}\'{e}n van de veelbelovende, niet conventionele bronnen. Zonne-energie is echter niet meteen bruikbaar en moet eerst omgezet worden naar warmte of elektrische energie. De omzetting van zonne-energie naar een bruikbare vorm van energie kan gedaan worden door een zonneboiler of een zonnecel. In de komende sessies staat de zonnecel centraal. Je gaat allerlei eigenschappen van zonnecellen onderzoeken en proberen te verklaren.
 
 
-\section{De fotovolta\"{i}sche zonnecel}
+## De fotovolta\"{ische zonnecel}
 Stralingsenergie van de zon is een vorm van energie die niet erg nuttig is voor de meeste toepassingen. Om de energie van de zon nuttig te kunnen gebruiken, moet de straling omgezet worden. Een mogelijkheid daartoe is de fotovolta\"ische zonnecel. In de zonnecel maken fotonen uit het zonlicht geladen (elektrische) deeltjes vrij die via metaalcontacten op de zonnecel door een extern circuit kunnen stromen om daar hun elektrische energie af te geven. Zolang er licht valt op de zonnecel gaat het proces van vrijmaken van elektronen door en wordt er een elektrische stroom geproduceerd.
 
 \subsubsection{Werking}
@@ -29,7 +29,7 @@ waar $h$ staat voor de constante van Planck ($h \approx 4.136 \cdot 10^{-15} \te
 \]
 in staat is om een elektron-gat-paar te maken. Fotonen met een golflengte groter dan 1100 nm hebben een lagere energie dan 1.12 eV en daarvoor is de zonnecel niet gevoelig. Fotonen met een kortere golflengte dan 1100 nm hebben een hogere energie dan nodig is. Zij maken wel een elektron-gat-paar, maar het overschot aan energie wordt niet omgezet in elektrische energie, deze energie gaat verloren als warmte.
 
-Op YouTube staat de volgende video met uitleg over de werking van de zonnecel: \href{https://www.youtube.com/watch?v=L_q6LRgKpTw}{video} ``How do solar cells work?''.
+Op YouTube staat de volgende video met uitleg over de werking van de zonnecel: \href{https://www.youtube.com/watch?v=L_q6LRgKpTw}{video} <q>How do solar cells work?</q>.
 
 
 \subsubsection{Vereenvoudigde modelbeschrijving}
@@ -62,7 +62,7 @@ Met behulp van vergelijking \ref{eqn:diode} kun je bovenstaande vergelijking ver
   I = I_{L} - I_d = I_{L} - I_0 \left( {\rm e}^{ \frac{e U}{nkT}} - 1 \right).
 \end{equation}
 
-\subsection{\texorpdfstring{$I,U$}{I,U}-karakteristiek}
+### \texorpdfstring{$I,U${I,U}-karakteristiek}
 
 In de praktijk zul je altijd metingen doen aan zonnepanelen, waarbij zonnecellen in het paneel samengebracht zijn. De spanning die over een zonnepaneel staat hangt onder andere af van het aantal zonnecellen dat in serie geschakeld is. De stroom dat een zonnepaneel kan leveren wordt bepaald door het aantal elektron-gat-paren dat gemaakt wordt of, anders gezegd, door het aantal fotonen dat geabsorbeerd wordt. Het is echter niet zo dat je zonder meer kunt stellen dat wanneer er zonlicht op een zonnepaneel valt er een maximale spanning over het paneel staat en dat de stroom toeneemt als de lichtintensiteit toeneemt.
 %Een zonnepaneel heeft namelijk een interne weerstand die afhankelijk is van het aantal elektron-gat-paren dat aanwezig is en, niet onbelangrijk, waar de elektron-gat-paren gevormd worden in het zonnepaneel (dit hangt o.a. samen met de eerder genoemde $n$ factor voor ons vereenvoudigde model voor een zonnecel). 
@@ -82,12 +82,12 @@ Als je naar de $IU$-karakteristiek kijkt, zie je dat het zonnepaneel bij lage sp
     \draw[->, thick] (0, 0) -- (0, 5) node[above] {$I$};
     \node[below left] at (0, 0) {0};
   \end{tikzpicture}
-  \caption{De stroom die geleverd kan worden door een zonnecel uitgezet tegen de spanning $U_\text{PV}$ geleverd door de zonnecel. Hier staat PV voor \emph{PhotoVoltaic cell}.}
+  \caption{De stroom die geleverd kan worden door een zonnecel uitgezet tegen de spanning $U_\text{PV}$ geleverd door de zonnecel. Hier staat PV voor _PhotoVoltaic cell_.}
   \label{fig:I,U-zonnecel}
 \end{figure}
 
 
-\subsection{\texorpdfstring{$P,R_b$}{P,Rb}-karakteristiek}
+### \texorpdfstring{$P,R_b${P,Rb}-karakteristiek}
 
 Het is bij zonnepanelen natuurlijk interessant om naar het elektrisch vermogen te kijken dat een zonnepaneel kan leveren. Het geleverd vermogen door een zonnepaneel hangt af van de materiaaleigenschappen van het paneel. Om een zo hoog mogelijk vermogen te kunnen leveren moet het zonnepaneel een zo hoog mogelijke stroom en spanning leveren. Belangrijk ook is dat het vermogen afhangt van de belasting door het circuit. Met andere woorden: bij verschillende weerstandswaardes wordt een ander vermogen geleverd. Ook is er een optimale weerstand waarbij het vermogen maximaal is (\figref{fig:P,R-zonnecel}).
 
@@ -107,7 +107,7 @@ Het is bij zonnepanelen natuurlijk interessant om naar het elektrisch vermogen t
 
 % \subsubsection{Verdieping (extra)}
 
-%\subsection{Uitgebreidere modelbeschrijving}
+%### Uitgebreidere modelbeschrijving
 %Als je naar de $IU$-karakteristiek kijkt, zie je dat het zonnepaneel bij lage spanningen zich gedraagt als een niet-ideale stroombron. Als je rond de maximale spanning kijkt, zie je dat het zonnepaneel zich daar vrijwel gedraagt als een niet-ideale spanningsbron. Met deze kennis is het mogelijk om het vereenvoudigde model van de zonnecel (zie figuur \ref{fig:zc} en vergelijking \ref{eq:zc}) iets uit te breiden. Voor een niet-ideale stroombron heb je eerder gezien dat er parallel aan de stroombron een interne weerstand, een shuntweerstand $R_{sh}$, staat. Voor een niet-ideale spanningsbron is er een interne weerstand in serie aanwezig, een serieweerstand $R_s$. Als we hier rekening mee houden, kunnen we het model voor de zonnecel uitbreiden zoals weergegeven is in figuur \ref{fig:zc2}. 
 
 %Door rekening te houden met beide interne weerstanden wordt vergelijking \ref{eq:zc} gegeven als
@@ -132,7 +132,7 @@ Het is bij zonnepanelen natuurlijk interessant om naar het elektrisch vermogen t
 %\end{deelvraag}
 %\end{opdracht}
 
-\subsection{Fill factor}
+### Fill factor
 De kwaliteit van een zonnecel/-paneel wordt experimenteel vaak aangeduid met de fill factor $FF$. De fill factor wordt gegeven door
 \begin{equation}
   FF = \frac{P_{max}}{P_{T_{max}}} = \frac{I_{max} \cdot U_{max}}{I_{sc} \cdot U_{oc}},
@@ -140,8 +140,8 @@ De kwaliteit van een zonnecel/-paneel wordt experimenteel vaak aangeduid met de 
 waarbij $P_{max}$ het maximaal vermogen is wat een zonnecel/-paneel levert en $P_{T_{max}}$ het theoretisch maximaal vermogen is. $I_{sc}$ is de kortsluitstroom (bij een belastingsweerstand $R_b$ gelijk aan 0) en $U_{oc}$ de open klemspanning (wanneer het zonnepaneel niet belast wordt). $I_{max}$ en $U_{max}$ zijn de waarden voor respectievelijk de stroom en spanning waarbij het geleverd vermogen maximaal is.
 
 
-\subsection{Maximum power point tracking}
+### Maximum power point tracking
 
 De optimale weerstand waarbij het vermogen dat geleverd wordt door een zonnecel maximaal is, is helaas geen constante. Deze weerstandswaarde is afhankelijk van verschillende condities waarbij de belangrijkste de lichtintensiteit op de zonnecel is. Dat betekent dat, zonder aanpassingen, het vermogen dat geleverd wordt door de zonnecel meestal veel lager is dan je zou wensen.
 
-Voor zonnepanelen die elektriciteit leveren aan het lichtnet is dit een groot probleem. Allereerst wil je je investering zo snel mogelijk terugverdienen en ook daarna wil je dat de opbrengst maximaal is. Ten tweede is het zo dat de weerstand van het lichtnet bijzonder klein is. Het vermogen dat daardoor geleverd wordt is ook heel klein. Dit wordt opgelost door -- envoudig gezegd -- de verbinding tussen het zonnepaneel en het lichtnet vele malen per seconde aan en uit te schakelen. Hierdoor `voelt' het zonnepaneel als het ware een weerstand. Deze weerstand is afhankelijk van de hoeveelheid tijd dat het paneel niet aan het lichtnet is geschakeld. Door slim te schakelen kan de weerstand zó gekozen worden dat het geleverde vermogen maximaal is. Als de lichtintensiteit wijzigt kan ook de weerstand worden aangepast. Dit heet \emph{maximum power point tracking}.
+Voor zonnepanelen die elektriciteit leveren aan het lichtnet is dit een groot probleem. Allereerst wil je je investering zo snel mogelijk terugverdienen en ook daarna wil je dat de opbrengst maximaal is. Ten tweede is het zo dat de weerstand van het lichtnet bijzonder klein is. Het vermogen dat daardoor geleverd wordt is ook heel klein. Dit wordt opgelost door -- envoudig gezegd -- de verbinding tussen het zonnepaneel en het lichtnet vele malen per seconde aan en uit te schakelen. Hierdoor <q>voelt</q> het zonnepaneel als het ware een weerstand. Deze weerstand is afhankelijk van de hoeveelheid tijd dat het paneel niet aan het lichtnet is geschakeld. Door slim te schakelen kan de weerstand zó gekozen worden dat het geleverde vermogen maximaal is. Als de lichtintensiteit wijzigt kan ook de weerstand worden aangepast. Dit heet _maximum power point tracking_.

@@ -63,11 +63,11 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
     \label{opd:condaenv}
     Omdat meerdere studenten gedurende de week achter dezelfde computer werken en environments aan gaan maken kun je het beste je initialen toevoegen aan de naam van je environment. Zo zit niemand elkaar in de weg. In dit voorbeeld gebruiken we <q>IK</q> als initialen. Maak de environment en installeer de juiste packages door een terminal te openen[^terminal] en in te typen (_zonder_ het dollarteken aan het begin):
     ``` ps1con
-    PS> conda create -n IK-pythondaq -c conda-forge python pyvisa-py
+conda create -n IK-pythondaq -c conda-forge python pyvisa-py
     ```
     Om de conda environment daadwerkelijk te gebruiken moet je die altijd eerst _activeren_ met:
     ``` ps1con
-    PS> conda activate IK-pythondaq
+conda activate IK-pythondaq
     ```
 
 [^terminal]: Start de applicatie `Anaconda Powershell Prompt` of start een terminal binnen Visual Studio Code met het menu \menu{Terminal > New Terminal}.
@@ -75,7 +75,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 !!! question
     Sluit de Arduino met de USB-kabel aan op de computer. Om de communicatie met de Arduino te testen maken we gebruik van `pyvisa-shell`. Open een terminal, zorg dat het goede conda environment actief is en type `help`:
     ``` ps1con
-    PS> pyvisa-shell -b py
+pyvisa-shell -b py
 
     Welcome to the VISA shell. Type help or ? to list commands.
 
@@ -306,7 +306,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
 !!! tip
     In de volgende opdracht gaan we een grafiek maken. Installeer Matplotlib in je conda environment (zorg dat die geactiveerd is!):
     ``` ps1con
-    PS> conda install -c conda-forge matplotlib
+conda install -c conda-forge matplotlib
     ```
 
 
