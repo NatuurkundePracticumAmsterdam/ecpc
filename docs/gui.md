@@ -42,7 +42,7 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
 \begin{minopdracht}
     \label{opd:minimal-gui}
     \begin{enumerate}
-        \item Maak een nieuw bestand \filepath{example-gui.py}.
+        \item Maak een nieuw bestand :fontawesome-regular-file-code:`example-gui.py`.
         \item Neem bovenstaande pythoncode over en test het in de \shellinline{IK-test-qt} conda environment.
     \end{enumerate}
 \end{minopdracht}
@@ -93,7 +93,7 @@ Het definiëren van layouts gebeurt in veruit de meeste opmaaksystemen met recht
     \label{fig:layout}
 \end{figure}
 
-Het stuk programma om bovenstaande layout op te bouwen geven we hieronder weer.\footnote{Deze code is als \filepath{ex-gui-programming.py} beschikbaar op Canvas.} We bespreken de code regel voor regel _na_ de code hieronder.
+Het stuk programma om bovenstaande layout op te bouwen geven we hieronder weer.\footnote{Deze code is als :fontawesome-regular-file-code:`ex-gui-programming.py` beschikbaar op Canvas.} We bespreken de code regel voor regel _na_ de code hieronder.
 \begin{pythoncode*}{linenos}
   from PySide6.QtCore import Slot
 
@@ -136,7 +136,7 @@ De oplossing is gelukkig vrij eenvoudig: we kunnen de `__init__()` van de parent
     \begin{enumerate}
         \item Breid het script van \opdref{opd:minimal-gui} uit met een `#!py __init__`-method.
         \item Zorg dat de parent class volledig geïnitialiseerd wordt.
-        \item Test of \filepath{example-gui.py} nog steeds werkt.
+        \item Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt.
     \end{enumerate}
 \end{minopdracht}
 
@@ -144,9 +144,9 @@ Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets 
 
 \begin{minopdracht}
     \begin{enumerate}
-        \item Breid \filepath{example-gui.py} uit met een centrale widget.
+        \item Breid :fontawesome-regular-file-code:`example-gui.py` uit met een centrale widget.
         \item Geef aan dat dit het centrale widget gaat zijn (regels 11--12, \figref{fig:layout-centerwidget}).
-        \item Test of \filepath{example-gui.py} nog steeds werkt.
+        \item Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt.
     \end{enumerate}
 \end{minopdracht}
 
@@ -154,10 +154,10 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
 
 \begin{minopdracht}
     \begin{enumerate}
-        \item Breid \filepath{example-gui.py} uit met een verticale layout (regel 15, \figref{fig:layout-vbox}).
+        \item Breid :fontawesome-regular-file-code:`example-gui.py` uit met een verticale layout (regel 15, \figref{fig:layout-vbox}).
         \item Maak een textbox (regel 16)
         \item Voeg de textbox toe aan de verticale layout (regel 17)
-        \item Test of \filepath{example-gui.py} nog steeds werkt en of je tekst kan schrijven in de textbox.
+        \item Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt en of je tekst kan schrijven in de textbox.
     \end{enumerate}
 \end{minopdracht}
 
@@ -165,11 +165,11 @@ De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we 
 
 \begin{minopdracht}
     \begin{enumerate}
-        \item Breid \filepath{example-gui.py} uit met een horizontale layout (regel 18).
+        \item Breid :fontawesome-regular-file-code:`example-gui.py` uit met een horizontale layout (regel 18).
         \item Voeg de horizontale layout toe aan de verticale layout (regel 19, \figref{fig:layout-text-hbox}).
         \item Maak een clear button en voeg deze toe aan de horizontale layout (regel 21,22).
         \item Maak ook een add button en voeg deze toe aan de horizontale layout (regel 23,24).
-        \item Test of \filepath{example-gui.py} nog steeds werkt. \footnote{Waarom doen de knoppen niets als je er op klikt?}
+        \item Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt. \footnote{Waarom doen de knoppen niets als je er op klikt?}
     \end{enumerate}
 \end{minopdracht}
 
@@ -183,10 +183,10 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
 
 \begin{minopdracht}
     \begin{enumerate}
-        \item Breid \filepath{example-gui.py} uit met slots en signals.
+        \item Breid :fontawesome-regular-file-code:`example-gui.py` uit met slots en signals.
         \item Verbind de `Clear`-knop met de clear functie (regel 27).
         \item Definieer een `#!py add_button_clicked()` functie (regel 30--32) en verbind deze aan de `Add text`-knop (regel 28).
-        \item Test of \filepath{example-gui.py} nog steeds werkt en of de knoppen doen wat je verwacht.
+        \item Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt en of de knoppen doen wat je verwacht.
     \end{enumerate}
 \end{minopdracht}
 
@@ -197,7 +197,7 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 \end{bonusopdracht}
 
 \begin{minopdracht}
-    Probeer het volgende in \filepath{example-gui.py}:
+    Probeer het volgende in :fontawesome-regular-file-code:`example-gui.py`:
     \begin{enumerate}
         \item Voeg een derde knop `Hello, world` toe die de tekst _Hello, world_ toevoegt aan het venster.
         \item Zet een hekje voor de `#!py super()`-aanroep of haal de regel weg. Wat gebeurt er als je de code opstart? (Zet de regel weer terug!)
@@ -238,7 +238,7 @@ Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog ma
 \begin{minopdracht}
     \begin{enumerate}
         \item Open Designer en kies bij \menu{templates/forms} voor `#!py MainWindow`. Klik dan op \menu{Create}. Ontwerp de user interface uit \figref{fig:screenshot-ui-prog} en gebruik dezelfde namen voor de widgets als het voorbeeld in \secref{sec:ui-prog}. Dus een `#!py add_button` knop, een `#!py clear_button` knop en een `#!py textedit` tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.
-        \item Bewaar het bestand als \filepath{simple\_app.ui}.
+        \item Bewaar het bestand als :fontawesome-regular-file-code:`simple\_app.ui`.
         \item In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan\footnote{Overleg met elkaar of met de assistent als je niet weet hoe dat moet.} en type in:
               ``` ps1con
               pyside6-uic simple_app.ui -o ui_simple_app.py  
@@ -385,7 +385,7 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
               poetry add --group dev poethepoet
               ```
               We geven hiermee aan dat we dit package nodig hebben voor de ontwikkeling van onze applicatie, maar dat deze niet meegeleverd hoeft te worden als we de applicatie gaan delen met anderen.
-        \item Voeg aan je \filepath{pyproject.toml} het volgende toe -- uitgaande van de mappenstructuur in de `pythondaq` package en \filepath{mainwindow.ui} als naam van je `.ui`-bestand:
+        \item Voeg aan je :fontawesome-regular-file-code:`pyproject.toml` het volgende toe -- uitgaande van de mappenstructuur in de `pythondaq` package en :fontawesome-regular-file-code:`mainwindow.ui` als naam van je `.ui`-bestand:
               \begin{tomlcode}
                   [tool.poe.tasks.compile]
                   shell = """

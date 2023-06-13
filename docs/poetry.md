@@ -50,29 +50,29 @@ Er is nu de volgende structuur aangemaakt:
 \begin{forest}
     for tree={grow'=0,folder,font=\ttfamily}
     [\githubrepo{easystat}
-        [\filepath{README.md}]
+        [:fontawesome-regular-file-code:`README.md`]
         [\folderpath{tests}
-            [\filepath{\_\_init\_\_.py}]
-            [\filepath{test\_easystat.py}]
+            [:fontawesome-regular-file-code:`\_\_init\_\_.py`]
+            [:fontawesome-regular-file-code:`test\_easystat.py`]
         ]
         [\folderpath{src}
             [\folderpath{easystat}
-                [\filepath{\_\_init\_\_.py}]
+                [:fontawesome-regular-file-code:`\_\_init\_\_.py`]
             ]
         ]
-        [\filepath{pyproject.toml}]
+        [:fontawesome-regular-file-code:`pyproject.toml`]
     ]
 \end{forest}
 
 Allereerst is er een projectmap `easystat` aangemaakt. Je kunt nu in GitHub Desktop deze map toevoegen als nieuwe repository, zoals we gedaan hebben in \opdref{opd:add_repository}.
 
-Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaakt. We zien een \filepath{README.md} in de projectmap staan. Hierin komt een algemene beschrijving van ons project.\footnote{Wanneer de repository op GitHub wordt geplaatst wordt deze README automatisch op de hoofdpagina van de repository getoond, onder de code.}
+Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaakt. We zien een :fontawesome-regular-file-code:`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van ons project.\footnote{Wanneer de repository op GitHub wordt geplaatst wordt deze README automatisch op de hoofdpagina van de repository getoond, onder de code.}
 
 Daarna is er een map \folderpath{tests}. Goede software wordt getest. In deze map komen bestanden te staan die delen van de code runnen en resultaten vergelijken met verwachte resultaten -- zoals je kunt doen in \opdref{opd:test_package}.\footnote{Python heeft een ingebouwde module `#!py unittest` die deze tests kan vinden, kan runnen en daarna een handige weergave geeft van welke tests geslaagd zijn en welke faalden. Ook het package `#!py pytest` is erg bekend. Op deze manier weet je altijd zeker dat wanneer je aanpassingen doet in je code, dat de rest van de code nog steeds is blijven werken -- zónder dat je zelf uitvoerig alles hebt hoeven uitproberen. Je draait gewoon even snel alle tests. Helaas, helaas -- in deze cursus is te weinig tijd om het schrijven van tests te behandelen.}
 
-Dan komt de \folderpath{src}-map. Daarin komt ons nieuwe package \folderpath{easystat}\footnote{Ja er is een map \folderpath{easystat} met daarin een map \folderpath{src} met daarin weer een map \folderpath{easystat} -- dat kan nog wel eens verwarrend zijn. Het is conventie om de projectmap dezelfde naam te geven als je package. Het pad is dus eigenlijk \folderpath{project/src/package} en dat wordt dan, in ons geval, \folderpath{easystat/src/easystat}.} te staan. Er is alvast voor ons een \filepath{\_\_init\_\_.py} aangemaakt. Handig!
+Dan komt de \folderpath{src}-map. Daarin komt ons nieuwe package \folderpath{easystat}\footnote{Ja er is een map \folderpath{easystat} met daarin een map \folderpath{src} met daarin weer een map \folderpath{easystat} -- dat kan nog wel eens verwarrend zijn. Het is conventie om de projectmap dezelfde naam te geven als je package. Het pad is dus eigenlijk \folderpath{project/src/package} en dat wordt dan, in ons geval, \folderpath{easystat/src/easystat}.} te staan. Er is alvast voor ons een :fontawesome-regular-file-code:`\_\_init\_\_.py` aangemaakt. Handig!
 
-En als laatste\ldots{} een \filepath{pyproject.toml}\footnote{Vroeger was er een `setup.py` maar Python schakelt nu langzaam over naar dit nieuwe bestand.} waarin alle informatie over je project wordt bijgehouden. Ook staat er in dit bestand informatie voor de verschillende tools die je kunt gebruiken. De inhoud van het bestand ziet er ongeveer zo uit:
+En als laatste\ldots{} een :fontawesome-regular-file-code:`pyproject.toml`\footnote{Vroeger was er een `setup.py` maar Python schakelt nu langzaam over naar dit nieuwe bestand.} waarin alle informatie over je project wordt bijgehouden. Ook staat er in dit bestand informatie voor de verschillende tools die je kunt gebruiken. De inhoud van het bestand ziet er ongeveer zo uit:
 \begin{textcode}
     [tool.poetry]
     name = "easystat"
@@ -95,7 +95,7 @@ Het bestand is in het TOML-formaat \cite{TOML}. Tussen de vierkante haken staan 
 
 \begin{minopdracht}
     \begin{enumerate}
-        \item Open het bestand \filepath{pyproject.toml}
+        \item Open het bestand :fontawesome-regular-file-code:`pyproject.toml`
         \item Verander bij de dependencies voor python `^3.10` in `^3.9`.
     \end{enumerate}
 
@@ -122,7 +122,7 @@ Bij het schrijven van een nieuw package is het zéker belangrijk om een environm
 
 We starten met ons package. Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige <q>shortcut</q>.
 \begin{minopdracht}
-    Maak het bestand \filepath{src/easystat/shortcuts.py}:\footnote{Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import <q>numpy</q> could not be resolved`. Daar moeten we misschien wat mee.}
+    Maak het bestand :fontawesome-regular-file-code:`src/easystat/shortcuts.py`:\footnote{Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import <q>numpy</q> could not be resolved`. Daar moeten we misschien wat mee.}
     ``` py
     # src/easystat/shortcuts.py
     import numpy as np
@@ -138,7 +138,7 @@ We starten met ons package. Stel, we berekenen vaak de standaarddeviatie van het
 Nu willen we de package `easystat` importeren in een ander script zodat we de functie `stdev\_of\_mean` daar kunnen gebruiken. We maken een script om onze nieuwe code te testen.\footnote{Niet formeel. Dus hoewel we een script gaan plaatsen in de \folderpath{tests}-folder is het hier niet een test die automatisch gerunt kan worden.}
 
 \begin{minopdracht}
-    Maak het bestand \filepath{tests/try\_shortcuts.py}:
+    Maak het bestand :fontawesome-regular-file-code:`tests/try\_shortcuts.py`:
     ``` py
     # tests/try_shortcuts.py
     from easystat.shortcuts import stdev_of_mean
@@ -150,7 +150,7 @@ Nu willen we de package `easystat` importeren in een ander script zodat we de fu
 In de eerste regel importeren we de functie uit het nieuwe package om uit te proberen. In de laatste regel gebruiken we een handige functie van f-strings.\footnote{In f-strings kunnen tussen de accolades variabelen of functieaanroepen staan. Voeg daar het `=`-teken aan toe en je krijgt niet alleen de _waarde_, maar ook de variabele of aanroep zelf te zien. Bijvoorbeeld: als je definieert `#!py name = "Alice"`, dan geeft `#!py print(f"{name`")} als uitkomst `#!py Alice`. Maar voeg je het `=`-teken toe `#!py print(f"{name=`")} wordt de uitvoer `#!py name='Alice'`.}
 
 \begin{minopdracht}
-    Run \filepath{tests/try\_shortcuts.py} en kijk of het script het doet.
+    Run :fontawesome-regular-file-code:`tests/try\_shortcuts.py` en kijk of het script het doet.
 \end{minopdracht}
 
 We krijgen de foutmelding:
@@ -177,7 +177,7 @@ Poetry is even bezig en ons package is geïnstalleerd.
     We draaien opnieuw de test, als volgt:
     \begin{enumerate}
         \item Installeer de easystat package met \shellinline{poetry install}.
-        \item Draai \filepath{tests/try\_shortcuts.py} en controleer of het nu wel werkt.
+        \item Draai :fontawesome-regular-file-code:`tests/try\_shortcuts.py` en controleer of het nu wel werkt.
     \end{enumerate}
 \end{minopdracht}
 
@@ -209,7 +209,7 @@ Package operations: 1 install, 0 updates, 0 removals
     We voegen de dependency toe en runnen opnieuw de test, als volgt:
     \begin{enumerate}
         \item Voeg numpy als dependency toe met \shellinline{poetry add numpy}.
-        \item Draai \filepath{tests/try\_shortcuts.py} en bekijk de uitkomst.
+        \item Draai :fontawesome-regular-file-code:`tests/try\_shortcuts.py` en bekijk de uitkomst.
     \end{enumerate}
 \end{minopdracht}
 
@@ -217,20 +217,20 @@ Ditmaal krijgen we:
 \begin{textcode}
     stdev_of_mean([1, 2, 2, 2, 3])=0.282842712474619
 \end{textcode}
-Fijn! Als je nu de \filepath{pyproject.toml} nog eens bekijkt zie je dat NumPy daar als dependency is toegevoegd. Het verwijderen van dependency `PACKAGE` gaat met \shellinline{poetry remove PACKAGE}. Poetry heeft Numpy nu toegevoegd aan de environment `IK-easystat`.\footnote{De lijst met packages in de active Conda enviornment vraag je in de terminal op met het \shellinline{conda list}, kijk maar of numpy daar tussen staat.} Andersom zal Conda geen packages toevoegen aan je Poetry project als je \shellinline{conda install package} aanroept. Gebruik daarom altijd \shellinline{poetry add package} als je met Poetry aan een package werkt.
+Fijn! Als je nu de :fontawesome-regular-file-code:`pyproject.toml` nog eens bekijkt zie je dat NumPy daar als dependency is toegevoegd. Het verwijderen van dependency `PACKAGE` gaat met \shellinline{poetry remove PACKAGE}. Poetry heeft Numpy nu toegevoegd aan de environment `IK-easystat`.\footnote{De lijst met packages in de active Conda enviornment vraag je in de terminal op met het \shellinline{conda list}, kijk maar of numpy daar tussen staat.} Andersom zal Conda geen packages toevoegen aan je Poetry project als je \shellinline{conda install package} aanroept. Gebruik daarom altijd \shellinline{poetry add package} als je met Poetry aan een package werkt.
 
 \begin{info}
-    Als we de code in ons package aanpassen dan hoeven we het niet opnieuw te installeren met Poetry, maar als we met de hand iets wijzigen in de \filepath{pyproject.toml} dan moet dat _wel_. Als je een `#!py ImportError` krijgt voor je eigen package -- bijvoorbeeld als je nieuwe mappen of bestanden hebt aangemaakt -- probeer dan _eerst_ voor de zekerheid \shellinline{poetry install}.
+    Als we de code in ons package aanpassen dan hoeven we het niet opnieuw te installeren met Poetry, maar als we met de hand iets wijzigen in de :fontawesome-regular-file-code:`pyproject.toml` dan moet dat _wel_. Als je een `#!py ImportError` krijgt voor je eigen package -- bijvoorbeeld als je nieuwe mappen of bestanden hebt aangemaakt -- probeer dan _eerst_ voor de zekerheid \shellinline{poetry install}.
 \end{info}
 
 ### Uitdaging: Poetry.lock
-Na het toevoegen van Numpy is er ook een bestand \filepath{poetry.lock} bijgekomen. Hierin staan de exacte versies van alle geïnstalleerde packages. Vaak wordt dit bestand gecommit zodat collega-ontwikkelaars exact dezelfde versies installeren zodra ze \shellinline{poetry install} aanroepen. Om dat te proberen maken we even een schone conda environment:
+Na het toevoegen van Numpy is er ook een bestand :fontawesome-regular-file-code:`poetry.lock` bijgekomen. Hierin staan de exacte versies van alle geïnstalleerde packages. Vaak wordt dit bestand gecommit zodat collega-ontwikkelaars exact dezelfde versies installeren zodra ze \shellinline{poetry install} aanroepen. Om dat te proberen maken we even een schone conda environment:
 
 \begin{bonusopdracht}
     \begin{enumerate}
         \item Maak een schone conda environment met \shellinline{PS> conda create -n IK-easystat python=3.9}
         \item Kies voor ja als Conda een waarschuwing geeft dat deze environment al bestaat en vraagt of je het bestaande environment wilt verwijderen.
-        \item Draai \filepath{tests/try\_shortcuts.py} en bekijk de foutmelding.
+        \item Draai :fontawesome-regular-file-code:`tests/try\_shortcuts.py` en bekijk de foutmelding.
     \end{enumerate}
 \end{bonusopdracht}
 
@@ -239,8 +239,8 @@ We krijgen meteen foutmeldingen. Immers, we hebben nog niets geïnstalleerd.
 \begin{bonusopdracht}
     \begin{enumerate}
         \item Installeer de `easystat` package.
-        \item Waarvoor gebruikt Poetry de lock file (\filepath{poetry.lock)}?
-        \item Draai \filepath{tests/try\_shortcuts.py} en bekijk de uitkomst.
+        \item Waarvoor gebruikt Poetry de lock file (:fontawesome-regular-file-code:`poetry.lock)`?
+        \item Draai :fontawesome-regular-file-code:`tests/try\_shortcuts.py` en bekijk de uitkomst.
     \end{enumerate}
 
 \end{bonusopdracht}
@@ -288,9 +288,9 @@ Een <q>sdist</q> is een _source distribution_. Een `.tar.gz`-bestand is een soor
               ...
               PS> conda activate IK-test-wheel
               ```
-        \item Draai \filepath{tests/try\_shortcuts.py} en bekijk de foutmelding.
+        \item Draai :fontawesome-regular-file-code:`tests/try\_shortcuts.py` en bekijk de foutmelding.
         \item installeer het wheel met \shellinline{pip install dist/easystat-0.1.0-py3-none-any.whl}.
-        \item Draai \filepath{tests/try\_shortcuts.py} en bekijk de uitkomst.
+        \item Draai :fontawesome-regular-file-code:`tests/try\_shortcuts.py` en bekijk de uitkomst.
     \end{enumerate}
 \end{bonusopdracht}
 
@@ -318,11 +318,11 @@ Het werkt! Je ziet dat \shellinline{pip install} niet alleen ons package `easyst
 
 ## Poetry gebruiken voor een bestaand project
 
-Met \shellinline{poetry new} start je een _nieuw_ project en maakt Poetry voor jou bestanden en mappen aan waarmee je aan de slag kunt. Maar vaak ben je al bezig met een project en wil je dat niet overschrijven. Ook is het een gedoe om een nieuw project te maken en daar je bestaande code in te kopieëren. Gelukkig kun je Poetry ook vertellen dat je al bezig bent en dat Poetry _alleen_ een \filepath{pyproject.toml}-bestand moet aanmaken. Dat doe je met:
+Met \shellinline{poetry new} start je een _nieuw_ project en maakt Poetry voor jou bestanden en mappen aan waarmee je aan de slag kunt. Maar vaak ben je al bezig met een project en wil je dat niet overschrijven. Ook is het een gedoe om een nieuw project te maken en daar je bestaande code in te kopieëren. Gelukkig kun je Poetry ook vertellen dat je al bezig bent en dat Poetry _alleen_ een :fontawesome-regular-file-code:`pyproject.toml`-bestand moet aanmaken. Dat doe je met:
 ``` ps1con
 poetry init --no-interaction
 ```
-Je geeft met \shellinline{poetry init} de opdracht om Poetry alleen te initialiseren en \shellinline{--no-interaction} voorkomt je dat je eerst honderd vragen krijgt over je project. Meestal kies je toch de standaardantwoorden.\footnote{Het is eenvoudig om zelf de \filepath{pyproject.toml} te openen en daar wat in aan te passen voor zover nodig.}
+Je geeft met \shellinline{poetry init} de opdracht om Poetry alleen te initialiseren en \shellinline{--no-interaction} voorkomt je dat je eerst honderd vragen krijgt over je project. Meestal kies je toch de standaardantwoorden.\footnote{Het is eenvoudig om zelf de :fontawesome-regular-file-code:`pyproject.toml` te openen en daar wat in aan te passen voor zover nodig.}
 
 \begin{attention}
     Als je al bezig bent met een project dan werk je als het goed is al in een conda environment. Daar heb je dan met \shellinline{conda install} al packages geïnstalleerd die je nodig hebt. Het gebeurt dan makkelijk dat je vergeet om dat aan te geven met \shellinline{poetry add}. Dat betekent alleen dat als iemand anders je package installeert dat er dependencies missen en dat jouw code dus _niet_ werkt! Dit is makkelijk op te lossen. Zodra je Poetry gaat gebruiken _wis dan je environment en maak een nieuwe aan met alleen Python._ Dat gaat het makkelijkst als volgt. Stel dat je bezig bent in het environment `IK-pythondaq`. We maken dan een nieuw environment met dezelfde naam:
@@ -355,7 +355,7 @@ Je geeft met \shellinline{poetry init} de opdracht om Poetry alleen te initialis
               ``` ps1con
               poetry init --no-interaction
               ```
-              om een \filepath{pyproject.toml} aan te maken.
+              om een :fontawesome-regular-file-code:`pyproject.toml` aan te maken.
         \item Gebruik \shellinline{poetry add} om de dependencies van je script toe te voegen (welke Pythonpackages gebruik je?).\footnote{In ieder geval pyvisa-py, maar wat nog meer?}\footnote{Waarschijnlijk krijg je een foutmelding: No module named 'serial'. Met de vraag om Pyserial te installeren. Het conda package van pyvisa gaf zelf al pyserial op als dependency om te communiceren over USB. Nu we conda niet gebruiken moeten we dat handmatig doen.}
         \item Installeer je `flasher` package met \shellinline{poetry install}.
         \item Test de 3 scriptjes, werken ze allemaal nog?
@@ -366,7 +366,7 @@ Je geeft met \shellinline{poetry init} de opdracht om Poetry alleen te initialis
 Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten we twee dingen doen. Als eerste gaan we de `pythondaq` repository in een `src`-structuur zetten en daarna gaan we Poetry initialiseren.
 
 \begin{attention}
-    Vergeet niet -- waar nodig -- de \filepath{\_\_init\_\_.py} bestanden toe te voegen aan de packages.
+    Vergeet niet -- waar nodig -- de :fontawesome-regular-file-code:`\_\_init\_\_.py` bestanden toe te voegen aan de packages.
 \end{attention}
 
 \begin{inleveropdracht}[Pythondaq: package]
@@ -379,16 +379,16 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
                 [\githubrepo{pythondaq}
                     [\folderpath{src}
                         [\folderpath{pythondaq}
-                            [\filepath{\_\_init\_\_.py}]
-                            [\filepath{arduino\_device.py}]
-                            [\filepath{diode\_experiment.py}]
-                            [\filepath{view.py}]
+                            [:fontawesome-regular-file-code:`\_\_init\_\_.py`]
+                            [:fontawesome-regular-file-code:`arduino\_device.py`]
+                            [:fontawesome-regular-file-code:`diode\_experiment.py`]
+                            [:fontawesome-regular-file-code:`view.py`]
                         ]
                     ]
-                    [\filepath{README.md}]
+                    [:fontawesome-regular-file-code:`README.md`]
                 ]
               \end{forest}
-        \item Test je \filepath{view.py} script.
+        \item Test je :fontawesome-regular-file-code:`view.py` script.
     \end{enumerate}
 \end{inleveropdracht}
 
@@ -397,7 +397,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
     \begin{enumerate}
         \item Maak 3 extra packages in de \folderpath{pythondaq} package. \folderpath{models}, \folderpath{views} en \folderpath{controllers}.
         \item Zet de modules in de juiste packages.
-        \item Test \filepath{view.py}. Waarschijnlijk krijg je import errors, los deze op totdat het werkt.
+        \item Test :fontawesome-regular-file-code:`view.py`. Waarschijnlijk krijg je import errors, los deze op totdat het werkt.
     \end{enumerate}
 \end{bonusopdracht}
 
@@ -406,10 +406,10 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
     \begin{enumerate}
         \item Ga in Visual Studio Code naar \githubrepo{pythondaq}. Open een terminal.
         \item Overschrijf je conda environment zodat hij weer leeg is (met alleen `python=3.9`).
-        \item Initialiseer Poetry, zodat een \filepath{pyproject.toml} wordt aangemaakt.
+        \item Initialiseer Poetry, zodat een :fontawesome-regular-file-code:`pyproject.toml` wordt aangemaakt.
         \item Installeer je package.
-        \item Test je \filepath{view.py} script, terwijl je dependencies toevoegt die je in je scripts nodig hebt.
-        \item Vergelijkbaar met \opdref{opd:test_package} is het verstandig om het importeren van onderdelen van het package te testen voordat we het verder gaan uitbouwen. Maak een \folderpath{tests}-map met \filepath{\_\_init\_\_.py} aan in hoofdmap van de repository zodat je onderstaande structuur krijgt:
+        \item Test je :fontawesome-regular-file-code:`view.py` script, terwijl je dependencies toevoegt die je in je scripts nodig hebt.
+        \item Vergelijkbaar met \opdref{opd:test_package} is het verstandig om het importeren van onderdelen van het package te testen voordat we het verder gaan uitbouwen. Maak een \folderpath{tests}-map met :fontawesome-regular-file-code:`\_\_init\_\_.py` aan in hoofdmap van de repository zodat je onderstaande structuur krijgt:
               \begin{forest}
                 for tree={grow'=0,folder,font=\ttfamily}
                 [\githubrepo{pythondaq}
@@ -417,12 +417,12 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
                         [\ldots]
                     ]
                     [\folderpath{tests}
-                        [\filepath{\_\_init\_\_.py}]
+                        [:fontawesome-regular-file-code:`\_\_init\_\_.py`]
                     ]
-                    [\filepath{README.md}]
+                    [:fontawesome-regular-file-code:`README.md`]
                 ]
               \end{forest}
-        \item Maak een script \filepath{tests/test\_imports.py} met de regel:
+        \item Maak een script :fontawesome-regular-file-code:`tests/test\_imports.py` met de regel:
               ``` py
               import pythondaq.view
               ```
@@ -432,33 +432,33 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
 \end{inleveropdracht}
 
 ## Van script naar applicatie
-Om onze python code te testen heb je tot nu toe waarschijnlijk op de `run`-knop in Visual Studio Code gedrukt. Of je hebt in de terminal aan python gevraagd om het \filepath{script.py} te runnen:
+Om onze python code te testen heb je tot nu toe waarschijnlijk op de `run`-knop in Visual Studio Code gedrukt. Of je hebt in de terminal aan python gevraagd om het :fontawesome-regular-file-code:`script.py` te runnen:
 ``` ps1con
 python script.py
 ```
 Je moet dan wel de juiste map geopend hebben zodat python het bestand kan vinden. En als je de `run`-knop gebruikt moet wel het bestandje open hebben staan dat je wilt runnen. Kortom, best een beetje gedoe. Maar als we programma's zoals Poetry, Conda of Python willen gebruiken hoeven we helemaal niet het juiste bestandje op te zoeken en te runnen. We hoeven alleen maar een commando in de terminal te geven -- bijvoorbeeld \shellinline{python} of \shellinline{conda} -- en de computer start automatisch het juiste programma op.
 
-Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan een commando toevoegen om de module uit te voeren die je in \secref{sec:modules} kunt vinden. De twee bestanden \filepath{square.py} en \filepath{just\_count.py} zijn netjes in een package geplaats in de nieuwe repository \githubrepo{just\_count}:
+Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan een commando toevoegen om de module uit te voeren die je in \secref{sec:modules} kunt vinden. De twee bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`just\_count.py` zijn netjes in een package geplaats in de nieuwe repository \githubrepo{just\_count}:
 
 \begin{forest}
     for tree={grow'=0,folder,font=\ttfamily}
     [\githubrepo{just\_count}
         [\folderpath{src}
             [\folderpath{just\_count}
-                [\filepath{\_\_init\_\_.py}]
-                [\filepath{square.py}]
-                [\filepath{just\_count.py}]
+                [:fontawesome-regular-file-code:`\_\_init\_\_.py`]
+                [:fontawesome-regular-file-code:`square.py`]
+                [:fontawesome-regular-file-code:`just\_count.py`]
             ]
             [\folderpath{tests}
-                [\filepath{\_\_init\_\_.py}]
+                [:fontawesome-regular-file-code:`\_\_init\_\_.py`]
             ]
         ]
-        [\filepath{pyproject.toml}]
-        [\filepath{README.md}]
+        [:fontawesome-regular-file-code:`pyproject.toml`]
+        [:fontawesome-regular-file-code:`README.md`]
     ]
 \end{forest}
 
-De bestanden \filepath{square.py} en \filepath{just\_count.py} zien er hetzelfde uit als in \secref{sec:modules}:
+De bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`just\_count.py` zien er hetzelfde uit als in \secref{sec:modules}:
 ``` py
 # square.py
 def square(x):
@@ -480,7 +480,7 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
     \begin{enumerate}
         \item Ga naar \githubrepo{AnneliesVlaar/just\_count} en open de repository in GitHub desktop en daarna in Visual Studio Code.
         \item Maak een nieuwe conda environment met python 3.9, activeer deze en installeer de `just\_count` package.
-        \item Open \filepath{src/just\_count/just\_count.py} en voeg een functie `#!py def main()` toe die de wortel van 5 print.
+        \item Open :fontawesome-regular-file-code:`src/just\_count/just\_count.py` en voeg een functie `#!py def main()` toe die de wortel van 5 print.
         ``` py
         # just_count.py
         from count_count.model import square
@@ -492,19 +492,19 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
     \end{enumerate}
 \end{minopdracht}
 
-In \filepath{pyproject.toml} kunnen we nu het commando toe gaan voegen. Met de `scripts`-tool van Poetry kunnen we aangeven met welk commando een functie uit een script wordt uitgevoerd. Om een commando toe te voegen ga je naar \filepath{pyproject.toml} en voeg je een extra kopje toe:
+In :fontawesome-regular-file-code:`pyproject.toml` kunnen we nu het commando toe gaan voegen. Met de `scripts`-tool van Poetry kunnen we aangeven met welk commando een functie uit een script wordt uitgevoerd. Om een commando toe te voegen ga je naar :fontawesome-regular-file-code:`pyproject.toml` en voeg je een extra kopje toe:
 \begin{tomlcode}
     [tool.poetry.scripts]
     naam_commando = "package.module:naam_functie"
 \end{tomlcode}
-Om de wijzigingen aan \filepath{pyproject.toml} door te voeren moet je de package opnieuw installeren.
+Om de wijzigingen aan :fontawesome-regular-file-code:`pyproject.toml` door te voeren moet je de package opnieuw installeren.
 
 \begin{minopdracht}
     \begin{enumerate}
-        \item Open \filepath{pyproject.toml} en voeg het kopje `[tool.poetry.scripts]` toe.
+        \item Open :fontawesome-regular-file-code:`pyproject.toml` en voeg het kopje `[tool.poetry.scripts]` toe.
         \item Als naam voor het commando kiezen we `count`.
         \item Voor het gemak vullen we de rechterkant van het =-teken van rechts naar links in. Achter de dubbele punt komt de naam van de functie die uitgevoerd moet worden, dat is in ons geval `main`.
-        \item De functie `main` staat in module \filepath{just\_count.py}. De module hebben we ondergebracht in de package \folderpath{just\_count}.
+        \item De functie `main` staat in module :fontawesome-regular-file-code:`just\_count.py`. De module hebben we ondergebracht in de package \folderpath{just\_count}.
               \begin{tomlcode}
                   [tool.poetry.scripts]
                   count = "just_count.just_count:main"
@@ -516,7 +516,7 @@ Om de wijzigingen aan \filepath{pyproject.toml} door te voeren moet je de packag
 \begin{minopdracht}
     \begin{enumerate}
         \item Type in de terminal het commando \shellinline{count}.
-        \item Je krijgt nu een \shellinline{ModuleNotFoundError} voor de module square. Poetry zoekt vanuit de \folderpath{src}-map naar de packages en modules. Pas het importstatement in \filepath{just\_count.py} aan zodat het count commando werkt.   
+        \item Je krijgt nu een \shellinline{ModuleNotFoundError} voor de module square. Poetry zoekt vanuit de \folderpath{src}-map naar de packages en modules. Pas het importstatement in :fontawesome-regular-file-code:`just\_count.py` aan zodat het count commando werkt.   
         \item Activeer een andere conda environment en probeer het commando opnieuw; waarom werkt dit niet?
         \item Navigeer naar een andere map met python-scripts. Activeer de conda environment waar je `count\_count` hebt geïnstalleerd en test het commando.
     \end{enumerate}
@@ -524,24 +524,24 @@ Om de wijzigingen aan \filepath{pyproject.toml} door te voeren moet je de packag
 
 \begin{minopdracht}
     \label{opd:Poetry_commando}
-    Als extra oefening gaan we met Poetry een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script \filepath{data\_analysis.py} te laten runnen.
+    Als extra oefening gaan we met Poetry een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script :fontawesome-regular-file-code:`data\_analysis.py` te laten runnen.
     \begin{enumerate}
         \item Ga naar GitHub en open \githubrepo{AnneliesVlaar/Pr-erroranalysis} in GitHub Desktop en Visual Studio Code.
         \item Natuurlijk maak je gelijk een nieuwe Conda environment aan, voordat we dit package gaan testen.
-        \item Snuffel door de bestanden en mappen, en open \filepath{src/erroranalysis/data\_analysis.py}. Dit is het script wat moet kunnen runnen.
-        \item Run het script \filepath{data\_analysis.py} en los de errors één voor één op.
+        \item Snuffel door de bestanden en mappen, en open :fontawesome-regular-file-code:`src/erroranalysis/data\_analysis.py`. Dit is het script wat moet kunnen runnen.
+        \item Run het script :fontawesome-regular-file-code:`data\_analysis.py` en los de errors één voor één op.
     \end{enumerate}
     Om erachter te komen of de problemen die we hierboven hadden écht zijn opgelost maak je een nieuwe Conda environment aan, installeer je het package en run je het script. Werkt alles? Mooi! Dan gaan we nu een commando aanmaken om de functie `#!py table()` aan te roepen.
     \begin{enumerate}
-        \item Open \filepath{pyproject.toml} en voeg een kopje toe voor scripts.
+        \item Open :fontawesome-regular-file-code:`pyproject.toml` en voeg een kopje toe voor scripts.
               \begin{tomlcode}
                   [tool.poetry.scripts]
                   naam_commando = "package.module:naam_functie"
               \end{tomlcode}
-              pas de regel aan zodat jouw commando de functie `#!py table()` aanroept in \filepath{src/erroranalysis/data\_analysis.py}. Je mag de naam van het commando zelf kiezen.
+              pas de regel aan zodat jouw commando de functie `#!py table()` aanroept in :fontawesome-regular-file-code:`src/erroranalysis/data\_analysis.py`. Je mag de naam van het commando zelf kiezen.
               %\item Typ onder het kopje een naam voor het commando.
-              %\item Tussen aanhalingstekens type je de naam van het package (Oef, wat was dat ook al weer? In ieder geval de naam van een \folderpath{} mapje), gevolgd door een punt. Dan komt de naam van de module (Tsja, dat is altijd een \filepath{.py}-bestandje). Zet hier een :-dubbele punt. Daarachter de naam van de functie die moet worden uitgevoerd.
-        \item Omdat we handmatig iets aan \filepath{pyproject.toml} hebben veranderd, gaan we de package opnieuw installeren.
+              %\item Tussen aanhalingstekens type je de naam van het package (Oef, wat was dat ook al weer? In ieder geval de naam van een \folderpath{} mapje), gevolgd door een punt. Dan komt de naam van de module (Tsja, dat is altijd een :fontawesome-regular-file-code:`.py`-bestandje). Zet hier een :-dubbele punt. Daarachter de naam van de functie die moet worden uitgevoerd.
+        \item Omdat we handmatig iets aan :fontawesome-regular-file-code:`pyproject.toml` hebben veranderd, gaan we de package opnieuw installeren.
         \item Ga naar de terminal en kijk of het werkt!
               ``` ps1con
               PS> naam_commando
@@ -553,8 +553,8 @@ Om de wijzigingen aan \filepath{pyproject.toml} door te voeren moet je de packag
 \begin{inleveropdracht}[Pythondaq: applicatie]
     We gaan nu een commando maken voor \githubrepo{}{pythondaq}:
     \begin{enumerate}
-        \item Schrijf een functie in \filepath{view.py} die je wilt uitvoeren als je het commando gaat aanroepen. Je kunt hierin de hele body van je script plaatsen.
-        \item Voeg een commando aan \filepath{pyproject.toml} toe.
+        \item Schrijf een functie in :fontawesome-regular-file-code:`view.py` die je wilt uitvoeren als je het commando gaat aanroepen. Je kunt hierin de hele body van je script plaatsen.
+        \item Voeg een commando aan :fontawesome-regular-file-code:`pyproject.toml` toe.
         \item Installeer het Poetry project en test het commando. Los eventuele errors op totdat het werkt.
         \item Open -- buiten Visual Studio Code -- een `Anaconda prompt` en test of jouw commando dan nog steeds werkt.\footnote{Activeer wel eerst de juiste conda environment.}.
     \end{enumerate}

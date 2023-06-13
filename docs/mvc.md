@@ -159,7 +159,7 @@ hebben we nu
 ``` py
 cart.add_to_cart("Eon by Greg Bear")
 ```
-en dat is even lang. Het grote voordeel ontstaat pas wanneer de class ingewikkelder wordt en meer data gaat bewaren. Ook kun je de class in een ander pythonbestand (bijvoorbeeld \filepath{my\_webshop\_backend.py} zetten en alle functionaliteit in één keer importeren met:
+en dat is even lang. Het grote voordeel ontstaat pas wanneer de class ingewikkelder wordt en meer data gaat bewaren. Ook kun je de class in een ander pythonbestand (bijvoorbeeld :fontawesome-regular-file-code:`my\_webshop\_backend.py` zetten en alle functionaliteit in één keer importeren met:
 ``` py
 from my_webshop_backend import Cart
 
@@ -315,7 +315,7 @@ De class die we gemaakt hebben voor de aansturing van de Arduino valt in de cate
         \item Volgens het schema praat alleen het model met de controller. De class `#!py DiodeExperiment` -- het model -- is dus degene die de class `#!py ArduinoVISADevice` -- de controller -- moet aanroepen en bewaren. Hoe doe je dat netjes? Overleg met elkaar.
         \item Het kan (later) handig zijn om niet altijd te scannen tussen 0 en 1023 maar een ander bereik te kiezen. Pas de `#!py scan()` method aan zodat deze `start`- en `stop`-parameters accepteert.
         \item Knip de class eruit en plaats die in het bestand `#!py diode_experiment.py` en gebruik weer een import-statement. Haal import-statements die je niet meer nodig hebt weg.
-        \item Hernoem het overgebleven script naar \filepath{view.py}.
+        \item Hernoem het overgebleven script naar :fontawesome-regular-file-code:`view.py`.
     \end{enumerate}
 \end{inleveropdracht}
 

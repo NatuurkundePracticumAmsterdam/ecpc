@@ -180,7 +180,7 @@ print(device.query("*IDN?"))
 ```
 
 !!! question
-    Maak in een geschikte map een bestand \filepath{test\_arduino.py} en kopieer daarin bovenstaande code. Selecteer vervolgens in Visual Studio Code je conda environment zodat je het script ook daadwerkelijk kunt runnen. Hoe je dat doet lees je aan het eind van \secref{sec:conda-envs}. Sluit alle terminals.
+    Maak in een geschikte map een bestand :fontawesome-regular-file-code:`test\_arduino.py` en kopieer daarin bovenstaande code. Selecteer vervolgens in Visual Studio Code je conda environment zodat je het script ook daadwerkelijk kunt runnen. Hoe je dat doet lees je aan het eind van \secref{sec:conda-envs}. Sluit alle terminals.
 
 
 Draaien we het script, dan zien we, afhankelijk van het systeem en het aantal apparaten dat verbonden is:

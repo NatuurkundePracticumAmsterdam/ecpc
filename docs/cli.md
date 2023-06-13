@@ -115,7 +115,7 @@ PS> python hello.py --help
 
 \begin{minopdracht}
     \label{opd:hello-help}
-    Neem het script \filepath{hello.py} over en vraag de helpfunctie op. Test dit met én zonder `#!py @click.command()`.
+    Neem het script :fontawesome-regular-file-code:`hello.py` over en vraag de helpfunctie op. Test dit met én zonder `#!py @click.command()`.
 \end{minopdracht}
 
 \begin{minopdracht}
@@ -135,8 +135,8 @@ PS> python hello.py --help
                 if __name__ == "__main__":
                     hello()
               \end{pythoncode*}
-        \item Draai \filepath{hello.py} eerst zonder een argument \shellinline{python hello.py} en bekijk de foutmelding.
-        \item Draai \filepath{hello.py} nu met een argument: \shellinline{python hello.py Alice}.
+        \item Draai :fontawesome-regular-file-code:`hello.py` eerst zonder een argument \shellinline{python hello.py} en bekijk de foutmelding.
+        \item Draai :fontawesome-regular-file-code:`hello.py` nu met een argument: \shellinline{python hello.py Alice}.
     \end{enumerate}
 \end{minopdracht}
 
@@ -183,7 +183,7 @@ if __name__ == "__main__":
 \end{pythoncode*}
 
 \begin{minopdracht}
-    Neem bovenstaande pythoncode over en test \filepath{hello.py}. Kun je 5 keer een begroeting printen met de naam van je assistent?
+    Neem bovenstaande pythoncode over en test :fontawesome-regular-file-code:`hello.py`. Kun je 5 keer een begroeting printen met de naam van je assistent?
 \end{minopdracht}
 
 \begin{warning}
@@ -295,7 +295,7 @@ Een eenvoudig voorbeeldscript waarin de conda commando's `install` en `remove` w
     if __name__ == "__main__":
         cmd_group()
 \end{pythoncode*}
-In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeurig `#!py cmd_group()` genoemd hebben en die we bovenaan definiëren. In tegenstelling tot het \filepath{hello.py}-script doet deze functie helemaal niets (`#!py pass`). We vertellen aan click dat we een groep van commando's aan gaan maken met de `#!py @click.group()`-decorator in regel 5. Vervolgens gaan we commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` -- zie regels 9 en 14. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 9 en 11 maken samen het commando `install`. Verder werkt alles hetzelfde. Dus een argument toevoegen -- zoals in regel 10 -- is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
+In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeurig `#!py cmd_group()` genoemd hebben en die we bovenaan definiëren. In tegenstelling tot het :fontawesome-regular-file-code:`hello.py`-script doet deze functie helemaal niets (`#!py pass`). We vertellen aan click dat we een groep van commando's aan gaan maken met de `#!py @click.group()`-decorator in regel 5. Vervolgens gaan we commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` -- zie regels 9 en 14. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 9 en 11 maken samen het commando `install`. Verder werkt alles hetzelfde. Dus een argument toevoegen -- zoals in regel 10 -- is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
 
 \begin{warning}
     \label{warn:cmd_name}
@@ -311,7 +311,7 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
 \end{warning}
 
 \begin{minopdracht}
-    Hieronder zie je \filepath{pyproject.toml} van fake-conda:
+    Hieronder zie je :fontawesome-regular-file-code:`pyproject.toml` van fake-conda:
     \begin{tomlcode}
         [tool.poetry]
         name = "fake_conda"
@@ -340,8 +340,8 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
     \begin{enumerate}
         \item Maak een nieuw poetry project (met een `src` indeling) aan met de naam \githubrepo{smallangle}.
         \item Maak een nieuw environment die `IK-smallangle` heet met daarin alleen Python.
-        \item Zet in de package \folderpath{smallangle} een module \filepath{smallangle.py}.
-        \item Plak de onderstaande code in \filepath{smallangle.py}:
+        \item Zet in de package \folderpath{smallangle} een module :fontawesome-regular-file-code:`smallangle.py`.
+        \item Plak de onderstaande code in :fontawesome-regular-file-code:`smallangle.py`:
               ``` py
               import numpy as np
               from numpy import pi
@@ -371,11 +371,11 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
 
 \begin{inleveropdracht}[smallangle]
     \label{opd:smallangle}
-    Het project \githubrepo{smallangle} wordt met Poetry beheerd. Je gaat click aan de module \filepath{smallangle.py} toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.
+    Het project \githubrepo{smallangle} wordt met Poetry beheerd. Je gaat click aan de module :fontawesome-regular-file-code:`smallangle.py` toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.
     \begin{enumerate}
         \item Ga naar GitHub en open \githubrepo{AnneliesVlaar / smallangle} in GitHub Desktop en Visual Studio Code.
         \item Installeer de package in een nieuw environment.
-        \item Run het script \filepath{smallangle.py} en los de errors op totdat het werkt.
+        \item Run het script :fontawesome-regular-file-code:`smallangle.py` en los de errors op totdat het werkt.
         \item Voeg click toe zodat je de subcommando's `sin` en `tan` hebt. Het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) moet gekozen kunnen worden met een optie (geef een standaardwaarde mee, zodat de gebruiker de optie kan weglaten).
         \item Zorg dat smallangle een applicatie wordt die je aan kunt roepen met bijvoorbeeld \shellinline{smallangle sin -n 9}.
     \end{enumerate}
@@ -524,7 +524,7 @@ Options:
 ```
 
 \begin{inleveropdracht}[Smallangle: docstring]
-    Voorzie de functies in \filepath{smallangle.py} die je gemaakt hebt bij \opdref{opd:smallangle} volledig van docstrings, zodat \shellinline{smallangle --help} zinvolle informatie geeft.\footnote{Als de docstring zeer uitgebreid wordt met meerdere argumenten dan wordt de helptekst van click onoverzichtelijk. Als je wilt dat alleen de korte samenvatting in de help verschijnt, zet dan na de korte samenvatting: `#!py \f`.}
+    Voorzie de functies in :fontawesome-regular-file-code:`smallangle.py` die je gemaakt hebt bij \opdref{opd:smallangle} volledig van docstrings, zodat \shellinline{smallangle --help} zinvolle informatie geeft.\footnote{Als de docstring zeer uitgebreid wordt met meerdere argumenten dan wordt de helptekst van click onoverzichtelijk. Als je wilt dat alleen de korte samenvatting in de help verschijnt, zet dan na de korte samenvatting: `#!py \f`.}
 \end{inleveropdracht}
 
 \begin{inleveropdracht}[Pythondaq: docstring]
@@ -543,11 +543,11 @@ Het voert tijdens deze cursus te ver om veel aandacht te besteden aan Sphinx. Ma
 
 ## Command-line interface voor ons experiment
 
-In \chref{ch:mvc} heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals \filepath{view.py}, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand \filepath{cli.py} aanmaken en dat langzaam opbouwen.
+In \chref{ch:mvc} heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals :fontawesome-regular-file-code:`view.py`, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand :fontawesome-regular-file-code:`cli.py` aanmaken en dat langzaam opbouwen.
 
 \begin{inleveropdracht}[Pythondaq: commando's]
     \begin{enumerate}
-        \item Maak een nieuw bestand \filepath{src/pythondaq/cli.py}.
+        \item Maak een nieuw bestand :fontawesome-regular-file-code:`src/pythondaq/cli.py`.
         \item Maak een `#!py @click.group()` aan en voeg de subcommando's `list` en `scan` daaraan toe. Laat de commando's voorlopig alleen tekst printen. Merk op dat `#!py list()` een Pythonfunctie is.\footnote{Zie ook de waarschuwing op \mypageref{warn:cmd_name}.}
         \item Zorg dat je de command-line applicatie met een commando in de terminal kunt aanroepen, inclusief de subcommando's `list` en `scan`.
     \end{enumerate}
