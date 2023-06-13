@@ -28,10 +28,14 @@ Ook zullen we soms systeemopdrachten moeten uitvoeren. We willen bijvoorbeeld de
 
 De prompt ziet er in verschillende besturingssystemen (en _shells_) anders uit. Met deze notatie kun je als volgt :fontawesome-regular-file-code:`my-script.py` met python runnen:
 ``` ps1con
-PS> python my-script.py
+python my-script.py
 ```
-
-Let dus op de verschillende code blocks. Is het een Python script of zijn het commando's die je moet uitvoeren in een terminal?
+Wanneer we ook de uitvoer van commando's laten zien is het handiger om onderscheid te maken tussen het commando en de uitvoer. Als dat nodig is laten we ook de _prompt_ zien:
+``` ps1con
+PS> python --version
+Python 3.10.9
+```
+Merk op dat de commando's dan iets donkerder gekleurd zijn dan de prompt en de uitvoer. Let dus op de verschillende code blocks. Is het een Python script of zijn het commando's die je moet uitvoeren in een terminal?
 
 
 ## Opgaves
