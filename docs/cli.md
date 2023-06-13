@@ -376,13 +376,13 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
         \item Ga naar GitHub en open \githubrepo{AnneliesVlaar / smallangle} in GitHub Desktop en Visual Studio Code.
         \item Installeer de package in een nieuw environment.
         \item Run het script \filepath{smallangle.py} en los de errors op totdat het werkt.
-        \item Voeg click toe zodat je de subcommando's \verb|sin| en \verb|tan| hebt. Het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) moet gekozen kunnen worden met een optie (geef een standaardwaarde mee, zodat de gebruiker de optie kan weglaten).
+        \item Voeg click toe zodat je de subcommando's `sin` en `tan` hebt. Het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) moet gekozen kunnen worden met een optie (geef een standaardwaarde mee, zodat de gebruiker de optie kan weglaten).
         \item Zorg dat smallangle een applicatie wordt die je aan kunt roepen met bijvoorbeeld \shellinline{smallangle sin -n 9}.
     \end{enumerate}
 \end{inleveropdracht}
 
 \begin{bonusopdracht}[Smallangle (uitdaging)]
-    Met het commando \verb|approx| en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\abs{x - \sin(x)} \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over \numlist{.000;.001;.002}, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
+    Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\abs{x - \sin(x)} \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over \numlist{.000;.001;.002}, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
     ``` ps1con
     PS> smallangle approx .1
     For an accuracy of 0.1, the small-angle approximation holds
@@ -572,10 +572,10 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
 
 ### Het meetinstrument kiezen
 
-We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan heeft toegekend. Helaas kan -- ook afhankelijk van het besturingssysteem -- die naam veranderen als we de Arduino in een andere poort van onze computer steken of soms zelfs als we een andere Arduino op dezelfde poort koppelen. Met het commando \verb|list| laten we alle apparaten zien die gevonden worden door de VISA drivers.
+We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan heeft toegekend. Helaas kan -- ook afhankelijk van het besturingssysteem -- die naam veranderen als we de Arduino in een andere poort van onze computer steken of soms zelfs als we een andere Arduino op dezelfde poort koppelen. Met het commando `list` laten we alle apparaten zien die gevonden worden door de VISA drivers.
 
 \begin{inleveropdracht}[Pythondaq: `list`]
-    Schrijf het commando \verb|list| zodat het een lijst geeft van de aangesloten instrumenten -- zoals we in het vorige hoofdstuk al eens gedaan hebben.
+    Schrijf het commando `list` zodat het een lijst geeft van de aangesloten instrumenten -- zoals we in het vorige hoofdstuk al eens gedaan hebben.
 \end{inleveropdracht}
 
 \begin{inleveropdracht}[Pythondaq: choose device]
@@ -584,7 +584,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 \end{inleveropdracht}
 
 \begin{inleveropdracht}[Pythondaq: `info`]
-    Maak een commando \verb|info| waarmee je de identificatiestring van een opgegeven instrument opvraagt en weergeeft. Je kunt het instrument met een optie of argument meegeven.
+    Maak een commando `info` waarmee je de identificatiestring van een opgegeven instrument opvraagt en weergeeft. Je kunt het instrument met een optie of argument meegeven.
 \end{inleveropdracht}
 
 \begin{inleveropdracht}[Pythondaq: Helpteksten]
@@ -596,7 +596,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 \end{inleveropdracht}
 
 \begin{bonusopdracht}[Pythondaq: `list {-`{-}search}]
-    Breid het commando `list` uit met een optie \verb|--search| waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
+    Breid het commando `list` uit met een optie `--search` waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
     ``` ps1con
     PS> diode list
     The following devices are connected to your computer:
@@ -614,7 +614,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
     De lijst met instrumenten kan er op Windows heel anders uitzien. Pas daarna `scan` en `info` aan zodat het niet nodig is om de volledige devicenaam mee te geven, maar alleen een zoekterm.
 \end{bonusopdracht}
 
-Op dit punt hebben we de functionaliteit van ons snelle script van het vorige hoofdstuk bereikt. Dit was veel meer werk, maar het is veel flexibeler. Als je wilt meten met een andere Arduino, een ander bereik, of een andere stapgrootte dan type je gewoon een iets ander commando in de terminal. Je hoeft geen scripts meer aan te passen. Als je na een tijdje niet meer precies weet hoe het ook alweer werkte allemaal kun je dat snel weer oppakken door \verb|--help| aan te roepen.
+Op dit punt hebben we de functionaliteit van ons snelle script van het vorige hoofdstuk bereikt. Dit was veel meer werk, maar het is veel flexibeler. Als je wilt meten met een andere Arduino, een ander bereik, of een andere stapgrootte dan type je gewoon een iets ander commando in de terminal. Je hoeft geen scripts meer aan te passen. Als je na een tijdje niet meer precies weet hoe het ook alweer werkte allemaal kun je dat snel weer oppakken door `--help` aan te roepen.
 
 \begin{minopdracht}
     Kijk nog eens terug naar het lijstje subcommando's die je in \opdref{opd:subcommandos} hebt opgeschreven. Heb je alles geïmplementeerd? Wat zou je willen dat je nog meer kan instellen? Als er tijd over is, kijk dan of dit lukt.

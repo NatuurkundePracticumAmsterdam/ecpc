@@ -128,9 +128,9 @@ Het stuk programma om bovenstaande layout op te bouwen geven we hieronder weer.\
       def add_button_clicked(self):
           self.textedit.append("You clicked me.")
 \end{pythoncode*}
-Allereerst definiëren we een \verb|__init__()|. Helaas gaat dat niet zomaar. We schrijven namelijk _niet_ helemaal zelf een nieuwe class (`#!py class UserInterface`), maar breiden de `#!py QMainWindow`-class uit (`#!py class UserInterface(QtWidgets.QMainWindow)`). Door dat te doen zijn er heel veel methods al voor ons gedefinieerd. Daar hoeven we verder niet over na te denken, onze interface <q>werkt gewoon</q>. Het gaat mis als wij zelf nieuwe methods gaan schrijven die dezelfde naam hebben. Stel dat de _parent class_ `#!py QMainWindow` een method `#!py click_this_button()` heeft. Als onze class _ook_ een method `#!py click_this_button()` heeft, dan zal _die_ worden aangeroepen in plaats van de method uit de parent class. Dat is handig als je de parent method wilt vervangen maar niet zo handig als je de parent method wilt _aanvullen_, zoals nodig is bij \verb|__init__()|. Immers, we willen onze eigen class initialiseren, maar we willen ook dat de parent class volledig wordt geïnitialiseerd.
+Allereerst definiëren we een `__init__()`. Helaas gaat dat niet zomaar. We schrijven namelijk _niet_ helemaal zelf een nieuwe class (`#!py class UserInterface`), maar breiden de `#!py QMainWindow`-class uit (`#!py class UserInterface(QtWidgets.QMainWindow)`). Door dat te doen zijn er heel veel methods al voor ons gedefinieerd. Daar hoeven we verder niet over na te denken, onze interface <q>werkt gewoon</q>. Het gaat mis als wij zelf nieuwe methods gaan schrijven die dezelfde naam hebben. Stel dat de _parent class_ `#!py QMainWindow` een method `#!py click_this_button()` heeft. Als onze class _ook_ een method `#!py click_this_button()` heeft, dan zal _die_ worden aangeroepen in plaats van de method uit de parent class. Dat is handig als je de parent method wilt vervangen maar niet zo handig als je de parent method wilt _aanvullen_, zoals nodig is bij `__init__()`. Immers, we willen onze eigen class initialiseren, maar we willen ook dat de parent class volledig wordt geïnitialiseerd.
 
-De oplossing is gelukkig vrij eenvoudig: we kunnen de \verb|__init__()| van de parent class gewoon aanroepen en daarna ons eigen ding doen. De Pythonfunctie `#!py super()` verwijst altijd naar de parent class, dus met `#!py super().__init__()` wordt de parent class volledig geïnitialiseerd. Dat is dus het eerste dat we doen in regel 7.
+De oplossing is gelukkig vrij eenvoudig: we kunnen de `__init__()` van de parent class gewoon aanroepen en daarna ons eigen ding doen. De Pythonfunctie `#!py super()` verwijst altijd naar de parent class, dus met `#!py super().__init__()` wordt de parent class volledig geïnitialiseerd. Dat is dus het eerste dat we doen in regel 7.
 
 \begin{minopdracht}
     \begin{enumerate}
@@ -287,7 +287,7 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
         \item Bij _Promoted class name_ vul je in `PlotWidget` en bij _Header file_ vul je in `pyqtgraph` (zonder `.h` aan het eind);
         \item Dan klik je op _Add_ en vervolgens op _Promote_;
     \end{enumerate}
-    Zie \figref{fig:screenshot-promote-widget}. Nu je dit een keer gedaan hebt kun je voortaan op een Graphics View meteen kiezen voor _Promote to \textrightarrow\ PlotWidget_ en hoef je niets meer in te typen. Vergeet niet je widget nog even een handige naam te geven, bijvoorbeeld \verb|plot_widget|.
+    Zie \figref{fig:screenshot-promote-widget}. Nu je dit een keer gedaan hebt kun je voortaan op een Graphics View meteen kiezen voor _Promote to \textrightarrow\ PlotWidget_ en hoef je niets meer in te typen. Vergeet niet je widget nog even een handige naam te geven, bijvoorbeeld `plot_widget`.
 \end{info}
 
 \begin{figure}
@@ -351,7 +351,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen`, 
 
 \begin{bonus}
     \begin{opdracht}[Functieplotter (uitdaging)]
-        Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals \verb|x ** 2|, \verb|sin(x)| of \verb|1 / sqrt(x + 1)|. Gebruik daarvoor het `asteval` package \parencite{asteval}. Documentatie vind je op \url{https://newville.github.io/asteval/}.
+        Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals `x ** 2`, `sin(x)` of `1 / sqrt(x + 1)`. Gebruik daarvoor het `asteval` package \parencite{asteval}. Documentatie vind je op \url{https://newville.github.io/asteval/}.
     \end{opdracht}
 
     \begin{warning}
@@ -485,7 +485,7 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
 % \end{hogercijfer}
 
 \begin{inleveropdracht}[Pythondaq: selecteer Arduino]
-    Maak een keuzemenu (`#!py QComboBox`) zodat je de Arduino kunt selecteren. Je zult in de \verb|__init__()| eerst een lijst van devices moeten maken en die toe moeten voegen aan de widget. Zie ook \tabref{tab:widgets} en de documentatie. Het kan daarbij handig zijn om de device pas te _openen_ als je een scan uitvoert en hem te sluiten (schrijf een soort `#!py device.close()`) als de scan is afgelopen. In de controller werk je met een `#!py pyvisa` device en die heeft al een `#!py close()`-method.
+    Maak een keuzemenu (`#!py QComboBox`) zodat je de Arduino kunt selecteren. Je zult in de `__init__()` eerst een lijst van devices moeten maken en die toe moeten voegen aan de widget. Zie ook \tabref{tab:widgets} en de documentatie. Het kan daarbij handig zijn om de device pas te _openen_ als je een scan uitvoert en hem te sluiten (schrijf een soort `#!py device.close()`) als de scan is afgelopen. In de controller werk je met een `#!py pyvisa` device en die heeft al een `#!py close()`-method.
 \end{inleveropdracht}
 
 \begin{bonusopdracht}[Pythondaq: exception]

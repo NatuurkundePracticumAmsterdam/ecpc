@@ -96,7 +96,7 @@ Het bestand is in het TOML-formaat \cite{TOML}. Tussen de vierkante haken staan 
 \begin{minopdracht}
     \begin{enumerate}
         \item Open het bestand \filepath{pyproject.toml}
-        \item Verander bij de dependencies voor python \verb|^3.10| in \verb|^3.9|.
+        \item Verander bij de dependencies voor python `^3.10` in `^3.9`.
     \end{enumerate}
 
 \end{minopdracht}
