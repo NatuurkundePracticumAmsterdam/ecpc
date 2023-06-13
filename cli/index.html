@@ -1,0 +1,1130 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../poetry/">
+      
+      
+        <link rel="next" href="../gui/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Command-line interface - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#command-line-interface" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Command-line interface
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introductie/" class="md-nav__link">
+        Introductie
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../communicatie/" class="md-nav__link">
+        Communicatie met een meetinstrument
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mvc/" class="md-nav__link">
+        Model-View-Controller
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        Versiebeheer met GitHub
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../poetry/" class="md-nav__link">
+        Poetry
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Command-line interface
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Command-line interface
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gebruikersomgevingen" class="md-nav__link">
+    Gebruikersomgevingen
+  </a>
+  
+    <nav class="md-nav" aria-label="Gebruikersomgevingen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commandos" class="md-nav__link">
+    Commando's
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#click" class="md-nav__link">
+    Click
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        Graphical user interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eindfeest/" class="md-nav__link">
+        Eindopdracht
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          Appendices
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Appendices
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software-tools/" class="md-nav__link">
+        Gereedschap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firmware/" class="md-nav__link">
+        Firmware
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kleurcodes/" class="md-nav__link">
+        Kleurcodes voor weerstanden
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diodes/" class="md-nav__link">
+        De diode: een p-n-overgang
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zonnecel/" class="md-nav__link">
+        Zonnecel
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gebruikersomgevingen" class="md-nav__link">
+    Gebruikersomgevingen
+  </a>
+  
+    <nav class="md-nav" aria-label="Gebruikersomgevingen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commandos" class="md-nav__link">
+    Commando's
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#click" class="md-nav__link">
+    Click
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="command-line-interface">Command-line interface</h1>
+<h2 id="gebruikersomgevingen">Gebruikersomgevingen</h2>
+<p>Vanaf de jaren '60 van de vorige eeuw werden computers <em>interactief</em>. Het was mogelijk om via een <em>terminal</em> commando's aan de computer te geven en te wachten op een antwoord. In tegenstelling tot moderne gebruikersomgevingen waren deze volledig op tekst gebaseerd. Hoewel moderne besturingssystemen -- of het nu computers, tablets of mobiele telefoons betreft -- volledig grafisch zijn ingericht, is de tekstuele interface nooit verdwenen. Opdrachten geven door te typen is gewoon best wel handig en snel. Ook is het veel eenvoudiger om applicaties te ontwikkelen zonder grafische interface.</p>
+<p>Op ieder besturingssysteem -- Linux, MacOS, Windows -- is een <em>shell</em>, <em>terminal</em> of <em>command prompt</em> te vinden. Als je die opstart kun je op de zogeheten <em>command line</em> opdrachten intypen. Veelal zijn dit commando's om het bestandssysteem te navigeren en programma's op te starten.</p>
+<p>Wanneer je in Visual Studio Code een Python script start dan opent het een terminal onderin het scherm.</p>
+<h3 id="commandos">Commando's</h3>
+<p>Je hebt tot nu toe al heel wat commando's in de terminal getypt. Laten we een paar voorbeelden bestuderen:
+<div class="language-ps1con highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">PS&gt; </span><span class="n">python</span> <span class="n">script</span><span class="p">.</span><span class="n">py</span>
+</span></code></pre></div>
+Als eerste vertel je welke applicatie je wilt gaan starten; in dit geval: <code>python</code>. Daarna geef je met het <em>argument</em> <code>script.py</code> aan welk Pythonscript je wilt uitvoeren. Vaak kun je ook <em>opties</em> meegeven zoals in:
+<div class="language-ps1con highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">PS&gt; </span><span class="n">python</span> <span class="n">-V</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="go">Python 3.9.13</span>
+</span></code></pre></div>
+Hiermee vraag je Python om het versienummer weer te geven. Soms kunnen <em>opties</em> zelf weer een <em>argument</em> meekrijgen. Bijvoorbeeld:
+<div class="language-ps1con highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">PS&gt; </span><span class="n">python</span> <span class="n">-m</span> <span class="n">antigravity</span>
+</span></code></pre></div>
+Met deze regel geef je Python de optie <code>-m</code> en die importeert een module (hier <code>antigravity</code>) en voert die uit. Probeer maar eens zelf wat er gebeurt als je dat commando uitvoert.</p>
+<p>Als applicaties veel verschillende functionaliteit hebben dan krijg je regelmatig te maken met een lange regel met een combinatie van argumenten en opties:
+<div class="language-ps1con highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">PS&gt; </span><span class="n">conda</span> <span class="n">create</span> <span class="n">-n</span> <span class="n">IK-pythondaq</span> <span class="n">-c</span> <span class="n">conda-forge</span> <span class="n">python</span> <span class="n">pyvisa-py</span>
+</span></code></pre></div>
+Uitgesplitst in \textit{argumenten} en \textbf{opties}, met vierkante haken [] om aan te geven welke onderdelen bij elkaar horen, is dat:
+\begin{quote}
+    conda \textit{create} [\textbf{-n} \textit{IK-pythondaq}] [\textbf{-c} \textit{conda-forge}] [\textit{python pyvisa-py}]
+\end{quote}</p>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<ol>
+<li>Naast \shellinline{conda create} heb je ook met andere argumenten gewerkt zoals <code>activate</code> en <code>install</code>. Welke argumenten ken je al van de applicatie <code>poetry</code>?</li>
+<li>Vraag de lijst met argumenten (commando's) op van Poetry met \shellinline{poetry list}, hoeveel kende je nog niet?</li>
+</ol>
+</div>
+<h3 id="click">Click</h3>
+<p>Als we gebruik willen maken van commando's in onze eigen applicatie moeten we weten wat de gebruiker in de terminal typt. Dit is mogelijk met <code>sys.argv</code>.\footnote{argv staat voor: argument vector, een lijst met argumenten}</p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># cli.py</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">import</span> <span class="nn">sys</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Alles wat we in de terminal typen wordt aan input meegegeven:
+<div class="language-ps1con highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">PS&gt; </span><span class="n">python</span>  <span class="n">cli</span><span class="p">.</span><span class="n">py</span> <span class="n">test</span> <span class="n">123</span>   
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="go">[&#39;cli.py&#39;, &#39;test&#39;, &#39;123&#39;]</span>
+</span></code></pre></div></p>
+<p>Met if-statements kunnen we acties verbinden aan bepaalde argumenten:
+\begin{pythoncode*}{highlightlines={8-11}}</p>
+<h1 id="clipy">cli.py</h1>
+<p>import sys</p>
+<p>args = sys.argv
+print(args)</p>
+<p>if args[1] == "test":
+    print(f"This is a test: {args[2]}")
+else:
+    print(f"CommandNotFoundError: No command '{args[1]}'.")
+\end{pythoncode*}</p>
+<p>Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar -- waaronder een paar in de <em>standard library</em>. Een hele handige -- die níet in de <em>standard library</em> zit maar wél meegeleverd is met Anaconda -- is Click \cite{click}.</p>
+<p>\begin{info}
+    Click maakt gebruik van <em>decorators</em> (<code class="language-py highlight"><span class="nd">@decorator</span></code>). Om decorators te <em>gebruiken</em>, hoef je niet per se te weten hoe ze <em>werken</em>. Als je meer wilt weten over de werking ervan lees dan \secref{sec:decorators}.
+\end{info}</p>
+<p>Als kort voorbeeld -- geïnspireerd op de documentatie van Click -- nemen we het volgende script:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># hello.py</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello physicist!&quot;</span><span class="p">)</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="n">hello</span><span class="p">()</span>
+</span></code></pre></div></p>
+<p>Dit script print de uitdrukking "Hello physicist!". We gaan dit aanpassen en maken het mogelijk om de naam en het aantal begroetingen te kiezen. Hiervoor gebruiken we Click. Allereerst moeten we <code class="language-py highlight"><span class="n">click</span></code> importeren en aangeven dat we de <code class="language-py highlight"><span class="n">hello</span><span class="p">()</span></code>-functie willen gebruiken als <em>commando</em>:</p>
+<p>\begin{pythoncode*}{highlightlines={5}}</p>
+<h1 id="hellopy">hello.py</h1>
+<p>import click</p>
+<p>@click.command()
+def hello():
+    print("Hello physicist!")</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    hello()
+\end{pythoncode*}</p>
+<p>Dit levert ons nog niet zoveel op, maar op de achtergrond is click wel degelijk aan het werk. De <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">()</span></code> houdt in de gaten wat er in de command line wordt ingetypt. Zo kunnen we de helpfunctie aanroepen door \shellinline{--help} achter de naam van het script te zetten.</p>
+<div class="language-ps1con highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">PS&gt; </span><span class="n">python</span> <span class="n">hello</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-help</span>
+</span></code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<p>\label{opd:hello-help}
+Neem het script <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>hello.py</code> over en vraag de helpfunctie op. Test dit met én zonder <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">()</span></code>.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<p>Laten we zorgen dat we een naam als argument mee kunnen geven.</p>
+<ol>
+<li>
+<p>In de code hieronder geven we met de regel <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span></code> aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie <code>hello</code>:
+        \begin{pythoncode*}{highlightlines={6,8}}
+        # hello.py</p>
+<div class="language-text highlight"><pre><span></span><code>import click
+
+@click.command()
+@click.argument(&quot;name&quot;)
+def hello(name):
+    print(f&quot;Hello {name}!&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    hello()
+\end{pythoncode*}
+</code></pre></div>
+</li>
+<li>
+<p>Draai <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>hello.py</code> eerst zonder een argument \shellinline{python hello.py} en bekijk de foutmelding.</p>
+</li>
+<li>Draai <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>hello.py</code> nu met een argument: \shellinline{python hello.py Alice}.</li>
+</ol>
+</div>
+<p>\begin{warning}
+    Let er op dat je bij <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">argument</span></code> de naam meegeeft die overeen komt met de namen van de parameters van je functie. In ons geval hebben we een argument <code class="language-py highlight"><span class="s2">&quot;name&quot;</span></code>. Dit moet overeenkomen met de functiedefinitie <code class="language-py highlight"><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></code>.
+\end{warning}</p>
+<p>% Als we dit script nu runnen <em>zonder</em> argument krijgen we een foutmelding:
+% ``` ps1con
+% PS&gt; python hello.py
+% Usage: hello.py [OPTIONS] NAME
+% Try 'hello.py --help' for help.</p>
+<p>% Error: Missing argument 'NAME'.
+% ```
+% maar <em>met</em> argument krijgen we dit:</p>
+<p>% <code>ps1con
+% PS&gt; python hello.py Alice
+% Hello Alice!
+%</code></p>
+<p>Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij <em>opties</em> is dat anders. Je geeft met mintekens aan dat je een optie meegeeft. Veel opties hebben een lange naam en een afkorting (bijvoorbeeld \shellinline{--count} en \shellinline{-c}). Opties kunnen zelf weer een argument hebben (bijvoorbeeld \shellinline{--count 3}). Opties zonder argument werken als vlag -- een soort aan/uitknop.\footnote{Gebruik forward slash om een vlaggetje te maken: <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;-f&quot;</span><span class="p">,</span> <span class="s2">&quot;--flag/--no-flag</span></code>} Het is handig om een standaardwaarde te definiëren. In dat geval mag de gebruiker de optie weglaten. We voegen een for-loop\footnote{Merk op in de code hieronder: <code class="language-py highlight"><span class="n">_</span></code> is de weggooivariabele in Python. Het gaat ons erom dat de lus een aantal keer doorlopen wordt en we hoeven niets te doen met de loop index.} toe om de begroeting te herhalen.</p>
+<p>\begin{pythoncode*}{highlightlines={7-11,13}}</p>
+<h1 id="hellopy_1">hello.py</h1>
+<p>import click</p>
+<p>@click.command()
+@click.argument("name")
+@click.option(
+    "-c",
+    "--count",
+    default=1,
+)
+def hello(name, count):
+    for _ in range(count):
+        print(f"Hello {name}!")</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    hello()
+\end{pythoncode*}</p>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<p>Neem bovenstaande pythoncode over en test <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>hello.py</code>. Kun je 5 keer een begroeting printen met de naam van je assistent?</p>
+</div>
+<p>\begin{warning}
+    Let er op dat je bij <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">option</span></code> de afkorting met 1 minteken meegeeft en de lange naam met 2 mintekens. De lange naam moet overeenkomen met de paramater van je functie. In ons geval hebben we een optie <code class="language-py highlight"><span class="s2">&quot;--count&quot;</span></code> -- de lange naam telt. Dit moet overeenkomen met de functiedefinitie <code class="language-py highlight"><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span></code>.
+\end{warning}</p>
+<p>Het is handig om een korte helptekst toe te voegen. Dit gaat als volgt:</p>
+<p>\begin{pythoncode*}{highlightlines={11,12}}</p>
+<h1 id="hellopy_2">hello.py</h1>
+<p>import click</p>
+<p>@click.command()
+@click.argument("name")
+@click.option(
+    "-c",
+    "--count",
+    default=1,
+    help="Number of times to print greeting.",
+    show_default=True,  # show default in help
+)
+def hello(name,count):
+    for _ in range(count):
+        print(f"Hello {name}!")</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    hello()<br />
+\end{pythoncode*}</p>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<p>Voeg de helptekst toe en vraag de helptekst op zoals in \opdref{opd:hello-help}.</p>
+</div>
+<p>Als je dit script gebruikt ziet dat er zo uit:</p>
+<div class="language-ps1con highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gp">PS&gt; </span><span class="n">python</span> <span class="n">hello</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-help</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="go">Usage: hello.py [OPTIONS] NAME</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="go">Options:</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="go">  -c, --count INTEGER  Number of times to print greeting.  [default: 1]</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="go">  --help               Show this message and exit.</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="gp">PS&gt; </span><span class="n">python</span> <span class="n">hello</span><span class="p">.</span><span class="n">py</span> <span class="n">Alice</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="go">Hello Alice!</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="gp">PS&gt; </span><span class="n">python</span> <span class="n">hello</span><span class="p">.</span><span class="n">py</span> <span class="n">Alice</span> <span class="n">-c</span> <span class="n">2</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="go">Hello Alice!</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="go">Hello Alice!</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="gp">PS&gt; </span><span class="n">python</span> <span class="n">hello</span><span class="p">.</span><span class="n">py</span> <span class="n">Alice</span> <span class="p">-</span><span class="n">-count</span> <span class="n">3</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="go">Hello Alice!</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="go">Hello Alice!</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="go">Hello Alice!</span>
+</span></code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<p>\label{opd:hello-pauze}
+Breid het bovenstaande script <code>hello.py</code> uit met een optie om een korte pauze in te lassen na het printen van ieder <code class="language-py highlight"><span class="nb">print</span><span class="p">()</span></code>-statement. Een pauze kun je inlassen met <code class="language-py highlight"><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span></code>. Zorg er voor dat er zonder die optie géén pauze is en dat je met de optie kunt kiezen hoe lang er gewacht moet worden.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">bonus</p>
+<p>Gebruik een optie als vlag om de gebruiker te laten kiezen tussen <q>hello</q> of <q>goodbye</q>. Zorg dat er standaard <q>hello</q> wordt geprint.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<p>Bij \opdref{opd:Poetry_commando} heb je een applicatie gemaakt om de oppervlakte van een tafel te berekenen met de bijbehorende onzekerheid. In deze opdracht gaan we het script uitbreiden om de lengte en de breedte én de onzekerheid daarop als argument of optie mee te geven op de command line. Voer de volgende stappen uit:</p>
+<ol>
+<li>Maak een schone environment aan en installeer de applicatie (doet alles het nog?)</li>
+<li>Voeg click toe en pas het script aan zodat je de lengte zelf kan kiezen.\footnote{Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieerd. Gebruik <code class="language-py highlight"><span class="nb">type</span><span class="o">=</span><span class="nb">int</span></code>, <code class="language-py highlight"><span class="nb">type</span><span class="o">=</span><span class="nb">float</span></code> enzovoorts om aan te geven wat voor type object het argument moet worden}</li>
+<li>Test de applicatie.</li>
+<li>Voeg ook opties of argumenten toe om de breedte en de onzekerheden mee te geven. Wanneer kies je in het script voor een optie en wanneer voor een argument?</li>
+<li>Maak de applicatie compleet met helpteksten en default waardes.</li>
+</ol>
+</div>
+<h3 id="click-subcommandos">Click subcommando's</h3>
+<p>Tot nu toe konden we maar één functie uitvoeren in onze applicatie. Maar het is ook mogelijk om subcommando's aan te maken zodat je met één programma meerdere <q>taken</q> kunt uitvoeren. Denk bijvoorbeeld aan \shellinline{conda}. Je installeert packages met \shellinline{conda install}, verwijdert ze met \shellinline{conda remove}, maakt een environment met \shellinline{conda create} en activeert het met \shellinline{conda activate}.</p>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<p>\label{opd:subcommandos}
+Je gaat de <code>pythondaq</code> applicatie straks verder uitbreiden zodat er veel meer mogelijk is dan nu. Wat zou je willen dat de applicatie allemaal kan? Welke subcommando's wil je gaan aanmaken? Overleg met elkaar om goede ideeën uit te wisselen.</p>
+</div>
+<p>Een eenvoudig voorbeeldscript waarin de conda commando's <code>install</code> en <code>remove</code> worden nagebootst leggen we hieronder uit. Eerst de code:</p>
+<p>\begin{pythoncode*}{linenos}
+    # fakeconda.py</p>
+<div class="language-text highlight"><pre><span></span><code>import click
+
+@click.group()
+def cmd_group():
+    pass
+
+@cmd_group.command()
+@click.argument(&quot;package&quot;)
+def install(package):
+    print(f&quot;Installing {package}...&quot;)
+
+@cmd_group.command()
+@click.argument(&quot;package&quot;)
+def remove(package):
+    print(f&quot;Removing {package}...&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    cmd_group()
+</code></pre></div>
+<p>\end{pythoncode*}
+In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeurig <code class="language-py highlight"><span class="n">cmd_group</span><span class="p">()</span></code> genoemd hebben en die we bovenaan definiëren. In tegenstelling tot het <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>hello.py</code>-script doet deze functie helemaal niets (<code class="language-py highlight"><span class="k">pass</span></code>). We vertellen aan click dat we een groep van commando's aan gaan maken met de <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">group</span><span class="p">()</span></code>-decorator in regel 5. Vervolgens gaan we commando's binnen deze groep hangen door <em>niet</em> de decorator <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">()</span></code> te gebruiken, maar <code class="language-py highlight"><span class="nd">@cmd_group</span><span class="o">.</span><span class="n">command</span><span class="p">()</span></code> -- zie regels 9 en 14. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 9 en 11 maken samen het commando <code>install</code>. Verder werkt alles hetzelfde. Dus een argument toevoegen -- zoals in regel 10 -- is gewoon met <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">()</span></code>. Hier hoef je geen <code class="language-py highlight"><span class="n">cmd_group</span></code> te gebruiken.</p>
+<p>\begin{warning}
+    \label{warn:cmd_name}
+    Omdat de naam van een subcommando gelijk is aan de functienaam kan dat voor problemen zorgen wanneer je gereserveerde namen van python wilt gebruiken zoals: <code class="language-py highlight"><span class="kn">import</span></code>, <code class="language-py highlight"><span class="k">return</span></code>, <code class="language-py highlight"><span class="k">lambda</span></code>. Of wanneer je de naam van het subcommando graag hetzelfde wilt hebben als een ander pythonfunctie zoals <code class="language-py highlight"><span class="n">sin</span></code> of <code class="language-py highlight"><span class="nb">list</span></code>.
+    Een oplossing is om de functienaam aan te passen en de subcommando naam expliciet aan click mee te geven bij <code>command</code>:
+    <div class="language-py highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>    <span class="nd">@cmd_group</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot;import&quot;</span><span class="p">)</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s2">&quot;package&quot;</span><span class="p">)</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="k">def</span> <span class="nf">import_package</span><span class="p">(</span><span class="n">package</span><span class="p">):</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;import </span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+    We hebben nu een commando <code>import</code> aangemaakt -- <em>niet</em> een commando <code>import\_package</code>.
+\end{warning}</p>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<p>Hieronder zie je <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>pyproject.toml</code> van fake-conda:
+\begin{tomlcode}
+    [tool.poetry]
+    name = "fake_conda"
+    version = "0.1.0"
+    description = ""
+    authors = ["YourName <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#89;&#111;&#117;&#114;&#78;&#97;&#109;&#101;&#64;&#117;&#115;&#101;&#114;&#115;&#46;&#110;&#111;&#114;&#101;&#112;&#108;&#121;&#46;&#103;&#105;&#116;&#104;&#117;&#98;&#46;&#99;&#111;&#109;">&#89;&#111;&#117;&#114;&#78;&#97;&#109;&#101;&#64;&#117;&#115;&#101;&#114;&#115;&#46;&#110;&#111;&#114;&#101;&#112;&#108;&#121;&#46;&#103;&#105;&#116;&#104;&#117;&#98;&#46;&#99;&#111;&#109;</a>"]</p>
+<div class="language-text highlight"><pre><span></span><code>[tool.poetry.dependencies]
+python = &quot;^3.9&quot;
+
+[build-system]
+requires = [&quot;poetry-core&gt;=1.0.0&quot;]
+build-backend = &quot;poetry.core.masonry.api&quot;
+</code></pre></div>
+<p>\end{tomlcode}
+% [tool.poetry.scripts]</p>
+<p>Hoe moet je de toml-file aanpassen zodat de volgende uitvoer mogelijk wordt?
+<div class="language-ps1con highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">PS&gt; </span><span class="n">fake_conda</span> <span class="n">install</span> <span class="n">scipy</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="go">Installing scipy...</span>
+</span></code></pre></div></p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">bonus: Smallangle (uitdaging)</p>
+<p>Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt -- maar jij weet precies over welk onderdeel we het hebben.</p>
+<ol>
+<li>Maak een nieuw poetry project (met een <code>src</code> indeling) aan met de naam \githubrepo{smallangle}.</li>
+<li>Maak een nieuw environment die <code>IK-smallangle</code> heet met daarin alleen Python.</li>
+<li>Zet in de package \folderpath{smallangle} een module <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>smallangle.py</code>.</li>
+<li>Plak de onderstaande code in <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>smallangle.py</code>:
+    <div class="language-py highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">pi</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="k">def</span> <span class="nf">sin</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;sin (x)&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)})</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    <span class="k">return</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="k">def</span> <span class="nf">tan</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;tan (x)&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">)})</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>    <span class="k">return</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>    <span class="n">sin</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></code></pre></div><ol>
+<li>Ga door naar \opdref{opd:smallangle} stap 2. Je mag stap 1 overslaan -- dat werk heb je nu zelf al gedaan.</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">inleveren: smallangle</p>
+<p>\label{opd:smallangle}
+Het project \githubrepo{smallangle} wordt met Poetry beheerd. Je gaat click aan de module <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>smallangle.py</code> toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.</p>
+<ol>
+<li>Ga naar GitHub en open \githubrepo{AnneliesVlaar / smallangle} in GitHub Desktop en Visual Studio Code.</li>
+<li>Installeer de package in een nieuw environment.</li>
+<li>Run het script <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>smallangle.py</code> en los de errors op totdat het werkt.</li>
+<li>Voeg click toe zodat je de subcommando's <code>sin</code> en <code>tan</code> hebt. Het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) moet gekozen kunnen worden met een optie (geef een standaardwaarde mee, zodat de gebruiker de optie kan weglaten).</li>
+<li>Zorg dat smallangle een applicatie wordt die je aan kunt roepen met bijvoorbeeld \shellinline{smallangle sin -n 9}.</li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">bonus: Smallangle (uitdaging)</p>
+<p>Met het commando <code>approx</code> en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\abs{x - \sin(x)} \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over \numlist{.000;.001;.002}, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
+<div class="language-ps1con highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="gp">PS&gt; </span><span class="n">smallangle</span> <span class="n">approx</span> <span class="p">.</span><span class="n">1</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="go">For an accuracy of 0.1, the small-angle approximation holds</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="go">up to x = 0.854.</span>
+</span></code></pre></div></p>
+</div>
+<h2 id="docstrings">Docstrings</h2>
+<p>Documentatie is vaak een onderschoven kindje, maar is ontzettend belangrijk. Als je zelf informatie opzoekt over bijvoorbeeld een voor jou onbekende Pythonbibliotheek dan vind je het heel fijn als er een duidelijke tutorial is. Als je code schrijft die ook door andere mensen gebruikt moet worden is documentatie nodig. Als de code langer mee moet gaan dan zeg een paar weken, dan helemaal. Want over een paar weken ben jij <em>zelf</em> een ander persoon. Hoe vervelend het ook is, code die je nota bene zelf geschreven hebt is over een paar weken niet meer glashelder. Je zult dan moeten uitzoeken hoe je ook alweer iets hebt gedaan of wat de gedachte erachter was.</p>
+<p>Tot nu toe heb je waarschijnlijk gebruik gemaakt van <code class="language-py highlight"><span class="c1">#stukjes commentaar</span></code> om duidelijk te maken wat je code doet. Maar als je de applicatie aan het gebruiken bent en je wilt weten wat een bepaalde functie eigenlijk doet, moet je dus de code induiken op zoek naar de betreffende functie. Met <em>docstrings</em> -- documentatiestrings -- is dat verleden tijd. De documentatie over een functie kan automatisch gegenereerd worden vanuit je code met behulp van de docstring. Docstrings staat tussen 3 dubbele aanhalingstekens en hebben doorgaans een vaste structuur:\footnote{Die vaste structuur wordt niet door Python afgedwongen, maar is een goed gebruik. Er worden verschillende stijlen gebruikt. Eén van de meest gebruikte stijlen is door programmeurs van Google bedacht \parencite{google_style_guide}.}</p>
+<p><div class="language-py highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># integers_up_to.py</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">def</span> <span class="nf">integers_up_to</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;List integers up to a given number.</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="sd">    Args:</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="sd">        number (int): list integers up to this number</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="sd">    Returns:</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="sd">        list: containing the integers</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>    <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">number</span><span class="p">))</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>        <span class="k">return</span> <span class="p">[]</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="n">help</span><span class="p">(</span><span class="n">integers_up_to</span><span class="p">)</span>
+</span></code></pre></div>
+De eerste regel geeft een korte samenvatting weer, na de witregel komt een langere samenvatting. Met <code>Args:</code> worden alle argumenten opgesomd die aan de functie worden meegegeven en <code>Returns:</code> geeft aan wat de functie teruggeeft. We kunnen de documentatie van deze functie opvragen met: <code class="language-py highlight"><span class="n">help</span><span class="p">(</span><span class="n">integers_up_to</span></code>. Dat geeft het volgende resultaat:
+<div class="language-ps1con highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gp">PS&gt; </span><span class="n">python</span> <span class="n">integers_up_to</span><span class="p">.</span><span class="n">py</span> 
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="go">    Help on function integers_up_to in module __main__:</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="go">    integers_up_to(number)</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="go">        List integers up to a given number.</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="go">        Args:</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="go">            number (int): list integers up to this number</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="go">        Returns:</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="go">            list: containing the integers</span>
+</span></code></pre></div>
+Je zult niet altijd de <code class="language-py highlight"><span class="n">help</span><span class="p">()</span></code> functie gebruiken misschien, maar gebruik zoveel mogelijk docstrings -- ze helpen ook enorm als je de code leest. Het is extra werk maar het verdient zich dubbel en dwars terug. Je hoeft geen proza te schrijven, maar wees duidelijk. Lees voor meer voorbeelden bijvoorbeeld de \citetitle{google_style_guide} \parencite{google_style_guide}.</p>
+<h3 id="docstring-generator">Docstring generator</h3>
+<p>Om het gemakkelijker te maken om docstrings ook écht te gaan schrijven, zijn er docstring generators ontwikkeld. Voor Visual Studio Code is er de extensie \citetitle{AutoDocstring} \parencite{AutoDocstring}.</p>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<p>Kijk in Visual Studio Code bij extensions hoe je AutoDocstring kunt gebruiken. Kies daarvoor in de linkerkantlijn het goede icoon voor <em>extensions</em> en selecteer dan de <code>autoDocstring</code> extensie. Zoek in de documentatie naar hoe je automatisch (een deel van) de docstring genereert.</p>
+</div>
+<p>Wanneer we voor de functie <code class="language-py highlight"><span class="n">integers_up_to</span><span class="p">()</span></code> de docstring generator gebruiken, krijgen we het volgende:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">def</span> <span class="nf">integers_up_to</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="sd">&quot;&quot;&quot;_summary_</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="sd">Args:</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="sd">    number (_type_): _description_</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="sd">Returns:</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="sd">    _type_: _description_</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">number</span><span class="p">))</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>    <span class="k">return</span> <span class="p">[]</span>
+</span></code></pre></div></p>
+<p>Zo kunnen we gemakkelijk alles gaan invullen. Vergeet niet om de docstring aan te vullen als je een functie aanpast.</p>
+<h3 id="docstrings-en-click-help">Docstrings en Click <code>-{-help</code>}</h3>
+<p>Docstrings werken ook heel handig samen met Click want ze worden gebruikt als we de helpfunctie aanroepen. We voegen docstrings toe aan fake-conda:</p>
+<p><div class="language-py highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># fakeconda.py</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="kn">import</span> <span class="nn">click</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="nd">@click</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="k">def</span> <span class="nf">cmd_group</span><span class="p">():</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>    <span class="k">pass</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="nd">@cmd_group</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s2">&quot;package&quot;</span><span class="p">)</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="k">def</span> <span class="nf">install</span><span class="p">(</span><span class="n">package</span><span class="p">):</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Install a conda package.</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="sd">    Args:</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="sd">        package (string): name of the package</span>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Installing </span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="nd">@cmd_group</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s2">&quot;package&quot;</span><span class="p">)</span>
+</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="n">package</span><span class="p">):</span>
+</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Remove a conda package.</span>
+</span><span id="__span-16-26"><a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a>
+</span><span id="__span-16-27"><a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a><span class="sd">    Args:</span>
+</span><span id="__span-16-28"><a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a><span class="sd">        package (string): name of the package</span>
+</span><span id="__span-16-29"><a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-16-30"><a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Removing </span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+</span><span id="__span-16-31"><a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a>
+</span><span id="__span-16-32"><a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-16-33"><a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a>    <span class="n">cmd_group</span><span class="p">()</span>
+</span></code></pre></div>
+Als we vervolgens de help functie aanroepen zien we de eerste regel van de docstrings verschijnen voor alle subcommando's:
+<div class="language-ps1con highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="gp">PS&gt; </span><span class="n">fake_conda</span> <span class="p">-</span><span class="n">-help</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="go">Usage: fake_conda [OPTIONS] COMMAND [ARGS]...</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="go">Options:</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="go">    --help  Show this message and exit.</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="go">Commands:</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="go">    install  Install a conda package.</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="go">    remove   Remove a conda package.</span>
+</span></code></pre></div>
+Daarna kun je uitleg vragen voor de subcommando's waarbij je de hele docstring te zien krijgt:
+<div class="language-ps1con highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="gp">PS&gt; </span><span class="n">fake_conda</span> <span class="n">install</span> <span class="p">-</span><span class="n">-help</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="go">Usage: fakeconda.py install [OPTIONS] PACKAGE</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="go">    Install a conda package.</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="go">    Args:     package (string): name of the package</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="go">Options:</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="go">    --help  Show this message and exit.</span>
+</span></code></pre></div></p>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Smallangle: docstring</p>
+<p>Voorzie de functies in <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>smallangle.py</code> die je gemaakt hebt bij \opdref{opd:smallangle} volledig van docstrings, zodat \shellinline{smallangle --help} zinvolle informatie geeft.\footnote{Als de docstring zeer uitgebreid wordt met meerdere argumenten dan wordt de helptekst van click onoverzichtelijk. Als je wilt dat alleen de korte samenvatting in de help verschijnt, zet dan na de korte samenvatting: <code class="language-py highlight">\<span class="n">f</span></code>.}</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: docstring</p>
+<ol>
+<li>Pak de <code>pythondaq</code> applicatie erbij. Zet bij <em>alle</em> functies een nuttige docstring.</li>
+<li>Schrijf ook docstrings voor de classes die je gemaakt hebt.</li>
+</ol>
+</div>
+<h3 id="uitdaging-documentatie-met-sphinx">Uitdaging: Documentatie met <em>Sphinx</em></h3>
+<p>Een bijkomend voordeel van docstrings is dat ze gebruikt kunnen worden om automatisch documentatie te genereren voor een heel project met behulp van Sphinx.
+<em>Sphinx</em> is een Python documentatie generator. Het is de meestgebruikte manier om documentatie te schrijven voor Python projecten. Een paar voorbeelden zijn bijvoorbeeld het web framework <em>Django</em> \cite{django_docs} (\citeurl{django_docs}) of de populaire HTTP bibliotheek <em>Requests</em> \cite{requests_docs} (\citeurl{requests_docs}). Behalve dat je vrij eenvoudig uitgebreide documentatie kunt schrijven kan Sphinx alle docstrings gebruiken om een referentie op te bouwen.</p>
+<p>Het voert tijdens deze cursus te ver om veel aandacht te besteden aan Sphinx. Maar aangezien documentatie zo belangrijk is wilden we het toch noemen met pointers naar de Sphinx documentatie \cite{sphinx}. Klik daar, als je geïnteresseerd bent, op <em>First steps with Sphinx</em>.</p>
+<h2 id="command-line-interface-voor-ons-experiment">Command-line interface voor ons experiment</h2>
+<p>In \chref{ch:mvc} heb je <code>pythondaq</code> uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een <em>view</em>. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>view.py</code>, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>cli.py</code> aanmaken en dat langzaam opbouwen.</p>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: commando's</p>
+<ol>
+<li>Maak een nieuw bestand <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>src/pythondaq/cli.py</code>.</li>
+<li>Maak een <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">group</span><span class="p">()</span></code> aan en voeg de subcommando's <code>list</code> en <code>scan</code> daaraan toe. Laat de commando's voorlopig alleen tekst printen. Merk op dat <code class="language-py highlight"><span class="nb">list</span><span class="p">()</span></code> een Pythonfunctie is.\footnote{Zie ook de waarschuwing op \mypageref{warn:cmd_name}.}</li>
+<li>Zorg dat je de command-line applicatie met een commando in de terminal kunt aanroepen, inclusief de subcommando's <code>list</code> en <code>scan</code>.</li>
+</ol>
+</div>
+<h3 id="het-uitvoeren-van-een-meetserie">Het uitvoeren van een meetserie</h3>
+<p>We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het tonen van de resultaten daarvan aan de gebruiker.</p>
+<p>\begin{info}
+    Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen \qtylist{0;3.3}{\volt}. Je kunt dit doen door de <code class="language-py highlight"><span class="nb">type</span></code>-parameter in <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">()</span></code> en <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">()</span></code>. Je kunt een Pythontype opgeven (bijvoorbeeld: <code class="language-py highlight"><span class="nb">type</span><span class="o">=</span><span class="nb">int</span></code> of <code class="language-py highlight"><span class="nb">type</span><span class="o">=</span><span class="nb">float</span></code>) en Click heeft speciale types zoals <code class="language-py highlight"><span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">FloatRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">)</span></code> voor een kommagetal tussen 0 en 3.3. Bekijken alle speciale types op \url{https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types}. Als je hiervan gebruik maakt hoef je niet <em>zelf</em> te controleren of de parameters kloppen. Click doet dat voor je.
+\end{info}</p>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: <code>scan</code></p>
+<p>Met het commando <code>scan</code> wil je een meetserie uitvoeren over een spanningsbereik. De uitvoer is een lijst van metingen van de stroomsterkte door en de spanning over de LED. De gebruiker moet het spanningsbereik (in volt) zelf kunnen kiezen. Geef ook de mogelijkheid de metingen op te slaan als CSV-bestand. Gebruik daarvoor een optie <code -="-">{-</code>output FILENAME}. Wanneer met die optie een bestandsnaam wordt meegegeven sla je de metingen op en anders niet. Als een meting lang duurt is het niet erg als de resultaten pas ná de meting worden weergegeven.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: Onzekerheid</p>
+<p>Het is wel fijn om de onzekerheid op de metingen te weten. Bouw een optie in waarmee het aantal herhaalmetingen bij iedere spanning in de meetserie gekozen kan worden. Bereken op basis van de herhaalmetingen de beste schatting van de stoomsterkte en de onzekerheid daarop, en ook voor de spanning over de LED.</p>
+</div>
+<h3 id="het-meetinstrument-kiezen">Het meetinstrument kiezen</h3>
+<p>We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan heeft toegekend. Helaas kan -- ook afhankelijk van het besturingssysteem -- die naam veranderen als we de Arduino in een andere poort van onze computer steken of soms zelfs als we een andere Arduino op dezelfde poort koppelen. Met het commando <code>list</code> laten we alle apparaten zien die gevonden worden door de VISA drivers.</p>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: <code>list</code></p>
+<p>Schrijf het commando <code>list</code> zodat het een lijst geeft van de aangesloten instrumenten -- zoals we in het vorige hoofdstuk al eens gedaan hebben.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: choose device</p>
+<p>Pas het commando <code>scan</code> aan zodat je de naam van een device moet meegeven.
+Zorg dat het gekozen device ook daadwerkelijk wordt gebruikt in het model en de controller.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: <code>info</code></p>
+<p>Maak een commando <code>info</code> waarmee je de identificatiestring van een opgegeven instrument opvraagt en weergeeft. Je kunt het instrument met een optie of argument meegeven.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: Helpteksten</p>
+<p>Loop al je commando's nog eens na en zorg ervoor dat er duidelijke helpteksten aanwezig zijn. Een nieuwe gebruiker moet met deze informatie met jouw command-line interface uit de voeten kunnen.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: Grafiek</p>
+<p>Breid je <code>scan</code> opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een <em>boolean flag</em>. Bijvoorbeeld: <code -="-">{-</code>graph} om een grafiek te tekenen en <code -="-">{-</code>no-graph} om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags voor Click op \url{https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags}.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">bonus: Pythondaq: <code -="-">list {-</code>search}</p>
+<p>Breid het commando <code>list</code> uit met een optie <code>--search</code> waarmee je niet een lijst van <em>alle</em> instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
+<div class="language-ps1con highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="gp">PS&gt; </span><span class="n">diode</span> <span class="n">list</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="go">The following devices are connected to your computer:</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="go">ASRL/dev/cu.SOC::INSTR</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="go">ASRL/dev/cu.MALS::INSTR</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="go">ASRL/dev/cu.AirPodsvanDavid-Wireles-1::INSTR</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="go">ASRL/dev/cu.Bluetooth-Incoming-Port::INSTR</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="go">ASRL/dev/cu.usbmodem143401::INSTR</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="gp">PS&gt; </span><span class="n">diode</span> <span class="n">list</span> <span class="n">-s</span> <span class="n">usbmodem</span>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="go">The following devices match your search string:</span>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="go">ASRL/dev/cu.usbmodem143401::INSTR</span>
+</span></code></pre></div>
+De lijst met instrumenten kan er op Windows heel anders uitzien. Pas daarna <code>scan</code> en <code>info</code> aan zodat het niet nodig is om de volledige devicenaam mee te geven, maar alleen een zoekterm.</p>
+</div>
+<p>Op dit punt hebben we de functionaliteit van ons snelle script van het vorige hoofdstuk bereikt. Dit was veel meer werk, maar het is veel flexibeler. Als je wilt meten met een andere Arduino, een ander bereik, of een andere stapgrootte dan type je gewoon een iets ander commando in de terminal. Je hoeft geen scripts meer aan te passen. Als je na een tijdje niet meer precies weet hoe het ook alweer werkte allemaal kun je dat snel weer oppakken door <code>--help</code> aan te roepen.</p>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<p>Kijk nog eens terug naar het lijstje subcommando's die je in \opdref{opd:subcommandos} hebt opgeschreven. Heb je alles geïmplementeerd? Wat zou je willen dat je nog meer kan instellen? Als er tijd over is, kijk dan of dit lukt.</p>
+</div>
+<h2 id="uitdaging-een-interface-met-stijl">Uitdaging: Een interface met stijl</h2>
+<p>Ook command-line interfaces gaan met hun tijd mee. Vroeger waren ze per definitie zwart/wit en statisch, maar tegenwoordig worden interfaces vaak opgeleukt met kleur, emoji's en bewegende progressbars. <em>Rich</em>~\cite{rich} is een project dat in recordtijd heel populair is geworden. Het bestaat pas sinds november 2019 en heeft precies twee jaar later meer dan \num{31000}\,\raisebox{-1.5pt}{\FiveStar} verzameld. Dat is <em>veel</em> -- en de populariteit is sindsdien nog verder toegenomen.</p>
+<p>Rich is ontzettend uitgebreid en heeft heel veel mogelijkheden. Voor ons project kan het handig zijn om een progressbar te gebruiken of met Rich een tabel weer te geven. De documentatie~\cite{rich-docs} van Rich is best goed, maar kan lastig zijn om een mooi overzicht te krijgen. Een serie van korte video tutorials kun je vinden bij \url{https://calmcode.io/rich/introduction.html}. Iedere video duurt maar één tot twee minuten en laat mooi de mogelijkheden zien. Voor de functies die je wilt gebruiken kun je dan meer informatie opzoeken in de documentatie van Rich zelf.</p>
+<div class="admonition question">
+<p class="admonition-title">bonus</p>
+<p>Verrijk je interface met Rich. Doe dit naar eigen wens en inzicht.</p>
+</div>
+<h2 id="uitdaging-data-analyse">Uitdaging: Data-analyse</h2>
+<p>Door de $I,U$-karakteristiek van de (lichtgevende) diode te analyseren is het mogelijk om de constante van Boltzmann te bepalen. De stoomsterkte door een diode wordt gegeven door de Shockley diodevergelijking \eqref{eq:Shockley}. Zie ook \appref{ch:diode}.</p>
+<p>Lukt het, om binnen de te bepalen onzekerheid, overeenkomst te vinden met de literatuurwaarde? Een LED is helaas geen ideale diode dus dit kan lastig zijn.</p>
+<p>\begin{bonus}
+    \begin{opdracht}
+        Fit het model van Shockley aan je $I,U$-karakteristiek. Welke parameters kun je bepalen? Overleg met je begeleider!
+    \end{opdracht}
+\end{bonus}</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

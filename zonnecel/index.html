@@ -1,0 +1,726 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../diodes/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Zonnecel - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#zonnecel" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Zonnecel
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introductie/" class="md-nav__link">
+        Introductie
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../communicatie/" class="md-nav__link">
+        Communicatie met een meetinstrument
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mvc/" class="md-nav__link">
+        Model-View-Controller
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        Versiebeheer met GitHub
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../poetry/" class="md-nav__link">
+        Poetry
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        Command-line interface
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        Graphical user interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eindfeest/" class="md-nav__link">
+        Eindopdracht
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          Appendices
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Appendices
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software-tools/" class="md-nav__link">
+        Gereedschap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firmware/" class="md-nav__link">
+        Firmware
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kleurcodes/" class="md-nav__link">
+        Kleurcodes voor weerstanden
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diodes/" class="md-nav__link">
+        De diode: een p-n-overgang
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Zonnecel
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Zonnecel
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#de-fotovoltaische-zonnecel" class="md-nav__link">
+    De fotovolta\"{ische zonnecel}
+  </a>
+  
+    <nav class="md-nav" aria-label="De fotovolta\"{ische zonnecel}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#texorpdfstringiuiu-karakteristiek" class="md-nav__link">
+    \texorpdfstring{$I,U${I,U}-karakteristiek}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#texorpdfstringpr_bprb-karakteristiek" class="md-nav__link">
+    \texorpdfstring{$P,R_b${P,Rb}-karakteristiek}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fill-factor" class="md-nav__link">
+    Fill factor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maximum-power-point-tracking" class="md-nav__link">
+    Maximum power point tracking
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#de-fotovoltaische-zonnecel" class="md-nav__link">
+    De fotovolta\"{ische zonnecel}
+  </a>
+  
+    <nav class="md-nav" aria-label="De fotovolta\"{ische zonnecel}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#texorpdfstringiuiu-karakteristiek" class="md-nav__link">
+    \texorpdfstring{$I,U${I,U}-karakteristiek}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#texorpdfstringpr_bprb-karakteristiek" class="md-nav__link">
+    \texorpdfstring{$P,R_b${P,Rb}-karakteristiek}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fill-factor" class="md-nav__link">
+    Fill factor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maximum-power-point-tracking" class="md-nav__link">
+    Maximum power point tracking
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="zonnecel">Zonnecel</h1>
+<p>\label{ch:zonnecel}</p>
+<p>De toenemende behoefte aan energie heeft het zoeken naar nieuwe energiebronnen belangrijk gemaakt. Zonne-energie is \'{e}\'{e}n van de veelbelovende, niet conventionele bronnen. Zonne-energie is echter niet meteen bruikbaar en moet eerst omgezet worden naar warmte of elektrische energie. De omzetting van zonne-energie naar een bruikbare vorm van energie kan gedaan worden door een zonneboiler of een zonnecel. In de komende sessies staat de zonnecel centraal. Je gaat allerlei eigenschappen van zonnecellen onderzoeken en proberen te verklaren.</p>
+<h2 id="de-fotovoltaische-zonnecel">De fotovolta\"{ische zonnecel}</h2>
+<p>Stralingsenergie van de zon is een vorm van energie die niet erg nuttig is voor de meeste toepassingen. Om de energie van de zon nuttig te kunnen gebruiken, moet de straling omgezet worden. Een mogelijkheid daartoe is de fotovolta\"ische zonnecel. In de zonnecel maken fotonen uit het zonlicht geladen (elektrische) deeltjes vrij die via metaalcontacten op de zonnecel door een extern circuit kunnen stromen om daar hun elektrische energie af te geven. Zolang er licht valt op de zonnecel gaat het proces van vrijmaken van elektronen door en wordt er een elektrische stroom geproduceerd.</p>
+<p>\subsubsection{Werking}</p>
+<p>\begin{figure}[t]
+  \center{\includegraphics[width=90mm]{figures/CEL_zonnecel.png}}
+  \caption{Werking van een zonnecel. Een foton met voldoende energie kan een elektron-gat-paar maken. Door de grenslaag tussen het n-type silicium en het p-type-silicium kan het elektron alleen linksom stromen, door het externe circuit, en het gat alleen rechtsom.}
+  \label{fig:cel}
+\end{figure}</p>
+<p>De werking van de zonnecel is schematisch weergegeven in figuur \ref{fig:cel}. Een zonnecel bestaat uit twee soorten siliciumkristallen, een bovenlaag van het n-type silicium en een tweede, dikkere laag van het p-type silicium. In het n-type silicium kunnen elektronen gemakkelijk bewegen, terwijl in het p-type silicium de gaten (positieve lading) makkelijk kunnen bewegen. Tussen het p- en n-type silicium ontstaat een grenslaag, welke een barri`{e}re vormt voor zowel de elektronen als de gaten. Deze zogenoemde pn-junctie is de basis van de huidige elektronica en heeft vele toepassingen, zo ook in de zonnecel.</p>
+<p>In een zonnecel is de n-laag zo dun dat het zonlicht de grenslaag kan bereiken. Als er nu een foton op de grenslaag valt, en het foton heeft voldoende energie, dan maakt dat foton een elektron-gat-paar. Kijkend naar figuur \ref{fig:cel} kunnen de elektronen door de grenslaag niet rechtsom bewegen en de gaten niet linksom.  Het elektron gaat nu linksom stromen en het gat rechtsom. Er ontstaat dus een elektrische stroom. Na doorlopen van het externe circuit recombineert het elektron weer met het gat in het p-type silicium. De maximale stroom die gaat lopen wordt bepaald door het aantal elektron-gat-paren dat gevormd wordt. De maximale spanning die over de zonnecel komt te staan wordt bepaald door de energie die daarvoor nodig is (bedenk dat [U] = J/C!).</p>
+<p>Om een elektron-gat-paar in een silicium zonnecel te maken is een energie nodig van 1.12 eV (elektronvolt). De energie van een foton ($E_f$) is gelijk aan
+\begin{equation}
+  E_f = \frac{hc}{\lambda}
+\end{equation}
+waar $h$ staat voor de constante van Planck ($h \approx 4.136 \cdot 10^{-15} \text{ eV} \cdot \text{s}$), $c$ staat voor de snelheid waarmee licht zich voortplant ($c \approx 2.998 \cdot 10^8$ ms$^{-1}$) en $\lambda$ staat voor de golflengte van het licht. Dit betekent dat een foton met een golflengte van ongeveer
+[
+  \lambda = \frac{(4.136 \cdot 10^{-15} \text{ eV} \cdot \text{s}) \cdot (2.998 \cdot 10^8 \text{ ms}^{-1})}{1.12 \text{ eV}}\approx 1100   {\rm nm}
+]
+in staat is om een elektron-gat-paar te maken. Fotonen met een golflengte groter dan 1100 nm hebben een lagere energie dan 1.12 eV en daarvoor is de zonnecel niet gevoelig. Fotonen met een kortere golflengte dan 1100 nm hebben een hogere energie dan nodig is. Zij maken wel een elektron-gat-paar, maar het overschot aan energie wordt niet omgezet in elektrische energie, deze energie gaat verloren als warmte.</p>
+<p>Op YouTube staat de volgende video met uitleg over de werking van de zonnecel: \href{https://www.youtube.com/watch?v=L_q6LRgKpTw}{video} <q>How do solar cells work?</q>.</p>
+<p>\subsubsection{Vereenvoudigde modelbeschrijving}
+De werking van een zonnecel hangt sterk samen met de werking van een diode. Een diode heeft de bijzondere eigenschap dat afhankelijk van de polariteit over de diode het \'{o}f geen stroom door laat en dus een oneindige hoge weerstand heeft, \'{o}f alle stroom doorlaat en bij benadering een weerstand van 0 heeft. Preciezer gezegd: voor een diode geldt dat de stroom die doorgelaten wordt, afhangt van de spanning over de diode. De stroom door een diode, $I_d$, wordt (bij benadering) gegeven door
+\begin{equation}
+  I_d = I_0 \left( {\rm e}^{\frac{eU}{kT}} - 1 \right),
+  \label{eqn:diode}
+\end{equation}
+waarbij $e$ de elektronlading is ($e \approx 1.602 \cdot 10^{-19}$ C), $U$ de spanning over de diode, $k$ de Boltzmannconstante ($k \approx {1.381} \cdot 10^{-23}$ JK$^{-1}$) en $T$ de temperatuur. $I_0$ is de lekstroom van de diode. Als de spanning over de diode negatief is, geldt dat $\exp \left( \frac{eU}{kT} \right) \ll 1$ en is $I_d \approx - I_0 \approx 5-7 \; \mu$A en dus bij benadering 0.  Als de spanning over de diode positief is groeit de stroom exponentieel en is de weerstand van de diode bij benadering 0. Dit gedrag wordt ge\"{i}llustreerd in figuur \ref{fig:diode}.</p>
+<p>\begin{figure}[t]
+  \center{\includegraphics[width=70mm]{figures/diode.png}}
+  \caption{Links het symbool waarmee een diode weergegeven wordt in een schakeling en rechts een $IU$-karakteristiek van een diode.}
+  \label{fig:diode}
+\end{figure}</p>
+<p>\begin{figure}[b!]
+  \center{\includegraphics[width=70mm]{figures/zc.png}}
+  \caption{Een vereenvoudigde voorstelling van een zonnecel met daarop aangesloten een belastingsweerstand $R_b$. $I_L$ is de stroom opgewekt door elektron-gat-paren, $I_d$ is de stroom die door de diode loopt en $I$ is de stroom die door belastingsweerstand $R_b$ loopt, die aangesloten is op de zonnecel.}
+  \label{fig:zc}
+\end{figure}</p>
+<p>Voor een eerste benadering kun je een zonnecel voorstellen als een speciale stroombron, zoals weergegeven is in figuur \ref{fig:zc}. In deze schakeling is ook de belastingsweerstand $R_b$ over de zonnecel getekend. De stroom die geleverd wordt door de zonnecel, $I$, hangt af van de stroom ten gevolge van het aantal elektron-gat-paren dat gemaakt wordt door het zonlicht, $I_{L}$, en de stroom door de diode, $I_d$. Dus:
+\begin{equation}
+  I = I_L - I_d.
+\end{equation}
+Met behulp van vergelijking \ref{eqn:diode} kun je bovenstaande vergelijking verder uitschrijven. In de exponent voor de diode komt er echter nog een factor $n$ bij die samenhangt met de materiaaleigenschappen van de zonnecel. Waarden van $n$ liggen typisch tussen 1 en 5, afhankelijk van het type zonnecel. Voor het type zonnecel waarmee je in dit experiment zult werken is $n$ ongeveer \numrange{10}{15}. De stroom die de zonnecel levert wordt nu bij benadering gegeven door
+\begin{equation}
+  \label{eq:zc}
+  I = I_{L} - I_d = I_{L} - I_0 \left( {\rm e}^{ \frac{e U}{nkT}} - 1 \right).
+\end{equation}</p>
+<h3 id="texorpdfstringiuiu-karakteristiek">\texorpdfstring{$I,U${I,U}-karakteristiek}</h3>
+<p>In de praktijk zul je altijd metingen doen aan zonnepanelen, waarbij zonnecellen in het paneel samengebracht zijn. De spanning die over een zonnepaneel staat hangt onder andere af van het aantal zonnecellen dat in serie geschakeld is. De stroom dat een zonnepaneel kan leveren wordt bepaald door het aantal elektron-gat-paren dat gemaakt wordt of, anders gezegd, door het aantal fotonen dat geabsorbeerd wordt. Het is echter niet zo dat je zonder meer kunt stellen dat wanneer er zonlicht op een zonnepaneel valt er een maximale spanning over het paneel staat en dat de stroom toeneemt als de lichtintensiteit toeneemt.
+%Een zonnepaneel heeft namelijk een interne weerstand die afhankelijk is van het aantal elektron-gat-paren dat aanwezig is en, niet onbelangrijk, waar de elektron-gat-paren gevormd worden in het zonnepaneel (dit hangt o.a. samen met de eerder genoemde $n$ factor voor ons vereenvoudigde model voor een zonnecel). 
+Het is daarom zinvol om, voordat je aan een experiment begint, het gedrag van een zonnepaneel te onderzoeken. In eerste instantie doe je dit door te kijken naar de $IU$-karakteristiek van het zonnepaneel. Zo'n karakteristiek is weergegeven in \figref{fig:I,U-zonnecel}.
+% en het elektrisch vermogen $P$ dat het zonnepaneel kan leveren.
+Als je naar de $IU$-karakteristiek kijkt, zie je dat het zonnepaneel bij lage spanningen zich gedraagt als een niet-ideale stroombron. Als je rond de maximale spanning kijkt, zie je dat het zonnepaneel zich daar vrijwel gedraagt als een niet-ideale spanningsbron.</p>
+<p>\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \clip (-1em, -1.2em) rectangle (8, 5.5);
+    \begin{scope}
+      \clip (0, 0) rectangle (8, 5);
+      \draw[very thick, domain=0:7] plot (\x, {4 - 1e-2 * (exp(\x) - 1)});
+    \end{scope}
+    \draw[-&gt;, thick] (0, 0) -- (7, 0) node[right] {$U_\text{PV}$};
+    \draw[-&gt;, thick] (0, 0) -- (0, 5) node[above] {$I$};
+    \node[below left] at (0, 0) {0};
+  \end{tikzpicture}
+  \caption{De stroom die geleverd kan worden door een zonnecel uitgezet tegen de spanning $U_\text{PV}$ geleverd door de zonnecel. Hier staat PV voor <em>PhotoVoltaic cell</em>.}
+  \label{fig:I,U-zonnecel}
+\end{figure}</p>
+<h3 id="texorpdfstringpr_bprb-karakteristiek">\texorpdfstring{$P,R_b${P,Rb}-karakteristiek}</h3>
+<p>Het is bij zonnepanelen natuurlijk interessant om naar het elektrisch vermogen te kijken dat een zonnepaneel kan leveren. Het geleverd vermogen door een zonnepaneel hangt af van de materiaaleigenschappen van het paneel. Om een zo hoog mogelijk vermogen te kunnen leveren moet het zonnepaneel een zo hoog mogelijke stroom en spanning leveren. Belangrijk ook is dat het vermogen afhangt van de belasting door het circuit. Met andere woorden: bij verschillende weerstandswaardes wordt een ander vermogen geleverd. Ook is er een optimale weerstand waarbij het vermogen maximaal is (\figref{fig:P,R-zonnecel}).</p>
+<p>\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    % \clip (-1em, -1.2em) rectangle (8, 5.5);
+    \draw[very thick] (0, 0) .. controls (1, 4) and (1.5, 4.5) .. (2, 4.5) .. controls (2.5, 4.5) and (4, 3) .. (6.75, 2);
+    \draw[-&gt;, thick] (0, 0) -- (7, 0) node[right] {$R$};
+    \draw[-&gt;, thick] (0, 0) -- (0, 5) node[above] {$P$};
+    \node[below left] at (0, 0) {0};
+  \end{tikzpicture}
+  \caption{Het vermogen dat geleverd kan worden door een zonnecel uitgezet tegen de belasting (weerstand) van het circuit. Er is duidelijk een maximum in het vermogen bij een optimale weerstand.}
+  \label{fig:P,R-zonnecel}
+\end{figure}</p>
+<p>% \subsubsection{Verdieping (extra)}</p>
+<p>%### Uitgebreidere modelbeschrijving
+%Als je naar de $IU$-karakteristiek kijkt, zie je dat het zonnepaneel bij lage spanningen zich gedraagt als een niet-ideale stroombron. Als je rond de maximale spanning kijkt, zie je dat het zonnepaneel zich daar vrijwel gedraagt als een niet-ideale spanningsbron. Met deze kennis is het mogelijk om het vereenvoudigde model van de zonnecel (zie figuur \ref{fig:zc} en vergelijking \ref{eq:zc}) iets uit te breiden. Voor een niet-ideale stroombron heb je eerder gezien dat er parallel aan de stroombron een interne weerstand, een shuntweerstand $R_{sh}$, staat. Voor een niet-ideale spanningsbron is er een interne weerstand in serie aanwezig, een serieweerstand $R_s$. Als we hier rekening mee houden, kunnen we het model voor de zonnecel uitbreiden zoals weergegeven is in figuur \ref{fig:zc2}. </p>
+<p>%Door rekening te houden met beide interne weerstanden wordt vergelijking \ref{eq:zc} gegeven als
+%\begin{equation}
+%\label{eq:zc2}
+%I = I_{L} - I_d - I_{R_{sh}} = I_{L} - I_0 \left( {\rm e}^{ \frac{e (U+I R_s)}{nkT}} - 1 \right) - \frac{U+I R_s}{R_{sh}}.
+%\end{equation}
+%Deze vergelijking ziet er indrukwekkend uit, maar eigenlijk zijn er ten opzichte van vergelijking \ref{eq:zc} maar twee dingen toegevoegd. Zo staat in vergelijking \ref{eq:zc} de spanning $U$ voor de spanning over de diode, welke in het vereenvoudigde model gelijk is aan de spanning gemeten over de belastingsweerstand $R_b$. De totale spanning die over de stroombron staat, wordt in het uitgebreidere model verdeeld over de serieweerstand $R_s$ en de belastingsweerstand $R_b$. Daarmee wordt de spanning over de diode $U+I R_s$, waarbij $U$ gelijk staat aan de spanning over de belastingsweerstand $R_b$. Verder heb je in het uitgebreidere model stroom lopen door de diode, de shuntweerstand $R_{sh}$ en door het externe circuit. Om te weten hoeveel stroom er door het externe circuit loopt, moet je in vergelijking \ref{eq:zc} nog de stroom $I_{R_{sh}}$ die door de shuntweerstand loopt meenemen en aftrekken van de stroom $I_L$ opgewekt door elektron-gat-paren. En deze twee toevoegingen geven vergelijking \ref{eq:zc2}.</p>
+<p>%\begin{figure}               <br />
+%\center{\includegraphics[width=70mm]{Figures/zc2.png}}   <br />
+%\caption{Een voorstelling van een zonnecel waarbij rekening gehouden wordt met interne weerstanden met daarop aangesloten een belastingsweerstand. $I_L$ is de stroom opgewekt door elektron-gat-paren, $I_d$ is de stroom die door de diode loopt en $I$ is de stroom die door belastingsweerstand $R_b$ loopt die aangesloten is op de zonnecel. $R_{sh}$ en $R_s$ zijn interne weerstanden die toegevoegd zijn aan het vereenvoudigde model.}         <br />
+%\label{fig:zc2}                                             <br />
+%\end{figure}</p>
+<p>%\begin{opdracht}
+%\begin{deelvraag}
+%1. Leg uit waaraan je kunt zien dat het zonnepaneel zich bij lage spanningen gedraagt als een niet-ideale stroombron.
+%1. Leg uit waaraan je kunt zien dat het zonnepaneel zich rond de maximale spanning gedraagt als een niet-ideale spanningsbron.
+%1. Leg uit hoe de $IU$-karakteristiek verandert wanneer de waarde van $R_{sh}$ kleiner wordt.
+%1. Leg uit hoe de $IU$-karakteristiek verandert wanneer de waarde van $R_{s}$ groter wordt.
+%\end{deelvraag}
+%\end{opdracht}</p>
+<h3 id="fill-factor">Fill factor</h3>
+<p>De kwaliteit van een zonnecel/-paneel wordt experimenteel vaak aangeduid met de fill factor $FF$. De fill factor wordt gegeven door
+\begin{equation}
+  FF = \frac{P_{max}}{P_{T_{max}}} = \frac{I_{max} \cdot U_{max}}{I_{sc} \cdot U_{oc}},
+\end{equation}
+waarbij $P_{max}$ het maximaal vermogen is wat een zonnecel/-paneel levert en $P_{T_{max}}$ het theoretisch maximaal vermogen is. $I_{sc}$ is de kortsluitstroom (bij een belastingsweerstand $R_b$ gelijk aan 0) en $U_{oc}$ de open klemspanning (wanneer het zonnepaneel niet belast wordt). $I_{max}$ en $U_{max}$ zijn de waarden voor respectievelijk de stroom en spanning waarbij het geleverd vermogen maximaal is.</p>
+<h3 id="maximum-power-point-tracking">Maximum power point tracking</h3>
+<p>De optimale weerstand waarbij het vermogen dat geleverd wordt door een zonnecel maximaal is, is helaas geen constante. Deze weerstandswaarde is afhankelijk van verschillende condities waarbij de belangrijkste de lichtintensiteit op de zonnecel is. Dat betekent dat, zonder aanpassingen, het vermogen dat geleverd wordt door de zonnecel meestal veel lager is dan je zou wensen.</p>
+<p>Voor zonnepanelen die elektriciteit leveren aan het lichtnet is dit een groot probleem. Allereerst wil je je investering zo snel mogelijk terugverdienen en ook daarna wil je dat de opbrengst maximaal is. Ten tweede is het zo dat de weerstand van het lichtnet bijzonder klein is. Het vermogen dat daardoor geleverd wordt is ook heel klein. Dit wordt opgelost door -- envoudig gezegd -- de verbinding tussen het zonnepaneel en het lichtnet vele malen per seconde aan en uit te schakelen. Hierdoor <q>voelt</q> het zonnepaneel als het ware een weerstand. Deze weerstand is afhankelijk van de hoeveelheid tijd dat het paneel niet aan het lichtnet is geschakeld. Door slim te schakelen kan de weerstand zó gekozen worden dat het geleverde vermogen maximaal is. Als de lichtintensiteit wijzigt kan ook de weerstand worden aangepast. Dit heet <em>maximum power point tracking</em>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

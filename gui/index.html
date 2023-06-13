@@ -1,0 +1,1387 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../cli/">
+      
+      
+        <link rel="next" href="../eindfeest/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Graphical user interfaces - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#graphical-user-interfaces" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Graphical user interfaces
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introductie/" class="md-nav__link">
+        Introductie
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../communicatie/" class="md-nav__link">
+        Communicatie met een meetinstrument
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mvc/" class="md-nav__link">
+        Model-View-Controller
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        Versiebeheer met GitHub
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../poetry/" class="md-nav__link">
+        Poetry
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        Command-line interface
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Graphical user interfaces
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Graphical user interfaces
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#grafische-interfaces-met-pyqt" class="md-nav__link">
+    Grafische interfaces met PyQt
+  </a>
+  
+    <nav class="md-nav" aria-label="Grafische interfaces met PyQt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#de-interface-programmeren" class="md-nav__link">
+    De interface programmeren
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#de-interface-ontwerpen-met-qt-designer" class="md-nav__link">
+    De interface ontwerpen met Qt Designer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#een-oefening-functieplotter" class="md-nav__link">
+    Een oefening: functieplotter
+  </a>
+  
+    <nav class="md-nav" aria-label="Een oefening: functieplotter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#de-plotter-als-script" class="md-nav__link">
+    De plotter als script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#een-grafische-interface-voor-ons-experiment" class="md-nav__link">
+    Een grafische interface voor ons experiment
+  </a>
+  
+    <nav class="md-nav" aria-label="Een grafische interface voor ons experiment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#van-script-naar-applicatie" class="md-nav__link">
+    Van script naar applicatie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bewaren-van-meetgegevens" class="md-nav__link">
+    Bewaren van meetgegevens
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uitdaging-menus-taak-en-statusbalken" class="md-nav__link">
+    Uitdaging: Menu's, taak- en statusbalken
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selecteer-de-arduino" class="md-nav__link">
+    Selecteer de Arduino
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meerdere-dingen-tegelijkertijd-threads" class="md-nav__link">
+    Meerdere dingen tegelijkertijd: threads
+  </a>
+  
+    <nav class="md-nav" aria-label="Meerdere dingen tegelijkertijd: threads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stap-1-de-meetgegevens-altijd-beschikbaar-maken" class="md-nav__link">
+    Stap 1: de meetgegevens altijd beschikbaar maken
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stap-2-plot-de-meetgegevens-vanuit-het-experiment" class="md-nav__link">
+    Stap 2: plot de meetgegevens vanuit het experiment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stap-3-threads" class="md-nav__link">
+    Stap 3: threads
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stap-4-plotten-op-de-achtergrond" class="md-nav__link">
+    Stap 4: plotten op de achtergrond
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uitdaging-stap-5-puntjes-op-de-i-events" class="md-nav__link">
+    Uitdaging: Stap 5: puntjes op de i: events
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eindfeest/" class="md-nav__link">
+        Eindopdracht
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          Appendices
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Appendices
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software-tools/" class="md-nav__link">
+        Gereedschap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firmware/" class="md-nav__link">
+        Firmware
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kleurcodes/" class="md-nav__link">
+        Kleurcodes voor weerstanden
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diodes/" class="md-nav__link">
+        De diode: een p-n-overgang
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zonnecel/" class="md-nav__link">
+        Zonnecel
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#grafische-interfaces-met-pyqt" class="md-nav__link">
+    Grafische interfaces met PyQt
+  </a>
+  
+    <nav class="md-nav" aria-label="Grafische interfaces met PyQt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#de-interface-programmeren" class="md-nav__link">
+    De interface programmeren
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#de-interface-ontwerpen-met-qt-designer" class="md-nav__link">
+    De interface ontwerpen met Qt Designer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#een-oefening-functieplotter" class="md-nav__link">
+    Een oefening: functieplotter
+  </a>
+  
+    <nav class="md-nav" aria-label="Een oefening: functieplotter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#de-plotter-als-script" class="md-nav__link">
+    De plotter als script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#een-grafische-interface-voor-ons-experiment" class="md-nav__link">
+    Een grafische interface voor ons experiment
+  </a>
+  
+    <nav class="md-nav" aria-label="Een grafische interface voor ons experiment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#van-script-naar-applicatie" class="md-nav__link">
+    Van script naar applicatie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bewaren-van-meetgegevens" class="md-nav__link">
+    Bewaren van meetgegevens
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uitdaging-menus-taak-en-statusbalken" class="md-nav__link">
+    Uitdaging: Menu's, taak- en statusbalken
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selecteer-de-arduino" class="md-nav__link">
+    Selecteer de Arduino
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meerdere-dingen-tegelijkertijd-threads" class="md-nav__link">
+    Meerdere dingen tegelijkertijd: threads
+  </a>
+  
+    <nav class="md-nav" aria-label="Meerdere dingen tegelijkertijd: threads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stap-1-de-meetgegevens-altijd-beschikbaar-maken" class="md-nav__link">
+    Stap 1: de meetgegevens altijd beschikbaar maken
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stap-2-plot-de-meetgegevens-vanuit-het-experiment" class="md-nav__link">
+    Stap 2: plot de meetgegevens vanuit het experiment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stap-3-threads" class="md-nav__link">
+    Stap 3: threads
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stap-4-plotten-op-de-achtergrond" class="md-nav__link">
+    Stap 4: plotten op de achtergrond
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uitdaging-stap-5-puntjes-op-de-i-events" class="md-nav__link">
+    Uitdaging: Stap 5: puntjes op de i: events
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="graphical-user-interfaces">Graphical user interfaces</h1>
+<h2 id="grafische-interfaces-met-pyqt">Grafische interfaces met PyQt</h2>
+<p>Als je een grafische applicatie schrijft roep je functies aan van het besturingssysteem om vensters, knoppen, menu's e.d. te laten tekenen en te reageren op muisklikken en het toetsenbord. Het lastige daaraan is dat een applicatie voor MacOS heel anders geschreven moet worden dan één voor Linux of Windows. Om die reden zijn er verschillende <em>cross-platform</em> bibliotheken ontwikkeld die als het ware tussen het besturingssysteem en je applicatie komen te staan. Je kunt dezelfde applicatie maken voor alle besturingssystemen en de bibliotheek kiest welke functies aangeroepen moeten worden om een venster te tekenen. Het voordeel is duidelijk: je hoeft maar één applicatie te schrijven die overal werkt. Het nadeel is dat je niet écht gebruik kunt maken van alle functies en opties die het besturingssysteem biedt. Hier kiezen we voor de voordelen en gaan we gebruik maken van misschien wel de meest populaire optie: Qt.\footnote{Uitspraak: het Engelse <em>cute</em>.} De bibliotheek <code>PySide6</code> is de officiële Pythonbibliotheek.</p>
+<p>\begin{attention}
+    Maak voor de oefeningen een nieuw conda environment <code>IK-test-qt</code> met:
+    <div class="language-ps1con highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="go">conda create -n IK-test-qt python</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go">conda activate IK-test-qt</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="go">pip install pyside6 pyqtgraph</span>
+</span></code></pre></div>
+    Selecteer het nieuwe <code>IK-test-qt</code> conda environment in Visual Studio Code en sluit alle <q>oude</q> terminals met het \faTrash*-icoon \footnote{of in één keer met \menu{View &gt; Command Palette &gt; Terminal: Kill All Terminals}}.
+\end{attention}</p>
+<p>Een minimale Qt-applicatie ziet er als volgt uit:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">sys</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span> <span class="nn">PySide6</span> <span class="kn">import</span> <span class="n">QtWidgets</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">class</span> <span class="nc">UserInterface</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">):</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="k">pass</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="n">ui</span> <span class="o">=</span> <span class="n">UserInterface</span><span class="p">()</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="n">ui</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">())</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="n">main</span><span class="p">()</span>  
+</span></code></pre></div>
+Eerst importeren we een paar bibliotheken. Het draait uiteindelijk om de <code class="language-py highlight"><span class="n">UserInterface</span></code> class. De naam mag je zelf kiezen, zolang je maar aangeeft dat de class een afgeleide is van <code class="language-py highlight"><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span></code>, het hoofdvenster van je applicatie. In het hoofdgedeelte van het programma (gedefinieerd in de functie <code class="language-py highlight"><span class="n">main</span><span class="p">()</span></code>) maak je eerst een instance van <code class="language-py highlight"><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span></code> \footnote{Die kun je eventuele command-line arguments meegeven die door Python in <code class="language-py highlight"><span class="n">sys</span><span class="o">.</span><span class="n">argv</span></code> bewaard worden. Meestal zijn die leeg, maar we geven ze gewoon door aan Qt}. Ook maken we een instance van onze eigen class en we roepen de <code class="language-py highlight"><span class="n">show</span><span class="p">()</span></code> method aan. Die hebben we niet zelf geprogrammeerd; die zit in de parent class <code class="language-py highlight"><span class="n">QMainWindow</span></code>. Als laatste roepen we de <code class="language-py highlight"><span class="n">exec</span><span class="p">()</span></code> method aan van onze <code class="language-py highlight"><span class="n">QApplication</span></code> en de uitvoer daarvan (een <em>exit code</em>) geven we mee aan de functie <code class="language-py highlight"><span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></code>. Dat betekent dat als het programma afsluit met een foutmelding, dat een foutcode wordt meegegeven aan het besturingssysteem. Iemand anders die een script schrijft kan die code afvangen en daar iets mee doen.</p>
+<p>Een aantal elementen uit dit programma (<code class="language-py highlight"><span class="n">sys</span><span class="o">.</span><span class="n">argv</span></code>, <code class="language-py highlight"><span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></code>) zijn strikt genomen niet noodzakelijk, maar wel <em>good practice</em>. Ook het schrijven van een <code class="language-py highlight"><span class="n">main</span><span class="p">()</span></code> functie is niet strikt noodzakelijk, maar het maakt het wel makkelijk om straks een zogeheten <em>entry point</em> te hebben als we weer een applicatie willen schrijven. In de \path{pyproject.toml} geven we dan aan dat we de <code class="language-py highlight"><span class="n">main</span><span class="p">()</span></code> functie willen aanroepen. Dat komt later.</p>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<p>\label{opd:minimal-gui}</p>
+<ol>
+<li>Maak een nieuw bestand <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code>.</li>
+<li>Neem bovenstaande pythoncode over en test het in de \shellinline{IK-test-qt} conda environment.</li>
+</ol>
+</div>
+<p>Elke keer als je een nieuwe Qt applicatie gaat schrijven kun je bovenstaand stukje code copy/pasten. Als we dit programma draaien hebben we echter een klein leeg venster op het scherm, zonder elementen. Die elementen kunnen we op twee manieren toevoegen: door ze te programmeren of door het gebruik van een visueel ontwerp met Qt Designer. Beide zullen in de volgende secties toegelicht worden.</p>
+<h3 id="de-interface-programmeren">De interface programmeren</h3>
+<p>\label{sec:ui-prog}</p>
+<p>We gaan de eenvoudige interface programmeren die weergegeven is in \figref{fig:screenshot-ui-prog}.
+\begin{figure}
+    \centering
+    \includegraphics[scale=.4]{figures/screenshot-ui-prog.png}
+    \caption{Screenshot van een eenvoudige user interface met horizontale en verticale layoutelementen en twee knoppen.}
+    \label{fig:screenshot-ui-prog}
+\end{figure}
+We doen dat door de class <code class="language-py highlight"><span class="n">UserInterface</span></code> uit te breiden met widgets uit de <code class="language-py highlight"><span class="n">QtWidgets</span></code> bibliotheek.</p>
+<p>Het definiëren van layouts gebeurt in veruit de meeste opmaaksystemen met rechthoeken (<em>Engels: boxes</em>) die op verschillende manieren gestapeld worden -- naast elkaar, boven elkaar, of op een rechthoekig grid bijvoorbeeld. Zulke systemen zijn ook <em>hiërarchisch</em>: je stopt boxes in andere boxes. De layout van \figref{fig:screenshot-ui-prog} is als volgt opgebouwd: ieder venster moet één centrale widget hebben (\figref{fig:layout-centerwidget}). Vervolgens geven we aan dat we die verticaal gaan opdelen (\figref{fig:layout-vbox}). In die indeling plaatsen we dan een widget voor tekstinvoer én een widget met een horizontale opdeling (\figref{fig:layout-text-hbox}). Als laatste plaatsen we in die horizontale opdeling twee knoppen (\figref{fig:layout-buttons}). Vergelijk die schematische voorstelling nog een keer met \figref{fig:screenshot-ui-prog}. Het is soms even puzzelen hoe je de layout van een applicatie het beste opbouwt.</p>
+<p>\begin{figure}
+    \centering
+    \hfill
+    \subfloat[Het hoofdelement van de grafische interface is de <code>central widget</code>.]{
+        \makebox[.4\linewidth]{\includestandalone[page=1]{figures/layout-schematic}}
+        \label{fig:layout-centerwidget}
+    }
+    \hfill
+    \subfloat[De <code>central widget</code> krijgt een verticale layout die we <code>vbox</code> noemen.]{
+        \makebox[.4\linewidth]{\includestandalone[page=2]{figures/layout-schematic}}
+        \label{fig:layout-vbox}
+    }
+    \hspace<em _fill="\fill">{\fill}
+    \[1cm]
+    \hfill
+    \subfloat[In de verticale layout plaatsen we een <code>textbox</code> en een horizontale layout die we <code>hbox</code> noemen.]{
+        \makebox[.4\linewidth]{\includestandalone[page=3]{figures/layout-schematic}}
+        \label{fig:layout-text-hbox}
+    }
+    \hfill
+    \subfloat[In de horizontale layout plaatsen we twee <code>button</code>s.]{
+        \makebox[.4\linewidth]{\includestandalone[page=4]{figures/layout-schematic}}
+        \label{fig:layout-buttons}
+    }
+    \hspace</em>
+    \caption{Het opbouwen van de grafische interface gebeurt hiërarchisch in verschillende stappen.}
+    \label{fig:layout}
+\end{figure}</p>
+<p>Het stuk programma om bovenstaande layout op te bouwen geven we hieronder weer.\footnote{Deze code is als <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>ex-gui-programming.py</code> beschikbaar op Canvas.} We bespreken de code regel voor regel <em>na</em> de code hieronder.
+\begin{pythoncode*}{linenos}
+  from PySide6.QtCore import Slot</p>
+<p>class UserInterface(QtWidgets.QMainWindow):
+      def <strong>init</strong>(self):
+          # roep de <strong>init</strong>() aan van de parent class
+          super().<strong>init</strong>()</p>
+<div class="language-text highlight"><pre><span></span><code>      # elk QMainWindow moet een central widget hebben
+      # hierbinnen maak je een layout en hang je andere widgets
+      central_widget = QtWidgets.QWidget()
+      self.setCentralWidget(central_widget)
+
+      # voeg geneste layouts en widgets toe
+      vbox = QtWidgets.QVBoxLayout(central_widget)
+      self.textedit = QtWidgets.QTextEdit()
+      vbox.addWidget(self.textedit)
+      hbox = QtWidgets.QHBoxLayout()
+      vbox.addLayout(hbox)
+
+      clear_button = QtWidgets.QPushButton(&quot;Clear&quot;)
+      hbox.addWidget(clear_button)
+      add_button = QtWidgets.QPushButton(&quot;Add text&quot;)
+      hbox.addWidget(add_button)
+
+      # Slots and signals
+      clear_button.clicked.connect(self.textedit.clear)
+      add_button.clicked.connect(self.add_button_clicked)
+
+  @Slot()
+  def add_button_clicked(self):
+      self.textedit.append(&quot;You clicked me.&quot;)
+</code></pre></div>
+<p>\end{pythoncode*}
+Allereerst definiëren we een <code>__init__()</code>. Helaas gaat dat niet zomaar. We schrijven namelijk <em>niet</em> helemaal zelf een nieuwe class (<code class="language-py highlight"><span class="k">class</span> <span class="nc">UserInterface</span></code>), maar breiden de <code class="language-py highlight"><span class="n">QMainWindow</span></code>-class uit (<code class="language-py highlight"><span class="k">class</span> <span class="nc">UserInterface</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">)</span></code>). Door dat te doen zijn er heel veel methods al voor ons gedefinieerd. Daar hoeven we verder niet over na te denken, onze interface <q>werkt gewoon</q>. Het gaat mis als wij zelf nieuwe methods gaan schrijven die dezelfde naam hebben. Stel dat de <em>parent class</em> <code class="language-py highlight"><span class="n">QMainWindow</span></code> een method <code class="language-py highlight"><span class="n">click_this_button</span><span class="p">()</span></code> heeft. Als onze class <em>ook</em> een method <code class="language-py highlight"><span class="n">click_this_button</span><span class="p">()</span></code> heeft, dan zal <em>die</em> worden aangeroepen in plaats van de method uit de parent class. Dat is handig als je de parent method wilt vervangen maar niet zo handig als je de parent method wilt <em>aanvullen</em>, zoals nodig is bij <code>__init__()</code>. Immers, we willen onze eigen class initialiseren, maar we willen ook dat de parent class volledig wordt geïnitialiseerd.</p>
+<p>De oplossing is gelukkig vrij eenvoudig: we kunnen de <code>__init__()</code> van de parent class gewoon aanroepen en daarna ons eigen ding doen. De Pythonfunctie <code class="language-py highlight"><span class="nb">super</span><span class="p">()</span></code> verwijst altijd naar de parent class, dus met <code class="language-py highlight"><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span></code> wordt de parent class volledig geïnitialiseerd. Dat is dus het eerste dat we doen in regel 7.</p>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<ol>
+<li>Breid het script van \opdref{opd:minimal-gui} uit met een <code class="language-py highlight"><span class="fm">__init__</span></code>-method.</li>
+<li>Zorg dat de parent class volledig geïnitialiseerd wordt.</li>
+<li>Test of <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code> nog steeds werkt.</li>
+</ol>
+</div>
+<p>Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets zijn bijvoorbeeld een menubalk, knoppenbalk of statusbalk.</p>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<ol>
+<li>Breid <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code> uit met een centrale widget.</li>
+<li>Geef aan dat dit het centrale widget gaat zijn (regels 11--12, \figref{fig:layout-centerwidget}).</li>
+<li>Test of <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code> nog steeds werkt.</li>
+</ol>
+</div>
+<p>Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen netjes uitgelijnd worden. We willen het tekstvenster en de knoppen onder elkaar zetten en maken dus eerst een verticale layout. Aan die layout voegen we een textbox toe.</p>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<ol>
+<li>Breid <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code> uit met een verticale layout (regel 15, \figref{fig:layout-vbox}).</li>
+<li>Maak een textbox (regel 16)</li>
+<li>Voeg de textbox toe aan de verticale layout (regel 17)</li>
+<li>Test of <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code> nog steeds werkt en of je tekst kan schrijven in de textbox.</li>
+</ol>
+</div>
+<p>De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we ook toe aan de <code class="language-py highlight"><span class="n">vbox</span></code>. En we maken de layout compleet (\figref{fig:layout-buttons}) door knoppen toe te voegen aan de <code class="language-py highlight"><span class="n">hbox</span></code>.</p>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<ol>
+<li>Breid <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code> uit met een horizontale layout (regel 18).</li>
+<li>Voeg de horizontale layout toe aan de verticale layout (regel 19, \figref{fig:layout-text-hbox}).</li>
+<li>Maak een clear button en voeg deze toe aan de horizontale layout (regel 21,22).</li>
+<li>Maak ook een add button en voeg deze toe aan de horizontale layout (regel 23,24).</li>
+<li>Test of <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code> nog steeds werkt. \footnote{Waarom doen de knoppen niets als je er op klikt?}</li>
+</ol>
+</div>
+<p>\begin{info}
+    Widgets zoals knoppen voeg je toe met <code class="language-py highlight"><span class="n">addWidget</span><span class="p">()</span></code>. Layouts voeg je toe aan andere layouts met <code class="language-py highlight"><span class="n">addLayout</span><span class="p">()</span></code>.
+\end{info}</p>
+<p>De horizontale layout (voor de knoppen) moeten we expliciet toevoegen aan de verticale layout zodat hij netjes verticaal onder het tekstvenster verschijnt. Merk op dat de verticale layout <code class="language-py highlight"><span class="n">vbox</span></code> <em>niet</em> expliciet wordt toegevoegd (aan de centrale widget). De centrale widget (en <em>alleen</em> de centrale widget) krijgt een layout door bij het aanmaken van de layout de parent <code class="language-py highlight"><span class="n">central_widget</span></code> op te geven, dus: <code class="language-py highlight"><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QVBoxLayout</span><span class="p">(</span><span class="n">central_widget</span><span class="p">)</span></code>. Alle andere widgets en layouts worden expliciet toegevoegd en daarvoor hoef je dus geen parent op te geven.</p>
+<p>Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wordt er een zogeheten <em>signal</em> afgegeven. Die kun je verbinden met een <em>slot</em>. Er zijn ook verschillende soorten signalen. Het drukken op een knop zorgt voor een <em>clicked signal</em>, het veranderen van een getal in een keuzevenster geeft een <em>changed signal</em>. Wij verbinden één knop direct met een al bestaande method van het tekstvenster <code class="language-py highlight"><span class="n">clear</span><span class="p">()</span></code> en de andere knop met een eigen method <code class="language-py highlight"><span class="n">add_button_clicked</span><span class="p">()</span></code>. De naam is geheel vrij te kiezen, maar boven de functiedefinitie moet je wel de <code class="language-py highlight"><span class="nd">@Slot</span><span class="p">()</span></code>-decorator gebruiken. PySide kan dan net wat efficiënter werken.</p>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<ol>
+<li>Breid <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code> uit met slots en signals.</li>
+<li>Verbind de <code>Clear</code>-knop met de clear functie (regel 27).</li>
+<li>Definieer een <code class="language-py highlight"><span class="n">add_button_clicked</span><span class="p">()</span></code> functie (regel 30--32) en verbind deze aan de <code>Add text</code>-knop (regel 28).</li>
+<li>Test of <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code> nog steeds werkt en of de knoppen doen wat je verwacht.</li>
+</ol>
+</div>
+<p>Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst hier: \url{https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes}. Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk. Vandaar ook de methodnaam <code class="language-py highlight"><span class="n">addWidget</span><span class="p">()</span></code> in plaats van <code class="language-py highlight"><span class="n">add_widget</span><span class="p">()</span></code>. In C++ en Java is het wel gebruikelijk om functies <code>CamelCase</code> namen te geven als <code class="language-py highlight"><span class="n">kijkDitIsEenMooieFunctie</span><span class="p">()</span></code>, maar in Python zijn we <code>snake\_case</code> gewend, als in <code class="language-py highlight"><span class="n">kijk_dit_is_een_mooie_functie</span><span class="p">()</span></code>.</p>
+<div class="admonition question">
+<p class="admonition-title">bonus</p>
+<p>De volgorde waarin je layout en widgets toevoegt bepaald het uiterlijk van de grafische interface. Verander de code om de layout aan te passen (zet bijvoorbeeld de knoppen boven de textbox of zet de knoppen onder elkaar en naast de textbox).</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<p>Probeer het volgende in <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code>:</p>
+<ol>
+<li>Voeg een derde knop <code>Hello, world</code> toe die de tekst <em>Hello, world</em> toevoegt aan het venster.</li>
+<li>Zet een hekje voor de <code class="language-py highlight"><span class="nb">super</span><span class="p">()</span></code>-aanroep of haal de regel weg. Wat gebeurt er als je de code opstart? (Zet de regel weer terug!)</li>
+<li>Voeg <em>onder</em> de andere knoppen een <code>Quit</code>-knop toe. Als je daar op klikt moet de method <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code> aangeroepen worden. Daarmee sluit je het programma af. Denk erom dat als je het <code class="language-py highlight"><span class="n">clicked</span></code>-signaal verbind met <code class="language-py highlight"><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span></code> dat je de functie die je meegeeft nog <em>niet</em> moet aanroepen maar alleen moet meegeven zodat die <em>later</em> kan worden aangeroepen. Concreet betekent dit dat je de haakjes weglaat. Zie ook regel 27 en 28 van bovenstaande code.</li>
+</ol>
+</div>
+<h3 id="de-interface-ontwerpen-met-qt-designer">De interface ontwerpen met Qt Designer</h3>
+<p>\begin{info}
+    Qt Designer wordt geïnstalleerd met het <code>qt</code> package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je <code>PySide6</code> installeert. Je start hem het makkelijkst op met de zoekfunctie: links onderin bij Windows (vergrootglas of tekstveld). Type <code>designer</code> in, wacht heel even en kies de applicatie. Als hij hem niet kan vinden open dan een terminal, activeer je <code>IK-test-qt</code> conda environment en type \shellinline{pyside6-designer}.
+\end{info}</p>
+<p>Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Je bewaart dat als een <code>.ui</code>-bestand. Vervolgens vertaal je het <code>.ui</code>-bestand naar een Pythonbestand dat je importeert in je eigen programma. De volledige class van het vorige voorbeeld kan dan vervangen worden door:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">ui_simple_app</span> <span class="kn">import</span> <span class="n">Ui_MainWindow</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">class</span> <span class="nc">UserInterface</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">):</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span> <span class="o">=</span> <span class="n">Ui_MainWindow</span><span class="p">()</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">setupUi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">clear_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">textedit</span><span class="o">.</span><span class="n">clear</span><span class="p">)</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">add_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">add_button_clicked</span><span class="p">)</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="nd">@Slot</span><span class="p">()</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    <span class="k">def</span> <span class="nf">add_button_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">textedit</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;You clicked me.&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog maar de signals aan de slots hoeven te koppelen. In deze code definiëren we niet <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">clear_button</span></code> of <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">add_button</span></code>; die namen geven we aan de knoppen die we maken in Designer. De namen van alle objecten in Designer zijn daarna beschikbaar in onze code om bijvoorbeeld de signalen te koppelen. Merk op dat we nu niet meer <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">clear_button</span></code> gebruiken maar <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">clear_button</span></code>. Alle widgets komen op deze manier onder een <code class="language-py highlight"><span class="o">.</span><span class="n">ui</span></code>-object te hangen.</p>
+<div class="admonition question">
+<p class="admonition-title">minimaal</p>
+<ol>
+<li>Open Designer en kies bij \menu{templates/forms} voor <code class="language-py highlight"><span class="n">MainWindow</span></code>. Klik dan op \menu{Create}. Ontwerp de user interface uit \figref{fig:screenshot-ui-prog} en gebruik dezelfde namen voor de widgets als het voorbeeld in \secref{sec:ui-prog}. Dus een <code class="language-py highlight"><span class="n">add_button</span></code> knop, een <code class="language-py highlight"><span class="n">clear_button</span></code> knop en een <code class="language-py highlight"><span class="n">textedit</span></code> tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.</li>
+<li>Bewaar het bestand als <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm56 256c-13.3 0-24 10.7-24 24s10.7 24 24 24h144c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24h144c13.3 0 24-10.7 24-24s-10.7-24-24-24H120z"/></svg></span><code>simple\_app.ui</code>.</li>
+<li>In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan\footnote{Overleg met elkaar of met de assistent als je niet weet hoe dat moet.} en type in:
+        <div class="language-ps1con highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="go">pyside6-uic simple_app.ui -o ui_simple_app.py  </span>
+</span></code></pre></div>
+        Deze stap moet je doen elke keer als je in Designer iets wijzigt. Gebruik de \faArrowUp-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met Poetry, zullen we dit eenvoudiger maken.</li>
+<li>Copy/paste nu de voorbeeldcode in een nieuw script, fix eventuele importerrors en test de applicatie.</li>
+</ol>
+</div>
+<h2 id="een-oefening-functieplotter">Een oefening: functieplotter</h2>
+<p>Je hebt nu twee manieren gezien om een interface te bouwen: programmeren of Designer gebruiken. Let er wel op dat er dus een subtiel verschil is in het benaderen van de widgets. Je kunt bij zelf programmeren bijvoorbeeld <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">add_button</span></code> gebruiken, maar als je Designer gebruikt moet dat <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">add_button</span></code> zijn.</p>
+<p>In de eindopracht willen we data weergeven op een scherm. We zullen dus nog moeten plotten. In de volgende opdrachten gaan we daarmee aan de slag.</p>
+<p>Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties. Helaas is matplotlib voor het gebruik in interactieve interfaces nogal traag zodra we te maken krijgen met meer data. We kiezen daarom voor een populair alternatief: PyQtGraph. Eén nadeel: de documentatie\footnote{\url{https://pyqtgraph.readthedocs.io/en/latest/}} is niet fantastisch. Het geeft dus niets als je ergens niet uitkomt en je hebt hulp nodig van de assistent of een staflid.</p>
+<h3 id="de-plotter-als-script">De plotter als script</h3>
+<p>Om PyQtGraph te importeren en globale opties in te stellen moeten we bovenaan ons programma het volgende schrijven:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">pyqtgraph</span> <span class="k">as</span> <span class="nn">pg</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># PyQtGraph global options</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">pg</span><span class="o">.</span><span class="n">setConfigOption</span><span class="p">(</span><span class="s2">&quot;background&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">pg</span><span class="o">.</span><span class="n">setConfigOption</span><span class="p">(</span><span class="s2">&quot;foreground&quot;</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en dan krijg je de standaardinstelling: grijze letters op een zwarte achtergrond. Het is maar wat je fijn vindt.</p>
+<p>\begin{info}
+    \textbf{Als je je GUI het liefst programmeert}, gebruik dan de volgende regel om een plot widget te krijgen in de <code class="language-py highlight"><span class="fm">__init__</span><span class="p">()</span></code>:
+    <div class="language-py highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="bp">self</span><span class="o">.</span><span class="n">plot_widget</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">PlotWidget</span><span class="p">()</span>
+</span></code></pre></div>
+\end{info}</p>
+<p>\begin{info}
+    \textbf{Als je je GUI het liefst ontwerpt met Designer} voegen we als volgt een plot widget toe:</p>
+<div class="language-text highlight"><pre><span></span><code>1. Voeg aan je interface een _Graphics View_ toe;
+1. Klik er op om hem te selecteren en klik daarna op de rechtermuistoets;
+1. Kies voor _Promote To ..._;
+1. Bij _Promoted class name_ vul je in `PlotWidget` en bij _Header file_ vul je in `pyqtgraph` (zonder `.h` aan het eind);
+1. Dan klik je op _Add_ en vervolgens op _Promote_;
+
+Zie \figref{fig:screenshot-promote-widget}. Nu je dit een keer gedaan hebt kun je voortaan op een Graphics View meteen kiezen voor _Promote to \textrightarrow\ PlotWidget_ en hoef je niets meer in te typen. Vergeet niet je widget nog even een handige naam te geven, bijvoorbeeld `plot_widget`.
+</code></pre></div>
+<p>\end{info}</p>
+<p>\begin{figure}
+    \centering
+    \includegraphics[scale=.4]{figures/screenshot-promote-widget.png}
+    \caption{Voor het toevoegen van een <code>PlotWidget</code> van PyQtGraph moet je eerste een <code>GraphicsView</code> toevoegen (rode pijl) en die <em>Promoten</em> naar een <code>PlotWidget</code> (rood kader).}
+    \label{fig:screenshot-promote-widget}
+\end{figure}</p>
+<p>\begin{info}
+    \textbf{Handige widgets}: in \tabref{tab:widgets} zie je een lijst van zeer handige widgets die je vrijwel zeker nodig hebt. Als je nog meer widgets wilt gebruiken, kijk dan in de lijst van Designer en/of op \url{https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html}.
+\end{info}</p>
+<p>\begin{table}
+    \centering\begin{tabularx}{\linewidth}{&gt;{\ttfamily}llX}
+        \toprule
+        {\rmfamily Naam class} &amp; Naam Designer     &amp; Beschrijving                                                                                                                                  \
+        \midrule
+        QHBoxLayout            &amp; Horizontal layout &amp; Plaats widgets naast elkaar in deze container.                                                                                                \
+        QVBoxLayout            &amp; Vertical Layout   &amp; Plaats widgets onder elkaar in deze container                                                                                                 \
+        QFormLayout            &amp; Form Layout       &amp; Een layout met twee kolommen: links tekstlabels en rechts widgets                                                                             \
+        QGroupBox              &amp; Group Box         &amp; Verzamel widgets in een rechthoekig kader met linksbovenin een tekstlabel                                                                     \
+        QPushButton            &amp; Push Button       &amp; Een drukknop met tekstlabel. Signals: <code>clicked</code>.                                                                                       \
+        QLabel                 &amp; Label             &amp; Een tekstlabel                                                                                                                                \
+        QComboBox              &amp; Combo Box         &amp; Een knop voor een keuzemenu. \newline Methods: <code>addItem, addItems</code>.\newline Signals: <code>currentIndexChanged, currentTextChanged</code>. \
+        QSpinBox               &amp; Spin Box          &amp; Kies een geheel getal (intypen of met pijltjes selecteren). Signals: <code>valueChanged</code>.                                                   \
+        QDoubleSpinBox         &amp; Double Spin Box   &amp; Kies een kommagetal (intypen of met pijltjes selecteren). Signals: <code>valueChanged</code>.                                                     \
+        \bottomrule
+    \end{tabularx}
+    \caption{Lijst van zeer handige widgets. Je hebt deze widgets hoogstwaarschijnlijk nodig. Zie voor meer informatie: \url{https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html}.}
+    \label{tab:widgets}
+\end{table}</p>
+<p>\noindent
+Om daadwerkelijk een functie te plotten kun je deze code gebruiken:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="bp">self</span><span class="o">.</span><span class="n">plot_widget</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">symbol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pen</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="bp">self</span><span class="o">.</span><span class="n">plot_widget</span><span class="o">.</span><span class="n">setLabel</span><span class="p">(</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="s2">&quot;sin(x)&quot;</span><span class="p">)</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="bp">self</span><span class="o">.</span><span class="n">plot_widget</span><span class="o">.</span><span class="n">setLabel</span><span class="p">(</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span> <span class="s2">&quot;x [radians]&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+Je kunt uiteraard spelen met de instellingen zoals <code class="language-py highlight"><span class="n">symbol</span></code> en <code class="language-py highlight"><span class="n">pen</span></code>, of je laat ze weg. Leeg maken kan met <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">plot_widget</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></code>.</p>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Functieplotter: plot</p>
+<p>Schrijf een script en ontwerp een (eenvoudige!) grafische interface waarmee je de functie $\sin(x)$ plot in het domein $(-\pi, \pi)$. De <q>applicatie</q> hoeft verder niets te kunnen.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Functieplotter: knoppen</p>
+<p>Voeg knoppen toe om het domein aan te passen. Maak bijvoorbeeld een <code>start</code> die mag lopen van 0 tot 100. Maak ook een <code>stop</code> en een <code>numpoints</code> om het aantal punten te kiezen. Kies daarvoor ook een handige standaardwaarde. Zorg ervoor dat als je de waardes aanpast dat de functie automatisch opnieuw wordt geplot.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">bonus: Functieplotter: (uitdaging)</p>
+<p>Gebruik een <code class="language-py highlight"><span class="n">QComboBox</span></code> om de functie te kunnen kiezen. Je moet hem <em>leeg</em> toevoegen aan je interface en vult hem vanuit je programma. Zoek de widget op in de documentatie om uit te zoeken welke functie je moet gebruiken om keuzemogelijkheden toe te voegen en welk signaal je moet koppelen om te zorgen dat de plot opnieuw wordt uitgevoerd als je de functie aanpast. Geef de gebruiker de keuzes $\sin(x)$, $\cos(x)$, $\tan(x)$ en $\exp(x)$.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">bonus: Functieplotter (uitdaging)</p>
+<p>Voeg aan de functiekiezer de functies $x$, $x^2$, $x^3$, en $\frac{1}{x}$ toe. Je kunt daarvoor <em>lambda functions</em> gebruiken, maar dat is niet per se nodig.</p>
+</div>
+<p>\begin{bonus}
+    \begin{opdracht}[Functieplotter (uitdaging)]
+        Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals <code>x ** 2</code>, <code>sin(x)</code> of <code>1 / sqrt(x + 1)</code>. Gebruik daarvoor het <code>asteval</code> package \parencite{asteval}. Documentatie vind je op \url{https://newville.github.io/asteval/}.
+    \end{opdracht}</p>
+<div class="language-text highlight"><pre><span></span><code>\begin{warning}
+    Gebruik _nooit_ zomaar `#!py eval()` op een string die iemand anders aanlevert. Anders kan iemand met typen in een tekstveld of het inlezen van een tekstbestand je computer wissen bijvoorbeeld, of malware installeren. Als je `#!py eval()` wilt gebruiken, lees dan de sectie _Minimizing the Security Issues of eval()_ in \citetitle{eval} \cite{eval}. Maar _veel makkelijker_ is om `asteval` te gebruiken.
+\end{warning}
+</code></pre></div>
+<p>\end{bonus}</p>
+<h2 id="een-grafische-interface-voor-ons-experiment">Een grafische interface voor ons experiment</h2>
+<p>In het vorige hoofdstuk hebben we een <em>tekst_interface geschreven voor ons experiment. We gaan nu een _grafische</em> interface schrijven voor hetzelfde experiment.</p>
+<p>We hebben tot nu toe veel moeite gedaan om je code te splitsen volgens het MVC-model: werken in laagjes, goed nadenken over wat waar hoort. Als dat netjes gelukt is kunnen we relatief makkelijk één van die laagjes vervangen. We kunnen de <code class="language-py highlight"><span class="n">ArduinoVISADevice</span></code> vervangen door een <code class="language-py highlight"><span class="n">RaspberryPiDevice</span></code> of een <code class="language-py highlight"><span class="n">PicoScopeDevice</span></code>.\footnote{Je moet dan wel eerst nieuwe controllers schrijven (of krijgen van een collega) om deze nieuwe instrumenten aan te sturen. Maar als je die hebt kun je vrij eenvoudig wisselen.} Ook kunnen we een nieuwe applicatie schrijven voor ons bestaande experiment. We hoeven dan alleen een extra view te schrijven (de interface met de gebruiker) en de rest kunnen we hergebruiken. Misschien dat we hier en daar iets willen aanpassen maar zorg er dan voor dat je oude applicatie nog steeds werkt!</p>
+<p>We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat in stapjes doen.</p>
+<p>\begin{info}
+    Je mag zelf kiezen of je de grafische interface gaat ontwerpen met Designer of dat je hem volledig programmeert.</p>
+<div class="language-text highlight"><pre><span></span><code>Zorg dat je in je `daq` conda environment zit of maak een nieuwe. Voeg de dependencies PySide6 en PyQtGraph toe met:
+``` ps1con
+poetry add pyside6 pyqtgraph
+```
+</code></pre></div>
+<p>\end{info}</p>
+<p>\begin{info}
+    Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds <code>pyside-uic</code> moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met Poetry <q>taken</q> aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn niet meer beschikbaar als je je applicatie deelt met andere mensen -- ze zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. En dat is wat we willen. Doe dit als volgt:</p>
+<div class="language-text highlight"><pre><span></span><code>1. Installeer _Poe the Poet_ -- onze _task runner_ -- als _development dependency_ met:
+        ``` ps1con
+        poetry add --group dev poethepoet
+        ```
+        We geven hiermee aan dat we dit package nodig hebben voor de ontwikkeling van onze applicatie, maar dat deze niet meegeleverd hoeft te worden als we de applicatie gaan delen met anderen.
+1. Voeg aan je :fontawesome-regular-file-code:`pyproject.toml` het volgende toe -- uitgaande van de mappenstructuur in de `pythondaq` package en :fontawesome-regular-file-lines:`mainwindow.ui` als naam van je `.ui`-bestand:
+        \begin{tomlcode}
+            [tool.poe.tasks.compile]
+            shell = &quot;&quot;&quot;
+            pyside6-uic src/pythondaq/mainwindow.ui -o src/pythondaq/ui_mainwindow.py
+            &quot;&quot;&quot;
+        \end{tomlcode}
+        Je kunt binnen de driedubbele aanhalingstekens meerdere regels toevoegen als je meerdere `.ui`-bestanden hebt -- voor ieder bestand een regel.
+1. In bovenstaande regels is de naam na `tool.poe.tasks` de naam van de taak -- in dit geval dus `compile`. Je kunt die naam zelf kiezen. Voer de taak uit door in de terminal in te typen:
+        ``` ps1con
+        poe compile
+        ```
+        En dat gaat een stuk sneller dan die lange `pyside-uic`-regel onthouden en intypen!
+</code></pre></div>
+<p>\end{info}</p>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: leeg venster</p>
+<p>Maak een nieuwe applicatie aan de hand van de code aan het begin van het hoofdstuk (minimale Qt-applicatie). De applicatie doet dus nog niets anders dan het tonen van een leeg venster.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: plot scan</p>
+<p>Voeg aan je applicatie een <code>PlotWidget</code> toe. Laat je applicatie een scan uitvoeren (door het model te openen en aan te roepen) en laat het resultaat zien in een grafiek. Voor deze opdracht mag je nog gewoon de poortnaam in je code schrijven, net als start- en stop waardes e.d. De gebruiker hoeft nog niets te kunnen instellen. Dat komt straks.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: knoppen</p>
+<p>Maak nu in je grafische interface widgets om de start- en stopwaardes, aantal metingen e.d. te kunnen instellen. Maak ook een startknop. Als je op de startknop drukt moet je applicatie een nieuwe meting uitvoeren.</p>
+</div>
+<h3 id="van-script-naar-applicatie">Van script naar applicatie</h3>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: app</p>
+<p>Het is weer mogelijk om van het script een applicatie te maken die je aan kunt roepen vanaf de command-line. Daar moeten we het volgende voor doen:</p>
+<ol>
+<li>Voeg een nieuw item toe voor je applicatie in de sectie <code>[tool.poetry.scripts]</code> in de \path{pyproject.toml} zoals je dat ook gedaan hebt voor je command-line applicatie.</li>
+<li>Installeer je package opnieuw met:
+        \begin{consolecode}
+    $ poetry install
+    \end{consolecode}</li>
+</ol>
+<p>Test je applicatie.</p>
+</div>
+<h3 id="bewaren-van-meetgegevens">Bewaren van meetgegevens</h3>
+<p>Je kunt na iedere meting de gegevens automatisch wegschrijven naar bestanden zonder dat de gebruiker nog iets kan kiezen, maar je kunt ook gebruik maken van een <code>Save</code>-knop en dialoogvensters. Je kunt de knop koppelen aan een method <code class="language-py highlight"><span class="n">save_data</span><span class="p">()</span></code> en daarin de volgende regel opnemen:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">filename</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QFileDialog</span><span class="o">.</span><span class="n">getSaveFileName</span><span class="p">(</span><span class="nb">filter</span><span class="o">=</span><span class="s2">&quot;CSV files (*.csv)&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+De functie <code class="language-py highlight"><span class="n">getSaveFileName</span><span class="p">()</span></code> opent een dialoogvenster om een bestand op te slaan. Vanwege het filter argument geeft het venster (op sommige besturingssystemen) alleen CSV-bestanden weer. In elk geval geldt op alle besturingssystemen dat als de gebruiker als naam <code>metingen</code> intypt, dat het filterargument ervoor zorgt dat er automatisch <code>.csv</code> achter geplakt wordt.\footnote{Het eerste deel van het argument (<code>CSV files</code>) is vrij te kiezen en geeft alleen informatie aan de gebruiker. Het deel tussen haakjes (<code>*.csv</code>) is het gedeelte dat echt van belang is. Het geeft de extensie die achter alle bestandsnamen geplakt wordt.} De functie geeft twee variabelen terug: <code>filename</code> en (weer) <code>filter</code>. Die laatste kenden we al en gooien we weg met behulp van de weggooivariabele <code class="language-py highlight"><span class="n">_</span></code>.</p>
+<p>Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder welke naam het bestand moet worden opgeslagen. Je krijgt echt alleen een pad en bestandsnaam terug, de data is <em>niet</em> opgeslagen en het bestand is <em>niet</em> aangemaakt. De variabele <code>filename</code> is echt niets anders dan een bestandsnaam, bijvoorbeeld: <code>/Users/david/LED-rood.csv</code>. Nadat je die bestandsnaam gekregen hebt moet je dus zelf nog code schrijven zodat het CSV-bestand wordt opgeslagen onder die naam.</p>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: save</p>
+<p>Voeg een <code>Save</code>-knop toe aan je interface om je metingen op te slaan als CSV-bestand. Controleer dat de gegevens ook inderdaad bewaard zijn.</p>
+</div>
+<h3 id="uitdaging-menus-taak-en-statusbalken">Uitdaging: Menu's, taak- en statusbalken</h3>
+<p>Je kunt je grafische applicatie volledig optuigen met menu's of taakbalken. Ook kun je onderin je applicatie met een statusbalk weergeven wat de status is: gereed, aan het meten, foutcode, etc. Dat valt buiten het bestek van deze cursus, maar een mooie referentie is \citetitle{qtmenus} \cite{qtmenus}. Als je vaker grafische applicaties wilt gaan maken dan moet je dat zeker eens doornemen!</p>
+<div class="admonition question">
+<p class="admonition-title">bonus: Pythondaq (uitdaging)</p>
+<p>Maak een statusbalk die aangeeft wat de identificatiestring is van het device dat geselecteerd is. Maak ook een menu waarmee je een CSV-bestand kunt opslaan en een nieuwe meting kunt starten. Let op: je hebt dan een menu-item én een knop die dezelfde method aanroepen. Je hoeft geen dubbele code te schrijven, maar moet de <code class="language-py highlight"><span class="n">save_data</span><span class="p">()</span></code>-method wel twee keer verbinden.</p>
+</div>
+<h3 id="selecteer-de-arduino">Selecteer de Arduino</h3>
+<p>Je hebt nu nog, waarschijnlijk, de poortnaam van de Arduino in je code gedefinieerd als vaste waarde. Dat betekent dat als je de code deelt met iemand anders -- bijvoorbeeld wanneer je de code inlevert op Canvas of wanneer je je experiment op een labcomputer wilt draaien -- je het risico loopt dat je applicatie crasht omdat de Arduino aan een andere poort hangt. Zeker bij de overstap van Windows naar MacOS of Linux, of andersom! Je kunt dit op twee manieren oplossen:</p>
+<ol>
+<li>Je maakt een keuzemenu dat de gebruiker bij het opstarten éérst krijgt te zien. Hierin kan de gebruiker de Arduino aanklikken en dan pas wordt het hoofdprogramma opgestart;</li>
+<li>Je probeert de Arduino te detecteren op één van de poorten. De gebruiker hoeft dan niet te weten welke poort dat zou kunnen zijn. Het werkt dan vanzelf!</li>
+</ol>
+<p>Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeilijker dan gedacht. Zodra je andere devices gaat openen en commando's gaat sturen kunnen er gekke dingen gebeuren. Onder MacOS bijvoorbeeld kunnen bluetooth luidsprekers en koptelefoons opeens ontkoppelen. <em>We gaan dus toch voor keuze 1.</em></p>
+<p>% Je kunt dit met het volgende stappenplan aanpakken:
+% 
+%   1. Je vraagt alle poorten op;
+%   1. Je probeert iedere poort te openen;
+%   1. Als het openen lukt, probeer je de identificatie\footnote{Met <code>*IDN?</code>, maar daar heb je als het goed is al een method voor in de controller.} op te vragen;
+%   1. Als dat lukt, kijk je of de tekst <code>Arduino VISA</code> er in voorkomt;
+%   1. Als dat lukt, dan heb je de Arduino gevonden!
+% 
+% Het lastige hierbij is dat je dus gaat <em>proberen</em> om een poort te openen. De kans bestaat dat dat niet lukt, bijvoorbeeld omdat een poort al in gebruik is. Dan krijg je een exception die je af moet vangen met een <code class="language-py highlight"><span class="k">try</span><span class="o">...</span><span class="k">except</span></code>-blok. Je kunt <em>alle</em> exceptions afvangen, maar het is mooier om specifieke exceptions af te vangen. Op die manier blijven onverwachte fouten nog steeds een foutmelding geven.\footnote{Dat kan echt heel handig zijn. Menig programmeur zoekt zich suf naar de reden waarom een programma niet werkt om er dan achter te komen dat één of andere onverwachte foutmelding wordt afgevangen zonder dat hij die te zien krijgt. Als iets niet werkt maar je krijgt geen foutmelding dan kun je lang blijven zoeken...} Zulke exceptions kun je vaak in de documentatie vinden maar je kunt het ook blijven proberen op verschillende computers, met of zonder Arduino, om te zien welke exceptions je kunt krijgen tijdens <q>normaal</q> gebruik.</p>
+<p>% Om je een zoektocht te besparen: wanneer je een device probeert te openen kun je een <code>serial.serialutil.SerialException</code>\footnote{Om de exception te <q>herkennen</q> moet je bovenin je code <code class="language-py highlight"><span class="kn">import</span> <span class="nn">serial.serialutil</span></code> toevoegen.} krijgen, bijvoorbeeld wanneer het device al in gebruik is. Als je met een device probeert te communiceren en je krijgt geen antwoord, dan krijg je een <code>pyvisa.errors.VisaIOError</code>. Vang in ieder geval die exceptions dus af.</p>
+<p>% Aangezien het hier heel specifiek over Arduino's gaat -- en niet in het algemeen over een instrument -- is de controller de juiste plek voor deze code. Als je wilt dat de detectie niet te lang duurt -- je moet immers steeds wachten op een antwoord dat misschien niet komt -- kun je in de <code>ArduinoVISADevice</code>-class aan de <code>open\_resource()</code>-aanroep de parameter <code>timeout=100</code> toevoegen. Hij wacht dan maximaal \qty{100}{\milli\second} op antwoord en geeft dan een timeout.</p>
+<p>% \begin{hogercijfer}
+%   \begin{opdracht}
+%     Maak een <em>functie</em> in de controller module en implementeer bovenstaande procedure. Als een Arduino gevonden wordt, geef dan de volledige poortnaam terug. Als er geen Arduino wordt gevonden, zorg dan voor een zelfgemaakte exception (bijvoorbeeld <code>DeviceNotFound</code>). Zorg ervoor dat je grafische applicatie bij het opstarten zoekt naar een Arduino en die poort verder gebruikt in het programma. De gebruiker hoeft dus geen poort te kiezen; het werkt automatisch!
+%   \end{opdracht}
+% \end{hogercijfer}</p>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: selecteer Arduino</p>
+<p>Maak een keuzemenu (<code class="language-py highlight"><span class="n">QComboBox</span></code>) zodat je de Arduino kunt selecteren. Je zult in de <code>__init__()</code> eerst een lijst van devices moeten maken en die toe moeten voegen aan de widget. Zie ook \tabref{tab:widgets} en de documentatie. Het kan daarbij handig zijn om de device pas te <em>openen</em> als je een scan uitvoert en hem te sluiten (schrijf een soort <code class="language-py highlight"><span class="n">device</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code>) als de scan is afgelopen. In de controller werk je met een <code class="language-py highlight"><span class="n">pyvisa</span></code> device en die heeft al een <code class="language-py highlight"><span class="n">close</span><span class="p">()</span></code>-method.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">bonus: Pythondaq: exception</p>
+<p>Het is natuurlijk niet zo mooi wanneer je de verkeerde poort kiest en het programma crasht. Vang de exception af en geef een melding (gebruik bijvoorbeeld <code class="language-py highlight"><span class="n">QDialog</span></code>) dat het device geen Arduino VISA device is. De gebruiker kan daarna een andere poort proberen.</p>
+</div>
+<h2 id="meerdere-dingen-tegelijkertijd-threads">Meerdere dingen tegelijkertijd: threads</h2>
+<p>Afhankelijk van de instellingen die we gekozen hebben kan een meting best lang duren. In ieder geval moeten we even wachten tot de meting afgelopen is en pas daarna krijgen we de resultaten te zien in een plot. Als een meting langer duurt dan een paar seconden kan het besturingssysteem zelfs aangeven dat onze applicatie niet meer reageert. En inderdaad, als we ondertussen op knoppen proberen te drukken dan reageert hij nergens op. Onze applicatie kan helaas niet twee dingen tegelijk. Kon hij dat wel, dan zouden we zien hoe de grafiek langzaam opbouwt tot het eindresultaat.</p>
+<p>De manier waarop besturingssystemen meerdere dingen tegelijk doen is gebaseerd op <em>processes</em> en <em>threads</em>. Een <em>process</em> is, eenvoudig gezegd, een programma. Als je meerdere applicaties opstart zijn dat allemaal processen. Besturingssystemen regelen dat ieder proces een stuk geheugen krijgt en tijd van de processor krijgt toegewezen om zijn werk te doen. Processen zijn mooi gescheiden en kunnen dus eenvoudig naast elkaar draaien. Het wordt iets lastiger als een <em>proces</em> meerdere dingen tegelijk wil doen. Dat kan wel, met <em>threads</em>. Het besturingssysteem zorgt dat meerdere threads naast elkaar draaien.\footnote{Er is een subtiliteit. In Python draaien threads <em>niet</em> tegelijk, maar om de beurt. In de praktijk merk je daar niet veel van: threads worden zó vaak per seconde gewisseld dat het <em>lijkt</em> alsof ze tegelijk draaien. Terwijl de ene thread steeds even tijd krijgt voor een meting kan de andere thread steeds even de plot verversen. In het geval van zwaar rekenwerk schiet het alleen niet op. Er draait maar één berekening tegelijkertijd dus threads of niet, het is even snel. Wil je <em>echt</em> parallel rekenen, dan moet je kijken naar de <code>multiprocessing</code> module om meerdere processen te starten in plaats van threads.}</p>
+<p>Threads geven vaak problemen omdat ze in zekere zin onvoorspelbaar zijn. Je weet niet precies hoe <q>snel</q> een thread draait, dus je weet niet zeker wat er in welke volgorde gebeurt. Dit kan leiden tot problemen waarvan de oorzaak maar lastig te vinden is. Google maar eens op <code>thread problems in programming</code>. We moeten dus voorzichtig zijn! Ook is het ombouwen van code zonder threads naar code met threads een klus waar makkelijk iets fout gaat. Het is dus belangrijk dat je <em>in kleine stapjes</em> je code aanpast en <em>vaak test</em> of het nog werkt.</p>
+<p>\begin{info}
+    We gaan in het volgende stuk een kleine applicatie ombouwen van <q>no-threads</q> naar <q>threads</q>. <em>Voor het gemak</em> hebben we de view en het model in één bestand gezet. Op Canvas kun je de code downloaden. We raden je ten zeerste aan om het bestand \path{demo-no-threads.py} te downloaden en dan stapje voor stapje de code aan te passen zoals in de handleiding gebeurt. De andere stappen staan alleen op Canvas om bij problemen even te kunnen vergelijken. <em>Probeer het dus zelf!</em> Pas daarna ga je aan de slag om je eigen code om te bouwen waarbij de view en het model nu <em>wel</em> weer in verschillende bestanden staan. Samenvattend: doorloop dit stuk handleiding <em>twee keer</em>. De eerste keer doe je de opdrachten met het demoscript, de tweede keer met je eigen code voor \githubrepo{pythondaq}.
+\end{info}</p>
+<p>\begin{pythoncode*}{linenos}
+  import sys
+  import time</p>
+<p>import numpy as np</p>
+<p>from PyQt5 import QtWidgets
+  import pyqtgraph as pg</p>
+<p># view
+  class UserInterface(QtWidgets.QMainWindow):
+      def <strong>init</strong>(self):
+          super().<strong>init</strong>()</p>
+<div class="language-text highlight"><pre><span></span><code>      central_widget = QtWidgets.QWidget()
+      self.setCentralWidget(central_widget)
+
+      vbox = QtWidgets.QVBoxLayout(central_widget)
+      self.plot_widget = pg.PlotWidget()
+      vbox.addWidget(self.plot_widget)
+      start_button = QtWidgets.QPushButton(&quot;Start&quot;)
+      vbox.addWidget(start_button)
+
+      start_button.clicked.connect(self.plot)
+
+      # Experiment
+      self.experiment = Experiment()
+
+  def plot(self):
+      &quot;&quot;&quot;Plot data van het experiment&quot;&quot;&quot;
+      self.plot_widget.clear()
+      x, y = self.experiment.scan(0, np.pi, 50)
+      self.plot_widget.plot(x, y, symbol=&quot;o&quot;, symbolSize=5, pen=None)
+</code></pre></div>
+<p># model
+  class Experiment:
+      def scan(self, start, stop, steps):
+          x = np.linspace(start, stop, steps)
+          y = []
+          for u in x:
+              y.append(np.sin(u))
+              time.sleep(0.1)
+          return x, y</p>
+<p>def main():
+      app = QtWidgets.QApplication(sys.argv)
+      ui = UserInterface()
+      ui.show()
+      sys.exit(app.exec())</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+      main()<br />
+\end{pythoncode*}
+In regels 15--24 bouwen we een kleine user interface op met een plot widget en een startknop. We koppelen die knop aan de <code class="language-py highlight"><span class="n">plot</span><span class="p">()</span></code>-method. In regel 27 maken we ons experiment (het model) aan en bewaren die. In regels 29--33 maken we de plot schoon, voeren we een scan uit en plotten het resultaat. Regels 37--44 vormen ons experiment. Eerst wordt een rij $x$-waardes klaargezet en dan, in een loop, wordt punt voor punt de sinus uitgerekend en toegevoegd aan een lijst met $y$-waardes. De <code class="language-py highlight"><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">.1</span><span class="p">)</span></code> wacht steeds \qty{0.1}{\second} en zorgt hiermee voor de simulatie van <em>trage</em> metingen. En inderdaad, als we deze code draaien dan moeten we zo'n vijf seconden wachten voordat de plot verschijnt.</p>
+<p>In de volgende opdrachten gaan we de code stap voor stap ombouwen naar threads. Als we daarmee klaar zijn worden de metingen gedaan binnen de <code class="language-py highlight"><span class="n">scan</span><span class="p">()</span></code>-method van de <code class="language-py highlight"><span class="n">Experiment</span><span class="p">()</span></code>-class en verversen we ondertussen af en toe de plot. De <code class="language-py highlight"><span class="n">plot</span><span class="p">()</span></code>-method van onze user interface wordt regelmatig aangeroepen terwijl de meting nog loopt en moet dus de hele tijd de huidige metingen uit kunnen lezen. Dat kan, als de metingen worden bewaard in <em>instance attributes</em>.\footnote{Variabelen die we in een class definiëren door ze aan te maken met <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span></code> ervoor zijn <em>instance attributes</em>.}</p>
+<h3 id="stap-1-de-meetgegevens-altijd-beschikbaar-maken">Stap 1: de meetgegevens altijd beschikbaar maken</h3>
+<p>We maken in de <code class="language-py highlight"><span class="n">scan</span><span class="p">()</span></code>-method lege lijsten <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">x</span></code> en <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">y</span></code>. Hier komen de meetgegevens in en die staan dus los van de lijst met $x$-waardes die je klaarzet. Met andere woorden: de variabele <code class="language-py highlight"><span class="n">x</span></code> is <em>niet hetzelfde</em> als de variabele <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">x</span></code>:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># model</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">class</span> <span class="nc">Experiment</span><span class="p">:</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="o">...</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="k">def</span> <span class="nf">scan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">)</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>        <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>            <span class="o">...</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span>
+</span></code></pre></div>
+We zorgen er zo voor dat de lijst met meetgegevens voor zowel de $x$- als de $y$-waardes steeds even lang zijn. Dit is nodig voor het plotten: hij kan geen grafiek maken van 50 $x$-waardes en maar tien $y$-waardes.\footnote{Hier zie je een probleem met threads. Het kán -- in uitzonderlijke situaties -- voorkomen dat de plot-functie nét wil gaan plotten als de $x$-waardes al langer gemaakt zijn, maar de $y$-waardes nog niet. Die kans is heel klein en wij accepteren het risico. Schrijf je software voor een complex experiment dat drie dagen draait, dan is dit iets waar je echt rekening mee moet houden. Je moet dan gebruik gaan maken van zogeheten <em>locks</em> of <em>semaphores</em> maar dat valt buiten het bestek van deze cursus.} Ook moeten we er voor zorgen dat er <em>altijd</em> (lege) meetgegevens beschikbaar zijn -- ook als de meting nog niet gestart is. Anders krijgen we voordat we een meting hebben kunnen doen een foutmelding dat <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">x</span></code> niet bestaat. We doen dat in de <code class="language-py highlight"><span class="fm">__init__</span><span class="p">()</span></code>:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># model</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">class</span> <span class="nc">Experiment</span><span class="p">:</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="o">...</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+</span></code></pre></div></p>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: threads I</p>
+<p>Pas je eigen code aan zodat de meetgegevens altijd beschikbaar zijn. <em>Test je code,</em> je applicatie moet nog steeds werken.</p>
+</div>
+<h3 id="stap-2-plot-de-meetgegevens-vanuit-het-experiment">Stap 2: plot de meetgegevens vanuit het experiment</h3>
+<p>Nu we de meetgegevens bewaren als instance attributes van de <code class="language-py highlight"><span class="n">Experiment</span></code>-class kunnen we die ook plotten. We geven ze nog steeds terug als return value vanuit de <code class="language-py highlight"><span class="n">scan</span><span class="p">()</span></code>-method voor <q>ouderwetse</q> code,\footnote{Door een beetje ons best te doen kunnen we ervoor zorgen dat zowel de command-line interface als de grafische interface allebei gebruikt kunnen worden.} maar wij gaan nu de <q>nieuwerwetse</q> instance attributes gebruiken:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># view</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">class</span> <span class="nc">UserInterface</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">):</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="o">...</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>        <span class="o">...</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">plot_widget</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">symbolSize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">pen</span><span class="o">=</span><span class="kc">None</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>        <span class="p">)</span>
+</span></code></pre></div>
+De code wordt hier niet sneller van -- hij maakt nog steeds pas een grafiek als de meting helemaal is afgelopen -- maar we bereiden de code wel voor op het gebruik van de instance attributes.</p>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: threads II</p>
+<p>Pas je eigen code aan zodat je instance attributes gebruikt voor het plotten. <em>Test je code,</em> het moet nog steeds werken als vanouds.</p>
+</div>
+<h3 id="stap-3-threads">Stap 3: threads</h3>
+<p>We gaan nu met threads werken. Je importeert daarvoor de <code class="language-py highlight"><span class="n">threading</span></code> module en maakt voor iedere thread een <code class="language-py highlight"><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">()</span></code> instance. Deze heeft twee belangrijke parameters: <code class="language-py highlight"><span class="n">target</span></code> waarmee je de functie (of method) aangeeft die in de thread moet worden uitgevoerd, en <code class="language-py highlight"><span class="n">args</span></code> waarmee je argumenten meegeeft voor die functie of method. We maken een <em>nieuwe</em> method <code class="language-py highlight"><span class="n">start_scan</span><span class="p">()</span></code> waarmee we een nieuwe thread starten om een scan uit te voeren. We doen dit als volgt:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">import</span> <span class="nn">threading</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1"># model</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="k">class</span> <span class="nc">Experiment</span><span class="p">:</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="o">...</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="k">def</span> <span class="nf">start_scan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Start a new thread to execute a scan.&quot;&quot;&quot;</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_scan_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>            <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scan</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">steps</span><span class="p">)</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>        <span class="p">)</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_scan_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></code></pre></div></p>
+<p>In plaats van dat onze plotfunctie de <code class="language-py highlight"><span class="n">scan</span><span class="p">()</span></code>-method aanroept, moeten we nu de <code class="language-py highlight"><span class="n">start_scan</span><span class="p">()</span></code>-method aanroepen. Maar: die method start een scan en sluit meteen af, terwijl de daadwerkelijke meting op de achtergrond wordt uitgevoerd. De plotfunctie moet -- in deze stap nog even -- wachten tot de scan klaar is. Er is een manier om op een thread te wachten. Je moet daartoe de <code class="language-py highlight"><span class="n">join</span><span class="p">()</span></code> method van de thread aanroepen. In bovenstaande code hebben we de thread bewaard in de variabele <code class="language-py highlight"><span class="n">_scan_thread</span></code>, dus hij is voor ons beschikbaar:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># view</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">class</span> <span class="nc">UserInterface</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">):</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="o">...</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>        <span class="o">...</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">start_scan</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">_scan_thread</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>        <span class="o">...</span> <span class="c1"># plot</span>
+</span></code></pre></div></p>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: threads III</p>
+<p>Pas je eigen code aan zodat je een thread opstart om de scan op de achtergrond uit te voeren. Roep in je plotfunctie de goede method aan en wacht tot de thread klaar is. <em>Test je code.</em> Wederom moet het werken als vanouds. Kijk ook eens wat er gebeurt als je <em>niet</em> wacht tot de metingen klaar zijn door de regel <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">_scan_thread</span><span class="o">.</span><span class="n">join</span><span class="p">()</span></code> uit te commentariëren (hekje ervoor). Niet vergeten het hekje weer weg te halen.</p>
+</div>
+<h3 id="stap-4-plotten-op-de-achtergrond">Stap 4: plotten op de achtergrond</h3>
+<p>We zijn er nu bijna. We gebruiken threads om de metingen op de achtergrond uit te voeren maar we wachten nog steeds tot de metingen klaar zijn voordat we -- eenmalig -- de grafiek plotten. In deze laatste stap doen we dat niet meer. Als je straks op de startknop drukt dan start de meting op de achtergrond. Ondertussen wordt er regelmatig geplot. Je ziet dan tijdens de metingen de plot opbouwen. We doen dat door het scannen en plotten van elkaar los te koppelen -- niet meer samen in één functie -- en door met een <code class="language-py highlight"><span class="n">QTimer</span></code> de plotfunctie periodiek aan te roepen. Kijk de code goed door. De <code class="language-py highlight"><span class="o">...</span></code> geven aan waar code onveranderd is gebleven en de <code class="language-py highlight"><span class="n">plot</span><span class="p">()</span></code>-method is volledig vervangen en weer <em>bijna</em> terug in de oorspronkelijke vorm. Als je twijfelt, kijk dan naar de volledige code op Canvas.
+<div class="language-py highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">QtCore</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1"># view</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="k">class</span> <span class="nc">UserInterface</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">):</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>        <span class="o">...</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>        <span class="n">start_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_scan</span><span class="p">)</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>        <span class="o">...</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>        <span class="c1"># Plot timer</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">plot_timer</span> <span class="o">=</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QTimer</span><span class="p">()</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>        <span class="c1"># Roep iedere 100 ms de plotfunctie aan</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">plot_timer</span><span class="o">.</span><span class="n">timeout</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">plot_timer</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>    <span class="k">def</span> <span class="nf">start_scan</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">start_scan</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Plot data van het experiment&quot;&quot;&quot;</span>
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">plot_widget</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">plot_widget</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">symbolSize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">pen</span><span class="o">=</span><span class="kc">None</span>
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>        <span class="p">)</span>
+</span></code></pre></div>
+Hiermee zijn we klaar met de implementatie van threads. De gebruiker hoeft niet langer in spanning te wachten maar krijgt onmiddelijke feedback.</p>
+<div class="admonition question">
+<p class="admonition-title">inleveren: Pythondaq: threads IV</p>
+<p>Pas je eigen code op dezelfde manier aan zodat de metingen op de achergrond worden uitgevoerd terwijl je de plot ziet opbouwen. Je code werkt nu <em>niet</em> als vanouds, maar <em>voelt</em> veel sneller!</p>
+</div>
+<h3 id="uitdaging-stap-5-puntjes-op-de-i-events">Uitdaging: Stap 5: puntjes op de <q>i</q>: <em>events</em></h3>
+<p>Wanneer je op de startknop drukt, even wacht en dan wéér op de startknop drukt, dan kun je zien dat er <em>twee</em> metingen tegelijk worden uitgevoerd op de achtergrond. Dat wil je voorkomen. Ook is het wel aardig om metingen tussentijds te kunnen stoppen. Dat is vooral handig als je merkt dat een meting veel te lang gaat duren. Verder is het ook nog zo dat we er nu met onze timer voor gezorgd hebben dat de plotfunctie meerdere keren per seconde wordt uitgevoerd -- of er nu een meting loopt of niet.</p>
+<p>Je kunt dit oplossen met <code class="language-py highlight"><span class="n">threading</span><span class="o">.</span><span class="n">Event</span><span class="p">()</span></code> objecten. Dit zijn objecten met <code class="language-py highlight"><span class="nb">set</span><span class="p">()</span></code>, <code class="language-py highlight"><span class="n">clear</span><span class="p">()</span></code> en <code class="language-py highlight"><span class="n">wait</span><span class="p">()</span></code> methods om gebeurtenissen aan te geven of er op te wachten. Zo kun je een event <code class="language-py highlight"><span class="n">is_scanning</span></code> aanmaken die je <code class="language-py highlight"><span class="nb">set</span><span class="p">()</span></code> zodra een meting begint en <code class="language-py highlight"><span class="n">clear</span><span class="p">()</span></code> zodra de meting is afgelopen. Je controleert bij de start van de meting dan bijvoorbeeld eerst of de meting al loopt met <code class="language-py highlight"><span class="n">is_scanning</span><span class="o">.</span><span class="n">is_set</span><span class="p">()</span></code> en start alleen een meting als dat nog niet zo is.</p>
+<p>Ook kun je in de grafische interface na het starten van een meting de startknop onbeschikbaar maken met <code class="language-py highlight"><span class="n">start_button</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span></code> en weer beschikbaar maken met <code class="language-py highlight"><span class="n">start_button</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span></code>. De knop wordt dan tussendoor grijs. Dat kan handig zijn om duidelijk te maken dat een meting al loopt en dat je niet nogmaals op de startknop kunt drukken.</p>
+<p>\begin{bonus}
+    \begin{opdracht}[Pythondaq: threads V (uitdaging)]
+        Pas je code aan zodat je niet meerdere metingen tegelijk kunt starten. Zorg er ook voor dat de grafiek alleen geplot wordt tijdens de metingen (of tot kort daarna), maar niet de hele tijd.
+    \end{opdracht}
+\end{bonus}</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
