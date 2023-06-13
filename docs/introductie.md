@@ -51,10 +51,9 @@ In de handleiding staan verschillende opgaves. De meeste zijn bedoeld als oefeni
 !!! question
     Deze opgaves helpen je om het niveau te behalen wat van je verwacht wordt. Ze worden niet beoordeeld.
 
-\begin{inleveropdracht}
+!!! question "inleveren"
     Deze opgave moet worden ingeleverd voor feedback en een beoordeling. Je herkent ze aan de groene kleur. De opgaven bouwen voort op elkaar, dus er zijn meerdere opgaven. Je levert ze niet los in, maar als geheel. Kijk goed bij de assignments op canvas welke groene opdrachten je gemaakt moet hebben voordat je het inlevert. 
-\end{inleveropdracht}
 
-\begin{bonusopdracht}
+
+!!! question "bonus"
     Dit zijn bonusopgaves. Het zijn verdiepende en verbredende opgaves om je te kunnen ontwikkelen tot een goed programmeur en een waardevolle aanwinst voor een onderzoeksgroep. Je kunt er geen extra punten mee verdienen wanneer je deze technieken toepast in je inleveropdrachten, maar het is wel een goede oefening. Doe deze opgaves _alleen_ als je klaar bent met de rest.
-\end{bonusopdracht}

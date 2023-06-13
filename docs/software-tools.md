@@ -98,7 +98,7 @@ Herstart je terminal en test of het commando \shellinline{pipx} werkt. Zo niet, 
 
 Eén van de tools die problemen kunnen geven wanneer je van environment wisselt is \shellinline{black}. Misschien heb je bij het aanmaken van de environment voor deze cursus in \opdref{opd:condaenv} gemerkt dat Visual Studio Code soms klaagt dat \shellinline{black} niet geïnstalleerd is. Het is lastig als je black in ieder environment moet installeren én het is lastig dat je schone environment al snel <q>vervuild</q> raakt met een tool en alle bijbehorende dependencies die niets te maken hebben met jouw project. Daarom installeren we \shellinline{black} graag via \shellinline{pipx}.
 
-\begin{minopdracht}
+!!! question "minimaal"
     Voer het volgende uit:
     \begin{enumerate}
         \item Installeer \shellinline{black} via \shellinline{pipx}
@@ -111,4 +111,3 @@ Eén van de tools die problemen kunnen geven wanneer je van environment wisselt 
               ```
               Sla het bestand op en controleer of \shellinline{black} werkt. Je zou dan `#!py l = [1, 2, 3, 4]` moeten krijgen.
     \end{enumerate}
-\end{minopdracht}

@@ -168,7 +168,7 @@ cart = Cart()
 ```
 Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je type `#!py cart.add` hoef je alleen maar op \keys{\tab} te drukken en VS Code vult de rest aan.
 
-\begin{minopdracht}[Opbouw van een class]
+!!! question "minimaal: Opbouw van een class"
     Beschouw de volgende code:
     ``` py
     import requests
@@ -209,9 +209,9 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
     website.close()        
     ```
     Bespreek met elkaar wat de code precies doet en markeer de volgende onderdelen: module, functie, class, class instance, class attribute, class method.
-\end{minopdracht}
 
-\begin{minopdracht}[class Particle]
+
+!!! question "minimaal: class Particle"
     Maak een class `#!py Particle` die de naam van het deeltje en de spin van het deeltje bewaard. Een method `#!py is_up_or_down()` vertelt je of het deeltje spin omhoog (positief) of spin omlaag (negatief) heeft. Maak nog een method `#!py flip()` die de spin van het deeltje omkeert. De volgende code zou moeten werken:
     ``` py
     proton = Particle('mooi proton', 0.5)
@@ -225,9 +225,9 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
     proton.name
     # 'mooi proton'
     ```
-\end{minopdracht}
 
-\begin{inleveropdracht}[class ElectronicLoadMeasurements]
+
+!!! question "inleveren: class ElectronicLoadMeasurements"
     % \label{opd:class}
     Schrijf een class `#!py ElectronicLoadMeasurements` waarmee je spanningsmetingen aan een weerstand (_load_) kunt bewaren. De class moet voldoen aan deze eisen:
     \begin{enumerate}
@@ -248,12 +248,12 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
     I = measurements.get_currents()
     # I=[0.05, 0.05]
     ```
-\end{inleveropdracht}
+
 
 
 ## Implementeren van MVC
 
-\begin{inleveropdracht}[Pythondaq: ArduinoVISADevice]
+!!! question "inleveren: Pythondaq: ArduinoVISADevice"
     \label{opd:meting-class}
     Pak je script van \opdref{opd:quickndirty-csv} erbij en schrijf bovenaan -- maar _onder_ de `#!py import`-statements -- een class `#!py ArduinoVISADevice`. Schrijf methods voor die class zodat onderstaande code minimaal zou moeten kunnen runnen:
     ``` py
@@ -285,29 +285,29 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
     Bekijk bovenstaande code goed. Wat doet iedere regel met de Arduino? Overleg met elkaar of met je assistent. Wat is het verschil tussen `#!py get_output_value()` en `#!py get_input_value()`?
 
     Pas je script -- en vooral ook de class! -- aan zodat hij precies hetzelfde doet als bij \opdref{opd:quickndirty-meting}. Gebruik bovenstaande code dus _alleen_ als voorbeeld van welke methods je moet schrijven. Zorg ervoor dat alle firmwarecommando's ondergebracht zijn in de class en dat in je <q>experiment</q>-code alleen maar aanroepen naar de class zitten.
-\end{inleveropdracht}
+
 
 Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de precieze commando's zijn die je naar de hardware moet sturen. Als je de Arduino in de opstelling vervangt voor een ander meetinstrument moet je de class aanpassen, maar kan alle code die met het experiment zelf te maken heeft hetzelfde blijven.
 
-% \begin{inleveropdracht}
+% !!! question "inleveren"
 %   Schrijf mooie docstrings bij de class. Schrijf een docstring voor de class zelf (dus boven de `#!py __init__()`-methode) en voor alle methodes. Gebruik bijvoorbeeld de \citetitle{google_style_guide} \cite{google_style_guide} (sectie 3.8) voor voorbeelden van docstrings. Test de docstring door in je script de regel
 %   ``` py
 %     help(ArduinoVISADevice)
 %   ```
 %   op te nemen. Als het goed is krijg je nu een mooie en duidelijke uitleg van je class.
-% \end{inleveropdracht}
+% 
 
 De class die we gemaakt hebben voor de aansturing van de Arduino valt in de categorie _controller_. Het laatste stuk waar de plot gemaakt wordt is dus eigenlijk een _view_ en de rest van de code -- waar de metingen worden uitgevoerd en de stroomsterkte $I$ wordt berekend -- is een _model_. We gaan de code nog wat verder opsplitsen om dat duidelijk te maken én onderbrengen in verschillende bestanden -- dat is uiteindelijk beter voor het overzicht.
 
-\begin{inleveropdracht}[Pythondaq: Controller afsplitsen]
+!!! question "inleveren: Pythondaq: Controller afsplitsen"
     Pas het script aan uit opdracht \opdref{opd:meting-class}. Knip de class uit het bestand en plak die in een nieuw bestand `#!py arduino_device.py`. Knip en plak _ook_ de functie `#!py list_devices()`, zodat alle `#!py pyvisa`-code netjes in één bestand zit. Je vervangt de functie en de class in het oorspronkelijke script door dit import statement:
     ``` py
     from arduino_device import ArduinoVISADevice, list_devices
     ```
     Controleer dat je code nog steeds hetzelfde werkt -- dat het een meting uitvoert en de resultaten in een grafiek weergeeft. Waarschijnlijk moet je daarvoor nog wat bugs aanpakken (een vergeten import bijvoorbeeld).
-\end{inleveropdracht}
 
-\begin{inleveropdracht}[Pythondaq: Model afsplitsen]
+
+!!! question "inleveren: Pythondaq: Model afsplitsen"
     We gaan nu met ongeveer dezelfde stappen het model afsplitsen van de rest van de code.
     \begin{enumerate}
         \item Bespreek met elkaar en met de assistent welk deel van het script het model is. Kijk daarvoor nog eens goed naar \figref{fig:mvc-model}.
@@ -317,14 +317,14 @@ De class die we gemaakt hebben voor de aansturing van de Arduino valt in de cate
         \item Knip de class eruit en plaats die in het bestand `#!py diode_experiment.py` en gebruik weer een import-statement. Haal import-statements die je niet meer nodig hebt weg.
         \item Hernoem het overgebleven script naar :fontawesome-regular-file-code:`view.py`.
     \end{enumerate}
-\end{inleveropdracht}
+
 
 Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger geworden. Als het goed is gaat nu (vrijwel) het volledige script alleen maar over het starten van een meting en het weergeven en bewaren van de meetgegevens. In het <q>view</q> script komen verder geen berekeningen voor of details over welk kanaal van de Arduino op welke elektronische component is aangesloten. Ook staat hier niets over welke commando's de Arduino firmware begrijpt. Dit maakt het veel makkelijker om in de vervolghoofdstukken een gebruiksvriendelijke applicatie te ontwikkelen waarmee je snel en eenvoudig metingen kunt doen.
 
-\begin{inleveropdracht}[Pythondaq: Onzekerheid]
+!!! question "inleveren: Pythondaq: Onzekerheid"
     We zijn al een eind op weg. We pakken nog één ding aan: onzekerheid. Er staan in onze grafiek nog geen foutenvlaggen. Als je de meting een paar keer herhaalt zie je dat de grafiek steeds iets anders is -- er zit ruis op de metingen. We kunnen die op voorhand schatten, maar met een computergestuurde meting is het makkelijk om een meting een aantal keer te herhalen en op een nauwkeuriger resultaat uit te komen én de onzekerheid daarbij te bepalen.
     \begin{enumerate}
         \item Overleg met je groepje en maak een plan hoe jullie de code gaan aanpassen om onzekerheid in te bouwen. Schrijf nog geen code op je computer maar schrijf de stappen uit met papier en pen. Het is dan veel makkelijker om te overleggen en na te denken. Welke delen van het programma moeten worden aangepast?
         \item Gebruik het plan om je eigen code aan te passen en test dat het werkt.
     \end{enumerate}
-\end{inleveropdracht}
+

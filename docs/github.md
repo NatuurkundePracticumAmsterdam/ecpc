@@ -26,15 +26,15 @@ Er zijn tegenwoordig veel websites die een plek bieden voor Git repositories. De
 
 Wij gaan werken met GitHub, je moet dan wel een (gratis) account aanmaken. Als student kom je ook nog in aanmerking voor een educatiekorting op een pro-account. Je betaalt dan nog steeds niets.
 
-\begin{minopdracht}
+!!! question "minimaal"
     Ga naar \url{https://github.com/} en klik rechtsboven op `Sign Up`. Maak een account aan onder je _privé-emailadres_. Op deze manier blijf je toegang houden tot je account ook nadat je afgestudeerd bent.
-\end{minopdracht}
+
 
 
 ### GitHub Desktop
 Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een desktop applicatie ontwikkeld.
 
-\begin{minopdracht}
+!!! question "minimaal"
     \label{opd:add_repository}
     Maak op de volgende manier een repository voor je Pythonscripts:
     \begin{enumerate}
@@ -49,13 +49,13 @@ Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een d
         \item Als je nu op de history klikt dan zie je dat er een `Initial commit` is met wat `git`-bestanden en de Pythonscripts die je in de map hebt gezet. Vanaf nu staat \folderpath{Oefenopdrachten} in versiebeheer en houdt Git je wijzigingen bij.
     \end{enumerate}
     Het is ook mogelijk om een repository aan te maken via \menu{File > New Repository}. Gebruik dit vóór de start van een project om een nieuwe map te maken met een lege Git repository.
-\end{minopdracht}
+
 
 ### Commit
 Alle wijzigingen aan bestanden in de repository kun je vanaf nu bijhouden door regelmatig een commit te maken. Met een commit maak je als het ware een snapshot van alle bestanden en hang je daar een labeltje aan.
 Dit kan in GitHub Desktop, maar ook direct vanuit Visual Studio Code. Elke commit geef je een begeleidend schrijven mee. Je hoopt dat jij, maar ook je collega, na het lezen van het berichtje snel begrijpt wat er veranderd is én waarom. Wanneer je bepaalde wijzigingen ongedaan wilt maken, kan je snel vinden bij welke commit je dan moet zijn. En als je dan je applicatie gaat uitbrengen op Github kun je de commit messages gebruiken om snel op te sommen wat de nieuwste versie van jou app kan!
 
-\begin{minopdracht}
+!!! question "minimaal"
     \label{opd:commit}
     Voer de volgende opdrachten uit:
     \begin{enumerate}
@@ -67,7 +67,7 @@ Dit kan in GitHub Desktop, maar ook direct vanuit Visual Studio Code. Elke commi
         \item Schrijf een nuttige <q>commit message</q>. Dus niet: <q>\opdref{opd:commit}</q>, maar: <q>feat: search for port name to open communication with device</q>.\footnote{Je kunt je commit message opdelen in een titel (of summary) en een beschrijving. In Visual Studio Code, doe je dit door een witregel toe te voegen tussen de titel en de beschrijving.}
         \item Klik op het vinkje om te committen. Gefeliciteerd! Je hebt je eerste commit gepleegd, vanaf nu kun je zonder angst dingen stuk maken want je kan altijd terug naar hoe het was
     \end{enumerate}
-\end{minopdracht}
+
 
 In GitHub Desktop zie je nu bij history de commit staan, met in een oogopslag alle wijzigingen.
 
@@ -75,7 +75,7 @@ In GitHub Desktop zie je nu bij history de commit staan, met in een oogopslag al
     Als je wilt opzoeken hoe iets werkt bij GitHub Desktop, kijk dan in de documentatie: \url{https://docs.github.com/en/desktop}.
 \end{info}
 
-\begin{inleveropdracht}[Pythondaq: github]
+!!! question "inleveren: Pythondaq: github"
     Dan is het nu tijd om de bestanden die je hebt gemaakt voor pythondaq in \chref{ch:mvc} met Git in versiebeheer te gaan houden.
     \begin{enumerate}
         \item Maak een map \folderpath{pythondaq} en kopieer daarin alle python-bestanden die je gemaakt hebt voor het diode-experiment. Let er op dat je deze map _niet_ in een andere repository aanmaakt, maar daarbuiten. Overleg eventueel over een handige plek.
@@ -85,12 +85,12 @@ In GitHub Desktop zie je nu bij history de commit staan, met in een oogopslag al
         \item Ruim, indien nodig, je code op. Functies die je al 3 keer hebt herschreven en daarvoor steeds gekopieerd heb, maar wel als comment hebt laten staan, die kunnen nu ook weg. Verwijder stukjes commentaar die niet meer van toepassing zijn, enz.
         \item Commit!
     \end{enumerate}
-\end{inleveropdracht}
+
 
 ## Uitdaging: GitHub
 Om makkelijk je Git repository te delen met vrienden, collega's en de rest van de wereld kan je er voor kiezen om deze op GitHub te zetten. Je kunt dan je commits <q>pushen</q> naar GitHub en wijzigingen die je vrienden hebben gemaakt <q>pullen</q> zodat jij er ook weer aan verder kan werken. Van alle repositories die op GitHub staan én openbaar zijn kun je de broncode clonen en zelf mee aan de slag! Laten we eens een kijkje nemen op GitHub.
 
-\begin{bonusopdracht}
+!!! question "bonus"
     Als je nog nooit op GitHub bent geweest dan kunnen de pagina's nogal intimiderend overkomen. De informatiedichtheid is nogal hoog. Na een paar bezoeken weet je meestal wel waar je dingen kunt vinden. David heeft een data-analyse app geschreven dat Tailor heet en dat gebruikt wordt bij natuurkundepractica voor studenten medische natuurwetenschappen (MNW) en science, business and innovation (SBI). Laten we eens kijken wat daar allemaal opstaat.
     \begin{enumerate}
         \item Zoek de repository \githubrepo{/davidfokkema/tailor} op GitHub op.
@@ -105,9 +105,9 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
         \item Als je een repository goed/handig/slim/fijn vindt kun je dit aangeven met een ster. Klik daarvoor rechtsboven op star \faStar.
         \item Dan tot slot die ene, meest in het oogspringende groene `code` knop. Met die knop kan je de repository als zip-bestand downloaden of openen met GitHub desktop.
     \end{enumerate}
-\end{bonusopdracht}
 
-\begin{bonusopdracht}
+
+!!! question "bonus"
     \label{opd:clone_repository}
     Clone de LMfit-py repository op GitHub:
     \begin{enumerate}
@@ -120,19 +120,19 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
         \item Linksonder kun je een korte beschrijving van je wijziging intypen en druk dan op de blauwe `Commit`-knop.
         \item Schakel, rechtsboven, naar `History`. Bovenaan staat jouw wijziging. Daaronder kun je alle wijzigingen van anderen bekijken.
     \end{enumerate}
-\end{bonusopdracht}
+
 
 Aangezien je geen schrijfrechten hebt voor LMfit kun je niet kiezen voor `Push origin` -- de knop die rechtsboven verschijnt. Met die knop <q>duw</q> je je wijzigingen naar GitHub zodat iedereen ze kan zien. Dat is mooi, maar je mag niet zomaar de repository van iemand anders wijzigen.
 
-\begin{bonusopdracht}
+!!! question "bonus"
     In eerdere opdrachten heb je repositories op de computer aangemaakt. Vanuit GitHub Desktop kan je een repository publiceren op GitHub. Commits kun je vervolgens pullen en pushen van en naar Github.
     \begin{enumerate}
         \item Publiceer een repository op Github -- bijvoorbeeld je oefenopdrachten of je `pythondaq`-repository. Verander iets in je code, commit en kijk hoe je dat naar GitHub kunt Pushen.
         \item Ga naar Github.com en verander daar iets in de code, commit en kijk hoe je dat naar de computer kan Pullen.
     \end{enumerate}
-\end{bonusopdracht}
 
-\begin{bonusopdracht}
+
+!!! question "bonus"
     Tot nu toe heb je Visual Studio Code of GitHub Desktop gebruikt om te committen. Maar je kan Git ook bedienen via de terminal. De mogelijkheden van Git zijn in de terminal ook veel groter dan in de grafische applicaties die we gebruikt hebben.
     \begin{enumerate}
         \item Open een repository in Visual Studio Code
@@ -140,15 +140,14 @@ Aangezien je geen schrijfrechten hebt voor LMfit kun je niet kiezen voor `Push o
         \item Zoek via \url{https://initialcommit.com/blog/Git-Cheat-Sheet-Beginner} het commando om een commit toe te voegen. Wijzig iets in je code en commit via de terminal.
         \item Dit waren twee dingen wat met GitHub Desktop ook kon, snuffel op het internet om te zien wat je met Git nog meer kunt.
     \end{enumerate}
-\end{bonusopdracht}
+
 
 ## Uitdaging: Branches
 Soms wil je je code flink onder handen nemen of iets heel nieuws eraan toevoegen. Terwijl je bezig bent ga je natuurlijk eerst van alles stuk maken voordat je het weer werkend hebt gekregen. Maar ondertussen kan je oude functionaliteit van je code niet gebruiken. Of je bent samen met een vriend aan een package bezig en om de haverklap werkt jouw stukje code niet meer omdat ergens anders de code verbouwd wordt. Dan is het handig dat je vanaf het punt dat je code werkt een zijweg kan inslaan. Daarom zijn branches uitgevonden. Je kunt vanuit Github Desktop, vanuit Visual Studio Code en natuurlijk via de terminal een branch aanmaken.
-\begin{bonusopdracht}
+!!! question "bonus"
     \begin{itemize}
         \item Open een repository naar keuze en maak een nieuwe branch aan.
         \item Maak een aantal wijzigingen en commit.
         \item Ga terug naar de main branch.
         \item Merch de nieuwe branch in de main branch.
     \end{itemize}
-\end{bonusopdracht}

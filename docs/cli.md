@@ -34,14 +34,14 @@ Uitgesplitst in \textit{argumenten} en \textbf{opties}, met vierkante haken [] o
 \end{quote}
 
 
-\begin{minopdracht}
+!!! question "minimaal"
     \begin{enumerate}
         \item Naast \shellinline{conda create} heb je ook met andere argumenten gewerkt zoals `activate` en `install`. Welke argumenten ken je al van de applicatie `poetry`?
         \item Vraag de lijst met argumenten (commando's) op van Poetry met \shellinline{poetry list}, hoeveel kende je nog niet?
     \end{enumerate}
 
 
-\end{minopdracht}
+
 
 ### Click
 Als we gebruik willen maken van commando's in onze eigen applicatie moeten we weten wat de gebruiker in de terminal typt. Dit is mogelijk met `sys.argv`.\footnote{argv staat voor: argument vector, een lijst met argumenten}
@@ -113,12 +113,12 @@ Dit levert ons nog niet zoveel op, maar op de achtergrond is click wel degelijk 
 PS> python hello.py --help
 ```
 
-\begin{minopdracht}
+!!! question "minimaal"
     \label{opd:hello-help}
     Neem het script :fontawesome-regular-file-code:`hello.py` over en vraag de helpfunctie op. Test dit met én zonder `#!py @click.command()`.
-\end{minopdracht}
 
-\begin{minopdracht}
+
+!!! question "minimaal"
     Laten we zorgen dat we een naam als argument mee kunnen geven.
     \begin{enumerate}
         \item In de code hieronder geven we met de regel `#!py @click.argument("name")` aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie `hello`:
@@ -138,7 +138,7 @@ PS> python hello.py --help
         \item Draai :fontawesome-regular-file-code:`hello.py` eerst zonder een argument \shellinline{python hello.py} en bekijk de foutmelding.
         \item Draai :fontawesome-regular-file-code:`hello.py` nu met een argument: \shellinline{python hello.py Alice}.
     \end{enumerate}
-\end{minopdracht}
+
 
 \begin{warning}
     Let er op dat je bij `#!py @click.argument` de naam meegeeft die overeen komt met de namen van de parameters van je functie. In ons geval hebben we een argument `#!py "name"`. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name)`.
@@ -182,9 +182,9 @@ if __name__ == "__main__":
     hello()
 \end{pythoncode*}
 
-\begin{minopdracht}
+!!! question "minimaal"
     Neem bovenstaande pythoncode over en test :fontawesome-regular-file-code:`hello.py`. Kun je 5 keer een begroeting printen met de naam van je assistent?
-\end{minopdracht}
+
 
 \begin{warning}
     Let er op dat je bij `#!py @click.option` de afkorting met 1 minteken meegeeft en de lange naam met 2 mintekens. De lange naam moet overeenkomen met de paramater van je functie. In ons geval hebben we een optie `#!py "--count"` -- de lange naam telt. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name, count)`.
@@ -214,9 +214,9 @@ if __name__ == "__main__":
     hello()  
 \end{pythoncode*}
 
-\begin{minopdracht}
+!!! question "minimaal"
     Voeg de helptekst toe en vraag de helptekst op zoals in \opdref{opd:hello-help}.
-\end{minopdracht}
+
 
 Als je dit script gebruikt ziet dat er zo uit:
 
@@ -242,16 +242,16 @@ Hello Alice!
 ```
 
 
-\begin{minopdracht}
+!!! question "minimaal"
     \label{opd:hello-pauze}
     Breid het bovenstaande script `hello.py` uit met een optie om een korte pauze in te lassen na het printen van ieder `#!py print()`-statement. Een pauze kun je inlassen met `#!py time.sleep()`. Zorg er voor dat er zonder die optie géén pauze is en dat je met de optie kunt kiezen hoe lang er gewacht moet worden.
-\end{minopdracht}
 
-\begin{bonusopdracht}
+
+!!! question "bonus"
     Gebruik een optie als vlag om de gebruiker te laten kiezen tussen <q>hello</q> of <q>goodbye</q>. Zorg dat er standaard <q>hello</q> wordt geprint.
-\end{bonusopdracht}
 
-\begin{minopdracht}
+
+!!! question "minimaal"
     Bij \opdref{opd:Poetry_commando} heb je een applicatie gemaakt om de oppervlakte van een tafel te berekenen met de bijbehorende onzekerheid. In deze opdracht gaan we het script uitbreiden om de lengte en de breedte én de onzekerheid daarop als argument of optie mee te geven op de command line. Voer de volgende stappen uit:
     \begin{enumerate}
         \item Maak een schone environment aan en installeer de applicatie (doet alles het nog?)
@@ -260,15 +260,15 @@ Hello Alice!
         \item Voeg ook opties of argumenten toe om de breedte en de onzekerheden mee te geven. Wanneer kies je in het script voor een optie en wanneer voor een argument?
         \item Maak de applicatie compleet met helpteksten en default waardes.
     \end{enumerate}
-\end{minopdracht}
+
 
 ### Click subcommando's
 Tot nu toe konden we maar één functie uitvoeren in onze applicatie. Maar het is ook mogelijk om subcommando's aan te maken zodat je met één programma meerdere <q>taken</q> kunt uitvoeren. Denk bijvoorbeeld aan \shellinline{conda}. Je installeert packages met \shellinline{conda install}, verwijdert ze met \shellinline{conda remove}, maakt een environment met \shellinline{conda create} en activeert het met \shellinline{conda activate}.
 
-\begin{minopdracht}
+!!! question "minimaal"
     \label{opd:subcommandos}
     Je gaat de `pythondaq` applicatie straks verder uitbreiden zodat er veel meer mogelijk is dan nu. Wat zou je willen dat de applicatie allemaal kan? Welke subcommando's wil je gaan aanmaken? Overleg met elkaar om goede ideeën uit te wisselen.
-\end{minopdracht}
+
 
 
 Een eenvoudig voorbeeldscript waarin de conda commando's `install` en `remove` worden nagebootst leggen we hieronder uit. Eerst de code:
@@ -310,7 +310,7 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
     We hebben nu een commando `import` aangemaakt -- _niet_ een commando `import\_package`.
 \end{warning}
 
-\begin{minopdracht}
+!!! question "minimaal"
     Hieronder zie je :fontawesome-regular-file-code:`pyproject.toml` van fake-conda:
     \begin{tomlcode}
         [tool.poetry]
@@ -333,9 +333,9 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
     PS> fake_conda install scipy
     Installing scipy...
     ```
-\end{minopdracht}
 
-\begin{bonusopdracht}[Smallangle (uitdaging)]
+
+!!! question "bonus: Smallangle (uitdaging)"
     Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt -- maar jij weet precies over welk onderdeel we het hebben.
     \begin{enumerate}
         \item Maak een nieuw poetry project (met een `src` indeling) aan met de naam \githubrepo{smallangle}.
@@ -367,9 +367,9 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
         ```
         \item Ga door naar \opdref{opd:smallangle} stap 2. Je mag stap 1 overslaan -- dat werk heb je nu zelf al gedaan.
     \end{enumerate}
-\end{bonusopdracht}
 
-\begin{inleveropdracht}[smallangle]
+
+!!! question "inleveren: smallangle"
     \label{opd:smallangle}
     Het project \githubrepo{smallangle} wordt met Poetry beheerd. Je gaat click aan de module :fontawesome-regular-file-code:`smallangle.py` toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.
     \begin{enumerate}
@@ -379,16 +379,16 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
         \item Voeg click toe zodat je de subcommando's `sin` en `tan` hebt. Het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) moet gekozen kunnen worden met een optie (geef een standaardwaarde mee, zodat de gebruiker de optie kan weglaten).
         \item Zorg dat smallangle een applicatie wordt die je aan kunt roepen met bijvoorbeeld \shellinline{smallangle sin -n 9}.
     \end{enumerate}
-\end{inleveropdracht}
 
-\begin{bonusopdracht}[Smallangle (uitdaging)]
+
+!!! question "bonus: Smallangle (uitdaging)"
     Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\abs{x - \sin(x)} \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over \numlist{.000;.001;.002}, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
     ``` ps1con
     PS> smallangle approx .1
     For an accuracy of 0.1, the small-angle approximation holds
     up to x = 0.854.
     ```
-\end{bonusopdracht}
+
 
 ## Docstrings
 Documentatie is vaak een onderschoven kindje, maar is ontzettend belangrijk. Als je zelf informatie opzoekt over bijvoorbeeld een voor jou onbekende Pythonbibliotheek dan vind je het heel fijn als er een duidelijke tutorial is. Als je code schrijft die ook door andere mensen gebruikt moet worden is documentatie nodig. Als de code langer mee moet gaan dan zeg een paar weken, dan helemaal. Want over een paar weken ben jij _zelf_ een ander persoon. Hoe vervelend het ook is, code die je nota bene zelf geschreven hebt is over een paar weken niet meer glashelder. Je zult dan moeten uitzoeken hoe je ook alweer iets hebt gedaan of wat de gedachte erachter was.
@@ -435,9 +435,9 @@ Je zult niet altijd de `#!py help()` functie gebruiken misschien, maar gebruik z
 
 Om het gemakkelijker te maken om docstrings ook écht te gaan schrijven, zijn er docstring generators ontwikkeld. Voor Visual Studio Code is er de extensie \citetitle{AutoDocstring} \parencite{AutoDocstring}.
 
-\begin{minopdracht}
+!!! question "minimaal"
     Kijk in Visual Studio Code bij extensions hoe je AutoDocstring kunt gebruiken. Kies daarvoor in de linkerkantlijn het goede icoon voor _extensions_ en selecteer dan de `autoDocstring` extensie. Zoek in de documentatie naar hoe je automatisch (een deel van) de docstring genereert.
-\end{minopdracht}
+
 
 Wanneer we voor de functie `#!py integers_up_to()` de docstring generator gebruiken, krijgen we het volgende:
 ``` py
@@ -523,16 +523,16 @@ Options:
     --help  Show this message and exit.
 ```
 
-\begin{inleveropdracht}[Smallangle: docstring]
+!!! question "inleveren: Smallangle: docstring"
     Voorzie de functies in :fontawesome-regular-file-code:`smallangle.py` die je gemaakt hebt bij \opdref{opd:smallangle} volledig van docstrings, zodat \shellinline{smallangle --help} zinvolle informatie geeft.\footnote{Als de docstring zeer uitgebreid wordt met meerdere argumenten dan wordt de helptekst van click onoverzichtelijk. Als je wilt dat alleen de korte samenvatting in de help verschijnt, zet dan na de korte samenvatting: `#!py \f`.}
-\end{inleveropdracht}
 
-\begin{inleveropdracht}[Pythondaq: docstring]
+
+!!! question "inleveren: Pythondaq: docstring"
     \begin{enumerate}
         \item Pak de `pythondaq` applicatie erbij. Zet bij _alle_ functies een nuttige docstring.
         \item Schrijf ook docstrings voor de classes die je gemaakt hebt.
     \end{enumerate}
-\end{inleveropdracht}
+
 
 ### Uitdaging: Documentatie met _Sphinx_
 Een bijkomend voordeel van docstrings is dat ze gebruikt kunnen worden om automatisch documentatie te genereren voor een heel project met behulp van Sphinx.
@@ -545,13 +545,13 @@ Het voert tijdens deze cursus te ver om veel aandacht te besteden aan Sphinx. Ma
 
 In \chref{ch:mvc} heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals :fontawesome-regular-file-code:`view.py`, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand :fontawesome-regular-file-code:`cli.py` aanmaken en dat langzaam opbouwen.
 
-\begin{inleveropdracht}[Pythondaq: commando's]
+!!! question "inleveren: Pythondaq: commando's"
     \begin{enumerate}
         \item Maak een nieuw bestand :fontawesome-regular-file-code:`src/pythondaq/cli.py`.
         \item Maak een `#!py @click.group()` aan en voeg de subcommando's `list` en `scan` daaraan toe. Laat de commando's voorlopig alleen tekst printen. Merk op dat `#!py list()` een Pythonfunctie is.\footnote{Zie ook de waarschuwing op \mypageref{warn:cmd_name}.}
         \item Zorg dat je de command-line applicatie met een commando in de terminal kunt aanroepen, inclusief de subcommando's `list` en `scan`.
     \end{enumerate}
-\end{inleveropdracht}
+
 
 
 ### Het uitvoeren van een meetserie
@@ -562,40 +562,40 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
     Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen \qtylist{0;3.3}{\volt}. Je kunt dit doen door de `#!py type`-parameter in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven (bijvoorbeeld: `#!py type=int` of `#!py type=float`) en Click heeft speciale types zoals `#!py type=click.FloatRange(0, 3.3)` voor een kommagetal tussen 0 en 3.3. Bekijken alle speciale types op \url{https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types}. Als je hiervan gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat voor je.
 \end{info}
 
-\begin{inleveropdracht}[Pythondaq: `scan`]
+!!! question "inleveren: Pythondaq: `scan`"
     Met het commando `scan` wil je een meetserie uitvoeren over een spanningsbereik. De uitvoer is een lijst van metingen van de stroomsterkte door en de spanning over de LED. De gebruiker moet het spanningsbereik (in volt) zelf kunnen kiezen. Geef ook de mogelijkheid de metingen op te slaan als CSV-bestand. Gebruik daarvoor een optie `{-`{-}output FILENAME}. Wanneer met die optie een bestandsnaam wordt meegegeven sla je de metingen op en anders niet. Als een meting lang duurt is het niet erg als de resultaten pas ná de meting worden weergegeven.
-\end{inleveropdracht}
 
-\begin{inleveropdracht}[Pythondaq: Onzekerheid]
+
+!!! question "inleveren: Pythondaq: Onzekerheid"
     Het is wel fijn om de onzekerheid op de metingen te weten. Bouw een optie in waarmee het aantal herhaalmetingen bij iedere spanning in de meetserie gekozen kan worden. Bereken op basis van de herhaalmetingen de beste schatting van de stoomsterkte en de onzekerheid daarop, en ook voor de spanning over de LED.
-\end{inleveropdracht}
+
 
 ### Het meetinstrument kiezen
 
 We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan heeft toegekend. Helaas kan -- ook afhankelijk van het besturingssysteem -- die naam veranderen als we de Arduino in een andere poort van onze computer steken of soms zelfs als we een andere Arduino op dezelfde poort koppelen. Met het commando `list` laten we alle apparaten zien die gevonden worden door de VISA drivers.
 
-\begin{inleveropdracht}[Pythondaq: `list`]
+!!! question "inleveren: Pythondaq: `list`"
     Schrijf het commando `list` zodat het een lijst geeft van de aangesloten instrumenten -- zoals we in het vorige hoofdstuk al eens gedaan hebben.
-\end{inleveropdracht}
 
-\begin{inleveropdracht}[Pythondaq: choose device]
+
+!!! question "inleveren: Pythondaq: choose device"
     Pas het commando `scan` aan zodat je de naam van een device moet meegeven.
     Zorg dat het gekozen device ook daadwerkelijk wordt gebruikt in het model en de controller.
-\end{inleveropdracht}
 
-\begin{inleveropdracht}[Pythondaq: `info`]
+
+!!! question "inleveren: Pythondaq: `info`"
     Maak een commando `info` waarmee je de identificatiestring van een opgegeven instrument opvraagt en weergeeft. Je kunt het instrument met een optie of argument meegeven.
-\end{inleveropdracht}
 
-\begin{inleveropdracht}[Pythondaq: Helpteksten]
+
+!!! question "inleveren: Pythondaq: Helpteksten"
     Loop al je commando's nog eens na en zorg ervoor dat er duidelijke helpteksten aanwezig zijn. Een nieuwe gebruiker moet met deze informatie met jouw command-line interface uit de voeten kunnen.
-\end{inleveropdracht}
 
-\begin{inleveropdracht}[Pythondaq: Grafiek]
+
+!!! question "inleveren: Pythondaq: Grafiek"
     Breid je `scan` opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `{-`{-}graph} om een grafiek te tekenen en `{-`{-}no-graph} om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags voor Click op \url{https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags}.
-\end{inleveropdracht}
 
-\begin{bonusopdracht}[Pythondaq: `list {-`{-}search}]
+
+!!! question "bonus: Pythondaq: `list {-`{-}search}"
     Breid het commando `list` uit met een optie `--search` waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
     ``` ps1con
     PS> diode list
@@ -612,13 +612,13 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
     ASRL/dev/cu.usbmodem143401::INSTR
     ```
     De lijst met instrumenten kan er op Windows heel anders uitzien. Pas daarna `scan` en `info` aan zodat het niet nodig is om de volledige devicenaam mee te geven, maar alleen een zoekterm.
-\end{bonusopdracht}
+
 
 Op dit punt hebben we de functionaliteit van ons snelle script van het vorige hoofdstuk bereikt. Dit was veel meer werk, maar het is veel flexibeler. Als je wilt meten met een andere Arduino, een ander bereik, of een andere stapgrootte dan type je gewoon een iets ander commando in de terminal. Je hoeft geen scripts meer aan te passen. Als je na een tijdje niet meer precies weet hoe het ook alweer werkte allemaal kun je dat snel weer oppakken door `--help` aan te roepen.
 
-\begin{minopdracht}
+!!! question "minimaal"
     Kijk nog eens terug naar het lijstje subcommando's die je in \opdref{opd:subcommandos} hebt opgeschreven. Heb je alles geïmplementeerd? Wat zou je willen dat je nog meer kan instellen? Als er tijd over is, kijk dan of dit lukt.
-\end{minopdracht}
+
 
 ## Uitdaging: Een interface met stijl
 
@@ -626,9 +626,9 @@ Ook command-line interfaces gaan met hun tijd mee. Vroeger waren ze per definiti
 
 Rich is ontzettend uitgebreid en heeft heel veel mogelijkheden. Voor ons project kan het handig zijn om een progressbar te gebruiken of met Rich een tabel weer te geven. De documentatie~\cite{rich-docs} van Rich is best goed, maar kan lastig zijn om een mooi overzicht te krijgen. Een serie van korte video tutorials kun je vinden bij \url{https://calmcode.io/rich/introduction.html}. Iedere video duurt maar één tot twee minuten en laat mooi de mogelijkheden zien. Voor de functies die je wilt gebruiken kun je dan meer informatie opzoeken in de documentatie van Rich zelf.
 
-\begin{bonusopdracht}
+!!! question "bonus"
     Verrijk je interface met Rich. Doe dit naar eigen wens en inzicht.
-\end{bonusopdracht}
+
 
 ## Uitdaging: Data-analyse
 

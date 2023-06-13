@@ -289,7 +289,7 @@ Je hebt op de middelbare school ongetwijfeld de $I,U$-karakteristiek van een ohm
   \label{fig:ohmsestroom}
 \end{figure}
 
-\begin{inleveropdracht}[Pythondaq: start script]
+!!! question "inleveren: Pythondaq: start script"
   Voer de volgende opdrachten uit:
 
     1. Schrijf een script waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Kijk wat er gebeurt met de LED.
@@ -299,7 +299,7 @@ Je hebt op de middelbare school ongetwijfeld de $I,U$-karakteristiek van een ohm
             On LED:  750 (2.4 V)    Over resistor:  189 (0.6 V)
           \end{consolecode*}
           Je hebt nu feitelijk je eerste metingen verricht!
-\end{inleveropdracht}
+
 
 Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma of Python notebook o.i.d. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment hebben we ook alleen nog maar _ruwe_ metingen. We gaan hier voorbij aan het feit dat we graag de stroomsterkte door de LED $I$ zouden willen uitzetten tegen de spanning over de LED $U_\mathrm{LED}$.
 
@@ -310,10 +310,10 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
     ```
 
 
-\begin{inleveropdracht}[Pythondaq: Quick 'n dirty meting]
+!!! question "inleveren: Pythondaq: Quick 'n dirty meting"
   \label{opd:quickndirty-meting}
   Bereken in je script de spanning _over_ en de stroomsterkte _door_ de LED en bewaar deze metingen in, bijvoorbeeld, een lijst. Sluit je meting netjes af (zorg dat de LED niet blijft branden) en maak dan een grafiek van je metingen. Bekijk elkaars resultaten -- ook van andere groepjes -- en denk na of je meting fysisch helemaal correct is.
-\end{inleveropdracht}
+
 
 
 ## Bewaren van meetgegevens
@@ -347,14 +347,14 @@ t,s
 \end{figure}
 Je kunt CSV-bestanden schrijven en lezen met de modules `#!py csv`, `#!py numpy` of `#!py pandas`. De eerste is altijd meegeleverd met Python en is speciaal geschreven voor het bestandsformaat [@csv-module], maar NumPy \cites{numpy}{numpy-paper} en Pandas \cites{pandas}{pandas-paper} bevatten veel meer functionaliteit op het gebied van wiskunde en data-analyse. Als je die modules toch al gebruikt kun je beter niet kiezen voor de <q>kale</q> csv module.
 
-\begin{inleveropdracht}[Pythondaq: csv]
+!!! question "inleveren: Pythondaq: csv"
   \label{opd:quickndirty-csv}
   Breid je script uit zodat de data niet alleen maar weergegeven wordt in een grafiek maar ook wordt weggeschreven als CSV-bestand. Gebruik hiervoor een module naar keuze.
-\end{inleveropdracht}
 
-\begin{bonusopdracht}
+
+!!! question "bonus"
   Pas de code zodanig aan dat een CSV-bestand nooit wordt overschreven. Je kunt bijvoorbeeld aan de bestandsnaam een oplopend getal toevoegen (`data-001.csv`, `data-002.csv`, etc.).
-\end{bonusopdracht}
+
 
 
 \begin{bonustekst}
@@ -367,8 +367,8 @@ Je kunt CSV-bestanden schrijven en lezen met de modules `#!py csv`, `#!py numpy`
   PyTables [@pytables] is een Python bibliotheek die het werken met HDF5-bestanden makkelijker maakt. Er zijn uiteraard functies om de bestanden aan te maken en uit te lezen maar ook om _queries_ uit te voeren. Pandas kan -- via PyTables -- ook werken met HDF5-bestanden.
 \end{bonustekst}
 
-\begin{bonusopdracht}
+!!! question "bonus"
   Lees de tutorial van PyTables [@pytables] en pas je script aan zodat de meetserie van de LED wordt opgeslagen in een HDF5-bestand. Gebruik één bestand en maak daarin een nieuwe dataset voor iedere meetserie. Bewaar ook wat metadata (bijvoorbeeld tijdstip van de meting). Iedere keer dat je je script runt wordt er aan _hetzelfde_ databestand een nieuwe dataset toegevoegd.
-\end{bonusopdracht}
+
 
 \bibliography
