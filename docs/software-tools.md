@@ -24,7 +24,7 @@ Er zijn verschillende tools voor het aanmaken van environments voor Python. Alle
 Je moet je realiseren dat het aanmaken (en weggooien) van een environment heel makkelijk is. Doe dat regelmatig zodat je scherp houdt welke packages je nu echt nodig hebt voor je analyse of voor de software die je schrijft. Hieronder geven we een overzicht van de meest gebruikte commando's om met conda environments te werken.
 
 \begin{info}
-    Conda installeert packages vanuit verschillende _channels_. De \texttt{defaults} channel bevat packages die af en toe door Anaconda worden getest en samengenomen tot een distributie (versie \texttt{2021.05} bijvoorbeeld). Er zijn weinig updates. De \texttt{conda-forge} channel bevat alle nieuwste versies van die packages en bevat ook software die (nog) niet in de \texttt{defaults} channel terecht is gekomen. De conda-forge channel is daarom erg populair.
+    Conda installeert packages vanuit verschillende _channels_. De `defaults` channel bevat packages die af en toe door Anaconda worden getest en samengenomen tot een distributie (versie `2021.05` bijvoorbeeld). Er zijn weinig updates. De `conda-forge` channel bevat alle nieuwste versies van die packages en bevat ook software die (nog) niet in de `defaults` channel terecht is gekomen. De conda-forge channel is daarom erg populair.
 \end{info}
 
 Hieronder volgen enkele voorbeelden van het gebruik van conda:
@@ -102,8 +102,8 @@ Eén van de tools die problemen kunnen geven wanneer je van environment wisselt 
     Voer het volgende uit:
     \begin{enumerate}
         \item Installeer \shellinline{black} via \shellinline{pipx}
-        \item Run \shellinline{pipx list} en let op de directory die genoemd is na: \texttt{apps are exposed on your \$PATH at}. Bijvoorbeeld: \texttt{/Users/david/.local/bin}.
-        \item In Visual Studio Code, ga naar \menu{Code} onder MacOS of \menu{File} onder Windows en dan naar \menu{Preferences > Settings > Python Formatting: Black Path}. Vul de directorynaam in gevolgd door \texttt{black}. Bijvoorbeeld: \texttt{/Users/david/.local/bin/black}.
+        \item Run \shellinline{pipx list} en let op de directory die genoemd is na: `apps are exposed on your \$PATH at`. Bijvoorbeeld: `/Users/david/.local/bin`.
+        \item In Visual Studio Code, ga naar \menu{Code} onder MacOS of \menu{File} onder Windows en dan naar \menu{Preferences > Settings > Python Formatting: Black Path}. Vul de directorynaam in gevolgd door `black`. Bijvoorbeeld: `/Users/david/.local/bin/black`.
         \item Open een Pythonbestand en type:
               ``` py
               l = [1,

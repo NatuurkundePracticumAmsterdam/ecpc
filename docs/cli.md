@@ -13,7 +13,7 @@ Je hebt tot nu toe al heel wat commando's in de terminal getypt. Laten we een pa
 ``` ps1con
 PS> python script.py
 ```
-Als eerste vertel je welke applicatie je wilt gaan starten; in dit geval: \texttt{python}. Daarna geef je met het _argument_ \texttt{script.py} aan welk Pythonscript je wilt uitvoeren. Vaak kun je ook _opties_ meegeven zoals in:
+Als eerste vertel je welke applicatie je wilt gaan starten; in dit geval: `python`. Daarna geef je met het _argument_ `script.py` aan welk Pythonscript je wilt uitvoeren. Vaak kun je ook _opties_ meegeven zoals in:
 ``` ps1con
 PS> python -V
 Python 3.9.13
@@ -22,7 +22,7 @@ Hiermee vraag je Python om het versienummer weer te geven. Soms kunnen _opties_ 
 ``` ps1con
 PS> python -m antigravity
 ```
-Met deze regel geef je Python de optie \texttt{-m} en die importeert een module (hier \texttt{antigravity}) en voert die uit. Probeer maar eens zelf wat er gebeurt als je dat commando uitvoert.
+Met deze regel geef je Python de optie `-m` en die importeert een module (hier `antigravity`) en voert die uit. Probeer maar eens zelf wat er gebeurt als je dat commando uitvoert.
 
 Als applicaties veel verschillende functionaliteit hebben dan krijg je regelmatig te maken met een lange regel met een combinatie van argumenten en opties:
 ``` ps1con
@@ -36,7 +36,7 @@ Uitgesplitst in \textit{argumenten} en \textbf{opties}, met vierkante haken [] o
 
 \begin{minopdracht}
     \begin{enumerate}
-        \item Naast \shellinline{conda create} heb je ook met andere argumenten gewerkt zoals \texttt{activate} en \texttt{install}. Welke argumenten ken je al van de applicatie \texttt{poetry}?
+        \item Naast \shellinline{conda create} heb je ook met andere argumenten gewerkt zoals `activate` en `install`. Welke argumenten ken je al van de applicatie `poetry`?
         \item Vraag de lijst met argumenten (commando's) op van Poetry met \shellinline{poetry list}, hoeveel kende je nog niet?
     \end{enumerate}
 
@@ -44,7 +44,7 @@ Uitgesplitst in \textit{argumenten} en \textbf{opties}, met vierkante haken [] o
 \end{minopdracht}
 
 ### Click
-Als we gebruik willen maken van commando's in onze eigen applicatie moeten we weten wat de gebruiker in de terminal typt. Dit is mogelijk met \texttt{sys.argv}.\footnote{argv staat voor: argument vector, een lijst met argumenten}
+Als we gebruik willen maken van commando's in onze eigen applicatie moeten we weten wat de gebruiker in de terminal typt. Dit is mogelijk met `sys.argv`.\footnote{argv staat voor: argument vector, een lijst met argumenten}
 
 ``` py
 # cli.py
@@ -121,7 +121,7 @@ PS> python hello.py --help
 \begin{minopdracht}
     Laten we zorgen dat we een naam als argument mee kunnen geven.
     \begin{enumerate}
-        \item In de code hieronder geven we met de regel `#!py @click.argument("name")` aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie \texttt{hello}:
+        \item In de code hieronder geven we met de regel `#!py @click.argument("name")` aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie `hello`:
               \begin{pythoncode*}{highlightlines={6,8}}
                 # hello.py
                 
@@ -244,7 +244,7 @@ Hello Alice!
 
 \begin{minopdracht}
     \label{opd:hello-pauze}
-    Breid het bovenstaande script \texttt{hello.py} uit met een optie om een korte pauze in te lassen na het printen van ieder `#!py print()`-statement. Een pauze kun je inlassen met `#!py time.sleep()`. Zorg er voor dat er zonder die optie géén pauze is en dat je met de optie kunt kiezen hoe lang er gewacht moet worden.
+    Breid het bovenstaande script `hello.py` uit met een optie om een korte pauze in te lassen na het printen van ieder `#!py print()`-statement. Een pauze kun je inlassen met `#!py time.sleep()`. Zorg er voor dat er zonder die optie géén pauze is en dat je met de optie kunt kiezen hoe lang er gewacht moet worden.
 \end{minopdracht}
 
 \begin{bonusopdracht}
@@ -267,11 +267,11 @@ Tot nu toe konden we maar één functie uitvoeren in onze applicatie. Maar het i
 
 \begin{minopdracht}
     \label{opd:subcommandos}
-    Je gaat de \texttt{pythondaq} applicatie straks verder uitbreiden zodat er veel meer mogelijk is dan nu. Wat zou je willen dat de applicatie allemaal kan? Welke subcommando's wil je gaan aanmaken? Overleg met elkaar om goede ideeën uit te wisselen.
+    Je gaat de `pythondaq` applicatie straks verder uitbreiden zodat er veel meer mogelijk is dan nu. Wat zou je willen dat de applicatie allemaal kan? Welke subcommando's wil je gaan aanmaken? Overleg met elkaar om goede ideeën uit te wisselen.
 \end{minopdracht}
 
 
-Een eenvoudig voorbeeldscript waarin de conda commando's \texttt{install} en \texttt{remove} worden nagebootst leggen we hieronder uit. Eerst de code:
+Een eenvoudig voorbeeldscript waarin de conda commando's `install` en `remove` worden nagebootst leggen we hieronder uit. Eerst de code:
 
 \begin{pythoncode*}{linenos}
     # fakeconda.py
@@ -295,19 +295,19 @@ Een eenvoudig voorbeeldscript waarin de conda commando's \texttt{install} en \te
     if __name__ == "__main__":
         cmd_group()
 \end{pythoncode*}
-In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeurig `#!py cmd_group()` genoemd hebben en die we bovenaan definiëren. In tegenstelling tot het \filepath{hello.py}-script doet deze functie helemaal niets (`#!py pass`). We vertellen aan click dat we een groep van commando's aan gaan maken met de `#!py @click.group()`-decorator in regel 5. Vervolgens gaan we commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` -- zie regels 9 en 14. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 9 en 11 maken samen het commando \texttt{install}. Verder werkt alles hetzelfde. Dus een argument toevoegen -- zoals in regel 10 -- is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
+In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeurig `#!py cmd_group()` genoemd hebben en die we bovenaan definiëren. In tegenstelling tot het \filepath{hello.py}-script doet deze functie helemaal niets (`#!py pass`). We vertellen aan click dat we een groep van commando's aan gaan maken met de `#!py @click.group()`-decorator in regel 5. Vervolgens gaan we commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` -- zie regels 9 en 14. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 9 en 11 maken samen het commando `install`. Verder werkt alles hetzelfde. Dus een argument toevoegen -- zoals in regel 10 -- is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
 
 \begin{warning}
     \label{warn:cmd_name}
     Omdat de naam van een subcommando gelijk is aan de functienaam kan dat voor problemen zorgen wanneer je gereserveerde namen van python wilt gebruiken zoals: `#!py import`, `#!py return`, `#!py lambda`. Of wanneer je de naam van het subcommando graag hetzelfde wilt hebben als een ander pythonfunctie zoals `#!py sin` of `#!py list`.
-    Een oplossing is om de functienaam aan te passen en de subcommando naam expliciet aan click mee te geven bij \texttt{command}:
+    Een oplossing is om de functienaam aan te passen en de subcommando naam expliciet aan click mee te geven bij `command`:
     ``` py
         @cmd_group.command("import")
         @click.argument("package")
         def import_package(package):
             print(f"import {package}...")
     ```
-    We hebben nu een commando \texttt{import} aangemaakt -- _niet_ een commando \texttt{import\_package}.
+    We hebben nu een commando `import` aangemaakt -- _niet_ een commando `import\_package`.
 \end{warning}
 
 \begin{minopdracht}
@@ -338,8 +338,8 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
 \begin{bonusopdracht}[Smallangle (uitdaging)]
     Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt -- maar jij weet precies over welk onderdeel we het hebben.
     \begin{enumerate}
-        \item Maak een nieuw poetry project (met een \texttt{src} indeling) aan met de naam \githubrepo{smallangle}.
-        \item Maak een nieuw environment die \texttt{IK-smallangle} heet met daarin alleen Python.
+        \item Maak een nieuw poetry project (met een `src` indeling) aan met de naam \githubrepo{smallangle}.
+        \item Maak een nieuw environment die `IK-smallangle` heet met daarin alleen Python.
         \item Zet in de package \folderpath{smallangle} een module \filepath{smallangle.py}.
         \item Plak de onderstaande code in \filepath{smallangle.py}:
               ``` py
@@ -414,7 +414,7 @@ def integers_up_to(number):
 
 help(integers_up_to)
 ```
-De eerste regel geeft een korte samenvatting weer, na de witregel komt een langere samenvatting. Met \texttt{Args:} worden alle argumenten opgesomd die aan de functie worden meegegeven en \texttt{Returns:} geeft aan wat de functie teruggeeft. We kunnen de documentatie van deze functie opvragen met: `#!py help(integers_up_to`. Dat geeft het volgende resultaat:
+De eerste regel geeft een korte samenvatting weer, na de witregel komt een langere samenvatting. Met `Args:` worden alle argumenten opgesomd die aan de functie worden meegegeven en `Returns:` geeft aan wat de functie teruggeeft. We kunnen de documentatie van deze functie opvragen met: `#!py help(integers_up_to`. Dat geeft het volgende resultaat:
 ``` ps1con
 PS> python integers_up_to.py 
     Help on function integers_up_to in module __main__:
@@ -436,7 +436,7 @@ Je zult niet altijd de `#!py help()` functie gebruiken misschien, maar gebruik z
 Om het gemakkelijker te maken om docstrings ook écht te gaan schrijven, zijn er docstring generators ontwikkeld. Voor Visual Studio Code is er de extensie \citetitle{AutoDocstring} \parencite{AutoDocstring}.
 
 \begin{minopdracht}
-    Kijk in Visual Studio Code bij extensions hoe je AutoDocstring kunt gebruiken. Kies daarvoor in de linkerkantlijn het goede icoon voor _extensions_ en selecteer dan de \texttt{autoDocstring} extensie. Zoek in de documentatie naar hoe je automatisch (een deel van) de docstring genereert.
+    Kijk in Visual Studio Code bij extensions hoe je AutoDocstring kunt gebruiken. Kies daarvoor in de linkerkantlijn het goede icoon voor _extensions_ en selecteer dan de `autoDocstring` extensie. Zoek in de documentatie naar hoe je automatisch (een deel van) de docstring genereert.
 \end{minopdracht}
 
 Wanneer we voor de functie `#!py integers_up_to()` de docstring generator gebruiken, krijgen we het volgende:
@@ -459,7 +459,7 @@ else:
 Zo kunnen we gemakkelijk alles gaan invullen. Vergeet niet om de docstring aan te vullen als je een functie aanpast.
 
 
-### Docstrings en Click \texttt{-{-help}}
+### Docstrings en Click `-{-help`}
 
 Docstrings werken ook heel handig samen met Click want ze worden gebruikt als we de helpfunctie aanroepen. We voegen docstrings toe aan fake-conda:
 
@@ -529,7 +529,7 @@ Options:
 
 \begin{inleveropdracht}[Pythondaq: docstring]
     \begin{enumerate}
-        \item Pak de \texttt{pythondaq} applicatie erbij. Zet bij _alle_ functies een nuttige docstring.
+        \item Pak de `pythondaq` applicatie erbij. Zet bij _alle_ functies een nuttige docstring.
         \item Schrijf ook docstrings voor de classes die je gemaakt hebt.
     \end{enumerate}
 \end{inleveropdracht}
@@ -543,13 +543,13 @@ Het voert tijdens deze cursus te ver om veel aandacht te besteden aan Sphinx. Ma
 
 ## Command-line interface voor ons experiment
 
-In \chref{ch:mvc} heb je \texttt{pythondaq} uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals \filepath{view.py}, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand \filepath{cli.py} aanmaken en dat langzaam opbouwen.
+In \chref{ch:mvc} heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals \filepath{view.py}, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand \filepath{cli.py} aanmaken en dat langzaam opbouwen.
 
 \begin{inleveropdracht}[Pythondaq: commando's]
     \begin{enumerate}
         \item Maak een nieuw bestand \filepath{src/pythondaq/cli.py}.
-        \item Maak een `#!py @click.group()` aan en voeg de subcommando's \texttt{list} en \texttt{scan} daaraan toe. Laat de commando's voorlopig alleen tekst printen. Merk op dat `#!py list()` een Pythonfunctie is.\footnote{Zie ook de waarschuwing op \mypageref{warn:cmd_name}.}
-        \item Zorg dat je de command-line applicatie met een commando in de terminal kunt aanroepen, inclusief de subcommando's \texttt{list} en \texttt{scan}.
+        \item Maak een `#!py @click.group()` aan en voeg de subcommando's `list` en `scan` daaraan toe. Laat de commando's voorlopig alleen tekst printen. Merk op dat `#!py list()` een Pythonfunctie is.\footnote{Zie ook de waarschuwing op \mypageref{warn:cmd_name}.}
+        \item Zorg dat je de command-line applicatie met een commando in de terminal kunt aanroepen, inclusief de subcommando's `list` en `scan`.
     \end{enumerate}
 \end{inleveropdracht}
 
@@ -562,8 +562,8 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
     Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen \qtylist{0;3.3}{\volt}. Je kunt dit doen door de `#!py type`-parameter in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven (bijvoorbeeld: `#!py type=int` of `#!py type=float`) en Click heeft speciale types zoals `#!py type=click.FloatRange(0, 3.3)` voor een kommagetal tussen 0 en 3.3. Bekijken alle speciale types op \url{https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types}. Als je hiervan gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat voor je.
 \end{info}
 
-\begin{inleveropdracht}[Pythondaq: \texttt{scan}]
-    Met het commando \texttt{scan} wil je een meetserie uitvoeren over een spanningsbereik. De uitvoer is een lijst van metingen van de stroomsterkte door en de spanning over de LED. De gebruiker moet het spanningsbereik (in volt) zelf kunnen kiezen. Geef ook de mogelijkheid de metingen op te slaan als CSV-bestand. Gebruik daarvoor een optie \texttt{{-}{-}output FILENAME}. Wanneer met die optie een bestandsnaam wordt meegegeven sla je de metingen op en anders niet. Als een meting lang duurt is het niet erg als de resultaten pas ná de meting worden weergegeven.
+\begin{inleveropdracht}[Pythondaq: `scan`]
+    Met het commando `scan` wil je een meetserie uitvoeren over een spanningsbereik. De uitvoer is een lijst van metingen van de stroomsterkte door en de spanning over de LED. De gebruiker moet het spanningsbereik (in volt) zelf kunnen kiezen. Geef ook de mogelijkheid de metingen op te slaan als CSV-bestand. Gebruik daarvoor een optie `{-`{-}output FILENAME}. Wanneer met die optie een bestandsnaam wordt meegegeven sla je de metingen op en anders niet. Als een meting lang duurt is het niet erg als de resultaten pas ná de meting worden weergegeven.
 \end{inleveropdracht}
 
 \begin{inleveropdracht}[Pythondaq: Onzekerheid]
@@ -574,16 +574,16 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
 
 We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan heeft toegekend. Helaas kan -- ook afhankelijk van het besturingssysteem -- die naam veranderen als we de Arduino in een andere poort van onze computer steken of soms zelfs als we een andere Arduino op dezelfde poort koppelen. Met het commando \verb|list| laten we alle apparaten zien die gevonden worden door de VISA drivers.
 
-\begin{inleveropdracht}[Pythondaq: \texttt{list}]
+\begin{inleveropdracht}[Pythondaq: `list`]
     Schrijf het commando \verb|list| zodat het een lijst geeft van de aangesloten instrumenten -- zoals we in het vorige hoofdstuk al eens gedaan hebben.
 \end{inleveropdracht}
 
 \begin{inleveropdracht}[Pythondaq: choose device]
-    Pas het commando \texttt{scan} aan zodat je de naam van een device moet meegeven.
+    Pas het commando `scan` aan zodat je de naam van een device moet meegeven.
     Zorg dat het gekozen device ook daadwerkelijk wordt gebruikt in het model en de controller.
 \end{inleveropdracht}
 
-\begin{inleveropdracht}[Pythondaq: \texttt{info}]
+\begin{inleveropdracht}[Pythondaq: `info`]
     Maak een commando \verb|info| waarmee je de identificatiestring van een opgegeven instrument opvraagt en weergeeft. Je kunt het instrument met een optie of argument meegeven.
 \end{inleveropdracht}
 
@@ -592,11 +592,11 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 \end{inleveropdracht}
 
 \begin{inleveropdracht}[Pythondaq: Grafiek]
-    Breid je \texttt{scan} opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: \texttt{{-}{-}graph} om een grafiek te tekenen en \texttt{{-}{-}no-graph} om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags voor Click op \url{https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags}.
+    Breid je `scan` opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `{-`{-}graph} om een grafiek te tekenen en `{-`{-}no-graph} om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags voor Click op \url{https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags}.
 \end{inleveropdracht}
 
-\begin{bonusopdracht}[Pythondaq: \texttt{list {-}{-}search}]
-    Breid het commando \texttt{list} uit met een optie \verb|--search| waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
+\begin{bonusopdracht}[Pythondaq: `list {-`{-}search}]
+    Breid het commando `list` uit met een optie \verb|--search| waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
     ``` ps1con
     PS> diode list
     The following devices are connected to your computer:
@@ -611,7 +611,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
     
     ASRL/dev/cu.usbmodem143401::INSTR
     ```
-    De lijst met instrumenten kan er op Windows heel anders uitzien. Pas daarna \texttt{scan} en \texttt{info} aan zodat het niet nodig is om de volledige devicenaam mee te geven, maar alleen een zoekterm.
+    De lijst met instrumenten kan er op Windows heel anders uitzien. Pas daarna `scan` en `info` aan zodat het niet nodig is om de volledige devicenaam mee te geven, maar alleen een zoekterm.
 \end{bonusopdracht}
 
 Op dit punt hebben we de functionaliteit van ons snelle script van het vorige hoofdstuk bereikt. Dit was veel meer werk, maar het is veel flexibeler. Als je wilt meten met een andere Arduino, een ander bereik, of een andere stapgrootte dan type je gewoon een iets ander commando in de terminal. Je hoeft geen scripts meer aan te passen. Als je na een tijdje niet meer precies weet hoe het ook alweer werkte allemaal kun je dat snel weer oppakken door \verb|--help| aan te roepen.

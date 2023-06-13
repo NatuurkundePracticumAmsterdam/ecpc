@@ -2,16 +2,16 @@
 
 ## Grafische interfaces met PyQt
 
-Als je een grafische applicatie schrijft roep je functies aan van het besturingssysteem om vensters, knoppen, menu's e.d. te laten tekenen en te reageren op muisklikken en het toetsenbord. Het lastige daaraan is dat een applicatie voor MacOS heel anders geschreven moet worden dan één voor Linux of Windows. Om die reden zijn er verschillende _cross-platform_ bibliotheken ontwikkeld die als het ware tussen het besturingssysteem en je applicatie komen te staan. Je kunt dezelfde applicatie maken voor alle besturingssystemen en de bibliotheek kiest welke functies aangeroepen moeten worden om een venster te tekenen. Het voordeel is duidelijk: je hoeft maar één applicatie te schrijven die overal werkt. Het nadeel is dat je niet écht gebruik kunt maken van alle functies en opties die het besturingssysteem biedt. Hier kiezen we voor de voordelen en gaan we gebruik maken van misschien wel de meest populaire optie: Qt.\footnote{Uitspraak: het Engelse _cute_.} De bibliotheek \texttt{PySide6} is de officiële Pythonbibliotheek.
+Als je een grafische applicatie schrijft roep je functies aan van het besturingssysteem om vensters, knoppen, menu's e.d. te laten tekenen en te reageren op muisklikken en het toetsenbord. Het lastige daaraan is dat een applicatie voor MacOS heel anders geschreven moet worden dan één voor Linux of Windows. Om die reden zijn er verschillende _cross-platform_ bibliotheken ontwikkeld die als het ware tussen het besturingssysteem en je applicatie komen te staan. Je kunt dezelfde applicatie maken voor alle besturingssystemen en de bibliotheek kiest welke functies aangeroepen moeten worden om een venster te tekenen. Het voordeel is duidelijk: je hoeft maar één applicatie te schrijven die overal werkt. Het nadeel is dat je niet écht gebruik kunt maken van alle functies en opties die het besturingssysteem biedt. Hier kiezen we voor de voordelen en gaan we gebruik maken van misschien wel de meest populaire optie: Qt.\footnote{Uitspraak: het Engelse _cute_.} De bibliotheek `PySide6` is de officiële Pythonbibliotheek.
 
 \begin{attention}
-    Maak voor de oefeningen een nieuw conda environment \texttt{IK-test-qt} met:
+    Maak voor de oefeningen een nieuw conda environment `IK-test-qt` met:
     ``` ps1con
     conda create -n IK-test-qt python
     conda activate IK-test-qt
     pip install pyside6 pyqtgraph
     ```
-    Selecteer het nieuwe \texttt{IK-test-qt} conda environment in Visual Studio Code en sluit alle <q>oude</q> terminals met het \faTrash*-icoon \footnote{of in één keer met \menu{View > Command Palette > Terminal: Kill All Terminals}}.
+    Selecteer het nieuwe `IK-test-qt` conda environment in Visual Studio Code en sluit alle <q>oude</q> terminals met het \faTrash*-icoon \footnote{of in één keer met \menu{View > Command Palette > Terminal: Kill All Terminals}}.
 \end{attention}
 
 Een minimale Qt-applicatie ziet er als volgt uit:
@@ -67,24 +67,24 @@ Het definiëren van layouts gebeurt in veruit de meeste opmaaksystemen met recht
 \begin{figure}
     \centering
     \hfill
-    \subfloat[Het hoofdelement van de grafische interface is de \texttt{central widget}.]{
+    \subfloat[Het hoofdelement van de grafische interface is de `central widget`.]{
         \makebox[.4\linewidth]{\includestandalone[page=1]{figures/layout-schematic}}
         \label{fig:layout-centerwidget}
     }
     \hfill
-    \subfloat[De \texttt{central widget} krijgt een verticale layout die we \texttt{vbox} noemen.]{
+    \subfloat[De `central widget` krijgt een verticale layout die we `vbox` noemen.]{
         \makebox[.4\linewidth]{\includestandalone[page=2]{figures/layout-schematic}}
         \label{fig:layout-vbox}
     }
     \hspace*{\fill}
     \\[1cm]
     \hfill
-    \subfloat[In de verticale layout plaatsen we een \texttt{textbox} en een horizontale layout die we \texttt{hbox} noemen.]{
+    \subfloat[In de verticale layout plaatsen we een `textbox` en een horizontale layout die we `hbox` noemen.]{
         \makebox[.4\linewidth]{\includestandalone[page=3]{figures/layout-schematic}}
         \label{fig:layout-text-hbox}
     }
     \hfill
-    \subfloat[In de horizontale layout plaatsen we twee \texttt{button}s.]{
+    \subfloat[In de horizontale layout plaatsen we twee `button`s.]{
         \makebox[.4\linewidth]{\includestandalone[page=4]{figures/layout-schematic}}
         \label{fig:layout-buttons}
     }
@@ -184,13 +184,13 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
 \begin{minopdracht}
     \begin{enumerate}
         \item Breid \filepath{example-gui.py} uit met slots en signals.
-        \item Verbind de \texttt{Clear}-knop met de clear functie (regel 27).
-        \item Definieer een `#!py add_button_clicked()` functie (regel 30--32) en verbind deze aan de \texttt{Add text}-knop (regel 28).
+        \item Verbind de `Clear`-knop met de clear functie (regel 27).
+        \item Definieer een `#!py add_button_clicked()` functie (regel 30--32) en verbind deze aan de `Add text`-knop (regel 28).
         \item Test of \filepath{example-gui.py} nog steeds werkt en of de knoppen doen wat je verwacht.
     \end{enumerate}
 \end{minopdracht}
 
-Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst hier: \url{https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes}. Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies \texttt{CamelCase} namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we \texttt{snake\_case} gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
+Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst hier: \url{https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes}. Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies `CamelCase` namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we `snake\_case` gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
 
 \begin{bonusopdracht}
     De volgorde waarin je layout en widgets toevoegt bepaald het uiterlijk van de grafische interface. Verander de code om de layout aan te passen (zet bijvoorbeeld de knoppen boven de textbox of zet de knoppen onder elkaar en naast de textbox).
@@ -199,9 +199,9 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 \begin{minopdracht}
     Probeer het volgende in \filepath{example-gui.py}:
     \begin{enumerate}
-        \item Voeg een derde knop \texttt{Hello, world} toe die de tekst _Hello, world_ toevoegt aan het venster.
+        \item Voeg een derde knop `Hello, world` toe die de tekst _Hello, world_ toevoegt aan het venster.
         \item Zet een hekje voor de `#!py super()`-aanroep of haal de regel weg. Wat gebeurt er als je de code opstart? (Zet de regel weer terug!)
-        \item Voeg _onder_ de andere knoppen een \texttt{Quit}-knop toe. Als je daar op klikt moet de method `#!py self.close()` aangeroepen worden. Daarmee sluit je het programma af. Denk erom dat als je het `#!py clicked`-signaal verbind met `#!py clicked.connect()` dat je de functie die je meegeeft nog _niet_ moet aanroepen maar alleen moet meegeven zodat die _later_ kan worden aangeroepen. Concreet betekent dit dat je de haakjes weglaat. Zie ook regel 27 en 28 van bovenstaande code.
+        \item Voeg _onder_ de andere knoppen een `Quit`-knop toe. Als je daar op klikt moet de method `#!py self.close()` aangeroepen worden. Daarmee sluit je het programma af. Denk erom dat als je het `#!py clicked`-signaal verbind met `#!py clicked.connect()` dat je de functie die je meegeeft nog _niet_ moet aanroepen maar alleen moet meegeven zodat die _later_ kan worden aangeroepen. Concreet betekent dit dat je de haakjes weglaat. Zie ook regel 27 en 28 van bovenstaande code.
     \end{enumerate}
 \end{minopdracht}
 
@@ -209,10 +209,10 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 ### De interface ontwerpen met Qt Designer
 
 \begin{info}
-    Qt Designer wordt geïnstalleerd met het \texttt{qt} package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je \texttt{PySide6} installeert. Je start hem het makkelijkst op met de zoekfunctie: links onderin bij Windows (vergrootglas of tekstveld). Type \texttt{designer} in, wacht heel even en kies de applicatie. Als hij hem niet kan vinden open dan een terminal, activeer je \texttt{IK-test-qt} conda environment en type \shellinline{pyside6-designer}.
+    Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op met de zoekfunctie: links onderin bij Windows (vergrootglas of tekstveld). Type `designer` in, wacht heel even en kies de applicatie. Als hij hem niet kan vinden open dan een terminal, activeer je `IK-test-qt` conda environment en type \shellinline{pyside6-designer}.
 \end{info}
 
-Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Je bewaart dat als een \texttt{.ui}-bestand. Vervolgens vertaal je het \texttt{.ui}-bestand naar een Pythonbestand dat je importeert in je eigen programma. De volledige class van het vorige voorbeeld kan dan vervangen worden door:
+Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Je bewaart dat als een `.ui`-bestand. Vervolgens vertaal je het `.ui`-bestand naar een Pythonbestand dat je importeert in je eigen programma. De volledige class van het vorige voorbeeld kan dan vervangen worden door:
 ``` py
 from ui_simple_app import Ui_MainWindow
 
@@ -284,7 +284,7 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
         \item Voeg aan je interface een _Graphics View_ toe;
         \item Klik er op om hem te selecteren en klik daarna op de rechtermuistoets;
         \item Kies voor _Promote To ..._;
-        \item Bij _Promoted class name_ vul je in \texttt{PlotWidget} en bij _Header file_ vul je in \texttt{pyqtgraph} (zonder \texttt{.h} aan het eind);
+        \item Bij _Promoted class name_ vul je in `PlotWidget` en bij _Header file_ vul je in `pyqtgraph` (zonder `.h` aan het eind);
         \item Dan klik je op _Add_ en vervolgens op _Promote_;
     \end{enumerate}
     Zie \figref{fig:screenshot-promote-widget}. Nu je dit een keer gedaan hebt kun je voortaan op een Graphics View meteen kiezen voor _Promote to \textrightarrow\ PlotWidget_ en hoef je niets meer in te typen. Vergeet niet je widget nog even een handige naam te geven, bijvoorbeeld \verb|plot_widget|.
@@ -293,7 +293,7 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
 \begin{figure}
     \centering
     \includegraphics[scale=.4]{figures/screenshot-promote-widget.png}
-    \caption{Voor het toevoegen van een \texttt{PlotWidget} van PyQtGraph moet je eerste een \texttt{GraphicsView} toevoegen (rode pijl) en die _Promoten_ naar een \texttt{PlotWidget} (rood kader).}
+    \caption{Voor het toevoegen van een `PlotWidget` van PyQtGraph moet je eerste een `GraphicsView` toevoegen (rode pijl) en die _Promoten_ naar een `PlotWidget` (rood kader).}
     \label{fig:screenshot-promote-widget}
 \end{figure}
 
@@ -310,11 +310,11 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
         QVBoxLayout            & Vertical Layout   & Plaats widgets onder elkaar in deze container                                                                                                 \\
         QFormLayout            & Form Layout       & Een layout met twee kolommen: links tekstlabels en rechts widgets                                                                             \\
         QGroupBox              & Group Box         & Verzamel widgets in een rechthoekig kader met linksbovenin een tekstlabel                                                                     \\
-        QPushButton            & Push Button       & Een drukknop met tekstlabel. Signals: \texttt{clicked}.                                                                                       \\
+        QPushButton            & Push Button       & Een drukknop met tekstlabel. Signals: `clicked`.                                                                                       \\
         QLabel                 & Label             & Een tekstlabel                                                                                                                                \\
-        QComboBox              & Combo Box         & Een knop voor een keuzemenu. \newline Methods: \texttt{addItem, addItems}.\newline Signals: \texttt{currentIndexChanged, currentTextChanged}. \\
-        QSpinBox               & Spin Box          & Kies een geheel getal (intypen of met pijltjes selecteren). Signals: \texttt{valueChanged}.                                                   \\
-        QDoubleSpinBox         & Double Spin Box   & Kies een kommagetal (intypen of met pijltjes selecteren). Signals: \texttt{valueChanged}.                                                     \\
+        QComboBox              & Combo Box         & Een knop voor een keuzemenu. \newline Methods: `addItem, addItems`.\newline Signals: `currentIndexChanged, currentTextChanged`. \\
+        QSpinBox               & Spin Box          & Kies een geheel getal (intypen of met pijltjes selecteren). Signals: `valueChanged`.                                                   \\
+        QDoubleSpinBox         & Double Spin Box   & Kies een kommagetal (intypen of met pijltjes selecteren). Signals: `valueChanged`.                                                     \\
         \bottomrule
     \end{tabularx}
     \caption{Lijst van zeer handige widgets. Je hebt deze widgets hoogstwaarschijnlijk nodig. Zie voor meer informatie: \url{https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html}.}
@@ -338,7 +338,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen`, 
 \end{inleveropdracht}
 
 \begin{inleveropdracht}[Functieplotter: knoppen]
-    Voeg knoppen toe om het domein aan te passen. Maak bijvoorbeeld een \texttt{start} die mag lopen van 0 tot 100. Maak ook een \texttt{stop} en een \texttt{numpoints} om het aantal punten te kiezen. Kies daarvoor ook een handige standaardwaarde. Zorg ervoor dat als je de waardes aanpast dat de functie automatisch opnieuw wordt geplot.
+    Voeg knoppen toe om het domein aan te passen. Maak bijvoorbeeld een `start` die mag lopen van 0 tot 100. Maak ook een `stop` en een `numpoints` om het aantal punten te kiezen. Kies daarvoor ook een handige standaardwaarde. Zorg ervoor dat als je de waardes aanpast dat de functie automatisch opnieuw wordt geplot.
 \end{inleveropdracht}
 
 \begin{bonusopdracht}[Functieplotter: (uitdaging)]
@@ -351,11 +351,11 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen`, 
 
 \begin{bonus}
     \begin{opdracht}[Functieplotter (uitdaging)]
-        Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals \verb|x ** 2|, \verb|sin(x)| of \verb|1 / sqrt(x + 1)|. Gebruik daarvoor het \texttt{asteval} package \parencite{asteval}. Documentatie vind je op \url{https://newville.github.io/asteval/}.
+        Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals \verb|x ** 2|, \verb|sin(x)| of \verb|1 / sqrt(x + 1)|. Gebruik daarvoor het `asteval` package \parencite{asteval}. Documentatie vind je op \url{https://newville.github.io/asteval/}.
     \end{opdracht}
 
     \begin{warning}
-        Gebruik _nooit_ zomaar `#!py eval()` op een string die iemand anders aanlevert. Anders kan iemand met typen in een tekstveld of het inlezen van een tekstbestand je computer wissen bijvoorbeeld, of malware installeren. Als je `#!py eval()` wilt gebruiken, lees dan de sectie _Minimizing the Security Issues of eval()_ in \citetitle{eval} \cite{eval}. Maar _veel makkelijker_ is om \texttt{asteval} te gebruiken.
+        Gebruik _nooit_ zomaar `#!py eval()` op een string die iemand anders aanlevert. Anders kan iemand met typen in een tekstveld of het inlezen van een tekstbestand je computer wissen bijvoorbeeld, of malware installeren. Als je `#!py eval()` wilt gebruiken, lees dan de sectie _Minimizing the Security Issues of eval()_ in \citetitle{eval} \cite{eval}. Maar _veel makkelijker_ is om `asteval` te gebruiken.
     \end{warning}
 \end{bonus}
 
@@ -371,33 +371,33 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
 \begin{info}
     Je mag zelf kiezen of je de grafische interface gaat ontwerpen met Designer of dat je hem volledig programmeert.
 
-    Zorg dat je in je \texttt{daq} conda environment zit of maak een nieuwe. Voeg de dependencies PySide6 en PyQtGraph toe met:
+    Zorg dat je in je `daq` conda environment zit of maak een nieuwe. Voeg de dependencies PySide6 en PyQtGraph toe met:
     ``` ps1con
     poetry add pyside6 pyqtgraph
     ```
 \end{info}
 
 \begin{info}
-    Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds \texttt{pyside-uic} moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met Poetry <q>taken</q> aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn niet meer beschikbaar als je je applicatie deelt met andere mensen -- ze zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. En dat is wat we willen. Doe dit als volgt:
+    Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met Poetry <q>taken</q> aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn niet meer beschikbaar als je je applicatie deelt met andere mensen -- ze zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. En dat is wat we willen. Doe dit als volgt:
     \begin{enumerate}
         \item Installeer _Poe the Poet_ -- onze _task runner_ -- als _development dependency_ met:
               ``` ps1con
               poetry add --group dev poethepoet
               ```
               We geven hiermee aan dat we dit package nodig hebben voor de ontwikkeling van onze applicatie, maar dat deze niet meegeleverd hoeft te worden als we de applicatie gaan delen met anderen.
-        \item Voeg aan je \filepath{pyproject.toml} het volgende toe -- uitgaande van de mappenstructuur in de \texttt{pythondaq} package en \filepath{mainwindow.ui} als naam van je \texttt{.ui}-bestand:
+        \item Voeg aan je \filepath{pyproject.toml} het volgende toe -- uitgaande van de mappenstructuur in de `pythondaq` package en \filepath{mainwindow.ui} als naam van je `.ui`-bestand:
               \begin{tomlcode}
                   [tool.poe.tasks.compile]
                   shell = """
                   pyside6-uic src/pythondaq/mainwindow.ui -o src/pythondaq/ui_mainwindow.py
                   """
               \end{tomlcode}
-              Je kunt binnen de driedubbele aanhalingstekens meerdere regels toevoegen als je meerdere \texttt{.ui}-bestanden hebt -- voor ieder bestand een regel.
-        \item In bovenstaande regels is de naam na \texttt{tool.poe.tasks} de naam van de taak -- in dit geval dus \texttt{compile}. Je kunt die naam zelf kiezen. Voer de taak uit door in de terminal in te typen:
+              Je kunt binnen de driedubbele aanhalingstekens meerdere regels toevoegen als je meerdere `.ui`-bestanden hebt -- voor ieder bestand een regel.
+        \item In bovenstaande regels is de naam na `tool.poe.tasks` de naam van de taak -- in dit geval dus `compile`. Je kunt die naam zelf kiezen. Voer de taak uit door in de terminal in te typen:
               ``` ps1con
               poe compile
               ```
-              En dat gaat een stuk sneller dan die lange \texttt{pyside-uic}-regel onthouden en intypen!
+              En dat gaat een stuk sneller dan die lange `pyside-uic`-regel onthouden en intypen!
     \end{enumerate}
 \end{info}
 
@@ -406,7 +406,7 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
 \end{inleveropdracht}
 
 \begin{inleveropdracht}[Pythondaq: plot scan]
-    Voeg aan je applicatie een \texttt{PlotWidget} toe. Laat je applicatie een scan uitvoeren (door het model te openen en aan te roepen) en laat het resultaat zien in een grafiek. Voor deze opdracht mag je nog gewoon de poortnaam in je code schrijven, net als start- en stop waardes e.d. De gebruiker hoeft nog niets te kunnen instellen. Dat komt straks.
+    Voeg aan je applicatie een `PlotWidget` toe. Laat je applicatie een scan uitvoeren (door het model te openen en aan te roepen) en laat het resultaat zien in een grafiek. Voor deze opdracht mag je nog gewoon de poortnaam in je code schrijven, net als start- en stop waardes e.d. De gebruiker hoeft nog niets te kunnen instellen. Dat komt straks.
 \end{inleveropdracht}
 
 \begin{inleveropdracht}[Pythondaq: knoppen]
@@ -419,7 +419,7 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
 \begin{inleveropdracht}[Pythondaq: app]
     Het is weer mogelijk om van het script een applicatie te maken die je aan kunt roepen vanaf de command-line. Daar moeten we het volgende voor doen:
     \begin{enumerate}
-        \item Voeg een nieuw item toe voor je applicatie in de sectie \texttt{[tool.poetry.scripts]} in de \path{pyproject.toml} zoals je dat ook gedaan hebt voor je command-line applicatie.
+        \item Voeg een nieuw item toe voor je applicatie in de sectie `[tool.poetry.scripts]` in de \path{pyproject.toml} zoals je dat ook gedaan hebt voor je command-line applicatie.
         \item Installeer je package opnieuw met:
               \begin{consolecode}
             $ poetry install
@@ -431,17 +431,17 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
 
 ### Bewaren van meetgegevens
 
-Je kunt na iedere meting de gegevens automatisch wegschrijven naar bestanden zonder dat de gebruiker nog iets kan kiezen, maar je kunt ook gebruik maken van een \texttt{Save}-knop en dialoogvensters. Je kunt de knop koppelen aan een method `#!py save_data()` en daarin de volgende regel opnemen:
+Je kunt na iedere meting de gegevens automatisch wegschrijven naar bestanden zonder dat de gebruiker nog iets kan kiezen, maar je kunt ook gebruik maken van een `Save`-knop en dialoogvensters. Je kunt de knop koppelen aan een method `#!py save_data()` en daarin de volgende regel opnemen:
 ``` py
 filename, _ = QtWidgets.QFileDialog.getSaveFileName(filter="CSV files (*.csv)")
 ```
-De functie `#!py getSaveFileName()` opent een dialoogvenster om een bestand op te slaan. Vanwege het filter argument geeft het venster (op sommige besturingssystemen) alleen CSV-bestanden weer. In elk geval geldt op alle besturingssystemen dat als de gebruiker als naam \texttt{metingen} intypt, dat het filterargument ervoor zorgt dat er automatisch \texttt{.csv} achter geplakt wordt.\footnote{Het eerste deel van het argument (\texttt{CSV files}) is vrij te kiezen en geeft alleen informatie aan de gebruiker. Het deel tussen haakjes (\texttt{*.csv}) is het gedeelte dat echt van belang is. Het geeft de extensie die achter alle bestandsnamen geplakt wordt.} De functie geeft twee variabelen terug: \texttt{filename} en (weer) \texttt{filter}. Die laatste kenden we al en gooien we weg met behulp van de weggooivariabele `#!py _`.
+De functie `#!py getSaveFileName()` opent een dialoogvenster om een bestand op te slaan. Vanwege het filter argument geeft het venster (op sommige besturingssystemen) alleen CSV-bestanden weer. In elk geval geldt op alle besturingssystemen dat als de gebruiker als naam `metingen` intypt, dat het filterargument ervoor zorgt dat er automatisch `.csv` achter geplakt wordt.\footnote{Het eerste deel van het argument (`CSV files`) is vrij te kiezen en geeft alleen informatie aan de gebruiker. Het deel tussen haakjes (`*.csv`) is het gedeelte dat echt van belang is. Het geeft de extensie die achter alle bestandsnamen geplakt wordt.} De functie geeft twee variabelen terug: `filename` en (weer) `filter`. Die laatste kenden we al en gooien we weg met behulp van de weggooivariabele `#!py _`.
 
-Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder welke naam het bestand moet worden opgeslagen. Je krijgt echt alleen een pad en bestandsnaam terug, de data is _niet_ opgeslagen en het bestand is _niet_ aangemaakt. De variabele \texttt{filename} is echt niets anders dan een bestandsnaam, bijvoorbeeld: \texttt{/Users/david/LED-rood.csv}. Nadat je die bestandsnaam gekregen hebt moet je dus zelf nog code schrijven zodat het CSV-bestand wordt opgeslagen onder die naam.
+Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder welke naam het bestand moet worden opgeslagen. Je krijgt echt alleen een pad en bestandsnaam terug, de data is _niet_ opgeslagen en het bestand is _niet_ aangemaakt. De variabele `filename` is echt niets anders dan een bestandsnaam, bijvoorbeeld: `/Users/david/LED-rood.csv`. Nadat je die bestandsnaam gekregen hebt moet je dus zelf nog code schrijven zodat het CSV-bestand wordt opgeslagen onder die naam.
 
 
 \begin{inleveropdracht}[Pythondaq: save]
-    Voeg een \texttt{Save}-knop toe aan je interface om je metingen op te slaan als CSV-bestand. Controleer dat de gegevens ook inderdaad bewaard zijn.
+    Voeg een `Save`-knop toe aan je interface om je metingen op te slaan als CSV-bestand. Controleer dat de gegevens ook inderdaad bewaard zijn.
 \end{inleveropdracht}
 
 
@@ -468,19 +468,19 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
 % \begin{enumerate}
 %   \item Je vraagt alle poorten op;
 %   \item Je probeert iedere poort te openen;
-%   \item Als het openen lukt, probeer je de identificatie\footnote{Met \texttt{*IDN?}, maar daar heb je als het goed is al een method voor in de controller.} op te vragen;
-%   \item Als dat lukt, kijk je of de tekst \texttt{Arduino VISA} er in voorkomt;
+%   \item Als het openen lukt, probeer je de identificatie\footnote{Met `*IDN?`, maar daar heb je als het goed is al een method voor in de controller.} op te vragen;
+%   \item Als dat lukt, kijk je of de tekst `Arduino VISA` er in voorkomt;
 %   \item Als dat lukt, dan heb je de Arduino gevonden!
 % \end{enumerate}
 % Het lastige hierbij is dat je dus gaat _proberen_ om een poort te openen. De kans bestaat dat dat niet lukt, bijvoorbeeld omdat een poort al in gebruik is. Dan krijg je een exception die je af moet vangen met een `#!py try...except`-blok. Je kunt _alle_ exceptions afvangen, maar het is mooier om specifieke exceptions af te vangen. Op die manier blijven onverwachte fouten nog steeds een foutmelding geven.\footnote{Dat kan echt heel handig zijn. Menig programmeur zoekt zich suf naar de reden waarom een programma niet werkt om er dan achter te komen dat één of andere onverwachte foutmelding wordt afgevangen zonder dat hij die te zien krijgt. Als iets niet werkt maar je krijgt geen foutmelding dan kun je lang blijven zoeken...} Zulke exceptions kun je vaak in de documentatie vinden maar je kunt het ook blijven proberen op verschillende computers, met of zonder Arduino, om te zien welke exceptions je kunt krijgen tijdens <q>normaal</q> gebruik.
 
-% Om je een zoektocht te besparen: wanneer je een device probeert te openen kun je een \texttt{serial.serialutil.SerialException}\footnote{Om de exception te <q>herkennen</q> moet je bovenin je code `#!py import serial.serialutil` toevoegen.} krijgen, bijvoorbeeld wanneer het device al in gebruik is. Als je met een device probeert te communiceren en je krijgt geen antwoord, dan krijg je een \texttt{pyvisa.errors.VisaIOError}. Vang in ieder geval die exceptions dus af.
+% Om je een zoektocht te besparen: wanneer je een device probeert te openen kun je een `serial.serialutil.SerialException`\footnote{Om de exception te <q>herkennen</q> moet je bovenin je code `#!py import serial.serialutil` toevoegen.} krijgen, bijvoorbeeld wanneer het device al in gebruik is. Als je met een device probeert te communiceren en je krijgt geen antwoord, dan krijg je een `pyvisa.errors.VisaIOError`. Vang in ieder geval die exceptions dus af.
 
-% Aangezien het hier heel specifiek over Arduino's gaat -- en niet in het algemeen over een instrument -- is de controller de juiste plek voor deze code. Als je wilt dat de detectie niet te lang duurt -- je moet immers steeds wachten op een antwoord dat misschien niet komt -- kun je in de \texttt{ArduinoVISADevice}-class aan de \texttt{open\_resource()}-aanroep de parameter \texttt{timeout=100} toevoegen. Hij wacht dan maximaal \qty{100}{\milli\second} op antwoord en geeft dan een timeout.
+% Aangezien het hier heel specifiek over Arduino's gaat -- en niet in het algemeen over een instrument -- is de controller de juiste plek voor deze code. Als je wilt dat de detectie niet te lang duurt -- je moet immers steeds wachten op een antwoord dat misschien niet komt -- kun je in de `ArduinoVISADevice`-class aan de `open\_resource()`-aanroep de parameter `timeout=100` toevoegen. Hij wacht dan maximaal \qty{100}{\milli\second} op antwoord en geeft dan een timeout.
 
 % \begin{hogercijfer}
 %   \begin{opdracht}
-%     Maak een _functie_ in de controller module en implementeer bovenstaande procedure. Als een Arduino gevonden wordt, geef dan de volledige poortnaam terug. Als er geen Arduino wordt gevonden, zorg dan voor een zelfgemaakte exception (bijvoorbeeld \texttt{DeviceNotFound}). Zorg ervoor dat je grafische applicatie bij het opstarten zoekt naar een Arduino en die poort verder gebruikt in het programma. De gebruiker hoeft dus geen poort te kiezen; het werkt automatisch!
+%     Maak een _functie_ in de controller module en implementeer bovenstaande procedure. Als een Arduino gevonden wordt, geef dan de volledige poortnaam terug. Als er geen Arduino wordt gevonden, zorg dan voor een zelfgemaakte exception (bijvoorbeeld `DeviceNotFound`). Zorg ervoor dat je grafische applicatie bij het opstarten zoekt naar een Arduino en die poort verder gebruikt in het programma. De gebruiker hoeft dus geen poort te kiezen; het werkt automatisch!
 %   \end{opdracht}
 % \end{hogercijfer}
 
@@ -497,9 +497,9 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
 
 Afhankelijk van de instellingen die we gekozen hebben kan een meting best lang duren. In ieder geval moeten we even wachten tot de meting afgelopen is en pas daarna krijgen we de resultaten te zien in een plot. Als een meting langer duurt dan een paar seconden kan het besturingssysteem zelfs aangeven dat onze applicatie niet meer reageert. En inderdaad, als we ondertussen op knoppen proberen te drukken dan reageert hij nergens op. Onze applicatie kan helaas niet twee dingen tegelijk. Kon hij dat wel, dan zouden we zien hoe de grafiek langzaam opbouwt tot het eindresultaat.
 
-De manier waarop besturingssystemen meerdere dingen tegelijk doen is gebaseerd op _processes_ en _threads_. Een _process_ is, eenvoudig gezegd, een programma. Als je meerdere applicaties opstart zijn dat allemaal processen. Besturingssystemen regelen dat ieder proces een stuk geheugen krijgt en tijd van de processor krijgt toegewezen om zijn werk te doen. Processen zijn mooi gescheiden en kunnen dus eenvoudig naast elkaar draaien. Het wordt iets lastiger als een _proces_ meerdere dingen tegelijk wil doen. Dat kan wel, met _threads_. Het besturingssysteem zorgt dat meerdere threads naast elkaar draaien.\footnote{Er is een subtiliteit. In Python draaien threads _niet_ tegelijk, maar om de beurt. In de praktijk merk je daar niet veel van: threads worden zó vaak per seconde gewisseld dat het _lijkt_ alsof ze tegelijk draaien. Terwijl de ene thread steeds even tijd krijgt voor een meting kan de andere thread steeds even de plot verversen. In het geval van zwaar rekenwerk schiet het alleen niet op. Er draait maar één berekening tegelijkertijd dus threads of niet, het is even snel. Wil je _echt_ parallel rekenen, dan moet je kijken naar de \texttt{multiprocessing} module om meerdere processen te starten in plaats van threads.}
+De manier waarop besturingssystemen meerdere dingen tegelijk doen is gebaseerd op _processes_ en _threads_. Een _process_ is, eenvoudig gezegd, een programma. Als je meerdere applicaties opstart zijn dat allemaal processen. Besturingssystemen regelen dat ieder proces een stuk geheugen krijgt en tijd van de processor krijgt toegewezen om zijn werk te doen. Processen zijn mooi gescheiden en kunnen dus eenvoudig naast elkaar draaien. Het wordt iets lastiger als een _proces_ meerdere dingen tegelijk wil doen. Dat kan wel, met _threads_. Het besturingssysteem zorgt dat meerdere threads naast elkaar draaien.\footnote{Er is een subtiliteit. In Python draaien threads _niet_ tegelijk, maar om de beurt. In de praktijk merk je daar niet veel van: threads worden zó vaak per seconde gewisseld dat het _lijkt_ alsof ze tegelijk draaien. Terwijl de ene thread steeds even tijd krijgt voor een meting kan de andere thread steeds even de plot verversen. In het geval van zwaar rekenwerk schiet het alleen niet op. Er draait maar één berekening tegelijkertijd dus threads of niet, het is even snel. Wil je _echt_ parallel rekenen, dan moet je kijken naar de `multiprocessing` module om meerdere processen te starten in plaats van threads.}
 
-Threads geven vaak problemen omdat ze in zekere zin onvoorspelbaar zijn. Je weet niet precies hoe <q>snel</q> een thread draait, dus je weet niet zeker wat er in welke volgorde gebeurt. Dit kan leiden tot problemen waarvan de oorzaak maar lastig te vinden is. Google maar eens op \texttt{thread problems in programming}. We moeten dus voorzichtig zijn! Ook is het ombouwen van code zonder threads naar code met threads een klus waar makkelijk iets fout gaat. Het is dus belangrijk dat je _in kleine stapjes_ je code aanpast en _vaak test_ of het nog werkt.
+Threads geven vaak problemen omdat ze in zekere zin onvoorspelbaar zijn. Je weet niet precies hoe <q>snel</q> een thread draait, dus je weet niet zeker wat er in welke volgorde gebeurt. Dit kan leiden tot problemen waarvan de oorzaak maar lastig te vinden is. Google maar eens op `thread problems in programming`. We moeten dus voorzichtig zijn! Ook is het ombouwen van code zonder threads naar code met threads een klus waar makkelijk iets fout gaat. Het is dus belangrijk dat je _in kleine stapjes_ je code aanpast en _vaak test_ of het nog werkt.
 
 \begin{info}
     We gaan in het volgende stuk een kleine applicatie ombouwen van <q>no-threads</q> naar <q>threads</q>. _Voor het gemak_ hebben we de view en het model in één bestand gezet. Op Canvas kun je de code downloaden. We raden je ten zeerste aan om het bestand \path{demo-no-threads.py} te downloaden en dan stapje voor stapje de code aan te passen zoals in de handleiding gebeurt. De andere stappen staan alleen op Canvas om bij problemen even te kunnen vergelijken. _Probeer het dus zelf!_ Pas daarna ga je aan de slag om je eigen code om te bouwen waarbij de view en het model nu _wel_ weer in verschillende bestanden staan. Samenvattend: doorloop dit stuk handleiding _twee keer_. De eerste keer doe je de opdrachten met het demoscript, de tweede keer met je eigen code voor \githubrepo{pythondaq}.
