@@ -50,7 +50,7 @@ Er is nu de volgende structuur aangemaakt:
 \begin{forest}
     for tree={grow'=0,folder,font=\ttfamily}
     [\githubrepo{easystat}
-        [:fontawesome-regular-file-code:`README.md`]
+        [:fontawesome-regular-file-lines:`README.md`]
         [\folderpath{tests}
             [:fontawesome-regular-file-code:`\_\_init\_\_.py`]
             [:fontawesome-regular-file-code:`test\_easystat.py`]
@@ -66,7 +66,7 @@ Er is nu de volgende structuur aangemaakt:
 
 Allereerst is er een projectmap `easystat` aangemaakt. Je kunt nu in GitHub Desktop deze map toevoegen als nieuwe repository, zoals we gedaan hebben in \opdref{opd:add_repository}.
 
-Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaakt. We zien een :fontawesome-regular-file-code:`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van ons project.\footnote{Wanneer de repository op GitHub wordt geplaatst wordt deze README automatisch op de hoofdpagina van de repository getoond, onder de code.}
+Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaakt. We zien een :fontawesome-regular-file-lines:`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van ons project.\footnote{Wanneer de repository op GitHub wordt geplaatst wordt deze README automatisch op de hoofdpagina van de repository getoond, onder de code.}
 
 Daarna is er een map \folderpath{tests}. Goede software wordt getest. In deze map komen bestanden te staan die delen van de code runnen en resultaten vergelijken met verwachte resultaten -- zoals je kunt doen in \opdref{opd:test_package}.\footnote{Python heeft een ingebouwde module `#!py unittest` die deze tests kan vinden, kan runnen en daarna een handige weergave geeft van welke tests geslaagd zijn en welke faalden. Ook het package `#!py pytest` is erg bekend. Op deze manier weet je altijd zeker dat wanneer je aanpassingen doet in je code, dat de rest van de code nog steeds is blijven werken -- zónder dat je zelf uitvoerig alles hebt hoeven uitproberen. Je draait gewoon even snel alle tests. Helaas, helaas -- in deze cursus is te weinig tijd om het schrijven van tests te behandelen.}
 
@@ -224,7 +224,7 @@ Fijn! Als je nu de :fontawesome-regular-file-code:`pyproject.toml` nog eens beki
 \end{info}
 
 ### Uitdaging: Poetry.lock
-Na het toevoegen van Numpy is er ook een bestand :fontawesome-regular-file-code:`poetry.lock` bijgekomen. Hierin staan de exacte versies van alle geïnstalleerde packages. Vaak wordt dit bestand gecommit zodat collega-ontwikkelaars exact dezelfde versies installeren zodra ze \shellinline{poetry install} aanroepen. Om dat te proberen maken we even een schone conda environment:
+Na het toevoegen van Numpy is er ook een bestand :fontawesome-regular-file-lines:`poetry.lock` bijgekomen. Hierin staan de exacte versies van alle geïnstalleerde packages. Vaak wordt dit bestand gecommit zodat collega-ontwikkelaars exact dezelfde versies installeren zodra ze \shellinline{poetry install} aanroepen. Om dat te proberen maken we even een schone conda environment:
 
 \begin{bonusopdracht}
     \begin{enumerate}
@@ -239,7 +239,7 @@ We krijgen meteen foutmeldingen. Immers, we hebben nog niets geïnstalleerd.
 \begin{bonusopdracht}
     \begin{enumerate}
         \item Installeer de `easystat` package.
-        \item Waarvoor gebruikt Poetry de lock file (:fontawesome-regular-file-code:`poetry.lock)`?
+        \item Waarvoor gebruikt Poetry de lock file (:fontawesome-regular-file-lines:`poetry.lock)`?
         \item Draai :fontawesome-regular-file-code:`tests/try\_shortcuts.py` en bekijk de uitkomst.
     \end{enumerate}
 
@@ -385,7 +385,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
                             [:fontawesome-regular-file-code:`view.py`]
                         ]
                     ]
-                    [:fontawesome-regular-file-code:`README.md`]
+                    [:fontawesome-regular-file-lines:`README.md`]
                 ]
               \end{forest}
         \item Test je :fontawesome-regular-file-code:`view.py` script.
@@ -419,7 +419,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
                     [\folderpath{tests}
                         [:fontawesome-regular-file-code:`\_\_init\_\_.py`]
                     ]
-                    [:fontawesome-regular-file-code:`README.md`]
+                    [:fontawesome-regular-file-lines:`README.md`]
                 ]
               \end{forest}
         \item Maak een script :fontawesome-regular-file-code:`tests/test\_imports.py` met de regel:
@@ -454,7 +454,7 @@ Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we
             ]
         ]
         [:fontawesome-regular-file-code:`pyproject.toml`]
-        [:fontawesome-regular-file-code:`README.md`]
+        [:fontawesome-regular-file-lines:`README.md`]
     ]
 \end{forest}
 

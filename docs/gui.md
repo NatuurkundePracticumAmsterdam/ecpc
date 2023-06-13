@@ -238,7 +238,7 @@ Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog ma
 \begin{minopdracht}
     \begin{enumerate}
         \item Open Designer en kies bij \menu{templates/forms} voor `#!py MainWindow`. Klik dan op \menu{Create}. Ontwerp de user interface uit \figref{fig:screenshot-ui-prog} en gebruik dezelfde namen voor de widgets als het voorbeeld in \secref{sec:ui-prog}. Dus een `#!py add_button` knop, een `#!py clear_button` knop en een `#!py textedit` tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.
-        \item Bewaar het bestand als :fontawesome-regular-file-code:`simple\_app.ui`.
+        \item Bewaar het bestand als :fontawesome-regular-file-lines:`simple\_app.ui`.
         \item In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan\footnote{Overleg met elkaar of met de assistent als je niet weet hoe dat moet.} en type in:
               ``` ps1con
               pyside6-uic simple_app.ui -o ui_simple_app.py  
@@ -385,7 +385,7 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
               poetry add --group dev poethepoet
               ```
               We geven hiermee aan dat we dit package nodig hebben voor de ontwikkeling van onze applicatie, maar dat deze niet meegeleverd hoeft te worden als we de applicatie gaan delen met anderen.
-        \item Voeg aan je :fontawesome-regular-file-code:`pyproject.toml` het volgende toe -- uitgaande van de mappenstructuur in de `pythondaq` package en :fontawesome-regular-file-code:`mainwindow.ui` als naam van je `.ui`-bestand:
+        \item Voeg aan je :fontawesome-regular-file-code:`pyproject.toml` het volgende toe -- uitgaande van de mappenstructuur in de `pythondaq` package en :fontawesome-regular-file-lines:`mainwindow.ui` als naam van je `.ui`-bestand:
               \begin{tomlcode}
                   [tool.poe.tasks.compile]
                   shell = """
