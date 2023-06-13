@@ -35,10 +35,10 @@ Uitgesplitst in \textit{argumenten} en \textbf{opties}, met vierkante haken [] o
 
 
 !!! question "minimaal"
-    \begin{enumerate}
-        \item Naast \shellinline{conda create} heb je ook met andere argumenten gewerkt zoals `activate` en `install`. Welke argumenten ken je al van de applicatie `poetry`?
-        \item Vraag de lijst met argumenten (commando's) op van Poetry met \shellinline{poetry list}, hoeveel kende je nog niet?
-    \end{enumerate}
+    
+    1. Naast \shellinline{conda create} heb je ook met andere argumenten gewerkt zoals `activate` en `install`. Welke argumenten ken je al van de applicatie `poetry`?
+    1. Vraag de lijst met argumenten (commando's) op van Poetry met \shellinline{poetry list}, hoeveel kende je nog niet?
+    
 
 
 
@@ -120,24 +120,24 @@ PS> python hello.py --help
 
 !!! question "minimaal"
     Laten we zorgen dat we een naam als argument mee kunnen geven.
-    \begin{enumerate}
-        \item In de code hieronder geven we met de regel `#!py @click.argument("name")` aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie `hello`:
-              \begin{pythoncode*}{highlightlines={6,8}}
-                # hello.py
-                
-                import click
-                
-                @click.command()
-                @click.argument("name")
-                def hello(name):
-                    print(f"Hello {name}!")
-                
-                if __name__ == "__main__":
-                    hello()
-              \end{pythoncode*}
-        \item Draai :fontawesome-regular-file-code:`hello.py` eerst zonder een argument \shellinline{python hello.py} en bekijk de foutmelding.
-        \item Draai :fontawesome-regular-file-code:`hello.py` nu met een argument: \shellinline{python hello.py Alice}.
-    \end{enumerate}
+    
+    1. In de code hieronder geven we met de regel `#!py @click.argument("name")` aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie `hello`:
+            \begin{pythoncode*}{highlightlines={6,8}}
+            # hello.py
+            
+            import click
+            
+            @click.command()
+            @click.argument("name")
+            def hello(name):
+                print(f"Hello {name}!")
+            
+            if __name__ == "__main__":
+                hello()
+            \end{pythoncode*}
+    1. Draai :fontawesome-regular-file-code:`hello.py` eerst zonder een argument \shellinline{python hello.py} en bekijk de foutmelding.
+    1. Draai :fontawesome-regular-file-code:`hello.py` nu met een argument: \shellinline{python hello.py Alice}.
+    
 
 
 \begin{warning}
@@ -253,13 +253,13 @@ Hello Alice!
 
 !!! question "minimaal"
     Bij \opdref{opd:Poetry_commando} heb je een applicatie gemaakt om de oppervlakte van een tafel te berekenen met de bijbehorende onzekerheid. In deze opdracht gaan we het script uitbreiden om de lengte en de breedte én de onzekerheid daarop als argument of optie mee te geven op de command line. Voer de volgende stappen uit:
-    \begin{enumerate}
-        \item Maak een schone environment aan en installeer de applicatie (doet alles het nog?)
-        \item Voeg click toe en pas het script aan zodat je de lengte zelf kan kiezen.\footnote{Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieerd. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden}
-        \item Test de applicatie.
-        \item Voeg ook opties of argumenten toe om de breedte en de onzekerheden mee te geven. Wanneer kies je in het script voor een optie en wanneer voor een argument?
-        \item Maak de applicatie compleet met helpteksten en default waardes.
-    \end{enumerate}
+
+    1. Maak een schone environment aan en installeer de applicatie (doet alles het nog?)
+    1. Voeg click toe en pas het script aan zodat je de lengte zelf kan kiezen.\footnote{Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieerd. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden}
+    1. Test de applicatie.
+    1. Voeg ook opties of argumenten toe om de breedte en de onzekerheden mee te geven. Wanneer kies je in het script voor een optie en wanneer voor een argument?
+    1. Maak de applicatie compleet met helpteksten en default waardes.
+    
 
 
 ### Click subcommando's
@@ -337,48 +337,48 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
 
 !!! question "bonus: Smallangle (uitdaging)"
     Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt -- maar jij weet precies over welk onderdeel we het hebben.
-    \begin{enumerate}
-        \item Maak een nieuw poetry project (met een `src` indeling) aan met de naam \githubrepo{smallangle}.
-        \item Maak een nieuw environment die `IK-smallangle` heet met daarin alleen Python.
-        \item Zet in de package \folderpath{smallangle} een module :fontawesome-regular-file-code:`smallangle.py`.
-        \item Plak de onderstaande code in :fontawesome-regular-file-code:`smallangle.py`:
-              ``` py
-              import numpy as np
-              from numpy import pi
-              import pandas as pd
-              
-              
-              def sin(number):
-                  x = np.linspace(0, 2 * pi, number)
-                  df = pd.DataFrame({"x": x, "sin (x)": np.sin(x)})
-                  print(df)
-                  return
-              
-              
-              def tan(number):
-                  x = np.linspace(0, 2 * pi, number)
-                  df = pd.DataFrame({"x": x, "tan (x)": np.tan(x)})
-                  print(df)
-                  return
-              
-              
-              if __name__ == "__main__":
-                  sin(10)
+
+    1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam \githubrepo{smallangle}.
+    1. Maak een nieuw environment die `IK-smallangle` heet met daarin alleen Python.
+    1. Zet in de package \folderpath{smallangle} een module :fontawesome-regular-file-code:`smallangle.py`.
+    1. Plak de onderstaande code in :fontawesome-regular-file-code:`smallangle.py`:
+        ``` py
+        import numpy as np
+        from numpy import pi
+        import pandas as pd
+        
+        
+        def sin(number):
+            x = np.linspace(0, 2 * pi, number)
+            df = pd.DataFrame({"x": x, "sin (x)": np.sin(x)})
+            print(df)
+            return
+        
+        
+        def tan(number):
+            x = np.linspace(0, 2 * pi, number)
+            df = pd.DataFrame({"x": x, "tan (x)": np.tan(x)})
+            print(df)
+            return
+        
+        
+        if __name__ == "__main__":
+            sin(10)
         ```
-        \item Ga door naar \opdref{opd:smallangle} stap 2. Je mag stap 1 overslaan -- dat werk heb je nu zelf al gedaan.
-    \end{enumerate}
+        1. Ga door naar \opdref{opd:smallangle} stap 2. Je mag stap 1 overslaan -- dat werk heb je nu zelf al gedaan.
+    
 
 
 !!! question "inleveren: smallangle"
     \label{opd:smallangle}
     Het project \githubrepo{smallangle} wordt met Poetry beheerd. Je gaat click aan de module :fontawesome-regular-file-code:`smallangle.py` toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.
-    \begin{enumerate}
-        \item Ga naar GitHub en open \githubrepo{AnneliesVlaar / smallangle} in GitHub Desktop en Visual Studio Code.
-        \item Installeer de package in een nieuw environment.
-        \item Run het script :fontawesome-regular-file-code:`smallangle.py` en los de errors op totdat het werkt.
-        \item Voeg click toe zodat je de subcommando's `sin` en `tan` hebt. Het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) moet gekozen kunnen worden met een optie (geef een standaardwaarde mee, zodat de gebruiker de optie kan weglaten).
-        \item Zorg dat smallangle een applicatie wordt die je aan kunt roepen met bijvoorbeeld \shellinline{smallangle sin -n 9}.
-    \end{enumerate}
+
+    1. Ga naar GitHub en open \githubrepo{AnneliesVlaar / smallangle} in GitHub Desktop en Visual Studio Code.
+    1. Installeer de package in een nieuw environment.
+    1. Run het script :fontawesome-regular-file-code:`smallangle.py` en los de errors op totdat het werkt.
+    1. Voeg click toe zodat je de subcommando's `sin` en `tan` hebt. Het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) moet gekozen kunnen worden met een optie (geef een standaardwaarde mee, zodat de gebruiker de optie kan weglaten).
+    1. Zorg dat smallangle een applicatie wordt die je aan kunt roepen met bijvoorbeeld \shellinline{smallangle sin -n 9}.
+    
 
 
 !!! question "bonus: Smallangle (uitdaging)"
@@ -528,10 +528,10 @@ Options:
 
 
 !!! question "inleveren: Pythondaq: docstring"
-    \begin{enumerate}
-        \item Pak de `pythondaq` applicatie erbij. Zet bij _alle_ functies een nuttige docstring.
-        \item Schrijf ook docstrings voor de classes die je gemaakt hebt.
-    \end{enumerate}
+
+    1. Pak de `pythondaq` applicatie erbij. Zet bij _alle_ functies een nuttige docstring.
+    1. Schrijf ook docstrings voor de classes die je gemaakt hebt.
+    
 
 
 ### Uitdaging: Documentatie met _Sphinx_
@@ -546,11 +546,11 @@ Het voert tijdens deze cursus te ver om veel aandacht te besteden aan Sphinx. Ma
 In \chref{ch:mvc} heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals :fontawesome-regular-file-code:`view.py`, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand :fontawesome-regular-file-code:`cli.py` aanmaken en dat langzaam opbouwen.
 
 !!! question "inleveren: Pythondaq: commando's"
-    \begin{enumerate}
-        \item Maak een nieuw bestand :fontawesome-regular-file-code:`src/pythondaq/cli.py`.
-        \item Maak een `#!py @click.group()` aan en voeg de subcommando's `list` en `scan` daaraan toe. Laat de commando's voorlopig alleen tekst printen. Merk op dat `#!py list()` een Pythonfunctie is.\footnote{Zie ook de waarschuwing op \mypageref{warn:cmd_name}.}
-        \item Zorg dat je de command-line applicatie met een commando in de terminal kunt aanroepen, inclusief de subcommando's `list` en `scan`.
-    \end{enumerate}
+
+    1. Maak een nieuw bestand :fontawesome-regular-file-code:`src/pythondaq/cli.py`.
+    1. Maak een `#!py @click.group()` aan en voeg de subcommando's `list` en `scan` daaraan toe. Laat de commando's voorlopig alleen tekst printen. Merk op dat `#!py list()` een Pythonfunctie is.\footnote{Zie ook de waarschuwing op \mypageref{warn:cmd_name}.}
+    1. Zorg dat je de command-line applicatie met een commando in de terminal kunt aanroepen, inclusief de subcommando's `list` en `scan`.
+    
 
 
 

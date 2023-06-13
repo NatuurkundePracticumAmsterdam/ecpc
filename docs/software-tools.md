@@ -100,14 +100,14 @@ Eén van de tools die problemen kunnen geven wanneer je van environment wisselt 
 
 !!! question "minimaal"
     Voer het volgende uit:
-    \begin{enumerate}
-        \item Installeer \shellinline{black} via \shellinline{pipx}
-        \item Run \shellinline{pipx list} en let op de directory die genoemd is na: `apps are exposed on your \$PATH at`. Bijvoorbeeld: `/Users/david/.local/bin`.
-        \item In Visual Studio Code, ga naar \menu{Code} onder MacOS of \menu{File} onder Windows en dan naar \menu{Preferences > Settings > Python Formatting: Black Path}. Vul de directorynaam in gevolgd door `black`. Bijvoorbeeld: `/Users/david/.local/bin/black`.
-        \item Open een Pythonbestand en type:
-              ``` py
-              l = [1,
-              2, 3, 4]
-              ```
-              Sla het bestand op en controleer of \shellinline{black} werkt. Je zou dan `#!py l = [1, 2, 3, 4]` moeten krijgen.
-    \end{enumerate}
+
+    1. Installeer \shellinline{black} via \shellinline{pipx}
+    1. Run \shellinline{pipx list} en let op de directory die genoemd is na: `apps are exposed on your \$PATH at`. Bijvoorbeeld: `/Users/david/.local/bin`.
+    1. In Visual Studio Code, ga naar \menu{Code} onder MacOS of \menu{File} onder Windows en dan naar \menu{Preferences > Settings > Python Formatting: Black Path}. Vul de directorynaam in gevolgd door `black`. Bijvoorbeeld: `/Users/david/.local/bin/black`.
+    1. Open een Pythonbestand en type:
+            ``` py
+            l = [1,
+            2, 3, 4]
+            ```
+            Sla het bestand op en controleer of \shellinline{black} werkt. Je zou dan `#!py l = [1, 2, 3, 4]` moeten krijgen.
+

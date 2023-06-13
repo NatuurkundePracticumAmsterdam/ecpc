@@ -37,17 +37,17 @@ Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een d
 !!! question "minimaal"
     \label{opd:add_repository}
     Maak op de volgende manier een repository voor je Pythonscripts:
-    \begin{enumerate}
-        \item Maak -- bijvoorbeeld vanuit Visual Studio Code -- een map \folderpath{Oefenopdrachten} en zet daarin alle python-bestandjes die je hebt gemaakt om te oefenen in \chref{ch:gesprek} en \chref{ch:mvc}.
-        \item Open GitHub desktop en log in met je GitHub account.
-        \item \menu{File > Add Local Repository}. Kies de map \folderpath{Oefenopdrachten}.
-        \item Je kunt de repository niet toevoegen omdat de map weliswaar bestaat, maar nog geen bestaande repository is. Er verschijnt een waarschuwing met een stukje kleine blauwe tekst. Klik op `create a repository`.
-        \item Vink `Initialize this repository with a README` aan.
-        \item Kies bij `Git ignore` voor <q>Python</q>.\footnote{De Git Ignore zorgt ervoor dat allerlei hulpbestanden van Python niet bewaard
-                  worden als commit. Alleen je eigen code wordt dan bewaard}
-        \item En bevestig dan met de blauwe knop `Create Repository`.
-        \item Als je nu op de history klikt dan zie je dat er een `Initial commit` is met wat `git`-bestanden en de Pythonscripts die je in de map hebt gezet. Vanaf nu staat \folderpath{Oefenopdrachten} in versiebeheer en houdt Git je wijzigingen bij.
-    \end{enumerate}
+
+    1. Maak -- bijvoorbeeld vanuit Visual Studio Code -- een map \folderpath{Oefenopdrachten} en zet daarin alle python-bestandjes die je hebt gemaakt om te oefenen in \chref{ch:gesprek} en \chref{ch:mvc}.
+    1. Open GitHub desktop en log in met je GitHub account.
+    1. \menu{File > Add Local Repository}. Kies de map \folderpath{Oefenopdrachten}.
+    1. Je kunt de repository niet toevoegen omdat de map weliswaar bestaat, maar nog geen bestaande repository is. Er verschijnt een waarschuwing met een stukje kleine blauwe tekst. Klik op `create a repository`.
+    1. Vink `Initialize this repository with a README` aan.
+    1. Kies bij `Git ignore` voor <q>Python</q>.\footnote{De Git Ignore zorgt ervoor dat allerlei hulpbestanden van Python niet bewaard
+                worden als commit. Alleen je eigen code wordt dan bewaard}
+    1. En bevestig dan met de blauwe knop `Create Repository`.
+    1. Als je nu op de history klikt dan zie je dat er een `Initial commit` is met wat `git`-bestanden en de Pythonscripts die je in de map hebt gezet. Vanaf nu staat \folderpath{Oefenopdrachten} in versiebeheer en houdt Git je wijzigingen bij.
+    
     Het is ook mogelijk om een repository aan te maken via \menu{File > New Repository}. Gebruik dit vóór de start van een project om een nieuwe map te maken met een lege Git repository.
 
 
@@ -58,15 +58,15 @@ Dit kan in GitHub Desktop, maar ook direct vanuit Visual Studio Code. Elke commi
 !!! question "minimaal"
     \label{opd:commit}
     Voer de volgende opdrachten uit:
-    \begin{enumerate}
-        \item In Visual Studio Code, ga naar \menu{File > Open Folder} en kies de map waar je in \opdref{opd:add_repository} een repository hebt aangemaakt.
-        \item Open één van je Pythonscripts.
-        \item Type een stukje code erbij -- bijvoorbeeld een print-statement -- en haal ergens anders iets weg. Bewaar het bestand.
-        \item Links verschijnt een blauw bolletje bij `Source Control` \faCodeBranch\ die laat weten dat er wijzigingen zijn ten opzichte van de vorige commit. Klik op `Source Control`.
-        \item Onder `Changes` staat een lijst met bestanden waar wijzigingen in aan zijn gebracht. Kies welke bestanden je wilt committen door rechts op het +je te klikken. Deze bestanden komen nu op het podium te staan onder `Staged Changes`. Je kunt ook alle bestanden in een keer op het podium zetten door naast het kopje `Changes` op het +je te klikken.
-        \item Schrijf een nuttige <q>commit message</q>. Dus niet: <q>\opdref{opd:commit}</q>, maar: <q>feat: search for port name to open communication with device</q>.\footnote{Je kunt je commit message opdelen in een titel (of summary) en een beschrijving. In Visual Studio Code, doe je dit door een witregel toe te voegen tussen de titel en de beschrijving.}
-        \item Klik op het vinkje om te committen. Gefeliciteerd! Je hebt je eerste commit gepleegd, vanaf nu kun je zonder angst dingen stuk maken want je kan altijd terug naar hoe het was
-    \end{enumerate}
+
+    1. In Visual Studio Code, ga naar \menu{File > Open Folder} en kies de map waar je in \opdref{opd:add_repository} een repository hebt aangemaakt.
+    1. Open één van je Pythonscripts.
+    1. Type een stukje code erbij -- bijvoorbeeld een print-statement -- en haal ergens anders iets weg. Bewaar het bestand.
+    1. Links verschijnt een blauw bolletje bij `Source Control` \faCodeBranch\ die laat weten dat er wijzigingen zijn ten opzichte van de vorige commit. Klik op `Source Control`.
+    1. Onder `Changes` staat een lijst met bestanden waar wijzigingen in aan zijn gebracht. Kies welke bestanden je wilt committen door rechts op het +je te klikken. Deze bestanden komen nu op het podium te staan onder `Staged Changes`. Je kunt ook alle bestanden in een keer op het podium zetten door naast het kopje `Changes` op het +je te klikken.
+    1. Schrijf een nuttige <q>commit message</q>. Dus niet: <q>\opdref{opd:commit}</q>, maar: <q>feat: search for port name to open communication with device</q>.\footnote{Je kunt je commit message opdelen in een titel (of summary) en een beschrijving. In Visual Studio Code, doe je dit door een witregel toe te voegen tussen de titel en de beschrijving.}
+    1. Klik op het vinkje om te committen. Gefeliciteerd! Je hebt je eerste commit gepleegd, vanaf nu kun je zonder angst dingen stuk maken want je kan altijd terug naar hoe het was
+
 
 
 In GitHub Desktop zie je nu bij history de commit staan, met in een oogopslag alle wijzigingen.
@@ -77,14 +77,14 @@ In GitHub Desktop zie je nu bij history de commit staan, met in een oogopslag al
 
 !!! question "inleveren: Pythondaq: github"
     Dan is het nu tijd om de bestanden die je hebt gemaakt voor pythondaq in \chref{ch:mvc} met Git in versiebeheer te gaan houden.
-    \begin{enumerate}
-        \item Maak een map \folderpath{pythondaq} en kopieer daarin alle python-bestanden die je gemaakt hebt voor het diode-experiment. Let er op dat je deze map _niet_ in een andere repository aanmaakt, maar daarbuiten. Overleg eventueel over een handige plek.
-        \item Maak van de map \folderpath{pythondaq} een repository.
-        \item Gooi oude bestanden weg en zorg dat je 3 bestanden over houdt: een model :fontawesome-regular-file-code:`diode\_experiment.py`, een view :fontawesome-regular-file-code:`view.py` en een controller :fontawesome-regular-file-code:`arduino\_device.py`.
-        \item Commit!
-        \item Ruim, indien nodig, je code op. Functies die je al 3 keer hebt herschreven en daarvoor steeds gekopieerd heb, maar wel als comment hebt laten staan, die kunnen nu ook weg. Verwijder stukjes commentaar die niet meer van toepassing zijn, enz.
-        \item Commit!
-    \end{enumerate}
+
+    1. Maak een map \folderpath{pythondaq} en kopieer daarin alle python-bestanden die je gemaakt hebt voor het diode-experiment. Let er op dat je deze map _niet_ in een andere repository aanmaakt, maar daarbuiten. Overleg eventueel over een handige plek.
+    1. Maak van de map \folderpath{pythondaq} een repository.
+    1. Gooi oude bestanden weg en zorg dat je 3 bestanden over houdt: een model :fontawesome-regular-file-code:`diode\_experiment.py`, een view :fontawesome-regular-file-code:`view.py` en een controller :fontawesome-regular-file-code:`arduino\_device.py`.
+    1. Commit!
+    1. Ruim, indien nodig, je code op. Functies die je al 3 keer hebt herschreven en daarvoor steeds gekopieerd heb, maar wel als comment hebt laten staan, die kunnen nu ook weg. Verwijder stukjes commentaar die niet meer van toepassing zijn, enz.
+    1. Commit!
+
 
 
 ## Uitdaging: GitHub
@@ -92,62 +92,62 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
 
 !!! question "bonus"
     Als je nog nooit op GitHub bent geweest dan kunnen de pagina's nogal intimiderend overkomen. De informatiedichtheid is nogal hoog. Na een paar bezoeken weet je meestal wel waar je dingen kunt vinden. David heeft een data-analyse app geschreven dat Tailor heet en dat gebruikt wordt bij natuurkundepractica voor studenten medische natuurwetenschappen (MNW) en science, business and innovation (SBI). Laten we eens kijken wat daar allemaal opstaat.
-    \begin{enumerate}
-        \item Zoek de repository \githubrepo{/davidfokkema/tailor} op GitHub op.
-        \item Je komt terecht op de hoofdpagina, hier zie je een mappenstructuur met een aantal bestanden. Rechts daarvan staat een korte beschrijving onder het kopje `About`. Een uitgebreidere beschrijving vind je als je naar beneden scrollt onder `Readme`.
-        \item Linksboven zie je een aantal tabbladen (code, issues, pull requests, ...), het tabblad `code` is de hoofdpagina met de mappenstructuur. Navigeer door de mappen, wat staat er op regel 15 van :fontawesome-regular-file-code:`plot\_tab.py`?
-        \item Ga terug naar de hoofdpagina, kijk onder het groen kopje met `code`. Hoeveel commits zijn er gemaakt? Klik op commits en daarna op een commit-message. Hoeveel regels zijn er weggehaald of bijgekomen?
-        \item Je kan per bestand bekijken wanneer die is aangepast en wat er is aangepast met de history knop. Ga naar het bestand :fontawesome-regular-file-code:`pyproject.toml` en klik rechtsboven op `History`. Wat is er aangepast in :fontawesome-regular-file-code:`pyproject.toml` bij de commit <q>Release v1.5.1</q>? Je ziet ook welke bestanden nog meer zijn gewijzigd in deze commit, welk bestand is nog meer gewijzigd bij <q>Release v1.5.1</q>?
-        \item Ga terug naar de hoofdpagina. Welke versie van Tailor is als laatste gereleased?
-        \item Je kent het misschien wel, dat je een app gebruikt maar dat het niet helemaal goed werkt (bug), of je hebt een idee hoe het nog beter kan worden (enhancement). Daarvoor is op GitHub het tabblad `Issues`. Hoeveel bugs zijn er gerapporteerd? En hoeveel enhancements?
-        \item Als het jou nu gelukt is om een bug te fixen, of je hebt een super handige feature ontworpen, dan kan je de eigenaren van de repository vragen om jouw code te implementeren door een pull request te sturen. Ga naar het tabblad `Pull requests`, klik op `Closed` en bekijk welke pull requests zijn geïmplementeerd.
-        \item Het meest rechter tabblad `Insights` geeft je, tegen alle verwachtingen in, inzicht. Je kan zien door hoeveel mensen er aan gewerkt wordt. Kijk bij `Code frequency`, in welke periode is er het meest aan de code veranderd?
-        \item Als je een repository goed/handig/slim/fijn vindt kun je dit aangeven met een ster. Klik daarvoor rechtsboven op star \faStar.
-        \item Dan tot slot die ene, meest in het oogspringende groene `code` knop. Met die knop kan je de repository als zip-bestand downloaden of openen met GitHub desktop.
-    \end{enumerate}
+
+    1. Zoek de repository \githubrepo{/davidfokkema/tailor} op GitHub op.
+    1. Je komt terecht op de hoofdpagina, hier zie je een mappenstructuur met een aantal bestanden. Rechts daarvan staat een korte beschrijving onder het kopje `About`. Een uitgebreidere beschrijving vind je als je naar beneden scrollt onder `Readme`.
+    1. Linksboven zie je een aantal tabbladen (code, issues, pull requests, ...), het tabblad `code` is de hoofdpagina met de mappenstructuur. Navigeer door de mappen, wat staat er op regel 15 van :fontawesome-regular-file-code:`plot\_tab.py`?
+    1. Ga terug naar de hoofdpagina, kijk onder het groen kopje met `code`. Hoeveel commits zijn er gemaakt? Klik op commits en daarna op een commit-message. Hoeveel regels zijn er weggehaald of bijgekomen?
+    1. Je kan per bestand bekijken wanneer die is aangepast en wat er is aangepast met de history knop. Ga naar het bestand :fontawesome-regular-file-code:`pyproject.toml` en klik rechtsboven op `History`. Wat is er aangepast in :fontawesome-regular-file-code:`pyproject.toml` bij de commit <q>Release v1.5.1</q>? Je ziet ook welke bestanden nog meer zijn gewijzigd in deze commit, welk bestand is nog meer gewijzigd bij <q>Release v1.5.1</q>?
+    1. Ga terug naar de hoofdpagina. Welke versie van Tailor is als laatste gereleased?
+    1. Je kent het misschien wel, dat je een app gebruikt maar dat het niet helemaal goed werkt (bug), of je hebt een idee hoe het nog beter kan worden (enhancement). Daarvoor is op GitHub het tabblad `Issues`. Hoeveel bugs zijn er gerapporteerd? En hoeveel enhancements?
+    1. Als het jou nu gelukt is om een bug te fixen, of je hebt een super handige feature ontworpen, dan kan je de eigenaren van de repository vragen om jouw code te implementeren door een pull request te sturen. Ga naar het tabblad `Pull requests`, klik op `Closed` en bekijk welke pull requests zijn geïmplementeerd.
+    1. Het meest rechter tabblad `Insights` geeft je, tegen alle verwachtingen in, inzicht. Je kan zien door hoeveel mensen er aan gewerkt wordt. Kijk bij `Code frequency`, in welke periode is er het meest aan de code veranderd?
+    1. Als je een repository goed/handig/slim/fijn vindt kun je dit aangeven met een ster. Klik daarvoor rechtsboven op star \faStar.
+    1. Dan tot slot die ene, meest in het oogspringende groene `code` knop. Met die knop kan je de repository als zip-bestand downloaden of openen met GitHub desktop.
+
 
 
 !!! question "bonus"
     \label{opd:clone_repository}
     Clone de LMfit-py repository op GitHub:
-    \begin{enumerate}
-        \item Zoek de repository op GitHub op (`lmfit/lmfit-py`)
-        \item Kies \menu{Code > Open with GitHub Desktop}
-        \item Kies zelf een map op je harde schijf om de repository te bewaren.
-        \item Open Visual Studio Code en open de repository met \menu{File > Open Folder}.\footnote{Als je vergeten bent waar je de repository ook alweer bewaard had kun je met \menu{Repository > Show in Finder} de folder openen.} Als GitHub Desktop de geïnstalleerde VS Code herkent kan dat direct vanuit GitHub Desktop met \menu{Repository > Open in Visual Studio Code}.
-        \item Open \path{examples/README.txt}. Verander in de eerste paragraaf `Below are examples` in `Below are different examples` en sla het bestand op.
-        \item Schakel naar de GitHub Desktop applicatie en bekijk de wijziging.
-        \item Linksonder kun je een korte beschrijving van je wijziging intypen en druk dan op de blauwe `Commit`-knop.
-        \item Schakel, rechtsboven, naar `History`. Bovenaan staat jouw wijziging. Daaronder kun je alle wijzigingen van anderen bekijken.
-    \end{enumerate}
+
+    1. Zoek de repository op GitHub op (`lmfit/lmfit-py`)
+    1. Kies \menu{Code > Open with GitHub Desktop}
+    1. Kies zelf een map op je harde schijf om de repository te bewaren.
+    1. Open Visual Studio Code en open de repository met \menu{File > Open Folder}.\footnote{Als je vergeten bent waar je de repository ook alweer bewaard had kun je met \menu{Repository > Show in Finder} de folder openen.} Als GitHub Desktop de geïnstalleerde VS Code herkent kan dat direct vanuit GitHub Desktop met \menu{Repository > Open in Visual Studio Code}.
+    1. Open \path{examples/README.txt}. Verander in de eerste paragraaf `Below are examples` in `Below are different examples` en sla het bestand op.
+    1. Schakel naar de GitHub Desktop applicatie en bekijk de wijziging.
+    1. Linksonder kun je een korte beschrijving van je wijziging intypen en druk dan op de blauwe `Commit`-knop.
+    1. Schakel, rechtsboven, naar `History`. Bovenaan staat jouw wijziging. Daaronder kun je alle wijzigingen van anderen bekijken.
+
 
 
 Aangezien je geen schrijfrechten hebt voor LMfit kun je niet kiezen voor `Push origin` -- de knop die rechtsboven verschijnt. Met die knop <q>duw</q> je je wijzigingen naar GitHub zodat iedereen ze kan zien. Dat is mooi, maar je mag niet zomaar de repository van iemand anders wijzigen.
 
 !!! question "bonus"
     In eerdere opdrachten heb je repositories op de computer aangemaakt. Vanuit GitHub Desktop kan je een repository publiceren op GitHub. Commits kun je vervolgens pullen en pushen van en naar Github.
-    \begin{enumerate}
-        \item Publiceer een repository op Github -- bijvoorbeeld je oefenopdrachten of je `pythondaq`-repository. Verander iets in je code, commit en kijk hoe je dat naar GitHub kunt Pushen.
-        \item Ga naar Github.com en verander daar iets in de code, commit en kijk hoe je dat naar de computer kan Pullen.
-    \end{enumerate}
+
+    1. Publiceer een repository op Github -- bijvoorbeeld je oefenopdrachten of je `pythondaq`-repository. Verander iets in je code, commit en kijk hoe je dat naar GitHub kunt Pushen.
+    1. Ga naar Github.com en verander daar iets in de code, commit en kijk hoe je dat naar de computer kan Pullen.
+    
 
 
 !!! question "bonus"
     Tot nu toe heb je Visual Studio Code of GitHub Desktop gebruikt om te committen. Maar je kan Git ook bedienen via de terminal. De mogelijkheden van Git zijn in de terminal ook veel groter dan in de grafische applicaties die we gebruikt hebben.
-    \begin{enumerate}
-        \item Open een repository in Visual Studio Code
-        \item Gebruik de terminal in Visual Studio Code en bekijk de commit geschiedenis met het commando `git log`. Scroll door de commit messages met spatie.
-        \item Zoek via \url{https://initialcommit.com/blog/Git-Cheat-Sheet-Beginner} het commando om een commit toe te voegen. Wijzig iets in je code en commit via de terminal.
-        \item Dit waren twee dingen wat met GitHub Desktop ook kon, snuffel op het internet om te zien wat je met Git nog meer kunt.
-    \end{enumerate}
+
+    1. Open een repository in Visual Studio Code
+    1. Gebruik de terminal in Visual Studio Code en bekijk de commit geschiedenis met het commando `git log`. Scroll door de commit messages met spatie.
+    1. Zoek via \url{https://initialcommit.com/blog/Git-Cheat-Sheet-Beginner} het commando om een commit toe te voegen. Wijzig iets in je code en commit via de terminal.
+    1. Dit waren twee dingen wat met GitHub Desktop ook kon, snuffel op het internet om te zien wat je met Git nog meer kunt.
+
 
 
 ## Uitdaging: Branches
 Soms wil je je code flink onder handen nemen of iets heel nieuws eraan toevoegen. Terwijl je bezig bent ga je natuurlijk eerst van alles stuk maken voordat je het weer werkend hebt gekregen. Maar ondertussen kan je oude functionaliteit van je code niet gebruiken. Of je bent samen met een vriend aan een package bezig en om de haverklap werkt jouw stukje code niet meer omdat ergens anders de code verbouwd wordt. Dan is het handig dat je vanaf het punt dat je code werkt een zijweg kan inslaan. Daarom zijn branches uitgevonden. Je kunt vanuit Github Desktop, vanuit Visual Studio Code en natuurlijk via de terminal een branch aanmaken.
 !!! question "bonus"
-    \begin{itemize}
-        \item Open een repository naar keuze en maak een nieuwe branch aan.
-        \item Maak een aantal wijzigingen en commit.
-        \item Ga terug naar de main branch.
-        \item Merch de nieuwe branch in de main branch.
-    \end{itemize}
+
+    * Open een repository naar keuze en maak een nieuwe branch aan.
+    * Maak een aantal wijzigingen en commit.
+    * Ga terug naar de main branch.
+    * Merch de nieuwe branch in de main branch.
+

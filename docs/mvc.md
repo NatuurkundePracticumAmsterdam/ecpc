@@ -14,11 +14,15 @@ MVC staat voor _Model-View-Controller_ en is een belangrijk, maar wat diffuus co
 Het scheiden van je programma in deze lagen kan enorm helpen om ervoor te zorgen dat je geen _spaghetticode_ schrijft -- ongestructureerde en moeilijk te begrijpen code. Wanneer het drukken op een knop in de code van de grafische omgeving direct commando's stuurt naar de Arduino of dat de code voor het doen van een enkele meting meteen de $x$-as van een grafiek aanpast, sla je lagen over in ons model en knoop je delen van het programma aan elkaar die niet direct iets met elkaar te maken hebben. De knop moet een meting starten, ja, maar _hoe_ dat precies moet is niet de taak van de gebruikersinterface. En de meting zelf moet zich niet bemoeien met welke grafiek er precies getekend wordt. Je zult merken dat het heel lastig wordt om overzicht te houden en later aanpassingen te doen als je alles door elkaar laat lopen. Je zult dan door je hele code moeten zoeken als je óf de aansturing van de Arduino, óf de grafische interface wilt aanpassen. En dus gaan we alles netjes structureren.
 
 De verschillende onderdelen in \figref{fig:mvc-model} kunnen we voor ons experiment als volgt beschrijven:
-\begin{description}
-    \item[View] Het <q>startpunt</q> van je applicatie. Geeft de opdracht om een meting te starten en geeft na afloop de resultaten van de meting weer op het scherm.
-    \item[Model] De code die het experiment uitvoert door verschillende metingen te doen en instellingen aan te passen, zoals de spanning over de LED. Het model weet hoe het experiment in elkaar zit en dat er bijvoorbeeld een weerstand van \qty{220}{\ohm} aanwezig is. Geeft opdrachten aan de controller.
-    \item[Controller] De code die via pyvisa praat met de Arduino. Opdrachten worden omgezet in firmwarecommando's en doorgestuurd naar het apparaat.
-\end{description}
+
+__View__
+: Het <q>startpunt</q> van je applicatie. Geeft de opdracht om een meting te starten en geeft na afloop de resultaten van de meting weer op het scherm.
+
+__Model__
+: De code die het experiment uitvoert door verschillende metingen te doen en instellingen aan te passen, zoals de spanning over de LED. Het model weet hoe het experiment in elkaar zit en dat er bijvoorbeeld een weerstand van \qty{220}{\ohm} aanwezig is. Geeft opdrachten aan de controller.
+
+__Controller__
+: De code die via pyvisa praat met de Arduino. Opdrachten worden omgezet in firmwarecommando's en doorgestuurd naar het apparaat.
 
 Het opsplitsen van je programma _hoeft niet in één keer!_ Dit kan stapsgewijs. Je kunt starten met een eenvoudig script -- zoals we hierboven gedaan hebben -- en dat langzaam uitbreiden. Je begint klein, verdeelt je code in lagen en bouwt vervolgens verder.
 
@@ -230,14 +234,14 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
 !!! question "inleveren: class ElectronicLoadMeasurements"
     % \label{opd:class}
     Schrijf een class `#!py ElectronicLoadMeasurements` waarmee je spanningsmetingen aan een weerstand (_load_) kunt bewaren. De class moet voldoen aan deze eisen:
-    \begin{enumerate}
-        \item Een method `#!py add_measurement(R, U)` waarmee je een gekozen weerstandswaarde en een gemeten spanning kunt toevoegen aan de lijst van metingen.
-        \item Een method `#!py get_loads()` om de gekozen weerstanden in één keer terug te vragen.
-        \item Een method `#!py get_voltages()` om de gemeten spanningen in één keer terug te vragen.
-        \item Een method `#!py get_currents()` om een lijst stroomsterktes op te vragen, berekend op basis van de metingen.
-        \item Een method `#!py get_powers()` om een lijst vermogens op te vragen, berekend op basis van de metingen.
-        \item Een method `#!py clear()` waarmee je alle metingen in één keer kunt wissen.
-    \end{enumerate}
+    
+    1. Een method `#!py add_measurement(R, U)` waarmee je een gekozen weerstandswaarde en een gemeten spanning kunt toevoegen aan de lijst van metingen.
+    1. Een method `#!py get_loads()` om de gekozen weerstanden in één keer terug te vragen.
+    1. Een method `#!py get_voltages()` om de gemeten spanningen in één keer terug te vragen.
+    1. Een method `#!py get_currents()` om een lijst stroomsterktes op te vragen, berekend op basis van de metingen.
+    1. Een method `#!py get_powers()` om een lijst vermogens op te vragen, berekend op basis van de metingen.
+    1. Een method `#!py clear()` waarmee je alle metingen in één keer kunt wissen.
+    
     Gebruik de geschreven class bijvoorbeeld op de volgende manier:
     ``` py
     measurements = ElectronicLoadMeasurements()
@@ -309,22 +313,22 @@ De class die we gemaakt hebben voor de aansturing van de Arduino valt in de cate
 
 !!! question "inleveren: Pythondaq: Model afsplitsen"
     We gaan nu met ongeveer dezelfde stappen het model afsplitsen van de rest van de code.
-    \begin{enumerate}
-        \item Bespreek met elkaar en met de assistent welk deel van het script het model is. Kijk daarvoor nog eens goed naar \figref{fig:mvc-model}.
-        \item Maak een class met (bijvoorbeeld) de naam `#!py DiodeExperiment` en een method `#!py scan()` die de meting met de for-loop uitvoert. Controleer dat het werkt.
-        \item Volgens het schema praat alleen het model met de controller. De class `#!py DiodeExperiment` -- het model -- is dus degene die de class `#!py ArduinoVISADevice` -- de controller -- moet aanroepen en bewaren. Hoe doe je dat netjes? Overleg met elkaar.
-        \item Het kan (later) handig zijn om niet altijd te scannen tussen 0 en 1023 maar een ander bereik te kiezen. Pas de `#!py scan()` method aan zodat deze `start`- en `stop`-parameters accepteert.
-        \item Knip de class eruit en plaats die in het bestand `#!py diode_experiment.py` en gebruik weer een import-statement. Haal import-statements die je niet meer nodig hebt weg.
-        \item Hernoem het overgebleven script naar :fontawesome-regular-file-code:`view.py`.
-    \end{enumerate}
+
+    1. Bespreek met elkaar en met de assistent welk deel van het script het model is. Kijk daarvoor nog eens goed naar \figref{fig:mvc-model}.
+    1. Maak een class met (bijvoorbeeld) de naam `#!py DiodeExperiment` en een method `#!py scan()` die de meting met de for-loop uitvoert. Controleer dat het werkt.
+    1. Volgens het schema praat alleen het model met de controller. De class `#!py DiodeExperiment` -- het model -- is dus degene die de class `#!py ArduinoVISADevice` -- de controller -- moet aanroepen en bewaren. Hoe doe je dat netjes? Overleg met elkaar.
+    1. Het kan (later) handig zijn om niet altijd te scannen tussen 0 en 1023 maar een ander bereik te kiezen. Pas de `#!py scan()` method aan zodat deze `start`- en `stop`-parameters accepteert.
+    1. Knip de class eruit en plaats die in het bestand `#!py diode_experiment.py` en gebruik weer een import-statement. Haal import-statements die je niet meer nodig hebt weg.
+    1. Hernoem het overgebleven script naar :fontawesome-regular-file-code:`view.py`.
+    
 
 
 Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger geworden. Als het goed is gaat nu (vrijwel) het volledige script alleen maar over het starten van een meting en het weergeven en bewaren van de meetgegevens. In het <q>view</q> script komen verder geen berekeningen voor of details over welk kanaal van de Arduino op welke elektronische component is aangesloten. Ook staat hier niets over welke commando's de Arduino firmware begrijpt. Dit maakt het veel makkelijker om in de vervolghoofdstukken een gebruiksvriendelijke applicatie te ontwikkelen waarmee je snel en eenvoudig metingen kunt doen.
 
 !!! question "inleveren: Pythondaq: Onzekerheid"
     We zijn al een eind op weg. We pakken nog één ding aan: onzekerheid. Er staan in onze grafiek nog geen foutenvlaggen. Als je de meting een paar keer herhaalt zie je dat de grafiek steeds iets anders is -- er zit ruis op de metingen. We kunnen die op voorhand schatten, maar met een computergestuurde meting is het makkelijk om een meting een aantal keer te herhalen en op een nauwkeuriger resultaat uit te komen én de onzekerheid daarbij te bepalen.
-    \begin{enumerate}
-        \item Overleg met je groepje en maak een plan hoe jullie de code gaan aanpassen om onzekerheid in te bouwen. Schrijf nog geen code op je computer maar schrijf de stappen uit met papier en pen. Het is dan veel makkelijker om te overleggen en na te denken. Welke delen van het programma moeten worden aangepast?
-        \item Gebruik het plan om je eigen code aan te passen en test dat het werkt.
-    \end{enumerate}
+    
+    1. Overleg met je groepje en maak een plan hoe jullie de code gaan aanpassen om onzekerheid in te bouwen. Schrijf nog geen code op je computer maar schrijf de stappen uit met papier en pen. Het is dan veel makkelijker om te overleggen en na te denken. Welke delen van het programma moeten worden aangepast?
+    1. Gebruik het plan om je eigen code aan te passen en test dat het werkt.
+    
 

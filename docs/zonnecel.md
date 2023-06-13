@@ -125,10 +125,10 @@ Het is bij zonnepanelen natuurlijk interessant om naar het elektrisch vermogen t
 
 %\begin{opdracht}
 %\begin{deelvraag}
-%\item Leg uit waaraan je kunt zien dat het zonnepaneel zich bij lage spanningen gedraagt als een niet-ideale stroombron.
-%\item Leg uit waaraan je kunt zien dat het zonnepaneel zich rond de maximale spanning gedraagt als een niet-ideale spanningsbron.
-%\item Leg uit hoe de $IU$-karakteristiek verandert wanneer de waarde van $R_{sh}$ kleiner wordt.
-%\item Leg uit hoe de $IU$-karakteristiek verandert wanneer de waarde van $R_{s}$ groter wordt.
+%1. Leg uit waaraan je kunt zien dat het zonnepaneel zich bij lage spanningen gedraagt als een niet-ideale stroombron.
+%1. Leg uit waaraan je kunt zien dat het zonnepaneel zich rond de maximale spanning gedraagt als een niet-ideale spanningsbron.
+%1. Leg uit hoe de $IU$-karakteristiek verandert wanneer de waarde van $R_{sh}$ kleiner wordt.
+%1. Leg uit hoe de $IU$-karakteristiek verandert wanneer de waarde van $R_{s}$ groter wordt.
 %\end{deelvraag}
 %\end{opdracht}
 

@@ -41,10 +41,10 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
 
 !!! question "minimaal"
     \label{opd:minimal-gui}
-    \begin{enumerate}
-        \item Maak een nieuw bestand :fontawesome-regular-file-code:`example-gui.py`.
-        \item Neem bovenstaande pythoncode over en test het in de \shellinline{IK-test-qt} conda environment.
-    \end{enumerate}
+
+    1. Maak een nieuw bestand :fontawesome-regular-file-code:`example-gui.py`.
+    1. Neem bovenstaande pythoncode over en test het in de \shellinline{IK-test-qt} conda environment.
+    
 
 
 Elke keer als je een nieuwe Qt applicatie gaat schrijven kun je bovenstaand stukje code copy/pasten. Als we dit programma draaien hebben we echter een klein leeg venster op het scherm, zonder elementen. Die elementen kunnen we op twee manieren toevoegen: door ze te programmeren of door het gebruik van een visueel ontwerp met Qt Designer. Beide zullen in de volgende secties toegelicht worden.
@@ -133,44 +133,44 @@ Allereerst definiëren we een `__init__()`. Helaas gaat dat niet zomaar. We schr
 De oplossing is gelukkig vrij eenvoudig: we kunnen de `__init__()` van de parent class gewoon aanroepen en daarna ons eigen ding doen. De Pythonfunctie `#!py super()` verwijst altijd naar de parent class, dus met `#!py super().__init__()` wordt de parent class volledig geïnitialiseerd. Dat is dus het eerste dat we doen in regel 7.
 
 !!! question "minimaal"
-    \begin{enumerate}
-        \item Breid het script van \opdref{opd:minimal-gui} uit met een `#!py __init__`-method.
-        \item Zorg dat de parent class volledig geïnitialiseerd wordt.
-        \item Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt.
-    \end{enumerate}
+
+    1. Breid het script van \opdref{opd:minimal-gui} uit met een `#!py __init__`-method.
+    1. Zorg dat de parent class volledig geïnitialiseerd wordt.
+    1. Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt.
+    
 
 
 Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets zijn bijvoorbeeld een menubalk, knoppenbalk of statusbalk.
 
 !!! question "minimaal"
-    \begin{enumerate}
-        \item Breid :fontawesome-regular-file-code:`example-gui.py` uit met een centrale widget.
-        \item Geef aan dat dit het centrale widget gaat zijn (regels 11--12, \figref{fig:layout-centerwidget}).
-        \item Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt.
-    \end{enumerate}
+
+    1. Breid :fontawesome-regular-file-code:`example-gui.py` uit met een centrale widget.
+    1. Geef aan dat dit het centrale widget gaat zijn (regels 11--12, \figref{fig:layout-centerwidget}).
+    1. Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt.
+
 
 
 Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen netjes uitgelijnd worden. We willen het tekstvenster en de knoppen onder elkaar zetten en maken dus eerst een verticale layout. Aan die layout voegen we een textbox toe.
 
 !!! question "minimaal"
-    \begin{enumerate}
-        \item Breid :fontawesome-regular-file-code:`example-gui.py` uit met een verticale layout (regel 15, \figref{fig:layout-vbox}).
-        \item Maak een textbox (regel 16)
-        \item Voeg de textbox toe aan de verticale layout (regel 17)
-        \item Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt en of je tekst kan schrijven in de textbox.
-    \end{enumerate}
+
+    1. Breid :fontawesome-regular-file-code:`example-gui.py` uit met een verticale layout (regel 15, \figref{fig:layout-vbox}).
+    1. Maak een textbox (regel 16)
+    1. Voeg de textbox toe aan de verticale layout (regel 17)
+    1. Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt en of je tekst kan schrijven in de textbox.
+    
 
 
 De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we ook toe aan de `#!py vbox`. En we maken de layout compleet (\figref{fig:layout-buttons}) door knoppen toe te voegen aan de `#!py hbox`.
 
 !!! question "minimaal"
-    \begin{enumerate}
-        \item Breid :fontawesome-regular-file-code:`example-gui.py` uit met een horizontale layout (regel 18).
-        \item Voeg de horizontale layout toe aan de verticale layout (regel 19, \figref{fig:layout-text-hbox}).
-        \item Maak een clear button en voeg deze toe aan de horizontale layout (regel 21,22).
-        \item Maak ook een add button en voeg deze toe aan de horizontale layout (regel 23,24).
-        \item Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt. \footnote{Waarom doen de knoppen niets als je er op klikt?}
-    \end{enumerate}
+
+    1. Breid :fontawesome-regular-file-code:`example-gui.py` uit met een horizontale layout (regel 18).
+    1. Voeg de horizontale layout toe aan de verticale layout (regel 19, \figref{fig:layout-text-hbox}).
+    1. Maak een clear button en voeg deze toe aan de horizontale layout (regel 21,22).
+    1. Maak ook een add button en voeg deze toe aan de horizontale layout (regel 23,24).
+    1. Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt. \footnote{Waarom doen de knoppen niets als je er op klikt?}
+
 
 
 \begin{info}
@@ -182,12 +182,12 @@ De horizontale layout (voor de knoppen) moeten we expliciet toevoegen aan de ver
 Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wordt er een zogeheten _signal_ afgegeven. Die kun je verbinden met een _slot_. Er zijn ook verschillende soorten signalen. Het drukken op een knop zorgt voor een _clicked signal_, het veranderen van een getal in een keuzevenster geeft een _changed signal_. Wij verbinden één knop direct met een al bestaande method van het tekstvenster `#!py clear()` en de andere knop met een eigen method `#!py add_button_clicked()`. De naam is geheel vrij te kiezen, maar boven de functiedefinitie moet je wel de `#!py @Slot()`-decorator gebruiken. PySide kan dan net wat efficiënter werken.
 
 !!! question "minimaal"
-    \begin{enumerate}
-        \item Breid :fontawesome-regular-file-code:`example-gui.py` uit met slots en signals.
-        \item Verbind de `Clear`-knop met de clear functie (regel 27).
-        \item Definieer een `#!py add_button_clicked()` functie (regel 30--32) en verbind deze aan de `Add text`-knop (regel 28).
-        \item Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt en of de knoppen doen wat je verwacht.
-    \end{enumerate}
+
+    1. Breid :fontawesome-regular-file-code:`example-gui.py` uit met slots en signals.
+    1. Verbind de `Clear`-knop met de clear functie (regel 27).
+    1. Definieer een `#!py add_button_clicked()` functie (regel 30--32) en verbind deze aan de `Add text`-knop (regel 28).
+    1. Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt en of de knoppen doen wat je verwacht.
+    
 
 
 Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst hier: \url{https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes}. Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies `CamelCase` namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we `snake\_case` gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
@@ -198,11 +198,11 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 
 !!! question "minimaal"
     Probeer het volgende in :fontawesome-regular-file-code:`example-gui.py`:
-    \begin{enumerate}
-        \item Voeg een derde knop `Hello, world` toe die de tekst _Hello, world_ toevoegt aan het venster.
-        \item Zet een hekje voor de `#!py super()`-aanroep of haal de regel weg. Wat gebeurt er als je de code opstart? (Zet de regel weer terug!)
-        \item Voeg _onder_ de andere knoppen een `Quit`-knop toe. Als je daar op klikt moet de method `#!py self.close()` aangeroepen worden. Daarmee sluit je het programma af. Denk erom dat als je het `#!py clicked`-signaal verbind met `#!py clicked.connect()` dat je de functie die je meegeeft nog _niet_ moet aanroepen maar alleen moet meegeven zodat die _later_ kan worden aangeroepen. Concreet betekent dit dat je de haakjes weglaat. Zie ook regel 27 en 28 van bovenstaande code.
-    \end{enumerate}
+
+    1. Voeg een derde knop `Hello, world` toe die de tekst _Hello, world_ toevoegt aan het venster.
+    1. Zet een hekje voor de `#!py super()`-aanroep of haal de regel weg. Wat gebeurt er als je de code opstart? (Zet de regel weer terug!)
+    1. Voeg _onder_ de andere knoppen een `Quit`-knop toe. Als je daar op klikt moet de method `#!py self.close()` aangeroepen worden. Daarmee sluit je het programma af. Denk erom dat als je het `#!py clicked`-signaal verbind met `#!py clicked.connect()` dat je de functie die je meegeeft nog _niet_ moet aanroepen maar alleen moet meegeven zodat die _later_ kan worden aangeroepen. Concreet betekent dit dat je de haakjes weglaat. Zie ook regel 27 en 28 van bovenstaande code.
+    
 
 
 
@@ -236,16 +236,16 @@ class UserInterface(QtWidgets.QMainWindow):
 Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog maar de signals aan de slots hoeven te koppelen. In deze code definiëren we niet `#!py self.ui.clear_button` of `#!py self.ui.add_button`; die namen geven we aan de knoppen die we maken in Designer. De namen van alle objecten in Designer zijn daarna beschikbaar in onze code om bijvoorbeeld de signalen te koppelen. Merk op dat we nu niet meer `#!py self.clear_button` gebruiken maar `#!py self.ui.clear_button`. Alle widgets komen op deze manier onder een `#!py .ui`-object te hangen.
 
 !!! question "minimaal"
-    \begin{enumerate}
-        \item Open Designer en kies bij \menu{templates/forms} voor `#!py MainWindow`. Klik dan op \menu{Create}. Ontwerp de user interface uit \figref{fig:screenshot-ui-prog} en gebruik dezelfde namen voor de widgets als het voorbeeld in \secref{sec:ui-prog}. Dus een `#!py add_button` knop, een `#!py clear_button` knop en een `#!py textedit` tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.
-        \item Bewaar het bestand als :fontawesome-regular-file-lines:`simple\_app.ui`.
-        \item In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan\footnote{Overleg met elkaar of met de assistent als je niet weet hoe dat moet.} en type in:
-              ``` ps1con
-              pyside6-uic simple_app.ui -o ui_simple_app.py  
-              ```
-              Deze stap moet je doen elke keer als je in Designer iets wijzigt. Gebruik de \faArrowUp-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met Poetry, zullen we dit eenvoudiger maken.
-        \item Copy/paste nu de voorbeeldcode in een nieuw script, fix eventuele importerrors en test de applicatie.
-    \end{enumerate}
+
+    1. Open Designer en kies bij \menu{templates/forms} voor `#!py MainWindow`. Klik dan op \menu{Create}. Ontwerp de user interface uit \figref{fig:screenshot-ui-prog} en gebruik dezelfde namen voor de widgets als het voorbeeld in \secref{sec:ui-prog}. Dus een `#!py add_button` knop, een `#!py clear_button` knop en een `#!py textedit` tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.
+    1. Bewaar het bestand als :fontawesome-regular-file-lines:`simple\_app.ui`.
+    1. In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan\footnote{Overleg met elkaar of met de assistent als je niet weet hoe dat moet.} en type in:
+            ``` ps1con
+            pyside6-uic simple_app.ui -o ui_simple_app.py  
+            ```
+            Deze stap moet je doen elke keer als je in Designer iets wijzigt. Gebruik de \faArrowUp-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met Poetry, zullen we dit eenvoudiger maken.
+    1. Copy/paste nu de voorbeeldcode in een nieuw script, fix eventuele importerrors en test de applicatie.
+
 
 
 
@@ -280,13 +280,13 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
 
 \begin{info}
     \textbf{Als je je GUI het liefst ontwerpt met Designer} voegen we als volgt een plot widget toe:
-    \begin{enumerate}
-        \item Voeg aan je interface een _Graphics View_ toe;
-        \item Klik er op om hem te selecteren en klik daarna op de rechtermuistoets;
-        \item Kies voor _Promote To ..._;
-        \item Bij _Promoted class name_ vul je in `PlotWidget` en bij _Header file_ vul je in `pyqtgraph` (zonder `.h` aan het eind);
-        \item Dan klik je op _Add_ en vervolgens op _Promote_;
-    \end{enumerate}
+
+    1. Voeg aan je interface een _Graphics View_ toe;
+    1. Klik er op om hem te selecteren en klik daarna op de rechtermuistoets;
+    1. Kies voor _Promote To ..._;
+    1. Bij _Promoted class name_ vul je in `PlotWidget` en bij _Header file_ vul je in `pyqtgraph` (zonder `.h` aan het eind);
+    1. Dan klik je op _Add_ en vervolgens op _Promote_;
+    
     Zie \figref{fig:screenshot-promote-widget}. Nu je dit een keer gedaan hebt kun je voortaan op een Graphics View meteen kiezen voor _Promote to \textrightarrow\ PlotWidget_ en hoef je niets meer in te typen. Vergeet niet je widget nog even een handige naam te geven, bijvoorbeeld `plot_widget`.
 \end{info}
 
@@ -379,26 +379,26 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
 
 \begin{info}
     Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met Poetry <q>taken</q> aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn niet meer beschikbaar als je je applicatie deelt met andere mensen -- ze zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. En dat is wat we willen. Doe dit als volgt:
-    \begin{enumerate}
-        \item Installeer _Poe the Poet_ -- onze _task runner_ -- als _development dependency_ met:
-              ``` ps1con
-              poetry add --group dev poethepoet
-              ```
-              We geven hiermee aan dat we dit package nodig hebben voor de ontwikkeling van onze applicatie, maar dat deze niet meegeleverd hoeft te worden als we de applicatie gaan delen met anderen.
-        \item Voeg aan je :fontawesome-regular-file-code:`pyproject.toml` het volgende toe -- uitgaande van de mappenstructuur in de `pythondaq` package en :fontawesome-regular-file-lines:`mainwindow.ui` als naam van je `.ui`-bestand:
-              \begin{tomlcode}
-                  [tool.poe.tasks.compile]
-                  shell = """
-                  pyside6-uic src/pythondaq/mainwindow.ui -o src/pythondaq/ui_mainwindow.py
-                  """
-              \end{tomlcode}
-              Je kunt binnen de driedubbele aanhalingstekens meerdere regels toevoegen als je meerdere `.ui`-bestanden hebt -- voor ieder bestand een regel.
-        \item In bovenstaande regels is de naam na `tool.poe.tasks` de naam van de taak -- in dit geval dus `compile`. Je kunt die naam zelf kiezen. Voer de taak uit door in de terminal in te typen:
-              ``` ps1con
-              poe compile
-              ```
-              En dat gaat een stuk sneller dan die lange `pyside-uic`-regel onthouden en intypen!
-    \end{enumerate}
+
+    1. Installeer _Poe the Poet_ -- onze _task runner_ -- als _development dependency_ met:
+            ``` ps1con
+            poetry add --group dev poethepoet
+            ```
+            We geven hiermee aan dat we dit package nodig hebben voor de ontwikkeling van onze applicatie, maar dat deze niet meegeleverd hoeft te worden als we de applicatie gaan delen met anderen.
+    1. Voeg aan je :fontawesome-regular-file-code:`pyproject.toml` het volgende toe -- uitgaande van de mappenstructuur in de `pythondaq` package en :fontawesome-regular-file-lines:`mainwindow.ui` als naam van je `.ui`-bestand:
+            \begin{tomlcode}
+                [tool.poe.tasks.compile]
+                shell = """
+                pyside6-uic src/pythondaq/mainwindow.ui -o src/pythondaq/ui_mainwindow.py
+                """
+            \end{tomlcode}
+            Je kunt binnen de driedubbele aanhalingstekens meerdere regels toevoegen als je meerdere `.ui`-bestanden hebt -- voor ieder bestand een regel.
+    1. In bovenstaande regels is de naam na `tool.poe.tasks` de naam van de taak -- in dit geval dus `compile`. Je kunt die naam zelf kiezen. Voer de taak uit door in de terminal in te typen:
+            ``` ps1con
+            poe compile
+            ```
+            En dat gaat een stuk sneller dan die lange `pyside-uic`-regel onthouden en intypen!
+
 \end{info}
 
 !!! question "inleveren: Pythondaq: leeg venster"
@@ -418,13 +418,13 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
 
 !!! question "inleveren: Pythondaq: app"
     Het is weer mogelijk om van het script een applicatie te maken die je aan kunt roepen vanaf de command-line. Daar moeten we het volgende voor doen:
-    \begin{enumerate}
-        \item Voeg een nieuw item toe voor je applicatie in de sectie `[tool.poetry.scripts]` in de \path{pyproject.toml} zoals je dat ook gedaan hebt voor je command-line applicatie.
-        \item Installeer je package opnieuw met:
-              \begin{consolecode}
-            $ poetry install
-          \end{consolecode}
-    \end{enumerate}
+
+    1. Voeg een nieuw item toe voor je applicatie in de sectie `[tool.poetry.scripts]` in de \path{pyproject.toml} zoals je dat ook gedaan hebt voor je command-line applicatie.
+    1. Installeer je package opnieuw met:
+            \begin{consolecode}
+        $ poetry install
+        \end{consolecode}
+    
     Test je applicatie.
 
 
@@ -458,20 +458,20 @@ Je kunt je grafische applicatie volledig optuigen met menu's of taakbalken. Ook 
 ### Selecteer de Arduino
 
 Je hebt nu nog, waarschijnlijk, de poortnaam van de Arduino in je code gedefinieerd als vaste waarde. Dat betekent dat als je de code deelt met iemand anders -- bijvoorbeeld wanneer je de code inlevert op Canvas of wanneer je je experiment op een labcomputer wilt draaien -- je het risico loopt dat je applicatie crasht omdat de Arduino aan een andere poort hangt. Zeker bij de overstap van Windows naar MacOS of Linux, of andersom! Je kunt dit op twee manieren oplossen:
-\begin{enumerate}
-    \item Je maakt een keuzemenu dat de gebruiker bij het opstarten éérst krijgt te zien. Hierin kan de gebruiker de Arduino aanklikken en dan pas wordt het hoofdprogramma opgestart;
-    \item Je probeert de Arduino te detecteren op één van de poorten. De gebruiker hoeft dan niet te weten welke poort dat zou kunnen zijn. Het werkt dan vanzelf!
-\end{enumerate}
+
+1. Je maakt een keuzemenu dat de gebruiker bij het opstarten éérst krijgt te zien. Hierin kan de gebruiker de Arduino aanklikken en dan pas wordt het hoofdprogramma opgestart;
+1. Je probeert de Arduino te detecteren op één van de poorten. De gebruiker hoeft dan niet te weten welke poort dat zou kunnen zijn. Het werkt dan vanzelf!
+
 Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeilijker dan gedacht. Zodra je andere devices gaat openen en commando's gaat sturen kunnen er gekke dingen gebeuren. Onder MacOS bijvoorbeeld kunnen bluetooth luidsprekers en koptelefoons opeens ontkoppelen. _We gaan dus toch voor keuze 1._
 
 % Je kunt dit met het volgende stappenplan aanpakken:
-% \begin{enumerate}
-%   \item Je vraagt alle poorten op;
-%   \item Je probeert iedere poort te openen;
-%   \item Als het openen lukt, probeer je de identificatie\footnote{Met `*IDN?`, maar daar heb je als het goed is al een method voor in de controller.} op te vragen;
-%   \item Als dat lukt, kijk je of de tekst `Arduino VISA` er in voorkomt;
-%   \item Als dat lukt, dan heb je de Arduino gevonden!
-% \end{enumerate}
+% 
+%   1. Je vraagt alle poorten op;
+%   1. Je probeert iedere poort te openen;
+%   1. Als het openen lukt, probeer je de identificatie\footnote{Met `*IDN?`, maar daar heb je als het goed is al een method voor in de controller.} op te vragen;
+%   1. Als dat lukt, kijk je of de tekst `Arduino VISA` er in voorkomt;
+%   1. Als dat lukt, dan heb je de Arduino gevonden!
+% 
 % Het lastige hierbij is dat je dus gaat _proberen_ om een poort te openen. De kans bestaat dat dat niet lukt, bijvoorbeeld omdat een poort al in gebruik is. Dan krijg je een exception die je af moet vangen met een `#!py try...except`-blok. Je kunt _alle_ exceptions afvangen, maar het is mooier om specifieke exceptions af te vangen. Op die manier blijven onverwachte fouten nog steeds een foutmelding geven.\footnote{Dat kan echt heel handig zijn. Menig programmeur zoekt zich suf naar de reden waarom een programma niet werkt om er dan achter te komen dat één of andere onverwachte foutmelding wordt afgevangen zonder dat hij die te zien krijgt. Als iets niet werkt maar je krijgt geen foutmelding dan kun je lang blijven zoeken...} Zulke exceptions kun je vaak in de documentatie vinden maar je kunt het ook blijven proberen op verschillende computers, met of zonder Arduino, om te zien welke exceptions je kunt krijgen tijdens <q>normaal</q> gebruik.
 
 % Om je een zoektocht te besparen: wanneer je een device probeert te openen kun je een `serial.serialutil.SerialException`\footnote{Om de exception te <q>herkennen</q> moet je bovenin je code `#!py import serial.serialutil` toevoegen.} krijgen, bijvoorbeeld wanneer het device al in gebruik is. Als je met een device probeert te communiceren en je krijgt geen antwoord, dan krijg je een `pyvisa.errors.VisaIOError`. Vang in ieder geval die exceptions dus af.
