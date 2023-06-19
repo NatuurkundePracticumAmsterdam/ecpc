@@ -232,36 +232,6 @@ Een _analoog_ signaal is continu in zowel de tijd als de waardes die het signaal
 [^nauwkeurigheid]: Uiteraard afhankelijk van de nauwkeurigheid van je meetinstrument.
 [^analoog]: Totdat je het domein van de kwantummechanica betreedt, dan blijkt de natuur ook een discrete kant te hebben.
 
-??? meer-leren "Binair talstelsel"
-    Wij schrijven onze getallen op in een _decimaal_ (tientallig) talstelsel. We hebben tien verschillende cijfers (0 t/m 9) en plakken bij grotere getallen de tientallen, honderdtallen, etc. aan elkaar. Computers werken met _binaire_ getallen -- een tweetallig talstelsel. Dat betekent dat computers het getal 0 en 1 zonder problemen kunnen opslaan, maar bij het getal 2 wordt het al lastig. Zij moeten dan al met <q>tientallen</q> werken en schrijven het getal 2 op als 10. Het getal 3 is dan 11, 4 is 100, 5 is 101, enz. Zie \tabref{tab:binair-stelsel} voor nog een paar voorbeelden. De cijfers noem je _bits_ en het getal 5 (101 binair) bestaat dus uit 3 bits. Als je maar 3 bits tot je beschikking hebt kun je $2^3 = 8$ verschillende getallen opslaan, dus 0 t/m 7. Een groepje van 8 bits (256 mogelijkheden) bleek een handige hoeveelheid en kun je op computers individueel opslaan. Zo'n groepje noem je een _byte_. Bestanden bestaan uit bytes, kilobytes (duizend bytes), megabytes (miljoen bytes) of gigabytes (miljard bytes). Wanneer je een signaal nauwkeurig wilt verwerken met een computer dan is het belangrijk om zoveel mogelijk bits tot je beschikking te hebben. Hoe meer bits, hoe meer verschillende waardes je kunt opslaan en hoe nauwkeuriger je signaal wordt bewaard.
-
-\begin{table}
-  \centering
-  \caption{Voorbeelden van het binair talstelsel.}
-  \begin{tabular}{@{}
-      S[table-format=3.0]
-      S[table-format=8.0]
-      @{}}
-    \toprule
-    {decimaal getal} & {binair getal} \\
-    \midrule
-    0                & 0              \\
-    1                & 1              \\
-    2                & 10             \\
-    3                & 11             \\
-    4                & 100            \\
-    5                & 101            \\
-    6                & 110            \\
-    7                & 111            \\
-    8                & 1000           \\
-    9                & 1001           \\
-                     &                \\
-    205              & 11001101       \\
-    \bottomrule
-  \end{tabular}
-  \label{tab:binair-stelsel}
-\end{table}
-
 _Bemonsteren_ of _sampling_ is het proces waarbij een analoog signaal wordt <q>uitgelezen</q> en wordt omgezet in een digitaal signaal. Zo wordt een audiosignaal al sinds eind jaren '70 van de vorige eeuw gewoonlijk bemonsterd met een frequentie van 44.1 kHz en een resolutie van 16 bits. Dus 44100 keer per seconde wordt er gekeken wat de waarde van het geluidssignaal is en dat wordt opgeslagen als een getal van 16 bits en kan dus $2^{16} = 65536$ verschillende waardes aannemen. Dit is nauwkeuriger dan het menselijk gehoor kan onderscheiden.
 
 De conversie van een analoog signaal naar een digitaal signaal (en andersom!) is de reden dat de spanningen die we kiezen en de metingen die we doen niet alle mogelijke waardes kunnen aannemen, maar <q>stapjes</q> maken. Zie \figref{fig:adc-conversie}.
@@ -281,25 +251,26 @@ De Arduino die we gebruiken heeft een bereik van \qtyrange{0}{3.3}{\volt} en een
     1. Bereken welke spanning hoort bij een ruwe waarde van 700.
     1. Bereken welke waarde we naar de Arduino moeten sturen als we een spanning willen instellen van 2.0 \volt. En een spanning van 2.28 \volt?
 
-### Meer Leren: Binair Talstelsel
-Wij schrijven onze getallen op in een _decimaal_ (tientallig) talstelsel. We hebben tien verschillende cijfers (0 t/m 9) en plakken bij grotere getallen de tientallen, honderdtallen, etc. aan elkaar. Computers werken met _binaire_ getallen &mdash; een tweetallig talstelsel. Dat betekent dat computers het getal 0 en 1 zonder problemen kunnen opslaan, maar bij het getal 2 wordt het al lastig. Zij moeten dan al met <q>tientallen</q> werken en schrijven het getal 2 op als 10. Het getal 3 is dan 11, 4 is 100, 5 is 101, enz. Zie onderstaande tabel voor nog een paar voorbeelden. De cijfers noem je _bits_ en het getal 5 (101 binair) bestaat dus uit 3 bits. Als je maar 3 bits tot je beschikking hebt kun je $2^3 = 8$ verschillende getallen opslaan, dus 0 t/m 7. Een groepje van 8 bits (256 mogelijkheden) bleek een handige hoeveelheid en kun je op computers individueel opslaan. Zo'n groepje noem je een _byte_. Bestanden bestaan uit bytes, kilobytes (duizend bytes), megabytes (miljoen bytes) of gigabytes (miljard bytes). Wanneer je een signaal nauwkeurig wilt verwerken met een computer dan is het belangrijk om zoveel mogelijk bits tot je beschikking te hebben. Hoe meer bits, hoe meer verschillende waardes je kunt opslaan en hoe nauwkeuriger je signaal wordt bewaard.
+### Binair Talstelsel
+??? meer-leren "Meer leren"
+    Wij schrijven onze getallen op in een _decimaal_ (tientallig) talstelsel. We hebben tien verschillende cijfers (0 t/m 9) en plakken bij grotere getallen de tientallen, honderdtallen, etc. aan elkaar. Computers werken met _binaire_ getallen &mdash; een tweetallig talstelsel. Dat betekent dat computers het getal 0 en 1 zonder problemen kunnen opslaan, maar bij het getal 2 wordt het al lastig. Zij moeten dan al met <q>tientallen</q> werken en schrijven het getal 2 op als 10. Het getal 3 is dan 11, 4 is 100, 5 is 101, enz. Zie onderstaande tabel voor nog een paar voorbeelden. De cijfers noem je _bits_ en het getal 5 (101 binair) bestaat dus uit 3 bits. Als je maar 3 bits tot je beschikking hebt kun je $2^3 = 8$ verschillende getallen opslaan, dus 0 t/m 7. Een groepje van 8 bits (256 mogelijkheden) bleek een handige hoeveelheid en kun je op computers individueel opslaan. Zo'n groepje noem je een _byte_. Bestanden bestaan uit bytes, kilobytes (duizend bytes), megabytes (miljoen bytes) of gigabytes (miljard bytes). Wanneer je een signaal nauwkeurig wilt verwerken met een computer dan is het belangrijk om zoveel mogelijk bits tot je beschikking te hebben. Hoe meer bits, hoe meer verschillende waardes je kunt opslaan en hoe nauwkeuriger je signaal wordt bewaard.
 
-Voorbeelden van het binair talstelsel:
+    Voorbeelden van het binair talstelsel:
 
-| decimaal getal | binair getal |
-|----------------|--------------|
-| 0              | 0            |
-| 1              | 1            |
-| 2              | 10           |
-| 3              | 11           |
-| 4              | 100          |
-| 5              | 101          |
-| 6              | 110          |
-| 7              | 111          |
-| 8              | 1000         |
-| 9              | 1001         |
-| &hellip;       | &hellip;     |
-| 205            | 11001101     |
+    | decimaal getal | binair getal |
+    |----------------|--------------|
+    | 0              | 0            |
+    | 1              | 1            |
+    | 2              | 10           |
+    | 3              | 11           |
+    | 4              | 100          |
+    | 5              | 101          |
+    | 6              | 110          |
+    | 7              | 111          |
+    | 8              | 1000         |
+    | 9              | 1001         |
+    | &hellip;       | &hellip;     |
+    | 205            | 11001101     |
 
 
 ## De $I,U$-karakteristiek van een LED
