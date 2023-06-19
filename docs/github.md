@@ -99,7 +99,7 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
 !!! question "bonus"
     Als je nog nooit op GitHub bent geweest dan kunnen de pagina's nogal intimiderend overkomen. De informatiedichtheid is nogal hoog. Na een paar bezoeken weet je meestal wel waar je dingen kunt vinden. David heeft een data-analyse app geschreven dat Tailor heet en dat gebruikt wordt bij natuurkundepractica voor studenten medische natuurwetenschappen (MNW) en science, business and innovation (SBI). Laten we eens kijken wat daar allemaal opstaat.
 
-    1. Zoek de repository \githubrepo{/davidfokkema/tailor} op GitHub op.
+    1. Zoek de repository :fontawesome-brands-github:`/davidfokkema/tailor` op GitHub op.
     1. Je komt terecht op de hoofdpagina, hier zie je een mappenstructuur met een aantal bestanden. Rechts daarvan staat een korte beschrijving onder het kopje `About`. Een uitgebreidere beschrijving vind je als je naar beneden scrollt onder `Readme`.
     1. Linksboven zie je een aantal tabbladen (code, issues, pull requests, ...), het tabblad `code` is de hoofdpagina met de mappenstructuur. Navigeer door de mappen, wat staat er op regel 15 van :fontawesome-regular-file-code:`plot\_tab.py`?
     1. Ga terug naar de hoofdpagina, kijk onder het groen kopje met `code`. Hoeveel commits zijn er gemaakt? Klik op commits en daarna op een commit-message. Hoeveel regels zijn er weggehaald of bijgekomen?

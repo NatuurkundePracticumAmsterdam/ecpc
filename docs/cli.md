@@ -338,7 +338,7 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
 !!! question "bonus: Smallangle (uitdaging)"
     Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt &mdash; maar jij weet precies over welk onderdeel we het hebben.
 
-    1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam \githubrepo{smallangle}.
+    1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam :fontawesome-brands-github:`smallangle`.
     1. Maak een nieuw environment die `IK-smallangle` heet met daarin alleen Python.
     1. Zet in de package :fontawesome-regular-folder:`smallangle` een module :fontawesome-regular-file-code:`smallangle.py`.
     1. Plak de onderstaande code in :fontawesome-regular-file-code:`smallangle.py`:
@@ -371,9 +371,9 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
 
 !!! question "inleveren: smallangle"
     \label{opd:smallangle}
-    Het project \githubrepo{smallangle} wordt met Poetry beheerd. Je gaat click aan de module :fontawesome-regular-file-code:`smallangle.py` toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.
+    Het project :fontawesome-brands-github:`smallangle` wordt met Poetry beheerd. Je gaat click aan de module :fontawesome-regular-file-code:`smallangle.py` toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.
 
-    1. Ga naar GitHub en open \githubrepo{AnneliesVlaar / smallangle} in GitHub Desktop en Visual Studio Code.
+    1. Ga naar GitHub en open :fontawesome-brands-github:`AnneliesVlaar / smallangle` in GitHub Desktop en Visual Studio Code.
     1. Installeer de package in een nieuw environment.
     1. Run het script :fontawesome-regular-file-code:`smallangle.py` en los de errors op totdat het werkt.
     1. Voeg click toe zodat je de subcommando's `sin` en `tan` hebt. Het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) moet gekozen kunnen worden met een optie (geef een standaardwaarde mee, zodat de gebruiker de optie kan weglaten).
