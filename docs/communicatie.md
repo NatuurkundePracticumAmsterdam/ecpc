@@ -360,6 +360,3 @@ PyTables[@pytables] is een Python bibliotheek die het werken met HDF5-bestanden 
 
 !!! question "bonus"
     Lees de tutorial van PyTables[@pytables] en pas je script aan zodat de meetserie van de LED wordt opgeslagen in een HDF5-bestand. Gebruik één bestand en maak daarin een nieuwe dataset voor iedere meetserie. Bewaar ook wat metadata (bijvoorbeeld tijdstip van de meting). Iedere keer dat je je script runt wordt er aan _hetzelfde_ databestand een nieuwe dataset toegevoegd.
-
-
-\bibliography
