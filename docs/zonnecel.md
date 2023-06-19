@@ -56,7 +56,7 @@ Voor een eerste benadering kun je een zonnecel voorstellen als een speciale stro
 \begin{equation}
   I = I_L - I_d.
 \end{equation}
-Met behulp van vergelijking \ref{eqn:diode} kun je bovenstaande vergelijking verder uitschrijven. In de exponent voor de diode komt er echter nog een factor $n$ bij die samenhangt met de materiaaleigenschappen van de zonnecel. Waarden van $n$ liggen typisch tussen 1 en 5, afhankelijk van het type zonnecel. Voor het type zonnecel waarmee je in dit experiment zult werken is $n$ ongeveer \numrange{10}{15}. De stroom die de zonnecel levert wordt nu bij benadering gegeven door
+Met behulp van vergelijking \ref{eqn:diode} kun je bovenstaande vergelijking verder uitschrijven. In de exponent voor de diode komt er echter nog een factor $n$ bij die samenhangt met de materiaaleigenschappen van de zonnecel. Waarden van $n$ liggen typisch tussen 1 en 5, afhankelijk van het type zonnecel. Voor het type zonnecel waarmee je in dit experiment zult werken is $n$ ongeveer 10-15. De stroom die de zonnecel levert wordt nu bij benadering gegeven door
 \begin{equation}
   \label{eq:zc}
   I = I_{L} - I_d = I_{L} - I_0 \left( {\rm e}^{ \frac{e U}{nkT}} - 1 \right).
