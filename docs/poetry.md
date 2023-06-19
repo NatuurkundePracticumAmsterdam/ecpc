@@ -236,60 +236,64 @@ Fijn! Als je nu de :fontawesome-regular-file-code:`pyproject.toml` nog eens beki
     Als we de code in ons package aanpassen dan hoeven we het niet opnieuw te installeren met Poetry, maar als we met de hand iets wijzigen in de :fontawesome-regular-file-code:`pyproject.toml` dan moet dat _wel_. Als je een `#!py ImportError` krijgt voor je eigen package &mdash; bijvoorbeeld als je nieuwe mappen of bestanden hebt aangemaakt &mdash; probeer dan _eerst_ voor de zekerheid `poetry install`.
 \end{info}
 
-### Meer Leren: Poetry.lock
-Na het toevoegen van Numpy is er ook een bestand :fontawesome-regular-file-lines:`poetry.lock` bijgekomen. Hierin staan de exacte versies van alle geïnstalleerde packages. Vaak wordt dit bestand gecommit zodat collega-ontwikkelaars exact dezelfde versies installeren zodra ze `poetry install` aanroepen. Om dat te proberen maken we even een schone conda environment:
+### Poetry.lock
 
-!!! opdracht-meer "Schone environment"
+??? meer-leren "Meer leren"
+    Na het toevoegen van Numpy is er ook een bestand :fontawesome-regular-file-lines:`poetry.lock` bijgekomen. Hierin staan de exacte versies van alle geïnstalleerde packages. Vaak wordt dit bestand gecommit zodat collega-ontwikkelaars exact dezelfde versies installeren zodra ze `poetry install` aanroepen. Om dat te proberen maken we even een schone conda environment:
 
-    1. Maak een schone conda environment met `PS> conda create -n IK-easystat python=3.9`
-    1. Kies voor ja als Conda een waarschuwing geeft dat deze environment al bestaat en vraagt of je het bestaande environment wilt verwijderen.
-    1. Draai :fontawesome-regular-file-code:`tests/try_shortcuts.py` en bekijk de foutmelding.
-    
+    !!! opdracht-meer "Schone environment"
 
-
-We krijgen meteen foutmeldingen. Immers, we hebben nog niets geïnstalleerd.
-
-!!! opdracht-meer "Poetry.lock"
-
-    1. Installeer de `easystat` package.
-    1. Waarvoor gebruikt Poetry de lock file (:fontawesome-regular-file-lines:`poetry.lock)`?
-    1. Draai :fontawesome-regular-file-code:`tests/try_shortcuts.py` en bekijk de uitkomst.
+        1. Maak een schone conda environment met `PS> conda create -n IK-easystat python=3.9`
+        1. Kies voor ja als Conda een waarschuwing geeft dat deze environment al bestaat en vraagt of je het bestaande environment wilt verwijderen.
+        1. Draai :fontawesome-regular-file-code:`tests/try_shortcuts.py` en bekijk de foutmelding.
+        
 
 
-### Meer Leren: Wheels
-Wanneer we klaar zijn om ons package te delen met andere gebruikers gebruiken we het commando `build` om wheels te bouwen.
+    We krijgen meteen foutmeldingen. Immers, we hebben nog niets geïnstalleerd.
 
-!!! opdracht-meer "Bouw een wheel"
-    
-    1. Bouw het wheel van easystat met `poetry build`.
-    1. Bekijk de namen van de bestanden in de nieuwe map :fontawesome-regular-folder:`easystat/dist`, welke extensie hebben ze?
-    
+    !!! opdracht-meer "Poetry.lock"
+
+        1. Installeer de `easystat` package.
+        1. Waarvoor gebruikt Poetry de lock file (:fontawesome-regular-file-lines:`poetry.lock)`?
+        1. Draai :fontawesome-regular-file-code:`tests/try_shortcuts.py` en bekijk de uitkomst.
 
 
-``` ps1con
-PS> poetry build  
-Building easystat (0.1.0)
-    - Building sdist
-    - Built easystat-0.1.0.tar.gz
-    - Building wheel
-    - Built easystat-0.1.0-py3-none-any.whl
-```
-Een <q>sdist</q> is een _source distribution_. Een `.tar.gz`-bestand is een soort zipbestand met daarin de broncode van ons pakket. De tests worden daar niet in meegenomen. Een <q>wheel</q> is een soort bestand dat direct geïnstalleerd kan worden met `pip`. Zogenaamde _pure-python_ packages bevatten alleen Pythoncode &mdash; en geen C-code die gecompileerd moet worden voor verschillende besturingssystemen of hardwareplatforms. Je herkent ze aan `none-any` in de bestandsnaam. <q>None</q> voor <q>niet-OS-specifiek</q> en <q>any</q> voor <q>draait op elk hardwareplatform</q>. We kunnen dit bestand als download neerzetten op een website of aan anderen mailen.
+### Wheels
 
-!!! opdracht-meer "Test wheel"
-    Laten we het wheel uitproberen. Maak een nieuwe conda environment aan, installeer het wheel en probeer het testscript te runnen &mdash; één keer vóór het installeren van het wheel en één keer ná het installeren.
+??? meer-leren "Meer leren"
+    Wanneer we klaar zijn om ons package te delen met andere gebruikers gebruiken we het commando `build` om wheels te bouwen.
 
-    1. Maak een nieuwe conda environment aan met de naam `IK-test-wheel` en activeer deze.
-            ``` ps1con
-            PS> conda create -n IK-test-wheel python=3.9
-            ...
-            PS> conda activate IK-test-wheel
-            ```
-    1. Draai :fontawesome-regular-file-code:`tests/try_shortcuts.py` en bekijk de foutmelding.
-    1. installeer het wheel met `pip install dist/easystat-0.1.0-py3-none-any.whl`.
-    1. Draai :fontawesome-regular-file-code:`tests/try_shortcuts.py` en bekijk de uitkomst.
-    
-Het werkt! Je ziet dat `pip install` niet alleen ons package `easystat` installeert, maar _ook de dependency_ `numpy`. Dat is precies wat we willen.
+    !!! opdracht-meer "Bouw een wheel"
+        
+        1. Bouw het wheel van easystat met `poetry build`.
+        1. Bekijk de namen van de bestanden in de nieuwe map :fontawesome-regular-folder:`easystat/dist`, welke extensie hebben ze?
+        
+
+
+    ``` ps1con
+    PS> poetry build  
+    Building easystat (0.1.0)
+        - Building sdist
+        - Built easystat-0.1.0.tar.gz
+        - Building wheel
+        - Built easystat-0.1.0-py3-none-any.whl
+    ```
+    Een <q>sdist</q> is een _source distribution_. Een `.tar.gz`-bestand is een soort zipbestand met daarin de broncode van ons pakket. De tests worden daar niet in meegenomen. Een <q>wheel</q> is een soort bestand dat direct geïnstalleerd kan worden met `pip`. Zogenaamde _pure-python_ packages bevatten alleen Pythoncode &mdash; en geen C-code die gecompileerd moet worden voor verschillende besturingssystemen of hardwareplatforms. Je herkent ze aan `none-any` in de bestandsnaam. <q>None</q> voor <q>niet-OS-specifiek</q> en <q>any</q> voor <q>draait op elk hardwareplatform</q>. We kunnen dit bestand als download neerzetten op een website of aan anderen mailen.
+
+    !!! opdracht-meer "Test wheel"
+        Laten we het wheel uitproberen. Maak een nieuwe conda environment aan, installeer het wheel en probeer het testscript te runnen &mdash; één keer vóór het installeren van het wheel en één keer ná het installeren.
+
+        1. Maak een nieuwe conda environment aan met de naam `IK-test-wheel` en activeer deze.
+                ``` ps1con
+                PS> conda create -n IK-test-wheel python=3.9
+                ...
+                PS> conda activate IK-test-wheel
+                ```
+        1. Draai :fontawesome-regular-file-code:`tests/try_shortcuts.py` en bekijk de foutmelding.
+        1. installeer het wheel met `pip install dist/easystat-0.1.0-py3-none-any.whl`.
+        1. Draai :fontawesome-regular-file-code:`tests/try_shortcuts.py` en bekijk de uitkomst.
+        
+    Het werkt! Je ziet dat `pip install` niet alleen ons package `easystat` installeert, maar _ook de dependency_ `numpy`. Dat is precies wat we willen.
 
 
 ## Poetry gebruiken voor een bestaand project

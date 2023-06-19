@@ -534,11 +534,12 @@ Options:
     
 
 
-### Uitdaging: Documentatie met _Sphinx_
-Een bijkomend voordeel van docstrings is dat ze gebruikt kunnen worden om automatisch documentatie te genereren voor een heel project met behulp van Sphinx.
-_Sphinx_ is een Python documentatie generator. Het is de meestgebruikte manier om documentatie te schrijven voor Python projecten. Een paar voorbeelden zijn bijvoorbeeld het web framework _Django_ \cite{django_docs} (\citeurl{django_docs}) of de populaire HTTP bibliotheek _Requests_ \cite{requests_docs} (\citeurl{requests_docs}). Behalve dat je vrij eenvoudig uitgebreide documentatie kunt schrijven kan Sphinx alle docstrings gebruiken om een referentie op te bouwen.
+### Documentatie met _Sphinx_
+??? meer-leren "Meer leren"
+    Een bijkomend voordeel van docstrings is dat ze gebruikt kunnen worden om automatisch documentatie te genereren voor een heel project met behulp van Sphinx.
+    _Sphinx_ is een Python documentatie generator. Het is de meestgebruikte manier om documentatie te schrijven voor Python projecten. Een paar voorbeelden zijn bijvoorbeeld het web framework _Django_ \cite{django_docs} (\citeurl{django_docs}) of de populaire HTTP bibliotheek _Requests_ \cite{requests_docs} (\citeurl{requests_docs}). Behalve dat je vrij eenvoudig uitgebreide documentatie kunt schrijven kan Sphinx alle docstrings gebruiken om een referentie op te bouwen.
 
-Het voert tijdens deze cursus te ver om veel aandacht te besteden aan Sphinx. Maar aangezien documentatie zo belangrijk is wilden we het toch noemen met pointers naar de Sphinx documentatie \cite{sphinx}. Klik daar, als je geïnteresseerd bent, op _First steps with Sphinx_.
+    Het voert tijdens deze cursus te ver om veel aandacht te besteden aan Sphinx. Maar aangezien documentatie zo belangrijk is wilden we het toch noemen met pointers naar de Sphinx documentatie \cite{sphinx}. Klik daar, als je geïnteresseerd bent, op _First steps with Sphinx_.
 
 
 ## Command-line interface voor ons experiment
@@ -620,21 +621,23 @@ Op dit punt hebben we de functionaliteit van ons snelle script van het vorige ho
     Kijk nog eens terug naar het lijstje subcommando's die je in \opdref{opd:subcommandos} hebt opgeschreven. Heb je alles geïmplementeerd? Wat zou je willen dat je nog meer kan instellen? Als er tijd over is, kijk dan of dit lukt.
 
 
-## Uitdaging: Een interface met stijl
+## Een interface met stijl
+??? meer-leren "Meer leren"
 
-Ook command-line interfaces gaan met hun tijd mee. Vroeger waren ze per definitie zwart/wit en statisch, maar tegenwoordig worden interfaces vaak opgeleukt met kleur, emoji's en bewegende progressbars. _Rich_~\cite{rich} is een project dat in recordtijd heel populair is geworden. Het bestaat pas sinds november 2019 en heeft precies twee jaar later meer dan 31000\,\raisebox{-1.5pt}{\FiveStar} verzameld. Dat is _veel_ &mdash; en de populariteit is sindsdien nog verder toegenomen.
+    Ook command-line interfaces gaan met hun tijd mee. Vroeger waren ze per definitie zwart/wit en statisch, maar tegenwoordig worden interfaces vaak opgeleukt met kleur, emoji's en bewegende progressbars. _Rich_~\cite{rich} is een project dat in recordtijd heel populair is geworden. Het bestaat pas sinds november 2019 en heeft precies twee jaar later meer dan 31000\,\raisebox{-1.5pt}{\FiveStar} verzameld. Dat is _veel_ &mdash; en de populariteit is sindsdien nog verder toegenomen.
 
-Rich is ontzettend uitgebreid en heeft heel veel mogelijkheden. Voor ons project kan het handig zijn om een progressbar te gebruiken of met Rich een tabel weer te geven. De documentatie~\cite{rich-docs} van Rich is best goed, maar kan lastig zijn om een mooi overzicht te krijgen. Een serie van korte video tutorials kun je vinden bij [https://calmcode.io/rich/introduction.html](https://calmcode.io/rich/introduction.html). Iedere video duurt maar één tot twee minuten en laat mooi de mogelijkheden zien. Voor de functies die je wilt gebruiken kun je dan meer informatie opzoeken in de documentatie van Rich zelf.
+    Rich is ontzettend uitgebreid en heeft heel veel mogelijkheden. Voor ons project kan het handig zijn om een progressbar te gebruiken of met Rich een tabel weer te geven. De documentatie~\cite{rich-docs} van Rich is best goed, maar kan lastig zijn om een mooi overzicht te krijgen. Een serie van korte video tutorials kun je vinden bij [https://calmcode.io/rich/introduction.html](https://calmcode.io/rich/introduction.html). Iedere video duurt maar één tot twee minuten en laat mooi de mogelijkheden zien. Voor de functies die je wilt gebruiken kun je dan meer informatie opzoeken in de documentatie van Rich zelf.
 
-!!! opdracht-meer "Rich"
-    Verrijk je interface met Rich. Doe dit naar eigen wens en inzicht.
+    !!! opdracht-meer "Rich"
+        Verrijk je interface met Rich. Doe dit naar eigen wens en inzicht.
 
 
-## Uitdaging: Data-analyse
+## Data-analyse
+??? meer-leren "Meer leren"
 
-Door de $I,U$-karakteristiek van de (lichtgevende) diode te analyseren is het mogelijk om de constante van Boltzmann te bepalen. De stoomsterkte door een diode wordt gegeven door de Shockley diodevergelijking \eqref{eq:Shockley}. Zie ook \appref{ch:diode}.
+    Door de $I,U$-karakteristiek van de (lichtgevende) diode te analyseren is het mogelijk om de constante van Boltzmann te bepalen. De stoomsterkte door een diode wordt gegeven door de Shockley diodevergelijking \eqref{eq:Shockley}. Zie ook \appref{ch:diode}.
 
-Lukt het, om binnen de te bepalen onzekerheid, overeenkomst te vinden met de literatuurwaarde? Een LED is helaas geen ideale diode dus dit kan lastig zijn.
+    Lukt het, om binnen de te bepalen onzekerheid, overeenkomst te vinden met de literatuurwaarde? Een LED is helaas geen ideale diode dus dit kan lastig zijn.
 
-!!! opdracht-meer "Model fitten"
-        Fit het model van Shockley aan je $I,U$-karakteristiek. Welke parameters kun je bepalen? Overleg met je begeleider!
+    !!! opdracht-meer "Model fitten"
+            Fit het model van Shockley aan je $I,U$-karakteristiek. Welke parameters kun je bepalen? Overleg met je begeleider!
