@@ -190,7 +190,7 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
     
 
 
-Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst hier: \url{https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes}. Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies `CamelCase` namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we `snake\_case` gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
+Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst hier: [https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes](https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes). Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies `CamelCase` namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we `snake\_case` gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
 
 !!! question "bonus"
     De volgorde waarin je layout en widgets toevoegt bepaald het uiterlijk van de grafische interface. Verander de code om de layout aan te passen (zet bijvoorbeeld de knoppen boven de textbox of zet de knoppen onder elkaar en naast de textbox).
@@ -255,7 +255,7 @@ Je hebt nu twee manieren gezien om een interface te bouwen: programmeren of Desi
 
 In de eindopracht willen we data weergeven op een scherm. We zullen dus nog moeten plotten. In de volgende opdrachten gaan we daarmee aan de slag.
 
-Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties. Helaas is matplotlib voor het gebruik in interactieve interfaces nogal traag zodra we te maken krijgen met meer data. We kiezen daarom voor een populair alternatief: PyQtGraph. Eén nadeel: de documentatie\footnote{\url{https://pyqtgraph.readthedocs.io/en/latest/}} is niet fantastisch. Het geeft dus niets als je ergens niet uitkomt en je hebt hulp nodig van de assistent of een staflid.
+Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties. Helaas is matplotlib voor het gebruik in interactieve interfaces nogal traag zodra we te maken krijgen met meer data. We kiezen daarom voor een populair alternatief: PyQtGraph. Eén nadeel: de documentatie\footnote{[https://pyqtgraph.readthedocs.io/en/latest/](https://pyqtgraph.readthedocs.io/en/latest/)} is niet fantastisch. Het geeft dus niets als je ergens niet uitkomt en je hebt hulp nodig van de assistent of een staflid.
 
 
 ### De plotter als script
@@ -298,7 +298,7 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
 \end{figure}
 
 \begin{info}
-    __Handige widgets__: in \tabref{tab:widgets} zie je een lijst van zeer handige widgets die je vrijwel zeker nodig hebt. Als je nog meer widgets wilt gebruiken, kijk dan in de lijst van Designer en/of op \url{https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html}.
+    __Handige widgets__: in \tabref{tab:widgets} zie je een lijst van zeer handige widgets die je vrijwel zeker nodig hebt. Als je nog meer widgets wilt gebruiken, kijk dan in de lijst van Designer en/of op [https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html).
 \end{info}
 
 \begin{table}
@@ -317,7 +317,7 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
         QDoubleSpinBox         & Double Spin Box   & Kies een kommagetal (intypen of met pijltjes selecteren). Signals: `valueChanged`.                                                     \\
         \bottomrule
     \end{tabularx}
-    \caption{Lijst van zeer handige widgets. Je hebt deze widgets hoogstwaarschijnlijk nodig. Zie voor meer informatie: \url{https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html}.}
+    \caption{Lijst van zeer handige widgets. Je hebt deze widgets hoogstwaarschijnlijk nodig. Zie voor meer informatie: [https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html).}
     \label{tab:widgets}
 \end{table}
 
@@ -351,7 +351,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen`, 
 
 \begin{bonus}
     \begin{opdracht}[Functieplotter (uitdaging)]
-        Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals `x ** 2`, `sin(x)` of `1 / sqrt(x + 1)`. Gebruik daarvoor het `asteval` package [@asteval]. Documentatie vind je op \url{https://newville.github.io/asteval/}.
+        Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals `x ** 2`, `sin(x)` of `1 / sqrt(x + 1)`. Gebruik daarvoor het `asteval` package [@asteval]. Documentatie vind je op [https://newville.github.io/asteval/](https://newville.github.io/asteval/).
     \end{opdracht}
 
     \begin{warning}

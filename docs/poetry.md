@@ -36,7 +36,7 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
 !!! question "minimaal"
     Maak een nieuw Poetry project met de naam `easystat`, als volgt:
 
-    1. Open in Visual Studio Code een geschikte map\footnote{Bijvoorbeeld \folderpath{Documents/NSP2/Experimentautomatisering}} en open een terminal.
+    1. Open in Visual Studio Code een geschikte map\footnote{Bijvoorbeeld :fontawesome-regular-folder:`Documents/NSP2/Experimentautomatisering`} en open een terminal.
     1. Dan maken we met Poetry als volgt een nieuw project\footnote{We gaan het package opbouwen in de zogenaamde src-layout \cite{srclayout}. We maken het daarmee _expres_ iets moeilijker om vanuit een script je package te importeren. Je kunt dat dan alleen nog maar doen door het package zelf ook te _installeren_ (zoals andere gebruikers ook moeten doen) en daardoor loop je zelf tegen eventuele problemen aan. Werkt het uiteindelijk bij jou? Dan werkt het _ook_ bij andere mensen.} `easystat` aan:
     ``` ps1con
     PS> poetry new --src easystat
@@ -51,12 +51,12 @@ Er is nu de volgende structuur aangemaakt:
     for tree={grow'=0,folder,font=\ttfamily}
     [\githubrepo{easystat}
         [:fontawesome-regular-file-lines:`README.md`]
-        [\folderpath{tests}
+        [:fontawesome-regular-folder:`tests`
             [:fontawesome-regular-file-code:`\_\_init\_\_.py`]
             [:fontawesome-regular-file-code:`test\_easystat.py`]
         ]
-        [\folderpath{src}
-            [\folderpath{easystat}
+        [:fontawesome-regular-folder:`src`
+            [:fontawesome-regular-folder:`easystat`
                 [:fontawesome-regular-file-code:`\_\_init\_\_.py`]
             ]
         ]
@@ -68,9 +68,9 @@ Allereerst is er een projectmap `easystat` aangemaakt. Je kunt nu in GitHub Desk
 
 Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaakt. We zien een :fontawesome-regular-file-lines:`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van ons project.\footnote{Wanneer de repository op GitHub wordt geplaatst wordt deze README automatisch op de hoofdpagina van de repository getoond, onder de code.}
 
-Daarna is er een map \folderpath{tests}. Goede software wordt getest. In deze map komen bestanden te staan die delen van de code runnen en resultaten vergelijken met verwachte resultaten &mdash; zoals je kunt doen in \opdref{opd:test_package}.\footnote{Python heeft een ingebouwde module `#!py unittest` die deze tests kan vinden, kan runnen en daarna een handige weergave geeft van welke tests geslaagd zijn en welke faalden. Ook het package `#!py pytest` is erg bekend. Op deze manier weet je altijd zeker dat wanneer je aanpassingen doet in je code, dat de rest van de code nog steeds is blijven werken &mdash; zónder dat je zelf uitvoerig alles hebt hoeven uitproberen. Je draait gewoon even snel alle tests. Helaas, helaas &mdash; in deze cursus is te weinig tijd om het schrijven van tests te behandelen.}
+Daarna is er een map :fontawesome-regular-folder:`tests`. Goede software wordt getest. In deze map komen bestanden te staan die delen van de code runnen en resultaten vergelijken met verwachte resultaten &mdash; zoals je kunt doen in \opdref{opd:test_package}.\footnote{Python heeft een ingebouwde module `#!py unittest` die deze tests kan vinden, kan runnen en daarna een handige weergave geeft van welke tests geslaagd zijn en welke faalden. Ook het package `#!py pytest` is erg bekend. Op deze manier weet je altijd zeker dat wanneer je aanpassingen doet in je code, dat de rest van de code nog steeds is blijven werken &mdash; zónder dat je zelf uitvoerig alles hebt hoeven uitproberen. Je draait gewoon even snel alle tests. Helaas, helaas &mdash; in deze cursus is te weinig tijd om het schrijven van tests te behandelen.}
 
-Dan komt de \folderpath{src}-map. Daarin komt ons nieuwe package \folderpath{easystat}\footnote{Ja er is een map \folderpath{easystat} met daarin een map \folderpath{src} met daarin weer een map \folderpath{easystat} &mdash; dat kan nog wel eens verwarrend zijn. Het is conventie om de projectmap dezelfde naam te geven als je package. Het pad is dus eigenlijk \folderpath{project/src/package} en dat wordt dan, in ons geval, \folderpath{easystat/src/easystat}.} te staan. Er is alvast voor ons een :fontawesome-regular-file-code:`\_\_init\_\_.py` aangemaakt. Handig!
+Dan komt de :fontawesome-regular-folder:`src`-map. Daarin komt ons nieuwe package :fontawesome-regular-folder:`easystat`\footnote{Ja er is een map :fontawesome-regular-folder:`easystat` met daarin een map :fontawesome-regular-folder:`src` met daarin weer een map :fontawesome-regular-folder:`easystat` &mdash; dat kan nog wel eens verwarrend zijn. Het is conventie om de projectmap dezelfde naam te geven als je package. Het pad is dus eigenlijk :fontawesome-regular-folder:`project/src/package` en dat wordt dan, in ons geval, :fontawesome-regular-folder:`easystat/src/easystat`.} te staan. Er is alvast voor ons een :fontawesome-regular-file-code:`\_\_init\_\_.py` aangemaakt. Handig!
 
 En als laatste\ldots{} een :fontawesome-regular-file-code:`pyproject.toml`\footnote{Vroeger was er een `setup.py` maar Python schakelt nu langzaam over naar dit nieuwe bestand.} waarin alle informatie over je project wordt bijgehouden. Ook staat er in dit bestand informatie voor de verschillende tools die je kunt gebruiken. De inhoud van het bestand ziet er ongeveer zo uit:
 \begin{textcode}
@@ -135,7 +135,7 @@ We starten met ons package. Stel, we berekenen vaak de standaarddeviatie van het
 
 
 
-Nu willen we de package `easystat` importeren in een ander script zodat we de functie `stdev\_of\_mean` daar kunnen gebruiken. We maken een script om onze nieuwe code te testen.\footnote{Niet formeel. Dus hoewel we een script gaan plaatsen in de \folderpath{tests}-folder is het hier niet een test die automatisch gerunt kan worden.}
+Nu willen we de package `easystat` importeren in een ander script zodat we de functie `stdev\_of\_mean` daar kunnen gebruiken. We maken een script om onze nieuwe code te testen.\footnote{Niet formeel. Dus hoewel we een script gaan plaatsen in de :fontawesome-regular-folder:`tests`-folder is het hier niet een test die automatisch gerunt kan worden.}
 
 !!! question "minimaal"
     Maak het bestand :fontawesome-regular-file-code:`tests/try\_shortcuts.py`:
@@ -265,7 +265,7 @@ Wanneer we klaar zijn om ons package te delen met andere gebruikers gebruiken we
 !!! question "bonus"
     
     1. Bouw het wheel van easystat met \shellinline{poetry build}.
-    1. Bekijk de namen van de bestanden in de nieuwe map \folderpath{easystat/dist}, welke extensie hebben ze?
+    1. Bekijk de namen van de bestanden in de nieuwe map :fontawesome-regular-folder:`easystat/dist`, welke extensie hebben ze?
     
 
 
@@ -342,8 +342,8 @@ Je geeft met \shellinline{poetry init} de opdracht om Poetry alleen te initialis
     We gaan nu poetry gebruiken om van de scripts met de knipperende lichtjes uit \opdref{opd:knipperled} een package te maken én om ons environment te beheren. Voer de volgende stappen uit:
     
     1. Maak in GitHub Desktop een _nieuwe_ repository \githubrepo{flasher}.
-    1. Maak een map \folderpath{src} met daarin een map \folderpath{flasher}.
-    1. Kopieer uit de \githubrepo{Oefenopdrachten} die je bij \opdref{opd:add_repository} hebt aangemaakt de drie scriptjes uit \opdref{opd:knipperled} naar \folderpath{src/flasher}.
+    1. Maak een map :fontawesome-regular-folder:`src` met daarin een map :fontawesome-regular-folder:`flasher`.
+    1. Kopieer uit de \githubrepo{Oefenopdrachten} die je bij \opdref{opd:add_repository} hebt aangemaakt de drie scriptjes uit \opdref{opd:knipperled} naar :fontawesome-regular-folder:`src/flasher`.
     1. Open \githubrepo{flasher} in Visual Studio Code.
     1. Commit alles dat je tot nu toe gedaan hebt.
     1. Open een terminal. Maak een nieuwe conda environment met alleen python 3.9:
@@ -372,13 +372,13 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
 !!! question "inleveren: Pythondaq: package"
     Zet \githubrepo{pythondaq} om in een src-structuur, als volgt, en vergeet niet na elke stap te committen:
 
-    1. Maak in \githubrepo{pythondaq} een map \folderpath{src} met daarin een map \folderpath{pythondaq}.
-    1. Zet de model, view, controller scripts in de \folderpath{pythondaq} package zodat je onderstaande structuur krijgt:\\
+    1. Maak in \githubrepo{pythondaq} een map :fontawesome-regular-folder:`src` met daarin een map :fontawesome-regular-folder:`pythondaq`.
+    1. Zet de model, view, controller scripts in de :fontawesome-regular-folder:`pythondaq` package zodat je onderstaande structuur krijgt:\\
             \begin{forest}
             for tree={grow'=0,folder,font=\ttfamily}
             [\githubrepo{pythondaq}
-                [\folderpath{src}
-                    [\folderpath{pythondaq}
+                [:fontawesome-regular-folder:`src`
+                    [:fontawesome-regular-folder:`pythondaq`
                         [:fontawesome-regular-file-code:`\_\_init\_\_.py`]
                         [:fontawesome-regular-file-code:`arduino\_device.py`]
                         [:fontawesome-regular-file-code:`diode\_experiment.py`]
@@ -395,7 +395,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
 !!! question "bonus"
     In grotere projecten is het gebruikelijk om model, view, controller niet alleen uit te splitsen in verschillende scripts, maar ook in aparte packages te zetten.
 
-    1. Maak 3 extra packages in de \folderpath{pythondaq} package. \folderpath{models}, \folderpath{views} en \folderpath{controllers}.
+    1. Maak 3 extra packages in de :fontawesome-regular-folder:`pythondaq` package. :fontawesome-regular-folder:`models`, :fontawesome-regular-folder:`views` en :fontawesome-regular-folder:`controllers`.
     1. Zet de modules in de juiste packages.
     1. Test :fontawesome-regular-file-code:`view.py`. Waarschijnlijk krijg je import errors, los deze op totdat het werkt.
     
@@ -409,14 +409,14 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
     1. Initialiseer Poetry, zodat een :fontawesome-regular-file-code:`pyproject.toml` wordt aangemaakt.
     1. Installeer je package.
     1. Test je :fontawesome-regular-file-code:`view.py` script, terwijl je dependencies toevoegt die je in je scripts nodig hebt.
-    1. Vergelijkbaar met \opdref{opd:test_package} is het verstandig om het importeren van onderdelen van het package te testen voordat we het verder gaan uitbouwen. Maak een \folderpath{tests}-map met :fontawesome-regular-file-code:`\_\_init\_\_.py` aan in hoofdmap van de repository zodat je onderstaande structuur krijgt:
+    1. Vergelijkbaar met \opdref{opd:test_package} is het verstandig om het importeren van onderdelen van het package te testen voordat we het verder gaan uitbouwen. Maak een :fontawesome-regular-folder:`tests`-map met :fontawesome-regular-file-code:`\_\_init\_\_.py` aan in hoofdmap van de repository zodat je onderstaande structuur krijgt:
             \begin{forest}
             for tree={grow'=0,folder,font=\ttfamily}
             [\githubrepo{pythondaq}
-                [\folderpath{src}
+                [:fontawesome-regular-folder:`src`
                     [\ldots]
                 ]
-                [\folderpath{tests}
+                [:fontawesome-regular-folder:`tests`
                     [:fontawesome-regular-file-code:`\_\_init\_\_.py`]
                 ]
                 [:fontawesome-regular-file-lines:`README.md`]
@@ -443,13 +443,13 @@ Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we
 \begin{forest}
     for tree={grow'=0,folder,font=\ttfamily}
     [\githubrepo{just\_count}
-        [\folderpath{src}
-            [\folderpath{just\_count}
+        [:fontawesome-regular-folder:`src`
+            [:fontawesome-regular-folder:`just\_count`
                 [:fontawesome-regular-file-code:`\_\_init\_\_.py`]
                 [:fontawesome-regular-file-code:`square.py`]
                 [:fontawesome-regular-file-code:`just\_count.py`]
             ]
-            [\folderpath{tests}
+            [:fontawesome-regular-folder:`tests`
                 [:fontawesome-regular-file-code:`\_\_init\_\_.py`]
             ]
         ]
@@ -504,7 +504,7 @@ Om de wijzigingen aan :fontawesome-regular-file-code:`pyproject.toml` door te vo
     1. Open :fontawesome-regular-file-code:`pyproject.toml` en voeg het kopje `[tool.poetry.scripts]` toe.
     1. Als naam voor het commando kiezen we `count`.
     1. Voor het gemak vullen we de rechterkant van het =-teken van rechts naar links in. Achter de dubbele punt komt de naam van de functie die uitgevoerd moet worden, dat is in ons geval `main`.
-    1. De functie `main` staat in module :fontawesome-regular-file-code:`just\_count.py`. De module hebben we ondergebracht in de package \folderpath{just\_count}.
+    1. De functie `main` staat in module :fontawesome-regular-file-code:`just\_count.py`. De module hebben we ondergebracht in de package :fontawesome-regular-folder:`just\_count`.
             \begin{tomlcode}
                 [tool.poetry.scripts]
                 count = "just_count.just_count:main"
@@ -516,7 +516,7 @@ Om de wijzigingen aan :fontawesome-regular-file-code:`pyproject.toml` door te vo
 !!! question "minimaal"
 
     1. Type in de terminal het commando \shellinline{count}.
-    1. Je krijgt nu een \shellinline{ModuleNotFoundError} voor de module square. Poetry zoekt vanuit de \folderpath{src}-map naar de packages en modules. Pas het importstatement in :fontawesome-regular-file-code:`just\_count.py` aan zodat het count commando werkt.   
+    1. Je krijgt nu een \shellinline{ModuleNotFoundError} voor de module square. Poetry zoekt vanuit de :fontawesome-regular-folder:`src`-map naar de packages en modules. Pas het importstatement in :fontawesome-regular-file-code:`just\_count.py` aan zodat het count commando werkt.   
     1. Activeer een andere conda environment en probeer het commando opnieuw; waarom werkt dit niet?
     1. Navigeer naar een andere map met python-scripts. Activeer de conda environment waar je `count\_count` hebt geïnstalleerd en test het commando.
     
@@ -540,7 +540,7 @@ Om de wijzigingen aan :fontawesome-regular-file-code:`pyproject.toml` door te vo
             \end{tomlcode}
             pas de regel aan zodat jouw commando de functie `#!py table()` aanroept in :fontawesome-regular-file-code:`src/erroranalysis/data\_analysis.py`. Je mag de naam van het commando zelf kiezen.
             %1. Typ onder het kopje een naam voor het commando.
-            %1. Tussen aanhalingstekens type je de naam van het package (Oef, wat was dat ook al weer? In ieder geval de naam van een \folderpath{} mapje), gevolgd door een punt. Dan komt de naam van de module (Tsja, dat is altijd een :fontawesome-regular-file-code:`.py`-bestandje). Zet hier een :-dubbele punt. Daarachter de naam van de functie die moet worden uitgevoerd.
+            %1. Tussen aanhalingstekens type je de naam van het package (Oef, wat was dat ook al weer? In ieder geval de naam van een :fontawesome-regular-folder:`` mapje), gevolgd door een punt. Dan komt de naam van de module (Tsja, dat is altijd een :fontawesome-regular-file-code:`.py`-bestandje). Zet hier een :-dubbele punt. Daarachter de naam van de functie die moet worden uitgevoerd.
     1. Omdat we handmatig iets aan :fontawesome-regular-file-code:`pyproject.toml` hebben veranderd, gaan we de package opnieuw installeren.
     1. Ga naar de terminal en kijk of het werkt!
             ``` ps1con
