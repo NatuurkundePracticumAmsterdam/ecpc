@@ -172,7 +172,7 @@ cart = Cart()
 ```
 Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je type `#!py cart.add` hoef je alleen maar op \keys{\tab} te drukken en VS Code vult de rest aan.
 
-!!! question "minimaal: Opbouw van een class"
+!!! opdracht-basis "Opbouw van een class"
     Beschouw de volgende code:
     ``` py
     import requests
@@ -215,7 +215,7 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
     Bespreek met elkaar wat de code precies doet en markeer de volgende onderdelen: module, functie, class, class instance, class attribute, class method.
 
 
-!!! question "minimaal: class Particle"
+!!! opdracht-basis "Class Particle"
     Maak een class `#!py Particle` die de naam van het deeltje en de spin van het deeltje bewaard. Een method `#!py is_up_or_down()` vertelt je of het deeltje spin omhoog (positief) of spin omlaag (negatief) heeft. Maak nog een method `#!py flip()` die de spin van het deeltje omkeert. De volgende code zou moeten werken:
     ``` py
     proton = Particle('mooi proton', 0.5)
@@ -231,7 +231,7 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
     ```
 
 
-!!! question "inleveren: class ElectronicLoadMeasurements"
+!!! opdracht-inlever "Class ElectronicLoadMeasurements"
     % \label{opd:class}
     Schrijf een class `#!py ElectronicLoadMeasurements` waarmee je spanningsmetingen aan een weerstand (_load_) kunt bewaren. De class moet voldoen aan deze eisen:
     
@@ -257,7 +257,7 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
 
 ## Implementeren van MVC
 
-!!! question "inleveren: Pythondaq: ArduinoVISADevice"
+!!! opdracht-inlever "Pythondaq: ArduinoVISADevice"
     \label{opd:meting-class}
     Pak je script van \opdref{opd:quickndirty-csv} erbij en schrijf bovenaan -- maar _onder_ de `#!py import`-statements -- een class `#!py ArduinoVISADevice`. Schrijf methods voor die class zodat onderstaande code minimaal zou moeten kunnen runnen:
     ``` py
@@ -293,7 +293,7 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
 
 Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de precieze commando's zijn die je naar de hardware moet sturen. Als je de Arduino in de opstelling vervangt voor een ander meetinstrument moet je de class aanpassen, maar kan alle code die met het experiment zelf te maken heeft hetzelfde blijven.
 
-% !!! question "inleveren"
+% !!! opdracht-inlever "Docstrings"
 %   Schrijf mooie docstrings bij de class. Schrijf een docstring voor de class zelf (dus boven de `#!py __init__()`-methode) en voor alle methodes. Gebruik bijvoorbeeld de \citetitle{google_style_guide} \cite{google_style_guide} (sectie 3.8) voor voorbeelden van docstrings. Test de docstring door in je script de regel
 %   ``` py
 %     help(ArduinoVISADevice)
@@ -303,7 +303,7 @@ Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de
 
 De class die we gemaakt hebben voor de aansturing van de Arduino valt in de categorie _controller_. Het laatste stuk waar de plot gemaakt wordt is dus eigenlijk een _view_ en de rest van de code -- waar de metingen worden uitgevoerd en de stroomsterkte $I$ wordt berekend -- is een _model_. We gaan de code nog wat verder opsplitsen om dat duidelijk te maken én onderbrengen in verschillende bestanden -- dat is uiteindelijk beter voor het overzicht.
 
-!!! question "inleveren: Pythondaq: Controller afsplitsen"
+!!! opdracht-inlever "Pythondaq: Controller afsplitsen"
     Pas het script aan uit opdracht \opdref{opd:meting-class}. Knip de class uit het bestand en plak die in een nieuw bestand `#!py arduino_device.py`. Knip en plak _ook_ de functie `#!py list_devices()`, zodat alle `#!py pyvisa`-code netjes in één bestand zit. Je vervangt de functie en de class in het oorspronkelijke script door dit import statement:
     ``` py
     from arduino_device import ArduinoVISADevice, list_devices
@@ -311,7 +311,7 @@ De class die we gemaakt hebben voor de aansturing van de Arduino valt in de cate
     Controleer dat je code nog steeds hetzelfde werkt -- dat het een meting uitvoert en de resultaten in een grafiek weergeeft. Waarschijnlijk moet je daarvoor nog wat bugs aanpakken (een vergeten import bijvoorbeeld).
 
 
-!!! question "inleveren: Pythondaq: Model afsplitsen"
+!!! opdracht-inlever "Pythondaq: Model afsplitsen"
     We gaan nu met ongeveer dezelfde stappen het model afsplitsen van de rest van de code.
 
     1. Bespreek met elkaar en met de assistent welk deel van het script het model is. Kijk daarvoor nog eens goed naar \figref{fig:mvc-model}.
@@ -325,7 +325,7 @@ De class die we gemaakt hebben voor de aansturing van de Arduino valt in de cate
 
 Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger geworden. Als het goed is gaat nu (vrijwel) het volledige script alleen maar over het starten van een meting en het weergeven en bewaren van de meetgegevens. In het <q>view</q> script komen verder geen berekeningen voor of details over welk kanaal van de Arduino op welke elektronische component is aangesloten. Ook staat hier niets over welke commando's de Arduino firmware begrijpt. Dit maakt het veel makkelijker om in de vervolghoofdstukken een gebruiksvriendelijke applicatie te ontwikkelen waarmee je snel en eenvoudig metingen kunt doen.
 
-!!! question "inleveren: Pythondaq: Onzekerheid"
+!!! opdracht-inlever "Pythondaq: Onzekerheid"
     We zijn al een eind op weg. We pakken nog één ding aan: onzekerheid. Er staan in onze grafiek nog geen foutenvlaggen. Als je de meting een paar keer herhaalt zie je dat de grafiek steeds iets anders is -- er zit ruis op de metingen. We kunnen die op voorhand schatten, maar met een computergestuurde meting is het makkelijk om een meting een aantal keer te herhalen en op een nauwkeuriger resultaat uit te komen én de onzekerheid daarbij te bepalen.
     
     1. Overleg met je groepje en maak een plan hoe jullie de code gaan aanpassen om onzekerheid in te bouwen. Schrijf nog geen code op je computer maar schrijf de stappen uit met papier en pen. Het is dan veel makkelijker om te overleggen en na te denken. Welke delen van het programma moeten worden aangepast?
