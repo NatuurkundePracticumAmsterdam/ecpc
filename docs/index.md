@@ -42,3 +42,17 @@ Voor vergelijkingen:
 f(x) \sin x,
 \end{equation}
 met $f(x)$ een functie van $x$.
+
+!!! opdracht-basis "oefenopdracht"
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et
+    euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo
+    purus auctor massa, nec semper lorem quam in massa
+
+!!! opdracht-inlever "Inlever opdracht"
+
+    Deze opdracht lever je in. 
+
+!!! opdracht-meer "Meer leren"
+
+    Met deze opdracht kan je meer leren
