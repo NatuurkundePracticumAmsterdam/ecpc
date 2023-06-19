@@ -28,9 +28,9 @@ Als applicaties veel verschillende functionaliteit hebben dan krijg je regelmati
 ``` ps1con
 PS> conda create -n IK-pythondaq -c conda-forge python pyvisa-py
 ```
-Uitgesplitst in \textit{argumenten} en \textbf{opties}, met vierkante haken [] om aan te geven welke onderdelen bij elkaar horen, is dat:
+Uitgesplitst in \textit{argumenten} en __opties__, met vierkante haken [] om aan te geven welke onderdelen bij elkaar horen, is dat:
 \begin{quote}
-    conda \textit{create} [\textbf{-n} \textit{IK-pythondaq}] [\textbf{-c} \textit{conda-forge}] [\textit{python pyvisa-py}]
+    conda \textit{create} [__-n__ \textit{IK-pythondaq}] [__-c__ \textit{conda-forge}] [\textit{python pyvisa-py}]
 \end{quote}
 
 

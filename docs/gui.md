@@ -272,14 +272,14 @@ pg.setConfigOption("foreground", "k")
 Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en dan krijg je de standaardinstelling: grijze letters op een zwarte achtergrond. Het is maar wat je fijn vindt.
 
 \begin{info}
-    \textbf{Als je je GUI het liefst programmeert}, gebruik dan de volgende regel om een plot widget te krijgen in de `#!py __init__()`:
+    __Als je je GUI het liefst programmeert__, gebruik dan de volgende regel om een plot widget te krijgen in de `#!py __init__()`:
     ``` py
     self.plot_widget = pg.PlotWidget()
     ```
 \end{info}
 
 \begin{info}
-    \textbf{Als je je GUI het liefst ontwerpt met Designer} voegen we als volgt een plot widget toe:
+    __Als je je GUI het liefst ontwerpt met Designer__ voegen we als volgt een plot widget toe:
 
     1. Voeg aan je interface een _Graphics View_ toe;
     1. Klik er op om hem te selecteren en klik daarna op de rechtermuistoets;
@@ -298,7 +298,7 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
 \end{figure}
 
 \begin{info}
-    \textbf{Handige widgets}: in \tabref{tab:widgets} zie je een lijst van zeer handige widgets die je vrijwel zeker nodig hebt. Als je nog meer widgets wilt gebruiken, kijk dan in de lijst van Designer en/of op \url{https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html}.
+    __Handige widgets__: in \tabref{tab:widgets} zie je een lijst van zeer handige widgets die je vrijwel zeker nodig hebt. Als je nog meer widgets wilt gebruiken, kijk dan in de lijst van Designer en/of op \url{https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html}.
 \end{info}
 
 \begin{table}
