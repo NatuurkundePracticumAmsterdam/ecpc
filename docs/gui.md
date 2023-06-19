@@ -39,7 +39,7 @@ Eerst importeren we een paar bibliotheken. Het draait uiteindelijk om de `#!py U
 
 Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn strikt genomen niet noodzakelijk, maar wel _good practice_. Ook het schrijven van een `#!py main()` functie is niet strikt noodzakelijk, maar het maakt het wel makkelijk om straks een zogeheten _entry point_ te hebben als we weer een applicatie willen schrijven. In de \path{pyproject.toml} geven we dan aan dat we de `#!py main()` functie willen aanroepen. Dat komt later.
 
-!!! question "minimaal"
+!!! opdracht-basis "Voorbeeld gui"
     \label{opd:minimal-gui}
 
     1. Maak een nieuw bestand :fontawesome-regular-file-code:`example-gui.py`.
@@ -132,7 +132,7 @@ Allereerst definiëren we een `__init__()`. Helaas gaat dat niet zomaar. We schr
 
 De oplossing is gelukkig vrij eenvoudig: we kunnen de `__init__()` van de parent class gewoon aanroepen en daarna ons eigen ding doen. De Pythonfunctie `#!py super()` verwijst altijd naar de parent class, dus met `#!py super().__init__()` wordt de parent class volledig geïnitialiseerd. Dat is dus het eerste dat we doen in regel 7.
 
-!!! question "minimaal"
+!!! opdracht-basis "Parent class initialiseren"
 
     1. Breid het script van \opdref{opd:minimal-gui} uit met een `#!py __init__`-method.
     1. Zorg dat de parent class volledig geïnitialiseerd wordt.
@@ -142,7 +142,7 @@ De oplossing is gelukkig vrij eenvoudig: we kunnen de `__init__()` van de parent
 
 Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets zijn bijvoorbeeld een menubalk, knoppenbalk of statusbalk.
 
-!!! question "minimaal"
+!!! opdracht-basis "Central widget toevoegen"
 
     1. Breid :fontawesome-regular-file-code:`example-gui.py` uit met een centrale widget.
     1. Geef aan dat dit het centrale widget gaat zijn (regels 11--12, \figref{fig:layout-centerwidget}).
@@ -152,7 +152,7 @@ Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets 
 
 Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen netjes uitgelijnd worden. We willen het tekstvenster en de knoppen onder elkaar zetten en maken dus eerst een verticale layout. Aan die layout voegen we een textbox toe.
 
-!!! question "minimaal"
+!!! opdracht-basis "Verticale layout toevoegen"
 
     1. Breid :fontawesome-regular-file-code:`example-gui.py` uit met een verticale layout (regel 15, \figref{fig:layout-vbox}).
     1. Maak een textbox (regel 16)
@@ -163,7 +163,7 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
 
 De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we ook toe aan de `#!py vbox`. En we maken de layout compleet (\figref{fig:layout-buttons}) door knoppen toe te voegen aan de `#!py hbox`.
 
-!!! question "minimaal"
+!!! opdracht-basis "Horizontale layout toevoegen"
 
     1. Breid :fontawesome-regular-file-code:`example-gui.py` uit met een horizontale layout (regel 18).
     1. Voeg de horizontale layout toe aan de verticale layout (regel 19, \figref{fig:layout-text-hbox}).
@@ -181,7 +181,7 @@ De horizontale layout (voor de knoppen) moeten we expliciet toevoegen aan de ver
 
 Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wordt er een zogeheten _signal_ afgegeven. Die kun je verbinden met een _slot_. Er zijn ook verschillende soorten signalen. Het drukken op een knop zorgt voor een _clicked signal_, het veranderen van een getal in een keuzevenster geeft een _changed signal_. Wij verbinden één knop direct met een al bestaande method van het tekstvenster `#!py clear()` en de andere knop met een eigen method `#!py add_button_clicked()`. De naam is geheel vrij te kiezen, maar boven de functiedefinitie moet je wel de `#!py @Slot()`-decorator gebruiken. PySide kan dan net wat efficiënter werken.
 
-!!! question "minimaal"
+!!! opdracht-basis "Slots en signals toevoegen"
 
     1. Breid :fontawesome-regular-file-code:`example-gui.py` uit met slots en signals.
     1. Verbind de `Clear`-knop met de clear functie (regel 27).
@@ -192,11 +192,11 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
 
 Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst hier: \url{https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes}. Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies `CamelCase` namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we `snake\_case` gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
 
-!!! question "bonus"
+!!! opdracht-meer""Volgorde layout aanpassen"
     De volgorde waarin je layout en widgets toevoegt bepaald het uiterlijk van de grafische interface. Verander de code om de layout aan te passen (zet bijvoorbeeld de knoppen boven de textbox of zet de knoppen onder elkaar en naast de textbox).
 
 
-!!! question "minimaal"
+!!! opdracht-basis "Hello world-knop toevoegen"
     Probeer het volgende in :fontawesome-regular-file-code:`example-gui.py`:
 
     1. Voeg een derde knop `Hello, world` toe die de tekst _Hello, world_ toevoegt aan het venster.
@@ -235,7 +235,7 @@ class UserInterface(QtWidgets.QMainWindow):
 ```
 Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog maar de signals aan de slots hoeven te koppelen. In deze code definiëren we niet `#!py self.ui.clear_button` of `#!py self.ui.add_button`; die namen geven we aan de knoppen die we maken in Designer. De namen van alle objecten in Designer zijn daarna beschikbaar in onze code om bijvoorbeeld de signalen te koppelen. Merk op dat we nu niet meer `#!py self.clear_button` gebruiken maar `#!py self.ui.clear_button`. Alle widgets komen op deze manier onder een `#!py .ui`-object te hangen.
 
-!!! question "minimaal"
+!!! opdracht-basis "Designer gebruiken"
 
     1. Open Designer en kies bij \menu{templates/forms} voor `#!py MainWindow`. Klik dan op \menu{Create}. Ontwerp de user interface uit \figref{fig:screenshot-ui-prog} en gebruik dezelfde namen voor de widgets als het voorbeeld in \secref{sec:ui-prog}. Dus een `#!py add_button` knop, een `#!py clear_button` knop en een `#!py textedit` tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.
     1. Bewaar het bestand als :fontawesome-regular-file-lines:`simple\_app.ui`.
@@ -333,32 +333,27 @@ self.plot_widget.setLabel("bottom", "x [radians]")
 ```
 Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen`, of je laat ze weg. Leeg maken kan met `#!py self.plot_widget.clear()`.
 
-!!! question "inleveren: Functieplotter: plot"
+!!! opdracht-inlever "Functieplotter: plot"
     Schrijf een script en ontwerp een (eenvoudige!) grafische interface waarmee je de functie $\sin(x)$ plot in het domein $(-\pi, \pi)$. De <q>applicatie</q> hoeft verder niets te kunnen.
 
 
-!!! question "inleveren: Functieplotter: knoppen"
+!!! opdracht-inlever "Functieplotter: knoppen"
     Voeg knoppen toe om het domein aan te passen. Maak bijvoorbeeld een `start` die mag lopen van 0 tot 100. Maak ook een `stop` en een `numpoints` om het aantal punten te kiezen. Kies daarvoor ook een handige standaardwaarde. Zorg ervoor dat als je de waardes aanpast dat de functie automatisch opnieuw wordt geplot.
 
 
-!!! question "bonus: Functieplotter: (uitdaging)"
+!!! opdracht-meer "Functieplotter: (uitdaging)"
     Gebruik een `#!py QComboBox` om de functie te kunnen kiezen. Je moet hem _leeg_ toevoegen aan je interface en vult hem vanuit je programma. Zoek de widget op in de documentatie om uit te zoeken welke functie je moet gebruiken om keuzemogelijkheden toe te voegen en welk signaal je moet koppelen om te zorgen dat de plot opnieuw wordt uitgevoerd als je de functie aanpast. Geef de gebruiker de keuzes $\sin(x)$, $\cos(x)$, $\tan(x)$ en $\exp(x)$.
 
 
-!!! question "bonus: Functieplotter (uitdaging)"
+!!! opdracht-meer "Functieplotter (uitdaging)"
     Voeg aan de functiekiezer de functies $x$, $x^2$, $x^3$, en $\frac{1}{x}$ toe. Je kunt daarvoor _lambda functions_ gebruiken, maar dat is niet per se nodig.
 
 
-\begin{bonus}
-    \begin{opdracht}[Functieplotter (uitdaging)]
+!!! opdracht meer "Functieplotter (uitdaging)"
         Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals `x ** 2`, `sin(x)` of `1 / sqrt(x + 1)`. Gebruik daarvoor het `asteval` package \parencite{asteval}. Documentatie vind je op \url{https://newville.github.io/asteval/}.
-    \end{opdracht}
 
-    \begin{warning}
+!!! warning 
         Gebruik _nooit_ zomaar `#!py eval()` op een string die iemand anders aanlevert. Anders kan iemand met typen in een tekstveld of het inlezen van een tekstbestand je computer wissen bijvoorbeeld, of malware installeren. Als je `#!py eval()` wilt gebruiken, lees dan de sectie _Minimizing the Security Issues of eval()_ in \citetitle{eval} \cite{eval}. Maar _veel makkelijker_ is om `asteval` te gebruiken.
-    \end{warning}
-\end{bonus}
-
 
 ## Een grafische interface voor ons experiment
 
@@ -368,16 +363,15 @@ We hebben tot nu toe veel moeite gedaan om je code te splitsen volgens het MVC-m
 
 We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat in stapjes doen.
 
-\begin{info}
+!!! info
     Je mag zelf kiezen of je de grafische interface gaat ontwerpen met Designer of dat je hem volledig programmeert.
 
     Zorg dat je in je `daq` conda environment zit of maak een nieuwe. Voeg de dependencies PySide6 en PyQtGraph toe met:
     ``` ps1con
     poetry add pyside6 pyqtgraph
     ```
-\end{info}
 
-\begin{info}
+!!! info
     Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met Poetry <q>taken</q> aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn niet meer beschikbaar als je je applicatie deelt met andere mensen -- ze zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. En dat is wat we willen. Doe dit als volgt:
 
     1. Installeer _Poe the Poet_ -- onze _task runner_ -- als _development dependency_ met:
@@ -399,24 +393,24 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
             ```
             En dat gaat een stuk sneller dan die lange `pyside-uic`-regel onthouden en intypen!
 
-\end{info}
 
-!!! question "inleveren: Pythondaq: leeg venster"
+
+!!! opdracht-inlever "Pythondaq: leeg venster"
     Maak een nieuwe applicatie aan de hand van de code aan het begin van het hoofdstuk (minimale Qt-applicatie). De applicatie doet dus nog niets anders dan het tonen van een leeg venster.
 
 
-!!! question "inleveren: Pythondaq: plot scan"
+!!! opdracht-inlever "Pythondaq: plot scan"
     Voeg aan je applicatie een `PlotWidget` toe. Laat je applicatie een scan uitvoeren (door het model te openen en aan te roepen) en laat het resultaat zien in een grafiek. Voor deze opdracht mag je nog gewoon de poortnaam in je code schrijven, net als start- en stop waardes e.d. De gebruiker hoeft nog niets te kunnen instellen. Dat komt straks.
 
 
-!!! question "inleveren: Pythondaq: knoppen"
+!!! opdracht-inlever "Pythondaq: knoppen"
     Maak nu in je grafische interface widgets om de start- en stopwaardes, aantal metingen e.d. te kunnen instellen. Maak ook een startknop. Als je op de startknop drukt moet je applicatie een nieuwe meting uitvoeren.
 
 
 
 ### Van script naar applicatie
 
-!!! question "inleveren: Pythondaq: app"
+!!! opdracht-inlever "Pythondaq: app"
     Het is weer mogelijk om van het script een applicatie te maken die je aan kunt roepen vanaf de command-line. Daar moeten we het volgende voor doen:
 
     1. Voeg een nieuw item toe voor je applicatie in de sectie `[tool.poetry.scripts]` in de \path{pyproject.toml} zoals je dat ook gedaan hebt voor je command-line applicatie.
@@ -440,7 +434,7 @@ De functie `#!py getSaveFileName()` opent een dialoogvenster om een bestand op t
 Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder welke naam het bestand moet worden opgeslagen. Je krijgt echt alleen een pad en bestandsnaam terug, de data is _niet_ opgeslagen en het bestand is _niet_ aangemaakt. De variabele `filename` is echt niets anders dan een bestandsnaam, bijvoorbeeld: `/Users/david/LED-rood.csv`. Nadat je die bestandsnaam gekregen hebt moet je dus zelf nog code schrijven zodat het CSV-bestand wordt opgeslagen onder die naam.
 
 
-!!! question "inleveren: Pythondaq: save"
+!!! opdracht-inlever "Pythondaq: save"
     Voeg een `Save`-knop toe aan je interface om je metingen op te slaan als CSV-bestand. Controleer dat de gegevens ook inderdaad bewaard zijn.
 
 
@@ -450,7 +444,7 @@ Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder
 
 Je kunt je grafische applicatie volledig optuigen met menu's of taakbalken. Ook kun je onderin je applicatie met een statusbalk weergeven wat de status is: gereed, aan het meten, foutcode, etc. Dat valt buiten het bestek van deze cursus, maar een mooie referentie is \citetitle{qtmenus} \cite{qtmenus}. Als je vaker grafische applicaties wilt gaan maken dan moet je dat zeker eens doornemen!
 
-!!! question "bonus: Pythondaq (uitdaging)"
+!!! opdracht-meer "Pythondaq (uitdaging)"
     Maak een statusbalk die aangeeft wat de identificatiestring is van het device dat geselecteerd is. Maak ook een menu waarmee je een CSV-bestand kunt opslaan en een nieuwe meting kunt starten. Let op: je hebt dan een menu-item én een knop die dezelfde method aanroepen. Je hoeft geen dubbele code te schrijven, maar moet de `#!py save_data()`-method wel twee keer verbinden.
 
 
@@ -484,11 +478,11 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
 %   \end{opdracht}
 % \end{hogercijfer}
 
-!!! question "inleveren: Pythondaq: selecteer Arduino"
+!!! opdracht-inlever"Pythondaq: selecteer Arduino"
     Maak een keuzemenu (`#!py QComboBox`) zodat je de Arduino kunt selecteren. Je zult in de `__init__()` eerst een lijst van devices moeten maken en die toe moeten voegen aan de widget. Zie ook \tabref{tab:widgets} en de documentatie. Het kan daarbij handig zijn om de device pas te _openen_ als je een scan uitvoert en hem te sluiten (schrijf een soort `#!py device.close()`) als de scan is afgelopen. In de controller werk je met een `#!py pyvisa` device en die heeft al een `#!py close()`-method.
 
 
-!!! question "bonus: Pythondaq: exception"
+!!! opdracht-meer "Pythondaq: exception"
     Het is natuurlijk niet zo mooi wanneer je de verkeerde poort kiest en het programma crasht. Vang de exception af en geef een melding (gebruik bijvoorbeeld `#!py QDialog`) dat het device geen Arduino VISA device is. De gebruiker kan daarna een andere poort proberen.
 
 
@@ -501,9 +495,8 @@ De manier waarop besturingssystemen meerdere dingen tegelijk doen is gebaseerd o
 
 Threads geven vaak problemen omdat ze in zekere zin onvoorspelbaar zijn. Je weet niet precies hoe <q>snel</q> een thread draait, dus je weet niet zeker wat er in welke volgorde gebeurt. Dit kan leiden tot problemen waarvan de oorzaak maar lastig te vinden is. Google maar eens op `thread problems in programming`. We moeten dus voorzichtig zijn! Ook is het ombouwen van code zonder threads naar code met threads een klus waar makkelijk iets fout gaat. Het is dus belangrijk dat je _in kleine stapjes_ je code aanpast en _vaak test_ of het nog werkt.
 
-\begin{info}
+!!! info
     We gaan in het volgende stuk een kleine applicatie ombouwen van <q>no-threads</q> naar <q>threads</q>. _Voor het gemak_ hebben we de view en het model in één bestand gezet. Op Canvas kun je de code downloaden. We raden je ten zeerste aan om het bestand \path{demo-no-threads.py} te downloaden en dan stapje voor stapje de code aan te passen zoals in de handleiding gebeurt. De andere stappen staan alleen op Canvas om bij problemen even te kunnen vergelijken. _Probeer het dus zelf!_ Pas daarna ga je aan de slag om je eigen code om te bouwen waarbij de view en het model nu _wel_ weer in verschillende bestanden staan. Samenvattend: doorloop dit stuk handleiding _twee keer_. De eerste keer doe je de opdrachten met het demoscript, de tweede keer met je eigen code voor \githubrepo{pythondaq}.
-\end{info}
 
 \begin{pythoncode*}{linenos}
   import sys
@@ -594,7 +587,7 @@ class Experiment:
         self.y = []
 ```
 
-!!! question "inleveren: Pythondaq: threads I"
+!!! opdracht-inlever "Pythondaq: threads I"
     Pas je eigen code aan zodat de meetgegevens altijd beschikbaar zijn. _Test je code,_ je applicatie moet nog steeds werken.
 
 
@@ -615,7 +608,7 @@ class UserInterface(QtWidgets.QMainWindow):
 ```
 De code wordt hier niet sneller van -- hij maakt nog steeds pas een grafiek als de meting helemaal is afgelopen -- maar we bereiden de code wel voor op het gebruik van de instance attributes.
 
-!!! question "inleveren: Pythondaq: threads II"
+!!! opdracht-inlever "Pythondaq: threads II"
     Pas je eigen code aan zodat je instance attributes gebruikt voor het plotten. _Test je code,_ het moet nog steeds werken als vanouds.
 
 
@@ -649,7 +642,7 @@ class UserInterface(QtWidgets.QMainWindow):
         ... # plot
 ```
 
-!!! question "inleveren: Pythondaq: threads III"
+!!! opdracht-inlever "Pythondaq: threads III"
     Pas je eigen code aan zodat je een thread opstart om de scan op de achtergrond uit te voeren. Roep in je plotfunctie de goede method aan en wacht tot de thread klaar is. _Test je code._ Wederom moet het werken als vanouds. Kijk ook eens wat er gebeurt als je _niet_ wacht tot de metingen klaar zijn door de regel `#!py self.experiment._scan_thread.join()` uit te commentariëren (hekje ervoor). Niet vergeten het hekje weer weg te halen.
 
 
@@ -684,7 +677,7 @@ class UserInterface(QtWidgets.QMainWindow):
 ```
 Hiermee zijn we klaar met de implementatie van threads. De gebruiker hoeft niet langer in spanning te wachten maar krijgt onmiddelijke feedback.
 
-!!! question "inleveren: Pythondaq: threads IV"
+!!! opdracht-inlever "Pythondaq: threads IV"
     Pas je eigen code op dezelfde manier aan zodat de metingen op de achergrond worden uitgevoerd terwijl je de plot ziet opbouwen. Je code werkt nu _niet_ als vanouds, maar _voelt_ veel sneller!
 
 
@@ -697,8 +690,5 @@ Je kunt dit oplossen met `#!py threading.Event()` objecten. Dit zijn objecten me
 
 Ook kun je in de grafische interface na het starten van een meting de startknop onbeschikbaar maken met `#!py start_button.setEnabled(False)` en weer beschikbaar maken met `#!py start_button.setEnabled(True)`. De knop wordt dan tussendoor grijs. Dat kan handig zijn om duidelijk te maken dat een meting al loopt en dat je niet nogmaals op de startknop kunt drukken.
 
-\begin{bonus}
-    \begin{opdracht}[Pythondaq: threads V (uitdaging)]
+!!! opdracht-meer "Vergrendelen"
         Pas je code aan zodat je niet meerdere metingen tegelijk kunt starten. Zorg er ook voor dat de grafiek alleen geplot wordt tijdens de metingen (of tot kort daarna), maar niet de hele tijd.
-    \end{opdracht}
-\end{bonus}
