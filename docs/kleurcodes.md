@@ -5,15 +5,15 @@
 \colorlet{Rbrown}{brown!80!black}
 
 \newcommand{\drawband}[4][0pt]{
-\draw[line width=7pt, color=#3] ({#2 * .9}, -1) -- +(0, 2);
-\draw[thick, <-, >={Stealth[round]}] ({#2 * .9}, 1cm + 3pt) -- +(0, 1cm + #1) node[above, align=center] {#4};
+\draw[line width=7pt, color=#3] ({#2 * .9}, -1) &mdash; +(0, 2);
+\draw[thick, <-, >={Stealth[round]}] ({#2 * .9}, 1cm + 3pt) &mdash; +(0, 1cm + #1) node[above, align=center] {#4};
 }
 
 \vspace{-.5cm}
 
 \begin{center}
   \begin{tikzpicture}[scale=.6]
-    \draw[line width=5pt] (0, 0) -- +(-2, 0) (6, 0) -- +(2, 0);
+    \draw[line width=5pt] (0, 0) &mdash; +(-2, 0) (6, 0) &mdash; +(2, 0);
     \fill[LightSteelBlue] (0, -1) rectangle (6, 1);
 
     \drawband{1}{Rred}{1}
@@ -48,4 +48,4 @@
 \end{center}
 
 \noindent
-Helaas is het niet altijd mogelijk om de linkerkant van de weerstand van de rechterkant te onderscheiden. In dat geval moet je de weerstand beide kanten oplezen en vergelijken met je materialenlijst of de overige weerstanden om zeker te weten dat je de goede hebt gevonden. Bovenstaande weerstand heeft de waarde $\qty[retain-zero-exponent]{220}{\ohm} \pm \qty{1}{\percent}$, en _niet_ de waarde $\qty{100e2}{\ohm} \pm \qty{2}{\percent}$.
+Helaas is het niet altijd mogelijk om de linkerkant van de weerstand van de rechterkant te onderscheiden. In dat geval moet je de weerstand beide kanten oplezen en vergelijken met je materialenlijst of de overige weerstanden om zeker te weten dat je de goede hebt gevonden. Bovenstaande weerstand heeft de waarde $\qty[retain-zero-exponent]{220}{\ohm} \pm 1 \percent$, en _niet_ de waarde $100e2 \ohm \pm 2 \percent$.

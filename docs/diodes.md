@@ -8,7 +8,7 @@ Uiteindelijk is een diode een eenrichtingsweg voor stroom. Dat wil zeggen: er ka
 
 ## Halfgeleiders
 
-Metalen zijn \emph{geleiders}. Ze hebben in de buitenste schil één of enkele valentie-elektronen die vrij kunnen bewegen in het kristalrooster. Een potentiaalverschil (veroorzaakt door bijvoorbeeld een batterij) zorgt voor een stroom van elektronen. Bij een \emph{isolator} zitten alle elektronen vast in het rooster. Bij een \emph{halfgeleider} is dat eigenlijk ook zo -- de valentie-elektronen zijn nodig voor de bindingen tussen de atomen -- maar door trillingen in het rooster is het relatief eenvoudig om af en toe een \emph{elektron-gat-paar} te creëren: een elektron ontsnapt en kan door het kristalrooster bewegen, maar de achtergebleven atomen missen nu een bindingselektron (het \emph{gat}). Naburige elektronen kunnen heel eenvoudig in dit gat springen, maar laten dan weer een gat achter. Op deze manier kunnen gaten \emph{ook} vrij door het rooster reizen. Een gat heeft effectief een \emph{positieve lading}.
+Metalen zijn \emph{geleiders}. Ze hebben in de buitenste schil één of enkele valentie-elektronen die vrij kunnen bewegen in het kristalrooster. Een potentiaalverschil (veroorzaakt door bijvoorbeeld een batterij) zorgt voor een stroom van elektronen. Bij een \emph{isolator} zitten alle elektronen vast in het rooster. Bij een \emph{halfgeleider} is dat eigenlijk ook zo &mdash; de valentie-elektronen zijn nodig voor de bindingen tussen de atomen &mdash; maar door trillingen in het rooster is het relatief eenvoudig om af en toe een \emph{elektron-gat-paar} te creëren: een elektron ontsnapt en kan door het kristalrooster bewegen, maar de achtergebleven atomen missen nu een bindingselektron (het \emph{gat}). Naburige elektronen kunnen heel eenvoudig in dit gat springen, maar laten dan weer een gat achter. Op deze manier kunnen gaten \emph{ook} vrij door het rooster reizen. Een gat heeft effectief een \emph{positieve lading}.
 
 
 ## p-type en n-type halfgeleiders
@@ -48,7 +48,7 @@ Wanneer een diode wordt verbonden met een elektrisch circuit is de richting van 
 
 ### Doorlaatrichting
 
-Wanneer we de polariteit omdraaien en de p-typezijde verbinden aan de \emph{positieve} pool en de n-typezijde aan de \emph{negatieve} pool dan ontstaat er een elektrisch veld van p-type naar n-type, tegengesteld aan het sperveld. Wanneer het potentiaalverschil op de diode -- ten gevolge van een externe spanningsbron -- lager is dan het potentiaalverschil over de sperlaag, dan zal er nog steeds geen stroom kunnen lopen. De sperlaag wordt echter wel dunner. Wanneer het externe potentiaalverschil groter is, dan keert het \emph{netto} elektrisch veld in de sperlaag om en kunnen gaten en elektronen de grenslaag oversteken. Er loopt een stroom, maar wel anders dan in een geleider. De gaten en elektronen recombineren in het gebied van de grenslaag, terwijl er aan de metaal/halfgeleider grenzen nieuwe elektron-gatparen worden gevormd. Er stromen aan de zijde van de n-type halfgeleider dus continu elektronen vanuit het metaal naar de grenslaag en aan de zijde van de p-type halfgeleider stromen continu gaten van het metaal naar de grenslaag. Aan de grenslaag metaal/p-type halfgeleider verlaten elektronen de halfgeleider (en zo ontstaan de gaten). Voor de vrije ladingsdragers is de weerstand in de halfgeleider vrij laag waardoor de stroomsterkte flink kan oplopen. Een diode geleidt dus in de doorlaatrichting, maar pas boven een minimale \emph{doorlaatspanning}.
+Wanneer we de polariteit omdraaien en de p-typezijde verbinden aan de \emph{positieve} pool en de n-typezijde aan de \emph{negatieve} pool dan ontstaat er een elektrisch veld van p-type naar n-type, tegengesteld aan het sperveld. Wanneer het potentiaalverschil op de diode &mdash; ten gevolge van een externe spanningsbron &mdash; lager is dan het potentiaalverschil over de sperlaag, dan zal er nog steeds geen stroom kunnen lopen. De sperlaag wordt echter wel dunner. Wanneer het externe potentiaalverschil groter is, dan keert het \emph{netto} elektrisch veld in de sperlaag om en kunnen gaten en elektronen de grenslaag oversteken. Er loopt een stroom, maar wel anders dan in een geleider. De gaten en elektronen recombineren in het gebied van de grenslaag, terwijl er aan de metaal/halfgeleider grenzen nieuwe elektron-gatparen worden gevormd. Er stromen aan de zijde van de n-type halfgeleider dus continu elektronen vanuit het metaal naar de grenslaag en aan de zijde van de p-type halfgeleider stromen continu gaten van het metaal naar de grenslaag. Aan de grenslaag metaal/p-type halfgeleider verlaten elektronen de halfgeleider (en zo ontstaan de gaten). Voor de vrije ladingsdragers is de weerstand in de halfgeleider vrij laag waardoor de stroomsterkte flink kan oplopen. Een diode geleidt dus in de doorlaatrichting, maar pas boven een minimale \emph{doorlaatspanning}.
 
 
 ### Lichtgevende diode
@@ -67,15 +67,15 @@ met $I$ de diodestroom, $I_\mathrm{S}$ de diodelekstroom, $V_\mathrm{D}$ de span
 \begin{equation}
   V_\mathrm{T} = \frac{kT}{q},
 \end{equation}
-met $k$ de constante van Boltzmann, $T$ de temperatuur van het materiaal en $q$ de elementaire lading. De diodelekstroom is de stroomsterkte ten gevolge van de minderheidsladingsdragers\footnote{Engels: \emph{minority charge carriers.}} -- het kleine aantal vrije elektronen in p-type halfgeleider en het kleine aantal gaten in n-type halfgeleider. Zie \figref{fig:diodestroom}.
+met $k$ de constante van Boltzmann, $T$ de temperatuur van het materiaal en $q$ de elementaire lading. De diodelekstroom is de stroomsterkte ten gevolge van de minderheidsladingsdragers\footnote{Engels: \emph{minority charge carriers.}} &mdash; het kleine aantal vrije elektronen in p-type halfgeleider en het kleine aantal gaten in n-type halfgeleider. Zie \figref{fig:diodestroom}.
 
 \begin{figure}
   \centering
   \begin{tikzpicture}
     \clip (-1em, -1.2em) rectangle (8, 5.5);
     \draw[very thick, domain=0:7] plot (\x, {1e-2 * (exp(\x) - 1)});
-    \draw[->, thick] (0, 0) -- (7, 0) node[right] {$U_\mathrm{D}$};
-    \draw[->, thick] (0, 0) -- (0, 5) node[above] {$I$};
+    \draw[->, thick] (0, 0) &mdash; (7, 0) node[right] {$U_\mathrm{D}$};
+    \draw[->, thick] (0, 0) &mdash; (0, 5) node[above] {$I$};
     \node[below left] at (0, 0) {0};
   \end{tikzpicture}
   \caption{De stroom door een diode ten gevolge van de spanning over de diode.}

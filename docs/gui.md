@@ -62,7 +62,7 @@ We gaan de eenvoudige interface programmeren die weergegeven is in \figref{fig:s
 \end{figure}
 We doen dat door de class `#!py UserInterface` uit te breiden met widgets uit de `#!py QtWidgets` bibliotheek.
 
-Het definiëren van layouts gebeurt in veruit de meeste opmaaksystemen met rechthoeken (_Engels: boxes_) die op verschillende manieren gestapeld worden -- naast elkaar, boven elkaar, of op een rechthoekig grid bijvoorbeeld. Zulke systemen zijn ook _hiërarchisch_: je stopt boxes in andere boxes. De layout van \figref{fig:screenshot-ui-prog} is als volgt opgebouwd: ieder venster moet één centrale widget hebben (\figref{fig:layout-centerwidget}). Vervolgens geven we aan dat we die verticaal gaan opdelen (\figref{fig:layout-vbox}). In die indeling plaatsen we dan een widget voor tekstinvoer én een widget met een horizontale opdeling (\figref{fig:layout-text-hbox}). Als laatste plaatsen we in die horizontale opdeling twee knoppen (\figref{fig:layout-buttons}). Vergelijk die schematische voorstelling nog een keer met \figref{fig:screenshot-ui-prog}. Het is soms even puzzelen hoe je de layout van een applicatie het beste opbouwt.
+Het definiëren van layouts gebeurt in veruit de meeste opmaaksystemen met rechthoeken (_Engels: boxes_) die op verschillende manieren gestapeld worden &mdash; naast elkaar, boven elkaar, of op een rechthoekig grid bijvoorbeeld. Zulke systemen zijn ook _hiërarchisch_: je stopt boxes in andere boxes. De layout van \figref{fig:screenshot-ui-prog} is als volgt opgebouwd: ieder venster moet één centrale widget hebben (\figref{fig:layout-centerwidget}). Vervolgens geven we aan dat we die verticaal gaan opdelen (\figref{fig:layout-vbox}). In die indeling plaatsen we dan een widget voor tekstinvoer én een widget met een horizontale opdeling (\figref{fig:layout-text-hbox}). Als laatste plaatsen we in die horizontale opdeling twee knoppen (\figref{fig:layout-buttons}). Vergelijk die schematische voorstelling nog een keer met \figref{fig:screenshot-ui-prog}. Het is soms even puzzelen hoe je de layout van een applicatie het beste opbouwt.
 
 \begin{figure}
     \centering
@@ -190,7 +190,7 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
     
 
 
-Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst hier: \url{https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes}. Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies `CamelCase` namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we `snake\_case` gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
+Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst hier: [https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes](https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes). Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies `CamelCase` namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we `snake\_case` gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
 
 !!! opdracht-meer""Volgorde layout aanpassen"
     De volgorde waarin je layout en widgets toevoegt bepaald het uiterlijk van de grafische interface. Verander de code om de layout aan te passen (zet bijvoorbeeld de knoppen boven de textbox of zet de knoppen onder elkaar en naast de textbox).
@@ -255,7 +255,7 @@ Je hebt nu twee manieren gezien om een interface te bouwen: programmeren of Desi
 
 In de eindopracht willen we data weergeven op een scherm. We zullen dus nog moeten plotten. In de volgende opdrachten gaan we daarmee aan de slag.
 
-Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties. Helaas is matplotlib voor het gebruik in interactieve interfaces nogal traag zodra we te maken krijgen met meer data. We kiezen daarom voor een populair alternatief: PyQtGraph. Eén nadeel: de documentatie\footnote{\url{https://pyqtgraph.readthedocs.io/en/latest/}} is niet fantastisch. Het geeft dus niets als je ergens niet uitkomt en je hebt hulp nodig van de assistent of een staflid.
+Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties. Helaas is matplotlib voor het gebruik in interactieve interfaces nogal traag zodra we te maken krijgen met meer data. We kiezen daarom voor een populair alternatief: PyQtGraph. Eén nadeel: de documentatie\footnote{[https://pyqtgraph.readthedocs.io/en/latest/](https://pyqtgraph.readthedocs.io/en/latest/)} is niet fantastisch. Het geeft dus niets als je ergens niet uitkomt en je hebt hulp nodig van de assistent of een staflid.
 
 
 ### De plotter als script
@@ -272,14 +272,14 @@ pg.setConfigOption("foreground", "k")
 Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en dan krijg je de standaardinstelling: grijze letters op een zwarte achtergrond. Het is maar wat je fijn vindt.
 
 \begin{info}
-    \textbf{Als je je GUI het liefst programmeert}, gebruik dan de volgende regel om een plot widget te krijgen in de `#!py __init__()`:
+    __Als je je GUI het liefst programmeert__, gebruik dan de volgende regel om een plot widget te krijgen in de `#!py __init__()`:
     ``` py
     self.plot_widget = pg.PlotWidget()
     ```
 \end{info}
 
 \begin{info}
-    \textbf{Als je je GUI het liefst ontwerpt met Designer} voegen we als volgt een plot widget toe:
+    __Als je je GUI het liefst ontwerpt met Designer__ voegen we als volgt een plot widget toe:
 
     1. Voeg aan je interface een _Graphics View_ toe;
     1. Klik er op om hem te selecteren en klik daarna op de rechtermuistoets;
@@ -298,7 +298,7 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
 \end{figure}
 
 \begin{info}
-    \textbf{Handige widgets}: in \tabref{tab:widgets} zie je een lijst van zeer handige widgets die je vrijwel zeker nodig hebt. Als je nog meer widgets wilt gebruiken, kijk dan in de lijst van Designer en/of op \url{https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html}.
+    __Handige widgets__: in \tabref{tab:widgets} zie je een lijst van zeer handige widgets die je vrijwel zeker nodig hebt. Als je nog meer widgets wilt gebruiken, kijk dan in de lijst van Designer en/of op [https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html).
 \end{info}
 
 \begin{table}
@@ -317,7 +317,7 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
         QDoubleSpinBox         & Double Spin Box   & Kies een kommagetal (intypen of met pijltjes selecteren). Signals: `valueChanged`.                                                     \\
         \bottomrule
     \end{tabularx}
-    \caption{Lijst van zeer handige widgets. Je hebt deze widgets hoogstwaarschijnlijk nodig. Zie voor meer informatie: \url{https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html}.}
+    \caption{Lijst van zeer handige widgets. Je hebt deze widgets hoogstwaarschijnlijk nodig. Zie voor meer informatie: [https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html).}
     \label{tab:widgets}
 \end{table}
 
@@ -350,7 +350,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen`, 
 
 
 !!! opdracht meer "Functieplotter (uitdaging)"
-        Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals `x ** 2`, `sin(x)` of `1 / sqrt(x + 1)`. Gebruik daarvoor het `asteval` package \parencite{asteval}. Documentatie vind je op \url{https://newville.github.io/asteval/}.
+        Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals `x ** 2`, `sin(x)` of `1 / sqrt(x + 1)`. Gebruik daarvoor het `asteval` package [@asteval]. Documentatie vind je op [https://newville.github.io/asteval/](https://newville.github.io/asteval/).
 
 !!! warning 
         Gebruik _nooit_ zomaar `#!py eval()` op een string die iemand anders aanlevert. Anders kan iemand met typen in een tekstveld of het inlezen van een tekstbestand je computer wissen bijvoorbeeld, of malware installeren. Als je `#!py eval()` wilt gebruiken, lees dan de sectie _Minimizing the Security Issues of eval()_ in \citetitle{eval} \cite{eval}. Maar _veel makkelijker_ is om `asteval` te gebruiken.
@@ -372,22 +372,22 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
     ```
 
 !!! info
-    Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met Poetry <q>taken</q> aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn niet meer beschikbaar als je je applicatie deelt met andere mensen -- ze zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. En dat is wat we willen. Doe dit als volgt:
+    Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met Poetry <q>taken</q> aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn niet meer beschikbaar als je je applicatie deelt met andere mensen &mdash; ze zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. En dat is wat we willen. Doe dit als volgt:
 
-    1. Installeer _Poe the Poet_ -- onze _task runner_ -- als _development dependency_ met:
+    1. Installeer _Poe the Poet_ &mdash; onze _task runner_ &mdash; als _development dependency_ met:
             ``` ps1con
             poetry add --group dev poethepoet
             ```
             We geven hiermee aan dat we dit package nodig hebben voor de ontwikkeling van onze applicatie, maar dat deze niet meegeleverd hoeft te worden als we de applicatie gaan delen met anderen.
-    1. Voeg aan je :fontawesome-regular-file-code:`pyproject.toml` het volgende toe -- uitgaande van de mappenstructuur in de `pythondaq` package en :fontawesome-regular-file-lines:`mainwindow.ui` als naam van je `.ui`-bestand:
+    1. Voeg aan je :fontawesome-regular-file-code:`pyproject.toml` het volgende toe &mdash; uitgaande van de mappenstructuur in de `pythondaq` package en :fontawesome-regular-file-lines:`mainwindow.ui` als naam van je `.ui`-bestand:
             \begin{tomlcode}
                 [tool.poe.tasks.compile]
                 shell = """
                 pyside6-uic src/pythondaq/mainwindow.ui -o src/pythondaq/ui_mainwindow.py
                 """
             \end{tomlcode}
-            Je kunt binnen de driedubbele aanhalingstekens meerdere regels toevoegen als je meerdere `.ui`-bestanden hebt -- voor ieder bestand een regel.
-    1. In bovenstaande regels is de naam na `tool.poe.tasks` de naam van de taak -- in dit geval dus `compile`. Je kunt die naam zelf kiezen. Voer de taak uit door in de terminal in te typen:
+            Je kunt binnen de driedubbele aanhalingstekens meerdere regels toevoegen als je meerdere `.ui`-bestanden hebt &mdash; voor ieder bestand een regel.
+    1. In bovenstaande regels is de naam na `tool.poe.tasks` de naam van de taak &mdash; in dit geval dus `compile`. Je kunt die naam zelf kiezen. Voer de taak uit door in de terminal in te typen:
             ``` ps1con
             poe compile
             ```
@@ -451,7 +451,7 @@ Je kunt je grafische applicatie volledig optuigen met menu's of taakbalken. Ook 
 
 ### Selecteer de Arduino
 
-Je hebt nu nog, waarschijnlijk, de poortnaam van de Arduino in je code gedefinieerd als vaste waarde. Dat betekent dat als je de code deelt met iemand anders -- bijvoorbeeld wanneer je de code inlevert op Canvas of wanneer je je experiment op een labcomputer wilt draaien -- je het risico loopt dat je applicatie crasht omdat de Arduino aan een andere poort hangt. Zeker bij de overstap van Windows naar MacOS of Linux, of andersom! Je kunt dit op twee manieren oplossen:
+Je hebt nu nog, waarschijnlijk, de poortnaam van de Arduino in je code gedefinieerd als vaste waarde. Dat betekent dat als je de code deelt met iemand anders &mdash; bijvoorbeeld wanneer je de code inlevert op Canvas of wanneer je je experiment op een labcomputer wilt draaien &mdash; je het risico loopt dat je applicatie crasht omdat de Arduino aan een andere poort hangt. Zeker bij de overstap van Windows naar MacOS of Linux, of andersom! Je kunt dit op twee manieren oplossen:
 
 1. Je maakt een keuzemenu dat de gebruiker bij het opstarten éérst krijgt te zien. Hierin kan de gebruiker de Arduino aanklikken en dan pas wordt het hoofdprogramma opgestart;
 1. Je probeert de Arduino te detecteren op één van de poorten. De gebruiker hoeft dan niet te weten welke poort dat zou kunnen zijn. Het werkt dan vanzelf!
@@ -470,7 +470,7 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
 
 % Om je een zoektocht te besparen: wanneer je een device probeert te openen kun je een `serial.serialutil.SerialException`\footnote{Om de exception te <q>herkennen</q> moet je bovenin je code `#!py import serial.serialutil` toevoegen.} krijgen, bijvoorbeeld wanneer het device al in gebruik is. Als je met een device probeert te communiceren en je krijgt geen antwoord, dan krijg je een `pyvisa.errors.VisaIOError`. Vang in ieder geval die exceptions dus af.
 
-% Aangezien het hier heel specifiek over Arduino's gaat -- en niet in het algemeen over een instrument -- is de controller de juiste plek voor deze code. Als je wilt dat de detectie niet te lang duurt -- je moet immers steeds wachten op een antwoord dat misschien niet komt -- kun je in de `ArduinoVISADevice`-class aan de `open\_resource()`-aanroep de parameter `timeout=100` toevoegen. Hij wacht dan maximaal \qty{100}{\milli\second} op antwoord en geeft dan een timeout.
+% Aangezien het hier heel specifiek over Arduino's gaat &mdash; en niet in het algemeen over een instrument &mdash; is de controller de juiste plek voor deze code. Als je wilt dat de detectie niet te lang duurt &mdash; je moet immers steeds wachten op een antwoord dat misschien niet komt &mdash; kun je in de `ArduinoVISADevice`-class aan de `open\_resource()`-aanroep de parameter `timeout=100` toevoegen. Hij wacht dan maximaal 100 \milli\second op antwoord en geeft dan een timeout.
 
 % \begin{hogercijfer}
 %   \begin{opdracht}
@@ -555,7 +555,7 @@ Threads geven vaak problemen omdat ze in zekere zin onvoorspelbaar zijn. Je weet
   if __name__ == "__main__":
       main()  
 \end{pythoncode*}
-In regels 15--24 bouwen we een kleine user interface op met een plot widget en een startknop. We koppelen die knop aan de `#!py plot()`-method. In regel 27 maken we ons experiment (het model) aan en bewaren die. In regels 29--33 maken we de plot schoon, voeren we een scan uit en plotten het resultaat. Regels 37--44 vormen ons experiment. Eerst wordt een rij $x$-waardes klaargezet en dan, in een loop, wordt punt voor punt de sinus uitgerekend en toegevoegd aan een lijst met $y$-waardes. De `#!py time.sleep(.1)` wacht steeds \qty{0.1}{\second} en zorgt hiermee voor de simulatie van _trage_ metingen. En inderdaad, als we deze code draaien dan moeten we zo'n vijf seconden wachten voordat de plot verschijnt.
+In regels 15--24 bouwen we een kleine user interface op met een plot widget en een startknop. We koppelen die knop aan de `#!py plot()`-method. In regel 27 maken we ons experiment (het model) aan en bewaren die. In regels 29--33 maken we de plot schoon, voeren we een scan uit en plotten het resultaat. Regels 37--44 vormen ons experiment. Eerst wordt een rij $x$-waardes klaargezet en dan, in een loop, wordt punt voor punt de sinus uitgerekend en toegevoegd aan een lijst met $y$-waardes. De `#!py time.sleep(.1)` wacht steeds 0.1 \second en zorgt hiermee voor de simulatie van _trage_ metingen. En inderdaad, als we deze code draaien dan moeten we zo'n vijf seconden wachten voordat de plot verschijnt.
 
 In de volgende opdrachten gaan we de code stap voor stap ombouwen naar threads. Als we daarmee klaar zijn worden de metingen gedaan binnen de `#!py scan()`-method van de `#!py Experiment()`-class en verversen we ondertussen af en toe de plot. De `#!py plot()`-method van onze user interface wordt regelmatig aangeroepen terwijl de meting nog loopt en moet dus de hele tijd de huidige metingen uit kunnen lezen. Dat kan, als de metingen worden bewaard in _instance attributes_.\footnote{Variabelen die we in een class definiëren door ze aan te maken met `#!py self.` ervoor zijn _instance attributes_.}
 
@@ -577,7 +577,7 @@ class Experiment:
             ...
         return self.x, self.y
 ```
-We zorgen er zo voor dat de lijst met meetgegevens voor zowel de $x$- als de $y$-waardes steeds even lang zijn. Dit is nodig voor het plotten: hij kan geen grafiek maken van 50 $x$-waardes en maar tien $y$-waardes.\footnote{Hier zie je een probleem met threads. Het kán -- in uitzonderlijke situaties -- voorkomen dat de plot-functie nét wil gaan plotten als de $x$-waardes al langer gemaakt zijn, maar de $y$-waardes nog niet. Die kans is heel klein en wij accepteren het risico. Schrijf je software voor een complex experiment dat drie dagen draait, dan is dit iets waar je echt rekening mee moet houden. Je moet dan gebruik gaan maken van zogeheten _locks_ of _semaphores_ maar dat valt buiten het bestek van deze cursus.} Ook moeten we er voor zorgen dat er _altijd_ (lege) meetgegevens beschikbaar zijn -- ook als de meting nog niet gestart is. Anders krijgen we voordat we een meting hebben kunnen doen een foutmelding dat `#!py self.x` niet bestaat. We doen dat in de `#!py __init__()`:
+We zorgen er zo voor dat de lijst met meetgegevens voor zowel de $x$- als de $y$-waardes steeds even lang zijn. Dit is nodig voor het plotten: hij kan geen grafiek maken van 50 $x$-waardes en maar tien $y$-waardes.\footnote{Hier zie je een probleem met threads. Het kán &mdash; in uitzonderlijke situaties &mdash; voorkomen dat de plot-functie nét wil gaan plotten als de $x$-waardes al langer gemaakt zijn, maar de $y$-waardes nog niet. Die kans is heel klein en wij accepteren het risico. Schrijf je software voor een complex experiment dat drie dagen draait, dan is dit iets waar je echt rekening mee moet houden. Je moet dan gebruik gaan maken van zogeheten _locks_ of _semaphores_ maar dat valt buiten het bestek van deze cursus.} Ook moeten we er voor zorgen dat er _altijd_ (lege) meetgegevens beschikbaar zijn &mdash; ook als de meting nog niet gestart is. Anders krijgen we voordat we een meting hebben kunnen doen een foutmelding dat `#!py self.x` niet bestaat. We doen dat in de `#!py __init__()`:
 ``` py
 # model
 class Experiment:
@@ -606,7 +606,7 @@ class UserInterface(QtWidgets.QMainWindow):
             self.experiment.x, self.experiment.y, symbol="o", symbolSize=5, pen=None
         )
 ```
-De code wordt hier niet sneller van -- hij maakt nog steeds pas een grafiek als de meting helemaal is afgelopen -- maar we bereiden de code wel voor op het gebruik van de instance attributes.
+De code wordt hier niet sneller van &mdash; hij maakt nog steeds pas een grafiek als de meting helemaal is afgelopen &mdash; maar we bereiden de code wel voor op het gebruik van de instance attributes.
 
 !!! opdracht-inlever "Pythondaq: threads II"
     Pas je eigen code aan zodat je instance attributes gebruikt voor het plotten. _Test je code,_ het moet nog steeds werken als vanouds.
@@ -630,7 +630,7 @@ class Experiment:
         self._scan_thread.start()
 ```
 
-In plaats van dat onze plotfunctie de `#!py scan()`-method aanroept, moeten we nu de `#!py start_scan()`-method aanroepen. Maar: die method start een scan en sluit meteen af, terwijl de daadwerkelijke meting op de achtergrond wordt uitgevoerd. De plotfunctie moet -- in deze stap nog even -- wachten tot de scan klaar is. Er is een manier om op een thread te wachten. Je moet daartoe de `#!py join()` method van de thread aanroepen. In bovenstaande code hebben we de thread bewaard in de variabele `#!py _scan_thread`, dus hij is voor ons beschikbaar:
+In plaats van dat onze plotfunctie de `#!py scan()`-method aanroept, moeten we nu de `#!py start_scan()`-method aanroepen. Maar: die method start een scan en sluit meteen af, terwijl de daadwerkelijke meting op de achtergrond wordt uitgevoerd. De plotfunctie moet &mdash; in deze stap nog even &mdash; wachten tot de scan klaar is. Er is een manier om op een thread te wachten. Je moet daartoe de `#!py join()` method van de thread aanroepen. In bovenstaande code hebben we de thread bewaard in de variabele `#!py _scan_thread`, dus hij is voor ons beschikbaar:
 ``` py
 # view
 class UserInterface(QtWidgets.QMainWindow):
@@ -649,7 +649,7 @@ class UserInterface(QtWidgets.QMainWindow):
 
 ### Stap 4: plotten op de achtergrond
 
-We zijn er nu bijna. We gebruiken threads om de metingen op de achtergrond uit te voeren maar we wachten nog steeds tot de metingen klaar zijn voordat we -- eenmalig -- de grafiek plotten. In deze laatste stap doen we dat niet meer. Als je straks op de startknop drukt dan start de meting op de achtergrond. Ondertussen wordt er regelmatig geplot. Je ziet dan tijdens de metingen de plot opbouwen. We doen dat door het scannen en plotten van elkaar los te koppelen -- niet meer samen in één functie -- en door met een `#!py QTimer` de plotfunctie periodiek aan te roepen. Kijk de code goed door. De `#!py ...` geven aan waar code onveranderd is gebleven en de `#!py plot()`-method is volledig vervangen en weer _bijna_ terug in de oorspronkelijke vorm. Als je twijfelt, kijk dan naar de volledige code op Canvas.
+We zijn er nu bijna. We gebruiken threads om de metingen op de achtergrond uit te voeren maar we wachten nog steeds tot de metingen klaar zijn voordat we &mdash; eenmalig &mdash; de grafiek plotten. In deze laatste stap doen we dat niet meer. Als je straks op de startknop drukt dan start de meting op de achtergrond. Ondertussen wordt er regelmatig geplot. Je ziet dan tijdens de metingen de plot opbouwen. We doen dat door het scannen en plotten van elkaar los te koppelen &mdash; niet meer samen in één functie &mdash; en door met een `#!py QTimer` de plotfunctie periodiek aan te roepen. Kijk de code goed door. De `#!py ...` geven aan waar code onveranderd is gebleven en de `#!py plot()`-method is volledig vervangen en weer _bijna_ terug in de oorspronkelijke vorm. Als je twijfelt, kijk dan naar de volledige code op Canvas.
 ``` py
 from PyQt5 import QtWidgets, QtCore
 
@@ -684,7 +684,7 @@ Hiermee zijn we klaar met de implementatie van threads. De gebruiker hoeft niet 
 
 ### Uitdaging: Stap 5: puntjes op de <q>i</q>: _events_
 
-Wanneer je op de startknop drukt, even wacht en dan wéér op de startknop drukt, dan kun je zien dat er _twee_ metingen tegelijk worden uitgevoerd op de achtergrond. Dat wil je voorkomen. Ook is het wel aardig om metingen tussentijds te kunnen stoppen. Dat is vooral handig als je merkt dat een meting veel te lang gaat duren. Verder is het ook nog zo dat we er nu met onze timer voor gezorgd hebben dat de plotfunctie meerdere keren per seconde wordt uitgevoerd -- of er nu een meting loopt of niet.
+Wanneer je op de startknop drukt, even wacht en dan wéér op de startknop drukt, dan kun je zien dat er _twee_ metingen tegelijk worden uitgevoerd op de achtergrond. Dat wil je voorkomen. Ook is het wel aardig om metingen tussentijds te kunnen stoppen. Dat is vooral handig als je merkt dat een meting veel te lang gaat duren. Verder is het ook nog zo dat we er nu met onze timer voor gezorgd hebben dat de plotfunctie meerdere keren per seconde wordt uitgevoerd &mdash; of er nu een meting loopt of niet.
 
 Je kunt dit oplossen met `#!py threading.Event()` objecten. Dit zijn objecten met `#!py set()`, `#!py clear()` en `#!py wait()` methods om gebeurtenissen aan te geven of er op te wachten. Zo kun je een event `#!py is_scanning` aanmaken die je `#!py set()` zodra een meting begint en `#!py clear()` zodra de meting is afgelopen. Je controleert bij de start van de meting dan bijvoorbeeld eerst of de meting al loopt met `#!py is_scanning.is_set()` en start alleen een meting als dat nog niet zo is.
 

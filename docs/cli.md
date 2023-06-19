@@ -1,9 +1,9 @@
 # Command-line interface
 ## Gebruikersomgevingen
 
-Vanaf de jaren '60 van de vorige eeuw werden computers _interactief_. Het was mogelijk om via een _terminal_ commando's aan de computer te geven en te wachten op een antwoord. In tegenstelling tot moderne gebruikersomgevingen waren deze volledig op tekst gebaseerd. Hoewel moderne besturingssystemen -- of het nu computers, tablets of mobiele telefoons betreft -- volledig grafisch zijn ingericht, is de tekstuele interface nooit verdwenen. Opdrachten geven door te typen is gewoon best wel handig en snel. Ook is het veel eenvoudiger om applicaties te ontwikkelen zonder grafische interface.
+Vanaf de jaren '60 van de vorige eeuw werden computers _interactief_. Het was mogelijk om via een _terminal_ commando's aan de computer te geven en te wachten op een antwoord. In tegenstelling tot moderne gebruikersomgevingen waren deze volledig op tekst gebaseerd. Hoewel moderne besturingssystemen &mdash; of het nu computers, tablets of mobiele telefoons betreft &mdash; volledig grafisch zijn ingericht, is de tekstuele interface nooit verdwenen. Opdrachten geven door te typen is gewoon best wel handig en snel. Ook is het veel eenvoudiger om applicaties te ontwikkelen zonder grafische interface.
 
-Op ieder besturingssysteem -- Linux, MacOS, Windows -- is een _shell_, _terminal_ of _command prompt_ te vinden. Als je die opstart kun je op de zogeheten _command line_ opdrachten intypen. Veelal zijn dit commando's om het bestandssysteem te navigeren en programma's op te starten.
+Op ieder besturingssysteem &mdash; Linux, MacOS, Windows &mdash; is een _shell_, _terminal_ of _command prompt_ te vinden. Als je die opstart kun je op de zogeheten _command line_ opdrachten intypen. Veelal zijn dit commando's om het bestandssysteem te navigeren en programma's op te starten.
 
 Wanneer je in Visual Studio Code een Python script start dan opent het een terminal onderin het scherm.
 
@@ -28,9 +28,9 @@ Als applicaties veel verschillende functionaliteit hebben dan krijg je regelmati
 ``` ps1con
 PS> conda create -n IK-pythondaq -c conda-forge python pyvisa-py
 ```
-Uitgesplitst in \textit{argumenten} en \textbf{opties}, met vierkante haken [] om aan te geven welke onderdelen bij elkaar horen, is dat:
+Uitgesplitst in \textit{argumenten} en __opties__, met vierkante haken [] om aan te geven welke onderdelen bij elkaar horen, is dat:
 \begin{quote}
-    conda \textit{create} [\textbf{-n} \textit{IK-pythondaq}] [\textbf{-c} \textit{conda-forge}] [\textit{python pyvisa-py}]
+    conda \textit{create} [__-n__ \textit{IK-pythondaq}] [__-c__ \textit{conda-forge}] [\textit{python pyvisa-py}]
 \end{quote}
 
 
@@ -75,13 +75,13 @@ else:
     print(f"CommandNotFoundError: No command '{args[1]}'.")
 \end{pythoncode*}
 
-Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar -- waaronder een paar in de _standard library_. Een hele handige -- die níet in de _standard library_ zit maar wél meegeleverd is met Anaconda -- is Click \cite{click}.
+Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de _standard library_. Een hele handige &mdash; die níet in de _standard library_ zit maar wél meegeleverd is met Anaconda &mdash; is Click \cite{click}.
 
 \begin{info}
     Click maakt gebruik van _decorators_ (`#!py @decorator`). Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_. Als je meer wilt weten over de werking ervan lees dan \secref{sec:decorators}.
 \end{info}
 
-Als kort voorbeeld -- geïnspireerd op de documentatie van Click -- nemen we het volgende script:
+Als kort voorbeeld &mdash; geïnspireerd op de documentatie van Click &mdash; nemen we het volgende script:
 ``` py
 # hello.py
 
@@ -160,7 +160,7 @@ PS> python hello.py --help
 % ```
 
 
-Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij _opties_ is dat anders. Je geeft met mintekens aan dat je een optie meegeeft. Veel opties hebben een lange naam en een afkorting (bijvoorbeeld \shellinline{--count} en \shellinline{-c}). Opties kunnen zelf weer een argument hebben (bijvoorbeeld \shellinline{--count 3}). Opties zonder argument werken als vlag -- een soort aan/uitknop.\footnote{Gebruik forward slash om een vlaggetje te maken: `#!py @click.option("-f", "--flag/--no-flag`} Het is handig om een standaardwaarde te definiëren. In dat geval mag de gebruiker de optie weglaten. We voegen een for-loop\footnote{Merk op in de code hieronder: `#!py _` is de weggooivariabele in Python. Het gaat ons erom dat de lus een aantal keer doorlopen wordt en we hoeven niets te doen met de loop index.} toe om de begroeting te herhalen.
+Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij _opties_ is dat anders. Je geeft met mintekens aan dat je een optie meegeeft. Veel opties hebben een lange naam en een afkorting (bijvoorbeeld \shellinline{--count} en \shellinline{-c}). Opties kunnen zelf weer een argument hebben (bijvoorbeeld \shellinline{--count 3}). Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.\footnote{Gebruik forward slash om een vlaggetje te maken: `#!py @click.option("-f", "--flag/--no-flag`} Het is handig om een standaardwaarde te definiëren. In dat geval mag de gebruiker de optie weglaten. We voegen een for-loop\footnote{Merk op in de code hieronder: `#!py _` is de weggooivariabele in Python. Het gaat ons erom dat de lus een aantal keer doorlopen wordt en we hoeven niets te doen met de loop index.} toe om de begroeting te herhalen.
 
 \begin{pythoncode*}{highlightlines={7-11,13}}
 # hello.py
@@ -187,7 +187,7 @@ if __name__ == "__main__":
 
 
 \begin{warning}
-    Let er op dat je bij `#!py @click.option` de afkorting met 1 minteken meegeeft en de lange naam met 2 mintekens. De lange naam moet overeenkomen met de paramater van je functie. In ons geval hebben we een optie `#!py "--count"` -- de lange naam telt. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name, count)`.
+    Let er op dat je bij `#!py @click.option` de afkorting met 1 minteken meegeeft en de lange naam met 2 mintekens. De lange naam moet overeenkomen met de paramater van je functie. In ons geval hebben we een optie `#!py "--count"` &mdash; de lange naam telt. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name, count)`.
 \end{warning}
 
 Het is handig om een korte helptekst toe te voegen. Dit gaat als volgt:
@@ -295,7 +295,7 @@ Een eenvoudig voorbeeldscript waarin de conda commando's `install` en `remove` w
     if __name__ == "__main__":
         cmd_group()
 \end{pythoncode*}
-In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeurig `#!py cmd_group()` genoemd hebben en die we bovenaan definiëren. In tegenstelling tot het :fontawesome-regular-file-code:`hello.py`-script doet deze functie helemaal niets (`#!py pass`). We vertellen aan click dat we een groep van commando's aan gaan maken met de `#!py @click.group()`-decorator in regel 5. Vervolgens gaan we commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` -- zie regels 9 en 14. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 9 en 11 maken samen het commando `install`. Verder werkt alles hetzelfde. Dus een argument toevoegen -- zoals in regel 10 -- is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
+In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeurig `#!py cmd_group()` genoemd hebben en die we bovenaan definiëren. In tegenstelling tot het :fontawesome-regular-file-code:`hello.py`-script doet deze functie helemaal niets (`#!py pass`). We vertellen aan click dat we een groep van commando's aan gaan maken met de `#!py @click.group()`-decorator in regel 5. Vervolgens gaan we commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` &mdash; zie regels 9 en 14. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 9 en 11 maken samen het commando `install`. Verder werkt alles hetzelfde. Dus een argument toevoegen &mdash; zoals in regel 10 &mdash; is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
 
 \begin{warning}
     \label{warn:cmd_name}
@@ -307,7 +307,7 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
         def import_package(package):
             print(f"import {package}...")
     ```
-    We hebben nu een commando `import` aangemaakt -- _niet_ een commando `import\_package`.
+    We hebben nu een commando `import` aangemaakt &mdash; _niet_ een commando `import\_package`.
 \end{warning}
 
 !!! opdracht-basis "Pyproject toml"
@@ -336,11 +336,11 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
 
 
 !!! opdracht-meer "Smallangle (uitdaging)"
-    Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt -- maar jij weet precies over welk onderdeel we het hebben.
+    Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt &mdash; maar jij weet precies over welk onderdeel we het hebben.
 
     1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam \githubrepo{smallangle}.
     1. Maak een nieuw environment die `IK-smallangle` heet met daarin alleen Python.
-    1. Zet in de package \folderpath{smallangle} een module :fontawesome-regular-file-code:`smallangle.py`.
+    1. Zet in de package :fontawesome-regular-folder:`smallangle` een module :fontawesome-regular-file-code:`smallangle.py`.
     1. Plak de onderstaande code in :fontawesome-regular-file-code:`smallangle.py`:
         ``` py
         import numpy as np
@@ -365,7 +365,7 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
         if __name__ == "__main__":
             sin(10)
         ```
-        1. Ga door naar \opdref{opd:smallangle} stap 2. Je mag stap 1 overslaan -- dat werk heb je nu zelf al gedaan.
+        1. Ga door naar \opdref{opd:smallangle} stap 2. Je mag stap 1 overslaan &mdash; dat werk heb je nu zelf al gedaan.
     
 
 
@@ -393,7 +393,7 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
 ## Docstrings
 Documentatie is vaak een onderschoven kindje, maar is ontzettend belangrijk. Als je zelf informatie opzoekt over bijvoorbeeld een voor jou onbekende Pythonbibliotheek dan vind je het heel fijn als er een duidelijke tutorial is. Als je code schrijft die ook door andere mensen gebruikt moet worden is documentatie nodig. Als de code langer mee moet gaan dan zeg een paar weken, dan helemaal. Want over een paar weken ben jij _zelf_ een ander persoon. Hoe vervelend het ook is, code die je nota bene zelf geschreven hebt is over een paar weken niet meer glashelder. Je zult dan moeten uitzoeken hoe je ook alweer iets hebt gedaan of wat de gedachte erachter was.
 
-Tot nu toe heb je waarschijnlijk gebruik gemaakt van `#!py #stukjes commentaar` om duidelijk te maken wat je code doet. Maar als je de applicatie aan het gebruiken bent en je wilt weten wat een bepaalde functie eigenlijk doet, moet je dus de code induiken op zoek naar de betreffende functie. Met _docstrings_ -- documentatiestrings -- is dat verleden tijd. De documentatie over een functie kan automatisch gegenereerd worden vanuit je code met behulp van de docstring. Docstrings staat tussen 3 dubbele aanhalingstekens en hebben doorgaans een vaste structuur:\footnote{Die vaste structuur wordt niet door Python afgedwongen, maar is een goed gebruik. Er worden verschillende stijlen gebruikt. Eén van de meest gebruikte stijlen is door programmeurs van Google bedacht \parencite{google_style_guide}.}
+Tot nu toe heb je waarschijnlijk gebruik gemaakt van `#!py #stukjes commentaar` om duidelijk te maken wat je code doet. Maar als je de applicatie aan het gebruiken bent en je wilt weten wat een bepaalde functie eigenlijk doet, moet je dus de code induiken op zoek naar de betreffende functie. Met _docstrings_ &mdash; documentatiestrings &mdash; is dat verleden tijd. De documentatie over een functie kan automatisch gegenereerd worden vanuit je code met behulp van de docstring. Docstrings staat tussen 3 dubbele aanhalingstekens en hebben doorgaans een vaste structuur:\footnote{Die vaste structuur wordt niet door Python afgedwongen, maar is een goed gebruik. Er worden verschillende stijlen gebruikt. Eén van de meest gebruikte stijlen is door programmeurs van Google bedacht [@google_style_guide].}
 
 ``` py
 # integers_up_to.py
@@ -428,12 +428,12 @@ PS> python integers_up_to.py
         Returns:
             list: containing the integers
 ```
-Je zult niet altijd de `#!py help()` functie gebruiken misschien, maar gebruik zoveel mogelijk docstrings -- ze helpen ook enorm als je de code leest. Het is extra werk maar het verdient zich dubbel en dwars terug. Je hoeft geen proza te schrijven, maar wees duidelijk. Lees voor meer voorbeelden bijvoorbeeld de \citetitle{google_style_guide} \parencite{google_style_guide}.
+Je zult niet altijd de `#!py help()` functie gebruiken misschien, maar gebruik zoveel mogelijk docstrings &mdash; ze helpen ook enorm als je de code leest. Het is extra werk maar het verdient zich dubbel en dwars terug. Je hoeft geen proza te schrijven, maar wees duidelijk. Lees voor meer voorbeelden bijvoorbeeld de \citetitle{google_style_guide} [@google_style_guide].
 
 
 ### Docstring generator
 
-Om het gemakkelijker te maken om docstrings ook écht te gaan schrijven, zijn er docstring generators ontwikkeld. Voor Visual Studio Code is er de extensie \citetitle{AutoDocstring} \parencite{AutoDocstring}.
+Om het gemakkelijker te maken om docstrings ook écht te gaan schrijven, zijn er docstring generators ontwikkeld. Voor Visual Studio Code is er de extensie \citetitle{AutoDocstring} [@AutoDocstring].
 
 !!! opdracht-basis "Autodocstring"
     Kijk in Visual Studio Code bij extensions hoe je AutoDocstring kunt gebruiken. Kies daarvoor in de linkerkantlijn het goede icoon voor _extensions_ en selecteer dan de `autoDocstring` extensie. Zoek in de documentatie naar hoe je automatisch (een deel van) de docstring genereert.
@@ -559,7 +559,7 @@ In \chref{ch:mvc} heb je `pythondaq` uitgesplitst in model, view en controller. 
 We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het tonen van de resultaten daarvan aan de gebruiker.
 
 \begin{info}
-    Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen \qtylist{0;3.3}{\volt}. Je kunt dit doen door de `#!py type`-parameter in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven (bijvoorbeeld: `#!py type=int` of `#!py type=float`) en Click heeft speciale types zoals `#!py type=click.FloatRange(0, 3.3)` voor een kommagetal tussen 0 en 3.3. Bekijken alle speciale types op \url{https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types}. Als je hiervan gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat voor je.
+    Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen \qtylist{0;3.3}{\volt}. Je kunt dit doen door de `#!py type`-parameter in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven (bijvoorbeeld: `#!py type=int` of `#!py type=float`) en Click heeft speciale types zoals `#!py type=click.FloatRange(0, 3.3)` voor een kommagetal tussen 0 en 3.3. Bekijken alle speciale types op [https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types](https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types). Als je hiervan gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat voor je.
 \end{info}
 
 !!! opdracht-inlever "Pythondaq: `scan`"
@@ -572,10 +572,10 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
 
 ### Het meetinstrument kiezen
 
-We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan heeft toegekend. Helaas kan -- ook afhankelijk van het besturingssysteem -- die naam veranderen als we de Arduino in een andere poort van onze computer steken of soms zelfs als we een andere Arduino op dezelfde poort koppelen. Met het commando `list` laten we alle apparaten zien die gevonden worden door de VISA drivers.
+We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan heeft toegekend. Helaas kan &mdash; ook afhankelijk van het besturingssysteem &mdash; die naam veranderen als we de Arduino in een andere poort van onze computer steken of soms zelfs als we een andere Arduino op dezelfde poort koppelen. Met het commando `list` laten we alle apparaten zien die gevonden worden door de VISA drivers.
 
 !!! opdracht-inlever "Pythondaq: `list`"
-    Schrijf het commando `list` zodat het een lijst geeft van de aangesloten instrumenten -- zoals we in het vorige hoofdstuk al eens gedaan hebben.
+    Schrijf het commando `list` zodat het een lijst geeft van de aangesloten instrumenten &mdash; zoals we in het vorige hoofdstuk al eens gedaan hebben.
 
 
 !!! opdracht-inlever "Pythondaq: choose device"
@@ -592,7 +592,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
 
 !!! opdracht-inlever "Pythondaq: Grafiek"
-    Breid je `scan` opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `{-`{-}graph} om een grafiek te tekenen en `{-`{-}no-graph} om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags voor Click op \url{https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags}.
+    Breid je `scan` opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `{-`{-}graph} om een grafiek te tekenen en `{-`{-}no-graph} om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags voor Click op [https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
 
 
 !!! opdracht-meer "Pythondaq: `list` `--search`"
@@ -622,9 +622,9 @@ Op dit punt hebben we de functionaliteit van ons snelle script van het vorige ho
 
 ## Uitdaging: Een interface met stijl
 
-Ook command-line interfaces gaan met hun tijd mee. Vroeger waren ze per definitie zwart/wit en statisch, maar tegenwoordig worden interfaces vaak opgeleukt met kleur, emoji's en bewegende progressbars. _Rich_~\cite{rich} is een project dat in recordtijd heel populair is geworden. Het bestaat pas sinds november 2019 en heeft precies twee jaar later meer dan \num{31000}\,\raisebox{-1.5pt}{\FiveStar} verzameld. Dat is _veel_ -- en de populariteit is sindsdien nog verder toegenomen.
+Ook command-line interfaces gaan met hun tijd mee. Vroeger waren ze per definitie zwart/wit en statisch, maar tegenwoordig worden interfaces vaak opgeleukt met kleur, emoji's en bewegende progressbars. _Rich_~\cite{rich} is een project dat in recordtijd heel populair is geworden. Het bestaat pas sinds november 2019 en heeft precies twee jaar later meer dan 31000\,\raisebox{-1.5pt}{\FiveStar} verzameld. Dat is _veel_ &mdash; en de populariteit is sindsdien nog verder toegenomen.
 
-Rich is ontzettend uitgebreid en heeft heel veel mogelijkheden. Voor ons project kan het handig zijn om een progressbar te gebruiken of met Rich een tabel weer te geven. De documentatie~\cite{rich-docs} van Rich is best goed, maar kan lastig zijn om een mooi overzicht te krijgen. Een serie van korte video tutorials kun je vinden bij \url{https://calmcode.io/rich/introduction.html}. Iedere video duurt maar één tot twee minuten en laat mooi de mogelijkheden zien. Voor de functies die je wilt gebruiken kun je dan meer informatie opzoeken in de documentatie van Rich zelf.
+Rich is ontzettend uitgebreid en heeft heel veel mogelijkheden. Voor ons project kan het handig zijn om een progressbar te gebruiken of met Rich een tabel weer te geven. De documentatie~\cite{rich-docs} van Rich is best goed, maar kan lastig zijn om een mooi overzicht te krijgen. Een serie van korte video tutorials kun je vinden bij [https://calmcode.io/rich/introduction.html](https://calmcode.io/rich/introduction.html). Iedere video duurt maar één tot twee minuten en laat mooi de mogelijkheden zien. Voor de functies die je wilt gebruiken kun je dan meer informatie opzoeken in de documentatie van Rich zelf.
 
 !!! opdracht-meer "Rich"
     Verrijk je interface met Rich. Doe dit naar eigen wens en inzicht.
