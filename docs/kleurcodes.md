@@ -48,4 +48,4 @@
 \end{center}
 
 \noindent
-Helaas is het niet altijd mogelijk om de linkerkant van de weerstand van de rechterkant te onderscheiden. In dat geval moet je de weerstand beide kanten oplezen en vergelijken met je materialenlijst of de overige weerstanden om zeker te weten dat je de goede hebt gevonden. Bovenstaande weerstand heeft de waarde $\qty[retain-zero-exponent]{220}{\ohm} \pm \qty{1}{\percent}$, en _niet_ de waarde $\qty{100e2}{\ohm} \pm \qty{2}{\percent}$.
+Helaas is het niet altijd mogelijk om de linkerkant van de weerstand van de rechterkant te onderscheiden. In dat geval moet je de weerstand beide kanten oplezen en vergelijken met je materialenlijst of de overige weerstanden om zeker te weten dat je de goede hebt gevonden. Bovenstaande weerstand heeft de waarde $\qty[retain-zero-exponent]{220}{\ohm} \pm 1 \percent$, en _niet_ de waarde $100e2 \ohm \pm 2 \percent$.
