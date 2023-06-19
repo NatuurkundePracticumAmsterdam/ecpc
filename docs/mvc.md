@@ -4,12 +4,12 @@
 ## MVC en het gebruik van packages
 
 MVC staat voor _Model-View-Controller_ en is een belangrijk, maar wat diffuus concept in software engineering en is vooral van toepassing op gebruikersinterfaces. Het belangrijkste idee is dat een programma zoveel mogelijk wordt opgesplitst in onderdelen. Het _model_ bevat de onderliggende data en concepten van het programma (een database, meetgegevens, berekeningen, etc.); de _controller_ praat met de fysieke omgeving en reageert bijvoorbeeld op invoer van een gebruiker en past het model aan; de _view_ is een weergave van de data uit het model en vormt de gebruikersinterface zelf. Vaak praten alle onderdelen met elkaar, maar een gelaagd model is makkelijker te overzien en dus eenvoudiger te programmeren. In het geval van een natuurkunde-experiment is dit vaak mogelijk. Daarmee krijgt MVC bij ons een andere betekenis dan bijvoorbeeld bij het bouwen van websites. Het gelaagd MVC-model dat wij gaan gebruiken is weergegeven in \figref{fig:mvc-model}.
-\begin{figure}
-    \centering
-    \includestandalone{figures/mvc-model}
-    \caption{Een gelaagd _Model-View-Controller_ patroon. De _controllers_ communiceren met de apparatuur; het _model_ bevat de meetgegevens, berekeningen en de opzet van het experiment; de _view_ zorgt voor een gebruikersinterface met weergave van de data.}
-    \label{fig:mvc-model}
-\end{figure}
+
+![Een gelaagd model-view-controller model](figures/mvc-model.svg){ align=left }
+
+\caption{Een gelaagd _Model-View-Controller_ patroon. De _controllers_ communiceren met de apparatuur; het _model_ bevat de meetgegevens, berekeningen en de opzet van het experiment; de _view_ zorgt voor een gebruikersinterface met weergave van de data.}
+\label{fig:mvc-model}
+
 
 Het scheiden van je programma in deze lagen kan enorm helpen om ervoor te zorgen dat je geen _spaghetticode_ schrijft &mdash; ongestructureerde en moeilijk te begrijpen code. Wanneer het drukken op een knop in de code van de grafische omgeving direct commando's stuurt naar de Arduino of dat de code voor het doen van een enkele meting meteen de $x$-as van een grafiek aanpast, sla je lagen over in ons model en knoop je delen van het programma aan elkaar die niet direct iets met elkaar te maken hebben. De knop moet een meting starten, ja, maar _hoe_ dat precies moet is niet de taak van de gebruikersinterface. En de meting zelf moet zich niet bemoeien met welke grafiek er precies getekend wordt. Je zult merken dat het heel lastig wordt om overzicht te houden en later aanpassingen te doen als je alles door elkaar laat lopen. Je zult dan door je hele code moeten zoeken als je óf de aansturing van de Arduino, óf de grafische interface wilt aanpassen. En dus gaan we alles netjes structureren.
 
@@ -31,7 +31,7 @@ Het opsplitsen van je programma _hoeft niet in één keer!_ Dit kan stapsgewijs.
 
 Voor een snelle meting is het script dat je geschreven hebt bij \opdref{opd:quickndirty-meting} en \opdref{opd:quickndirty-csv} prima! Maar als de meetapparatuur ingewikkelder wordt (meer verschillende commando's) of je wilt meer aanpassingen doen, dan is het wel lastig dat je op allerlei plekken de commando's opnieuw moet programmeren &mdash; en eerst moet opzoeken. Als je een nieuw script schrijft moet je opnieuw goed opletten dat je de goede _terminator characters_ gebruikt, etc. Het is wat werk, maar toch heel handig, om je code op te splitsen en een _class_ te schrijven.
 
-Een class is eigenlijk een groep functies die je bij elkaar pakt en die met elkaar gegevens kunnen delen. Zodra een programma wat complexer wordt merk je dat het fijn kan zijn om variabelen op te sluiten in geïsoleerde omgevingen. Wanneer je bijvoorbeeld de volgende code schrijft gaat het mis:
+Een class is eigenlijk een groep functies die je bij elkaar pakt en die met elkaar gegevens kunnen delen. Zodra een programma wat complexer wordt merk je dat het fijn kan zijn om variabelen op te sluiten in geïsoleerde omgevingen. Wanneer je bijvoorbeeld de volgende code schrijft gaat er mogelijk iets mis:
 ``` py
 # find first student in alphabetical sorted list
 names = ["Bob", "Alice", "Charlie"]
@@ -42,8 +42,7 @@ first_name = sorted(names)[0]
 first_name, last_name = "Carl Sagan".split(" ")
 # first_name='Carl'
 ```
-
-In bovenstaand voorbeeld waren we eerst op zoek naar de eerste naam in een alfabetisch gesorteerde lijst. Later in het programma splitsten we een naam op in een voornaam en een achternaam. Daarmee hebben we een variabele overschreven\dots Hoe langer het programma wordt, hoe makkelijker dat gebeurt.
+In bovenstaand voorbeeld waren we eerst op zoek naar de eerste naam in een alfabetisch gesorteerde lijst. Later in het programma splitsten we een naam op in een voornaam en een achternaam. Daarmee hebben we een variabele overschreven&hellip; Hoe langer het programma wordt, hoe makkelijker dat gebeurt.
 
 Lange programma's worden vaak opgedeeld in functies en dat maakt het al een stuk makkelijker omdat functies hun eigen ruimte voor variabelen hebben. In het volgende geval wordt de variabele `#!py first_name` _niet_ overschreven:
 
@@ -170,7 +169,7 @@ from my_webshop_backend import Cart
 cart = Cart()
 ...
 ```
-Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je type `#!py cart.add` hoef je alleen maar op \keys{\tab} te drukken en VS Code vult de rest aan.
+Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je type `#!py cart.add` hoef je alleen maar op ++tab++ te drukken en VS Code vult de rest aan.
 
 !!! question "minimaal: Opbouw van een class"
     Beschouw de volgende code:
@@ -292,14 +291,6 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
 
 
 Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de precieze commando's zijn die je naar de hardware moet sturen. Als je de Arduino in de opstelling vervangt voor een ander meetinstrument moet je de class aanpassen, maar kan alle code die met het experiment zelf te maken heeft hetzelfde blijven.
-
-% !!! question "inleveren"
-%   Schrijf mooie docstrings bij de class. Schrijf een docstring voor de class zelf (dus boven de `#!py __init__()`-methode) en voor alle methodes. Gebruik bijvoorbeeld de \citetitle{google_style_guide} \cite{google_style_guide} (sectie 3.8) voor voorbeelden van docstrings. Test de docstring door in je script de regel
-%   ``` py
-%     help(ArduinoVISADevice)
-%   ```
-%   op te nemen. Als het goed is krijg je nu een mooie en duidelijke uitleg van je class.
-% 
 
 De class die we gemaakt hebben voor de aansturing van de Arduino valt in de categorie _controller_. Het laatste stuk waar de plot gemaakt wordt is dus eigenlijk een _view_ en de rest van de code &mdash; waar de metingen worden uitgevoerd en de stroomsterkte $I$ wordt berekend &mdash; is een _model_. We gaan de code nog wat verder opsplitsen om dat duidelijk te maken én onderbrengen in verschillende bestanden &mdash; dat is uiteindelijk beter voor het overzicht.
 
