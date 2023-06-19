@@ -26,7 +26,7 @@ Er zijn tegenwoordig veel websites die een plek bieden voor Git repositories. De
 
 Wij gaan werken met GitHub, je moet dan wel een (gratis) account aanmaken. Als student kom je ook nog in aanmerking voor een educatiekorting op een pro-account. Je betaalt dan nog steeds niets.
 
-!!! question "minimaal"
+!!! opdracht-basis "Account aanmaken"
     Ga naar \url{https://github.com/} en klik rechtsboven op `Sign Up`. Maak een account aan onder je _privé-emailadres_. Op deze manier blijf je toegang houden tot je account ook nadat je afgestudeerd bent.
 
 
@@ -34,7 +34,7 @@ Wij gaan werken met GitHub, je moet dan wel een (gratis) account aanmaken. Als s
 ### GitHub Desktop
 Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een desktop applicatie ontwikkeld.
 
-!!! question "minimaal"
+!!! opdracht-basis "Repository toevoegen"
     \label{opd:add_repository}
     Maak op de volgende manier een repository voor je Pythonscripts:
 
@@ -55,7 +55,7 @@ Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een d
 Alle wijzigingen aan bestanden in de repository kun je vanaf nu bijhouden door regelmatig een commit te maken. Met een commit maak je als het ware een snapshot van alle bestanden en hang je daar een labeltje aan.
 Dit kan in GitHub Desktop, maar ook direct vanuit Visual Studio Code. Elke commit geef je een begeleidend schrijven mee. Je hoopt dat jij, maar ook je collega, na het lezen van het berichtje snel begrijpt wat er veranderd is én waarom. Wanneer je bepaalde wijzigingen ongedaan wilt maken, kan je snel vinden bij welke commit je dan moet zijn. En als je dan je applicatie gaat uitbrengen op Github kun je de commit messages gebruiken om snel op te sommen wat de nieuwste versie van jou app kan!
 
-!!! question "minimaal"
+!!! opdracht-basis "Commit"
     \label{opd:commit}
     Voer de volgende opdrachten uit:
 
@@ -75,7 +75,7 @@ In GitHub Desktop zie je nu bij history de commit staan, met in een oogopslag al
     Als je wilt opzoeken hoe iets werkt bij GitHub Desktop, kijk dan in de documentatie: \url{https://docs.github.com/en/desktop}.
 \end{info}
 
-!!! question "inleveren: Pythondaq: github"
+!!! opdracht-inlever "Pythondaq: github"
     Dan is het nu tijd om de bestanden die je hebt gemaakt voor pythondaq in \chref{ch:mvc} met Git in versiebeheer te gaan houden.
 
     1. Maak een map \folderpath{pythondaq} en kopieer daarin alle python-bestanden die je gemaakt hebt voor het diode-experiment. Let er op dat je deze map _niet_ in een andere repository aanmaakt, maar daarbuiten. Overleg eventueel over een handige plek.
@@ -90,7 +90,7 @@ In GitHub Desktop zie je nu bij history de commit staan, met in een oogopslag al
 ## Uitdaging: GitHub
 Om makkelijk je Git repository te delen met vrienden, collega's en de rest van de wereld kan je er voor kiezen om deze op GitHub te zetten. Je kunt dan je commits <q>pushen</q> naar GitHub en wijzigingen die je vrienden hebben gemaakt <q>pullen</q> zodat jij er ook weer aan verder kan werken. Van alle repositories die op GitHub staan én openbaar zijn kun je de broncode clonen en zelf mee aan de slag! Laten we eens een kijkje nemen op GitHub.
 
-!!! question "bonus"
+!!! opdracht-meer "GitHub pagina's"
     Als je nog nooit op GitHub bent geweest dan kunnen de pagina's nogal intimiderend overkomen. De informatiedichtheid is nogal hoog. Na een paar bezoeken weet je meestal wel waar je dingen kunt vinden. David heeft een data-analyse app geschreven dat Tailor heet en dat gebruikt wordt bij natuurkundepractica voor studenten medische natuurwetenschappen (MNW) en science, business and innovation (SBI). Laten we eens kijken wat daar allemaal opstaat.
 
     1. Zoek de repository \githubrepo{/davidfokkema/tailor} op GitHub op.
@@ -107,7 +107,7 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
 
 
 
-!!! question "bonus"
+!!! opdracht-meer "Clone repository"
     \label{opd:clone_repository}
     Clone de LMfit-py repository op GitHub:
 
@@ -124,7 +124,7 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
 
 Aangezien je geen schrijfrechten hebt voor LMfit kun je niet kiezen voor `Push origin` -- de knop die rechtsboven verschijnt. Met die knop <q>duw</q> je je wijzigingen naar GitHub zodat iedereen ze kan zien. Dat is mooi, maar je mag niet zomaar de repository van iemand anders wijzigen.
 
-!!! question "bonus"
+!!! opdracht-meer "Push en pull"
     In eerdere opdrachten heb je repositories op de computer aangemaakt. Vanuit GitHub Desktop kan je een repository publiceren op GitHub. Commits kun je vervolgens pullen en pushen van en naar Github.
 
     1. Publiceer een repository op Github -- bijvoorbeeld je oefenopdrachten of je `pythondaq`-repository. Verander iets in je code, commit en kijk hoe je dat naar GitHub kunt Pushen.
@@ -132,7 +132,7 @@ Aangezien je geen schrijfrechten hebt voor LMfit kun je niet kiezen voor `Push o
     
 
 
-!!! question "bonus"
+!!! opdracht-meer "Git in de terminal"
     Tot nu toe heb je Visual Studio Code of GitHub Desktop gebruikt om te committen. Maar je kan Git ook bedienen via de terminal. De mogelijkheden van Git zijn in de terminal ook veel groter dan in de grafische applicaties die we gebruikt hebben.
 
     1. Open een repository in Visual Studio Code
@@ -144,7 +144,7 @@ Aangezien je geen schrijfrechten hebt voor LMfit kun je niet kiezen voor `Push o
 
 ## Uitdaging: Branches
 Soms wil je je code flink onder handen nemen of iets heel nieuws eraan toevoegen. Terwijl je bezig bent ga je natuurlijk eerst van alles stuk maken voordat je het weer werkend hebt gekregen. Maar ondertussen kan je oude functionaliteit van je code niet gebruiken. Of je bent samen met een vriend aan een package bezig en om de haverklap werkt jouw stukje code niet meer omdat ergens anders de code verbouwd wordt. Dan is het handig dat je vanaf het punt dat je code werkt een zijweg kan inslaan. Daarom zijn branches uitgevonden. Je kunt vanuit Github Desktop, vanuit Visual Studio Code en natuurlijk via de terminal een branch aanmaken.
-!!! question "bonus"
+!!! opdracht-meer "Branches"
 
     * Open een repository naar keuze en maak een nieuwe branch aan.
     * Maak een aantal wijzigingen en commit.
