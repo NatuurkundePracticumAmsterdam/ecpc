@@ -35,8 +35,7 @@ Wij gaan gebruik maken van de VISA-standaard. VISA staat voor _Virtual Instrumen
 </figcaption>
 </figure>
 
-  \label{fig:old_ports}
-\end{figure}
+\label{fig:old_ports}
 Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Commands for Programmable Instruments_. Dit onderdeel definieert een bepaald formaat voor commando's die we naar ons instrument zullen sturen. De lijst met commando's die door de firmware van onze Arduino worden ondersteund is gegeven in \appref{ch:firmware}.
 
 
@@ -46,12 +45,12 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
     Let op dat je de weerstand van 220 Ω gebruikt! Een te grote weerstand zorgt ervoor dat je nauwelijks iets kunt meten, maar een te kleine weerstand zorgt ervoor dat de stroomsterkte door de Arduino te groot wordt. In dat geval zul je de Arduino onherstelbaar beschadigen. De kleurcodes voor weerstanden vind je in \appref{ch:kleurcodes}.
 
 !!! question "Schakeling bouwen"
-    Als je geen kant-en-klare schakeling bij je werkplek hebt liggen, druk de Arduino in het breadboard en bouw een schakeling met een LED op de manier die is weergegeven in \figref{fig:arduino-LED-breadboard}. De weerstand heeft een waarde van \qty{220}{\ohm}. De LED heeft aan één zijde een platte kant in de dikkere ring onderaan de plastic behuizing (goed kijken!); schakel die aan de kant van de aarde. Als de pootjes van de LED niet afgeknipt zijn, dan zit het korte pootje aan de platte zijde van de LED. Het heeft geen zin om naar het plaatje te kijken hoe het er ín de LED uitziet &mdash; dat verschilt per type LED.
+    Als je geen kant-en-klare schakeling bij je werkplek hebt liggen, druk de Arduino in het breadboard en bouw een schakeling met een LED op de manier die is weergegeven in \figref{fig:arduino-LED-breadboard}. De weerstand heeft een waarde van 220 \ohm. De LED heeft aan één zijde een platte kant in de dikkere ring onderaan de plastic behuizing (goed kijken!); schakel die aan de kant van de aarde. Als de pootjes van de LED niet afgeknipt zijn, dan zit het korte pootje aan de platte zijde van de LED. Het heeft geen zin om naar het plaatje te kijken hoe het er ín de LED uitziet &mdash; dat verschilt per type LED.
 
 <figure markdown>
   ![Arduinoschakeling](figures/I,U-curve-LED_bb.svg){align=left}
   ![LED schakelschema](figures/LED-schakeling.svg){align=right}
-  <figcaption style="clear:both">In de linkerfiguur is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld met een LED en een weerstand van \qty{220}{\ohm}. In een breadboard zijn in iedere rij alle kolommen A t/m E met elkaar verbonden (zo ook kolommen F t/m J). Draadjes die naast elkaar zijn ingeprikt zijn dus met elkaar verbonden. Zo zie je in de figuur dat het rode draadje een verbinding maakt tussen pin A0 van de Arduino en de bovenste pin van de LED. De onderste pin van de LED is verbonden met de weerstand. De kleurcodes voor weerstanden vind je in \appref{ch:kleurcodes}. De kleur van de draden is niet belangrijk. Kies draden met een handige lengte. De platte zijde in de ring van de LED wordt richting aarde geschakeld. De Arduino kan met deze schakeling een variabele spanning aanbrengen over de LED met weerstand, en de spanning meten over alleen de weerstand. In de rechterfiguur is het equivalente circuit weergegeven zoals je dat zou bouwen met twee losse voltmeters. De cijfers 0, 1 en 2 bij $U_0$, $U_1$ en $U_2$ zijn de _kanalen_ waarmee de Arduino spanningen kan sturen of uitlezen.}
+  <figcaption style="clear:both">In de linkerfiguur is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld met een LED en een weerstand van 220 \ohm. In een breadboard zijn in iedere rij alle kolommen A t/m E met elkaar verbonden (zo ook kolommen F t/m J). Draadjes die naast elkaar zijn ingeprikt zijn dus met elkaar verbonden. Zo zie je in de figuur dat het rode draadje een verbinding maakt tussen pin A0 van de Arduino en de bovenste pin van de LED. De onderste pin van de LED is verbonden met de weerstand. De kleurcodes voor weerstanden vind je in \appref{ch:kleurcodes}. De kleur van de draden is niet belangrijk. Kies draden met een handige lengte. De platte zijde in de ring van de LED wordt richting aarde geschakeld. De Arduino kan met deze schakeling een variabele spanning aanbrengen over de LED met weerstand, en de spanning meten over alleen de weerstand. In de rechterfiguur is het equivalente circuit weergegeven zoals je dat zou bouwen met twee losse voltmeters. De cijfers 0, 1 en 2 bij $U_0$, $U_1$ en $U_2$ zijn de _kanalen_ waarmee de Arduino spanningen kan sturen of uitlezen.}
   \label{fig:arduino-LED-breadboard}
   </caption>
 </figure>
@@ -63,11 +62,11 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
     \label{opd:condaenv}
     Omdat meerdere studenten gedurende de week achter dezelfde computer werken en environments aan gaan maken kun je het beste je initialen toevoegen aan de naam van je environment. Zo zit niemand elkaar in de weg. In dit voorbeeld gebruiken we <q>IK</q> als initialen. Maak de environment en installeer de juiste packages door een terminal te openen[^terminal] en in te typen (_zonder_ het dollarteken aan het begin):
     ``` ps1con
-conda create -n IK-pythondaq -c conda-forge python pyvisa-py
+    conda create -n IK-pythondaq -c conda-forge python pyvisa-py
     ```
     Om de conda environment daadwerkelijk te gebruiken moet je die altijd eerst _activeren_ met:
     ``` ps1con
-conda activate IK-pythondaq
+    conda activate IK-pythondaq
     ```
 
 [^terminal]: Start de applicatie `Anaconda Powershell Prompt` of start een terminal binnen Visual Studio Code met het menu \menu{Terminal > New Terminal}.
@@ -75,7 +74,7 @@ conda activate IK-pythondaq
 !!! question
     Sluit de Arduino met de USB-kabel aan op de computer. Om de communicatie met de Arduino te testen maken we gebruik van `pyvisa-shell`. Open een terminal, zorg dat het goede conda environment actief is en type `help`:
     ``` ps1con
-pyvisa-shell -b py
+    PS> pyvisa-shell -b py
 
     Welcome to the VISA shell. Type help or ? to list commands.
 
@@ -141,7 +140,7 @@ Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het ein
 
 ## Een eenvoudig script
 
-We hebben via de shell contact gelegd met de hardware. Nu wordt het tijd om, met de documentatie [@pyvisa] in de aanslag, hetzelfde vanuit Python te doen. Als je met een nieuw project begint is het helemaal geen gek idee om een kort script te schrijven waarin je wat dingen uitprobeert. Als alles lijkt te werken kun je het netjes gaan maken en gaan uitbreiden. We beginnen hier met een eenvoudig script en zullen dat daarna gaan verfijnen.
+We hebben via de shell contact gelegd met de hardware. Nu wordt het tijd om, met de documentatie[@pyvisa] in de aanslag, hetzelfde vanuit Python te doen. Als je met een nieuw project begint is het helemaal geen gek idee om een kort script te schrijven waarin je wat dingen uitprobeert. Als alles lijkt te werken kun je het netjes gaan maken en gaan uitbreiden. We beginnen hier met een eenvoudig script en zullen dat daarna gaan verfijnen.
 
 We lopen het voorbeeldscript eerst regel voor regel door en geven het volledige script aan het eind. Allereerst importeren we de `pyvisa`-bibliotheek met
 ``` py
@@ -154,6 +153,8 @@ rm = pyvisa.ResourceManager("@py")
 Die kunnen we bijvoorbeeld gebruiken om een lijst van alle beschikbare poorten te krijgen:
 ``` py
 ports = rm.list_resources()
+
+# Bijvoorbeeld: ("ASRL3::INSTR",)
 ```
 Om nu daadwerkelijk verbinding te gaan maken met de Arduino moeten we die _openen_. Daarvoor geven we de poortnaam op en vertellen we meteen wat de instellingen moeten zijn voor de regeleindes bij het lezen (CRLF, `#!py "\r\n"`) en het schrijven (LF, `#!py "\n"`):
 ``` py
@@ -199,7 +200,12 @@ Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een 
     naam = "Alice"
     print(f"Hoi {naam}!")
     ```
-    Als je (nog) geen idee hebt wat dat inhoudt, lees dan de tutorial \citetitle{f-strings} op Real Python \parencite{f-strings}.
+    en minder makkelijk met
+    ``` py
+    naam = "Alice"
+    print("Hoi %s!" % naam)
+    ```
+    Als je (nog) geen idee hebt wat dat inhoudt, lees dan de tutorial _Python 3's f-strings: an improved string formatting syntax_ op Real Python.[@f-strings]
 
 
 !!! question
@@ -219,45 +225,14 @@ Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een 
 
 ## Analoog-digitaalconversie (ADC)
 
-We hebben tot nu toe gewerkt met getallen van \numrange{0}{1023} sturen en ontvangen. Wat is precies de betekenis van deze getallen? Daarvoor moeten we dieper ingaan op hoe de Arduino &mdash; en computers in het algemeen &mdash; getallen omzet in een spanning en hoe spanningen door de Arduino worden gemeten.
+We hebben tot nu toe gewerkt met getallen van 0-1023 sturen en ontvangen. Wat is precies de betekenis van deze getallen? Daarvoor moeten we dieper ingaan op hoe de Arduino &mdash; en computers in het algemeen &mdash; getallen omzet in een spanning en hoe spanningen door de Arduino worden gemeten.
 
-Een _analoog_ signaal is continu in zowel de tijd als de waardes die het signaal aan kan nemen. Een _digitaal_ signaal is echter discreet: op vaste tijdstippen is er een waarde bekend en het signaal kan maar een beperkt aantal verschillende waardes aannemen. Een vallende bal is een continu proces. De bal heeft op elk willekeurig moment een positie. Je zou de positie kunnen meten op het tijdstip $t = \qty{2.0}{\second}$, maar ook op $t = \text{\qtylist[list-final-separator={ of }]{2.1;2.01;2.001;2.0001}{\second}}$. Ook kun je de positie net zo nauwkeurig bepalen als je wilt.[^nauwkeurigheid] De natuur is analoog,[^analoog] maar moderne computers zijn digitaal en dus discreet. Als je een foto op je computer te ver inzoomt zie je blokjes. Je kunt verder inzoomen, maar je gaat niet meer detail zien. De hoeveelheid informatie is beperkt.
+Een _analoog_ signaal is continu in zowel de tijd als de waardes die het signaal aan kan nemen. Een _digitaal_ signaal is echter discreet: op vaste tijdstippen is er een waarde bekend en het signaal kan maar een beperkt aantal verschillende waardes aannemen. Een vallende bal is een continu proces. De bal heeft op elk willekeurig moment een positie. Je zou de positie kunnen meten op het tijdstip $t$ = 2.0 s, maar ook op $t$ = 2.1, 2.01, 2.001 of 2.0001 s. Ook kun je de positie net zo nauwkeurig bepalen als je wilt.[^nauwkeurigheid] De natuur is analoog,[^analoog] maar moderne computers zijn digitaal en dus discreet. Als je een foto op je computer te ver inzoomt zie je blokjes. Je kunt verder inzoomen, maar je gaat niet meer detail zien. De hoeveelheid informatie is beperkt.
 
 [^nauwkeurigheid]: Uiteraard afhankelijk van de nauwkeurigheid van je meetinstrument.
 [^analoog]: Totdat je het domein van de kwantummechanica betreedt, dan blijkt de natuur ook een discrete kant te hebben.
 
-\begin{bonus}
-  __Binair talstelsel__ \\
-  Wij schrijven onze getallen op in een _decimaal_ (tientallig) talstelsel. We hebben tien verschillende cijfers (0 t/m 9) en plakken bij grotere getallen de tientallen, honderdtallen, etc. aan elkaar. Computers werken met _binaire_ getallen &mdash; een tweetallig talstelsel. Dat betekent dat computers het getal 0 en 1 zonder problemen kunnen opslaan, maar bij het getal 2 wordt het al lastig. Zij moeten dan al met <q>tientallen</q> werken en schrijven het getal 2 op als 10. Het getal 3 is dan 11, 4 is 100, 5 is 101, enz. Zie \tabref{tab:binair-stelsel} voor nog een paar voorbeelden. De cijfers noem je _bits_ en het getal 5 (101 binair) bestaat dus uit 3 bits. Als je maar 3 bits tot je beschikking hebt kun je $2^3 = 8$ verschillende getallen opslaan, dus 0 t/m 7. Een groepje van 8 bits (256 mogelijkheden) bleek een handige hoeveelheid en kun je op computers individueel opslaan. Zo'n groepje noem je een _byte_. Bestanden bestaan uit bytes, kilobytes (duizend bytes), megabytes (miljoen bytes) of gigabytes (miljard bytes). Wanneer je een signaal nauwkeurig wilt verwerken met een computer dan is het belangrijk om zoveel mogelijk bits tot je beschikking te hebben. Hoe meer bits, hoe meer verschillende waardes je kunt opslaan en hoe nauwkeuriger je signaal wordt bewaard.
-\end{bonus}
-\begin{table}
-  \centering
-  \caption{Voorbeelden van het binair talstelsel.}
-  \begin{tabular}{@{}
-      S[table-format=3.0]
-      S[table-format=8.0]
-      @{}}
-    \toprule
-    {decimaal getal} & {binair getal} \\
-    \midrule
-    0                & 0              \\
-    1                & 1              \\
-    2                & 10             \\
-    3                & 11             \\
-    4                & 100            \\
-    5                & 101            \\
-    6                & 110            \\
-    7                & 111            \\
-    8                & 1000           \\
-    9                & 1001           \\
-                     &                \\
-    205              & 11001101       \\
-    \bottomrule
-  \end{tabular}
-  \label{tab:binair-stelsel}
-\end{table}
-
-_Bemonsteren_ of _sampling_ is het proces waarbij een analoog signaal wordt <q>uitgelezen</q> en wordt omgezet in een digitaal signaal. Zo wordt een audiosignaal al sinds eind jaren '70 van de vorige eeuw gewoonlijk bemonsterd met een frequentie van \qty{44.1}{\kilo\hertz} en een resolutie van 16 bits. Dus \num{44100} keer per seconde wordt er gekeken wat de waarde van het geluidssignaal is en dat wordt opgeslagen als een getal van 16 bits en kan dus $2^{16} = \num{65536}$ verschillende waardes aannemen. Dit is nauwkeuriger dan het menselijk gehoor kan onderscheiden.
+_Bemonsteren_ of _sampling_ is het proces waarbij een analoog signaal wordt <q>uitgelezen</q> en wordt omgezet in een digitaal signaal. Zo wordt een audiosignaal al sinds eind jaren '70 van de vorige eeuw gewoonlijk bemonsterd met een frequentie van 44.1 kHz en een resolutie van 16 bits. Dus 44100 keer per seconde wordt er gekeken wat de waarde van het geluidssignaal is en dat wordt opgeslagen als een getal van 16 bits en kan dus $2^{16} = 65536$ verschillende waardes aannemen. Dit is nauwkeuriger dan het menselijk gehoor kan onderscheiden.
 
 De conversie van een analoog signaal naar een digitaal signaal (en andersom!) is de reden dat de spanningen die we kiezen en de metingen die we doen niet alle mogelijke waardes kunnen aannemen, maar <q>stapjes</q> maken. Zie \figref{fig:adc-conversie}.
 \begin{figure}
@@ -266,7 +241,7 @@ De conversie van een analoog signaal naar een digitaal signaal (en andersom!) is
   \caption{Bovenste figuur: de omzetting van een analoog signaal naar een digitaal signaal. De ADC (_analog-to-digital converter_) _in dit voorbeeld_ ondersteunt 16 niveau's (4-bits) in een bereik van \qtyrange{0}{3.3}{\volt} (groen gearceerd). Lagere of hogere spanningen kunnen niet gemeten worden (rood gearceerd). Op gezette tijden wordt een meting gedaan (rode punten) waarbij de uitkomst van de meting het discrete niveau is dat het dichtst bij de analoge waarde ligt. Als het signaal te groot wordt kan de ADC als het ware <q>vastlopen</q> op het hoogste niveau. In de rechterflank is waar te nemen dat als het analoge signaal langzaam verandert dat het digitale signaal duidelijk sprongsgewijs verandert. Hoe meer niveau's een ADC heeft en hoe vaker het signaal bemonsterd kan worden, hoe nauwkeuriger het digitale signaal het analoge signaal benaderd. Onderste figuur: de digitale metingen die je programma krijgt van de ADC met de onzekerheid (halve afstand tot het volgende niveau). In lichtgrijs zie je het oorspronkelijke analoge signaal. De meting benadert het signaal dus maar gedeeltelijk.}
   \label{fig:adc-conversie}
 \end{figure}
-De Arduino die we gebruiken heeft een bereik van \qtyrange{0}{3.3}{\volt} en een resolutie van 10 bits, dus $2^{10} = \num{1024}$ stapjes. Als je een experiment ontwerpt is het dus van belang te weten dat je nooit kunt meten met een nauwkeurigheid kleiner dan de stapgrootte. Voor ons is deze resolutie prima.
+De Arduino die we gebruiken heeft een bereik van \qtyrange{0}{3.3}{\volt} en een resolutie van 10 bits, dus $2^{10} = 1024$ stapjes. Als je een experiment ontwerpt is het dus van belang te weten dat je nooit kunt meten met een nauwkeurigheid kleiner dan de stapgrootte. Voor ons is deze resolutie prima.
 
 !!! question
     We kunnen alleen maar de getallen 0 t/m 1023 naar de Arduino sturen. Ook krijgen we alleen maar dat bereik terug.
@@ -274,8 +249,27 @@ De Arduino die we gebruiken heeft een bereik van \qtyrange{0}{3.3}{\volt} en een
     1. Schrijf de formule op waarmee je een spanning in \unit{\volt} omrekent naar een ruwe ADC waarde, én omgekeerd.
     1. Wat is precies het kleinste spanningsverschil dat we nog kunnen meten in \unit{\volt}? Een meting kan dus nooit nauwkeuriger gedaan worden dan deze waarde.
     1. Bereken welke spanning hoort bij een ruwe waarde van 700.
-    1. Bereken welke waarde we naar de Arduino moeten sturen als we een spanning willen instellen van \qty{2.0}{\volt}. En een spanning van \qty{2.28}{\volt}?
+    1. Bereken welke waarde we naar de Arduino moeten sturen als we een spanning willen instellen van 2.0 \volt. En een spanning van 2.28 \volt?
 
+### Meer Leren: Binair Talstelsel
+Wij schrijven onze getallen op in een _decimaal_ (tientallig) talstelsel. We hebben tien verschillende cijfers (0 t/m 9) en plakken bij grotere getallen de tientallen, honderdtallen, etc. aan elkaar. Computers werken met _binaire_ getallen &mdash; een tweetallig talstelsel. Dat betekent dat computers het getal 0 en 1 zonder problemen kunnen opslaan, maar bij het getal 2 wordt het al lastig. Zij moeten dan al met <q>tientallen</q> werken en schrijven het getal 2 op als 10. Het getal 3 is dan 11, 4 is 100, 5 is 101, enz. Zie onderstaande tabel voor nog een paar voorbeelden. De cijfers noem je _bits_ en het getal 5 (101 binair) bestaat dus uit 3 bits. Als je maar 3 bits tot je beschikking hebt kun je $2^3 = 8$ verschillende getallen opslaan, dus 0 t/m 7. Een groepje van 8 bits (256 mogelijkheden) bleek een handige hoeveelheid en kun je op computers individueel opslaan. Zo'n groepje noem je een _byte_. Bestanden bestaan uit bytes, kilobytes (duizend bytes), megabytes (miljoen bytes) of gigabytes (miljard bytes). Wanneer je een signaal nauwkeurig wilt verwerken met een computer dan is het belangrijk om zoveel mogelijk bits tot je beschikking te hebben. Hoe meer bits, hoe meer verschillende waardes je kunt opslaan en hoe nauwkeuriger je signaal wordt bewaard.
+
+Voorbeelden van het binair talstelsel:
+
+| decimaal getal | binair getal |
+|----------------|--------------|
+| 0              | 0            |
+| 1              | 1            |
+| 2              | 10           |
+| 3              | 11           |
+| 4              | 100          |
+| 5              | 101          |
+| 6              | 110          |
+| 7              | 111          |
+| 8              | 1000         |
+| 9              | 1001         |
+| &hellip;       | &hellip;     |
+| 205            | 11001101     |
 
 
 ## De $I,U$-karakteristiek van een LED
@@ -325,7 +319,7 @@ Er zijn ontzettend veel verschillende bestandsformaten waarin je data kunt bewar
 
 ### Comma-separated values (CSV)
 
-Het CSV-bestand is het werkpaard van de wetenschap. Als je data van het ene in het andere programma moet krijgen of je download wetenschappelijke gegevens van een website dan is het CSV-bestand vaak de beste keuze. Het formaat bestaat uit kolommen met getallen, gescheiden door een komma. De eerste regels kunnen commentaar bevatten (uitleg over de kolommen, bijvoorbeeld) en de namen van de kolommen bevatten. Een voorbeeld voor de afstand die een vallend voorwerp aflegt in \qty{10}{\second}, gegeven door $s = \frac{1}{2} g t^2$, is weergegeven in \figref{fig:csv-bestand}.
+Het CSV-bestand is het werkpaard van de wetenschap. Als je data van het ene in het andere programma moet krijgen of je download wetenschappelijke gegevens van een website dan is het CSV-bestand vaak de beste keuze. Het formaat bestaat uit kolommen met getallen, gescheiden door een komma. De eerste regels kunnen commentaar bevatten (uitleg over de kolommen, bijvoorbeeld) en de namen van de kolommen bevatten. Een voorbeeld voor de afstand die een vallend voorwerp aflegt in 10 s, gegeven door $s = \frac{1}{2} g t^2$, is weergegeven in \figref{fig:csv-bestand}.
 
 ```
 t,s
