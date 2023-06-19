@@ -43,7 +43,7 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
     \label{opd:minimal-gui}
 
     1. Maak een nieuw bestand :fontawesome-regular-file-code:`example-gui.py`.
-    1. Neem bovenstaande pythoncode over en test het in de \shellinline{IK-test-qt} conda environment.
+    1. Neem bovenstaande pythoncode over en test het in de `IK-test-qt` conda environment.
     
 
 
@@ -209,7 +209,7 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 ### De interface ontwerpen met Qt Designer
 
 \begin{info}
-    Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op met de zoekfunctie: links onderin bij Windows (vergrootglas of tekstveld). Type `designer` in, wacht heel even en kies de applicatie. Als hij hem niet kan vinden open dan een terminal, activeer je `IK-test-qt` conda environment en type \shellinline{pyside6-designer}.
+    Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op met de zoekfunctie: links onderin bij Windows (vergrootglas of tekstveld). Type `designer` in, wacht heel even en kies de applicatie. Als hij hem niet kan vinden open dan een terminal, activeer je `IK-test-qt` conda environment en type `pyside6-designer`.
 \end{info}
 
 Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Je bewaart dat als een `.ui`-bestand. Vervolgens vertaal je het `.ui`-bestand naar een Pythonbestand dat je importeert in je eigen programma. De volledige class van het vorige voorbeeld kan dan vervangen worden door:
