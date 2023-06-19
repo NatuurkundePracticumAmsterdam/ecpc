@@ -351,7 +351,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen`, 
 
 \begin{bonus}
     \begin{opdracht}[Functieplotter (uitdaging)]
-        Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals `x ** 2`, `sin(x)` of `1 / sqrt(x + 1)`. Gebruik daarvoor het `asteval` package \parencite{asteval}. Documentatie vind je op \url{https://newville.github.io/asteval/}.
+        Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals `x ** 2`, `sin(x)` of `1 / sqrt(x + 1)`. Gebruik daarvoor het `asteval` package [@asteval]. Documentatie vind je op \url{https://newville.github.io/asteval/}.
     \end{opdracht}
 
     \begin{warning}
