@@ -36,8 +36,8 @@ Uitgesplitst in \textit{argumenten} en __opties__, met vierkante haken [] om aan
 
 !!! opdracht-basis "Poetry argumenten"
     
-    1. Naast \shellinline{conda create} heb je ook met andere argumenten gewerkt zoals `activate` en `install`. Welke argumenten ken je al van de applicatie `poetry`?
-    1. Vraag de lijst met argumenten (commando's) op van Poetry met \shellinline{poetry list}, hoeveel kende je nog niet?
+    1. Naast `conda create` heb je ook met andere argumenten gewerkt zoals `activate` en `install`. Welke argumenten ken je al van de applicatie `poetry`?
+    1. Vraag de lijst met argumenten (commando's) op van Poetry met `poetry list`, hoeveel kende je nog niet?
     
 
 
@@ -107,7 +107,7 @@ if __name__ == "__main__":
     hello()
 \end{pythoncode*}
 
-Dit levert ons nog niet zoveel op, maar op de achtergrond is click wel degelijk aan het werk. De `#!py @click.command()` houdt in de gaten wat er in de command line wordt ingetypt. Zo kunnen we de helpfunctie aanroepen door \shellinline{--help} achter de naam van het script te zetten.
+Dit levert ons nog niet zoveel op, maar op de achtergrond is click wel degelijk aan het werk. De `#!py @click.command()` houdt in de gaten wat er in de command line wordt ingetypt. Zo kunnen we de helpfunctie aanroepen door `--help` achter de naam van het script te zetten.
 
 ``` ps1con
 PS> python hello.py --help
@@ -135,8 +135,8 @@ PS> python hello.py --help
             if __name__ == "__main__":
                 hello()
             \end{pythoncode*}
-    1. Draai :fontawesome-regular-file-code:`hello.py` eerst zonder een argument \shellinline{python hello.py} en bekijk de foutmelding.
-    1. Draai :fontawesome-regular-file-code:`hello.py` nu met een argument: \shellinline{python hello.py Alice}.
+    1. Draai :fontawesome-regular-file-code:`hello.py` eerst zonder een argument `python hello.py` en bekijk de foutmelding.
+    1. Draai :fontawesome-regular-file-code:`hello.py` nu met een argument: `python hello.py Alice`.
     
 
 
@@ -160,7 +160,7 @@ PS> python hello.py --help
 % ```
 
 
-Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij _opties_ is dat anders. Je geeft met mintekens aan dat je een optie meegeeft. Veel opties hebben een lange naam en een afkorting (bijvoorbeeld \shellinline{--count} en \shellinline{-c}). Opties kunnen zelf weer een argument hebben (bijvoorbeeld \shellinline{--count 3}). Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.\footnote{Gebruik forward slash om een vlaggetje te maken: `#!py @click.option("-f", "--flag/--no-flag`} Het is handig om een standaardwaarde te definiëren. In dat geval mag de gebruiker de optie weglaten. We voegen een for-loop\footnote{Merk op in de code hieronder: `#!py _` is de weggooivariabele in Python. Het gaat ons erom dat de lus een aantal keer doorlopen wordt en we hoeven niets te doen met de loop index.} toe om de begroeting te herhalen.
+Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij _opties_ is dat anders. Je geeft met mintekens aan dat je een optie meegeeft. Veel opties hebben een lange naam en een afkorting (bijvoorbeeld `--count` en `-c`). Opties kunnen zelf weer een argument hebben (bijvoorbeeld `--count 3`). Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.\footnote{Gebruik forward slash om een vlaggetje te maken: `#!py @click.option("-f", "--flag/--no-flag`} Het is handig om een standaardwaarde te definiëren. In dat geval mag de gebruiker de optie weglaten. We voegen een for-loop\footnote{Merk op in de code hieronder: `#!py _` is de weggooivariabele in Python. Het gaat ons erom dat de lus een aantal keer doorlopen wordt en we hoeven niets te doen met de loop index.} toe om de begroeting te herhalen.
 
 \begin{pythoncode*}{highlightlines={7-11,13}}
 # hello.py
@@ -263,7 +263,7 @@ Hello Alice!
 
 
 ### Click subcommando's
-Tot nu toe konden we maar één functie uitvoeren in onze applicatie. Maar het is ook mogelijk om subcommando's aan te maken zodat je met één programma meerdere <q>taken</q> kunt uitvoeren. Denk bijvoorbeeld aan \shellinline{conda}. Je installeert packages met \shellinline{conda install}, verwijdert ze met \shellinline{conda remove}, maakt een environment met \shellinline{conda create} en activeert het met \shellinline{conda activate}.
+Tot nu toe konden we maar één functie uitvoeren in onze applicatie. Maar het is ook mogelijk om subcommando's aan te maken zodat je met één programma meerdere <q>taken</q> kunt uitvoeren. Denk bijvoorbeeld aan `conda`. Je installeert packages met `conda install`, verwijdert ze met `conda remove`, maakt een environment met `conda create` en activeert het met `conda activate`.
 
 !!! opdracht-basis "Subcommando's bedenken"
     \label{opd:subcommandos}
@@ -338,7 +338,7 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
 !!! opdracht-meer "Smallangle (uitdaging)"
     Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt &mdash; maar jij weet precies over welk onderdeel we het hebben.
 
-    1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam \githubrepo{smallangle}.
+    1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam :fontawesome-brands-github:`smallangle`.
     1. Maak een nieuw environment die `IK-smallangle` heet met daarin alleen Python.
     1. Zet in de package :fontawesome-regular-folder:`smallangle` een module :fontawesome-regular-file-code:`smallangle.py`.
     1. Plak de onderstaande code in :fontawesome-regular-file-code:`smallangle.py`:
@@ -371,13 +371,13 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
 
 !!! opdracht-inlever "smallangle"
     \label{opd:smallangle}
-    Het project \githubrepo{smallangle} wordt met Poetry beheerd. Je gaat click aan de module :fontawesome-regular-file-code:`smallangle.py` toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.
+    Het project :fontawesome-brands-github:`smallangle` wordt met Poetry beheerd. Je gaat click aan de module :fontawesome-regular-file-code:`smallangle.py` toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.
 
-    1. Ga naar GitHub en open \githubrepo{AnneliesVlaar / smallangle} in GitHub Desktop en Visual Studio Code.
+    1. Ga naar GitHub en open :fontawesome-brands-github:`AnneliesVlaar / smallangle` in GitHub Desktop en Visual Studio Code.
     1. Installeer de package in een nieuw environment.
     1. Run het script :fontawesome-regular-file-code:`smallangle.py` en los de errors op totdat het werkt.
     1. Voeg click toe zodat je de subcommando's `sin` en `tan` hebt. Het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) moet gekozen kunnen worden met een optie (geef een standaardwaarde mee, zodat de gebruiker de optie kan weglaten).
-    1. Zorg dat smallangle een applicatie wordt die je aan kunt roepen met bijvoorbeeld \shellinline{smallangle sin -n 9}.
+    1. Zorg dat smallangle een applicatie wordt die je aan kunt roepen met bijvoorbeeld `smallangle sin -n 9`.
     
 
 
@@ -524,7 +524,7 @@ Options:
 ```
 
 !!! opdracht-inlever "Smallangle: docstring"
-    Voorzie de functies in :fontawesome-regular-file-code:`smallangle.py` die je gemaakt hebt bij \opdref{opd:smallangle} volledig van docstrings, zodat \shellinline{smallangle --help} zinvolle informatie geeft.\footnote{Als de docstring zeer uitgebreid wordt met meerdere argumenten dan wordt de helptekst van click onoverzichtelijk. Als je wilt dat alleen de korte samenvatting in de help verschijnt, zet dan na de korte samenvatting: `#!py \f`.}
+    Voorzie de functies in :fontawesome-regular-file-code:`smallangle.py` die je gemaakt hebt bij \opdref{opd:smallangle} volledig van docstrings, zodat `smallangle --help` zinvolle informatie geeft.\footnote{Als de docstring zeer uitgebreid wordt met meerdere argumenten dan wordt de helptekst van click onoverzichtelijk. Als je wilt dat alleen de korte samenvatting in de help verschijnt, zet dan na de korte samenvatting: `#!py \f`.}
 
 
 !!! opdracht-inlever "Pythondaq: docstring"

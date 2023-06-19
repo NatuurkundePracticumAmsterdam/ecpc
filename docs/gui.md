@@ -43,7 +43,7 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
     \label{opd:minimal-gui}
 
     1. Maak een nieuw bestand :fontawesome-regular-file-code:`example-gui.py`.
-    1. Neem bovenstaande pythoncode over en test het in de \shellinline{IK-test-qt} conda environment.
+    1. Neem bovenstaande pythoncode over en test het in de `IK-test-qt` conda environment.
     
 
 
@@ -209,7 +209,7 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 ### De interface ontwerpen met Qt Designer
 
 \begin{info}
-    Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op met de zoekfunctie: links onderin bij Windows (vergrootglas of tekstveld). Type `designer` in, wacht heel even en kies de applicatie. Als hij hem niet kan vinden open dan een terminal, activeer je `IK-test-qt` conda environment en type \shellinline{pyside6-designer}.
+    Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op met de zoekfunctie: links onderin bij Windows (vergrootglas of tekstveld). Type `designer` in, wacht heel even en kies de applicatie. Als hij hem niet kan vinden open dan een terminal, activeer je `IK-test-qt` conda environment en type `pyside6-designer`.
 \end{info}
 
 Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Je bewaart dat als een `.ui`-bestand. Vervolgens vertaal je het `.ui`-bestand naar een Pythonbestand dat je importeert in je eigen programma. De volledige class van het vorige voorbeeld kan dan vervangen worden door:
@@ -496,7 +496,7 @@ De manier waarop besturingssystemen meerdere dingen tegelijk doen is gebaseerd o
 Threads geven vaak problemen omdat ze in zekere zin onvoorspelbaar zijn. Je weet niet precies hoe <q>snel</q> een thread draait, dus je weet niet zeker wat er in welke volgorde gebeurt. Dit kan leiden tot problemen waarvan de oorzaak maar lastig te vinden is. Google maar eens op `thread problems in programming`. We moeten dus voorzichtig zijn! Ook is het ombouwen van code zonder threads naar code met threads een klus waar makkelijk iets fout gaat. Het is dus belangrijk dat je _in kleine stapjes_ je code aanpast en _vaak test_ of het nog werkt.
 
 !!! info
-    We gaan in het volgende stuk een kleine applicatie ombouwen van <q>no-threads</q> naar <q>threads</q>. _Voor het gemak_ hebben we de view en het model in één bestand gezet. Op Canvas kun je de code downloaden. We raden je ten zeerste aan om het bestand \path{demo-no-threads.py} te downloaden en dan stapje voor stapje de code aan te passen zoals in de handleiding gebeurt. De andere stappen staan alleen op Canvas om bij problemen even te kunnen vergelijken. _Probeer het dus zelf!_ Pas daarna ga je aan de slag om je eigen code om te bouwen waarbij de view en het model nu _wel_ weer in verschillende bestanden staan. Samenvattend: doorloop dit stuk handleiding _twee keer_. De eerste keer doe je de opdrachten met het demoscript, de tweede keer met je eigen code voor \githubrepo{pythondaq}.
+    We gaan in het volgende stuk een kleine applicatie ombouwen van <q>no-threads</q> naar <q>threads</q>. _Voor het gemak_ hebben we de view en het model in één bestand gezet. Op Canvas kun je de code downloaden. We raden je ten zeerste aan om het bestand \path{demo-no-threads.py} te downloaden en dan stapje voor stapje de code aan te passen zoals in de handleiding gebeurt. De andere stappen staan alleen op Canvas om bij problemen even te kunnen vergelijken. _Probeer het dus zelf!_ Pas daarna ga je aan de slag om je eigen code om te bouwen waarbij de view en het model nu _wel_ weer in verschillende bestanden staan. Samenvattend: doorloop dit stuk handleiding _twee keer_. De eerste keer doe je de opdrachten met het demoscript, de tweede keer met je eigen code voor :fontawesome-brands-github:`pythondaq`.
 
 \begin{pythoncode*}{linenos}
   import sys
