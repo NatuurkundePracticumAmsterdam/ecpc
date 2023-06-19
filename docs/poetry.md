@@ -1,13 +1,13 @@
 # Poetry
 \label{ch:poetry}
 
-In de vorige hoofdstukken heb je gewerkt met een eigen conda environment zodat je jouw pythonomgeving mooi gescheiden kan houden van andere studenten die op dezelfde computer werken. Dit is echt _de_ oplossing voor alle problemen waarbij volledige Pythoninstallaties onbruikbaar kunnen worden -- waarna je alles opnieuw moet installeren.
+In de vorige hoofdstukken heb je gewerkt met een eigen conda environment zodat je jouw pythonomgeving mooi gescheiden kan houden van andere studenten die op dezelfde computer werken. Dit is echt _de_ oplossing voor alle problemen waarbij volledige Pythoninstallaties onbruikbaar kunnen worden &mdash; waarna je alles opnieuw moet installeren.
 
 Opnieuw beginnen of nieuwe environments aanmaken heeft wel een nadeel: je moet alle packages die je nodig hebt opnieuw installeren. Welke waren dat ook alweer? Vast `numpy`, en `matplotlib`, en\ldots? Niet handig. Als je code gaat delen met elkaar krijg je regelmatig te maken met een `#!py ImportError` waarna je _weer_ één of ander package moet installeren.
 
 Nu pythondaq netjes is uitgesplitst in een MVC-structuur en de wijzigingen met Git worden bijgehouden, ga je er een package van maken zodat je het ook met anderen kan delen.
 
-Packages op PyPI geven altijd hun _dependencies_ op. Dat zijn de packages die verder nog nodig zijn om alles te laten werken. Installeer je `matplotlib`, dan krijg je er `six, python-dateutil, pyparsing, pillow, numpy, kiwisolver, cycler` automatisch bij. Maar dat is niet genoeg. Welke versies van `numpy` werken met de huidige versie van `matplotlib`? Allemaal zaken die je -- als je een package schrijft -- zelf moet bijhouden. Het voordeel is dat jouw gebruikers alleen maar _jouw_ pakket hoeven te installeren -- de rest gaat vanzelf.
+Packages op PyPI geven altijd hun _dependencies_ op. Dat zijn de packages die verder nog nodig zijn om alles te laten werken. Installeer je `matplotlib`, dan krijg je er `six, python-dateutil, pyparsing, pillow, numpy, kiwisolver, cycler` automatisch bij. Maar dat is niet genoeg. Welke versies van `numpy` werken met de huidige versie van `matplotlib`? Allemaal zaken die je &mdash; als je een package schrijft &mdash; zelf moet bijhouden. Het voordeel is dat jouw gebruikers alleen maar _jouw_ pakket hoeven te installeren &mdash; de rest gaat vanzelf.
 
 En\ldots{} hoe test je je package zodat je zeker weet dat hij het bij een ander ook doet? Heel vaak werkt het bij jou wel, maar vergeet je een bestand mee te sturen dat wel echt nodig is.\footnote{Echt gebeurd: meerdere studenten leverden hun grafische applicatie in voor een beoordeling. We konden het niet draaien, want er misten bestanden. Bij de student werkte het wel, maar bij ons _echt_ niet.} Of: bij jou werkt `#!py import my_new_cool_app.gui` wel, maar bij een ander geeft hij een `#!py ImportError`. De bestanden zijn er wel, maar worden verkeerd geïmporteerd.
 
@@ -68,9 +68,9 @@ Allereerst is er een projectmap `easystat` aangemaakt. Je kunt nu in GitHub Desk
 
 Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaakt. We zien een :fontawesome-regular-file-lines:`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van ons project.\footnote{Wanneer de repository op GitHub wordt geplaatst wordt deze README automatisch op de hoofdpagina van de repository getoond, onder de code.}
 
-Daarna is er een map \folderpath{tests}. Goede software wordt getest. In deze map komen bestanden te staan die delen van de code runnen en resultaten vergelijken met verwachte resultaten -- zoals je kunt doen in \opdref{opd:test_package}.\footnote{Python heeft een ingebouwde module `#!py unittest` die deze tests kan vinden, kan runnen en daarna een handige weergave geeft van welke tests geslaagd zijn en welke faalden. Ook het package `#!py pytest` is erg bekend. Op deze manier weet je altijd zeker dat wanneer je aanpassingen doet in je code, dat de rest van de code nog steeds is blijven werken -- zónder dat je zelf uitvoerig alles hebt hoeven uitproberen. Je draait gewoon even snel alle tests. Helaas, helaas -- in deze cursus is te weinig tijd om het schrijven van tests te behandelen.}
+Daarna is er een map \folderpath{tests}. Goede software wordt getest. In deze map komen bestanden te staan die delen van de code runnen en resultaten vergelijken met verwachte resultaten &mdash; zoals je kunt doen in \opdref{opd:test_package}.\footnote{Python heeft een ingebouwde module `#!py unittest` die deze tests kan vinden, kan runnen en daarna een handige weergave geeft van welke tests geslaagd zijn en welke faalden. Ook het package `#!py pytest` is erg bekend. Op deze manier weet je altijd zeker dat wanneer je aanpassingen doet in je code, dat de rest van de code nog steeds is blijven werken &mdash; zónder dat je zelf uitvoerig alles hebt hoeven uitproberen. Je draait gewoon even snel alle tests. Helaas, helaas &mdash; in deze cursus is te weinig tijd om het schrijven van tests te behandelen.}
 
-Dan komt de \folderpath{src}-map. Daarin komt ons nieuwe package \folderpath{easystat}\footnote{Ja er is een map \folderpath{easystat} met daarin een map \folderpath{src} met daarin weer een map \folderpath{easystat} -- dat kan nog wel eens verwarrend zijn. Het is conventie om de projectmap dezelfde naam te geven als je package. Het pad is dus eigenlijk \folderpath{project/src/package} en dat wordt dan, in ons geval, \folderpath{easystat/src/easystat}.} te staan. Er is alvast voor ons een :fontawesome-regular-file-code:`\_\_init\_\_.py` aangemaakt. Handig!
+Dan komt de \folderpath{src}-map. Daarin komt ons nieuwe package \folderpath{easystat}\footnote{Ja er is een map \folderpath{easystat} met daarin een map \folderpath{src} met daarin weer een map \folderpath{easystat} &mdash; dat kan nog wel eens verwarrend zijn. Het is conventie om de projectmap dezelfde naam te geven als je package. Het pad is dus eigenlijk \folderpath{project/src/package} en dat wordt dan, in ons geval, \folderpath{easystat/src/easystat}.} te staan. Er is alvast voor ons een :fontawesome-regular-file-code:`\_\_init\_\_.py` aangemaakt. Handig!
 
 En als laatste\ldots{} een :fontawesome-regular-file-code:`pyproject.toml`\footnote{Vroeger was er een `setup.py` maar Python schakelt nu langzaam over naar dit nieuwe bestand.} waarin alle informatie over je project wordt bijgehouden. Ook staat er in dit bestand informatie voor de verschillende tools die je kunt gebruiken. De inhoud van het bestand ziet er ongeveer zo uit:
 \begin{textcode}
@@ -91,7 +91,7 @@ En als laatste\ldots{} een :fontawesome-regular-file-code:`pyproject.toml`\footn
     build-backend = "poetry.core.masonry.api"
 \end{textcode}
 
-Het bestand is in het TOML-formaat \cite{TOML}. Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. Overal zie je `poetry` terugkomen, want dat is de tool die wij gebruiken. In de eerste sectie staat informatie over ons project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. De tweede sectie bevat de _dependencies_. Dit zijn alle Pythonpackages die ons project nodig heeft. Op dit moment is dat alleen maar Python. Ook het versienummer van Python is belangrijk. Hier is dat 3.10 en het dakje geeft aan dat 3.11, 3.12, enz. ook prima zijn, maar 3.9 (te oud) 4.0 (te nieuw) _niet_. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python -- bijvoorbeeld versie 3.9 -- kunnen nu het package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.10 nodig hebt kun je aangeven dat een iets oudere versie van Python ook prima is.
+Het bestand is in het TOML-formaat \cite{TOML}. Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. Overal zie je `poetry` terugkomen, want dat is de tool die wij gebruiken. In de eerste sectie staat informatie over ons project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. De tweede sectie bevat de _dependencies_. Dit zijn alle Pythonpackages die ons project nodig heeft. Op dit moment is dat alleen maar Python. Ook het versienummer van Python is belangrijk. Hier is dat 3.10 en het dakje geeft aan dat 3.11, 3.12, enz. ook prima zijn, maar 3.9 (te oud) 4.0 (te nieuw) _niet_. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python &mdash; bijvoorbeeld versie 3.9 &mdash; kunnen nu het package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.10 nodig hebt kun je aangeven dat een iets oudere versie van Python ook prima is.
 
 !!! question "minimaal"
     
@@ -107,7 +107,7 @@ Het bestand is in het TOML-formaat \cite{TOML}. Tussen de vierkante haken staan 
 Bij het schrijven van een nieuw package is het zéker belangrijk om een environment te gebruiken. Anders loop je het risico dat je package _lijkt_ te werken maar bij iemand anders crasht. Immers, het kan best zijn dat jij NumPy gebruikt en al eerder geïnstalleerd had. Bij iemand die NumPy nog _niet_ geïnstalleerd had gaat het dan mis.
 
 !!! question "minimaal"
-    We maken -- speciaal voor `easystat` -- een environment.
+    We maken &mdash; speciaal voor `easystat` &mdash; een environment.
 
     1. Open in Visual Studio Code de _project_map \githubrepo{easystat}
     1. Open een terminal en maak een IK-easystat conda environment aan:
@@ -185,7 +185,7 @@ Als we het testscript nu draaien krijgen we wéér een foutmelding:
 ``` py
 ModuleNotFoundError: No module named 'numpy'
 ```
-Ons package heeft NumPy nodig en dat hebben we nog niet geïnstalleerd. Dat kunnen we handmatig doen maar dan hebben andere gebruikers een probleem. Veel beter is het om netjes aan te geven dat ons package NumPy nodig heeft -- als _dependency_.
+Ons package heeft NumPy nodig en dat hebben we nog niet geïnstalleerd. Dat kunnen we handmatig doen maar dan hebben andere gebruikers een probleem. Veel beter is het om netjes aan te geven dat ons package NumPy nodig heeft &mdash; als _dependency_.
 
 
 ### Dependencies toevoegen
@@ -220,7 +220,7 @@ Ditmaal krijgen we:
 Fijn! Als je nu de :fontawesome-regular-file-code:`pyproject.toml` nog eens bekijkt zie je dat NumPy daar als dependency is toegevoegd. Het verwijderen van dependency `PACKAGE` gaat met \shellinline{poetry remove PACKAGE}. Poetry heeft Numpy nu toegevoegd aan de environment `IK-easystat`.\footnote{De lijst met packages in de active Conda enviornment vraag je in de terminal op met het \shellinline{conda list}, kijk maar of numpy daar tussen staat.} Andersom zal Conda geen packages toevoegen aan je Poetry project als je \shellinline{conda install package} aanroept. Gebruik daarom altijd \shellinline{poetry add package} als je met Poetry aan een package werkt.
 
 \begin{info}
-    Als we de code in ons package aanpassen dan hoeven we het niet opnieuw te installeren met Poetry, maar als we met de hand iets wijzigen in de :fontawesome-regular-file-code:`pyproject.toml` dan moet dat _wel_. Als je een `#!py ImportError` krijgt voor je eigen package -- bijvoorbeeld als je nieuwe mappen of bestanden hebt aangemaakt -- probeer dan _eerst_ voor de zekerheid \shellinline{poetry install}.
+    Als we de code in ons package aanpassen dan hoeven we het niet opnieuw te installeren met Poetry, maar als we met de hand iets wijzigen in de :fontawesome-regular-file-code:`pyproject.toml` dan moet dat _wel_. Als je een `#!py ImportError` krijgt voor je eigen package &mdash; bijvoorbeeld als je nieuwe mappen of bestanden hebt aangemaakt &mdash; probeer dan _eerst_ voor de zekerheid \shellinline{poetry install}.
 \end{info}
 
 ### Uitdaging: Poetry.lock
@@ -277,10 +277,10 @@ Building easystat (0.1.0)
     - Building wheel
     - Built easystat-0.1.0-py3-none-any.whl
 ```
-Een <q>sdist</q> is een _source distribution_. Een `.tar.gz`-bestand is een soort zipbestand met daarin de broncode van ons pakket. De tests worden daar niet in meegenomen. Een <q>wheel</q> is een soort bestand dat direct geïnstalleerd kan worden met \shellinline{pip}. Zogenaamde _pure-python_ packages bevatten alleen Pythoncode -- en geen C-code die gecompileerd moet worden voor verschillende besturingssystemen of hardwareplatforms. Je herkent ze aan `none-any` in de bestandsnaam. <q>None</q> voor <q>niet-OS-specifiek</q> en <q>any</q> voor <q>draait op elk hardwareplatform</q>. We kunnen dit bestand als download neerzetten op een website of aan anderen mailen.
+Een <q>sdist</q> is een _source distribution_. Een `.tar.gz`-bestand is een soort zipbestand met daarin de broncode van ons pakket. De tests worden daar niet in meegenomen. Een <q>wheel</q> is een soort bestand dat direct geïnstalleerd kan worden met \shellinline{pip}. Zogenaamde _pure-python_ packages bevatten alleen Pythoncode &mdash; en geen C-code die gecompileerd moet worden voor verschillende besturingssystemen of hardwareplatforms. Je herkent ze aan `none-any` in de bestandsnaam. <q>None</q> voor <q>niet-OS-specifiek</q> en <q>any</q> voor <q>draait op elk hardwareplatform</q>. We kunnen dit bestand als download neerzetten op een website of aan anderen mailen.
 
 !!! question "bonus"
-    Laten we het wheel uitproberen. Maak een nieuwe conda environment aan, installeer het wheel en probeer het testscript te runnen -- één keer vóór het installeren van het wheel en één keer ná het installeren.
+    Laten we het wheel uitproberen. Maak een nieuwe conda environment aan, installeer het wheel en probeer het testscript te runnen &mdash; één keer vóór het installeren van het wheel en één keer ná het installeren.
 
     1. Maak een nieuwe conda environment aan met de naam `IK-test-wheel` en activeer deze.
             ``` ps1con
@@ -366,7 +366,7 @@ Je geeft met \shellinline{poetry init} de opdracht om Poetry alleen te initialis
 Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten we twee dingen doen. Als eerste gaan we de `pythondaq` repository in een `src`-structuur zetten en daarna gaan we Poetry initialiseren.
 
 \begin{attention}
-    Vergeet niet -- waar nodig -- de :fontawesome-regular-file-code:`\_\_init\_\_.py` bestanden toe te voegen aan de packages.
+    Vergeet niet &mdash; waar nodig &mdash; de :fontawesome-regular-file-code:`\_\_init\_\_.py` bestanden toe te voegen aan de packages.
 \end{attention}
 
 !!! question "inleveren: Pythondaq: package"
@@ -436,7 +436,7 @@ Om onze python code te testen heb je tot nu toe waarschijnlijk op de `run`-knop 
 ``` ps1con
 python script.py
 ```
-Je moet dan wel de juiste map geopend hebben zodat python het bestand kan vinden. En als je de `run`-knop gebruikt moet wel het bestandje open hebben staan dat je wilt runnen. Kortom, best een beetje gedoe. Maar als we programma's zoals Poetry, Conda of Python willen gebruiken hoeven we helemaal niet het juiste bestandje op te zoeken en te runnen. We hoeven alleen maar een commando in de terminal te geven -- bijvoorbeeld \shellinline{python} of \shellinline{conda} -- en de computer start automatisch het juiste programma op.
+Je moet dan wel de juiste map geopend hebben zodat python het bestand kan vinden. En als je de `run`-knop gebruikt moet wel het bestandje open hebben staan dat je wilt runnen. Kortom, best een beetje gedoe. Maar als we programma's zoals Poetry, Conda of Python willen gebruiken hoeven we helemaal niet het juiste bestandje op te zoeken en te runnen. We hoeven alleen maar een commando in de terminal te geven &mdash; bijvoorbeeld \shellinline{python} of \shellinline{conda} &mdash; en de computer start automatisch het juiste programma op.
 
 Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan een commando toevoegen om de module uit te voeren die je in \secref{sec:modules} kunt vinden. De twee bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`just\_count.py` zijn netjes in een package geplaats in de nieuwe repository \githubrepo{just\_count}:
 
@@ -556,7 +556,7 @@ Om de wijzigingen aan :fontawesome-regular-file-code:`pyproject.toml` door te vo
     1. Schrijf een functie in :fontawesome-regular-file-code:`view.py` die je wilt uitvoeren als je het commando gaat aanroepen. Je kunt hierin de hele body van je script plaatsen.
     1. Voeg een commando aan :fontawesome-regular-file-code:`pyproject.toml` toe.
     1. Installeer het Poetry project en test het commando. Los eventuele errors op totdat het werkt.
-    1. Open -- buiten Visual Studio Code -- een `Anaconda prompt` en test of jouw commando dan nog steeds werkt.\footnote{Activeer wel eerst de juiste conda environment.}.
+    1. Open &mdash; buiten Visual Studio Code &mdash; een `Anaconda prompt` en test of jouw commando dan nog steeds werkt.\footnote{Activeer wel eerst de juiste conda environment.}.
     
 
 

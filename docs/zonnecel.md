@@ -78,8 +78,8 @@ Als je naar de $IU$-karakteristiek kijkt, zie je dat het zonnepaneel bij lage sp
       \clip (0, 0) rectangle (8, 5);
       \draw[very thick, domain=0:7] plot (\x, {4 - 1e-2 * (exp(\x) - 1)});
     \end{scope}
-    \draw[->, thick] (0, 0) -- (7, 0) node[right] {$U_\text{PV}$};
-    \draw[->, thick] (0, 0) -- (0, 5) node[above] {$I$};
+    \draw[->, thick] (0, 0) &mdash; (7, 0) node[right] {$U_\text{PV}$};
+    \draw[->, thick] (0, 0) &mdash; (0, 5) node[above] {$I$};
     \node[below left] at (0, 0) {0};
   \end{tikzpicture}
   \caption{De stroom die geleverd kan worden door een zonnecel uitgezet tegen de spanning $U_\text{PV}$ geleverd door de zonnecel. Hier staat PV voor _PhotoVoltaic cell_.}
@@ -96,8 +96,8 @@ Het is bij zonnepanelen natuurlijk interessant om naar het elektrisch vermogen t
   \begin{tikzpicture}
     % \clip (-1em, -1.2em) rectangle (8, 5.5);
     \draw[very thick] (0, 0) .. controls (1, 4) and (1.5, 4.5) .. (2, 4.5) .. controls (2.5, 4.5) and (4, 3) .. (6.75, 2);
-    \draw[->, thick] (0, 0) -- (7, 0) node[right] {$R$};
-    \draw[->, thick] (0, 0) -- (0, 5) node[above] {$P$};
+    \draw[->, thick] (0, 0) &mdash; (7, 0) node[right] {$R$};
+    \draw[->, thick] (0, 0) &mdash; (0, 5) node[above] {$P$};
     \node[below left] at (0, 0) {0};
   \end{tikzpicture}
   \caption{Het vermogen dat geleverd kan worden door een zonnecel uitgezet tegen de belasting (weerstand) van het circuit. Er is duidelijk een maximum in het vermogen bij een optimale weerstand.}
@@ -144,4 +144,4 @@ waarbij $P_{max}$ het maximaal vermogen is wat een zonnecel/-paneel levert en $P
 
 De optimale weerstand waarbij het vermogen dat geleverd wordt door een zonnecel maximaal is, is helaas geen constante. Deze weerstandswaarde is afhankelijk van verschillende condities waarbij de belangrijkste de lichtintensiteit op de zonnecel is. Dat betekent dat, zonder aanpassingen, het vermogen dat geleverd wordt door de zonnecel meestal veel lager is dan je zou wensen.
 
-Voor zonnepanelen die elektriciteit leveren aan het lichtnet is dit een groot probleem. Allereerst wil je je investering zo snel mogelijk terugverdienen en ook daarna wil je dat de opbrengst maximaal is. Ten tweede is het zo dat de weerstand van het lichtnet bijzonder klein is. Het vermogen dat daardoor geleverd wordt is ook heel klein. Dit wordt opgelost door -- envoudig gezegd -- de verbinding tussen het zonnepaneel en het lichtnet vele malen per seconde aan en uit te schakelen. Hierdoor <q>voelt</q> het zonnepaneel als het ware een weerstand. Deze weerstand is afhankelijk van de hoeveelheid tijd dat het paneel niet aan het lichtnet is geschakeld. Door slim te schakelen kan de weerstand zó gekozen worden dat het geleverde vermogen maximaal is. Als de lichtintensiteit wijzigt kan ook de weerstand worden aangepast. Dit heet _maximum power point tracking_.
+Voor zonnepanelen die elektriciteit leveren aan het lichtnet is dit een groot probleem. Allereerst wil je je investering zo snel mogelijk terugverdienen en ook daarna wil je dat de opbrengst maximaal is. Ten tweede is het zo dat de weerstand van het lichtnet bijzonder klein is. Het vermogen dat daardoor geleverd wordt is ook heel klein. Dit wordt opgelost door &mdash; envoudig gezegd &mdash; de verbinding tussen het zonnepaneel en het lichtnet vele malen per seconde aan en uit te schakelen. Hierdoor <q>voelt</q> het zonnepaneel als het ware een weerstand. Deze weerstand is afhankelijk van de hoeveelheid tijd dat het paneel niet aan het lichtnet is geschakeld. Door slim te schakelen kan de weerstand zó gekozen worden dat het geleverde vermogen maximaal is. Als de lichtintensiteit wijzigt kan ook de weerstand worden aangepast. Dit heet _maximum power point tracking_.

@@ -4,18 +4,18 @@
 
 Zodra je scripts wat ingewikkelder worden begin je tegen hele praktische problemen aan te lopen. Het werkt _nu_, maar je wilt een flinke aanpassing gaan doen. Werkt het straks nog wel? Hoe ingewikkelder het script, hoe ingewikkelder de wijzigingen en hoe minder het vertrouwen dat het in één keer gaat lukken. Misschien heb je wel eens de ervaring gehad dat het maar niet wil werken en dat je niet goed weet wat je precies had veranderd ten opzichte van toen het nog _wel_ werkte. Veel mensen hebben de neiging om naast een :fontawesome-regular-file-code:`script.py` een :fontawesome-regular-file-code:`script-v1.py`, :fontawesome-regular-file-code:`script-v2.py`, enz. aan te maken. Soms zelfs een :fontawesome-regular-file-code:`script-eindversie.py` en met wat pech dan toch nog een :fontawesome-regular-file-code:`script-eindversie-definitief.py`. Niet heel fijn. Je ziet dan nog steeds niet goed wat er veranderd is (dat blijft naast elkaar leggen en zoeken) en je map loopt vol met overbodige scripts. Dit kan beter\ldots\ met versiebeheer!
 
-Versiebeheer (Engels: _version control_) stelt je in staat om af en toe een momentopname te maken van al je bestanden in een bepaalde map, inclusief alle submappen. Dit doe je niet na iedere regel code, maar bijvoorbeeld wel als je een stukje code af hebt en getest hebt dat het werkt. Zo'n momentopname heet een _commit_. Hoe vaak je commit is aan jou; maar wacht niet te lang -- dan is het geen versiebeheer meer.
+Versiebeheer (Engels: _version control_) stelt je in staat om af en toe een momentopname te maken van al je bestanden in een bepaalde map, inclusief alle submappen. Dit doe je niet na iedere regel code, maar bijvoorbeeld wel als je een stukje code af hebt en getest hebt dat het werkt. Zo'n momentopname heet een _commit_. Hoe vaak je commit is aan jou; maar wacht niet te lang &mdash; dan is het geen versiebeheer meer.
 
 Je versiebeheersysteem geeft ondertussen duidelijk al je wijzigingen weer ten opzichte van de laatste commit. Ook kun je de wijzigingen tussen oudere versies bekijken. Alles is relatief: je kunt zien wat er veranderd is tussen twee weken terug en gisteren, of gisteren en vandaag; iedere commit kun je vergelijken met willekeurig iedere andere commit. Heb je iets verprutst en wil je een oude versie terughalen? Prima! Commit die ook, dan kun je zelfs dat weer terugdraaien later. Je verliest nooit meer je werk. En stukmaken mag!
 
 
 ### Git
 
-Ruim tien jaar geleden werden er nog vele concurrerende systemen gebruikt. Die tijd is grotendeels voorbij. Eén van de nieuwste systemen, Git,\footnote{https://initialcommit.com/blog/How-Did-Git-Get-Its-Name} wordt tegenwoordig door bijna iedereen gebruikt of ondersteund. Git is ontwikkeld door Linus Torvalds als alternatief voor het commerciële systeem dat gebruikt werd voor de ontwikkeling van de Linux kernel \cite{git}. Het begon als een zeer eenvoudig -- en volkomen ongebruiksvriendelijk -- programma. Later is het in een veel gebruiksvriendelijker jasje gestoken.
+Ruim tien jaar geleden werden er nog vele concurrerende systemen gebruikt. Die tijd is grotendeels voorbij. Eén van de nieuwste systemen, Git,\footnote{https://initialcommit.com/blog/How-Did-Git-Get-Its-Name} wordt tegenwoordig door bijna iedereen gebruikt of ondersteund. Git is ontwikkeld door Linus Torvalds als alternatief voor het commerciële systeem dat gebruikt werd voor de ontwikkeling van de Linux kernel \cite{git}. Het begon als een zeer eenvoudig &mdash; en volkomen ongebruiksvriendelijk &mdash; programma. Later is het in een veel gebruiksvriendelijker jasje gestoken.
 
 Git werkt in principe via de command-line. Je geeft opdrachten in de map waar je broncode staat: toevoegen van wijzigingen aan de _staging area_, bekijken van de meest recente wijzigingen, committen van je code, teruggaan en werken met oudere versies, aanmaken van _branches_,\footnote{Een branch is een splitsing in je versiegeschiedenis. Je kunt het gebruiken om over een langere tijd een grote wijziging uit te testen terwijl je af en toe heen en weer springt tussen je main branch en de nieuwe branch. Commits in de nieuwe branch blijven gescheiden. Later kun je ervoor kiezen om de wijzigingen in de nieuwe branch te _mergen_ met je main branch, maar dat hoeft niet.} je wijzigingen uploaden naar internet, enz. Het geheel van map met broncode en versiegeschiedenis wordt een _repository_ genoemd.
 
-In deze cursus zullen we gebruik maken van een grafische applicatie die eenvoudiger werkt. Je kunt daarna -- als je dat wilt -- de stap maken naar de command-line waarmee je nog veel meer mogelijkheden tot je beschikking krijgt. Voor meer informatie over Git en het gebruik via de command-line, zie \textcite{gitpro}.
+In deze cursus zullen we gebruik maken van een grafische applicatie die eenvoudiger werkt. Je kunt daarna &mdash; als je dat wilt &mdash; de stap maken naar de command-line waarmee je nog veel meer mogelijkheden tot je beschikking krijgt. Voor meer informatie over Git en het gebruik via de command-line, zie \textcite{gitpro}.
 
 
 ### GitHub
@@ -38,7 +38,7 @@ Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een d
     \label{opd:add_repository}
     Maak op de volgende manier een repository voor je Pythonscripts:
 
-    1. Maak -- bijvoorbeeld vanuit Visual Studio Code -- een map \folderpath{Oefenopdrachten} en zet daarin alle python-bestandjes die je hebt gemaakt om te oefenen in \chref{ch:gesprek} en \chref{ch:mvc}.
+    1. Maak &mdash; bijvoorbeeld vanuit Visual Studio Code &mdash; een map \folderpath{Oefenopdrachten} en zet daarin alle python-bestandjes die je hebt gemaakt om te oefenen in \chref{ch:gesprek} en \chref{ch:mvc}.
     1. Open GitHub desktop en log in met je GitHub account.
     1. \menu{File > Add Local Repository}. Kies de map \folderpath{Oefenopdrachten}.
     1. Je kunt de repository niet toevoegen omdat de map weliswaar bestaat, maar nog geen bestaande repository is. Er verschijnt een waarschuwing met een stukje kleine blauwe tekst. Klik op `create a repository`.
@@ -61,7 +61,7 @@ Dit kan in GitHub Desktop, maar ook direct vanuit Visual Studio Code. Elke commi
 
     1. In Visual Studio Code, ga naar \menu{File > Open Folder} en kies de map waar je in \opdref{opd:add_repository} een repository hebt aangemaakt.
     1. Open één van je Pythonscripts.
-    1. Type een stukje code erbij -- bijvoorbeeld een print-statement -- en haal ergens anders iets weg. Bewaar het bestand.
+    1. Type een stukje code erbij &mdash; bijvoorbeeld een print-statement &mdash; en haal ergens anders iets weg. Bewaar het bestand.
     1. Links verschijnt een blauw bolletje bij `Source Control` \faCodeBranch\ die laat weten dat er wijzigingen zijn ten opzichte van de vorige commit. Klik op `Source Control`.
     1. Onder `Changes` staat een lijst met bestanden waar wijzigingen in aan zijn gebracht. Kies welke bestanden je wilt committen door rechts op het +je te klikken. Deze bestanden komen nu op het podium te staan onder `Staged Changes`. Je kunt ook alle bestanden in een keer op het podium zetten door naast het kopje `Changes` op het +je te klikken.
     1. Schrijf een nuttige <q>commit message</q>. Dus niet: <q>\opdref{opd:commit}</q>, maar: <q>feat: search for port name to open communication with device</q>.\footnote{Je kunt je commit message opdelen in een titel (of summary) en een beschrijving. In Visual Studio Code, doe je dit door een witregel toe te voegen tussen de titel en de beschrijving.}
@@ -122,12 +122,12 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
 
 
 
-Aangezien je geen schrijfrechten hebt voor LMfit kun je niet kiezen voor `Push origin` -- de knop die rechtsboven verschijnt. Met die knop <q>duw</q> je je wijzigingen naar GitHub zodat iedereen ze kan zien. Dat is mooi, maar je mag niet zomaar de repository van iemand anders wijzigen.
+Aangezien je geen schrijfrechten hebt voor LMfit kun je niet kiezen voor `Push origin` &mdash; de knop die rechtsboven verschijnt. Met die knop <q>duw</q> je je wijzigingen naar GitHub zodat iedereen ze kan zien. Dat is mooi, maar je mag niet zomaar de repository van iemand anders wijzigen.
 
 !!! question "bonus"
     In eerdere opdrachten heb je repositories op de computer aangemaakt. Vanuit GitHub Desktop kan je een repository publiceren op GitHub. Commits kun je vervolgens pullen en pushen van en naar Github.
 
-    1. Publiceer een repository op Github -- bijvoorbeeld je oefenopdrachten of je `pythondaq`-repository. Verander iets in je code, commit en kijk hoe je dat naar GitHub kunt Pushen.
+    1. Publiceer een repository op Github &mdash; bijvoorbeeld je oefenopdrachten of je `pythondaq`-repository. Verander iets in je code, commit en kijk hoe je dat naar GitHub kunt Pushen.
     1. Ga naar Github.com en verander daar iets in de code, commit en kijk hoe je dat naar de computer kan Pullen.
     
 

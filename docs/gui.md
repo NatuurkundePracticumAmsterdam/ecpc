@@ -62,7 +62,7 @@ We gaan de eenvoudige interface programmeren die weergegeven is in \figref{fig:s
 \end{figure}
 We doen dat door de class `#!py UserInterface` uit te breiden met widgets uit de `#!py QtWidgets` bibliotheek.
 
-Het definiëren van layouts gebeurt in veruit de meeste opmaaksystemen met rechthoeken (_Engels: boxes_) die op verschillende manieren gestapeld worden -- naast elkaar, boven elkaar, of op een rechthoekig grid bijvoorbeeld. Zulke systemen zijn ook _hiërarchisch_: je stopt boxes in andere boxes. De layout van \figref{fig:screenshot-ui-prog} is als volgt opgebouwd: ieder venster moet één centrale widget hebben (\figref{fig:layout-centerwidget}). Vervolgens geven we aan dat we die verticaal gaan opdelen (\figref{fig:layout-vbox}). In die indeling plaatsen we dan een widget voor tekstinvoer én een widget met een horizontale opdeling (\figref{fig:layout-text-hbox}). Als laatste plaatsen we in die horizontale opdeling twee knoppen (\figref{fig:layout-buttons}). Vergelijk die schematische voorstelling nog een keer met \figref{fig:screenshot-ui-prog}. Het is soms even puzzelen hoe je de layout van een applicatie het beste opbouwt.
+Het definiëren van layouts gebeurt in veruit de meeste opmaaksystemen met rechthoeken (_Engels: boxes_) die op verschillende manieren gestapeld worden &mdash; naast elkaar, boven elkaar, of op een rechthoekig grid bijvoorbeeld. Zulke systemen zijn ook _hiërarchisch_: je stopt boxes in andere boxes. De layout van \figref{fig:screenshot-ui-prog} is als volgt opgebouwd: ieder venster moet één centrale widget hebben (\figref{fig:layout-centerwidget}). Vervolgens geven we aan dat we die verticaal gaan opdelen (\figref{fig:layout-vbox}). In die indeling plaatsen we dan een widget voor tekstinvoer én een widget met een horizontale opdeling (\figref{fig:layout-text-hbox}). Als laatste plaatsen we in die horizontale opdeling twee knoppen (\figref{fig:layout-buttons}). Vergelijk die schematische voorstelling nog een keer met \figref{fig:screenshot-ui-prog}. Het is soms even puzzelen hoe je de layout van een applicatie het beste opbouwt.
 
 \begin{figure}
     \centering
@@ -378,22 +378,22 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
 \end{info}
 
 \begin{info}
-    Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met Poetry <q>taken</q> aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn niet meer beschikbaar als je je applicatie deelt met andere mensen -- ze zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. En dat is wat we willen. Doe dit als volgt:
+    Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met Poetry <q>taken</q> aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn niet meer beschikbaar als je je applicatie deelt met andere mensen &mdash; ze zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. En dat is wat we willen. Doe dit als volgt:
 
-    1. Installeer _Poe the Poet_ -- onze _task runner_ -- als _development dependency_ met:
+    1. Installeer _Poe the Poet_ &mdash; onze _task runner_ &mdash; als _development dependency_ met:
             ``` ps1con
             poetry add --group dev poethepoet
             ```
             We geven hiermee aan dat we dit package nodig hebben voor de ontwikkeling van onze applicatie, maar dat deze niet meegeleverd hoeft te worden als we de applicatie gaan delen met anderen.
-    1. Voeg aan je :fontawesome-regular-file-code:`pyproject.toml` het volgende toe -- uitgaande van de mappenstructuur in de `pythondaq` package en :fontawesome-regular-file-lines:`mainwindow.ui` als naam van je `.ui`-bestand:
+    1. Voeg aan je :fontawesome-regular-file-code:`pyproject.toml` het volgende toe &mdash; uitgaande van de mappenstructuur in de `pythondaq` package en :fontawesome-regular-file-lines:`mainwindow.ui` als naam van je `.ui`-bestand:
             \begin{tomlcode}
                 [tool.poe.tasks.compile]
                 shell = """
                 pyside6-uic src/pythondaq/mainwindow.ui -o src/pythondaq/ui_mainwindow.py
                 """
             \end{tomlcode}
-            Je kunt binnen de driedubbele aanhalingstekens meerdere regels toevoegen als je meerdere `.ui`-bestanden hebt -- voor ieder bestand een regel.
-    1. In bovenstaande regels is de naam na `tool.poe.tasks` de naam van de taak -- in dit geval dus `compile`. Je kunt die naam zelf kiezen. Voer de taak uit door in de terminal in te typen:
+            Je kunt binnen de driedubbele aanhalingstekens meerdere regels toevoegen als je meerdere `.ui`-bestanden hebt &mdash; voor ieder bestand een regel.
+    1. In bovenstaande regels is de naam na `tool.poe.tasks` de naam van de taak &mdash; in dit geval dus `compile`. Je kunt die naam zelf kiezen. Voer de taak uit door in de terminal in te typen:
             ``` ps1con
             poe compile
             ```
@@ -457,7 +457,7 @@ Je kunt je grafische applicatie volledig optuigen met menu's of taakbalken. Ook 
 
 ### Selecteer de Arduino
 
-Je hebt nu nog, waarschijnlijk, de poortnaam van de Arduino in je code gedefinieerd als vaste waarde. Dat betekent dat als je de code deelt met iemand anders -- bijvoorbeeld wanneer je de code inlevert op Canvas of wanneer je je experiment op een labcomputer wilt draaien -- je het risico loopt dat je applicatie crasht omdat de Arduino aan een andere poort hangt. Zeker bij de overstap van Windows naar MacOS of Linux, of andersom! Je kunt dit op twee manieren oplossen:
+Je hebt nu nog, waarschijnlijk, de poortnaam van de Arduino in je code gedefinieerd als vaste waarde. Dat betekent dat als je de code deelt met iemand anders &mdash; bijvoorbeeld wanneer je de code inlevert op Canvas of wanneer je je experiment op een labcomputer wilt draaien &mdash; je het risico loopt dat je applicatie crasht omdat de Arduino aan een andere poort hangt. Zeker bij de overstap van Windows naar MacOS of Linux, of andersom! Je kunt dit op twee manieren oplossen:
 
 1. Je maakt een keuzemenu dat de gebruiker bij het opstarten éérst krijgt te zien. Hierin kan de gebruiker de Arduino aanklikken en dan pas wordt het hoofdprogramma opgestart;
 1. Je probeert de Arduino te detecteren op één van de poorten. De gebruiker hoeft dan niet te weten welke poort dat zou kunnen zijn. Het werkt dan vanzelf!
@@ -476,7 +476,7 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
 
 % Om je een zoektocht te besparen: wanneer je een device probeert te openen kun je een `serial.serialutil.SerialException`\footnote{Om de exception te <q>herkennen</q> moet je bovenin je code `#!py import serial.serialutil` toevoegen.} krijgen, bijvoorbeeld wanneer het device al in gebruik is. Als je met een device probeert te communiceren en je krijgt geen antwoord, dan krijg je een `pyvisa.errors.VisaIOError`. Vang in ieder geval die exceptions dus af.
 
-% Aangezien het hier heel specifiek over Arduino's gaat -- en niet in het algemeen over een instrument -- is de controller de juiste plek voor deze code. Als je wilt dat de detectie niet te lang duurt -- je moet immers steeds wachten op een antwoord dat misschien niet komt -- kun je in de `ArduinoVISADevice`-class aan de `open\_resource()`-aanroep de parameter `timeout=100` toevoegen. Hij wacht dan maximaal \qty{100}{\milli\second} op antwoord en geeft dan een timeout.
+% Aangezien het hier heel specifiek over Arduino's gaat &mdash; en niet in het algemeen over een instrument &mdash; is de controller de juiste plek voor deze code. Als je wilt dat de detectie niet te lang duurt &mdash; je moet immers steeds wachten op een antwoord dat misschien niet komt &mdash; kun je in de `ArduinoVISADevice`-class aan de `open\_resource()`-aanroep de parameter `timeout=100` toevoegen. Hij wacht dan maximaal \qty{100}{\milli\second} op antwoord en geeft dan een timeout.
 
 % \begin{hogercijfer}
 %   \begin{opdracht}
@@ -584,7 +584,7 @@ class Experiment:
             ...
         return self.x, self.y
 ```
-We zorgen er zo voor dat de lijst met meetgegevens voor zowel de $x$- als de $y$-waardes steeds even lang zijn. Dit is nodig voor het plotten: hij kan geen grafiek maken van 50 $x$-waardes en maar tien $y$-waardes.\footnote{Hier zie je een probleem met threads. Het kán -- in uitzonderlijke situaties -- voorkomen dat de plot-functie nét wil gaan plotten als de $x$-waardes al langer gemaakt zijn, maar de $y$-waardes nog niet. Die kans is heel klein en wij accepteren het risico. Schrijf je software voor een complex experiment dat drie dagen draait, dan is dit iets waar je echt rekening mee moet houden. Je moet dan gebruik gaan maken van zogeheten _locks_ of _semaphores_ maar dat valt buiten het bestek van deze cursus.} Ook moeten we er voor zorgen dat er _altijd_ (lege) meetgegevens beschikbaar zijn -- ook als de meting nog niet gestart is. Anders krijgen we voordat we een meting hebben kunnen doen een foutmelding dat `#!py self.x` niet bestaat. We doen dat in de `#!py __init__()`:
+We zorgen er zo voor dat de lijst met meetgegevens voor zowel de $x$- als de $y$-waardes steeds even lang zijn. Dit is nodig voor het plotten: hij kan geen grafiek maken van 50 $x$-waardes en maar tien $y$-waardes.\footnote{Hier zie je een probleem met threads. Het kán &mdash; in uitzonderlijke situaties &mdash; voorkomen dat de plot-functie nét wil gaan plotten als de $x$-waardes al langer gemaakt zijn, maar de $y$-waardes nog niet. Die kans is heel klein en wij accepteren het risico. Schrijf je software voor een complex experiment dat drie dagen draait, dan is dit iets waar je echt rekening mee moet houden. Je moet dan gebruik gaan maken van zogeheten _locks_ of _semaphores_ maar dat valt buiten het bestek van deze cursus.} Ook moeten we er voor zorgen dat er _altijd_ (lege) meetgegevens beschikbaar zijn &mdash; ook als de meting nog niet gestart is. Anders krijgen we voordat we een meting hebben kunnen doen een foutmelding dat `#!py self.x` niet bestaat. We doen dat in de `#!py __init__()`:
 ``` py
 # model
 class Experiment:
@@ -613,7 +613,7 @@ class UserInterface(QtWidgets.QMainWindow):
             self.experiment.x, self.experiment.y, symbol="o", symbolSize=5, pen=None
         )
 ```
-De code wordt hier niet sneller van -- hij maakt nog steeds pas een grafiek als de meting helemaal is afgelopen -- maar we bereiden de code wel voor op het gebruik van de instance attributes.
+De code wordt hier niet sneller van &mdash; hij maakt nog steeds pas een grafiek als de meting helemaal is afgelopen &mdash; maar we bereiden de code wel voor op het gebruik van de instance attributes.
 
 !!! question "inleveren: Pythondaq: threads II"
     Pas je eigen code aan zodat je instance attributes gebruikt voor het plotten. _Test je code,_ het moet nog steeds werken als vanouds.
@@ -637,7 +637,7 @@ class Experiment:
         self._scan_thread.start()
 ```
 
-In plaats van dat onze plotfunctie de `#!py scan()`-method aanroept, moeten we nu de `#!py start_scan()`-method aanroepen. Maar: die method start een scan en sluit meteen af, terwijl de daadwerkelijke meting op de achtergrond wordt uitgevoerd. De plotfunctie moet -- in deze stap nog even -- wachten tot de scan klaar is. Er is een manier om op een thread te wachten. Je moet daartoe de `#!py join()` method van de thread aanroepen. In bovenstaande code hebben we de thread bewaard in de variabele `#!py _scan_thread`, dus hij is voor ons beschikbaar:
+In plaats van dat onze plotfunctie de `#!py scan()`-method aanroept, moeten we nu de `#!py start_scan()`-method aanroepen. Maar: die method start een scan en sluit meteen af, terwijl de daadwerkelijke meting op de achtergrond wordt uitgevoerd. De plotfunctie moet &mdash; in deze stap nog even &mdash; wachten tot de scan klaar is. Er is een manier om op een thread te wachten. Je moet daartoe de `#!py join()` method van de thread aanroepen. In bovenstaande code hebben we de thread bewaard in de variabele `#!py _scan_thread`, dus hij is voor ons beschikbaar:
 ``` py
 # view
 class UserInterface(QtWidgets.QMainWindow):
@@ -656,7 +656,7 @@ class UserInterface(QtWidgets.QMainWindow):
 
 ### Stap 4: plotten op de achtergrond
 
-We zijn er nu bijna. We gebruiken threads om de metingen op de achtergrond uit te voeren maar we wachten nog steeds tot de metingen klaar zijn voordat we -- eenmalig -- de grafiek plotten. In deze laatste stap doen we dat niet meer. Als je straks op de startknop drukt dan start de meting op de achtergrond. Ondertussen wordt er regelmatig geplot. Je ziet dan tijdens de metingen de plot opbouwen. We doen dat door het scannen en plotten van elkaar los te koppelen -- niet meer samen in één functie -- en door met een `#!py QTimer` de plotfunctie periodiek aan te roepen. Kijk de code goed door. De `#!py ...` geven aan waar code onveranderd is gebleven en de `#!py plot()`-method is volledig vervangen en weer _bijna_ terug in de oorspronkelijke vorm. Als je twijfelt, kijk dan naar de volledige code op Canvas.
+We zijn er nu bijna. We gebruiken threads om de metingen op de achtergrond uit te voeren maar we wachten nog steeds tot de metingen klaar zijn voordat we &mdash; eenmalig &mdash; de grafiek plotten. In deze laatste stap doen we dat niet meer. Als je straks op de startknop drukt dan start de meting op de achtergrond. Ondertussen wordt er regelmatig geplot. Je ziet dan tijdens de metingen de plot opbouwen. We doen dat door het scannen en plotten van elkaar los te koppelen &mdash; niet meer samen in één functie &mdash; en door met een `#!py QTimer` de plotfunctie periodiek aan te roepen. Kijk de code goed door. De `#!py ...` geven aan waar code onveranderd is gebleven en de `#!py plot()`-method is volledig vervangen en weer _bijna_ terug in de oorspronkelijke vorm. Als je twijfelt, kijk dan naar de volledige code op Canvas.
 ``` py
 from PyQt5 import QtWidgets, QtCore
 
@@ -691,7 +691,7 @@ Hiermee zijn we klaar met de implementatie van threads. De gebruiker hoeft niet 
 
 ### Uitdaging: Stap 5: puntjes op de <q>i</q>: _events_
 
-Wanneer je op de startknop drukt, even wacht en dan wéér op de startknop drukt, dan kun je zien dat er _twee_ metingen tegelijk worden uitgevoerd op de achtergrond. Dat wil je voorkomen. Ook is het wel aardig om metingen tussentijds te kunnen stoppen. Dat is vooral handig als je merkt dat een meting veel te lang gaat duren. Verder is het ook nog zo dat we er nu met onze timer voor gezorgd hebben dat de plotfunctie meerdere keren per seconde wordt uitgevoerd -- of er nu een meting loopt of niet.
+Wanneer je op de startknop drukt, even wacht en dan wéér op de startknop drukt, dan kun je zien dat er _twee_ metingen tegelijk worden uitgevoerd op de achtergrond. Dat wil je voorkomen. Ook is het wel aardig om metingen tussentijds te kunnen stoppen. Dat is vooral handig als je merkt dat een meting veel te lang gaat duren. Verder is het ook nog zo dat we er nu met onze timer voor gezorgd hebben dat de plotfunctie meerdere keren per seconde wordt uitgevoerd &mdash; of er nu een meting loopt of niet.
 
 Je kunt dit oplossen met `#!py threading.Event()` objecten. Dit zijn objecten met `#!py set()`, `#!py clear()` en `#!py wait()` methods om gebeurtenissen aan te geven of er op te wachten. Zo kun je een event `#!py is_scanning` aanmaken die je `#!py set()` zodra een meting begint en `#!py clear()` zodra de meting is afgelopen. Je controleert bij de start van de meting dan bijvoorbeeld eerst of de meting al loopt met `#!py is_scanning.is_set()` en start alleen een meting als dat nog niet zo is.
 
