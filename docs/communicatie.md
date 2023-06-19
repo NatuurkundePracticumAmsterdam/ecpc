@@ -45,7 +45,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 !!! warning
     Let op dat je de weerstand van 220 Ω gebruikt! Een te grote weerstand zorgt ervoor dat je nauwelijks iets kunt meten, maar een te kleine weerstand zorgt ervoor dat de stroomsterkte door de Arduino te groot wordt. In dat geval zul je de Arduino onherstelbaar beschadigen. De kleurcodes voor weerstanden vind je in \appref{ch:kleurcodes}.
 
-!!! question "Schakeling bouwen"
+!!! opdracht-basis "Schakeling bouwen"
     Als je geen kant-en-klare schakeling bij je werkplek hebt liggen, druk de Arduino in het breadboard en bouw een schakeling met een LED op de manier die is weergegeven in \figref{fig:arduino-LED-breadboard}. De weerstand heeft een waarde van \qty{220}{\ohm}. De LED heeft aan één zijde een platte kant in de dikkere ring onderaan de plastic behuizing (goed kijken!); schakel die aan de kant van de aarde. Als de pootjes van de LED niet afgeknipt zijn, dan zit het korte pootje aan de platte zijde van de LED. Het heeft geen zin om naar het plaatje te kijken hoe het er ín de LED uitziet -- dat verschilt per type LED.
 
 <figure markdown>
@@ -59,7 +59,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 !!! note
     Om met Python via het VISA-protocol te kunnen communiceren met apparaten hebben we specifieke packages nodig. Die gaan we installeren in een _conda environment_. Voor meer informatie over conda environments zie \secref{sec:conda-envs}.
 
-!!! question
+!!! opdracht-basis "Environment aanmaken"
     \label{opd:condaenv}
     Omdat meerdere studenten gedurende de week achter dezelfde computer werken en environments aan gaan maken kun je het beste je initialen toevoegen aan de naam van je environment. Zo zit niemand elkaar in de weg. In dit voorbeeld gebruiken we <q>IK</q> als initialen. Maak de environment en installeer de juiste packages door een terminal te openen[^terminal] en in te typen (_zonder_ het dollarteken aan het begin):
     ``` ps1con
@@ -72,7 +72,7 @@ conda activate IK-pythondaq
 
 [^terminal]: Start de applicatie `Anaconda Powershell Prompt` of start een terminal binnen Visual Studio Code met het menu \menu{Terminal > New Terminal}.
 
-!!! question
+!!! opdracht-basis "Pyvisa in terminal"
     Sluit de Arduino met de USB-kabel aan op de computer. Om de communicatie met de Arduino te testen maken we gebruik van `pyvisa-shell`. Open een terminal, zorg dat het goede conda environment actief is en type `help`:
     ``` ps1con
 pyvisa-shell -b py
@@ -107,7 +107,7 @@ Response: ERROR: UNKNOWN COMMAND *IDN?
 (open) exit
 ```
 
-!!! question
+!!! opdracht-basis "Pyvisa error"
     Probeer zelf ook de commando's `list`, `open`, en de `query` uit. Krijg je hetzelfde resultaat?
 
 Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de documentatie van de firmware (\appref{ch:firmware}) dan zie je dat er bepaalde _terminator characters_ nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een <q>enter</q> aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een _carriage return_ (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een _line feed_ (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van _carriage return + line feed_ (CRLF). Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer heb je nodig? Af en toe is dat lastig, vooral wanneer er elektronica in het spel is want dan willen de regeleindes voor schrijven en lezen nog wel eens verschillend zijn.[^regeleindes] We gaan nu het gebruik van de karakters instellen:
@@ -126,7 +126,7 @@ Response: Arduino VISA firmware v1.0.0
 ```
 Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het eind van de <q>zin</q>) krijgen we antwoord! Dat antwoord heeft dan juist weer een CRLF aan het eind dus `pyvisa-shell` weet wanneer het kan stoppen met luisteren en print het antwoord op het scherm. De karakters CRLF en LF _zelf_ blijven onzichtbaar voor ons.
 
-!!! question
+!!! opdracht-basis "Pyvisa regeleindes"
     Stel zelf ook de regeleindes goed in en probeer of je antwoord krijgt van de Arduino. Heeft jouw Arduino de nieuwste firmware?
     Speel eens met de commando's en kijk of je de LED kunt laten branden of een spanning kunt meten. Bijvoorbeeld:
     ``` consolecode
@@ -179,7 +179,7 @@ device = rm.open_resource(
 print(device.query("*IDN?"))
 ```
 
-!!! question
+!!! opdracht-basis "Pyvisa in pythonscript"
     Maak in een geschikte map een bestand :fontawesome-regular-file-code:`test\_arduino.py` en kopieer daarin bovenstaande code. Selecteer vervolgens in Visual Studio Code je conda environment zodat je het script ook daadwerkelijk kunt runnen. Hoe je dat doet lees je aan het eind van \secref{sec:conda-envs}. Sluit alle terminals.
 
 
@@ -202,11 +202,11 @@ Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een 
     Als je (nog) geen idee hebt wat dat inhoudt, lees dan de tutorial \citetitle{f-strings} op Real Python \parencite{f-strings}.
 
 
-!!! question
+!!! opdracht-basis "LED laten branden"
     Schrijf een script dat de spanning over de LED laat oplopen van nul tot de maximale waarde. Wat gebeurt er als je de spanning laat oplopen tot twee keer die maximale waarde?
 
 
-!!! question
+!!! opdracht-basis "KnipperLED"
     \label{opd:knipperled}
     Je kunt de LED ook andere dingen laten doen. Schrijf voor iedere opdracht een apart script.
 
@@ -268,7 +268,7 @@ De conversie van een analoog signaal naar een digitaal signaal (en andersom!) is
 \end{figure}
 De Arduino die we gebruiken heeft een bereik van \qtyrange{0}{3.3}{\volt} en een resolutie van 10 bits, dus $2^{10} = \num{1024}$ stapjes. Als je een experiment ontwerpt is het dus van belang te weten dat je nooit kunt meten met een nauwkeurigheid kleiner dan de stapgrootte. Voor ons is deze resolutie prima.
 
-!!! question
+!!! opdracht-basis "Volt naar ADC"
     We kunnen alleen maar de getallen 0 t/m 1023 naar de Arduino sturen. Ook krijgen we alleen maar dat bereik terug.
 
     1. Schrijf de formule op waarmee je een spanning in \unit{\volt} omrekent naar een ruwe ADC waarde, én omgekeerd.
@@ -289,7 +289,7 @@ Je hebt op de middelbare school ongetwijfeld de $I,U$-karakteristiek van een ohm
   \label{fig:ohmsestroom}
 \end{figure}
 
-!!! question "inleveren: Pythondaq: start script"
+!!! opdracht-inlever "inleveren: Pythondaq: start script"
     Voer de volgende opdrachten uit:
 
     1. Schrijf een script waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Kijk wat er gebeurt met de LED.
@@ -310,9 +310,9 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
     ```
 
 
-!!! question "inleveren: Pythondaq: Quick 'n dirty meting"
-  \label{opd:quickndirty-meting}
-  Bereken in je script de spanning _over_ en de stroomsterkte _door_ de LED en bewaar deze metingen in, bijvoorbeeld, een lijst. Sluit je meting netjes af (zorg dat de LED niet blijft branden) en maak dan een grafiek van je metingen. Bekijk elkaars resultaten -- ook van andere groepjes -- en denk na of je meting fysisch helemaal correct is.
+!!! opdracht-inlever "inleveren: Pythondaq: Quick 'n dirty meting"
+    \label{opd:quickndirty-meting}
+    Bereken in je script de spanning _over_ en de stroomsterkte _door_ de LED en bewaar deze metingen in, bijvoorbeeld, een lijst. Sluit je meting netjes af (zorg dat de LED niet blijft branden) en maak dan een grafiek van je metingen. Bekijk elkaars resultaten -- ook van andere groepjes -- en denk na of je meting fysisch helemaal correct is.
 
 
 
@@ -347,13 +347,13 @@ t,s
 \end{figure}
 Je kunt CSV-bestanden schrijven en lezen met de modules `#!py csv`, `#!py numpy` of `#!py pandas`. De eerste is altijd meegeleverd met Python en is speciaal geschreven voor het bestandsformaat [@csv-module], maar NumPy \cites{numpy}{numpy-paper} en Pandas \cites{pandas}{pandas-paper} bevatten veel meer functionaliteit op het gebied van wiskunde en data-analyse. Als je die modules toch al gebruikt kun je beter niet kiezen voor de <q>kale</q> csv module.
 
-!!! question "inleveren: Pythondaq: csv"
-  \label{opd:quickndirty-csv}
-  Breid je script uit zodat de data niet alleen maar weergegeven wordt in een grafiek maar ook wordt weggeschreven als CSV-bestand. Gebruik hiervoor een module naar keuze.
+!!! opdracht-inlever "inleveren: Pythondaq: csv"
+    \label{opd:quickndirty-csv}
+    Breid je script uit zodat de data niet alleen maar weergegeven wordt in een grafiek maar ook wordt weggeschreven als CSV-bestand. Gebruik hiervoor een module naar keuze.
 
 
-!!! question "bonus"
-  Pas de code zodanig aan dat een CSV-bestand nooit wordt overschreven. Je kunt bijvoorbeeld aan de bestandsnaam een oplopend getal toevoegen (`data-001.csv`, `data-002.csv`, etc.).
+!!! opdracht-meer "CSV bestandsnaam"
+    Pas de code zodanig aan dat een CSV-bestand nooit wordt overschreven. Je kunt bijvoorbeeld aan de bestandsnaam een oplopend getal toevoegen (`data-001.csv`, `data-002.csv`, etc.).
 
 
 
@@ -367,8 +367,8 @@ Je kunt CSV-bestanden schrijven en lezen met de modules `#!py csv`, `#!py numpy`
   PyTables [@pytables] is een Python bibliotheek die het werken met HDF5-bestanden makkelijker maakt. Er zijn uiteraard functies om de bestanden aan te maken en uit te lezen maar ook om _queries_ uit te voeren. Pandas kan -- via PyTables -- ook werken met HDF5-bestanden.
 \end{bonustekst}
 
-!!! question "bonus"
-  Lees de tutorial van PyTables [@pytables] en pas je script aan zodat de meetserie van de LED wordt opgeslagen in een HDF5-bestand. Gebruik één bestand en maak daarin een nieuwe dataset voor iedere meetserie. Bewaar ook wat metadata (bijvoorbeeld tijdstip van de meting). Iedere keer dat je je script runt wordt er aan _hetzelfde_ databestand een nieuwe dataset toegevoegd.
+!!! opdracht-meer "PyTables"
+    Lees de tutorial van PyTables [@pytables] en pas je script aan zodat de meetserie van de LED wordt opgeslagen in een HDF5-bestand. Gebruik één bestand en maak daarin een nieuwe dataset voor iedere meetserie. Bewaar ook wat metadata (bijvoorbeeld tijdstip van de meting). Iedere keer dat je je script runt wordt er aan _hetzelfde_ databestand een nieuwe dataset toegevoegd.
 
 
 \bibliography
