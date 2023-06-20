@@ -2,17 +2,20 @@
 
 ## Grafische interfaces met PyQt
 
-Als je een grafische applicatie schrijft roep je functies aan van het besturingssysteem om vensters, knoppen, menu's e.d. te laten tekenen en te reageren op muisklikken en het toetsenbord. Het lastige daaraan is dat een applicatie voor MacOS heel anders geschreven moet worden dan één voor Linux of Windows. Om die reden zijn er verschillende _cross-platform_ bibliotheken ontwikkeld die als het ware tussen het besturingssysteem en je applicatie komen te staan. Je kunt dezelfde applicatie maken voor alle besturingssystemen en de bibliotheek kiest welke functies aangeroepen moeten worden om een venster te tekenen. Het voordeel is duidelijk: je hoeft maar één applicatie te schrijven die overal werkt. Het nadeel is dat je niet écht gebruik kunt maken van alle functies en opties die het besturingssysteem biedt. Hier kiezen we voor de voordelen en gaan we gebruik maken van misschien wel de meest populaire optie: Qt.\footnote{Uitspraak: het Engelse _cute_.} De bibliotheek `PySide6` is de officiële Pythonbibliotheek.
+Als je een grafische applicatie schrijft roep je functies aan van het besturingssysteem om vensters, knoppen, menu's e.d. te laten tekenen en te reageren op muisklikken en het toetsenbord. Het lastige daaraan is dat een applicatie voor MacOS heel anders geschreven moet worden dan één voor Linux of Windows. Om die reden zijn er verschillende _cross-platform_ bibliotheken ontwikkeld die als het ware tussen het besturingssysteem en je applicatie komen te staan. Je kunt dezelfde applicatie maken voor alle besturingssystemen en de bibliotheek kiest welke functies aangeroepen moeten worden om een venster te tekenen. Het voordeel is duidelijk: je hoeft maar één applicatie te schrijven die overal werkt. Het nadeel is dat je niet écht gebruik kunt maken van alle functies en opties die het besturingssysteem biedt. Hier kiezen we voor de voordelen en gaan we gebruik maken van misschien wel de meest populaire optie: Qt.[^uitspraak-Qt] De bibliotheek `PySide6` is de officiële Pythonbibliotheek.
 
-\begin{attention}
+[^uitspraak-Qt]: Uitspraak: het Engelse _cute_.
+
+!!! warning
     Maak voor de oefeningen een nieuw conda environment `IK-test-qt` met:
     ``` ps1con
     conda create -n IK-test-qt python
     conda activate IK-test-qt
     pip install pyside6 pyqtgraph
     ```
-    Selecteer het nieuwe `IK-test-qt` conda environment in Visual Studio Code en sluit alle <q>oude</q> terminals met het \faTrash*-icoon \footnote{of in één keer met \menu{View > Command Palette > Terminal: Kill All Terminals}}.
-\end{attention}
+    Selecteer het nieuwe `IK-test-qt` conda environment in Visual Studio Code en sluit alle <q>oude</q> terminals met het :fontawesome-regular-trash-can: -icoon. [^kill-terminals]
+
+ [^kill-terminals]: Of in één keer met **View > Command Palette > Terminal: Kill All Terminals**
 
 Een minimale Qt-applicatie ziet er als volgt uit:
 ``` py
@@ -35,9 +38,11 @@ def main():
 if __name__ == "__main__":
     main()  
 ```
-Eerst importeren we een paar bibliotheken. Het draait uiteindelijk om de `#!py UserInterface` class. De naam mag je zelf kiezen, zolang je maar aangeeft dat de class een afgeleide is van `#!py QtWidgets.QMainWindow`, het hoofdvenster van je applicatie. In het hoofdgedeelte van het programma (gedefinieerd in de functie `#!py main()`) maak je eerst een instance van `#!py QtWidgets.QApplication` \footnote{Die kun je eventuele command-line arguments meegeven die door Python in `#!py sys.argv` bewaard worden. Meestal zijn die leeg, maar we geven ze gewoon door aan Qt}. Ook maken we een instance van onze eigen class en we roepen de `#!py show()` method aan. Die hebben we niet zelf geprogrammeerd; die zit in de parent class `#!py QMainWindow`. Als laatste roepen we de `#!py exec()` method aan van onze `#!py QApplication` en de uitvoer daarvan (een _exit code_) geven we mee aan de functie `#!py sys.exit()`. Dat betekent dat als het programma afsluit met een foutmelding, dat een foutcode wordt meegegeven aan het besturingssysteem. Iemand anders die een script schrijft kan die code afvangen en daar iets mee doen.
+Eerst importeren we een paar bibliotheken. Het draait uiteindelijk om de `#!py UserInterface` class. De naam mag je zelf kiezen, zolang je maar aangeeft dat de class een afgeleide is van `#!py QtWidgets.QMainWindow`, het hoofdvenster van je applicatie. In het hoofdgedeelte van het programma (gedefinieerd in de functie `#!py main()`) maak je eerst een instance van `#!py QtWidgets.QApplication` .[^sys-argv-Qt] Ook maken we een instance van onze eigen class en we roepen de `#!py show()` method aan. Die hebben we niet zelf geprogrammeerd; die zit in de parent class `#!py QMainWindow`. Als laatste roepen we de `#!py exec()` method aan van onze `#!py QApplication` en de uitvoer daarvan (een _exit code_) geven we mee aan de functie `#!py sys.exit()`. Dat betekent dat als het programma afsluit met een foutmelding, dat een foutcode wordt meegegeven aan het besturingssysteem. Iemand anders die een script schrijft kan die code afvangen en daar iets mee doen.
 
-Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn strikt genomen niet noodzakelijk, maar wel _good practice_. Ook het schrijven van een `#!py main()` functie is niet strikt noodzakelijk, maar het maakt het wel makkelijk om straks een zogeheten _entry point_ te hebben als we weer een applicatie willen schrijven. In de \path{pyproject.toml} geven we dan aan dat we de `#!py main()` functie willen aanroepen. Dat komt later.
+[^sys-argv-Qt]: Die kun je eventuele command-line arguments meegeven die door Python in `#!py sys.argv` bewaard worden. Meestal zijn die leeg, maar we geven ze gewoon door aan Qt.
+
+Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn strikt genomen niet noodzakelijk, maar wel _good practice_. Ook het schrijven van een `#!py main()` functie is niet strikt noodzakelijk, maar het maakt het wel makkelijk om straks een zogeheten _entry point_ te hebben als we weer een applicatie willen schrijven. In de :fontawesome-regular-file-code:`pyproject.toml` geven we dan aan dat we de `#!py main()` functie willen aanroepen. Dat komt later.
 
 !!! opdracht-basis "Voorbeeld gui"
     \label{opd:minimal-gui}
@@ -93,8 +98,8 @@ Het definiëren van layouts gebeurt in veruit de meeste opmaaksystemen met recht
     \label{fig:layout}
 \end{figure}
 
-Het stuk programma om bovenstaande layout op te bouwen geven we hieronder weer.\footnote{Deze code is als :fontawesome-regular-file-code:`ex-gui-programming.py` beschikbaar op Canvas.} We bespreken de code regel voor regel _na_ de code hieronder.
-\begin{pythoncode*}{linenos}
+Het stuk programma om bovenstaande layout op te bouwen geven we hieronder weer. We bespreken de code regel voor regel _na_ de code hieronder.
+``` py linenums="1"
   from PySide6.QtCore import Slot
 
 
@@ -127,7 +132,7 @@ Het stuk programma om bovenstaande layout op te bouwen geven we hieronder weer.\
       @Slot()
       def add_button_clicked(self):
           self.textedit.append("You clicked me.")
-\end{pythoncode*}
+```
 Allereerst definiëren we een `__init__()`. Helaas gaat dat niet zomaar. We schrijven namelijk _niet_ helemaal zelf een nieuwe class (`#!py class UserInterface`), maar breiden de `#!py QMainWindow`-class uit (`#!py class UserInterface(QtWidgets.QMainWindow)`). Door dat te doen zijn er heel veel methods al voor ons gedefinieerd. Daar hoeven we verder niet over na te denken, onze interface <q>werkt gewoon</q>. Het gaat mis als wij zelf nieuwe methods gaan schrijven die dezelfde naam hebben. Stel dat de _parent class_ `#!py QMainWindow` een method `#!py click_this_button()` heeft. Als onze class _ook_ een method `#!py click_this_button()` heeft, dan zal _die_ worden aangeroepen in plaats van de method uit de parent class. Dat is handig als je de parent method wilt vervangen maar niet zo handig als je de parent method wilt _aanvullen_, zoals nodig is bij `__init__()`. Immers, we willen onze eigen class initialiseren, maar we willen ook dat de parent class volledig wordt geïnitialiseerd.
 
 De oplossing is gelukkig vrij eenvoudig: we kunnen de `__init__()` van de parent class gewoon aanroepen en daarna ons eigen ding doen. De Pythonfunctie `#!py super()` verwijst altijd naar de parent class, dus met `#!py super().__init__()` wordt de parent class volledig geïnitialiseerd. Dat is dus het eerste dat we doen in regel 7.
@@ -169,13 +174,15 @@ De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we 
     1. Voeg de horizontale layout toe aan de verticale layout (regel 19, \figref{fig:layout-text-hbox}).
     1. Maak een clear button en voeg deze toe aan de horizontale layout (regel 21,22).
     1. Maak ook een add button en voeg deze toe aan de horizontale layout (regel 23,24).
-    1. Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt. \footnote{Waarom doen de knoppen niets als je er op klikt?}
+    1. Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt. [^knop-stuk]
+
+[^knop-stuk]: Waarom doen de knoppen niets als je er op klikt?
 
 
 
-\begin{info}
+!!! info
     Widgets zoals knoppen voeg je toe met `#!py addWidget()`. Layouts voeg je toe aan andere layouts met `#!py addLayout()`.
-\end{info}
+
 
 De horizontale layout (voor de knoppen) moeten we expliciet toevoegen aan de verticale layout zodat hij netjes verticaal onder het tekstvenster verschijnt. Merk op dat de verticale layout `#!py vbox` _niet_ expliciet wordt toegevoegd (aan de centrale widget). De centrale widget (en _alleen_ de centrale widget) krijgt een layout door bij het aanmaken van de layout de parent `#!py central_widget` op te geven, dus: `#!py QtWidgets.QVBoxLayout(central_widget)`. Alle andere widgets en layouts worden expliciet toegevoegd en daarvoor hoef je dus geen parent op te geven.
 
@@ -192,7 +199,7 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
 
 Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst hier: [https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes](https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes). Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies `CamelCase` namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we `snake\_case` gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
 
-!!! opdracht-meer""Volgorde layout aanpassen"
+!!! opdracht-meer "Volgorde layout aanpassen"
     De volgorde waarin je layout en widgets toevoegt bepaald het uiterlijk van de grafische interface. Verander de code om de layout aan te passen (zet bijvoorbeeld de knoppen boven de textbox of zet de knoppen onder elkaar en naast de textbox).
 
 
@@ -208,9 +215,9 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 
 ### De interface ontwerpen met Qt Designer
 
-\begin{info}
+!!! info
     Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op met de zoekfunctie: links onderin bij Windows (vergrootglas of tekstveld). Type `designer` in, wacht heel even en kies de applicatie. Als hij hem niet kan vinden open dan een terminal, activeer je `IK-test-qt` conda environment en type `pyside6-designer`.
-\end{info}
+
 
 Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Je bewaart dat als een `.ui`-bestand. Vervolgens vertaal je het `.ui`-bestand naar een Pythonbestand dat je importeert in je eigen programma. De volledige class van het vorige voorbeeld kan dan vervangen worden door:
 ``` py
@@ -239,14 +246,14 @@ Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog ma
 
     1. Open Designer en kies bij \menu{templates/forms} voor `#!py MainWindow`. Klik dan op \menu{Create}. Ontwerp de user interface uit \figref{fig:screenshot-ui-prog} en gebruik dezelfde namen voor de widgets als het voorbeeld in \secref{sec:ui-prog}. Dus een `#!py add_button` knop, een `#!py clear_button` knop en een `#!py textedit` tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.
     1. Bewaar het bestand als :fontawesome-regular-file-lines:`simple\_app.ui`.
-    1. In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan\footnote{Overleg met elkaar of met de assistent als je niet weet hoe dat moet.} en type in:
+    1. In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan [^overleg-navigeren] en type in:
             ``` ps1con
             pyside6-uic simple_app.ui -o ui_simple_app.py  
             ```
             Deze stap moet je doen elke keer als je in Designer iets wijzigt. Gebruik de \faArrowUp-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met Poetry, zullen we dit eenvoudiger maken.
     1. Copy/paste nu de voorbeeldcode in een nieuw script, fix eventuele importerrors en test de applicatie.
 
-
+[^overleg-navigeren]: Overleg met elkaar of met de assistent als je niet weet hoe dat moet.
 
 
 ## Een oefening: functieplotter
@@ -255,8 +262,9 @@ Je hebt nu twee manieren gezien om een interface te bouwen: programmeren of Desi
 
 In de eindopracht willen we data weergeven op een scherm. We zullen dus nog moeten plotten. In de volgende opdrachten gaan we daarmee aan de slag.
 
-Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties. Helaas is matplotlib voor het gebruik in interactieve interfaces nogal traag zodra we te maken krijgen met meer data. We kiezen daarom voor een populair alternatief: PyQtGraph. Eén nadeel: de documentatie\footnote{[https://pyqtgraph.readthedocs.io/en/latest/](https://pyqtgraph.readthedocs.io/en/latest/)} is niet fantastisch. Het geeft dus niets als je ergens niet uitkomt en je hebt hulp nodig van de assistent of een staflid.
+Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties. Helaas is matplotlib voor het gebruik in interactieve interfaces nogal traag zodra we te maken krijgen met meer data. We kiezen daarom voor een populair alternatief: PyQtGraph. Eén nadeel: de documentatie [^documentatie-PyQtGraph] is niet fantastisch. Het geeft dus niets als je ergens niet uitkomt en je hebt hulp nodig van de assistent of een staflid.
 
+[^documentatie-PyQtGraph]: [https://pyqtgraph.readthedocs.io/en/latest/](https://pyqtgraph.readthedocs.io/en/latest/)
 
 ### De plotter als script
 
@@ -271,14 +279,14 @@ pg.setConfigOption("foreground", "k")
 ```
 Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en dan krijg je de standaardinstelling: grijze letters op een zwarte achtergrond. Het is maar wat je fijn vindt.
 
-\begin{info}
+!!! info
     __Als je je GUI het liefst programmeert__, gebruik dan de volgende regel om een plot widget te krijgen in de `#!py __init__()`:
     ``` py
     self.plot_widget = pg.PlotWidget()
     ```
-\end{info}
 
-\begin{info}
+
+!!! info
     __Als je je GUI het liefst ontwerpt met Designer__ voegen we als volgt een plot widget toe:
 
     1. Voeg aan je interface een _Graphics View_ toe;
@@ -288,7 +296,7 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
     1. Dan klik je op _Add_ en vervolgens op _Promote_;
     
     Zie \figref{fig:screenshot-promote-widget}. Nu je dit een keer gedaan hebt kun je voortaan op een Graphics View meteen kiezen voor _Promote to \textrightarrow\ PlotWidget_ en hoef je niets meer in te typen. Vergeet niet je widget nog even een handige naam te geven, bijvoorbeeld `plot_widget`.
-\end{info}
+
 
 \begin{figure}
     \centering
@@ -341,15 +349,15 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen`, 
     Voeg knoppen toe om het domein aan te passen. Maak bijvoorbeeld een `start` die mag lopen van 0 tot 100. Maak ook een `stop` en een `numpoints` om het aantal punten te kiezen. Kies daarvoor ook een handige standaardwaarde. Zorg ervoor dat als je de waardes aanpast dat de functie automatisch opnieuw wordt geplot.
 
 
-!!! opdracht-meer "Functieplotter: (uitdaging)"
+!!! opdracht-meer "Functieplotter: functie kiezen drop-down menu"
     Gebruik een `#!py QComboBox` om de functie te kunnen kiezen. Je moet hem _leeg_ toevoegen aan je interface en vult hem vanuit je programma. Zoek de widget op in de documentatie om uit te zoeken welke functie je moet gebruiken om keuzemogelijkheden toe te voegen en welk signaal je moet koppelen om te zorgen dat de plot opnieuw wordt uitgevoerd als je de functie aanpast. Geef de gebruiker de keuzes $\sin(x)$, $\cos(x)$, $\tan(x)$ en $\exp(x)$.
 
 
-!!! opdracht-meer "Functieplotter (uitdaging)"
+!!! opdracht-meer "Functieplotter: meer functies"
     Voeg aan de functiekiezer de functies $x$, $x^2$, $x^3$, en $\frac{1}{x}$ toe. Je kunt daarvoor _lambda functions_ gebruiken, maar dat is niet per se nodig.
 
 
-!!! opdracht meer "Functieplotter (uitdaging)"
+!!! opdracht meer "Functieplotter: functies typen"
         Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals `x ** 2`, `sin(x)` of `1 / sqrt(x + 1)`. Gebruik daarvoor het `asteval` package [@asteval]. Documentatie vind je op [https://newville.github.io/asteval/](https://newville.github.io/asteval/).
 
 !!! warning 
@@ -359,7 +367,9 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen`, 
 
 In het vorige hoofdstuk hebben we een _tekst_interface geschreven voor ons experiment. We gaan nu een _grafische_ interface schrijven voor hetzelfde experiment.
 
-We hebben tot nu toe veel moeite gedaan om je code te splitsen volgens het MVC-model: werken in laagjes, goed nadenken over wat waar hoort. Als dat netjes gelukt is kunnen we relatief makkelijk één van die laagjes vervangen. We kunnen de `#!py ArduinoVISADevice` vervangen door een `#!py RaspberryPiDevice` of een `#!py PicoScopeDevice`.\footnote{Je moet dan wel eerst nieuwe controllers schrijven (of krijgen van een collega) om deze nieuwe instrumenten aan te sturen. Maar als je die hebt kun je vrij eenvoudig wisselen.} Ook kunnen we een nieuwe applicatie schrijven voor ons bestaande experiment. We hoeven dan alleen een extra view te schrijven (de interface met de gebruiker) en de rest kunnen we hergebruiken. Misschien dat we hier en daar iets willen aanpassen maar zorg er dan voor dat je oude applicatie nog steeds werkt!
+We hebben tot nu toe veel moeite gedaan om je code te splitsen volgens het MVC-model: werken in laagjes, goed nadenken over wat waar hoort. Als dat netjes gelukt is kunnen we relatief makkelijk één van die laagjes vervangen. We kunnen de `#!py ArduinoVISADevice` vervangen door een `#!py RaspberryPiDevice` of een `#!py PicoScopeDevice`. Ook kunnen we een nieuwe applicatie schrijven voor ons bestaande experiment. We hoeven dan alleen een extra view te schrijven (de interface met de gebruiker) en de rest kunnen we hergebruiken. Misschien dat we hier en daar iets willen aanpassen maar zorg er dan voor dat je oude applicatie nog steeds werkt!
+
+[^nieuwe-controller]: Je moet dan wel eerst nieuwe controllers schrijven (of krijgen van een collega) om deze nieuwe instrumenten aan te sturen. Maar als je die hebt kun je vrij eenvoudig wisselen.
 
 We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat in stapjes doen.
 
@@ -429,7 +439,9 @@ Je kunt na iedere meting de gegevens automatisch wegschrijven naar bestanden zon
 ``` py
 filename, _ = QtWidgets.QFileDialog.getSaveFileName(filter="CSV files (*.csv)")
 ```
-De functie `#!py getSaveFileName()` opent een dialoogvenster om een bestand op te slaan. Vanwege het filter argument geeft het venster (op sommige besturingssystemen) alleen CSV-bestanden weer. In elk geval geldt op alle besturingssystemen dat als de gebruiker als naam `metingen` intypt, dat het filterargument ervoor zorgt dat er automatisch `.csv` achter geplakt wordt.\footnote{Het eerste deel van het argument (`CSV files`) is vrij te kiezen en geeft alleen informatie aan de gebruiker. Het deel tussen haakjes (`*.csv`) is het gedeelte dat echt van belang is. Het geeft de extensie die achter alle bestandsnamen geplakt wordt.} De functie geeft twee variabelen terug: `filename` en (weer) `filter`. Die laatste kenden we al en gooien we weg met behulp van de weggooivariabele `#!py _`.
+De functie `#!py getSaveFileName()` opent een dialoogvenster om een bestand op te slaan. Vanwege het filter argument geeft het venster (op sommige besturingssystemen) alleen CSV-bestanden weer. In elk geval geldt op alle besturingssystemen dat als de gebruiker als naam `metingen` intypt, dat het filterargument ervoor zorgt dat er automatisch `.csv` achter geplakt wordt.[^csv-extensie] De functie geeft twee variabelen terug: `filename` en (weer) `filter`. Die laatste kenden we al en gooien we weg met behulp van de weggooivariabele `#!py _`.
+
+[^csv-extensie]: Het eerste deel van het argument (`CSV files`) is vrij te kiezen en geeft alleen informatie aan de gebruiker. Het deel tussen haakjes (`*.csv`) is het gedeelte dat echt van belang is. Het geeft de extensie die achter alle bestandsnamen geplakt wordt.
 
 Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder welke naam het bestand moet worden opgeslagen. Je krijgt echt alleen een pad en bestandsnaam terug, de data is _niet_ opgeslagen en het bestand is _niet_ aangemaakt. De variabele `filename` is echt niets anders dan een bestandsnaam, bijvoorbeeld: `/Users/david/LED-rood.csv`. Nadat je die bestandsnaam gekregen hebt moet je dus zelf nog code schrijven zodat het CSV-bestand wordt opgeslagen onder die naam.
 
@@ -445,7 +457,7 @@ Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder
 
     Je kunt je grafische applicatie volledig optuigen met menu's of taakbalken. Ook kun je onderin je applicatie met een statusbalk weergeven wat de status is: gereed, aan het meten, foutcode, etc. Dat valt buiten het bestek van deze cursus, maar een mooie referentie is \citetitle{qtmenus} \cite{qtmenus}. Als je vaker grafische applicaties wilt gaan maken dan moet je dat zeker eens doornemen!
 
-    !!! opdracht-meer "Pythondaq (uitdaging)"
+    !!! opdracht-meer "Pythondaq: statusbalk"
         Maak een statusbalk die aangeeft wat de identificatiestring is van het device dat geselecteerd is. Maak ook een menu waarmee je een CSV-bestand kunt opslaan en een nieuwe meting kunt starten. Let op: je hebt dan een menu-item én een knop die dezelfde method aanroepen. Je hoeft geen dubbele code te schrijven, maar moet de `#!py save_data()`-method wel twee keer verbinden.
 
 
@@ -459,7 +471,7 @@ Je hebt nu nog, waarschijnlijk, de poortnaam van de Arduino in je code gedefinie
 
 Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeilijker dan gedacht. Zodra je andere devices gaat openen en commando's gaat sturen kunnen er gekke dingen gebeuren. Onder MacOS bijvoorbeeld kunnen bluetooth luidsprekers en koptelefoons opeens ontkoppelen. _We gaan dus toch voor keuze 1._
 
-% Je kunt dit met het volgende stappenplan aanpakken:
+<!-- % Je kunt dit met het volgende stappenplan aanpakken:
 % 
 %   1. Je vraagt alle poorten op;
 %   1. Je probeert iedere poort te openen;
@@ -477,9 +489,9 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
 %   \begin{opdracht}
 %     Maak een _functie_ in de controller module en implementeer bovenstaande procedure. Als een Arduino gevonden wordt, geef dan de volledige poortnaam terug. Als er geen Arduino wordt gevonden, zorg dan voor een zelfgemaakte exception (bijvoorbeeld `DeviceNotFound`). Zorg ervoor dat je grafische applicatie bij het opstarten zoekt naar een Arduino en die poort verder gebruikt in het programma. De gebruiker hoeft dus geen poort te kiezen; het werkt automatisch!
 %   \end{opdracht}
-% \end{hogercijfer}
+% \end{hogercijfer} -->
 
-!!! opdracht-inlever"Pythondaq: selecteer Arduino"
+!!! opdracht-inlever "Pythondaq: selecteer Arduino"
     Maak een keuzemenu (`#!py QComboBox`) zodat je de Arduino kunt selecteren. Je zult in de `__init__()` eerst een lijst van devices moeten maken en die toe moeten voegen aan de widget. Zie ook \tabref{tab:widgets} en de documentatie. Het kan daarbij handig zijn om de device pas te _openen_ als je een scan uitvoert en hem te sluiten (schrijf een soort `#!py device.close()`) als de scan is afgelopen. In de controller werk je met een `#!py pyvisa` device en die heeft al een `#!py close()`-method.
 
 
@@ -492,14 +504,16 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
 
 Afhankelijk van de instellingen die we gekozen hebben kan een meting best lang duren. In ieder geval moeten we even wachten tot de meting afgelopen is en pas daarna krijgen we de resultaten te zien in een plot. Als een meting langer duurt dan een paar seconden kan het besturingssysteem zelfs aangeven dat onze applicatie niet meer reageert. En inderdaad, als we ondertussen op knoppen proberen te drukken dan reageert hij nergens op. Onze applicatie kan helaas niet twee dingen tegelijk. Kon hij dat wel, dan zouden we zien hoe de grafiek langzaam opbouwt tot het eindresultaat.
 
-De manier waarop besturingssystemen meerdere dingen tegelijk doen is gebaseerd op _processes_ en _threads_. Een _process_ is, eenvoudig gezegd, een programma. Als je meerdere applicaties opstart zijn dat allemaal processen. Besturingssystemen regelen dat ieder proces een stuk geheugen krijgt en tijd van de processor krijgt toegewezen om zijn werk te doen. Processen zijn mooi gescheiden en kunnen dus eenvoudig naast elkaar draaien. Het wordt iets lastiger als een _proces_ meerdere dingen tegelijk wil doen. Dat kan wel, met _threads_. Het besturingssysteem zorgt dat meerdere threads naast elkaar draaien.\footnote{Er is een subtiliteit. In Python draaien threads _niet_ tegelijk, maar om de beurt. In de praktijk merk je daar niet veel van: threads worden zó vaak per seconde gewisseld dat het _lijkt_ alsof ze tegelijk draaien. Terwijl de ene thread steeds even tijd krijgt voor een meting kan de andere thread steeds even de plot verversen. In het geval van zwaar rekenwerk schiet het alleen niet op. Er draait maar één berekening tegelijkertijd dus threads of niet, het is even snel. Wil je _echt_ parallel rekenen, dan moet je kijken naar de `multiprocessing` module om meerdere processen te starten in plaats van threads.}
+De manier waarop besturingssystemen meerdere dingen tegelijk doen is gebaseerd op _processes_ en _threads_. Een _process_ is, eenvoudig gezegd, een programma. Als je meerdere applicaties opstart zijn dat allemaal processen. Besturingssystemen regelen dat ieder proces een stuk geheugen krijgt en tijd van de processor krijgt toegewezen om zijn werk te doen. Processen zijn mooi gescheiden en kunnen dus eenvoudig naast elkaar draaien. Het wordt iets lastiger als een _proces_ meerdere dingen tegelijk wil doen. Dat kan wel, met _threads_. Het besturingssysteem zorgt dat meerdere threads naast elkaar draaien. [^threads-parallel]
+
+[^threads-parallel]: Er is een subtiliteit. In Python draaien threads _niet_ tegelijk, maar om de beurt. In de praktijk merk je daar niet veel van: threads worden zó vaak per seconde gewisseld dat het _lijkt_ alsof ze tegelijk draaien. Terwijl de ene thread steeds even tijd krijgt voor een meting kan de andere thread steeds even de plot verversen. In het geval van zwaar rekenwerk schiet het alleen niet op. Er draait maar één berekening tegelijkertijd dus threads of niet, het is even snel. Wil je _echt_ parallel rekenen, dan moet je kijken naar de `multiprocessing` module om meerdere processen te starten in plaats van threads.
 
 Threads geven vaak problemen omdat ze in zekere zin onvoorspelbaar zijn. Je weet niet precies hoe <q>snel</q> een thread draait, dus je weet niet zeker wat er in welke volgorde gebeurt. Dit kan leiden tot problemen waarvan de oorzaak maar lastig te vinden is. Google maar eens op `thread problems in programming`. We moeten dus voorzichtig zijn! Ook is het ombouwen van code zonder threads naar code met threads een klus waar makkelijk iets fout gaat. Het is dus belangrijk dat je _in kleine stapjes_ je code aanpast en _vaak test_ of het nog werkt.
 
 !!! info
     We gaan in het volgende stuk een kleine applicatie ombouwen van <q>no-threads</q> naar <q>threads</q>. _Voor het gemak_ hebben we de view en het model in één bestand gezet. Op Canvas kun je de code downloaden. We raden je ten zeerste aan om het bestand \path{demo-no-threads.py} te downloaden en dan stapje voor stapje de code aan te passen zoals in de handleiding gebeurt. De andere stappen staan alleen op Canvas om bij problemen even te kunnen vergelijken. _Probeer het dus zelf!_ Pas daarna ga je aan de slag om je eigen code om te bouwen waarbij de view en het model nu _wel_ weer in verschillende bestanden staan. Samenvattend: doorloop dit stuk handleiding _twee keer_. De eerste keer doe je de opdrachten met het demoscript, de tweede keer met je eigen code voor :fontawesome-brands-github:`pythondaq`.
 
-\begin{pythoncode*}{linenos}
+```py linenums="1"
   import sys
   import time
   
@@ -555,10 +569,12 @@ Threads geven vaak problemen omdat ze in zekere zin onvoorspelbaar zijn. Je weet
   
   if __name__ == "__main__":
       main()  
-\end{pythoncode*}
+```
 In regels 15--24 bouwen we een kleine user interface op met een plot widget en een startknop. We koppelen die knop aan de `#!py plot()`-method. In regel 27 maken we ons experiment (het model) aan en bewaren die. In regels 29--33 maken we de plot schoon, voeren we een scan uit en plotten het resultaat. Regels 37--44 vormen ons experiment. Eerst wordt een rij $x$-waardes klaargezet en dan, in een loop, wordt punt voor punt de sinus uitgerekend en toegevoegd aan een lijst met $y$-waardes. De `#!py time.sleep(.1)` wacht steeds 0.1 \second en zorgt hiermee voor de simulatie van _trage_ metingen. En inderdaad, als we deze code draaien dan moeten we zo'n vijf seconden wachten voordat de plot verschijnt.
 
-In de volgende opdrachten gaan we de code stap voor stap ombouwen naar threads. Als we daarmee klaar zijn worden de metingen gedaan binnen de `#!py scan()`-method van de `#!py Experiment()`-class en verversen we ondertussen af en toe de plot. De `#!py plot()`-method van onze user interface wordt regelmatig aangeroepen terwijl de meting nog loopt en moet dus de hele tijd de huidige metingen uit kunnen lezen. Dat kan, als de metingen worden bewaard in _instance attributes_.\footnote{Variabelen die we in een class definiëren door ze aan te maken met `#!py self.` ervoor zijn _instance attributes_.}
+In de volgende opdrachten gaan we de code stap voor stap ombouwen naar threads. Als we daarmee klaar zijn worden de metingen gedaan binnen de `#!py scan()`-method van de `#!py Experiment()`-class en verversen we ondertussen af en toe de plot. De `#!py plot()`-method van onze user interface wordt regelmatig aangeroepen terwijl de meting nog loopt en moet dus de hele tijd de huidige metingen uit kunnen lezen. Dat kan, als de metingen worden bewaard in _instance attributes_.[^instance-attributes]
+
+[^instance-attributes]: Variabelen die we in een class definiëren door ze aan te maken met `#!py self.` ervoor zijn _instance attributes_.
 
 
 ### Stap 1: de meetgegevens altijd beschikbaar maken
@@ -578,7 +594,10 @@ class Experiment:
             ...
         return self.x, self.y
 ```
-We zorgen er zo voor dat de lijst met meetgegevens voor zowel de $x$- als de $y$-waardes steeds even lang zijn. Dit is nodig voor het plotten: hij kan geen grafiek maken van 50 $x$-waardes en maar tien $y$-waardes.\footnote{Hier zie je een probleem met threads. Het kán &mdash; in uitzonderlijke situaties &mdash; voorkomen dat de plot-functie nét wil gaan plotten als de $x$-waardes al langer gemaakt zijn, maar de $y$-waardes nog niet. Die kans is heel klein en wij accepteren het risico. Schrijf je software voor een complex experiment dat drie dagen draait, dan is dit iets waar je echt rekening mee moet houden. Je moet dan gebruik gaan maken van zogeheten _locks_ of _semaphores_ maar dat valt buiten het bestek van deze cursus.} Ook moeten we er voor zorgen dat er _altijd_ (lege) meetgegevens beschikbaar zijn &mdash; ook als de meting nog niet gestart is. Anders krijgen we voordat we een meting hebben kunnen doen een foutmelding dat `#!py self.x` niet bestaat. We doen dat in de `#!py __init__()`:
+We zorgen er zo voor dat de lijst met meetgegevens voor zowel de $x$- als de $y$-waardes steeds even lang zijn. Dit is nodig voor het plotten: hij kan geen grafiek maken van 50 $x$-waardes en maar tien $y$-waardes. [^threads-problemen] Ook moeten we er voor zorgen dat er _altijd_ (lege) meetgegevens beschikbaar zijn &mdash; ook als de meting nog niet gestart is. Anders krijgen we voordat we een meting hebben kunnen doen een foutmelding dat `#!py self.x` niet bestaat. We doen dat in de `#!py __init__()`:
+
+[^threads-problemen]: Hier zie je een probleem met threads. Het kán &mdash; in uitzonderlijke situaties &mdash; voorkomen dat de plot-functie nét wil gaan plotten als de $x$-waardes al langer gemaakt zijn, maar de $y$-waardes nog niet. Die kans is heel klein en wij accepteren het risico. Schrijf je software voor een complex experiment dat drie dagen draait, dan is dit iets waar je echt rekening mee moet houden. Je moet dan gebruik gaan maken van zogeheten _locks_ of _semaphores_ maar dat valt buiten het bestek van deze cursus.
+
 ``` py
 # model
 class Experiment:
@@ -595,7 +614,10 @@ class Experiment:
 
 ### Stap 2: plot de meetgegevens vanuit het experiment
 
-Nu we de meetgegevens bewaren als instance attributes van de `#!py Experiment`-class kunnen we die ook plotten. We geven ze nog steeds terug als return value vanuit de `#!py scan()`-method voor <q>ouderwetse</q> code,\footnote{Door een beetje ons best te doen kunnen we ervoor zorgen dat zowel de command-line interface als de grafische interface allebei gebruikt kunnen worden.} maar wij gaan nu de <q>nieuwerwetse</q> instance attributes gebruiken:
+Nu we de meetgegevens bewaren als instance attributes van de `#!py Experiment`-class kunnen we die ook plotten. We geven ze nog steeds terug als return value vanuit de `#!py scan()`-method voor <q>ouderwetse</q> code, [^cli-gui-tegelijkertijd] maar wij gaan nu de <q>nieuwerwetse</q> instance attributes gebruiken:
+
+[^cli-gui-tegelijkertijd]: Door een beetje ons best te doen kunnen we ervoor zorgen dat zowel de command-line interface als de grafische interface allebei gebruikt kunnen worden.
+
 ``` py
 # view
 class UserInterface(QtWidgets.QMainWindow):
