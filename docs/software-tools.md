@@ -28,7 +28,7 @@ Je moet je realiseren dat het aanmaken (en weggooien) van een environment heel m
 \end{info}
 
 Hieronder volgen enkele voorbeelden van het gebruik van conda:
-``` ps1con
+``` ps1con title="Terminal
 Leeg environment aanmaken met naam 'daq'
 PS> conda create -n daq
 
@@ -78,16 +78,16 @@ Sluit alle <q>oude</q> terminals met het \faTrash*-icoon als je je muis aan de r
 ### Pipx
 
 Pythonapplicaties, zoals `conda`, worden geïnstalleerd als commando dat je kunt aanroepen vanaf de command-line. Maar het _is_ een Pythonapplicatie. En dat betekent dat als je van omgeving wisselt, dat de applicatie niet meer beschikbaar is. Ook kan het gebeuren dat je packages update of verwijdert waardoor de applicatie niet meer werkt. Met `pipx` is het mogelijk om dit soort applicaties in een _eigen_ virtual environment te installeren. Je loopt geen risico dat je ze stukmaakt _en_ ze zijn beschikbaar vanuit andere virtual environments. In plaats van:
-``` ps1con
+``` ps1con title="Terminal
 pip install PACKAGE
 ```
 doe je straks
-``` ps1con
+``` ps1con title="Terminal
 pipx install PACKAGE
 ```
 Met `pipx list` bekijk je dan een lijst van geïnstalleerde pakketten.
 Je installeert `pipx` met:
-``` ps1con
+``` ps1con title="Terminal
 python -m pip install --user pipx
 python -m pipx ensurepath
 ```
