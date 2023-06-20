@@ -10,22 +10,22 @@ Wanneer je in Visual Studio Code een Python script start dan opent het een termi
 ### Commando's
 
 Je hebt tot nu toe al heel wat commando's in de terminal getypt. Laten we een paar voorbeelden bestuderen:
-``` ps1con title="Terminal
+``` ps1con title="Terminal"
 PS> python script.py
 ```
 Als eerste vertel je welke applicatie je wilt gaan starten; in dit geval: `python`. Daarna geef je met het _argument_ `script.py` aan welk Pythonscript je wilt uitvoeren. Vaak kun je ook _opties_ meegeven zoals in:
-``` ps1con title="Terminal
+``` ps1con title="Terminal"
 PS> python -V
 Python 3.9.13
 ```
 Hiermee vraag je Python om het versienummer weer te geven. Soms kunnen _opties_ zelf weer een _argument_ meekrijgen. Bijvoorbeeld:
-``` ps1con title="Terminal
+``` ps1con title="Terminal"
 PS> python -m antigravity
 ```
 Met deze regel geef je Python de optie `-m` en die importeert een module (hier `antigravity`) en voert die uit. Probeer maar eens zelf wat er gebeurt als je dat commando uitvoert.
 
 Als applicaties veel verschillende functionaliteit hebben dan krijg je regelmatig te maken met een lange regel met een combinatie van argumenten en opties:
-``` ps1con title="Terminal
+``` ps1con title="Terminal"
 PS> conda create -n IK-pythondaq -c conda-forge python pyvisa-py
 ```
 Uitgesplitst in \textit{argumenten} en __opties__, met vierkante haken [] om aan te geven welke onderdelen bij elkaar horen, is dat:
@@ -55,7 +55,7 @@ print(sys.argv)
 ```
 
 Alles wat we in de terminal typen wordt aan input meegegeven:
-``` ps1con title="Terminal
+``` ps1con title="Terminal"
 PS> python  cli.py test 123   
 ['cli.py', 'test', '123']
 ```
@@ -109,7 +109,7 @@ if __name__ == "__main__":
 
 Dit levert ons nog niet zoveel op, maar op de achtergrond is click wel degelijk aan het werk. De `#!py @click.command()` houdt in de gaten wat er in de command line wordt ingetypt. Zo kunnen we de helpfunctie aanroepen door `--help` achter de naam van het script te zetten.
 
-``` ps1con title="Terminal
+``` ps1con title="Terminal"
 PS> python hello.py --help
 ```
 
@@ -145,7 +145,7 @@ PS> python hello.py --help
 \end{warning}
 
 % Als we dit script nu runnen _zonder_ argument krijgen we een foutmelding:
-% ``` ps1con title="Terminal
+% ``` ps1con title="Terminal"
 % PS> python hello.py
 % Usage: hello.py [OPTIONS] NAME
 % Try 'hello.py --help' for help.
@@ -154,7 +154,7 @@ PS> python hello.py --help
 % ```
 % maar _met_ argument krijgen we dit:
 
-% ``` ps1con title="Terminal
+% ``` ps1con title="Terminal"
 % PS> python hello.py Alice
 % Hello Alice!
 % ```
@@ -220,7 +220,7 @@ if __name__ == "__main__":
 
 Als je dit script gebruikt ziet dat er zo uit:
 
-``` ps1con title="Terminal
+``` ps1con title="Terminal"
 PS> python hello.py --help
 Usage: hello.py [OPTIONS] NAME
 
@@ -329,7 +329,7 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
     % [tool.poetry.scripts]
 
     Hoe moet je de toml-file aanpassen zodat de volgende uitvoer mogelijk wordt?
-    ``` ps1con title="Terminal
+    ``` ps1con title="Terminal"
     PS> fake_conda install scipy
     Installing scipy...
     ```
@@ -383,7 +383,7 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
 
 !!! opdracht-meer "Smallangle (uitdaging)"
     Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\abs{x - \sin(x)} \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over \numlist{.000;.001;.002}, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
-    ``` ps1con title="Terminal
+    ``` ps1con title="Terminal"
     PS> smallangle approx .1
     For an accuracy of 0.1, the small-angle approximation holds
     up to x = 0.854.
@@ -415,7 +415,7 @@ def integers_up_to(number):
 help(integers_up_to)
 ```
 De eerste regel geeft een korte samenvatting weer, na de witregel komt een langere samenvatting. Met `Args:` worden alle argumenten opgesomd die aan de functie worden meegegeven en `Returns:` geeft aan wat de functie teruggeeft. We kunnen de documentatie van deze functie opvragen met: `#!py help(integers_up_to`. Dat geeft het volgende resultaat:
-``` ps1con title="Terminal
+``` ps1con title="Terminal"
 PS> python integers_up_to.py 
     Help on function integers_up_to in module __main__:
     
@@ -499,7 +499,7 @@ if __name__ == "__main__":
     cmd_group()
 ```
 Als we vervolgens de help functie aanroepen zien we de eerste regel van de docstrings verschijnen voor alle subcommando's:
-``` ps1con title="Terminal
+``` ps1con title="Terminal"
 PS> fake_conda --help
 Usage: fake_conda [OPTIONS] COMMAND [ARGS]...
 
@@ -511,7 +511,7 @@ Commands:
     remove   Remove a conda package.
 ```
 Daarna kun je uitleg vragen voor de subcommando's waarbij je de hele docstring te zien krijgt:
-``` ps1con title="Terminal
+``` ps1con title="Terminal"
 PS> fake_conda install --help
 Usage: fakeconda.py install [OPTIONS] PACKAGE
 
@@ -597,7 +597,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
 !!! opdracht-meer "Pythondaq: `list` `--search`"
     Breid het commando `list` uit met een optie `--search` waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
-    ``` ps1con title="Terminal
+    ``` ps1con title="Terminal"
     PS> diode list
     The following devices are connected to your computer:
     

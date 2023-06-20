@@ -8,7 +8,7 @@ Als je een grafische applicatie schrijft roep je functies aan van het besturings
 
 !!! warning
     Maak voor de oefeningen een nieuw conda environment `IK-test-qt` met:
-    ``` ps1con title="Terminal
+    ``` ps1con title="Terminal"
     conda create -n IK-test-qt python
     conda activate IK-test-qt
     pip install pyside6 pyqtgraph
@@ -247,7 +247,7 @@ Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog ma
     1. Open Designer en kies bij \menu{templates/forms} voor `#!py MainWindow`. Klik dan op \menu{Create}. Ontwerp de user interface uit \figref{fig:screenshot-ui-prog} en gebruik dezelfde namen voor de widgets als het voorbeeld in \secref{sec:ui-prog}. Dus een `#!py add_button` knop, een `#!py clear_button` knop en een `#!py textedit` tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.
     1. Bewaar het bestand als :fontawesome-regular-file-lines:`simple\_app.ui`.
     1. In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan [^overleg-navigeren] en type in:
-            ``` ps1con title="Terminal
+            ``` ps1con title="Terminal"
             pyside6-uic simple_app.ui -o ui_simple_app.py  
             ```
             Deze stap moet je doen elke keer als je in Designer iets wijzigt. Gebruik de \faArrowUp-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met Poetry, zullen we dit eenvoudiger maken.
@@ -377,7 +377,7 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
     Je mag zelf kiezen of je de grafische interface gaat ontwerpen met Designer of dat je hem volledig programmeert.
 
     Zorg dat je in je `daq` conda environment zit of maak een nieuwe. Voeg de dependencies PySide6 en PyQtGraph toe met:
-    ``` ps1con title="Terminal
+    ``` ps1con title="Terminal"
     poetry add pyside6 pyqtgraph
     ```
 
@@ -385,7 +385,7 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
     Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met Poetry <q>taken</q> aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn niet meer beschikbaar als je je applicatie deelt met andere mensen &mdash; ze zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. En dat is wat we willen. Doe dit als volgt:
 
     1. Installeer _Poe the Poet_ &mdash; onze _task runner_ &mdash; als _development dependency_ met:
-            ``` ps1con title="Terminal
+            ``` ps1con title="Terminal"
             poetry add --group dev poethepoet
             ```
             We geven hiermee aan dat we dit package nodig hebben voor de ontwikkeling van onze applicatie, maar dat deze niet meegeleverd hoeft te worden als we de applicatie gaan delen met anderen.
@@ -398,7 +398,7 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
             \end{tomlcode}
             Je kunt binnen de driedubbele aanhalingstekens meerdere regels toevoegen als je meerdere `.ui`-bestanden hebt &mdash; voor ieder bestand een regel.
     1. In bovenstaande regels is de naam na `tool.poe.tasks` de naam van de taak &mdash; in dit geval dus `compile`. Je kunt die naam zelf kiezen. Voer de taak uit door in de terminal in te typen:
-            ``` ps1con title="Terminal
+            ``` ps1con title="Terminal"
             poe compile
             ```
             En dat gaat een stuk sneller dan die lange `pyside-uic`-regel onthouden en intypen!
