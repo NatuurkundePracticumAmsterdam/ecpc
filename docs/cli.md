@@ -307,7 +307,7 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
         def import_package(package):
             print(f"import {package}...")
     ```
-    We hebben nu een commando `import` aangemaakt &mdash; _niet_ een commando `import\_package`.
+    We hebben nu een commando `import` aangemaakt &mdash; _niet_ een commando `import_package`.
 \end{warning}
 
 !!! opdracht-basis "Pyproject toml"

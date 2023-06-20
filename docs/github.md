@@ -86,7 +86,7 @@ In GitHub Desktop zie je nu bij history de commit staan, met in een oogopslag al
 
     1. Maak een map :fontawesome-regular-folder:`pythondaq` en kopieer daarin alle python-bestanden die je gemaakt hebt voor het diode-experiment. Let er op dat je deze map _niet_ in een andere repository aanmaakt, maar daarbuiten. Overleg eventueel over een handige plek.
     1. Maak van de map :fontawesome-regular-folder:`pythondaq` een repository.
-    1. Gooi oude bestanden weg en zorg dat je 3 bestanden over houdt: een model :fontawesome-regular-file-code:`diode\_experiment.py`, een view :fontawesome-regular-file-code:`view.py` en een controller :fontawesome-regular-file-code:`arduino\_device.py`.
+    1. Gooi oude bestanden weg en zorg dat je 3 bestanden over houdt: een model :fontawesome-regular-file-code:`diode_experiment.py`, een view :fontawesome-regular-file-code:`view.py` en een controller :fontawesome-regular-file-code:`arduino_device.py`.
     1. Commit!
     1. Ruim, indien nodig, je code op. Functies die je al 3 keer hebt herschreven en daarvoor steeds gekopieerd heb, maar wel als comment hebt laten staan, die kunnen nu ook weg. Verwijder stukjes commentaar die niet meer van toepassing zijn, enz.
     1. Commit!
@@ -102,7 +102,7 @@ In GitHub Desktop zie je nu bij history de commit staan, met in een oogopslag al
 
         1. Zoek de repository :fontawesome-brands-github:`/davidfokkema/tailor` op GitHub op.
         1. Je komt terecht op de hoofdpagina, hier zie je een mappenstructuur met een aantal bestanden. Rechts daarvan staat een korte beschrijving onder het kopje `About`. Een uitgebreidere beschrijving vind je als je naar beneden scrollt onder `Readme`.
-        1. Linksboven zie je een aantal tabbladen (code, issues, pull requests, ...), het tabblad `code` is de hoofdpagina met de mappenstructuur. Navigeer door de mappen, wat staat er op regel 15 van :fontawesome-regular-file-code:`plot\_tab.py`?
+        1. Linksboven zie je een aantal tabbladen (code, issues, pull requests, ...), het tabblad `code` is de hoofdpagina met de mappenstructuur. Navigeer door de mappen, wat staat er op regel 15 van :fontawesome-regular-file-code:`plot_tab.py`?
         1. Ga terug naar de hoofdpagina, kijk onder het groen kopje met `code`. Hoeveel commits zijn er gemaakt? Klik op commits en daarna op een commit-message. Hoeveel regels zijn er weggehaald of bijgekomen?
         1. Je kan per bestand bekijken wanneer die is aangepast en wat er is aangepast met de history knop. Ga naar het bestand :fontawesome-regular-file-code:`pyproject.toml` en klik rechtsboven op `History`. Wat is er aangepast in :fontawesome-regular-file-code:`pyproject.toml` bij de commit <q>Release v1.5.1</q>? Je ziet ook welke bestanden nog meer zijn gewijzigd in deze commit, welk bestand is nog meer gewijzigd bij <q>Release v1.5.1</q>?
         1. Ga terug naar de hoofdpagina. Welke versie van Tailor is als laatste gereleased?

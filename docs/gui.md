@@ -197,7 +197,7 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
     
 
 
-Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst hier: [https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes](https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes). Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies `CamelCase` namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we `snake\_case` gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
+Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst hier: [https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes](https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes). Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies `CamelCase` namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we `snake_case` gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
 
 !!! opdracht-meer "Volgorde layout aanpassen"
     De volgorde waarin je layout en widgets toevoegt bepaald het uiterlijk van de grafische interface. Verander de code om de layout aan te passen (zet bijvoorbeeld de knoppen boven de textbox of zet de knoppen onder elkaar en naast de textbox).
@@ -245,7 +245,7 @@ Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog ma
 !!! opdracht-basis "Designer gebruiken"
 
     1. Open Designer en kies bij \menu{templates/forms} voor `#!py MainWindow`. Klik dan op \menu{Create}. Ontwerp de user interface uit \figref{fig:screenshot-ui-prog} en gebruik dezelfde namen voor de widgets als het voorbeeld in \secref{sec:ui-prog}. Dus een `#!py add_button` knop, een `#!py clear_button` knop en een `#!py textedit` tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.
-    1. Bewaar het bestand als :fontawesome-regular-file-lines:`simple\_app.ui`.
+    1. Bewaar het bestand als :fontawesome-regular-file-lines:`simple_app.ui`.
     1. In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan [^overleg-navigeren] en type in:
             ``` ps1con title="Terminal"
             pyside6-uic simple_app.ui -o ui_simple_app.py  
@@ -483,7 +483,7 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
 
 % Om je een zoektocht te besparen: wanneer je een device probeert te openen kun je een `serial.serialutil.SerialException`\footnote{Om de exception te <q>herkennen</q> moet je bovenin je code `#!py import serial.serialutil` toevoegen.} krijgen, bijvoorbeeld wanneer het device al in gebruik is. Als je met een device probeert te communiceren en je krijgt geen antwoord, dan krijg je een `pyvisa.errors.VisaIOError`. Vang in ieder geval die exceptions dus af.
 
-% Aangezien het hier heel specifiek over Arduino's gaat &mdash; en niet in het algemeen over een instrument &mdash; is de controller de juiste plek voor deze code. Als je wilt dat de detectie niet te lang duurt &mdash; je moet immers steeds wachten op een antwoord dat misschien niet komt &mdash; kun je in de `ArduinoVISADevice`-class aan de `open\_resource()`-aanroep de parameter `timeout=100` toevoegen. Hij wacht dan maximaal 100 \milli\second op antwoord en geeft dan een timeout.
+% Aangezien het hier heel specifiek over Arduino's gaat &mdash; en niet in het algemeen over een instrument &mdash; is de controller de juiste plek voor deze code. Als je wilt dat de detectie niet te lang duurt &mdash; je moet immers steeds wachten op een antwoord dat misschien niet komt &mdash; kun je in de `ArduinoVISADevice`-class aan de `open_resource()`-aanroep de parameter `timeout=100` toevoegen. Hij wacht dan maximaal 100 \milli\second op antwoord en geeft dan een timeout.
 
 % \begin{hogercijfer}
 %   \begin{opdracht}

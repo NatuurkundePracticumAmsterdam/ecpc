@@ -162,7 +162,7 @@ hebben we nu
 ``` py
 cart.add_to_cart("Eon by Greg Bear")
 ```
-en dat is even lang. Het grote voordeel ontstaat pas wanneer de class ingewikkelder wordt en meer data gaat bewaren. Ook kun je de class in een ander pythonbestand (bijvoorbeeld :fontawesome-regular-file-code:`my\_webshop\_backend.py` zetten en alle functionaliteit in één keer importeren met:
+en dat is even lang. Het grote voordeel ontstaat pas wanneer de class ingewikkelder wordt en meer data gaat bewaren. Ook kun je de class in een ander pythonbestand (bijvoorbeeld :fontawesome-regular-file-code:`my_webshop_backend.py` zetten en alle functionaliteit in één keer importeren met:
 ``` py
 from my_webshop_backend import Cart
 
