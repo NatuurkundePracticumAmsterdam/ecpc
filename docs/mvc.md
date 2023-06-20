@@ -292,14 +292,6 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
 
 Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de precieze commando's zijn die je naar de hardware moet sturen. Als je de Arduino in de opstelling vervangt voor een ander meetinstrument moet je de class aanpassen, maar kan alle code die met het experiment zelf te maken heeft hetzelfde blijven.
 
-% !!! opdracht-inlever "Docstrings"
-%   Schrijf mooie docstrings bij de class. Schrijf een docstring voor de class zelf (dus boven de `#!py __init__()`-methode) en voor alle methodes. Gebruik bijvoorbeeld de \citetitle{google_style_guide} \cite{google_style_guide} (sectie 3.8) voor voorbeelden van docstrings. Test de docstring door in je script de regel
-%   ``` py
-%     help(ArduinoVISADevice)
-%   ```
-%   op te nemen. Als het goed is krijg je nu een mooie en duidelijke uitleg van je class.
-% 
-
 De class die we gemaakt hebben voor de aansturing van de Arduino valt in de categorie _controller_. Het laatste stuk waar de plot gemaakt wordt is dus eigenlijk een _view_ en de rest van de code &mdash; waar de metingen worden uitgevoerd en de stroomsterkte $I$ wordt berekend &mdash; is een _model_. We gaan de code nog wat verder opsplitsen om dat duidelijk te maken én onderbrengen in verschillende bestanden &mdash; dat is uiteindelijk beter voor het overzicht.
 
 !!! opdracht-inlever "Pythondaq: Controller afsplitsen"
