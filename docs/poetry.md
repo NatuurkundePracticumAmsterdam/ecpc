@@ -156,7 +156,7 @@ Nu willen we de package `easystat` importeren in een ander script zodat we de fu
     ```
 
 
-In de eerste regel importeren we de functie uit het nieuwe package om uit te proberen. In de laatste regel gebruiken we een handige functie van f-strings.[^f-string-=] als uitkomst `#!py Alice`. Maar voeg je het `=`-teken toe `#!py print(f"{name=`")} wordt de uitvoer `#!py name='Alice'`.}
+In de eerste regel importeren we de functie uit het nieuwe package om uit te proberen. In de laatste regel gebruiken we een handige functie van f-strings.[^f-string-=]
 
 [^f-string-=]: In f-strings kunnen tussen de accolades variabelen of functieaanroepen staan. Voeg daar het `=`-teken aan toe en je krijgt niet alleen de _waarde_, maar ook de variabele of aanroep zelf te zien. Bijvoorbeeld: als je definieert `#!py name = "Alice"`, dan geeft `#!py print(f"{name`")
 
