@@ -368,7 +368,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
 
 
 
-!!! opdracht-meer "Model, view, controller packages"
+??? opdracht-meer "Model, view, controller packages"
     In grotere projecten is het gebruikelijk om model, view, controller niet alleen uit te splitsen in verschillende scripts, maar ook in aparte packages te zetten.
 
     1. Maak 3 extra packages in de :fontawesome-regular-folder:`pythondaq` package. :fontawesome-regular-folder:`models`, :fontawesome-regular-folder:`views` en :fontawesome-regular-folder:`controllers`.
@@ -488,7 +488,7 @@ Om de wijzigingen aan :fontawesome-regular-file-code:`pyproject.toml` door te vo
     
 
 
-!!! opdracht-meer "Error analysis"
+??? opdracht-meer "Error analysis"
     \label{opd:Poetry_commando}
     Als extra oefening gaan we met Poetry een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script :fontawesome-regular-file-code:`data_analysis.py` te laten runnen.
 

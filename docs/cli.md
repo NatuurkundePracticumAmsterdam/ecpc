@@ -247,7 +247,7 @@ Hello Alice!
     Breid het bovenstaande script `hello.py` uit met een optie om een korte pauze in te lassen na het printen van ieder `#!py print()`-statement. Een pauze kun je inlassen met `#!py time.sleep()`. Zorg er voor dat er zonder die optie géén pauze is en dat je met de optie kunt kiezen hoe lang er gewacht moet worden.
 
 
-!!! opdracht-meer "Vlag"
+??? opdracht-meer "Vlag"
     Gebruik een optie als vlag om de gebruiker te laten kiezen tussen <q>hello</q> of <q>goodbye</q>. Zorg dat er standaard <q>hello</q> wordt geprint.
 
 
@@ -381,7 +381,7 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
     
 
 
-!!! opdracht-meer "Smallangle (uitdaging)"
+??? opdracht-meer "Smallangle (uitdaging)"
     Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\abs{x - \sin(x)} \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over \numlist{.000;.001;.002}, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
     ``` ps1con title="Terminal"
     PS> smallangle approx .1
@@ -595,7 +595,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
     Breid je `scan` opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `{-`{-}graph} om een grafiek te tekenen en `{-`{-}no-graph} om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags voor Click op [https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
 
 
-!!! opdracht-meer "Pythondaq: `list` `--search`"
+??? opdracht-meer "Pythondaq: `list` `--search`"
     Breid het commando `list` uit met een optie `--search` waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
     ``` ps1con title="Terminal"
     PS> diode list
