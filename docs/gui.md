@@ -7,13 +7,13 @@ Als je een grafische applicatie schrijft roep je functies aan van het besturings
 [^uitspraak-Qt]: Uitspraak: het Engelse _cute_.
 
 !!! waarschuwing
-    Maak voor de oefeningen een nieuw conda environment `IK-test-qt` met:
+    Maak voor de oefeningen een nieuw conda environment `test-qt` met:
     ``` ps1con title="Terminal"
-    conda create -n IK-test-qt python
-    conda activate IK-test-qt
+    conda create -n test-qt python
+    conda activate test-qt
     pip install pyside6 pyqtgraph
     ```
-    Selecteer het nieuwe `IK-test-qt` conda environment in Visual Studio Code en sluit alle <q>oude</q> terminals met het :fontawesome-regular-trash-can: -icoon. [^kill-terminals]
+    Selecteer het nieuwe `test-qt` conda environment in Visual Studio Code en sluit alle <q>oude</q> terminals met het :fontawesome-regular-trash-can: -icoon. [^kill-terminals]
 
  [^kill-terminals]: Of in één keer met **View > Command Palette > Terminal: Kill All Terminals**
 
@@ -48,7 +48,7 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
     \label{opd:minimal-gui}
 
     1. Maak een nieuw bestand :fontawesome-regular-file-code:`example-gui.py`.
-    1. Neem bovenstaande pythoncode over en test het in de `IK-test-qt` conda environment.
+    1. Neem bovenstaande pythoncode over en test het in de `test-qt` conda environment.
     
 
 
@@ -216,7 +216,7 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 ### De interface ontwerpen met Qt Designer
 
 !!! info
-    Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op met de zoekfunctie: links onderin bij Windows (vergrootglas of tekstveld). Type `designer` in, wacht heel even en kies de applicatie. Als hij hem niet kan vinden open dan een terminal, activeer je `IK-test-qt` conda environment en type `pyside6-designer`.
+    Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op met de zoekfunctie: links onderin bij Windows (vergrootglas of tekstveld). Type `designer` in, wacht heel even en kies de applicatie. Als hij hem niet kan vinden open dan een terminal, activeer je `test-qt` conda environment en type `pyside6-designer`.
 
 
 Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Je bewaart dat als een `.ui`-bestand. Vervolgens vertaal je het `.ui`-bestand naar een Pythonbestand dat je importeert in je eigen programma. De volledige class van het vorige voorbeeld kan dan vervangen worden door:

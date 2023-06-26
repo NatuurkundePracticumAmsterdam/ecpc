@@ -115,9 +115,9 @@ Bij het schrijven van een nieuw package is het zéker belangrijk om een environm
     We maken &mdash; speciaal voor `easystat` &mdash; een environment.
 
     1. Open in Visual Studio Code de _project_map :fontawesome-brands-github:`easystat`
-    1. Open een terminal en maak een IK-easystat conda environment aan:
+    1. Open een terminal en maak een easystat conda environment aan:
             ``` ps1con title="Terminal"
-            conda create -n IK-easystat python=3.9
+            conda create -n easystat python=3.9
             ```
     1. Selecteer dit nieuwe conda environment in Visual Studio Code.
     
@@ -228,7 +228,7 @@ Ditmaal krijgen we:
 ```
 stdev_of_mean([1, 2, 2, 2, 3])=0.282842712474619
 ```
-Fijn! Als je nu de :fontawesome-regular-file-code:`pyproject.toml` nog eens bekijkt zie je dat NumPy daar als dependency is toegevoegd. Het verwijderen van dependency `PACKAGE` gaat met `poetry remove PACKAGE`. Poetry heeft Numpy nu toegevoegd aan de environment `IK-easystat`.[^conda-list] Andersom zal Conda geen packages toevoegen aan je Poetry project als je `conda install package` aanroept. Gebruik daarom altijd `poetry add package` als je met Poetry aan een package werkt.
+Fijn! Als je nu de :fontawesome-regular-file-code:`pyproject.toml` nog eens bekijkt zie je dat NumPy daar als dependency is toegevoegd. Het verwijderen van dependency `PACKAGE` gaat met `poetry remove PACKAGE`. Poetry heeft Numpy nu toegevoegd aan de environment `easystat`.[^conda-list] Andersom zal Conda geen packages toevoegen aan je Poetry project als je `conda install package` aanroept. Gebruik daarom altijd `poetry add package` als je met Poetry aan een package werkt.
 
 [^conda-list]: De lijst met packages in de active Conda enviornment vraag je in de terminal op met het `conda list`, kijk maar of numpy daar tussen staat.
 
@@ -242,7 +242,7 @@ Fijn! Als je nu de :fontawesome-regular-file-code:`pyproject.toml` nog eens beki
 
     !!! opdracht-meer "Schone environment"
 
-        1. Maak een schone conda environment met `PS> conda create -n IK-easystat python=3.9`
+        1. Maak een schone conda environment met `PS> conda create -n easystat python=3.9`
         1. Kies voor ja als Conda een waarschuwing geeft dat deze environment al bestaat en vraagt of je het bestaande environment wilt verwijderen.
         1. Draai :fontawesome-regular-file-code:`tests/try_shortcuts.py` en bekijk de foutmelding.
         
@@ -282,11 +282,11 @@ Fijn! Als je nu de :fontawesome-regular-file-code:`pyproject.toml` nog eens beki
     !!! opdracht-meer "Test wheel"
         Laten we het wheel uitproberen. Maak een nieuwe conda environment aan, installeer het wheel en probeer het testscript te runnen &mdash; één keer vóór het installeren van het wheel en één keer ná het installeren.
 
-        1. Maak een nieuwe conda environment aan met de naam `IK-test-wheel` en activeer deze.
+        1. Maak een nieuwe conda environment aan met de naam `test-wheel` en activeer deze.
                 ``` ps1con title="Terminal"
-                PS> conda create -n IK-test-wheel python=3.9
+                PS> conda create -n test-wheel python=3.9
                 ...
-                PS> conda activate IK-test-wheel
+                PS> conda activate test-wheel
                 ```
         1. Draai :fontawesome-regular-file-code:`tests/try_shortcuts.py` en bekijk de foutmelding.
         1. installeer het wheel met `pip install dist/easystat-0.1.0-py3-none-any.whl`.
@@ -306,10 +306,10 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
 [^poetry-init]: Het is eenvoudig om zelf de :fontawesome-regular-file-code:`pyproject.toml` te openen en daar wat in aan te passen voor zover nodig.
 
 !!! info
-    Als je al bezig bent met een project dan werk je als het goed is al in een conda environment. Daar heb je dan met `conda install` al packages geïnstalleerd die je nodig hebt. Het gebeurt dan makkelijk dat je vergeet om dat aan te geven met `poetry add`. Dat betekent alleen dat als iemand anders je package installeert dat er dependencies missen en dat jouw code dus _niet_ werkt! Dit is makkelijk op te lossen. Zodra je Poetry gaat gebruiken _wis dan je environment en maak een nieuwe aan met alleen Python._ Dat gaat het makkelijkst als volgt. Stel dat je bezig bent in het environment `IK-pythondaq`. We maken dan een nieuw environment met dezelfde naam:
+    Als je al bezig bent met een project dan werk je als het goed is al in een conda environment. Daar heb je dan met `conda install` al packages geïnstalleerd die je nodig hebt. Het gebeurt dan makkelijk dat je vergeet om dat aan te geven met `poetry add`. Dat betekent alleen dat als iemand anders je package installeert dat er dependencies missen en dat jouw code dus _niet_ werkt! Dit is makkelijk op te lossen. Zodra je Poetry gaat gebruiken _wis dan je environment en maak een nieuwe aan met alleen Python._ Dat gaat het makkelijkst als volgt. Stel dat je bezig bent in het environment `pythondaq`. We maken dan een nieuw environment met dezelfde naam:
     ``` ps1con title="Terminal"
-    conda create -n IK-pythondaq python=3.9
-    WARNING: A conda environment already exists at '/Users/david/opt/anaconda3/envs/IK-pythondaq'
+    conda create -n pythondaq python=3.9
+    WARNING: A conda environment already exists at '/Users/david/opt/anaconda3/envs/pythondaq'
     Remove existing environment (y/[n])? y
 
     ...
@@ -328,7 +328,7 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
     1. Commit alles dat je tot nu toe gedaan hebt.
     1. Open een terminal. Maak een nieuwe conda environment met alleen python 3.9:
         ``` ps1con title="Terminal"
-        conda create -n IK-flasher python=3.9
+        conda create -n flasher python=3.9
         ```
         en maak dat actief in Visual Studio Code.
     1. Voer dan het volgende commando uit:

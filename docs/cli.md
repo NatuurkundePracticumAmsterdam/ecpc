@@ -26,11 +26,11 @@ Met deze regel geef je Python de optie `-m` en die importeert een module (hier `
 
 Als applicaties veel verschillende functionaliteit hebben dan krijg je regelmatig te maken met een lange regel met een combinatie van argumenten en opties:
 ``` ps1con title="Terminal"
-PS> conda create -n IK-pythondaq -c conda-forge python pyvisa-py
+PS> conda create -n pythondaq -c conda-forge python pyvisa-py
 ```
 Uitgesplitst in \textit{argumenten} en __opties__, met vierkante haken [] om aan te geven welke onderdelen bij elkaar horen, is dat:
 \begin{quote}
-    conda \textit{create} [__-n__ \textit{IK-pythondaq}] [__-c__ \textit{conda-forge}] [\textit{python pyvisa-py}]
+    conda \textit{create} [__-n__ \textit{pythondaq}] [__-c__ \textit{conda-forge}] [\textit{python pyvisa-py}]
 \end{quote}
 
 
@@ -339,7 +339,7 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
     Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt &mdash; maar jij weet precies over welk onderdeel we het hebben.
 
     1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam :fontawesome-brands-github:`smallangle`.
-    1. Maak een nieuw environment die `IK-smallangle` heet met daarin alleen Python.
+    1. Maak een nieuw environment die `smallangle` heet met daarin alleen Python.
     1. Zet in de package :fontawesome-regular-folder:`smallangle` een module :fontawesome-regular-file-code:`smallangle.py`.
     1. Plak de onderstaande code in :fontawesome-regular-file-code:`smallangle.py`:
         ``` py
