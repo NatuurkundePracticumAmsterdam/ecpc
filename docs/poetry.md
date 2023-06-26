@@ -21,7 +21,7 @@ Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. Poetry is 
 
 We gaan Poetry bedienen door commando's te geven in de terminal van Visual Studio Code. We laten de terminal weten welk programma wij willen gaan besturen, door `poetry` in te typen. En daarachter wat we willen dat Poetry gaat doen. We kunnen informatie over Poetry opvragen met het commando `about`.
 
-``` ps1con title="Terminal"
+``` ps1 title="Terminal"
 poetry about
 ```
 
@@ -116,7 +116,7 @@ Bij het schrijven van een nieuw package is het zéker belangrijk om een environm
 
     1. Open in Visual Studio Code de _project_map :fontawesome-brands-github:`easystat`
     1. Open een terminal en maak een easystat conda environment aan:
-            ``` ps1con title="Terminal"
+            ``` ps1 title="Terminal"
             conda create -n easystat python=3.9
             ```
     1. Selecteer dit nieuwe conda environment in Visual Studio Code.
@@ -298,7 +298,7 @@ Fijn! Als je nu de :fontawesome-regular-file-code:`pyproject.toml` nog eens beki
 ## Poetry gebruiken voor een bestaand project
 
 Met `poetry new` start je een _nieuw_ project en maakt Poetry voor jou bestanden en mappen aan waarmee je aan de slag kunt. Maar vaak ben je al bezig met een project en wil je dat niet overschrijven. Ook is het een gedoe om een nieuw project te maken en daar je bestaande code in te kopieëren. Gelukkig kun je Poetry ook vertellen dat je al bezig bent en dat Poetry _alleen_ een :fontawesome-regular-file-code:`pyproject.toml`-bestand moet aanmaken. Dat doe je met:
-``` ps1con title="Terminal"
+``` ps1 title="Terminal"
 poetry init --no-interaction
 ```
 Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--no-interaction` voorkomt je dat je eerst honderd vragen krijgt over je project. Meestal kies je toch de standaardantwoorden.[^poetry-init]
@@ -307,7 +307,7 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
 
 !!! info
     Als je al bezig bent met een project dan werk je als het goed is al in een conda environment. Daar heb je dan met `conda install` al packages geïnstalleerd die je nodig hebt. Het gebeurt dan makkelijk dat je vergeet om dat aan te geven met `poetry add`. Dat betekent alleen dat als iemand anders je package installeert dat er dependencies missen en dat jouw code dus _niet_ werkt! Dit is makkelijk op te lossen. Zodra je Poetry gaat gebruiken _wis dan je environment en maak een nieuwe aan met alleen Python._ Dat gaat het makkelijkst als volgt. Stel dat je bezig bent in het environment `pythondaq`. We maken dan een nieuw environment met dezelfde naam:
-    ``` ps1con title="Terminal"
+    ``` ps1 title="Terminal"
     conda create -n pythondaq python=3.9
     WARNING: A conda environment already exists at '/Users/david/opt/anaconda3/envs/pythondaq'
     Remove existing environment (y/[n])? y
@@ -327,12 +327,12 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
     1. Open :fontawesome-brands-github:`flasher` in Visual Studio Code.
     1. Commit alles dat je tot nu toe gedaan hebt.
     1. Open een terminal. Maak een nieuwe conda environment met alleen python 3.9:
-        ``` ps1con title="Terminal"
+        ``` ps1 title="Terminal"
         conda create -n flasher python=3.9
         ```
         en maak dat actief in Visual Studio Code.
     1. Voer dan het volgende commando uit:
-        ``` ps1con title="Terminal"
+        ``` ps1 title="Terminal"
         poetry init --no-interaction
         ```
         om een :fontawesome-regular-file-code:`pyproject.toml` aan te maken.
@@ -406,7 +406,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
 
 ## Van script naar applicatie
 Om onze python code te testen heb je tot nu toe waarschijnlijk op de `run`-knop in Visual Studio Code gedrukt. Of je hebt in de terminal aan python gevraagd om het :fontawesome-regular-file-code:`script.py` te runnen:
-``` ps1con title="Terminal"
+``` ps1 title="Terminal"
 python script.py
 ```
 Je moet dan wel de juiste map geopend hebben zodat python het bestand kan vinden. En als je de `run`-knop gebruikt moet wel het bestandje open hebben staan dat je wilt runnen. Kortom, best een beetje gedoe. Maar als we programma's zoals Poetry, Conda of Python willen gebruiken hoeven we helemaal niet het juiste bestandje op te zoeken en te runnen. We hoeven alleen maar een commando in de terminal te geven &mdash; bijvoorbeeld `python` of `conda` &mdash; en de computer start automatisch het juiste programma op.
