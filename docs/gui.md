@@ -361,7 +361,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen`, 
         Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals `x ** 2`, `sin(x)` of `1 / sqrt(x + 1)`. Gebruik daarvoor het `asteval` package [@asteval]. Documentatie vind je op [https://newville.github.io/asteval/](https://newville.github.io/asteval/).
 
 !!! waarschuwing 
-        Gebruik _nooit_ zomaar `#!py eval()` op een string die iemand anders aanlevert. Anders kan iemand met typen in een tekstveld of het inlezen van een tekstbestand je computer wissen bijvoorbeeld, of malware installeren. Als je `#!py eval()` wilt gebruiken, lees dan de sectie _Minimizing the Security Issues of eval()_ in \citetitle{eval} \cite{eval}. Maar _veel makkelijker_ is om `asteval` te gebruiken.
+        Gebruik _nooit_ zomaar `#!py eval()` op een string die iemand anders aanlevert. Anders kan iemand met typen in een tekstveld of het inlezen van een tekstbestand je computer wissen bijvoorbeeld, of malware installeren. Als je `#!py eval()` wilt gebruiken, lees dan de sectie _Minimizing the Security Issues of eval()_ in \citetitle{eval} [@eval]. Maar _veel makkelijker_ is om `asteval` te gebruiken.
 
 ## Een grafische interface voor ons experiment
 
@@ -455,7 +455,7 @@ Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder
 ### Menu's, taak- en statusbalken
 ??? meer-leren "Meer leren"
 
-    Je kunt je grafische applicatie volledig optuigen met menu's of taakbalken. Ook kun je onderin je applicatie met een statusbalk weergeven wat de status is: gereed, aan het meten, foutcode, etc. Dat valt buiten het bestek van deze cursus, maar een mooie referentie is \citetitle{qtmenus} \cite{qtmenus}. Als je vaker grafische applicaties wilt gaan maken dan moet je dat zeker eens doornemen!
+    Je kunt je grafische applicatie volledig optuigen met menu's of taakbalken. Ook kun je onderin je applicatie met een statusbalk weergeven wat de status is: gereed, aan het meten, foutcode, etc. Dat valt buiten het bestek van deze cursus, maar een mooie referentie is \citetitle{qtmenus} [@qtmenus]. Als je vaker grafische applicaties wilt gaan maken dan moet je dat zeker eens doornemen!
 
     !!! opdracht-meer "Pythondaq: statusbalk"
         Maak een statusbalk die aangeeft wat de identificatiestring is van het device dat geselecteerd is. Maak ook een menu waarmee je een CSV-bestand kunt opslaan en een nieuwe meting kunt starten. Let op: je hebt dan een menu-item én een knop die dezelfde method aanroepen. Je hoeft geen dubbele code te schrijven, maar moet de `#!py save_data()`-method wel twee keer verbinden.

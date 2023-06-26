@@ -58,7 +58,7 @@ Wanneer een elektron en een gat elkaar tegenkomen is het energetisch gunstiger o
 
 ### De \texorpdfstring{$I,U${I,U}-karakteristiek van een diode}
 
-Shockley, één van de uitvinders van de transistor, ontwikkelde een model voor p-n-overgangen. Volgens dat model \cite{Shockley} wordt de stroomsterkte gegeven door
+Shockley, één van de uitvinders van de transistor, ontwikkelde een model voor p-n-overgangen. Volgens dat model [@Shockley] wordt de stroomsterkte gegeven door
 \begin{equation}
   I = I_\mathrm{S} \left(e^\frac{V_\mathrm{D}}{nV_\mathrm{T}} - 1 \right),
   \label{eq:Shockley}
