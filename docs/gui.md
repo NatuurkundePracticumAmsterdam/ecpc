@@ -6,7 +6,7 @@ Als je een grafische applicatie schrijft roep je functies aan van het besturings
 
 [^uitspraak-Qt]: Uitspraak: het Engelse _cute_.
 
-!!! warning
+!!! waarschuwing
     Maak voor de oefeningen een nieuw conda environment `IK-test-qt` met:
     ``` ps1con title="Terminal"
     conda create -n IK-test-qt python
@@ -360,7 +360,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen`, 
 !!! opdracht meer "Functieplotter: functies typen"
         Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals `x ** 2`, `sin(x)` of `1 / sqrt(x + 1)`. Gebruik daarvoor het `asteval` package [@asteval]. Documentatie vind je op [https://newville.github.io/asteval/](https://newville.github.io/asteval/).
 
-!!! warning 
+!!! waarschuwing 
         Gebruik _nooit_ zomaar `#!py eval()` op een string die iemand anders aanlevert. Anders kan iemand met typen in een tekstveld of het inlezen van een tekstbestand je computer wissen bijvoorbeeld, of malware installeren. Als je `#!py eval()` wilt gebruiken, lees dan de sectie _Minimizing the Security Issues of eval()_ in \citetitle{eval} \cite{eval}. Maar _veel makkelijker_ is om `asteval` te gebruiken.
 
 ## Een grafische interface voor ons experiment

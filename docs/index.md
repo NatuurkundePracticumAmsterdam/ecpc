@@ -23,7 +23,7 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
     ## Uitdaging: wheels
 
-    !!! warning
+    !!! waarschuwing
         Let op dat dit ook kan.
 
     !!! note
