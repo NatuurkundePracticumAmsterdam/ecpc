@@ -41,7 +41,9 @@ Uitgesplitst in \textit{argumenten} en __opties__, met vierkante haken [] om aan
     
 
 ### Click
-Als we gebruik willen maken van commando's in onze eigen applicatie moeten we weten wat de gebruiker in de terminal typt. Dit is mogelijk met `sys.argv`.\footnote{argv staat voor: argument vector, een lijst met argumenten}
+Als we gebruik willen maken van commando's in onze eigen applicatie moeten we weten wat de gebruiker in de terminal typt. Dit is mogelijk met `sys.argv`.[^argv]
+
+[^argv]: argv staat voor: _argument vector_, een lijst met argumenten
 
 ``` py title="cli.py"
 import sys
@@ -68,7 +70,7 @@ else:
     print(f"CommandNotFoundError: No command '{args[1]}'.")
 ```
 
-Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de _standard library_. Een hele handige &mdash; die níet in de _standard library_ zit maar wél meegeleverd is met Anaconda &mdash; is Click \cite{click}.
+Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de _standard library_. Een hele handige &mdash; die níet in de _standard library_ zit maar wél meegeleverd is met Anaconda &mdash; is Click.[@click]
 
 !!! info
     Click maakt gebruik van _decorators_ (`#!py @decorator`). Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_. Als je meer wilt weten over de werking ervan lees dan \secref{sec:decorators}.
@@ -131,7 +133,10 @@ PS> python hello.py --help
 !!! warning
     Let er op dat je bij `#!py @click.argument` de naam meegeeft die overeen komt met de namen van de parameters van je functie. In ons geval hebben we een argument `#!py "name"`. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name)`.
 
-Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij _opties_ is dat anders. Je geeft met mintekens aan dat je een optie meegeeft. Veel opties hebben een lange naam en een afkorting (bijvoorbeeld `--count` en `-c`). Opties kunnen zelf weer een argument hebben (bijvoorbeeld `--count 3`). Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.\footnote{Gebruik forward slash om een vlaggetje te maken: `#!py @click.option("-f", "--flag/--no-flag`} Het is handig om een standaardwaarde te definiëren. In dat geval mag de gebruiker de optie weglaten. We voegen een for-loop\footnote{Merk op in de code hieronder: `#!py _` is de weggooivariabele in Python. Het gaat ons erom dat de lus een aantal keer doorlopen wordt en we hoeven niets te doen met de loop index.} toe om de begroeting te herhalen.
+Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij _opties_ is dat anders. Je geeft met mintekens aan dat je een optie meegeeft. Veel opties hebben een lange naam en een afkorting (bijvoorbeeld `--count` en `-c`). Opties kunnen zelf weer een argument hebben (bijvoorbeeld `--count 3`). Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag] Het is handig om een standaardwaarde te definiëren. In dat geval mag de gebruiker de optie weglaten. We voegen een for-loop[^weggooivariabele] toe om de begroeting te herhalen.
+
+[^flag]: Gebruik forward slash om een vlaggetje te maken: `#!py @click.option("-f", "--flag/--no-flag`
+[^weggooivariabele]: Merk op in de code hieronder: `#!py _` is de weggooivariabele in Python. Het gaat ons erom dat de lus een aantal keer doorlopen wordt en we hoeven niets te doen met de loop index.
 
 ``` py title="hello.py" hl_lines="7-11 13"
 import click
@@ -221,12 +226,12 @@ Hello Alice!
     Bij \opdref{opd:Poetry_commando} heb je een applicatie gemaakt om de oppervlakte van een tafel te berekenen met de bijbehorende onzekerheid. In deze opdracht gaan we het script uitbreiden om de lengte en de breedte én de onzekerheid daarop als argument of optie mee te geven op de command line. Voer de volgende stappen uit:
 
     1. Maak een schone environment aan en installeer de applicatie (doet alles het nog?)
-    1. Voeg click toe en pas het script aan zodat je de lengte zelf kan kiezen.\footnote{Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieerd. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden}
+    1. Voeg click toe en pas het script aan zodat je de lengte zelf kan kiezen.[^arg-type]
     1. Test de applicatie.
     1. Voeg ook opties of argumenten toe om de breedte en de onzekerheden mee te geven. Wanneer kies je in het script voor een optie en wanneer voor een argument?
     1. Maak de applicatie compleet met helpteksten en default waardes.
     
-
+[^arg-type]: Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieerd. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden
 
 ### Click subcommando's
 Tot nu toe konden we maar één functie uitvoeren in onze applicatie. Maar het is ook mogelijk om subcommando's aan te maken zodat je met één programma meerdere <q>taken</q> kunt uitvoeren. Denk bijvoorbeeld aan `conda`. Je installeert packages met `conda install`, verwijdert ze met `conda remove`, maakt een environment met `conda create` en activeert het met `conda activate`.
@@ -354,7 +359,9 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 ## Docstrings
 Documentatie is vaak een onderschoven kindje, maar is ontzettend belangrijk. Als je zelf informatie opzoekt over bijvoorbeeld een voor jou onbekende Pythonbibliotheek dan vind je het heel fijn als er een duidelijke tutorial is. Als je code schrijft die ook door andere mensen gebruikt moet worden is documentatie nodig. Als de code langer mee moet gaan dan zeg een paar weken, dan helemaal. Want over een paar weken ben jij _zelf_ een ander persoon. Hoe vervelend het ook is, code die je nota bene zelf geschreven hebt is over een paar weken niet meer glashelder. Je zult dan moeten uitzoeken hoe je ook alweer iets hebt gedaan of wat de gedachte erachter was.
 
-Tot nu toe heb je waarschijnlijk gebruik gemaakt van `#!py #stukjes commentaar` om duidelijk te maken wat je code doet. Maar als je de applicatie aan het gebruiken bent en je wilt weten wat een bepaalde functie eigenlijk doet, moet je dus de code induiken op zoek naar de betreffende functie. Met _docstrings_ &mdash; documentatiestrings &mdash; is dat verleden tijd. De documentatie over een functie kan automatisch gegenereerd worden vanuit je code met behulp van de docstring. Docstrings staat tussen 3 dubbele aanhalingstekens en hebben doorgaans een vaste structuur:\footnote{Die vaste structuur wordt niet door Python afgedwongen, maar is een goed gebruik. Er worden verschillende stijlen gebruikt. Eén van de meest gebruikte stijlen is door programmeurs van Google bedacht [@google_style_guide].}
+Tot nu toe heb je waarschijnlijk gebruik gemaakt van `#!py #stukjes commentaar` om duidelijk te maken wat je code doet. Maar als je de applicatie aan het gebruiken bent en je wilt weten wat een bepaalde functie eigenlijk doet, moet je dus de code induiken op zoek naar de betreffende functie. Met _docstrings_ &mdash; documentatiestrings &mdash; is dat verleden tijd. De documentatie over een functie kan automatisch gegenereerd worden vanuit je code met behulp van de docstring. Docstrings staat tussen 3 dubbele aanhalingstekens en hebben doorgaans een vaste structuur:[^style-guide]
+
+[^style-guide]: Die vaste structuur wordt niet door Python afgedwongen, maar is een goed gebruik. Er worden verschillende stijlen gebruikt. Eén van de meest gebruikte stijlen is door programmeurs van Google bedacht.[@google_style_guide]
 
 ``` py title="integers_up_to.py"
 def integers_up_to(number):
@@ -388,12 +395,12 @@ PS> python integers_up_to.py
         Returns:
             list: containing the integers
 ```
-Je zult niet altijd de `#!py help()` functie gebruiken misschien, maar gebruik zoveel mogelijk docstrings &mdash; ze helpen ook enorm als je de code leest. Het is extra werk maar het verdient zich dubbel en dwars terug. Je hoeft geen proza te schrijven, maar wees duidelijk. Lees voor meer voorbeelden bijvoorbeeld de \citetitle{google_style_guide} [@google_style_guide].
+Je zult niet altijd de `#!py help()` functie gebruiken misschien, maar gebruik zoveel mogelijk docstrings &mdash; ze helpen ook enorm als je de code leest. Het is extra werk maar het verdient zich dubbel en dwars terug. Je hoeft geen proza te schrijven, maar wees duidelijk. Lees voor meer voorbeelden bijvoorbeeld de _Google Python Style Guide_.[@google_style_guide]
 
 
 ### Docstring generator
 
-Om het gemakkelijker te maken om docstrings ook écht te gaan schrijven, zijn er docstring generators ontwikkeld. Voor Visual Studio Code is er de extensie \citetitle{AutoDocstring} [@AutoDocstring].
+Om het gemakkelijker te maken om docstrings ook écht te gaan schrijven, zijn er docstring generators ontwikkeld. Voor Visual Studio Code is er de extensie _autoDocstring - Python Docstring Generator_.[@AutoDocstring]
 
 !!! opdracht-basis "Autodocstring"
     Kijk in Visual Studio Code bij extensions hoe je AutoDocstring kunt gebruiken. Kies daarvoor in de linkerkantlijn het goede icoon voor _extensions_ en selecteer dan de `autoDocstring` extensie. Zoek in de documentatie naar hoe je automatisch (een deel van) de docstring genereert.
@@ -482,7 +489,9 @@ Options:
 ```
 
 !!! opdracht-inlever "Smallangle: docstring"
-    Voorzie de functies in :fontawesome-regular-file-code:`smallangle.py` die je gemaakt hebt bij \opdref{opd:smallangle} volledig van docstrings, zodat `smallangle --help` zinvolle informatie geeft.\footnote{Als de docstring zeer uitgebreid wordt met meerdere argumenten dan wordt de helptekst van click onoverzichtelijk. Als je wilt dat alleen de korte samenvatting in de help verschijnt, zet dan na de korte samenvatting: `#!py \f`.}
+    Voorzie de functies in :fontawesome-regular-file-code:`smallangle.py` die je gemaakt hebt bij \opdref{opd:smallangle} volledig van docstrings, zodat `smallangle --help` zinvolle informatie geeft.[^split-docstring]
+
+[^split-docstring]: Als de docstring zeer uitgebreid wordt met meerdere argumenten dan wordt de helptekst van click onoverzichtelijk. Als je wilt dat alleen de korte samenvatting in de help verschijnt, zet dan na de korte samenvatting: `#!py \f`.
 
 
 !!! opdracht-inlever "Pythondaq: docstring"
@@ -507,10 +516,10 @@ In \chref{ch:mvc} heb je `pythondaq` uitgesplitst in model, view en controller. 
 !!! opdracht-inlever "Pythondaq: commando's"
 
     1. Maak een nieuw bestand :fontawesome-regular-file-code:`src/pythondaq/cli.py`.
-    1. Maak een `#!py @click.group()` aan en voeg de subcommando's `list` en `scan` daaraan toe. Laat de commando's voorlopig alleen tekst printen. Merk op dat `#!py list()` een Pythonfunctie is.\footnote{Zie ook de waarschuwing op \mypageref{warn:cmd_name}.}
+    1. Maak een `#!py @click.group()` aan en voeg de subcommando's `list` en `scan` daaraan toe. Laat de commando's voorlopig alleen tekst printen. Merk op dat `#!py list()` een Pythonfunctie is.[^cmd_name]
     1. Zorg dat je de command-line applicatie met een commando in de terminal kunt aanroepen, inclusief de subcommando's `list` en `scan`.
     
-
+[^cmd_name]: Zie ook de waarschuwing op \mypageref{warn:cmd_name}
 
 
 ### Het uitvoeren van een meetserie
@@ -581,9 +590,9 @@ Op dit punt hebben we de functionaliteit van ons snelle script van het vorige ho
 ## Een interface met stijl
 ??? meer-leren "Meer leren"
 
-    Ook command-line interfaces gaan met hun tijd mee. Vroeger waren ze per definitie zwart/wit en statisch, maar tegenwoordig worden interfaces vaak opgeleukt met kleur, emoji's en bewegende progressbars. _Rich_~\cite{rich} is een project dat in recordtijd heel populair is geworden. Het bestaat pas sinds november 2019 en heeft precies twee jaar later meer dan 31000:material-star: verzameld. Dat is _veel_ &mdash; en de populariteit is sindsdien nog verder toegenomen.
+    Ook command-line interfaces gaan met hun tijd mee. Vroeger waren ze per definitie zwart/wit en statisch, maar tegenwoordig worden interfaces vaak opgeleukt met kleur, emoji's en bewegende progressbars. _Rich_~[@rich] is een project dat in recordtijd heel populair is geworden. Het bestaat pas sinds november 2019 en heeft precies twee jaar later meer dan 31000:material-star: verzameld. Dat is _veel_ &mdash; en de populariteit is sindsdien nog verder toegenomen.
 
-    Rich is ontzettend uitgebreid en heeft heel veel mogelijkheden. Voor ons project kan het handig zijn om een progressbar te gebruiken of met Rich een tabel weer te geven. De documentatie~\cite{rich-docs} van Rich is best goed, maar kan lastig zijn om een mooi overzicht te krijgen. Een serie van korte video tutorials kun je vinden bij [https://calmcode.io/rich/introduction.html](https://calmcode.io/rich/introduction.html). Iedere video duurt maar één tot twee minuten en laat mooi de mogelijkheden zien. Voor de functies die je wilt gebruiken kun je dan meer informatie opzoeken in de documentatie van Rich zelf.
+    Rich is ontzettend uitgebreid en heeft heel veel mogelijkheden. Voor ons project kan het handig zijn om een progressbar te gebruiken of met Rich een tabel weer te geven. De documentatie~[@rich-docs] van Rich is best goed, maar kan lastig zijn om een mooi overzicht te krijgen. Een serie van korte video tutorials kun je vinden bij [https://calmcode.io/rich/introduction.html](https://calmcode.io/rich/introduction.html). Iedere video duurt maar één tot twee minuten en laat mooi de mogelijkheden zien. Voor de functies die je wilt gebruiken kun je dan meer informatie opzoeken in de documentatie van Rich zelf.
 
     !!! opdracht-meer "Rich"
         Verrijk je interface met Rich. Doe dit naar eigen wens en inzicht.
