@@ -6,14 +6,14 @@ Als je een grafische applicatie schrijft roep je functies aan van het besturings
 
 [^uitspraak-Qt]: Uitspraak: het Engelse _cute_.
 
-!!! warning
-    Maak voor de oefeningen een nieuw conda environment `IK-test-qt` met:
+!!! waarschuwing
+    Maak voor de oefeningen een nieuw conda environment `test-qt` met:
     ``` ps1con title="Terminal"
-    conda create -n IK-test-qt python
-    conda activate IK-test-qt
+    conda create -n test-qt python
+    conda activate test-qt
     pip install pyside6 pyqtgraph
     ```
-    Selecteer het nieuwe `IK-test-qt` conda environment in Visual Studio Code en sluit alle <q>oude</q> terminals met het :fontawesome-regular-trash-can: -icoon. [^kill-terminals]
+    Selecteer het nieuwe `test-qt` conda environment in Visual Studio Code en sluit alle <q>oude</q> terminals met het :fontawesome-regular-trash-can: -icoon. [^kill-terminals]
 
  [^kill-terminals]: Of in één keer met **View > Command Palette > Terminal: Kill All Terminals**
 
@@ -48,7 +48,7 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
     \label{opd:minimal-gui}
 
     1. Maak een nieuw bestand :fontawesome-regular-file-code:`example-gui.py`.
-    1. Neem bovenstaande pythoncode over en test het in de `IK-test-qt` conda environment.
+    1. Neem bovenstaande pythoncode over en test het in de `test-qt` conda environment.
     
 
 
@@ -199,7 +199,7 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
 
 Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst hier: [https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes](https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes). Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies `CamelCase` namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we `snake_case` gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
 
-!!! opdracht-meer "Volgorde layout aanpassen"
+??? opdracht-meer "Volgorde layout aanpassen"
     De volgorde waarin je layout en widgets toevoegt bepaald het uiterlijk van de grafische interface. Verander de code om de layout aan te passen (zet bijvoorbeeld de knoppen boven de textbox of zet de knoppen onder elkaar en naast de textbox).
 
 
@@ -216,7 +216,7 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 ### De interface ontwerpen met Qt Designer
 
 !!! info
-    Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op met de zoekfunctie: links onderin bij Windows (vergrootglas of tekstveld). Type `designer` in, wacht heel even en kies de applicatie. Als hij hem niet kan vinden open dan een terminal, activeer je `IK-test-qt` conda environment en type `pyside6-designer`.
+    Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op met de zoekfunctie: links onderin bij Windows (vergrootglas of tekstveld). Type `designer` in, wacht heel even en kies de applicatie. Als hij hem niet kan vinden open dan een terminal, activeer je `test-qt` conda environment en type `pyside6-designer`.
 
 
 Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Je bewaart dat als een `.ui`-bestand. Vervolgens vertaal je het `.ui`-bestand naar een Pythonbestand dat je importeert in je eigen programma. De volledige class van het vorige voorbeeld kan dan vervangen worden door:
@@ -349,18 +349,18 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen`, 
     Voeg knoppen toe om het domein aan te passen. Maak bijvoorbeeld een `start` die mag lopen van 0 tot 100. Maak ook een `stop` en een `numpoints` om het aantal punten te kiezen. Kies daarvoor ook een handige standaardwaarde. Zorg ervoor dat als je de waardes aanpast dat de functie automatisch opnieuw wordt geplot.
 
 
-!!! opdracht-meer "Functieplotter: functie kiezen drop-down menu"
+??? opdracht-meer "Functieplotter: functie kiezen drop-down menu"
     Gebruik een `#!py QComboBox` om de functie te kunnen kiezen. Je moet hem _leeg_ toevoegen aan je interface en vult hem vanuit je programma. Zoek de widget op in de documentatie om uit te zoeken welke functie je moet gebruiken om keuzemogelijkheden toe te voegen en welk signaal je moet koppelen om te zorgen dat de plot opnieuw wordt uitgevoerd als je de functie aanpast. Geef de gebruiker de keuzes $\sin(x)$, $\cos(x)$, $\tan(x)$ en $\exp(x)$.
 
 
-!!! opdracht-meer "Functieplotter: meer functies"
+??? opdracht-meer "Functieplotter: meer functies"
     Voeg aan de functiekiezer de functies $x$, $x^2$, $x^3$, en $\frac{1}{x}$ toe. Je kunt daarvoor _lambda functions_ gebruiken, maar dat is niet per se nodig.
 
 
 !!! opdracht meer "Functieplotter: functies typen"
         Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals `x ** 2`, `sin(x)` of `1 / sqrt(x + 1)`. Gebruik daarvoor het `asteval` package [@asteval]. Documentatie vind je op [https://newville.github.io/asteval/](https://newville.github.io/asteval/).
 
-!!! warning 
+!!! waarschuwing 
         Gebruik _nooit_ zomaar `#!py eval()` op een string die iemand anders aanlevert. Anders kan iemand met typen in een tekstveld of het inlezen van een tekstbestand je computer wissen bijvoorbeeld, of malware installeren. Als je `#!py eval()` wilt gebruiken, lees dan de sectie _Minimizing the Security Issues of eval()_ in \citetitle{eval} \cite{eval}. Maar _veel makkelijker_ is om `asteval` te gebruiken.
 
 ## Een grafische interface voor ons experiment
@@ -495,7 +495,7 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
     Maak een keuzemenu (`#!py QComboBox`) zodat je de Arduino kunt selecteren. Je zult in de `__init__()` eerst een lijst van devices moeten maken en die toe moeten voegen aan de widget. Zie ook \tabref{tab:widgets} en de documentatie. Het kan daarbij handig zijn om de device pas te _openen_ als je een scan uitvoert en hem te sluiten (schrijf een soort `#!py device.close()`) als de scan is afgelopen. In de controller werk je met een `#!py pyvisa` device en die heeft al een `#!py close()`-method.
 
 
-!!! opdracht-meer "Pythondaq: exception"
+??? opdracht-meer "Pythondaq: exception"
     Het is natuurlijk niet zo mooi wanneer je de verkeerde poort kiest en het programma crasht. Vang de exception af en geef een melding (gebruik bijvoorbeeld `#!py QDialog`) dat het device geen Arduino VISA device is. De gebruiker kan daarna een andere poort proberen.
 
 

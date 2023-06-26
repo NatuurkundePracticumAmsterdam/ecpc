@@ -26,11 +26,11 @@ Met deze regel geef je Python de optie `-m` en die importeert een module (hier `
 
 Als applicaties veel verschillende functionaliteit hebben dan krijg je regelmatig te maken met een lange regel met een combinatie van argumenten en opties:
 ``` ps1con title="Terminal"
-PS> conda create -n IK-pythondaq -c conda-forge python pyvisa-py
+PS> conda create -n pythondaq -c conda-forge python pyvisa-py
 ```
 Uitgesplitst in \textit{argumenten} en __opties__, met vierkante haken [] om aan te geven welke onderdelen bij elkaar horen, is dat:
 \begin{quote}
-    conda \textit{create} [__-n__ \textit{IK-pythondaq}] [__-c__ \textit{conda-forge}] [\textit{python pyvisa-py}]
+    conda \textit{create} [__-n__ \textit{pythondaq}] [__-c__ \textit{conda-forge}] [\textit{python pyvisa-py}]
 \end{quote}
 
 
@@ -213,7 +213,7 @@ Hello Alice!
     Breid het bovenstaande script `hello.py` uit met een optie om een korte pauze in te lassen na het printen van ieder `#!py print()`-statement. Een pauze kun je inlassen met `#!py time.sleep()`. Zorg er voor dat er zonder die optie géén pauze is en dat je met de optie kunt kiezen hoe lang er gewacht moet worden.
 
 
-!!! opdracht-meer "Vlag"
+??? opdracht-meer "Vlag"
     Gebruik een optie als vlag om de gebruiker te laten kiezen tussen <q>hello</q> of <q>goodbye</q>. Zorg dat er standaard <q>hello</q> wordt geprint.
 
 
@@ -300,7 +300,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
     Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt &mdash; maar jij weet precies over welk onderdeel we het hebben.
 
     1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam :fontawesome-brands-github:`smallangle`.
-    1. Maak een nieuw environment die `IK-smallangle` heet met daarin alleen Python.
+    1. Maak een nieuw environment die `smallangle` heet met daarin alleen Python.
     1. Zet in de package :fontawesome-regular-folder:`smallangle` een module :fontawesome-regular-file-code:`smallangle.py`.
     1. Plak de onderstaande code in :fontawesome-regular-file-code:`smallangle.py`:
         ``` py
@@ -342,7 +342,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
     
 
 
-!!! opdracht-meer "Smallangle (uitdaging)"
+??? opdracht-meer "Smallangle (uitdaging)"
     Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\lvert x - \sin(x) \rvert \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over .000, .001 en .002, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
     ``` ps1con title="Terminal"
     PS> smallangle approx .1
@@ -517,7 +517,7 @@ In \chref{ch:mvc} heb je `pythondaq` uitgesplitst in model, view en controller. 
 
 We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het tonen van de resultaten daarvan aan de gebruiker.
 
-!!! note
+!!! info
     Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen \qtylist{0;3.3}{\volt}. Je kunt dit doen door de `#!py type`-parameter in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven (bijvoorbeeld: `#!py type=int` of `#!py type=float`) en Click heeft speciale types zoals `#!py type=click.FloatRange(0, 3.3)` voor een kommagetal tussen 0 en 3.3. Bekijken alle speciale types op [https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types](https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types). Als je hiervan gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat voor je.
 
 !!! opdracht-inlever "Pythondaq: `scan`"
@@ -553,7 +553,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
     Breid je `scan` opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `--graph` om een grafiek te tekenen en `--no-graph` om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags voor Click op [https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
 
 
-!!! opdracht-meer "Pythondaq: `list --search`"
+??? opdracht-meer "Pythondaq: `list --search`"
     Breid het commando `list` uit met een optie `--search` waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
     ``` ps1con title="Terminal"
     PS> diode list
