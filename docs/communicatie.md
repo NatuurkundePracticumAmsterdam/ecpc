@@ -62,11 +62,11 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
     \label{opd:condaenv}
     Omdat meerdere studenten gedurende de week achter dezelfde computer werken en environments aan gaan maken kun je het beste je initialen toevoegen aan de naam van je environment. Zo zit niemand elkaar in de weg. In dit voorbeeld gebruiken we <q>IK</q> als initialen. Maak de environment en installeer de juiste packages door een terminal te openen[^terminal] en in te typen (_zonder_ het dollarteken aan het begin):
 
-    ``` ps1con title="Terminal"
+    ``` ps1 title="Terminal"
     conda create -n IK-pythondaq -c conda-forge python pyvisa-py
     ```
     Om de conda environment daadwerkelijk te gebruiken moet je die altijd eerst _activeren_ met:
-    ``` ps1con title="Terminal"
+    ``` ps1 title="Terminal"
     conda activate IK-pythondaq
     ```
 
