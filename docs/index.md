@@ -26,7 +26,7 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
     !!! waarschuwing
         Let op dat dit ook kan.
 
-    !!! note
+    !!! info
         Of niet.
 
     En zo verder.

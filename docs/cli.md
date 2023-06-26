@@ -559,7 +559,7 @@ In \chref{ch:mvc} heb je `pythondaq` uitgesplitst in model, view en controller. 
 
 We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het tonen van de resultaten daarvan aan de gebruiker.
 
-!!! note
+!!! info
     Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen \qtylist{0;3.3}{\volt}. Je kunt dit doen door de `#!py type`-parameter in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven (bijvoorbeeld: `#!py type=int` of `#!py type=float`) en Click heeft speciale types zoals `#!py type=click.FloatRange(0, 3.3)` voor een kommagetal tussen 0 en 3.3. Bekijken alle speciale types op [https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types](https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types). Als je hiervan gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat voor je.
 
 !!! opdracht-inlever "Pythondaq: `scan`"

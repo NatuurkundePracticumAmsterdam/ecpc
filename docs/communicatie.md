@@ -55,7 +55,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
   </caption>
 </figure>
 
-!!! note
+!!! info
     Om met Python via het VISA-protocol te kunnen communiceren met apparaten hebben we specifieke packages nodig. Die gaan we installeren in een _conda environment_. Voor meer informatie over conda environments zie \secref{sec:conda-envs}.
 
 !!! opdracht-basis "Environment aanmaken"
@@ -90,7 +90,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
     (visa) exit
     ```
 
-!!! note
+!!! info
     We maken hier gebruik van de optie `-b py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er, naast `pyvisa-py`, ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. Maar de verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle types apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
 
 Om verbinding te maken met onze Arduino gebruik je eerst `list` om te kijken welke apparaten aangesloten zijn en vervolgens `open` om de verbinding te openen. Je kunt makkelijk zien welk apparaat de Arduino is door éérst `list` te gebruiken zónder de Arduino aangesloten en vervolgens nog een keer mét de Arduino aangesloten &mdash; het kan een paar seconden duren voor de Arduino wordt herkend. Het laatst bijgekomen apparaat is dan de Arduino. Een commando sturen en wachten op een antwoord doe je met `query`. Als we de identificatiestring willen uitlezen wordt dit bijvoorbeeld:
@@ -195,7 +195,7 @@ Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een 
 
 [^tip-aansluiten]: Tip: als je de Arduino loshaalt en weer aansluit is het de nieuwe regel in het lijstje.
 
-!!! tip
+!!! info
     In het vervolg gaan we commando's naar de Arduino sturen waar een variabele spanning in staat. Je kunt dit het makkelijkst doen met f-strings, zoals
     ``` py
     naam = "Alice"
@@ -298,7 +298,7 @@ Je hebt op de middelbare school ongetwijfeld de $I,U$-karakteristiek van een ohm
 
 Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma of Python notebook o.i.d. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment hebben we ook alleen nog maar _ruwe_ metingen. We gaan hier voorbij aan het feit dat we graag de stroomsterkte door de LED $I$ zouden willen uitzetten tegen de spanning over de LED $U_\mathrm{LED}$.
 
-!!! tip
+!!! info
     In de volgende opdracht gaan we een grafiek maken. Installeer Matplotlib in je conda environment (zorg dat die geactiveerd is!):
     ``` ps1con title="Terminal"
     conda install -c conda-forge matplotlib

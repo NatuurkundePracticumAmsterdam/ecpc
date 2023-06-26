@@ -30,7 +30,7 @@ poetry about
 
 
 ## Nieuw Poetry project
-!!! note
+!!! info
     We gaan werken met modules en packages. Ben je daar nog niet zo bekent mee, zorg dan dat je \secref{sec:modules} en \secref{sec:packages} gemaakt hebt.
 
 Stel je wilt een package schrijven met wat handige functies om veelgebruikte statistische berekeningen makkelijk uit te voeren. Je noemt het `easystat`. Het doel is eerst om het in al je eigen analyses makkelijk te kunnen gebruiken (`#!py import easystat`) maar je wilt het ook op GitHub zetten en wie weet vinden anderen het ook handig! Je wilt het dus ook _netjes_ doen. En niet later van anderen horen: <q>leuk, maar bij mij werkt het niet!</q>
@@ -232,7 +232,7 @@ Fijn! Als je nu de :fontawesome-regular-file-code:`pyproject.toml` nog eens beki
 
 [^conda-list]: De lijst met packages in de active Conda enviornment vraag je in de terminal op met het `conda list`, kijk maar of numpy daar tussen staat.
 
-!!! note
+!!! info
     Als we de code in ons package aanpassen dan hoeven we het niet opnieuw te installeren met Poetry, maar als we met de hand iets wijzigen in de :fontawesome-regular-file-code:`pyproject.toml` dan moet dat _wel_. Als je een `#!py ImportError` krijgt voor je eigen package &mdash; bijvoorbeeld als je nieuwe mappen of bestanden hebt aangemaakt &mdash; probeer dan _eerst_ voor de zekerheid `poetry install`.
 
 ### Poetry.lock
@@ -305,7 +305,7 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
 
 [^poetry-init]: Het is eenvoudig om zelf de :fontawesome-regular-file-code:`pyproject.toml` te openen en daar wat in aan te passen voor zover nodig.
 
-!!! note
+!!! info
     Als je al bezig bent met een project dan werk je als het goed is al in een conda environment. Daar heb je dan met `conda install` al packages geïnstalleerd die je nodig hebt. Het gebeurt dan makkelijk dat je vergeet om dat aan te geven met `poetry add`. Dat betekent alleen dat als iemand anders je package installeert dat er dependencies missen en dat jouw code dus _niet_ werkt! Dit is makkelijk op te lossen. Zodra je Poetry gaat gebruiken _wis dan je environment en maak een nieuwe aan met alleen Python._ Dat gaat het makkelijkst als volgt. Stel dat je bezig bent in het environment `IK-pythondaq`. We maken dan een nieuw environment met dezelfde naam:
     ``` ps1con title="Terminal"
     conda create -n IK-pythondaq python=3.9
@@ -346,7 +346,7 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
 ## Poetry gebruiken voor pythondaq
 Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten we twee dingen doen. Als eerste gaan we de `pythondaq` repository in een `src`-structuur zetten en daarna gaan we Poetry initialiseren.
 
-!!! note
+!!! info
     Vergeet niet &mdash; waar nodig &mdash; de :fontawesome-regular-file-code:`__init__.py` bestanden toe te voegen aan de packages.
 
 !!! opdracht-inlever "Pythondaq: package"
