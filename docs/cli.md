@@ -40,15 +40,10 @@ Uitgesplitst in \textit{argumenten} en __opties__, met vierkante haken [] om aan
     1. Vraag de lijst met argumenten (commando's) op van Poetry met `poetry list`, hoeveel kende je nog niet?
     
 
-
-
-
 ### Click
 Als we gebruik willen maken van commando's in onze eigen applicatie moeten we weten wat de gebruiker in de terminal typt. Dit is mogelijk met `sys.argv`.\footnote{argv staat voor: argument vector, een lijst met argumenten}
 
-``` py
-# cli.py
-
+``` py title="cli.py"
 import sys
 
 print(sys.argv)
@@ -56,14 +51,12 @@ print(sys.argv)
 
 Alles wat we in de terminal typen wordt aan input meegegeven:
 ``` ps1con title="Terminal"
-PS> python  cli.py test 123   
+PS> python cli.py test 123   
 ['cli.py', 'test', '123']
 ```
 
 Met if-statements kunnen we acties verbinden aan bepaalde argumenten:
-\begin{pythoncode*}{highlightlines={8-11}}
-# cli.py
-
+``` py title="cli.py" hl_lines="8-11"
 import sys
 
 args = sys.argv
@@ -73,18 +66,15 @@ if args[1] == "test":
     print(f"This is a test: {args[2]}")
 else:
     print(f"CommandNotFoundError: No command '{args[1]}'.")
-\end{pythoncode*}
+```
 
 Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de _standard library_. Een hele handige &mdash; die níet in de _standard library_ zit maar wél meegeleverd is met Anaconda &mdash; is Click \cite{click}.
 
-\begin{info}
+!!! info
     Click maakt gebruik van _decorators_ (`#!py @decorator`). Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_. Als je meer wilt weten over de werking ervan lees dan \secref{sec:decorators}.
-\end{info}
 
 Als kort voorbeeld &mdash; geïnspireerd op de documentatie van Click &mdash; nemen we het volgende script:
-``` py
-# hello.py
-
+``` py title="hello.py"
 def hello():
     print("Hello physicist!")
 
@@ -94,9 +84,7 @@ if __name__ == "__main__":
 
 Dit script print de uitdrukking "Hello physicist!". We gaan dit aanpassen en maken het mogelijk om de naam en het aantal begroetingen te kiezen. Hiervoor gebruiken we Click. Allereerst moeten we `#!py click` importeren en aangeven dat we de `#!py hello()`-functie willen gebruiken als _commando_:
 
-\begin{pythoncode*}{highlightlines={5}}
-# hello.py
-
+``` py title="hello.py" hl_lines="5"
 import click
 
 @click.command()
@@ -105,7 +93,7 @@ def hello():
 
 if __name__ == "__main__":
     hello()
-\end{pythoncode*}
+```
 
 Dit levert ons nog niet zoveel op, maar op de achtergrond is click wel degelijk aan het werk. De `#!py @click.command()` houdt in de gaten wat er in de command line wordt ingetypt. Zo kunnen we de helpfunctie aanroepen door `--help` achter de naam van het script te zetten.
 
@@ -122,7 +110,7 @@ PS> python hello.py --help
     Laten we zorgen dat we een naam als argument mee kunnen geven.
     
     1. In de code hieronder geven we met de regel `#!py @click.argument("name")` aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie `hello`:
-            \begin{pythoncode*}{highlightlines={6,8}}
+            ``` py hl_lines="6 8"
             # hello.py
             
             import click
@@ -134,37 +122,18 @@ PS> python hello.py --help
             
             if __name__ == "__main__":
                 hello()
-            \end{pythoncode*}
+            ```
     1. Draai :fontawesome-regular-file-code:`hello.py` eerst zonder een argument `python hello.py` en bekijk de foutmelding.
     1. Draai :fontawesome-regular-file-code:`hello.py` nu met een argument: `python hello.py Alice`.
     
 
 
-\begin{warning}
+!!! warning
     Let er op dat je bij `#!py @click.argument` de naam meegeeft die overeen komt met de namen van de parameters van je functie. In ons geval hebben we een argument `#!py "name"`. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name)`.
-\end{warning}
-
-% Als we dit script nu runnen _zonder_ argument krijgen we een foutmelding:
-% ``` ps1con title="Terminal"
-% PS> python hello.py
-% Usage: hello.py [OPTIONS] NAME
-% Try 'hello.py --help' for help.
-
-% Error: Missing argument 'NAME'.
-% ```
-% maar _met_ argument krijgen we dit:
-
-% ``` ps1con title="Terminal"
-% PS> python hello.py Alice
-% Hello Alice!
-% ```
-
 
 Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij _opties_ is dat anders. Je geeft met mintekens aan dat je een optie meegeeft. Veel opties hebben een lange naam en een afkorting (bijvoorbeeld `--count` en `-c`). Opties kunnen zelf weer een argument hebben (bijvoorbeeld `--count 3`). Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.\footnote{Gebruik forward slash om een vlaggetje te maken: `#!py @click.option("-f", "--flag/--no-flag`} Het is handig om een standaardwaarde te definiëren. In dat geval mag de gebruiker de optie weglaten. We voegen een for-loop\footnote{Merk op in de code hieronder: `#!py _` is de weggooivariabele in Python. Het gaat ons erom dat de lus een aantal keer doorlopen wordt en we hoeven niets te doen met de loop index.} toe om de begroeting te herhalen.
 
-\begin{pythoncode*}{highlightlines={7-11,13}}
-# hello.py
-
+``` py title="hello.py" hl_lines="7-11 13"
 import click
 
 @click.command()
@@ -180,21 +149,18 @@ def hello(name, count):
 
 if __name__ == "__main__":
     hello()
-\end{pythoncode*}
+```
 
 !!! opdracht-basis "Test hello"
     Neem bovenstaande pythoncode over en test :fontawesome-regular-file-code:`hello.py`. Kun je 5 keer een begroeting printen met de naam van je assistent?
 
 
-\begin{warning}
+!!! warning
     Let er op dat je bij `#!py @click.option` de afkorting met 1 minteken meegeeft en de lange naam met 2 mintekens. De lange naam moet overeenkomen met de paramater van je functie. In ons geval hebben we een optie `#!py "--count"` &mdash; de lange naam telt. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name, count)`.
-\end{warning}
 
 Het is handig om een korte helptekst toe te voegen. Dit gaat als volgt:
 
-\begin{pythoncode*}{highlightlines={11,12}}
-# hello.py
-
+``` py title="hello.py" hl_lines="9 10"
 import click
 
 @click.command()
@@ -212,7 +178,7 @@ def hello(name,count):
 
 if __name__ == "__main__":
     hello()  
-\end{pythoncode*}
+```
 
 !!! opdracht-basis "Helptekst toevoegen"
     Voeg de helptekst toe en vraag de helptekst op zoals in \opdref{opd:hello-help}.
@@ -273,31 +239,29 @@ Tot nu toe konden we maar één functie uitvoeren in onze applicatie. Maar het i
 
 Een eenvoudig voorbeeldscript waarin de conda commando's `install` en `remove` worden nagebootst leggen we hieronder uit. Eerst de code:
 
-\begin{pythoncode*}{linenos}
-    # fakeconda.py
-    
-    import click
-    
-    @click.group()
-    def cmd_group():
-        pass
-    
-    @cmd_group.command()
-    @click.argument("package")
-    def install(package):
-        print(f"Installing {package}...")
-    
-    @cmd_group.command()
-    @click.argument("package")
-    def remove(package):
-        print(f"Removing {package}...")
-    
-    if __name__ == "__main__":
-        cmd_group()
-\end{pythoncode*}
-In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeurig `#!py cmd_group()` genoemd hebben en die we bovenaan definiëren. In tegenstelling tot het :fontawesome-regular-file-code:`hello.py`-script doet deze functie helemaal niets (`#!py pass`). We vertellen aan click dat we een groep van commando's aan gaan maken met de `#!py @click.group()`-decorator in regel 5. Vervolgens gaan we commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` &mdash; zie regels 9 en 14. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 9 en 11 maken samen het commando `install`. Verder werkt alles hetzelfde. Dus een argument toevoegen &mdash; zoals in regel 10 &mdash; is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
+``` py title="fakeconda.py" linenums="1"
+import click
 
-\begin{warning}
+@click.group()
+def cmd_group():
+    pass
+
+@cmd_group.command()
+@click.argument("package")
+def install(package):
+    print(f"Installing {package}...")
+
+@cmd_group.command()
+@click.argument("package")
+def remove(package):
+    print(f"Removing {package}...")
+
+if __name__ == "__main__":
+    cmd_group()
+```
+In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeurig `#!py cmd_group()` genoemd hebben en die we bovenaan definiëren. In tegenstelling tot het :fontawesome-regular-file-code:`hello.py`-script doet deze functie helemaal niets (`#!py pass`). We vertellen aan click dat we een groep van commando's aan gaan maken met de `#!py @click.group()`-decorator in regel 3. Vervolgens gaan we commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` &mdash; zie regels 7 en 12. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 7 en 9 maken samen het commando `install`. Verder werkt alles hetzelfde. Dus een argument toevoegen &mdash; zoals in regel 8 &mdash; is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
+
+!!! warning
     \label{warn:cmd_name}
     Omdat de naam van een subcommando gelijk is aan de functienaam kan dat voor problemen zorgen wanneer je gereserveerde namen van python wilt gebruiken zoals: `#!py import`, `#!py return`, `#!py lambda`. Of wanneer je de naam van het subcommando graag hetzelfde wilt hebben als een ander pythonfunctie zoals `#!py sin` of `#!py list`.
     Een oplossing is om de functienaam aan te passen en de subcommando naam expliciet aan click mee te geven bij `command`:
@@ -308,26 +272,23 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
             print(f"import {package}...")
     ```
     We hebben nu een commando `import` aangemaakt &mdash; _niet_ een commando `import_package`.
-\end{warning}
 
 !!! opdracht-basis "Pyproject toml"
     Hieronder zie je :fontawesome-regular-file-code:`pyproject.toml` van fake-conda:
-    \begin{tomlcode}
-        [tool.poetry]
-        name = "fake_conda"
-        version = "0.1.0"
-        description = ""
-        authors = ["YourName <YourName@users.noreply.github.com>"]
+    ``` toml title="pyproject.toml"
+    [tool.poetry]
+    name = "fake_conda"
+    version = "0.1.0"
+    description = ""
+    authors = ["YourName <YourName@users.noreply.github.com>"]
 
-        [tool.poetry.dependencies]
-        python = "^3.9"
+    [tool.poetry.dependencies]
+    python = "^3.9"
 
-        [build-system]
-        requires = ["poetry-core>=1.0.0"]
-        build-backend = "poetry.core.masonry.api"
-    \end{tomlcode}
-    % [tool.poetry.scripts]
-
+    [build-system]
+    requires = ["poetry-core>=1.0.0"]
+    build-backend = "poetry.core.masonry.api"
+    ```
     Hoe moet je de toml-file aanpassen zodat de volgende uitvoer mogelijk wordt?
     ``` ps1con title="Terminal"
     PS> fake_conda install scipy
@@ -365,7 +326,7 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
         if __name__ == "__main__":
             sin(10)
         ```
-        1. Ga door naar \opdref{opd:smallangle} stap 2. Je mag stap 1 overslaan &mdash; dat werk heb je nu zelf al gedaan.
+    1. Ga door naar \opdref{opd:smallangle} stap 2. Je mag stap 1 overslaan &mdash; dat werk heb je nu zelf al gedaan.
     
 
 
@@ -382,7 +343,7 @@ In (de laatste) regel 20 roepen we de hoofdfunctie aan die we enigszins willekeu
 
 
 !!! opdracht-meer "Smallangle (uitdaging)"
-    Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\abs{x - \sin(x)} \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over \numlist{.000;.001;.002}, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
+    Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\lvert x - \sin(x) \rvert \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over .000, .001 en .002, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
     ``` ps1con title="Terminal"
     PS> smallangle approx .1
     For an accuracy of 0.1, the small-angle approximation holds
@@ -395,8 +356,7 @@ Documentatie is vaak een onderschoven kindje, maar is ontzettend belangrijk. Als
 
 Tot nu toe heb je waarschijnlijk gebruik gemaakt van `#!py #stukjes commentaar` om duidelijk te maken wat je code doet. Maar als je de applicatie aan het gebruiken bent en je wilt weten wat een bepaalde functie eigenlijk doet, moet je dus de code induiken op zoek naar de betreffende functie. Met _docstrings_ &mdash; documentatiestrings &mdash; is dat verleden tijd. De documentatie over een functie kan automatisch gegenereerd worden vanuit je code met behulp van de docstring. Docstrings staat tussen 3 dubbele aanhalingstekens en hebben doorgaans een vaste structuur:\footnote{Die vaste structuur wordt niet door Python afgedwongen, maar is een goed gebruik. Er worden verschillende stijlen gebruikt. Eén van de meest gebruikte stijlen is door programmeurs van Google bedacht [@google_style_guide].}
 
-``` py
-# integers_up_to.py
+``` py title="integers_up_to.py"
 def integers_up_to(number):
     """List integers up to a given number.
 
@@ -463,9 +423,7 @@ Zo kunnen we gemakkelijk alles gaan invullen. Vergeet niet om de docstring aan t
 
 Docstrings werken ook heel handig samen met Click want ze worden gebruikt als we de helpfunctie aanroepen. We voegen docstrings toe aan fake-conda:
 
-``` py
-# fakeconda.py
-
+``` py title="fakeconda.py"
 import click
 
 
@@ -534,12 +492,12 @@ Options:
     
 
 
-### Documentatie met _Sphinx_
+### Documentatie met _Material for MkDocs_
 ??? meer-leren "Meer leren"
-    Een bijkomend voordeel van docstrings is dat ze gebruikt kunnen worden om automatisch documentatie te genereren voor een heel project met behulp van Sphinx.
-    _Sphinx_ is een Python documentatie generator. Het is de meestgebruikte manier om documentatie te schrijven voor Python projecten. Een paar voorbeelden zijn bijvoorbeeld het web framework _Django_ \cite{django_docs} (\citeurl{django_docs}) of de populaire HTTP bibliotheek _Requests_ \cite{requests_docs} (\citeurl{requests_docs}). Behalve dat je vrij eenvoudig uitgebreide documentatie kunt schrijven kan Sphinx alle docstrings gebruiken om een referentie op te bouwen.
+    Een bijkomend voordeel van docstrings is dat ze gebruikt kunnen worden om automatisch documentatie te genereren voor een heel project met behulp van bijvoorbeeld MkDocs.
+    _MkDocs_ is een documentatie generator en _Material for MkDocs_ is daar de meestgebruikte uitbreiding op. Het wordt veel gebruikt om documentatie te schrijven voor software projecten. Een paar voorbeelden zijn bijvoorbeeld de website van de _Accelerators and Beam Physics Computing_ groep op CERN[@abp-computing] of de populaire _Textual_ bibliotheek[@textual] om zogenaamde _text user interfaces_ te maken, een tegenhanger van grafische interfaces. Behalve dat je vrij eenvoudig uitgebreide documentatie kunt schrijven kan MkDocs alle docstrings gebruiken om een referentie op te bouwen. Deze website is ook gebouwd met Material for MkDocs.
 
-    Het voert tijdens deze cursus te ver om veel aandacht te besteden aan Sphinx. Maar aangezien documentatie zo belangrijk is wilden we het toch noemen met pointers naar de Sphinx documentatie \cite{sphinx}. Klik daar, als je geïnteresseerd bent, op _First steps with Sphinx_.
+    Het voert tijdens deze cursus te ver om veel aandacht te besteden aan MkDocs. Maar aangezien documentatie zo belangrijk is wilden we het toch noemen! Voor een uitgebreide tutorial, zie _Build Your Python Project Documentation With MkDocs_.[@mkdocs-tutorial]
 
 
 ## Command-line interface voor ons experiment
@@ -563,7 +521,7 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
     Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen \qtylist{0;3.3}{\volt}. Je kunt dit doen door de `#!py type`-parameter in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven (bijvoorbeeld: `#!py type=int` of `#!py type=float`) en Click heeft speciale types zoals `#!py type=click.FloatRange(0, 3.3)` voor een kommagetal tussen 0 en 3.3. Bekijken alle speciale types op [https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types](https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types). Als je hiervan gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat voor je.
 
 !!! opdracht-inlever "Pythondaq: `scan`"
-    Met het commando `scan` wil je een meetserie uitvoeren over een spanningsbereik. De uitvoer is een lijst van metingen van de stroomsterkte door en de spanning over de LED. De gebruiker moet het spanningsbereik (in volt) zelf kunnen kiezen. Geef ook de mogelijkheid de metingen op te slaan als CSV-bestand. Gebruik daarvoor een optie `{-`{-}output FILENAME}. Wanneer met die optie een bestandsnaam wordt meegegeven sla je de metingen op en anders niet. Als een meting lang duurt is het niet erg als de resultaten pas ná de meting worden weergegeven.
+    Met het commando `scan` wil je een meetserie uitvoeren over een spanningsbereik. De uitvoer is een lijst van metingen van de stroomsterkte door en de spanning over de LED. De gebruiker moet het spanningsbereik (in volt) zelf kunnen kiezen. Geef ook de mogelijkheid de metingen op te slaan als CSV-bestand. Gebruik daarvoor een optie `--output FILENAME`. Wanneer met die optie een bestandsnaam wordt meegegeven sla je de metingen op en anders niet. Als een meting lang duurt is het niet erg als de resultaten pas ná de meting worden weergegeven.
 
 
 !!! opdracht-inlever "Pythondaq: Onzekerheid"
@@ -592,10 +550,10 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
 
 !!! opdracht-inlever "Pythondaq: Grafiek"
-    Breid je `scan` opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `{-`{-}graph} om een grafiek te tekenen en `{-`{-}no-graph} om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags voor Click op [https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
+    Breid je `scan` opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `--graph` om een grafiek te tekenen en `--no-graph` om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags voor Click op [https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
 
 
-!!! opdracht-meer "Pythondaq: `list` `--search`"
+!!! opdracht-meer "Pythondaq: `list --search`"
     Breid het commando `list` uit met een optie `--search` waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
     ``` ps1con title="Terminal"
     PS> diode list
@@ -623,7 +581,7 @@ Op dit punt hebben we de functionaliteit van ons snelle script van het vorige ho
 ## Een interface met stijl
 ??? meer-leren "Meer leren"
 
-    Ook command-line interfaces gaan met hun tijd mee. Vroeger waren ze per definitie zwart/wit en statisch, maar tegenwoordig worden interfaces vaak opgeleukt met kleur, emoji's en bewegende progressbars. _Rich_~\cite{rich} is een project dat in recordtijd heel populair is geworden. Het bestaat pas sinds november 2019 en heeft precies twee jaar later meer dan 31000\,\raisebox{-1.5pt}{\FiveStar} verzameld. Dat is _veel_ &mdash; en de populariteit is sindsdien nog verder toegenomen.
+    Ook command-line interfaces gaan met hun tijd mee. Vroeger waren ze per definitie zwart/wit en statisch, maar tegenwoordig worden interfaces vaak opgeleukt met kleur, emoji's en bewegende progressbars. _Rich_~\cite{rich} is een project dat in recordtijd heel populair is geworden. Het bestaat pas sinds november 2019 en heeft precies twee jaar later meer dan 31000:material-star: verzameld. Dat is _veel_ &mdash; en de populariteit is sindsdien nog verder toegenomen.
 
     Rich is ontzettend uitgebreid en heeft heel veel mogelijkheden. Voor ons project kan het handig zijn om een progressbar te gebruiken of met Rich een tabel weer te geven. De documentatie~\cite{rich-docs} van Rich is best goed, maar kan lastig zijn om een mooi overzicht te krijgen. Een serie van korte video tutorials kun je vinden bij [https://calmcode.io/rich/introduction.html](https://calmcode.io/rich/introduction.html). Iedere video duurt maar één tot twee minuten en laat mooi de mogelijkheden zien. Voor de functies die je wilt gebruiken kun je dan meer informatie opzoeken in de documentatie van Rich zelf.
 
