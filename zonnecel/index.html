@@ -12,12 +12,14 @@
         <link rel="prev" href="../diodes/">
       
       
+        <link rel="next" href="../faq/">
+      
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>Zonnecel - My Docs</title>
+        <title>Zonnecel - Experiment Control with Python Course</title>
       
     
     
@@ -38,6 +40,8 @@
     
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -77,7 +81,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="Experiment Control with Python Course" class="md-header__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -90,7 +94,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Experiment Control with Python Course
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -163,13 +167,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="Experiment Control with Python Course" class="md-nav__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Experiment Control with Python Course
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -182,7 +186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../introductie/" class="md-nav__link">
+      <a href=".." class="md-nav__link">
         Introductie
       </a>
     </li>
@@ -476,6 +480,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ: lijst conventies
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -558,10 +577,10 @@
                   
 
 
-<h1 id="zonnecel">Zonnecel</h1>
+<h1 id="zonnecel">Zonnecel<a class="headerlink" href="#zonnecel" title="Permanent link">&para;</a></h1>
 <p>\label{ch:zonnecel}</p>
 <p>De toenemende behoefte aan energie heeft het zoeken naar nieuwe energiebronnen belangrijk gemaakt. Zonne-energie is \'{e}\'{e}n van de veelbelovende, niet conventionele bronnen. Zonne-energie is echter niet meteen bruikbaar en moet eerst omgezet worden naar warmte of elektrische energie. De omzetting van zonne-energie naar een bruikbare vorm van energie kan gedaan worden door een zonneboiler of een zonnecel. In de komende sessies staat de zonnecel centraal. Je gaat allerlei eigenschappen van zonnecellen onderzoeken en proberen te verklaren.</p>
-<h2 id="de-fotovoltaische-zonnecel">De fotovolta\"{ische zonnecel}</h2>
+<h2 id="de-fotovoltaische-zonnecel">De fotovolta\"{ische zonnecel}<a class="headerlink" href="#de-fotovoltaische-zonnecel" title="Permanent link">&para;</a></h2>
 <p>Stralingsenergie van de zon is een vorm van energie die niet erg nuttig is voor de meeste toepassingen. Om de energie van de zon nuttig te kunnen gebruiken, moet de straling omgezet worden. Een mogelijkheid daartoe is de fotovolta\"ische zonnecel. In de zonnecel maken fotonen uit het zonlicht geladen (elektrische) deeltjes vrij die via metaalcontacten op de zonnecel door een extern circuit kunnen stromen om daar hun elektrische energie af te geven. Zolang er licht valt op de zonnecel gaat het proces van vrijmaken van elektronen door en wordt er een elektrische stroom geproduceerd.</p>
 <p>\subsubsection{Werking}</p>
 <p>\begin{figure}[t]
@@ -602,12 +621,12 @@ waarbij $e$ de elektronlading is ($e \approx 1.602 \cdot 10^{-19}$ C), $U$ de sp
 \begin{equation}
   I = I_L - I_d.
 \end{equation}
-Met behulp van vergelijking \ref{eqn:diode} kun je bovenstaande vergelijking verder uitschrijven. In de exponent voor de diode komt er echter nog een factor $n$ bij die samenhangt met de materiaaleigenschappen van de zonnecel. Waarden van $n$ liggen typisch tussen 1 en 5, afhankelijk van het type zonnecel. Voor het type zonnecel waarmee je in dit experiment zult werken is $n$ ongeveer \numrange{10}{15}. De stroom die de zonnecel levert wordt nu bij benadering gegeven door
+Met behulp van vergelijking \ref{eqn:diode} kun je bovenstaande vergelijking verder uitschrijven. In de exponent voor de diode komt er echter nog een factor $n$ bij die samenhangt met de materiaaleigenschappen van de zonnecel. Waarden van $n$ liggen typisch tussen 1 en 5, afhankelijk van het type zonnecel. Voor het type zonnecel waarmee je in dit experiment zult werken is $n$ ongeveer 10-15. De stroom die de zonnecel levert wordt nu bij benadering gegeven door
 \begin{equation}
   \label{eq:zc}
   I = I_{L} - I_d = I_{L} - I_0 \left( {\rm e}^{ \frac{e U}{nkT}} - 1 \right).
 \end{equation}</p>
-<h3 id="texorpdfstringiuiu-karakteristiek">\texorpdfstring{$I,U${I,U}-karakteristiek}</h3>
+<h3 id="texorpdfstringiuiu-karakteristiek">\texorpdfstring{$I,U${I,U}-karakteristiek}<a class="headerlink" href="#texorpdfstringiuiu-karakteristiek" title="Permanent link">&para;</a></h3>
 <p>In de praktijk zul je altijd metingen doen aan zonnepanelen, waarbij zonnecellen in het paneel samengebracht zijn. De spanning die over een zonnepaneel staat hangt onder andere af van het aantal zonnecellen dat in serie geschakeld is. De stroom dat een zonnepaneel kan leveren wordt bepaald door het aantal elektron-gat-paren dat gemaakt wordt of, anders gezegd, door het aantal fotonen dat geabsorbeerd wordt. Het is echter niet zo dat je zonder meer kunt stellen dat wanneer er zonlicht op een zonnepaneel valt er een maximale spanning over het paneel staat en dat de stroom toeneemt als de lichtintensiteit toeneemt.
 %Een zonnepaneel heeft namelijk een interne weerstand die afhankelijk is van het aantal elektron-gat-paren dat aanwezig is en, niet onbelangrijk, waar de elektron-gat-paren gevormd worden in het zonnepaneel (dit hangt o.a. samen met de eerder genoemde $n$ factor voor ons vereenvoudigde model voor een zonnecel). 
 Het is daarom zinvol om, voordat je aan een experiment begint, het gedrag van een zonnepaneel te onderzoeken. In eerste instantie doe je dit door te kijken naar de $IU$-karakteristiek van het zonnepaneel. Zo'n karakteristiek is weergegeven in \figref{fig:I,U-zonnecel}.
@@ -621,22 +640,22 @@ Als je naar de $IU$-karakteristiek kijkt, zie je dat het zonnepaneel bij lage sp
       \clip (0, 0) rectangle (8, 5);
       \draw[very thick, domain=0:7] plot (\x, {4 - 1e-2 * (exp(\x) - 1)});
     \end{scope}
-    \draw[-&gt;, thick] (0, 0) -- (7, 0) node[right] {$U_\text{PV}$};
-    \draw[-&gt;, thick] (0, 0) -- (0, 5) node[above] {$I$};
+    \draw[-&gt;, thick] (0, 0) &mdash; (7, 0) node[right] {$U_\text{PV}$};
+    \draw[-&gt;, thick] (0, 0) &mdash; (0, 5) node[above] {$I$};
     \node[below left] at (0, 0) {0};
   \end{tikzpicture}
   \caption{De stroom die geleverd kan worden door een zonnecel uitgezet tegen de spanning $U_\text{PV}$ geleverd door de zonnecel. Hier staat PV voor <em>PhotoVoltaic cell</em>.}
   \label{fig:I,U-zonnecel}
 \end{figure}</p>
-<h3 id="texorpdfstringpr_bprb-karakteristiek">\texorpdfstring{$P,R_b${P,Rb}-karakteristiek}</h3>
+<h3 id="texorpdfstringpr_bprb-karakteristiek">\texorpdfstring{$P,R_b${P,Rb}-karakteristiek}<a class="headerlink" href="#texorpdfstringpr_bprb-karakteristiek" title="Permanent link">&para;</a></h3>
 <p>Het is bij zonnepanelen natuurlijk interessant om naar het elektrisch vermogen te kijken dat een zonnepaneel kan leveren. Het geleverd vermogen door een zonnepaneel hangt af van de materiaaleigenschappen van het paneel. Om een zo hoog mogelijk vermogen te kunnen leveren moet het zonnepaneel een zo hoog mogelijke stroom en spanning leveren. Belangrijk ook is dat het vermogen afhangt van de belasting door het circuit. Met andere woorden: bij verschillende weerstandswaardes wordt een ander vermogen geleverd. Ook is er een optimale weerstand waarbij het vermogen maximaal is (\figref{fig:P,R-zonnecel}).</p>
 <p>\begin{figure}
   \centering
   \begin{tikzpicture}
     % \clip (-1em, -1.2em) rectangle (8, 5.5);
     \draw[very thick] (0, 0) .. controls (1, 4) and (1.5, 4.5) .. (2, 4.5) .. controls (2.5, 4.5) and (4, 3) .. (6.75, 2);
-    \draw[-&gt;, thick] (0, 0) -- (7, 0) node[right] {$R$};
-    \draw[-&gt;, thick] (0, 0) -- (0, 5) node[above] {$P$};
+    \draw[-&gt;, thick] (0, 0) &mdash; (7, 0) node[right] {$R$};
+    \draw[-&gt;, thick] (0, 0) &mdash; (0, 5) node[above] {$P$};
     \node[below left] at (0, 0) {0};
   \end{tikzpicture}
   \caption{Het vermogen dat geleverd kan worden door een zonnecel uitgezet tegen de belasting (weerstand) van het circuit. Er is duidelijk een maximum in het vermogen bij een optimale weerstand.}
@@ -664,15 +683,15 @@ Als je naar de $IU$-karakteristiek kijkt, zie je dat het zonnepaneel bij lage sp
 %1. Leg uit hoe de $IU$-karakteristiek verandert wanneer de waarde van $R_{s}$ groter wordt.
 %\end{deelvraag}
 %\end{opdracht}</p>
-<h3 id="fill-factor">Fill factor</h3>
+<h3 id="fill-factor">Fill factor<a class="headerlink" href="#fill-factor" title="Permanent link">&para;</a></h3>
 <p>De kwaliteit van een zonnecel/-paneel wordt experimenteel vaak aangeduid met de fill factor $FF$. De fill factor wordt gegeven door
 \begin{equation}
   FF = \frac{P_{max}}{P_{T_{max}}} = \frac{I_{max} \cdot U_{max}}{I_{sc} \cdot U_{oc}},
 \end{equation}
 waarbij $P_{max}$ het maximaal vermogen is wat een zonnecel/-paneel levert en $P_{T_{max}}$ het theoretisch maximaal vermogen is. $I_{sc}$ is de kortsluitstroom (bij een belastingsweerstand $R_b$ gelijk aan 0) en $U_{oc}$ de open klemspanning (wanneer het zonnepaneel niet belast wordt). $I_{max}$ en $U_{max}$ zijn de waarden voor respectievelijk de stroom en spanning waarbij het geleverd vermogen maximaal is.</p>
-<h3 id="maximum-power-point-tracking">Maximum power point tracking</h3>
+<h3 id="maximum-power-point-tracking">Maximum power point tracking<a class="headerlink" href="#maximum-power-point-tracking" title="Permanent link">&para;</a></h3>
 <p>De optimale weerstand waarbij het vermogen dat geleverd wordt door een zonnecel maximaal is, is helaas geen constante. Deze weerstandswaarde is afhankelijk van verschillende condities waarbij de belangrijkste de lichtintensiteit op de zonnecel is. Dat betekent dat, zonder aanpassingen, het vermogen dat geleverd wordt door de zonnecel meestal veel lager is dan je zou wensen.</p>
-<p>Voor zonnepanelen die elektriciteit leveren aan het lichtnet is dit een groot probleem. Allereerst wil je je investering zo snel mogelijk terugverdienen en ook daarna wil je dat de opbrengst maximaal is. Ten tweede is het zo dat de weerstand van het lichtnet bijzonder klein is. Het vermogen dat daardoor geleverd wordt is ook heel klein. Dit wordt opgelost door -- envoudig gezegd -- de verbinding tussen het zonnepaneel en het lichtnet vele malen per seconde aan en uit te schakelen. Hierdoor <q>voelt</q> het zonnepaneel als het ware een weerstand. Deze weerstand is afhankelijk van de hoeveelheid tijd dat het paneel niet aan het lichtnet is geschakeld. Door slim te schakelen kan de weerstand zó gekozen worden dat het geleverde vermogen maximaal is. Als de lichtintensiteit wijzigt kan ook de weerstand worden aangepast. Dit heet <em>maximum power point tracking</em>.</p>
+<p>Voor zonnepanelen die elektriciteit leveren aan het lichtnet is dit een groot probleem. Allereerst wil je je investering zo snel mogelijk terugverdienen en ook daarna wil je dat de opbrengst maximaal is. Ten tweede is het zo dat de weerstand van het lichtnet bijzonder klein is. Het vermogen dat daardoor geleverd wordt is ook heel klein. Dit wordt opgelost door &mdash; envoudig gezegd &mdash; de verbinding tussen het zonnepaneel en het lichtnet vele malen per seconde aan en uit te schakelen. Hierdoor <q>voelt</q> het zonnepaneel als het ware een weerstand. Deze weerstand is afhankelijk van de hoeveelheid tijd dat het paneel niet aan het lichtnet is geschakeld. Door slim te schakelen kan de weerstand zó gekozen worden dat het geleverde vermogen maximaal is. Als de lichtintensiteit wijzigt kan ook de weerstand worden aangepast. Dit heet <em>maximum power point tracking</em>.</p>
 
 
 

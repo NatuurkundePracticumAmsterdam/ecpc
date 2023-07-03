@@ -19,7 +19,7 @@
     
     
       
-        <title>Model-View-Controller - My Docs</title>
+        <title>Model-View-Controller - Experiment Control with Python Course</title>
       
     
     
@@ -40,6 +40,8 @@
     
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -79,7 +81,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="Experiment Control with Python Course" class="md-header__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -92,7 +94,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Experiment Control with Python Course
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -165,13 +167,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="Experiment Control with Python Course" class="md-nav__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Experiment Control with Python Course
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -184,7 +186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../introductie/" class="md-nav__link">
+      <a href=".." class="md-nav__link">
         Introductie
       </a>
     </li>
@@ -456,6 +458,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ: lijst conventies
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -518,30 +535,27 @@
                   
 
 
-<h1 id="model-view-controller">Model-View-Controller</h1>
+<h1 id="model-view-controller">Model-View-Controller<a class="headerlink" href="#model-view-controller" title="Permanent link">&para;</a></h1>
 <p>\label{ch:mvc}</p>
-<h2 id="mvc-en-het-gebruik-van-packages">MVC en het gebruik van packages</h2>
-<p>MVC staat voor <em>Model-View-Controller</em> en is een belangrijk, maar wat diffuus concept in software engineering en is vooral van toepassing op gebruikersinterfaces. Het belangrijkste idee is dat een programma zoveel mogelijk wordt opgesplitst in onderdelen. Het <em>model</em> bevat de onderliggende data en concepten van het programma (een database, meetgegevens, berekeningen, etc.); de <em>controller</em> praat met de fysieke omgeving en reageert bijvoorbeeld op invoer van een gebruiker en past het model aan; de <em>view</em> is een weergave van de data uit het model en vormt de gebruikersinterface zelf. Vaak praten alle onderdelen met elkaar, maar een gelaagd model is makkelijker te overzien en dus eenvoudiger te programmeren. In het geval van een natuurkunde-experiment is dit vaak mogelijk. Daarmee krijgt MVC bij ons een andere betekenis dan bijvoorbeeld bij het bouwen van websites. Het gelaagd MVC-model dat wij gaan gebruiken is weergegeven in \figref{fig:mvc-model}.
-\begin{figure}
-    \centering
-    \includestandalone{figures/mvc-model}
-    \caption{Een gelaagd <em>Model-View-Controller</em> patroon. De <em>controllers</em> communiceren met de apparatuur; het <em>model</em> bevat de meetgegevens, berekeningen en de opzet van het experiment; de <em>view</em> zorgt voor een gebruikersinterface met weergave van de data.}
-    \label{fig:mvc-model}
-\end{figure}</p>
-<p>Het scheiden van je programma in deze lagen kan enorm helpen om ervoor te zorgen dat je geen <em>spaghetticode</em> schrijft -- ongestructureerde en moeilijk te begrijpen code. Wanneer het drukken op een knop in de code van de grafische omgeving direct commando's stuurt naar de Arduino of dat de code voor het doen van een enkele meting meteen de $x$-as van een grafiek aanpast, sla je lagen over in ons model en knoop je delen van het programma aan elkaar die niet direct iets met elkaar te maken hebben. De knop moet een meting starten, ja, maar <em>hoe</em> dat precies moet is niet de taak van de gebruikersinterface. En de meting zelf moet zich niet bemoeien met welke grafiek er precies getekend wordt. Je zult merken dat het heel lastig wordt om overzicht te houden en later aanpassingen te doen als je alles door elkaar laat lopen. Je zult dan door je hele code moeten zoeken als je óf de aansturing van de Arduino, óf de grafische interface wilt aanpassen. En dus gaan we alles netjes structureren.</p>
+<h2 id="mvc-en-het-gebruik-van-packages">MVC en het gebruik van packages<a class="headerlink" href="#mvc-en-het-gebruik-van-packages" title="Permanent link">&para;</a></h2>
+<p>MVC staat voor <em>Model-View-Controller</em> en is een belangrijk, maar wat diffuus concept in software engineering en is vooral van toepassing op gebruikersinterfaces. Het belangrijkste idee is dat een programma zoveel mogelijk wordt opgesplitst in onderdelen. Het <em>model</em> bevat de onderliggende data en concepten van het programma (een database, meetgegevens, berekeningen, etc.); de <em>controller</em> praat met de fysieke omgeving en reageert bijvoorbeeld op invoer van een gebruiker en past het model aan; de <em>view</em> is een weergave van de data uit het model en vormt de gebruikersinterface zelf. Vaak praten alle onderdelen met elkaar, maar een gelaagd model is makkelijker te overzien en dus eenvoudiger te programmeren. In het geval van een natuurkunde-experiment is dit vaak mogelijk. Daarmee krijgt MVC bij ons een andere betekenis dan bijvoorbeeld bij het bouwen van websites. Het gelaagd MVC-model dat wij gaan gebruiken is weergegeven in \figref{fig:mvc-model}.</p>
+<p><img align="left" alt="Een gelaagd model-view-controller model" src="../figures/mvc-model.svg" /></p>
+<p>\caption{Een gelaagd <em>Model-View-Controller</em> patroon. De <em>controllers</em> communiceren met de apparatuur; het <em>model</em> bevat de meetgegevens, berekeningen en de opzet van het experiment; de <em>view</em> zorgt voor een gebruikersinterface met weergave van de data.}
+\label{fig:mvc-model}</p>
+<p>Het scheiden van je programma in deze lagen kan enorm helpen om ervoor te zorgen dat je geen <em>spaghetticode</em> schrijft &mdash; ongestructureerde en moeilijk te begrijpen code. Wanneer het drukken op een knop in de code van de grafische omgeving direct commando's stuurt naar de Arduino of dat de code voor het doen van een enkele meting meteen de $x$-as van een grafiek aanpast, sla je lagen over in ons model en knoop je delen van het programma aan elkaar die niet direct iets met elkaar te maken hebben. De knop moet een meting starten, ja, maar <em>hoe</em> dat precies moet is niet de taak van de gebruikersinterface. En de meting zelf moet zich niet bemoeien met welke grafiek er precies getekend wordt. Je zult merken dat het heel lastig wordt om overzicht te houden en later aanpassingen te doen als je alles door elkaar laat lopen. Je zult dan door je hele code moeten zoeken als je óf de aansturing van de Arduino, óf de grafische interface wilt aanpassen. En dus gaan we alles netjes structureren.</p>
 <p>De verschillende onderdelen in \figref{fig:mvc-model} kunnen we voor ons experiment als volgt beschrijven:</p>
 <dl>
 <dt><strong>View</strong></dt>
 <dd>Het <q>startpunt</q> van je applicatie. Geeft de opdracht om een meting te starten en geeft na afloop de resultaten van de meting weer op het scherm.</dd>
 <dt><strong>Model</strong></dt>
-<dd>De code die het experiment uitvoert door verschillende metingen te doen en instellingen aan te passen, zoals de spanning over de LED. Het model weet hoe het experiment in elkaar zit en dat er bijvoorbeeld een weerstand van \qty{220}{\ohm} aanwezig is. Geeft opdrachten aan de controller.</dd>
+<dd>De code die het experiment uitvoert door verschillende metingen te doen en instellingen aan te passen, zoals de spanning over de LED. Het model weet hoe het experiment in elkaar zit en dat er bijvoorbeeld een weerstand van 220 &Omega; aanwezig is. Geeft opdrachten aan de controller.</dd>
 <dt><strong>Controller</strong></dt>
 <dd>De code die via pyvisa praat met de Arduino. Opdrachten worden omgezet in firmwarecommando's en doorgestuurd naar het apparaat.</dd>
 </dl>
-<p>Het opsplitsen van je programma <em>hoeft niet in één keer!</em> Dit kan stapsgewijs. Je kunt starten met een eenvoudig script -- zoals we hierboven gedaan hebben -- en dat langzaam uitbreiden. Je begint klein, verdeelt je code in lagen en bouwt vervolgens verder.</p>
-<h2 id="gebruik-van-classes">Gebruik van classes</h2>
-<p>Voor een snelle meting is het script dat je geschreven hebt bij \opdref{opd:quickndirty-meting} en \opdref{opd:quickndirty-csv} prima! Maar als de meetapparatuur ingewikkelder wordt (meer verschillende commando's) of je wilt meer aanpassingen doen, dan is het wel lastig dat je op allerlei plekken de commando's opnieuw moet programmeren -- en eerst moet opzoeken. Als je een nieuw script schrijft moet je opnieuw goed opletten dat je de goede <em>terminator characters</em> gebruikt, etc. Het is wat werk, maar toch heel handig, om je code op te splitsen en een <em>class</em> te schrijven.</p>
-<p>Een class is eigenlijk een groep functies die je bij elkaar pakt en die met elkaar gegevens kunnen delen. Zodra een programma wat complexer wordt merk je dat het fijn kan zijn om variabelen op te sluiten in geïsoleerde omgevingen. Wanneer je bijvoorbeeld de volgende code schrijft gaat het mis:
+<p>Het opsplitsen van je programma <em>hoeft niet in één keer!</em> Dit kan stapsgewijs. Je kunt starten met een eenvoudig script &mdash; zoals we hierboven gedaan hebben &mdash; en dat langzaam uitbreiden. Je begint klein, verdeelt je code in lagen en bouwt vervolgens verder.</p>
+<h2 id="gebruik-van-classes">Gebruik van classes<a class="headerlink" href="#gebruik-van-classes" title="Permanent link">&para;</a></h2>
+<p>Voor een snelle meting is het script dat je geschreven hebt bij \opdref{opd:quickndirty-meting} en \opdref{opd:quickndirty-csv} prima! Maar als de meetapparatuur ingewikkelder wordt (meer verschillende commando's) of je wilt meer aanpassingen doen, dan is het wel lastig dat je op allerlei plekken de commando's opnieuw moet programmeren &mdash; en eerst moet opzoeken. Als je een nieuw script schrijft moet je opnieuw goed opletten dat je de goede <em>terminator characters</em> gebruikt, etc. Het is wat werk, maar toch heel handig, om je code op te splitsen en een <em>class</em> te schrijven.</p>
+<p>Een class is eigenlijk een groep functies die je bij elkaar pakt en die met elkaar gegevens kunnen delen. Zodra een programma wat complexer wordt merk je dat het fijn kan zijn om variabelen op te sluiten in geïsoleerde omgevingen. Wanneer je bijvoorbeeld de volgende code schrijft gaat er mogelijk iets mis:
 <div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># find first student in alphabetical sorted list</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">]</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">first_name</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">names</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -550,8 +564,8 @@
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># split first and last name based on space character</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span> <span class="o">=</span> <span class="s2">&quot;Carl Sagan&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># first_name=&#39;Carl&#39;</span>
-</span></code></pre></div></p>
-<p>In bovenstaand voorbeeld waren we eerst op zoek naar de eerste naam in een alfabetisch gesorteerde lijst. Later in het programma splitsten we een naam op in een voornaam en een achternaam. Daarmee hebben we een variabele overschreven\dots Hoe langer het programma wordt, hoe makkelijker dat gebeurt.</p>
+</span></code></pre></div>
+In bovenstaand voorbeeld waren we eerst op zoek naar de eerste naam in een alfabetisch gesorteerde lijst. Later in het programma splitsten we een naam op in een voornaam en een achternaam. Daarmee hebben we een variabele overschreven&hellip; Hoe langer het programma wordt, hoe makkelijker dat gebeurt.</p>
 <p>Lange programma's worden vaak opgedeeld in functies en dat maakt het al een stuk makkelijker omdat functies hun eigen ruimte voor variabelen hebben. In het volgende geval wordt de variabele <code class="language-py highlight"><span class="n">first_name</span></code> <em>niet</em> overschreven:</p>
 <div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">sort_and_find_first_name</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">names</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -569,7 +583,7 @@
 </span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="c1"># first_name=&#39;Alice&#39;</span>
 </span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="c1"># last_name=&#39;Sagan&#39;</span>
 </span></code></pre></div>
-<p>Een groot voordeel van functies is natuurlijk ook dat we ze vaker aan kunnen roepen. Ook helpt het de overzichtelijkheid als je goede namen geeft aan je functies. Soms kan het gebruiken van functies ook wat onhandig zijn -- vooral als je gegevens wilt bewaren. Stel dat we voor een webshop code gaan schrijven die een <q>winkelmandje</q> inbouwt. We gaan de functionaliteit handmatig testen en uitbouwen. We beginnen als volgt:
+<p>Een groot voordeel van functies is natuurlijk ook dat we ze vaker aan kunnen roepen. Ook helpt het de overzichtelijkheid als je goede namen geeft aan je functies. Soms kan het gebruiken van functies ook wat onhandig zijn &mdash; vooral als je gegevens wilt bewaren. Stel dat we voor een webshop code gaan schrijven die een <q>winkelmandje</q> inbouwt. We gaan de functionaliteit handmatig testen en uitbouwen. We beginnen als volgt:
 <div class="language-py highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">cart</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">item</span> <span class="o">=</span> <span class="s2">&quot;Dune by Frank Herbert&quot;</span>
@@ -616,7 +630,7 @@
 </span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="c1"># Dune by Frank Herbert</span>
 </span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="c1"># The Hunger Games by Suzanne Collins    </span>
 </span></code></pre></div></p>
-<p>De code werkt nog op dezelfde manier, fijn! Het is alleen wel lastig dat je de hele tijd een variabele <code class="language-py highlight"><span class="n">cart</span></code> moet meegeven aan de functies. Je bedenkt nog veel meer functies om de levertijd te controleren, om de bestelling op te splitsen in verschillende bezorgmomenten, om de bestelling af te rekenen, etc. Elke keer moet je dezelfde variabele blijven meegeven. Een oplossing is het gebruiken van een class. Je begint met een regel <code class="language-py highlight"><span class="k">class</span> <span class="nc">Cart</span><span class="p">:</span></code> en daaronder plaats je de functies die je geschreven hebt -- de zogeheten <em>methods</em> van de class. Iedere method krijgt automatisch een parameter <code class="language-py highlight"><span class="bp">self</span></code> mee die verwijst naar de gedeelde geheugenopslag. Zo kun je een list <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">contents</span></code> definiëren waarin we de producten in de bestelling bewaren. Opstarttaken kun je onderbrengen in de speciale method <code class="language-py highlight"><span class="fm">__init__</span><span class="p">()</span></code>. Als volgt:
+<p>De code werkt nog op dezelfde manier, fijn! Het is alleen wel lastig dat je de hele tijd een variabele <code class="language-py highlight"><span class="n">cart</span></code> moet meegeven aan de functies. Je bedenkt nog veel meer functies om de levertijd te controleren, om de bestelling op te splitsen in verschillende bezorgmomenten, om de bestelling af te rekenen, etc. Elke keer moet je dezelfde variabele blijven meegeven. Een oplossing is het gebruiken van een class. Je begint met een regel <code class="language-py highlight"><span class="k">class</span> <span class="nc">Cart</span><span class="p">:</span></code> en daaronder plaats je de functies die je geschreven hebt &mdash; de zogeheten <em>methods</em> van de class. Iedere method krijgt automatisch een parameter <code class="language-py highlight"><span class="bp">self</span></code> mee die verwijst naar de gedeelde geheugenopslag. Zo kun je een list <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">contents</span></code> definiëren waarin we de producten in de bestelling bewaren. Opstarttaken kun je onderbrengen in de speciale method <code class="language-py highlight"><span class="fm">__init__</span><span class="p">()</span></code>. Als volgt:
 <div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">class</span> <span class="nc">Cart</span><span class="p">:</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">contents</span> <span class="o">=</span> <span class="p">[]</span>
@@ -656,15 +670,15 @@ In bovenstaande code hebben we de <em>class</em> <code class="language-py highli
 hebben we nu
 <div class="language-py highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">cart</span><span class="o">.</span><span class="n">add_to_cart</span><span class="p">(</span><span class="s2">&quot;Eon by Greg Bear&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-en dat is even lang. Het grote voordeel ontstaat pas wanneer de class ingewikkelder wordt en meer data gaat bewaren. Ook kun je de class in een ander pythonbestand (bijvoorbeeld <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>my\_webshop\_backend.py</code> zetten en alle functionaliteit in één keer importeren met:
+en dat is even lang. Het grote voordeel ontstaat pas wanneer de class ingewikkelder wordt en meer data gaat bewaren. Ook kun je de class in een ander pythonbestand (bijvoorbeeld <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>my_webshop_backend.py</code> zetten en alle functionaliteit in één keer importeren met:
 <div class="language-py highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">my_webshop_backend</span> <span class="kn">import</span> <span class="n">Cart</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">cart</span> <span class="o">=</span> <span class="n">Cart</span><span class="p">()</span>
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="o">...</span>
 </span></code></pre></div>
-Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je type <code class="language-py highlight"><span class="n">cart</span><span class="o">.</span><span class="n">add</span></code> hoef je alleen maar op \keys{\tab} te drukken en VS Code vult de rest aan.</p>
-<div class="admonition question">
-<p class="admonition-title">minimaal: Opbouw van een class</p>
+Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je type <code class="language-py highlight"><span class="n">cart</span><span class="o">.</span><span class="n">add</span></code> hoef je alleen maar op <span class="keys"><kbd class="key-tab">Tab</kbd></span> te drukken en VS Code vult de rest aan.</p>
+<div class="admonition opdracht-basis">
+<p class="admonition-title">Opbouw van een class</p>
 <p>Beschouw de volgende code:
 <div class="language-py highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span> <span class="nn">requests</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
@@ -705,8 +719,8 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
 </span></code></pre></div>
 Bespreek met elkaar wat de code precies doet en markeer de volgende onderdelen: module, functie, class, class instance, class attribute, class method.</p>
 </div>
-<div class="admonition question">
-<p class="admonition-title">minimaal: class Particle</p>
+<div class="admonition opdracht-basis">
+<p class="admonition-title">Class Particle</p>
 <p>Maak een class <code class="language-py highlight"><span class="n">Particle</span></code> die de naam van het deeltje en de spin van het deeltje bewaard. Een method <code class="language-py highlight"><span class="n">is_up_or_down</span><span class="p">()</span></code> vertelt je of het deeltje spin omhoog (positief) of spin omlaag (negatief) heeft. Maak nog een method <code class="language-py highlight"><span class="n">flip</span><span class="p">()</span></code> die de spin van het deeltje omkeert. De volgende code zou moeten werken:
 <div class="language-py highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">proton</span> <span class="o">=</span> <span class="n">Particle</span><span class="p">(</span><span class="s1">&#39;mooi proton&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">proton</span><span class="o">.</span><span class="n">is_up_or_down</span><span class="p">()</span>
@@ -720,8 +734,8 @@ Bespreek met elkaar wat de code precies doet en markeer de volgende onderdelen: 
 </span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1"># &#39;mooi proton&#39;</span>
 </span></code></pre></div></p>
 </div>
-<div class="admonition question">
-<p class="admonition-title">inleveren: class ElectronicLoadMeasurements</p>
+<div class="admonition opdracht-inlever">
+<p class="admonition-title">Class ElectronicLoadMeasurements</p>
 <p>% \label{opd:class}
 Schrijf een class <code class="language-py highlight"><span class="n">ElectronicLoadMeasurements</span></code> waarmee je spanningsmetingen aan een weerstand (<em>load</em>) kunt bewaren. De class moet voldoen aan deze eisen:</p>
 <ol>
@@ -742,11 +756,11 @@ Schrijf een class <code class="language-py highlight"><span class="n">Electronic
 </span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># I=[0.05, 0.05]</span>
 </span></code></pre></div></p>
 </div>
-<h2 id="implementeren-van-mvc">Implementeren van MVC</h2>
-<div class="admonition question">
-<p class="admonition-title">inleveren: Pythondaq: ArduinoVISADevice</p>
+<h2 id="implementeren-van-mvc">Implementeren van MVC<a class="headerlink" href="#implementeren-van-mvc" title="Permanent link">&para;</a></h2>
+<div class="admonition opdracht-inlever">
+<p class="admonition-title">Pythondaq: ArduinoVISADevice</p>
 <p>\label{opd:meting-class}
-Pak je script van \opdref{opd:quickndirty-csv} erbij en schrijf bovenaan -- maar <em>onder</em> de <code class="language-py highlight"><span class="kn">import</span></code>-statements -- een class <code class="language-py highlight"><span class="n">ArduinoVISADevice</span></code>. Schrijf methods voor die class zodat onderstaande code minimaal zou moeten kunnen runnen:
+Pak je script van \opdref{opd:quickndirty-csv} erbij en schrijf bovenaan &mdash; maar <em>onder</em> de <code class="language-py highlight"><span class="kn">import</span></code>-statements &mdash; een class <code class="language-py highlight"><span class="n">ArduinoVISADevice</span></code>. Schrijf methods voor die class zodat onderstaande code minimaal zou moeten kunnen runnen:
 <div class="language-py highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># we willen, voor de zekerheid, nog steeds een functie om</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># een lijst van poorten te krijgen, _buiten_ de class</span>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">list_devices</span><span class="p">())</span>
@@ -773,40 +787,33 @@ Pak je script van \opdref{opd:quickndirty-csv} erbij en schrijf bovenaan -- maar
 </span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="n">ch2_voltage</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">get_input_voltage</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </span></code></pre></div>
 Bekijk bovenstaande code goed. Wat doet iedere regel met de Arduino? Overleg met elkaar of met je assistent. Wat is het verschil tussen <code class="language-py highlight"><span class="n">get_output_value</span><span class="p">()</span></code> en <code class="language-py highlight"><span class="n">get_input_value</span><span class="p">()</span></code>?</p>
-<p>Pas je script -- en vooral ook de class! -- aan zodat hij precies hetzelfde doet als bij \opdref{opd:quickndirty-meting}. Gebruik bovenstaande code dus <em>alleen</em> als voorbeeld van welke methods je moet schrijven. Zorg ervoor dat alle firmwarecommando's ondergebracht zijn in de class en dat in je <q>experiment</q>-code alleen maar aanroepen naar de class zitten.</p>
+<p>Pas je script &mdash; en vooral ook de class! &mdash; aan zodat hij precies hetzelfde doet als bij \opdref{opd:quickndirty-meting}. Gebruik bovenstaande code dus <em>alleen</em> als voorbeeld van welke methods je moet schrijven. Zorg ervoor dat alle firmwarecommando's ondergebracht zijn in de class en dat in je <q>experiment</q>-code alleen maar aanroepen naar de class zitten.</p>
 </div>
 <p>Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de precieze commando's zijn die je naar de hardware moet sturen. Als je de Arduino in de opstelling vervangt voor een ander meetinstrument moet je de class aanpassen, maar kan alle code die met het experiment zelf te maken heeft hetzelfde blijven.</p>
-<p>% !!! question "inleveren"
-%   Schrijf mooie docstrings bij de class. Schrijf een docstring voor de class zelf (dus boven de <code class="language-py highlight"><span class="fm">__init__</span><span class="p">()</span></code>-methode) en voor alle methodes. Gebruik bijvoorbeeld de \citetitle{google_style_guide} \cite{google_style_guide} (sectie 3.8) voor voorbeelden van docstrings. Test de docstring door in je script de regel
-%   <code>py
-%     help(ArduinoVISADevice)
-%</code>
-%   op te nemen. Als het goed is krijg je nu een mooie en duidelijke uitleg van je class.
-% </p>
-<p>De class die we gemaakt hebben voor de aansturing van de Arduino valt in de categorie <em>controller</em>. Het laatste stuk waar de plot gemaakt wordt is dus eigenlijk een <em>view</em> en de rest van de code -- waar de metingen worden uitgevoerd en de stroomsterkte $I$ wordt berekend -- is een <em>model</em>. We gaan de code nog wat verder opsplitsen om dat duidelijk te maken én onderbrengen in verschillende bestanden -- dat is uiteindelijk beter voor het overzicht.</p>
-<div class="admonition question">
-<p class="admonition-title">inleveren: Pythondaq: Controller afsplitsen</p>
+<p>De class die we gemaakt hebben voor de aansturing van de Arduino valt in de categorie <em>controller</em>. Het laatste stuk waar de plot gemaakt wordt is dus eigenlijk een <em>view</em> en de rest van de code &mdash; waar de metingen worden uitgevoerd en de stroomsterkte $I$ wordt berekend &mdash; is een <em>model</em>. We gaan de code nog wat verder opsplitsen om dat duidelijk te maken én onderbrengen in verschillende bestanden &mdash; dat is uiteindelijk beter voor het overzicht.</p>
+<div class="admonition opdracht-inlever">
+<p class="admonition-title">Pythondaq: Controller afsplitsen</p>
 <p>Pas het script aan uit opdracht \opdref{opd:meting-class}. Knip de class uit het bestand en plak die in een nieuw bestand <code class="language-py highlight"><span class="n">arduino_device</span><span class="o">.</span><span class="n">py</span></code>. Knip en plak <em>ook</em> de functie <code class="language-py highlight"><span class="n">list_devices</span><span class="p">()</span></code>, zodat alle <code class="language-py highlight"><span class="n">pyvisa</span></code>-code netjes in één bestand zit. Je vervangt de functie en de class in het oorspronkelijke script door dit import statement:
 <div class="language-py highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">from</span> <span class="nn">arduino_device</span> <span class="kn">import</span> <span class="n">ArduinoVISADevice</span><span class="p">,</span> <span class="n">list_devices</span>
 </span></code></pre></div>
-Controleer dat je code nog steeds hetzelfde werkt -- dat het een meting uitvoert en de resultaten in een grafiek weergeeft. Waarschijnlijk moet je daarvoor nog wat bugs aanpakken (een vergeten import bijvoorbeeld).</p>
+Controleer dat je code nog steeds hetzelfde werkt &mdash; dat het een meting uitvoert en de resultaten in een grafiek weergeeft. Waarschijnlijk moet je daarvoor nog wat bugs aanpakken (een vergeten import bijvoorbeeld).</p>
 </div>
-<div class="admonition question">
-<p class="admonition-title">inleveren: Pythondaq: Model afsplitsen</p>
+<div class="admonition opdracht-inlever">
+<p class="admonition-title">Pythondaq: Model afsplitsen</p>
 <p>We gaan nu met ongeveer dezelfde stappen het model afsplitsen van de rest van de code.</p>
 <ol>
 <li>Bespreek met elkaar en met de assistent welk deel van het script het model is. Kijk daarvoor nog eens goed naar \figref{fig:mvc-model}.</li>
 <li>Maak een class met (bijvoorbeeld) de naam <code class="language-py highlight"><span class="n">DiodeExperiment</span></code> en een method <code class="language-py highlight"><span class="n">scan</span><span class="p">()</span></code> die de meting met de for-loop uitvoert. Controleer dat het werkt.</li>
-<li>Volgens het schema praat alleen het model met de controller. De class <code class="language-py highlight"><span class="n">DiodeExperiment</span></code> -- het model -- is dus degene die de class <code class="language-py highlight"><span class="n">ArduinoVISADevice</span></code> -- de controller -- moet aanroepen en bewaren. Hoe doe je dat netjes? Overleg met elkaar.</li>
+<li>Volgens het schema praat alleen het model met de controller. De class <code class="language-py highlight"><span class="n">DiodeExperiment</span></code> &mdash; het model &mdash; is dus degene die de class <code class="language-py highlight"><span class="n">ArduinoVISADevice</span></code> &mdash; de controller &mdash; moet aanroepen en bewaren. Hoe doe je dat netjes? Overleg met elkaar.</li>
 <li>Het kan (later) handig zijn om niet altijd te scannen tussen 0 en 1023 maar een ander bereik te kiezen. Pas de <code class="language-py highlight"><span class="n">scan</span><span class="p">()</span></code> method aan zodat deze <code>start</code>- en <code>stop</code>-parameters accepteert.</li>
 <li>Knip de class eruit en plaats die in het bestand <code class="language-py highlight"><span class="n">diode_experiment</span><span class="o">.</span><span class="n">py</span></code> en gebruik weer een import-statement. Haal import-statements die je niet meer nodig hebt weg.</li>
 <li>Hernoem het overgebleven script naar <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>view.py</code>.</li>
 </ol>
 </div>
 <p>Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger geworden. Als het goed is gaat nu (vrijwel) het volledige script alleen maar over het starten van een meting en het weergeven en bewaren van de meetgegevens. In het <q>view</q> script komen verder geen berekeningen voor of details over welk kanaal van de Arduino op welke elektronische component is aangesloten. Ook staat hier niets over welke commando's de Arduino firmware begrijpt. Dit maakt het veel makkelijker om in de vervolghoofdstukken een gebruiksvriendelijke applicatie te ontwikkelen waarmee je snel en eenvoudig metingen kunt doen.</p>
-<div class="admonition question">
-<p class="admonition-title">inleveren: Pythondaq: Onzekerheid</p>
-<p>We zijn al een eind op weg. We pakken nog één ding aan: onzekerheid. Er staan in onze grafiek nog geen foutenvlaggen. Als je de meting een paar keer herhaalt zie je dat de grafiek steeds iets anders is -- er zit ruis op de metingen. We kunnen die op voorhand schatten, maar met een computergestuurde meting is het makkelijk om een meting een aantal keer te herhalen en op een nauwkeuriger resultaat uit te komen én de onzekerheid daarbij te bepalen.</p>
+<div class="admonition opdracht-inlever">
+<p class="admonition-title">Pythondaq: Onzekerheid</p>
+<p>We zijn al een eind op weg. We pakken nog één ding aan: onzekerheid. Er staan in onze grafiek nog geen foutenvlaggen. Als je de meting een paar keer herhaalt zie je dat de grafiek steeds iets anders is &mdash; er zit ruis op de metingen. We kunnen die op voorhand schatten, maar met een computergestuurde meting is het makkelijk om een meting een aantal keer te herhalen en op een nauwkeuriger resultaat uit te komen én de onzekerheid daarbij te bepalen.</p>
 <ol>
 <li>Overleg met je groepje en maak een plan hoe jullie de code gaan aanpassen om onzekerheid in te bouwen. Schrijf nog geen code op je computer maar schrijf de stappen uit met papier en pen. Het is dan veel makkelijker om te overleggen en na te denken. Welke delen van het programma moeten worden aangepast?</li>
 <li>Gebruik het plan om je eigen code aan te passen en test dat het werkt.</li>

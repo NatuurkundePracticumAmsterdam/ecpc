@@ -19,7 +19,7 @@
     
     
       
-        <title>Firmware - My Docs</title>
+        <title>Firmware - Experiment Control with Python Course</title>
       
     
     
@@ -40,6 +40,8 @@
     
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -79,7 +81,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="Experiment Control with Python Course" class="md-header__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -92,7 +94,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Experiment Control with Python Course
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -165,13 +167,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="Experiment Control with Python Course" class="md-nav__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Experiment Control with Python Course
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -184,7 +186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../introductie/" class="md-nav__link">
+      <a href=".." class="md-nav__link">
         Introductie
       </a>
     </li>
@@ -413,6 +415,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ: lijst conventies
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -446,28 +463,39 @@
                   
 
 
-<h1 id="firmware">Firmware</h1>
+<h1 id="firmware">Firmware<a class="headerlink" href="#firmware" title="Permanent link">&para;</a></h1>
 <p>\label{ch:firmware}</p>
-<p>De firmware bestaat uit een gedeeltelijke implementatie van het VISA-protocol \cite{VISA}. Het voornaamste verschil bestaat uit het feit dat VISA voor ieder commando zowel een korte als een lange versie heeft. Zo zou je in de documentatie van een instrument het commando <code>MEASure</code> kunnen vinden. Je kunt dan zowel <code>MEAS</code> als <code>MEASURE</code> gebruiken om het commando te geven. In deze implementatie is het slechts mogelijk om de korte vorm te gebruiken.</p>
-<p>De nummering van de kanalen volgt de nummering van de Arduino hardware. Dus kanaal 0 is pin A0 op de Arduino, kanaal 1 is pin A1, enz. De digitale resolutie is ingesteld op 10 bits ($2^{10}$~stappen, ofwel waardes tussen 0 en 1023) en het analoge bereik is \qtyrange{0}{3.3}{\volt}.</p>
-<p>De code is terug te vinden in de repository \githubrepo{/davidfokkema/arduino-visa-firmware} \cite{arduino_visa_firmware}. Deze documentatie is voor versie~1.0.0. De commando's die geaccepteerd worden door de firmware zijn weergegeven in \tabref{tab:firmware}.</p>
+<p>De firmware bestaat uit een gedeeltelijke implementatie van het VISA-protocol <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. Het voornaamste verschil bestaat uit het feit dat VISA voor ieder commando zowel een korte als een lange versie heeft. Zo zou je in de documentatie van een instrument het commando <code>MEASure</code> kunnen vinden. Je kunt dan zowel <code>MEAS</code> als <code>MEASURE</code> gebruiken om het commando te geven. In deze implementatie is het slechts mogelijk om de korte vorm te gebruiken.</p>
+<p>De nummering van de kanalen volgt de nummering van de Arduino hardware. Dus kanaal 0 is pin A0 op de Arduino, kanaal 1 is pin A1, enz. De digitale resolutie is ingesteld op 10 bits ($2^{10}$~stappen, ofwel waardes tussen 0 en 1023) en het analoge bereik is 0 V tot 3.3 V.</p>
+<p>De code is terug te vinden in de repository <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span><code>/davidfokkema/arduino-visa-firmware</code> <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. Deze documentatie is voor versie~1.0.0. De commando's die geaccepteerd worden door de firmware zijn weergegeven in \tabref{tab:firmware}.</p>
 <p>\begin{table}
   \caption{De commando's die geaccepteerd worden door de Arduino VISA firmware v1.0.0.}
   \label{tab:firmware}
   \begin{tabularx}{\linewidth}{&gt;{\ttfamily}lX}
     \toprule
-    \textbf{\rmfamily Commando} &amp; \textbf{Beschrijving}                                                                                                                                                                                 \
+    <strong>\rmfamily Commando</strong> &amp; <strong>Beschrijving</strong>                                                                                                                                                                                 \
     \midrule
     *IDN?                       &amp; Geeft informatie over de hardware.                                                                                                                                                                    \
-    OUT:CH<ch> <value>          &amp; Zet een specifieke spanning <code>&lt;value&gt;</code> op uitvoerkanaal <code>&lt;ch&gt;</code>. Waardes mogen liggen tussen 0 (minimale spanning) en 1023 (maximale spanning). \textbf{Voorbeeld:} <code>OUT:CH0 1023</code> \
-    % OUT:CH<ch>:VOLT <value>     &amp; Zet een specifieke spanning <code>&lt;value&gt;</code> op uitvoerkanaal <code>&lt;ch&gt;</code>. Waardes zijn in volt en mogen liggen in het bereik \qtyrange{0}{3.3}{\volt}. \textbf{Voorbeeld:} <code>OUT:CH0:VOLT 2.5</code> \
-    OUT:CH<ch>?                 &amp; Geef de huidige instelling voor de spanning terug op uitvoerkanaal <code>&lt;ch&gt;</code> in het bereik 0 tot 1023. \textbf{Voorbeeld:} <code>OUT:CH0?</code>                                                      \
-    % OUT:CH<ch>:VOLT?            &amp; Geef de huidige instelling voor de spanning terug op uitvoerkanaal <code>&lt;ch&gt;</code> in het bereik \qtyrange{0}{3.3}{\volt}. \textbf{Voorbeeld:} <code>OUT:CH0:VOLT?</code>                                     \
-    MEAS:CH<ch>?                &amp; Meet de spanning op invoerkanaal <code>&lt;ch&gt;</code> in het bereik 0 tot 1023. \textbf{Voorbeeld:} <code>MEAS:CH1?</code>                                                                                       \
-    % MEAS:CH<ch>:VOLT?           &amp; Meet de spanning op invoerkanaal <code>&lt;ch&gt;</code> in het bereik \qtyrange{0}{3.3}{\volt}. \textbf{Voorbeeld:} <code>MEAS:CH1:VOLT?</code>                                                                      \
+    OUT:CH<ch> <value>          &amp; Zet een specifieke spanning <code>&lt;value&gt;</code> op uitvoerkanaal <code>&lt;ch&gt;</code>. Waardes mogen liggen tussen 0 (minimale spanning) en 1023 (maximale spanning). <strong>Voorbeeld:</strong> <code>OUT:CH0 1023</code> \
+    % OUT:CH<ch>:VOLT <value>     &amp; Zet een specifieke spanning <code>&lt;value&gt;</code> op uitvoerkanaal <code>&lt;ch&gt;</code>. Waardes zijn in volt en mogen liggen in het bereik 0 V tot 3.3 V. <strong>Voorbeeld:</strong> <code>OUT:CH0:VOLT 2.5</code> \
+    OUT:CH<ch>?                 &amp; Geef de huidige instelling voor de spanning terug op uitvoerkanaal <code>&lt;ch&gt;</code> in het bereik 0 tot 1023. <strong>Voorbeeld:</strong> <code>OUT:CH0?</code>                                                      \
+    % OUT:CH<ch>:VOLT?            &amp; Geef de huidige instelling voor de spanning terug op uitvoerkanaal <code>&lt;ch&gt;</code> in het bereik 0 V tot 3.3 V. <strong>Voorbeeld:</strong> <code>OUT:CH0:VOLT?</code>                                     \
+    MEAS:CH<ch>?                &amp; Meet de spanning op invoerkanaal <code>&lt;ch&gt;</code> in het bereik 0 tot 1023. <strong>Voorbeeld:</strong> <code>MEAS:CH1?</code>                                                                                       \
+    % MEAS:CH<ch>:VOLT?           &amp; Meet de spanning op invoerkanaal <code>&lt;ch&gt;</code> in het bereik 0 V tot 3.3 V. <strong>Voorbeeld:</strong> <code>MEAS:CH1:VOLT?</code>                                                                      \
     \bottomrule
   \end{tabularx}
 \end{table}</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>IVI Foundation. Vpp-4.3: the visa library. 2018. URL: <a href="https://www.ivifoundation.org/downloads/Architecture Specifications/IVIspecstopost10-22-2018/vpp43_2018-10-19.pdf">https://www.ivifoundation.org/downloads/Architecture Specifications/IVIspecstopost10-22-2018/vpp43_2018-10-19.pdf</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>David B.R.A. Fokkema. Arduino visa firmware. 2020. URL: <a href="https://github.com/davidfokkema/arduino-visa-firmware">https://github.com/davidfokkema/arduino-visa-firmware</a>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
 

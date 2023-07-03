@@ -19,7 +19,7 @@
     
     
       
-        <title>Versiebeheer met GitHub - My Docs</title>
+        <title>Versiebeheer met GitHub - Experiment Control with Python Course</title>
       
     
     
@@ -40,6 +40,8 @@
     
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -79,7 +81,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="Experiment Control with Python Course" class="md-header__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -92,7 +94,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Experiment Control with Python Course
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -165,13 +167,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="Experiment Control with Python Course" class="md-nav__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Experiment Control with Python Course
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -184,7 +186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../introductie/" class="md-nav__link">
+      <a href=".." class="md-nav__link">
         Introductie
       </a>
     </li>
@@ -304,15 +306,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#uitdaging-github" class="md-nav__link">
-    Uitdaging: GitHub
+  <a href="#github_1" class="md-nav__link">
+    GitHub
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#uitdaging-branches" class="md-nav__link">
-    Uitdaging: Branches
+  <a href="#branches" class="md-nav__link">
+    Branches
   </a>
   
 </li>
@@ -490,6 +492,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ: lijst conventies
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -558,15 +575,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#uitdaging-github" class="md-nav__link">
-    Uitdaging: GitHub
+  <a href="#github_1" class="md-nav__link">
+    GitHub
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#uitdaging-branches" class="md-nav__link">
-    Uitdaging: Branches
+  <a href="#branches" class="md-nav__link">
+    Branches
   </a>
   
 </li>
@@ -586,84 +603,86 @@
                   
 
 
-<h1 id="versiebeheer-met-github">Versiebeheer met GitHub</h1>
-<h2 id="versiebeheer">Versiebeheer</h2>
-<p>Zodra je scripts wat ingewikkelder worden begin je tegen hele praktische problemen aan te lopen. Het werkt <em>nu</em>, maar je wilt een flinke aanpassing gaan doen. Werkt het straks nog wel? Hoe ingewikkelder het script, hoe ingewikkelder de wijzigingen en hoe minder het vertrouwen dat het in één keer gaat lukken. Misschien heb je wel eens de ervaring gehad dat het maar niet wil werken en dat je niet goed weet wat je precies had veranderd ten opzichte van toen het nog <em>wel</em> werkte. Veel mensen hebben de neiging om naast een <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>script.py</code> een <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>script-v1.py</code>, <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>script-v2.py</code>, enz. aan te maken. Soms zelfs een <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>script-eindversie.py</code> en met wat pech dan toch nog een <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>script-eindversie-definitief.py</code>. Niet heel fijn. Je ziet dan nog steeds niet goed wat er veranderd is (dat blijft naast elkaar leggen en zoeken) en je map loopt vol met overbodige scripts. Dit kan beter\ldots met versiebeheer!</p>
-<p>Versiebeheer (Engels: <em>version control</em>) stelt je in staat om af en toe een momentopname te maken van al je bestanden in een bepaalde map, inclusief alle submappen. Dit doe je niet na iedere regel code, maar bijvoorbeeld wel als je een stukje code af hebt en getest hebt dat het werkt. Zo'n momentopname heet een <em>commit</em>. Hoe vaak je commit is aan jou; maar wacht niet te lang -- dan is het geen versiebeheer meer.</p>
+<h1 id="versiebeheer-met-github">Versiebeheer met GitHub<a class="headerlink" href="#versiebeheer-met-github" title="Permanent link">&para;</a></h1>
+<h2 id="versiebeheer">Versiebeheer<a class="headerlink" href="#versiebeheer" title="Permanent link">&para;</a></h2>
+<p>Zodra je scripts wat ingewikkelder worden begin je tegen hele praktische problemen aan te lopen. Het werkt <em>nu</em>, maar je wilt een flinke aanpassing gaan doen. Werkt het straks nog wel? Hoe ingewikkelder het script, hoe ingewikkelder de wijzigingen en hoe minder het vertrouwen dat het in één keer gaat lukken. Misschien heb je wel eens de ervaring gehad dat het maar niet wil werken en dat je niet goed weet wat je precies had veranderd ten opzichte van toen het nog <em>wel</em> werkte. Veel mensen hebben de neiging om naast een <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>script.py</code> een <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>script-v1.py</code>, <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>script-v2.py</code>, enz. aan te maken. Soms zelfs een <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>script-eindversie.py</code> en met wat pech dan toch nog een <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>script-eindversie-definitief.py</code>. Niet heel fijn. Je ziet dan nog steeds niet goed wat er veranderd is (dat blijft naast elkaar leggen en zoeken) en je map loopt vol met overbodige scripts. Dit kan beter&hellip; met versiebeheer!</p>
+<p>Versiebeheer (Engels: <em>version control</em>) stelt je in staat om af en toe een momentopname te maken van al je bestanden in een bepaalde map, inclusief alle submappen. Dit doe je niet na iedere regel code, maar bijvoorbeeld wel als je een stukje code af hebt en getest hebt dat het werkt. Zo'n momentopname heet een <em>commit</em>. Hoe vaak je commit is aan jou; maar wacht niet te lang &mdash; dan is het geen versiebeheer meer.</p>
 <p>Je versiebeheersysteem geeft ondertussen duidelijk al je wijzigingen weer ten opzichte van de laatste commit. Ook kun je de wijzigingen tussen oudere versies bekijken. Alles is relatief: je kunt zien wat er veranderd is tussen twee weken terug en gisteren, of gisteren en vandaag; iedere commit kun je vergelijken met willekeurig iedere andere commit. Heb je iets verprutst en wil je een oude versie terughalen? Prima! Commit die ook, dan kun je zelfs dat weer terugdraaien later. Je verliest nooit meer je werk. En stukmaken mag!</p>
-<h3 id="git">Git</h3>
-<p>Ruim tien jaar geleden werden er nog vele concurrerende systemen gebruikt. Die tijd is grotendeels voorbij. Eén van de nieuwste systemen, Git,\footnote{https://initialcommit.com/blog/How-Did-Git-Get-Its-Name} wordt tegenwoordig door bijna iedereen gebruikt of ondersteund. Git is ontwikkeld door Linus Torvalds als alternatief voor het commerciële systeem dat gebruikt werd voor de ontwikkeling van de Linux kernel \cite{git}. Het begon als een zeer eenvoudig -- en volkomen ongebruiksvriendelijk -- programma. Later is het in een veel gebruiksvriendelijker jasje gestoken.</p>
-<p>Git werkt in principe via de command-line. Je geeft opdrachten in de map waar je broncode staat: toevoegen van wijzigingen aan de <em>staging area</em>, bekijken van de meest recente wijzigingen, committen van je code, teruggaan en werken met oudere versies, aanmaken van <em>branches</em>,\footnote{Een branch is een splitsing in je versiegeschiedenis. Je kunt het gebruiken om over een langere tijd een grote wijziging uit te testen terwijl je af en toe heen en weer springt tussen je main branch en de nieuwe branch. Commits in de nieuwe branch blijven gescheiden. Later kun je ervoor kiezen om de wijzigingen in de nieuwe branch te <em>mergen</em> met je main branch, maar dat hoeft niet.} je wijzigingen uploaden naar internet, enz. Het geheel van map met broncode en versiegeschiedenis wordt een <em>repository</em> genoemd.</p>
-<p>In deze cursus zullen we gebruik maken van een grafische applicatie die eenvoudiger werkt. Je kunt daarna -- als je dat wilt -- de stap maken naar de command-line waarmee je nog veel meer mogelijkheden tot je beschikking krijgt. Voor meer informatie over Git en het gebruik via de command-line, zie \textcite{gitpro}.</p>
-<h3 id="github">GitHub</h3>
+<h3 id="git">Git<a class="headerlink" href="#git" title="Permanent link">&para;</a></h3>
+<p>Ruim tien jaar geleden werden er nog vele concurrerende systemen gebruikt. Die tijd is grotendeels voorbij. Eén van de nieuwste systemen, Git,<sup id="fnref:git"><a class="footnote-ref" href="#fn:git">1</a></sup> wordt tegenwoordig door bijna iedereen gebruikt of ondersteund. Git is ontwikkeld door Linus Torvalds als alternatief voor het commerciële systeem dat gebruikt werd voor de ontwikkeling van de Linux kernel.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">6</a></sup> Het begon als een zeer eenvoudig &mdash; en volkomen ongebruiksvriendelijk &mdash; programma. Later is het in een veel gebruiksvriendelijker jasje gestoken.</p>
+<p>Git werkt in principe via de command-line. Je geeft opdrachten in de map waar je broncode staat: toevoegen van wijzigingen aan de <em>staging area</em>, bekijken van de meest recente wijzigingen, committen van je code, teruggaan en werken met oudere versies, aanmaken van <em>branches</em>,<sup id="fnref:branches"><a class="footnote-ref" href="#fn:branches">2</a></sup> je wijzigingen uploaden naar internet, enz. Het geheel van map met broncode en versiegeschiedenis wordt een <em>repository</em> genoemd.</p>
+<p>In deze cursus zullen we gebruik maken van een grafische applicatie die eenvoudiger werkt. Je kunt daarna &mdash; als je dat wilt &mdash; de stap maken naar de command-line waarmee je nog veel meer mogelijkheden tot je beschikking krijgt. Voor meer informatie over Git en het gebruik via de command-line, zie het boek <em>Pro Git</em>.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">7</a></sup></p>
+<h3 id="github">GitHub<a class="headerlink" href="#github" title="Permanent link">&para;</a></h3>
 <p>Git is een <em>distributed version control system (DVCS)</em> wat wil zeggen dat er geen centrale server hoeft te zijn. Je kunt volledig offline werken in je eigen repository en je wijzigingen af en toe committen. Als je daar zin in hebt kun je je wijzigingen naar een collega sturen (<em>pushen</em>) of je kunt een collega toestemming geven om de wijzigingen op te halen (<em>pullen</em>). Je bouwt dan aan één grote versiegeschiedenis met kopieën op meerdere computers. Je bent zo volledig onafhankelijk van bedrijven die servers in de lucht houden of bepalen wie er wel en niet toegang krijgt. Dat is fijn, maar een centrale plek om repositories neer te zetten heeft weer het grote voordeel dat je de wereld kunt laten zien wat voor moois je gemaakt hebt én dat het samenwerking wel vermakkelijkt. Als iedereen uit je team regelmatig commits pusht naar een centrale server en daar vandaan ook ophaalt dan is iedereen altijd up-to-date.</p>
 <p>Er zijn tegenwoordig veel websites die een plek bieden voor Git repositories. De bekendste zijn GitHub, GitLab, Bitbucket en SourceForge. GitHub, aangekocht door Microsoft, is op dit moment het bekendste en grootste platform. Veel bekende softwareprojecten vinden daar hun thuis.</p>
 <p>Wij gaan werken met GitHub, je moet dan wel een (gratis) account aanmaken. Als student kom je ook nog in aanmerking voor een educatiekorting op een pro-account. Je betaalt dan nog steeds niets.</p>
-<div class="admonition question">
-<p class="admonition-title">minimaal</p>
-<p>Ga naar \url{https://github.com/} en klik rechtsboven op <code>Sign Up</code>. Maak een account aan onder je <em>privé-emailadres</em>. Op deze manier blijf je toegang houden tot je account ook nadat je afgestudeerd bent.</p>
+<div class="admonition opdracht-basis">
+<p class="admonition-title">Account aanmaken</p>
+<p>Ga naar <a href="https://github.com/">https://github.com/</a> en klik rechtsboven op <code>Sign Up</code>. Maak een account aan onder je <em>privé-emailadres</em>. Op deze manier blijf je toegang houden tot je account ook nadat je afgestudeerd bent.</p>
 </div>
-<h3 id="github-desktop">GitHub Desktop</h3>
+<h3 id="github-desktop">GitHub Desktop<a class="headerlink" href="#github-desktop" title="Permanent link">&para;</a></h3>
 <p>Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een desktop applicatie ontwikkeld.</p>
-<div class="admonition question">
-<p class="admonition-title">minimaal</p>
+<div class="admonition opdracht-basis">
+<p class="admonition-title">Repository toevoegen</p>
 <p>\label{opd:add_repository}
 Maak op de volgende manier een repository voor je Pythonscripts:</p>
 <ol>
-<li>Maak -- bijvoorbeeld vanuit Visual Studio Code -- een map \folderpath{Oefenopdrachten} en zet daarin alle python-bestandjes die je hebt gemaakt om te oefenen in \chref{ch:gesprek} en \chref{ch:mvc}.</li>
+<li>Maak &mdash; bijvoorbeeld vanuit Visual Studio Code &mdash; een map <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 96c0-35.3 28.7-64 64-64h132.1c19.1 0 37.4 7.6 50.9 21.1L289.9 96H448c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm64-16c-8.8 0-16 7.2-16 16v320c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16H286.6c-10.6 0-20.8-4.2-28.3-11.7L213.1 87c-4.5-4.5-10.6-7-17-7H64z"/></svg></span><code>Oefenopdrachten</code> en zet daarin alle python-bestandjes die je hebt gemaakt om te oefenen in \chref{ch:gesprek} en \chref{ch:mvc}.</li>
 <li>Open GitHub desktop en log in met je GitHub account.</li>
-<li>\menu{File &gt; Add Local Repository}. Kies de map \folderpath{Oefenopdrachten}.</li>
+<li>\menu{File &gt; Add Local Repository}. Kies de map <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 96c0-35.3 28.7-64 64-64h132.1c19.1 0 37.4 7.6 50.9 21.1L289.9 96H448c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm64-16c-8.8 0-16 7.2-16 16v320c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16H286.6c-10.6 0-20.8-4.2-28.3-11.7L213.1 87c-4.5-4.5-10.6-7-17-7H64z"/></svg></span><code>Oefenopdrachten</code>.</li>
 <li>Je kunt de repository niet toevoegen omdat de map weliswaar bestaat, maar nog geen bestaande repository is. Er verschijnt een waarschuwing met een stukje kleine blauwe tekst. Klik op <code>create a repository</code>.</li>
 <li>Vink <code>Initialize this repository with a README</code> aan.</li>
-<li>Kies bij <code>Git ignore</code> voor <q>Python</q>.\footnote{De Git Ignore zorgt ervoor dat allerlei hulpbestanden van Python niet bewaard
-            worden als commit. Alleen je eigen code wordt dan bewaard}</li>
+<li>Kies bij <code>Git ignore</code> voor <q>Python</q>.<sup id="fnref:gitignore"><a class="footnote-ref" href="#fn:gitignore">3</a></sup></li>
 <li>En bevestig dan met de blauwe knop <code>Create Repository</code>.</li>
-<li>Als je nu op de history klikt dan zie je dat er een <code>Initial commit</code> is met wat <code>git</code>-bestanden en de Pythonscripts die je in de map hebt gezet. Vanaf nu staat \folderpath{Oefenopdrachten} in versiebeheer en houdt Git je wijzigingen bij.</li>
+<li>Als je nu op de history klikt dan zie je dat er een <code>Initial commit</code> is met wat <code>git</code>-bestanden en de Pythonscripts die je in de map hebt gezet. Vanaf nu staat <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 96c0-35.3 28.7-64 64-64h132.1c19.1 0 37.4 7.6 50.9 21.1L289.9 96H448c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm64-16c-8.8 0-16 7.2-16 16v320c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16H286.6c-10.6 0-20.8-4.2-28.3-11.7L213.1 87c-4.5-4.5-10.6-7-17-7H64z"/></svg></span><code>Oefenopdrachten</code> in versiebeheer en houdt Git je wijzigingen bij.</li>
 </ol>
 <p>Het is ook mogelijk om een repository aan te maken via \menu{File &gt; New Repository}. Gebruik dit vóór de start van een project om een nieuwe map te maken met een lege Git repository.</p>
 </div>
-<h3 id="commit">Commit</h3>
+<h3 id="commit">Commit<a class="headerlink" href="#commit" title="Permanent link">&para;</a></h3>
 <p>Alle wijzigingen aan bestanden in de repository kun je vanaf nu bijhouden door regelmatig een commit te maken. Met een commit maak je als het ware een snapshot van alle bestanden en hang je daar een labeltje aan.
 Dit kan in GitHub Desktop, maar ook direct vanuit Visual Studio Code. Elke commit geef je een begeleidend schrijven mee. Je hoopt dat jij, maar ook je collega, na het lezen van het berichtje snel begrijpt wat er veranderd is én waarom. Wanneer je bepaalde wijzigingen ongedaan wilt maken, kan je snel vinden bij welke commit je dan moet zijn. En als je dan je applicatie gaat uitbrengen op Github kun je de commit messages gebruiken om snel op te sommen wat de nieuwste versie van jou app kan!</p>
-<div class="admonition question">
-<p class="admonition-title">minimaal</p>
+<div class="admonition opdracht-basis">
+<p class="admonition-title">Commit</p>
 <p>\label{opd:commit}
 Voer de volgende opdrachten uit:</p>
 <ol>
 <li>In Visual Studio Code, ga naar \menu{File &gt; Open Folder} en kies de map waar je in \opdref{opd:add_repository} een repository hebt aangemaakt.</li>
 <li>Open één van je Pythonscripts.</li>
-<li>Type een stukje code erbij -- bijvoorbeeld een print-statement -- en haal ergens anders iets weg. Bewaar het bestand.</li>
+<li>Type een stukje code erbij &mdash; bijvoorbeeld een print-statement &mdash; en haal ergens anders iets weg. Bewaar het bestand.</li>
 <li>Links verschijnt een blauw bolletje bij <code>Source Control</code> \faCodeBranch die laat weten dat er wijzigingen zijn ten opzichte van de vorige commit. Klik op <code>Source Control</code>.</li>
 <li>Onder <code>Changes</code> staat een lijst met bestanden waar wijzigingen in aan zijn gebracht. Kies welke bestanden je wilt committen door rechts op het +je te klikken. Deze bestanden komen nu op het podium te staan onder <code>Staged Changes</code>. Je kunt ook alle bestanden in een keer op het podium zetten door naast het kopje <code>Changes</code> op het +je te klikken.</li>
-<li>Schrijf een nuttige <q>commit message</q>. Dus niet: <q>\opdref{opd:commit}</q>, maar: <q>feat: search for port name to open communication with device</q>.\footnote{Je kunt je commit message opdelen in een titel (of summary) en een beschrijving. In Visual Studio Code, doe je dit door een witregel toe te voegen tussen de titel en de beschrijving.}</li>
+<li>Schrijf een nuttige <q>commit message</q>. Dus niet: <q>\opdref{opd:commit}</q>, maar: <q>feat: search for port name to open communication with device</q>.<sup id="fnref:commit message"><a class="footnote-ref" href="#fn:commit message">4</a></sup></li>
 <li>Klik op het vinkje om te committen. Gefeliciteerd! Je hebt je eerste commit gepleegd, vanaf nu kun je zonder angst dingen stuk maken want je kan altijd terug naar hoe het was</li>
 </ol>
 </div>
 <p>In GitHub Desktop zie je nu bij history de commit staan, met in een oogopslag alle wijzigingen.</p>
-<p>\begin{info}
-    Als je wilt opzoeken hoe iets werkt bij GitHub Desktop, kijk dan in de documentatie: \url{https://docs.github.com/en/desktop}.
-\end{info}</p>
-<div class="admonition question">
-<p class="admonition-title">inleveren: Pythondaq: github</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Als je wilt opzoeken hoe iets werkt bij GitHub Desktop, kijk dan in de documentatie: <a href="https://docs.github.com/en/desktop">https://docs.github.com/en/desktop</a>.</p>
+</div>
+<div class="admonition opdracht-inlever">
+<p class="admonition-title">Pythondaq: github</p>
 <p>Dan is het nu tijd om de bestanden die je hebt gemaakt voor pythondaq in \chref{ch:mvc} met Git in versiebeheer te gaan houden.</p>
 <ol>
-<li>Maak een map \folderpath{pythondaq} en kopieer daarin alle python-bestanden die je gemaakt hebt voor het diode-experiment. Let er op dat je deze map <em>niet</em> in een andere repository aanmaakt, maar daarbuiten. Overleg eventueel over een handige plek.</li>
-<li>Maak van de map \folderpath{pythondaq} een repository.</li>
-<li>Gooi oude bestanden weg en zorg dat je 3 bestanden over houdt: een model <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>diode\_experiment.py</code>, een view <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>view.py</code> en een controller <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>arduino\_device.py</code>.</li>
+<li>Maak een map <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 96c0-35.3 28.7-64 64-64h132.1c19.1 0 37.4 7.6 50.9 21.1L289.9 96H448c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm64-16c-8.8 0-16 7.2-16 16v320c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16H286.6c-10.6 0-20.8-4.2-28.3-11.7L213.1 87c-4.5-4.5-10.6-7-17-7H64z"/></svg></span><code>pythondaq</code> en kopieer daarin alle python-bestanden die je gemaakt hebt voor het diode-experiment. Let er op dat je deze map <em>niet</em> in een andere repository aanmaakt, maar daarbuiten. Overleg eventueel over een handige plek.</li>
+<li>Maak van de map <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 96c0-35.3 28.7-64 64-64h132.1c19.1 0 37.4 7.6 50.9 21.1L289.9 96H448c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm64-16c-8.8 0-16 7.2-16 16v320c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16H286.6c-10.6 0-20.8-4.2-28.3-11.7L213.1 87c-4.5-4.5-10.6-7-17-7H64z"/></svg></span><code>pythondaq</code> een repository.</li>
+<li>Gooi oude bestanden weg en zorg dat je 3 bestanden over houdt: een model <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>diode_experiment.py</code>, een view <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>view.py</code> en een controller <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>arduino_device.py</code>.</li>
 <li>Commit!</li>
 <li>Ruim, indien nodig, je code op. Functies die je al 3 keer hebt herschreven en daarvoor steeds gekopieerd heb, maar wel als comment hebt laten staan, die kunnen nu ook weg. Verwijder stukjes commentaar die niet meer van toepassing zijn, enz.</li>
 <li>Commit!</li>
 </ol>
 </div>
-<h2 id="uitdaging-github">Uitdaging: GitHub</h2>
+<h2 id="github_1">GitHub<a class="headerlink" href="#github_1" title="Permanent link">&para;</a></h2>
+<details class="meer-leren">
+<summary>Meer leren</summary>
 <p>Om makkelijk je Git repository te delen met vrienden, collega's en de rest van de wereld kan je er voor kiezen om deze op GitHub te zetten. Je kunt dan je commits <q>pushen</q> naar GitHub en wijzigingen die je vrienden hebben gemaakt <q>pullen</q> zodat jij er ook weer aan verder kan werken. Van alle repositories die op GitHub staan én openbaar zijn kun je de broncode clonen en zelf mee aan de slag! Laten we eens een kijkje nemen op GitHub.</p>
-<div class="admonition question">
-<p class="admonition-title">bonus</p>
+<div class="admonition opdracht-meer">
+<p class="admonition-title">GitHub pagina's</p>
 <p>Als je nog nooit op GitHub bent geweest dan kunnen de pagina's nogal intimiderend overkomen. De informatiedichtheid is nogal hoog. Na een paar bezoeken weet je meestal wel waar je dingen kunt vinden. David heeft een data-analyse app geschreven dat Tailor heet en dat gebruikt wordt bij natuurkundepractica voor studenten medische natuurwetenschappen (MNW) en science, business and innovation (SBI). Laten we eens kijken wat daar allemaal opstaat.</p>
 <ol>
-<li>Zoek de repository \githubrepo{/davidfokkema/tailor} op GitHub op.</li>
+<li>Zoek de repository <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span><code>/davidfokkema/tailor</code> op GitHub op.</li>
 <li>Je komt terecht op de hoofdpagina, hier zie je een mappenstructuur met een aantal bestanden. Rechts daarvan staat een korte beschrijving onder het kopje <code>About</code>. Een uitgebreidere beschrijving vind je als je naar beneden scrollt onder <code>Readme</code>.</li>
-<li>Linksboven zie je een aantal tabbladen (code, issues, pull requests, ...), het tabblad <code>code</code> is de hoofdpagina met de mappenstructuur. Navigeer door de mappen, wat staat er op regel 15 van <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>plot\_tab.py</code>?</li>
+<li>Linksboven zie je een aantal tabbladen (code, issues, pull requests, ...), het tabblad <code>code</code> is de hoofdpagina met de mappenstructuur. Navigeer door de mappen, wat staat er op regel 15 van <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>plot_tab.py</code>?</li>
 <li>Ga terug naar de hoofdpagina, kijk onder het groen kopje met <code>code</code>. Hoeveel commits zijn er gemaakt? Klik op commits en daarna op een commit-message. Hoeveel regels zijn er weggehaald of bijgekomen?</li>
 <li>Je kan per bestand bekijken wanneer die is aangepast en wat er is aangepast met de history knop. Ga naar het bestand <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>pyproject.toml</code> en klik rechtsboven op <code>History</code>. Wat is er aangepast in <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>pyproject.toml</code> bij de commit <q>Release v1.5.1</q>? Je ziet ook welke bestanden nog meer zijn gewijzigd in deze commit, welk bestand is nog meer gewijzigd bij <q>Release v1.5.1</q>?</li>
 <li>Ga terug naar de hoofdpagina. Welke versie van Tailor is als laatste gereleased?</li>
@@ -674,50 +693,80 @@ Voer de volgende opdrachten uit:</p>
 <li>Dan tot slot die ene, meest in het oogspringende groene <code>code</code> knop. Met die knop kan je de repository als zip-bestand downloaden of openen met GitHub desktop.</li>
 </ol>
 </div>
-<div class="admonition question">
-<p class="admonition-title">bonus</p>
+<div class="admonition opdracht-meer">
+<p class="admonition-title">Clone repository</p>
 <p>\label{opd:clone_repository}
 Clone de LMfit-py repository op GitHub:</p>
 <ol>
 <li>Zoek de repository op GitHub op (<code>lmfit/lmfit-py</code>)</li>
 <li>Kies \menu{Code &gt; Open with GitHub Desktop}</li>
 <li>Kies zelf een map op je harde schijf om de repository te bewaren.</li>
-<li>Open Visual Studio Code en open de repository met \menu{File &gt; Open Folder}.\footnote{Als je vergeten bent waar je de repository ook alweer bewaard had kun je met \menu{Repository &gt; Show in Finder} de folder openen.} Als GitHub Desktop de geïnstalleerde VS Code herkent kan dat direct vanuit GitHub Desktop met \menu{Repository &gt; Open in Visual Studio Code}.</li>
+<li>Open Visual Studio Code en open de repository met \menu{File &gt; Open Folder}.<sup id="fnref:open folder"><a class="footnote-ref" href="#fn:open folder">5</a></sup> Als GitHub Desktop de geïnstalleerde VS Code herkent kan dat direct vanuit GitHub Desktop met \menu{Repository &gt; Open in Visual Studio Code}.</li>
 <li>Open \path{examples/README.txt}. Verander in de eerste paragraaf <code>Below are examples</code> in <code>Below are different examples</code> en sla het bestand op.</li>
 <li>Schakel naar de GitHub Desktop applicatie en bekijk de wijziging.</li>
 <li>Linksonder kun je een korte beschrijving van je wijziging intypen en druk dan op de blauwe <code>Commit</code>-knop.</li>
 <li>Schakel, rechtsboven, naar <code>History</code>. Bovenaan staat jouw wijziging. Daaronder kun je alle wijzigingen van anderen bekijken.</li>
 </ol>
 </div>
-<p>Aangezien je geen schrijfrechten hebt voor LMfit kun je niet kiezen voor <code>Push origin</code> -- de knop die rechtsboven verschijnt. Met die knop <q>duw</q> je je wijzigingen naar GitHub zodat iedereen ze kan zien. Dat is mooi, maar je mag niet zomaar de repository van iemand anders wijzigen.</p>
-<div class="admonition question">
-<p class="admonition-title">bonus</p>
+<p>Aangezien je geen schrijfrechten hebt voor LMfit kun je niet kiezen voor <code>Push origin</code> &mdash; de knop die rechtsboven verschijnt. Met die knop <q>duw</q> je je wijzigingen naar GitHub zodat iedereen ze kan zien. Dat is mooi, maar je mag niet zomaar de repository van iemand anders wijzigen.</p>
+<div class="admonition opdracht-meer">
+<p class="admonition-title">Push en pull</p>
 <p>In eerdere opdrachten heb je repositories op de computer aangemaakt. Vanuit GitHub Desktop kan je een repository publiceren op GitHub. Commits kun je vervolgens pullen en pushen van en naar Github.</p>
 <ol>
-<li>Publiceer een repository op Github -- bijvoorbeeld je oefenopdrachten of je <code>pythondaq</code>-repository. Verander iets in je code, commit en kijk hoe je dat naar GitHub kunt Pushen.</li>
+<li>Publiceer een repository op Github &mdash; bijvoorbeeld je oefenopdrachten of je <code>pythondaq</code>-repository. Verander iets in je code, commit en kijk hoe je dat naar GitHub kunt Pushen.</li>
 <li>Ga naar Github.com en verander daar iets in de code, commit en kijk hoe je dat naar de computer kan Pullen.</li>
 </ol>
 </div>
-<div class="admonition question">
-<p class="admonition-title">bonus</p>
+<div class="admonition opdracht-meer">
+<p class="admonition-title">Git in de terminal</p>
 <p>Tot nu toe heb je Visual Studio Code of GitHub Desktop gebruikt om te committen. Maar je kan Git ook bedienen via de terminal. De mogelijkheden van Git zijn in de terminal ook veel groter dan in de grafische applicaties die we gebruikt hebben.</p>
 <ol>
 <li>Open een repository in Visual Studio Code</li>
 <li>Gebruik de terminal in Visual Studio Code en bekijk de commit geschiedenis met het commando <code>git log</code>. Scroll door de commit messages met spatie.</li>
-<li>Zoek via \url{https://initialcommit.com/blog/Git-Cheat-Sheet-Beginner} het commando om een commit toe te voegen. Wijzig iets in je code en commit via de terminal.</li>
+<li>Zoek via <a href="https://initialcommit.com/blog/Git-Cheat-Sheet-Beginner">https://initialcommit.com/blog/Git-Cheat-Sheet-Beginner</a> het commando om een commit toe te voegen. Wijzig iets in je code en commit via de terminal.</li>
 <li>Dit waren twee dingen wat met GitHub Desktop ook kon, snuffel op het internet om te zien wat je met Git nog meer kunt.</li>
 </ol>
 </div>
-<h2 id="uitdaging-branches">Uitdaging: Branches</h2>
+</details>
+<h2 id="branches">Branches<a class="headerlink" href="#branches" title="Permanent link">&para;</a></h2>
+<details class="meer-leren">
+<summary>Meer leren</summary>
 <p>Soms wil je je code flink onder handen nemen of iets heel nieuws eraan toevoegen. Terwijl je bezig bent ga je natuurlijk eerst van alles stuk maken voordat je het weer werkend hebt gekregen. Maar ondertussen kan je oude functionaliteit van je code niet gebruiken. Of je bent samen met een vriend aan een package bezig en om de haverklap werkt jouw stukje code niet meer omdat ergens anders de code verbouwd wordt. Dan is het handig dat je vanaf het punt dat je code werkt een zijweg kan inslaan. Daarom zijn branches uitgevonden. Je kunt vanuit Github Desktop, vanuit Visual Studio Code en natuurlijk via de terminal een branch aanmaken.</p>
-<div class="admonition question">
-<p class="admonition-title">bonus</p>
+<div class="admonition opdracht-meer">
+<p class="admonition-title">Branches</p>
 <ul>
 <li>Open een repository naar keuze en maak een nieuwe branch aan.</li>
 <li>Maak een aantal wijzigingen en commit.</li>
 <li>Ga terug naar de main branch.</li>
 <li>Merch de nieuwe branch in de main branch.</li>
 </ul>
+</div>
+</details>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:git">
+<p>https://initialcommit.com/blog/How-Did-Git-Get-Its-Name&#160;<a class="footnote-backref" href="#fnref:git" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:branches">
+<p>Een branch is een splitsing in je versiegeschiedenis. Je kunt het gebruiken om over een langere tijd een grote wijziging uit te testen terwijl je af en toe heen en weer springt tussen je main branch en de nieuwe branch. Commits in de nieuwe branch blijven gescheiden. Later kun je ervoor kiezen om de wijzigingen in de nieuwe branch te <em>mergen</em> met je main branch, maar dat hoeft niet.&#160;<a class="footnote-backref" href="#fnref:branches" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:gitignore">
+<p>De Git Ignore zorgt ervoor dat allerlei hulpbestanden van Python niet bewaard worden als commit. Alleen je eigen code wordt dan bewaard&#160;<a class="footnote-backref" href="#fnref:gitignore" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:commit message">
+<p>Je kunt je commit message opdelen in een titel (of summary) en een beschrijving. In Visual Studio Code, doe je dit door een witregel toe te voegen tussen de titel en de beschrijving.&#160;<a class="footnote-backref" href="#fnref:commit message" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:open folder">
+<p>Als je vergeten bent waar je de repository ook alweer bewaard had kun je met \menu{Repository &gt; Show in Finder} de folder openen.&#160;<a class="footnote-backref" href="#fnref:open folder" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:1">
+<p>Linus Torvalds and others. Git. 2005. URL: <a href="https://git-scm.com">https://git-scm.com</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Scott Chacon and Ben Straub. <em>Pro git: Everything you need to know about Git</em>. Apress, second edition, 2014. URL: <a href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+</ol>
 </div>
 
 

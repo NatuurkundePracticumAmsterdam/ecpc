@@ -19,7 +19,7 @@
     
     
       
-        <title>Gereedschap - My Docs</title>
+        <title>Gereedschap - Experiment Control with Python Course</title>
       
     
     
@@ -40,6 +40,8 @@
     
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -79,7 +81,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="Experiment Control with Python Course" class="md-header__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -92,7 +94,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Experiment Control with Python Course
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -165,13 +167,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="Experiment Control with Python Course" class="md-nav__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Experiment Control with Python Course
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -184,7 +186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../introductie/" class="md-nav__link">
+      <a href=".." class="md-nav__link">
         Introductie
       </a>
     </li>
@@ -471,6 +473,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ: lijst conventies
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -546,24 +563,24 @@
                   
 
 
-<h1 id="gereedschap">Gereedschap</h1>
+<h1 id="gereedschap">Gereedschap<a class="headerlink" href="#gereedschap" title="Permanent link">&para;</a></h1>
 <p>\label{ch:gereedschap}</p>
-<h2 id="isolatie-virtual-environments">Isolatie: virtual environments</h2>
+<h2 id="isolatie-virtual-environments">Isolatie: virtual environments<a class="headerlink" href="#isolatie-virtual-environments" title="Permanent link">&para;</a></h2>
 <p>\label{sec:virtual-envs}</p>
-<p>Je hebt het vast al gemerkt: Anaconda is groot. Dat is gek, want Python is best klein. Anaconda bevat alleen veel meer dan Python. Anaconda is een Python_distributie_ en bevat een enorme verzameling aan packages. Je kunt zelf extra packages installeren met \shellinline{conda} of \shellinline{pip}. Je loopt dan mogelijk wel tegen problemen aan: packages hebben vaak zelf weer andere packages nodig. En regelmatig ook met een bepaalde versie. Dit kan een ingewikkeld netwerk worden waarbij het installeren van een nieuwe package óf heel lang duurt, óf niet kan vanwege een conflict,\footnote{Package A heeft B nodig met versie &gt;= 1.1, maar package C heeft B nodig met versie 1.0. Nu kunnen package A en C dus niet tegelijkertijd geïnstalleerd worden.} óf <q>blind</q> gedaan wordt waarna sommige dingen niet meer willen werken. Alledrie is op te lossen door <em>virtual environments</em> te gebruiken. Geïsoleerde omgevingen waarin (soms) een <em>eigen</em> versie van Python draait met een <em>eigen</em> -- veelal kleine -- collectie van packages. Je kunt environments aanmaken voor specifieke projecten bijvoorbeeld. Wellicht heb je bij NSP1 een environment aangemaakt om Jupyter Notebooks en een verzameling packages te installeren voor de data-analyse.</p>
-<h3 id="pip-vs-conda">Pip vs Conda</h3>
-<p>De package manager van Python is \shellinline{pip}. Je kunt hiermee alle Python packages installeren die bestaan uit <em>Python</em> code. NumPy bijvoorbeeld bevat echter ook veel code geschreven in C. Die code moet eerst gecompileerd worden. Dat kan \shellinline{pip} óók doen, mits er een C compiler op je computer geïnstalleerd is. Via de Python package index kunnen gelukkig ook zogeheten <em>binary packages</em> verspreid worden waarin de code al is gecompileerd. Er zijn dan losse packages voor Windows, MacOS en Linux. Meestal gaat dit goed, maar helaas niet altijd. Historisch waren NumPy maar vooral ook SciPy een flink probleem. Ook het gebruik van grafische bibliotheken ging vaak moeizaam. Dan was het package wel geïnstalleerd, maar riep hij dat hij systeembibliotheken niet kon vinden. Heel vervelend.</p>
-<p>Een ander probleem van \shellinline{pip} is dat deze -- tot voor kort -- geen controle deed op de versies van al geïnstalleerde pakketten. Je kon dus packages installeren die nieuwe versies binnenhaalden van andere packages, waarna al <em>eerder</em> geïnstalleerde packages soms stopten met werken.</p>
-<p>Om die reden is \shellinline{conda} in het leven geroepen. Conda installeert alleen binary packages, kan naast Python packages ook systeembibliotheken installeren als dat nodig is én doet een uitgebreide controle op alle versies van te installeren en al eerder geïnstalleerde packages zodat alles altijd blijft werken. Nadeel is dat die controle nogal lang kan duren als je al veel geïnstalleerd hebt. Omdat je met \shellinline{conda} dus <em>wel</em> heel makkelijk uitgebreide wetenschappelijke packages kon installeren met een mix van Python-, C-, of zelfs Fortrancode is \shellinline{conda} (en Anaconda, de distributie) heel populair geworden in de wetenschappelijke wereld. Om die reden gebruiken we in deze cursus ook Anaconda / \shellinline{conda}.</p>
-<h3 id="conda-environments">Conda environments</h3>
+<p>Je hebt het vast al gemerkt: Anaconda is groot. Dat is gek, want Python is best klein. Anaconda bevat alleen veel meer dan Python. Anaconda is een Python_distributie_ en bevat een enorme verzameling aan packages. Je kunt zelf extra packages installeren met <code>conda</code> of <code>pip</code>. Je loopt dan mogelijk wel tegen problemen aan: packages hebben vaak zelf weer andere packages nodig. En regelmatig ook met een bepaalde versie. Dit kan een ingewikkeld netwerk worden waarbij het installeren van een nieuwe package óf heel lang duurt, óf niet kan vanwege een conflict,\footnote{Package A heeft B nodig met versie &gt;= 1.1, maar package C heeft B nodig met versie 1.0. Nu kunnen package A en C dus niet tegelijkertijd geïnstalleerd worden.} óf <q>blind</q> gedaan wordt waarna sommige dingen niet meer willen werken. Alledrie is op te lossen door <em>virtual environments</em> te gebruiken. Geïsoleerde omgevingen waarin (soms) een <em>eigen</em> versie van Python draait met een <em>eigen</em> &mdash; veelal kleine &mdash; collectie van packages. Je kunt environments aanmaken voor specifieke projecten bijvoorbeeld. Wellicht heb je bij NSP1 een environment aangemaakt om Jupyter Notebooks en een verzameling packages te installeren voor de data-analyse.</p>
+<h3 id="pip-vs-conda">Pip vs Conda<a class="headerlink" href="#pip-vs-conda" title="Permanent link">&para;</a></h3>
+<p>De package manager van Python is <code>pip</code>. Je kunt hiermee alle Python packages installeren die bestaan uit <em>Python</em> code. NumPy bijvoorbeeld bevat echter ook veel code geschreven in C. Die code moet eerst gecompileerd worden. Dat kan <code>pip</code> óók doen, mits er een C compiler op je computer geïnstalleerd is. Via de Python package index kunnen gelukkig ook zogeheten <em>binary packages</em> verspreid worden waarin de code al is gecompileerd. Er zijn dan losse packages voor Windows, MacOS en Linux. Meestal gaat dit goed, maar helaas niet altijd. Historisch waren NumPy maar vooral ook SciPy een flink probleem. Ook het gebruik van grafische bibliotheken ging vaak moeizaam. Dan was het package wel geïnstalleerd, maar riep hij dat hij systeembibliotheken niet kon vinden. Heel vervelend.</p>
+<p>Een ander probleem van <code>pip</code> is dat deze &mdash; tot voor kort &mdash; geen controle deed op de versies van al geïnstalleerde pakketten. Je kon dus packages installeren die nieuwe versies binnenhaalden van andere packages, waarna al <em>eerder</em> geïnstalleerde packages soms stopten met werken.</p>
+<p>Om die reden is <code>conda</code> in het leven geroepen. Conda installeert alleen binary packages, kan naast Python packages ook systeembibliotheken installeren als dat nodig is én doet een uitgebreide controle op alle versies van te installeren en al eerder geïnstalleerde packages zodat alles altijd blijft werken. Nadeel is dat die controle nogal lang kan duren als je al veel geïnstalleerd hebt. Omdat je met <code>conda</code> dus <em>wel</em> heel makkelijk uitgebreide wetenschappelijke packages kon installeren met een mix van Python-, C-, of zelfs Fortrancode is <code>conda</code> (en Anaconda, de distributie) heel populair geworden in de wetenschappelijke wereld. Om die reden gebruiken we in deze cursus ook Anaconda / <code>conda</code>.</p>
+<h3 id="conda-environments">Conda environments<a class="headerlink" href="#conda-environments" title="Permanent link">&para;</a></h3>
 <p>\label{sec:conda-envs}</p>
-<p>Er zijn verschillende tools voor het aanmaken van environments voor Python. Allemaal hebben ze hun voor- en nadelen. Langzamerhand blijven de populairste over. De <q>officiële</q> is <code class="language-py highlight"><span class="n">venv</span></code>, maar op dit moment niet de meest populaire. Binnen een groot deel van de wetenschappelijke gemeenschap is \shellinline{conda} de standaardkeuze. Het voordeel van \shellinline{conda} ten opzichte van veel andere tools is dat je verschillende environments kunt maken met verschillende versies van Python. Ideaal om te testen of je code ook werkt met de allernieuwste Pythonversie of juist met wat oudere versies.</p>
+<p>Er zijn verschillende tools voor het aanmaken van environments voor Python. Allemaal hebben ze hun voor- en nadelen. Langzamerhand blijven de populairste over. De <q>officiële</q> is <code class="language-py highlight"><span class="n">venv</span></code>, maar op dit moment niet de meest populaire. Binnen een groot deel van de wetenschappelijke gemeenschap is <code>conda</code> de standaardkeuze. Het voordeel van <code>conda</code> ten opzichte van veel andere tools is dat je verschillende environments kunt maken met verschillende versies van Python. Ideaal om te testen of je code ook werkt met de allernieuwste Pythonversie of juist met wat oudere versies.</p>
 <p>Je moet je realiseren dat het aanmaken (en weggooien) van een environment heel makkelijk is. Doe dat regelmatig zodat je scherp houdt welke packages je nu echt nodig hebt voor je analyse of voor de software die je schrijft. Hieronder geven we een overzicht van de meest gebruikte commando's om met conda environments te werken.</p>
 <p>\begin{info}
     Conda installeert packages vanuit verschillende <em>channels</em>. De <code>defaults</code> channel bevat packages die af en toe door Anaconda worden getest en samengenomen tot een distributie (versie <code>2021.05</code> bijvoorbeeld). Er zijn weinig updates. De <code>conda-forge</code> channel bevat alle nieuwste versies van die packages en bevat ook software die (nog) niet in de <code>defaults</code> channel terecht is gekomen. De conda-forge channel is daarom erg populair.
 \end{info}</p>
 <p>Hieronder volgen enkele voorbeelden van het gebruik van conda:
-<div class="language-ps1con highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="go">Leeg environment aanmaken met naam &#39;daq&#39;</span>
+<div class="language-ps1con highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="go">Leeg environment aanmaken met naam &#39;daq&#39;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">PS&gt; </span><span class="n">conda</span> <span class="n">create</span> <span class="n">-n</span> <span class="n">daq</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="go">Nieuw environment aanmaken met Python versie 3.9</span>
@@ -605,34 +622,34 @@ Als je daarop klikt\footnote{Of: \menu{View &gt; Command Palette &gt; Python: Se
 \begin{center}
     \includegraphics[scale=.75]{figures/screenshot-vscode-python-env-daq}
 \end{center}
-Sluit alle <q>oude</q> terminals met het \faTrash*-icoon als je je muis aan de rechterkant over de namen van de terminals beweegt of in één keer met \menu{View &gt; Command Palette &gt; Terminal: Kill All Terminals}. Alle nieuwe terminals die je opent zullen de nieuw geselecteerde conda environment actief maken. Wanneer je nu je Pythoncode draait dan is dat binnen deze omgeving. Het kan wel zijn dat hij opeens klaagt over packages die niet geïnstalleerd zijn omdat je dat -- in <em>die</em> omgeving -- nog niet had gedaan. Geen probleem: installeer ze dan.</p>
-<h3 id="pipx">Pipx</h3>
-<p>Pythonapplicaties, zoals \shellinline{conda}, worden geïnstalleerd als commando dat je kunt aanroepen vanaf de command-line. Maar het <em>is</em> een Pythonapplicatie. En dat betekent dat als je van omgeving wisselt, dat de applicatie niet meer beschikbaar is. Ook kan het gebeuren dat je packages update of verwijdert waardoor de applicatie niet meer werkt. Met \shellinline{pipx} is het mogelijk om dit soort applicaties in een <em>eigen</em> virtual environment te installeren. Je loopt geen risico dat je ze stukmaakt <em>en</em> ze zijn beschikbaar vanuit andere virtual environments. In plaats van:
-<div class="language-ps1con highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="go">pip install PACKAGE</span>
+Sluit alle <q>oude</q> terminals met het \faTrash*-icoon als je je muis aan de rechterkant over de namen van de terminals beweegt of in één keer met \menu{View &gt; Command Palette &gt; Terminal: Kill All Terminals}. Alle nieuwe terminals die je opent zullen de nieuw geselecteerde conda environment actief maken. Wanneer je nu je Pythoncode draait dan is dat binnen deze omgeving. Het kan wel zijn dat hij opeens klaagt over packages die niet geïnstalleerd zijn omdat je dat &mdash; in <em>die</em> omgeving &mdash; nog niet had gedaan. Geen probleem: installeer ze dan.</p>
+<h3 id="pipx">Pipx<a class="headerlink" href="#pipx" title="Permanent link">&para;</a></h3>
+<p>Pythonapplicaties, zoals <code>conda</code>, worden geïnstalleerd als commando dat je kunt aanroepen vanaf de command-line. Maar het <em>is</em> een Pythonapplicatie. En dat betekent dat als je van omgeving wisselt, dat de applicatie niet meer beschikbaar is. Ook kan het gebeuren dat je packages update of verwijdert waardoor de applicatie niet meer werkt. Met <code>pipx</code> is het mogelijk om dit soort applicaties in een <em>eigen</em> virtual environment te installeren. Je loopt geen risico dat je ze stukmaakt <em>en</em> ze zijn beschikbaar vanuit andere virtual environments. In plaats van:
+<div class="language-ps1con highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="go">pip install PACKAGE</span>
 </span></code></pre></div>
 doe je straks
-<div class="language-ps1con highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="go">pipx install PACKAGE</span>
+<div class="language-ps1con highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="go">pipx install PACKAGE</span>
 </span></code></pre></div>
-Met \shellinline{pipx list} bekijk je dan een lijst van geïnstalleerde pakketten.
-Je installeert \shellinline{pipx} met:
-<div class="language-ps1con highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="go">python -m pip install --user pipx</span>
+Met <code>pipx list</code> bekijk je dan een lijst van geïnstalleerde pakketten.
+Je installeert <code>pipx</code> met:
+<div class="language-ps1con highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="go">python -m pip install --user pipx</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="go">python -m pipx ensurepath</span>
 </span></code></pre></div>
-Herstart je terminal en test of het commando \shellinline{pipx} werkt. Zo niet, dan zul je volledig uit moeten loggen en weer in moeten loggen om de shellomgeving opnieuw te laden.</p>
+Herstart je terminal en test of het commando <code>pipx</code> werkt. Zo niet, dan zul je volledig uit moeten loggen en weer in moeten loggen om de shellomgeving opnieuw te laden.</p>
 <p>\subsubsection{Black}</p>
-<p>Eén van de tools die problemen kunnen geven wanneer je van environment wisselt is \shellinline{black}. Misschien heb je bij het aanmaken van de environment voor deze cursus in \opdref{opd:condaenv} gemerkt dat Visual Studio Code soms klaagt dat \shellinline{black} niet geïnstalleerd is. Het is lastig als je black in ieder environment moet installeren én het is lastig dat je schone environment al snel <q>vervuild</q> raakt met een tool en alle bijbehorende dependencies die niets te maken hebben met jouw project. Daarom installeren we \shellinline{black} graag via \shellinline{pipx}.</p>
+<p>Eén van de tools die problemen kunnen geven wanneer je van environment wisselt is <code>black</code>. Misschien heb je bij het aanmaken van de environment voor deze cursus in \opdref{opd:condaenv} gemerkt dat Visual Studio Code soms klaagt dat <code>black</code> niet geïnstalleerd is. Het is lastig als je black in ieder environment moet installeren én het is lastig dat je schone environment al snel <q>vervuild</q> raakt met een tool en alle bijbehorende dependencies die niets te maken hebben met jouw project. Daarom installeren we <code>black</code> graag via <code>pipx</code>.</p>
 <div class="admonition question">
 <p class="admonition-title">minimaal</p>
 <p>Voer het volgende uit:</p>
 <ol>
-<li>Installeer \shellinline{black} via \shellinline{pipx}</li>
-<li>Run \shellinline{pipx list} en let op de directory die genoemd is na: <code>apps are exposed on your \$PATH at</code>. Bijvoorbeeld: <code>/Users/david/.local/bin</code>.</li>
+<li>Installeer <code>black</code> via <code>pipx</code></li>
+<li>Run <code>pipx list</code> en let op de directory die genoemd is na: <code>apps are exposed on your \$PATH at</code>. Bijvoorbeeld: <code>/Users/david/.local/bin</code>.</li>
 <li>In Visual Studio Code, ga naar \menu{Code} onder MacOS of \menu{File} onder Windows en dan naar \menu{Preferences &gt; Settings &gt; Python Formatting: Black Path}. Vul de directorynaam in gevolgd door <code>black</code>. Bijvoorbeeld: <code>/Users/david/.local/bin/black</code>.</li>
 <li>Open een Pythonbestand en type:
         <div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 </span></code></pre></div>
-        Sla het bestand op en controleer of \shellinline{black} werkt. Je zou dan <code class="language-py highlight"><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span></code> moeten krijgen.</li>
+        Sla het bestand op en controleer of <code>black</code> werkt. Je zou dan <code class="language-py highlight"><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span></code> moeten krijgen.</li>
 </ol>
 </div>
 

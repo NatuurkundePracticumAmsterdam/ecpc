@@ -19,7 +19,7 @@
     
     
       
-        <title>Kleurcodes voor weerstanden - My Docs</title>
+        <title>Kleurcodes voor weerstanden - Experiment Control with Python Course</title>
       
     
     
@@ -40,6 +40,8 @@
     
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -79,7 +81,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="Experiment Control with Python Course" class="md-header__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -92,7 +94,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Experiment Control with Python Course
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -165,13 +167,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="Experiment Control with Python Course" class="md-nav__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Experiment Control with Python Course
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -184,7 +186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../introductie/" class="md-nav__link">
+      <a href=".." class="md-nav__link">
         Introductie
       </a>
     </li>
@@ -413,6 +415,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ: lijst conventies
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -446,18 +463,18 @@
                   
 
 
-<h1 id="kleurcodes-voor-weerstanden">Kleurcodes voor weerstanden</h1>
+<h1 id="kleurcodes-voor-weerstanden">Kleurcodes voor weerstanden<a class="headerlink" href="#kleurcodes-voor-weerstanden" title="Permanent link">&para;</a></h1>
 <p>\label{ch:kleurcodes}</p>
 <p>\colorlet{Rred}{red!80!black}
 \colorlet{Rbrown}{brown!80!black}</p>
 <p>\newcommand{\drawband}[4][0pt]{
-\draw[line width=7pt, color=#3] ({#2 * .9}, -1) -- +(0, 2);
-\draw[thick, &lt;-, &gt;={Stealth[round]}] ({#2 * .9}, 1cm + 3pt) -- +(0, 1cm + #1) node[above, align=center] {#4};
+\draw[line width=7pt, color=#3] ({#2 * .9}, -1) &mdash; +(0, 2);
+\draw[thick, &lt;-, &gt;={Stealth[round]}] ({#2 * .9}, 1cm + 3pt) &mdash; +(0, 1cm + #1) node[above, align=center] {#4};
 }</p>
 <p>\vspace{-.5cm}</p>
 <p>\begin{center}
   \begin{tikzpicture}[scale=.6]
-    \draw[line width=5pt] (0, 0) -- +(-2, 0) (6, 0) -- +(2, 0);
+    \draw[line width=5pt] (0, 0) &mdash; +(-2, 0) (6, 0) &mdash; +(2, 0);
     \fill[LightSteelBlue] (0, -1) rectangle (6, 1);</p>
 <div class="language-text highlight"><pre><span></span><code>\drawband{1}{Rred}{1}
 \drawband{2}{Rred}{2}
@@ -491,7 +508,7 @@
   \end{tabular}
 \end{center}</p>
 <p>\noindent
-Helaas is het niet altijd mogelijk om de linkerkant van de weerstand van de rechterkant te onderscheiden. In dat geval moet je de weerstand beide kanten oplezen en vergelijken met je materialenlijst of de overige weerstanden om zeker te weten dat je de goede hebt gevonden. Bovenstaande weerstand heeft de waarde $\qty[retain-zero-exponent]{220}{\ohm} \pm \qty{1}{\percent}$, en <em>niet</em> de waarde $\qty{100e2}{\ohm} \pm \qty{2}{\percent}$.</p>
+Helaas is het niet altijd mogelijk om de linkerkant van de weerstand van de rechterkant te onderscheiden. In dat geval moet je de weerstand beide kanten oplezen en vergelijken met je materialenlijst of de overige weerstanden om zeker te weten dat je de goede hebt gevonden. Bovenstaande weerstand heeft de waarde $\qty[retain-zero-exponent]{220}{&Omega;} \pm 1 \percent$, en <em>niet</em> de waarde $100e2 &Omega; \pm 2 \percent$.</p>
 
 
 

@@ -2,8 +2,8 @@ This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded forma
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**LED-schakeling.tex
-(./LED-schakeling.tex
+**PV-vervang-schakeling.tex
+(./PV-vervang-schakeling.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22>
 (/usr/local/texlive/2023/texmf-dist/tex/latex/standalone/standalone.cls
@@ -537,8 +537,8 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count303
 \l__pdf_internal_box=\box74
 )
-No file LED-schakeling.aux.
-\openout1 = `LED-schakeling.aux'.
+No file PV-vervang-schakeling.aux.
+\openout1 = `PV-vervang-schakeling.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
@@ -591,27 +591,25 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 7.
 
 Missing character: There is no ) in font nullfont!
-Missing character: There is no ) in font nullfont!
 [1
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./LED-schakeling.aux) ) 
+(./PV-vervang-schakeling.aux) ) 
 Here is how much of TeX's memory you used:
- 33861 strings out of 476025
- 896888 string characters out of 5790017
- 1861388 words of memory out of 5000000
- 54007 multiletter control sequences out of 15000+600000
+ 33845 strings out of 476025
+ 895994 string characters out of 5790017
+ 1860388 words of memory out of 5000000
+ 53991 multiletter control sequences out of 15000+600000
  515026 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,7n,118p,399b,1203s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr8.pfb>
-Output written on LED-schakeling.pdf (1 page, 27775 bytes).
+ 117i,7n,118p,406b,1013s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb>
+Output written on PV-vervang-schakeling.pdf (1 page, 20181 bytes).
 PDF statistics:
- 26 PDF objects out of 1000 (max. 8388607)
- 16 compressed objects within 1 object stream
+ 21 PDF objects out of 1000 (max. 8388607)
+ 13 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
