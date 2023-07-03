@@ -423,10 +423,10 @@ else:
     return []
 ```
 
-Zo kunnen we gemakkelijk alles gaan invullen. Vergeet niet om de docstring aan te vullen als je een functie aanpast.
+Zo kunnen we gemakkelijk alles gaan invullen. Zo lang je niet op ++escape++ drukt maar gewoon je tekst typt kun je met ++tab++ naar het volgende veld en zo de docstring snel invullen. Het is mooi als je daarna onder de _summary_ nog een uitgebreidere uitleg geeft van een paar zinnen. Vergeet ook niet om de docstring zonodig weer bij te werken als je een functie aanpast.
 
 
-### Docstrings en Click `-{-help`}
+### Docstrings en Click `--help`
 
 Docstrings werken ook heel handig samen met Click want ze worden gebruikt als we de helpfunctie aanroepen. We voegen docstrings toe aan fake-conda:
 
@@ -503,10 +503,11 @@ Options:
 
 ### Documentatie met _Material for MkDocs_
 ??? meer-leren "Meer leren"
-    Een bijkomend voordeel van docstrings is dat ze gebruikt kunnen worden om automatisch documentatie te genereren voor een heel project met behulp van bijvoorbeeld MkDocs.
-    _MkDocs_ is een documentatie generator en _Material for MkDocs_ is daar de meestgebruikte uitbreiding op. Het wordt veel gebruikt om documentatie te schrijven voor software projecten. Een paar voorbeelden zijn bijvoorbeeld de website van de _Accelerators and Beam Physics Computing_ groep op CERN[@abp-computing] of de populaire _Textual_ bibliotheek[@textual] om zogenaamde _text user interfaces_ te maken, een tegenhanger van grafische interfaces. Behalve dat je vrij eenvoudig uitgebreide documentatie kunt schrijven kan MkDocs alle docstrings gebruiken om een referentie op te bouwen. Deze website is ook gebouwd met Material for MkDocs.
+    Een bijkomend voordeel van docstrings is dat ze gebruikt kunnen worden om automatisch documentatie te genereren voor een heel project met behulp van bijvoorbeeld MkDocs of Sphinx.[^sphinx] _MkDocs_ is een documentatie generator en _Material for MkDocs_ is daar de meestgebruikte uitbreiding op. Het wordt veel gebruikt om documentatie te schrijven voor software projecten. Een paar voorbeelden zijn bijvoorbeeld de website van de _Accelerators and Beam Physics Computing_ groep op CERN[@abp-computing] of de nieuwe _Textual_ bibliotheek[@textual] om zogenaamde _terminal user interfaces_ te maken, een tegenhanger van grafische interfaces. Behalve dat je vrij eenvoudig uitgebreide documentatie kunt schrijven kan MkDocs alle docstrings gebruiken om een referentie op te bouwen. Deze website is ook gebouwd met Material for MkDocs.
 
     Het voert tijdens deze cursus te ver om veel aandacht te besteden aan MkDocs. Maar aangezien documentatie zo belangrijk is wilden we het toch noemen! Voor een uitgebreide tutorial, zie _Build Your Python Project Documentation With MkDocs_.[@mkdocs-tutorial]
+
+    [^sphinx]: Sphinx is van oudsher de standaard documentatiegenerator voor Pythonprojecten. Maar Sphinx is al redelijk op leeftijd en gebruikt als tekstformaat niet het bekende en zeer populaire _Markdown_ maar het steeds minder populaire _Restructured Text_. MkDocs wordt steeds meer gebruikt en Sphinx steeds minder. Toch zul je Sphinx nog veel tegenkomen bij projecten omdat het na al die jaren zeer veel features heeft en zeer stabiel is.
 
 
 ## Command-line interface voor ons experiment
@@ -527,7 +528,7 @@ In \chref{ch:mvc} heb je `pythondaq` uitgesplitst in model, view en controller. 
 We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het tonen van de resultaten daarvan aan de gebruiker.
 
 !!! info
-    Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen \qtylist{0;3.3}{\volt}. Je kunt dit doen door de `#!py type`-parameter in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven (bijvoorbeeld: `#!py type=int` of `#!py type=float`) en Click heeft speciale types zoals `#!py type=click.FloatRange(0, 3.3)` voor een kommagetal tussen 0 en 3.3. Bekijken alle speciale types op [https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types](https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types). Als je hiervan gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat voor je.
+    Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen 0 en 3.3 V. Je kunt dit doen door de `#!py type`-parameter in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven (bijvoorbeeld: `#!py type=int` of `#!py type=float`) en Click heeft speciale types zoals `#!py type=click.FloatRange(0, 3.3)` voor een kommagetal tussen 0 en 3.3. Bekijken alle speciale types op [https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types](https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types). Als je hiervan gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat voor je.
 
 !!! opdracht-inlever "Pythondaq: `scan`"
     Met het commando `scan` wil je een meetserie uitvoeren over een spanningsbereik. De uitvoer is een lijst van metingen van de stroomsterkte door en de spanning over de LED. De gebruiker moet het spanningsbereik (in volt) zelf kunnen kiezen. Geef ook de mogelijkheid de metingen op te slaan als CSV-bestand. Gebruik daarvoor een optie `--output FILENAME`. Wanneer met die optie een bestandsnaam wordt meegegeven sla je de metingen op en anders niet. Als een meting lang duurt is het niet erg als de resultaten pas ná de meting worden weergegeven.
@@ -589,9 +590,9 @@ Op dit punt hebben we de functionaliteit van ons snelle script van het vorige ho
 ## Een interface met stijl
 ??? meer-leren "Meer leren"
 
-    Ook command-line interfaces gaan met hun tijd mee. Vroeger waren ze per definitie zwart/wit en statisch, maar tegenwoordig worden interfaces vaak opgeleukt met kleur, emoji's en bewegende progressbars. _Rich_~[@rich] is een project dat in recordtijd heel populair is geworden. Het bestaat pas sinds november 2019 en heeft precies twee jaar later meer dan 31000:material-star: verzameld. Dat is _veel_ &mdash; en de populariteit is sindsdien nog verder toegenomen.
+    Ook command-line interfaces gaan met hun tijd mee. Vroeger waren ze per definitie zwart/wit en statisch, maar tegenwoordig worden interfaces vaak opgeleukt met kleur, emoji's en bewegende progressbars. _Rich_[@rich] is een project dat in recordtijd heel populair is geworden. Het bestaat pas sinds november 2019 en heeft precies twee jaar later meer dan 31000:material-star: verzameld. Dat is _veel_ &mdash; en de populariteit is sindsdien nog verder toegenomen.
 
-    Rich is ontzettend uitgebreid en heeft heel veel mogelijkheden. Voor ons project kan het handig zijn om een progressbar te gebruiken of met Rich een tabel weer te geven. De documentatie~[@rich-docs] van Rich is best goed, maar kan lastig zijn om een mooi overzicht te krijgen. Een serie van korte video tutorials kun je vinden bij [https://calmcode.io/rich/introduction.html](https://calmcode.io/rich/introduction.html). Iedere video duurt maar één tot twee minuten en laat mooi de mogelijkheden zien. Voor de functies die je wilt gebruiken kun je dan meer informatie opzoeken in de documentatie van Rich zelf.
+    Rich is ontzettend uitgebreid en heeft heel veel mogelijkheden. Voor ons project kan het handig zijn om een progressbar te gebruiken of met Rich een tabel weer te geven. De documentatie[@rich-docs] van Rich is best goed, maar kan lastig zijn om een mooi overzicht te krijgen. Een serie van korte video tutorials kun je vinden bij [https://calmcode.io/rich/introduction.html](https://calmcode.io/rich/introduction.html). Iedere video duurt maar één tot twee minuten en laat mooi de mogelijkheden zien. Voor de functies die je wilt gebruiken kun je dan meer informatie opzoeken in de documentatie van Rich zelf.
 
     !!! opdracht-meer "Rich"
         Verrijk je interface met Rich. Doe dit naar eigen wens en inzicht.
