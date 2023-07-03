@@ -30,6 +30,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
   - pymdownx.keys
+  - pymdownx.tabbed:
+      alternate_style: true
   - def_list
   - tables
 
