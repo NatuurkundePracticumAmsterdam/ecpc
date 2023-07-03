@@ -2,6 +2,7 @@
 *.log
 
 I,U-curve-LED_bb.svg
+I,U-curve-LED_schem.svg
 mvc-model.pdf
 mvc-model.svg
 mvc-model-concreet.pdf
@@ -16,6 +17,7 @@ LED-schakeling.svg
 p-n-overgang.pdf
 p-n-overgang.svg
 p-n-overgang_p2.svg
+PV-measurement_bb.svg
 PV-schakeling.pdf
 PV-schakeling.svg
 PV-vervang-schakeling.pdf
