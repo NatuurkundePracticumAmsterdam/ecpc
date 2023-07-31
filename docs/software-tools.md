@@ -17,7 +17,6 @@ Om die reden is `conda` in het leven geroepen. Conda installeert alleen binary p
 
 
 ### Conda environments
-\label{sec:conda-envs}
 
 Er zijn verschillende tools voor het aanmaken van environments voor Python. Allemaal hebben ze hun voor- en nadelen. Langzamerhand blijven de populairste over. De <q>officiële</q> is `#!py venv`, maar op dit moment niet de meest populaire. Binnen een groot deel van de wetenschappelijke gemeenschap is `conda` de standaardkeuze. Het voordeel van `conda` ten opzichte van veel andere tools is dat je verschillende environments kunt maken met verschillende versies van Python. Ideaal om te testen of je code ook werkt met de allernieuwste Pythonversie of juist met wat oudere versies.
 
@@ -96,7 +95,7 @@ Herstart je terminal en test of het commando `pipx` werkt. Zo niet, dan zul je v
 
 \subsubsection{Black}
 
-Eén van de tools die problemen kunnen geven wanneer je van environment wisselt is `black`. Misschien heb je bij het aanmaken van de environment voor deze cursus in \opdref{opd:condaenv} gemerkt dat Visual Studio Code soms klaagt dat `black` niet geïnstalleerd is. Het is lastig als je black in ieder environment moet installeren én het is lastig dat je schone environment al snel <q>vervuild</q> raakt met een tool en alle bijbehorende dependencies die niets te maken hebben met jouw project. Daarom installeren we `black` graag via `pipx`.
+Eén van de tools die problemen kunnen geven wanneer je van environment wisselt is `black`. Misschien heb je bij het aanmaken van de environment voor deze cursus in [opdracht _Environment aanmaken_](communicatie.md#opd:condaenv) gemerkt dat Visual Studio Code soms klaagt dat `black` niet geïnstalleerd is. Het is lastig als je black in ieder environment moet installeren én het is lastig dat je schone environment al snel <q>vervuild</q> raakt met een tool en alle bijbehorende dependencies die niets te maken hebben met jouw project. Daarom installeren we `black` graag via `pipx`.
 
 !!! question "minimaal"
     Voer het volgende uit:

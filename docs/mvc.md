@@ -29,7 +29,7 @@ Het opsplitsen van je programma _hoeft niet in één keer!_ Dit kan stapsgewijs.
 
 ## Gebruik van classes
 
-Voor een snelle meting is het script dat je geschreven hebt bij \opdref{opd:quickndirty-meting} en \opdref{opd:quickndirty-csv} prima! Maar als de meetapparatuur ingewikkelder wordt (meer verschillende commando's) of je wilt meer aanpassingen doen, dan is het wel lastig dat je op allerlei plekken de commando's opnieuw moet programmeren &mdash; en eerst moet opzoeken. Als je een nieuw script schrijft moet je opnieuw goed opletten dat je de goede _terminator characters_ gebruikt, etc. Het is wat werk, maar toch heel handig, om je code op te splitsen en een _class_ te schrijven.
+Voor een snelle meting is het script dat je geschreven hebt bij [opdracht _quick 'n dirty_ meting](communicatie.md#opd:quickndirty-meting) en [opdracht _Pythondaq: CSV_](communicatie.md#opd:quickndirty-csv) prima! Maar als de meetapparatuur ingewikkelder wordt (meer verschillende commando's) of je wilt meer aanpassingen doen, dan is het wel lastig dat je op allerlei plekken de commando's opnieuw moet programmeren &mdash; en eerst moet opzoeken. Als je een nieuw script schrijft moet je opnieuw goed opletten dat je de goede _terminator characters_ gebruikt, etc. Het is wat werk, maar toch heel handig, om je code op te splitsen en een _class_ te schrijven.
 
 Een class is eigenlijk een groep functies die je bij elkaar pakt en die met elkaar gegevens kunnen delen. Zodra een programma wat complexer wordt merk je dat het fijn kan zijn om variabelen op te sluiten in geïsoleerde omgevingen. Wanneer je bijvoorbeeld de volgende code schrijft gaat er mogelijk iets mis:
 ``` py
@@ -258,7 +258,7 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
 
 !!! opdracht-inlever "Pythondaq: ArduinoVISADevice"
     \label{opd:meting-class}
-    Pak je script van \opdref{opd:quickndirty-csv} erbij en schrijf bovenaan &mdash; maar _onder_ de `#!py import`-statements &mdash; een class `#!py ArduinoVISADevice`. Schrijf methods voor die class zodat onderstaande code minimaal zou moeten kunnen runnen:
+    Pak je script van [opdracht _Pythondaq: _CSV_](communicatie.md#opd:quickndirty-csv) erbij en schrijf bovenaan &mdash; maar _onder_ de `#!py import`-statements &mdash; een class `#!py ArduinoVISADevice`. Schrijf methods voor die class zodat onderstaande code minimaal zou moeten kunnen runnen:
     ``` py
     # we willen, voor de zekerheid, nog steeds een functie om
     # een lijst van poorten te krijgen, _buiten_ de class
@@ -287,7 +287,7 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
     ```
     Bekijk bovenstaande code goed. Wat doet iedere regel met de Arduino? Overleg met elkaar of met je assistent. Wat is het verschil tussen `#!py get_output_value()` en `#!py get_input_value()`?
 
-    Pas je script &mdash; en vooral ook de class! &mdash; aan zodat hij precies hetzelfde doet als bij \opdref{opd:quickndirty-meting}. Gebruik bovenstaande code dus _alleen_ als voorbeeld van welke methods je moet schrijven. Zorg ervoor dat alle firmwarecommando's ondergebracht zijn in de class en dat in je <q>experiment</q>-code alleen maar aanroepen naar de class zitten.
+    Pas je script &mdash; en vooral ook de class! &mdash; aan zodat hij precies hetzelfde doet als bij [opdracht _quick 'n dirty_ meting](communicatie.md#opd:quickndirty-meting). Gebruik bovenstaande code dus _alleen_ als voorbeeld van welke methods je moet schrijven. Zorg ervoor dat alle firmwarecommando's ondergebracht zijn in de class en dat in je <q>experiment</q>-code alleen maar aanroepen naar de class zitten.
 
 
 Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de precieze commando's zijn die je naar de hardware moet sturen. Als je de Arduino in de opstelling vervangt voor een ander meetinstrument moet je de class aanpassen, maar kan alle code die met het experiment zelf te maken heeft hetzelfde blijven.

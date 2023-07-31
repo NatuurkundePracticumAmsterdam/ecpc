@@ -319,11 +319,11 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
     Merk op dat we nu niet gebruik hoeven te maken van de `conda-forge` channel. Python zelf staat in _alle_ kanalen en we gaan verder geen software installeren met conda, dus ook niet uit `conda-forge`.
 
 !!! opdracht-basis "Poetry knipperlicht"
-    We gaan nu poetry gebruiken om van de scripts met de knipperende lichtjes uit \opdref{opd:knipperled} een package te maken én om ons environment te beheren. Voer de volgende stappen uit:
+    We gaan nu poetry gebruiken om van de scripts met de knipperende lichtjes uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) een package te maken én om ons environment te beheren. Voer de volgende stappen uit:
     
     1. Maak in GitHub Desktop een _nieuwe_ repository :fontawesome-brands-github:`flasher`.
     1. Maak een map :fontawesome-regular-folder:`src` met daarin een map :fontawesome-regular-folder:`flasher`.
-    1. Kopieer uit de :fontawesome-brands-github:`Oefenopdrachten` die je bij \opdref{opd:add_repository} hebt aangemaakt de drie scriptjes uit \opdref{opd:knipperled} naar :fontawesome-regular-folder:`src/flasher`.
+    1. Kopieer uit de :fontawesome-brands-github:`Oefenopdrachten` die je bij \opdref{opd:add_repository} hebt aangemaakt de drie scriptjes uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) naar :fontawesome-regular-folder:`src/flasher`.
     1. Open :fontawesome-brands-github:`flasher` in Visual Studio Code.
     1. Commit alles dat je tot nu toe gedaan hebt.
     1. Open een terminal. Maak een nieuwe conda environment met alleen python 3.9:

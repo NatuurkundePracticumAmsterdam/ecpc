@@ -1,6 +1,5 @@
-\documentclass[11pt]{standalone}
+\documentclass[11pt,tikz]{standalone}
 
-\usepackage{tikz}
 \usetikzlibrary{calc,arrows.meta}
 
 \begin{document}
@@ -46,48 +45,47 @@
     {30, 6}}
 
 \begin{tikzpicture}[x=3mm, y=3mm, >={Stealth[round]}]
-    \begin{scope}
-        % draw the (dis)allowed sampling areas
-        \fill[green!5] (0, 0) rectangle (30, 15);
-        \fill[red!5] (0, 15) rectangle (30, 19);
-        \fill[red!5] (0, 0) rectangle (30, -2);
+    % draw the (dis)allowed sampling areas
+    \fill[green!5] (0, 0) rectangle (30, 15);
+    \fill[red!5] (0, 15) rectangle (30, 19);
+    \fill[red!5] (0, 0) rectangle (30, -2);
 
-        % visually center the figure
-        \path (-6, 0) -- (36, 0);
-        % draw the adc levels
-        \foreach \y in {0, 1, ..., 15} {
-                \draw[thin, gray] (-4, \y) node[left,scale=.7] {\y} -- (30, \y);
-            }
-        % draw the sampling instants
-        \foreach \x in {0, 1, ..., 30} {
-                \draw[densely dotted, lightgray] (\x, -2.2) -- (\x, 19.2);
-            }
-        % draw the signal
-        \draw[thick, yshift=1pt] \signal;
-        % draw the samples
-        \foreach \p in \samples {
-            \fill[red] (\p) circle (1.5pt);
+    % visually center the figure
+    \path (-6, 0) -- (36, 0);
+    % draw the adc levels
+    \foreach \y in {0, 1, ..., 15} {
+            \draw[thin, gray] (-4, \y) node[left,scale=.7] {\y} -- (30, \y);
         }
+    % draw the sampling instants
+    \foreach \x in {0, 1, ..., 30} {
+            \draw[densely dotted, lightgray] (\x, -2.2) -- (\x, 19.2);
+        }
+    % draw the signal
+    \draw[thick, yshift=1pt] \signal;
+    % draw the samples
+    \foreach \p in \samples {
+        \fill[red] (\p) circle (1.5pt);
+    }
 
-        % draw the axis
-        \draw[thick,->] (0, 0) -- (31, 0) node [right] {$t$};
-        \draw[thick,->] (0, -2) -- (0, 20) node [above] {$U\,[V]$};
-        \draw[thick] (0, 0) -- +(-3pt, 0) node[left,fill=white] {0};
-        \draw[thick] (0, 15) -- +(-3pt, 0) node[left,fill=white] {3.3};
-    \end{scope}
-    \begin{scope}[yshift=-8cm]
-        % draw the signal
-        \draw[yshift=1pt, thick, black!10] \signal;
-        % draw the digitized signal
-        \foreach \p in \samples {
-            \draw ($(\p) + (0, .5)$) -- ($(\p) - (0, .5)$);
-            \fill (\p) circle (1.5pt);
-        }
-        % draw the axis
-        \draw[thick,->] (0, 0) -- (31, 0) node [right] {$t$};
-        \draw[thick,->] (0, -2) -- (0, 20) node [above] {$U\,[V]$};
-        \draw[thick] (0, 0) -- +(-3pt, 0) node[left,fill=white] {0};
-        \draw[thick] (0, 15) -- +(-3pt, 0) node[left,fill=white] {3.3};
-    \end{scope}
+    % draw the axis
+    \draw[thick,->] (0, 0) -- (31, 0) node [right] {$t$};
+    \draw[thick,->] (0, -2) -- (0, 20) node [above] {$U\,[V]$};
+    \draw[thick] (0, 0) -- +(-3pt, 0) node[left,fill=white] {0};
+    \draw[thick] (0, 15) -- +(-3pt, 0) node[left,fill=white] {3.3};
+\end{tikzpicture}
+
+\begin{tikzpicture}[x=3mm, y=3mm, >={Stealth[round]}]
+    % draw the signal
+    \draw[yshift=1pt, thick, black!10] \signal;
+    % draw the digitized signal
+    \foreach \p in \samples {
+        \draw ($(\p) + (0, .5)$) -- ($(\p) - (0, .5)$);
+        \fill (\p) circle (1.5pt);
+    }
+    % draw the axis
+    \draw[thick,->] (0, 0) -- (31, 0) node [right] {$t$};
+    \draw[thick,->] (0, -2) -- (0, 20) node [above] {$U\,[V]$};
+    \draw[thick] (0, 0) -- +(-3pt, 0) node[left,fill=white] {0};
+    \draw[thick] (0, 15) -- +(-3pt, 0) node[left,fill=white] {3.3};
 \end{tikzpicture}
 \end{document}
