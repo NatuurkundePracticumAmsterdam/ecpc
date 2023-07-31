@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.24)  3 JUL 2023 13:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.24)  31 JUL 2023 13:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -537,7 +537,7 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count303
 \l__pdf_internal_box=\box74
 )
-No file LED-schakeling.aux.
+(./LED-schakeling.aux)
 \openout1 = `LED-schakeling.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
@@ -554,6 +554,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
+
 (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count304
@@ -597,8 +598,8 @@ Missing character: There is no ) in font nullfont!
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 (./LED-schakeling.aux) ) 
 Here is how much of TeX's memory you used:
- 33861 strings out of 476025
- 896888 string characters out of 5790017
+ 33863 strings out of 476025
+ 896926 string characters out of 5790017
  1861388 words of memory out of 5000000
  54007 multiletter control sequences out of 15000+600000
  515026 words of font info for 41 fonts, out of 8000000 for 9000

@@ -13,7 +13,7 @@
         <link rel="next" href="communicatie/">
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -21,7 +21,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.eebd395e.min.css">
       
       
 
@@ -520,7 +520,7 @@
 
 
 <h1 id="introductie">Introductie<a class="headerlink" href="#introductie" title="Permanent link">&para;</a></h1>
-<p>Welkom bij de cursus <em>experimentautomatisering met Python</em>. Je zou ook kunnen spreken van <em>data-acquisitie met Python</em>. Het doel van deze cursus is om jullie kennis te laten maken met het aansturen en uitlezen van een experiment.</p>
+<p>Welkom bij de <em>Experiment Control with Python Course</em>. Het doel van deze cursus is om jullie kennis te laten maken met het aansturen en uitlezen van een experiment.</p>
 <p>Bij heel eenvoudige experimenten kun je metingen één voor één verrichten en noteren in je labjournaal, bijvoorbeeld bij de trillingstijd van een slinger bij verschillende lengtes. Maar al snel wordt dan ondoenlijk, bijvoorbeeld wanneer je de hele beweging van de slinger wilt volgen met een ultrasoon afstandsdetector. In een gemiddeld lab worden alle experimenten via de computer aangestuurd en uitgelezen. Voor <q>standaard</q> handelingen zoals het bekijken van een sample onder een elektronenmicroscoop of het opnemen van een spectrum van een radioactieve bron kun je de door de fabrikant meegeleverde software gebruiken. Vaak echter is die software óf heel duur terwijl je maar een klein deel van de functionaliteit nodig hebt, of ongeschikt voor jouw doeleinden. En heel vaak voer je géén standaardexperiment uit, maar ben je een nieuw experiment aan het opzetten. In dat laatste geval is er helemaal geen software voor handen. Je zult dus zelf aan de slag moeten.</p>
 <p>We willen je in deze cursus niet alleen maar leren om een snelle meting uit te voeren, maar ook hoe je de code <em>netjes</em> schrijft. Als je een bachelorproject doet, een masterstage, of een promotieonderzoek, dan wil je code schrijven die nog steeds bruikbaar is nadat je je stage hebt afgerond of je proefschrift hebt verdedigd. Ook zullen andere onderzoekers aan dezelfde code werken. Het is dus belangrijk om te zorgen voor een duidelijke structuur waarmee de code overzichtelijk blijft maar ook makkelijk is aan te passen of uit te breiden.</p>
 <p>Jullie gaan aan de slag met een Arduino. De Arduino bevat firmware waarmee het zich gedraagd als een meetinstrument en kan communiceren met de computer volgens een standaardprotocol dat ook geïmplementeerd wordt door onder andere functiegeneratoren en oscilloscopen.</p>
@@ -536,11 +536,11 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">my_func</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 </span></code></pre></div>
 Rechtsboven in het blok staat een <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 21H8V7h11m0-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m-3-4H4a2 2 0 0 0-2 2v14h2V3h12V1Z"/></svg></span>-icoon. Als je daar op klikt dan wordt de hele code gekopieerd naar het klembord en kun je het in Visual Studio Code weer plakken met <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-v">V</kbd></span>.</p>
-<p>Ook zullen we soms systeemopdrachten moeten uitvoeren. We willen bijvoorbeeld de een nieuwe Pythonbibliotheken installeren of onze nieuw-gebouwde applicaties testen. Dit doen we vanuit de <em>terminal</em>. De terminal biedt een zogeheten <em>command-line interface</em> voor het systeem. Dit in tegenstelling tot een grafische interface.</p>
-<p>De prompt ziet er in verschillende besturingssystemen (en <em>shells</em>) anders uit. Met deze notatie kun je als volgt <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>my-script.py</code> met python runnen:
+<p>Ook zullen we soms systeemopdrachten moeten uitvoeren. We willen bijvoorbeeld nieuwe Pythonbibliotheken installeren of onze nieuw-gebouwde applicaties testen. Dit doen we vanuit de <em>terminal</em>. De terminal biedt een zogeheten <em>command-line interface</em> voor het systeem. Dit in tegenstelling tot een grafische interface.</p>
+<p>Met deze notatie laten we zien hoe je <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>my-script.py</code> met python kunt runnen:
 <div class="language-ps1con highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="go">python my-script.py</span>
 </span></code></pre></div>
-Wanneer we ook de uitvoer van commando's laten zien is het handiger om onderscheid te maken tussen het commando en de uitvoer. Als dat nodig is laten we ook de <em>prompt</em> zien:
+Wanneer we ook de uitvoer van commando's laten zien is het handiger om onderscheid te maken tussen het commando en de uitvoer. Als dat nodig is laten we ook de <em>prompt</em><sup id="fnref:prompts"><a class="footnote-ref" href="#fn:prompts">1</a></sup> zien:
 <div class="language-ps1con highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">PS&gt; </span><span class="n">python</span> <span class="p">-</span><span class="n">-version</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="go">Python 3.10.9</span>
 </span></code></pre></div>
@@ -549,7 +549,7 @@ Merk op dat de commando's dan iets donkerder gekleurd zijn dan de prompt en de u
 <p>In de handleiding staan verschillende opgaves. De meeste zijn bedoeld als oefening, maar sommige moet je inleveren voor feedback en een beoordeling.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>In sommige programmeercursussen is het de bedoeling dat je een bepaald algoritme <em>zelf</em> schrijft. Je moet bijvoorbeeld een loop schrijven om een reeks berekeningen uit te voeren en mag dan niet gebruik maken van de NumPy-bibliotheek om dat in één regel te doen. Je kunt je voorstellen dat als je straks in een lab werkt dat je <em>juist</em> gebruik wilt maken van bibliotheken die het leven een stuk gemakkerlijker maken. Trek dus alles uit de kast. Kijk in de \citetitle{python-standard-library} <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, op \citetitle{pypi} <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> of \citetitle{awesome-python} <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
+<p>In sommige programmeercursussen is het de bedoeling dat je een bepaald algoritme <em>zelf</em> schrijft. Je moet bijvoorbeeld een loop schrijven om een reeks berekeningen uit te voeren en mag dan niet gebruik maken van de NumPy-bibliotheek om dat in één regel te doen. Je kunt je voorstellen dat als je straks in een lab werkt dat je <em>juist</em> gebruik wilt maken van bibliotheken die het leven een stuk gemakkerlijker maken. Trek dus alles uit de kast. Kijk in de \citetitle{python-standard-library} <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">2</a></sup>, op \citetitle{pypi} <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">3</a></sup> of \citetitle{awesome-python} <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">4</a></sup>.</p>
 </div>
 <div class="admonition waarschuwing">
 <p class="admonition-title">Waarschuwing</p>
@@ -570,14 +570,17 @@ Merk op dat de commando's dan iets donkerder gekleurd zijn dan de prompt en de u
 <div class="footnote">
 <hr />
 <ol>
+<li id="fn:prompts">
+<p>Er bestaan verschillende prompts, meestal afhankelijk van het besturingssysteem &mdash; al heeft Windows zelf al twee verschillende prompts: de <em>command prompt</em> en de <em>powershell prompt</em>. In MacOS en Linux is de prompt vaak een <code>$</code>-teken. In veel documentatie op internet wordt deze prompt gebruikt.&#160;<a class="footnote-backref" href="#fnref:prompts" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
 <li id="fn:1">
-<p>Python Software Foundation. The python standard library. URL: <a href="https://docs.python.org/3/library/">https://docs.python.org/3/library/</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Python Software Foundation. The python standard library. URL: <a href="https://docs.python.org/3/library/">https://docs.python.org/3/library/</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Python Software Foundation. Python package index. URL: <a href="https://pypi.org">https://pypi.org</a>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Python Software Foundation. Python package index. URL: <a href="https://pypi.org">https://pypi.org</a>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>Vinta Chen. Awesome python. URL: <a href="https://awesome-python.com">https://awesome-python.com</a>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>Vinta Chen. Awesome python. URL: <a href="https://awesome-python.com">https://awesome-python.com</a>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -618,16 +621,22 @@ Merk op dat de commando's dan iets donkerder gekleurd zijn dan de prompt en de u
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["content.code.copy"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["content.code.copy"], "search": "assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="assets/javascripts/bundle.220ee61c.min.js"></script>
       
-        <script src="javascripts/katex.js"></script>
+        
+          <script src="javascripts/katex.js"></script>
+        
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+        
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+        
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+        
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+        
       
     
   </body>

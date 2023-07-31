@@ -15,7 +15,7 @@
         <link rel="next" href="../firmware/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
       
       
 
@@ -573,7 +573,6 @@
 <p>Een ander probleem van <code>pip</code> is dat deze &mdash; tot voor kort &mdash; geen controle deed op de versies van al geïnstalleerde pakketten. Je kon dus packages installeren die nieuwe versies binnenhaalden van andere packages, waarna al <em>eerder</em> geïnstalleerde packages soms stopten met werken.</p>
 <p>Om die reden is <code>conda</code> in het leven geroepen. Conda installeert alleen binary packages, kan naast Python packages ook systeembibliotheken installeren als dat nodig is én doet een uitgebreide controle op alle versies van te installeren en al eerder geïnstalleerde packages zodat alles altijd blijft werken. Nadeel is dat die controle nogal lang kan duren als je al veel geïnstalleerd hebt. Omdat je met <code>conda</code> dus <em>wel</em> heel makkelijk uitgebreide wetenschappelijke packages kon installeren met een mix van Python-, C-, of zelfs Fortrancode is <code>conda</code> (en Anaconda, de distributie) heel populair geworden in de wetenschappelijke wereld. Om die reden gebruiken we in deze cursus ook Anaconda / <code>conda</code>.</p>
 <h3 id="conda-environments">Conda environments<a class="headerlink" href="#conda-environments" title="Permanent link">&para;</a></h3>
-<p>\label{sec:conda-envs}</p>
 <p>Er zijn verschillende tools voor het aanmaken van environments voor Python. Allemaal hebben ze hun voor- en nadelen. Langzamerhand blijven de populairste over. De <q>officiële</q> is <code class="language-py highlight"><span class="n">venv</span></code>, maar op dit moment niet de meest populaire. Binnen een groot deel van de wetenschappelijke gemeenschap is <code>conda</code> de standaardkeuze. Het voordeel van <code>conda</code> ten opzichte van veel andere tools is dat je verschillende environments kunt maken met verschillende versies van Python. Ideaal om te testen of je code ook werkt met de allernieuwste Pythonversie of juist met wat oudere versies.</p>
 <p>Je moet je realiseren dat het aanmaken (en weggooien) van een environment heel makkelijk is. Doe dat regelmatig zodat je scherp houdt welke packages je nu echt nodig hebt voor je analyse of voor de software die je schrijft. Hieronder geven we een overzicht van de meest gebruikte commando's om met conda environments te werken.</p>
 <p>\begin{info}
@@ -637,7 +636,7 @@ Je installeert <code>pipx</code> met:
 </span></code></pre></div>
 Herstart je terminal en test of het commando <code>pipx</code> werkt. Zo niet, dan zul je volledig uit moeten loggen en weer in moeten loggen om de shellomgeving opnieuw te laden.</p>
 <p>\subsubsection{Black}</p>
-<p>Eén van de tools die problemen kunnen geven wanneer je van environment wisselt is <code>black</code>. Misschien heb je bij het aanmaken van de environment voor deze cursus in \opdref{opd:condaenv} gemerkt dat Visual Studio Code soms klaagt dat <code>black</code> niet geïnstalleerd is. Het is lastig als je black in ieder environment moet installeren én het is lastig dat je schone environment al snel <q>vervuild</q> raakt met een tool en alle bijbehorende dependencies die niets te maken hebben met jouw project. Daarom installeren we <code>black</code> graag via <code>pipx</code>.</p>
+<p>Eén van de tools die problemen kunnen geven wanneer je van environment wisselt is <code>black</code>. Misschien heb je bij het aanmaken van de environment voor deze cursus in <a href="../communicatie/#opd:condaenv">opdracht <em>Environment aanmaken</em></a> gemerkt dat Visual Studio Code soms klaagt dat <code>black</code> niet geïnstalleerd is. Het is lastig als je black in ieder environment moet installeren én het is lastig dat je schone environment al snel <q>vervuild</q> raakt met een tool en alle bijbehorende dependencies die niets te maken hebben met jouw project. Daarom installeren we <code>black</code> graag via <code>pipx</code>.</p>
 <div class="admonition question">
 <p class="admonition-title">minimaal</p>
 <p>Voer het volgende uit:</p>
@@ -689,16 +688,22 @@ Herstart je terminal en test of het commando <code>pipx</code> werkt. Zo niet, d
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
       
-        <script src="../javascripts/katex.js"></script>
+        
+          <script src="../javascripts/katex.js"></script>
+        
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+        
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+        
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+        
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+        
       
     
   </body>

@@ -15,7 +15,7 @@
         <link rel="next" href="../mvc/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
       
       
 
@@ -284,7 +284,7 @@
       
         <li class="md-nav__item">
   <a href="#de-iu-karakteristiek-van-een-led" class="md-nav__link">
-    De $I,U$-karakteristiek van een LED
+    De I,U-karakteristiek van een LED
   </a>
   
 </li>
@@ -610,7 +610,7 @@
       
         <li class="md-nav__item">
   <a href="#de-iu-karakteristiek-van-een-led" class="md-nav__link">
-    De $I,U$-karakteristiek van een LED
+    De I,U-karakteristiek van een LED
   </a>
   
 </li>
@@ -670,41 +670,32 @@
 <li>Je schrijft een <em>proprietary</em><sup id="fnref:proprietary"><a class="footnote-ref" href="#fn:proprietary">2</a></sup> protocol en een bijbehorende bibliotheek die software-ontwikke-laars moeten gebruiken.<sup id="fnref:drivers"><a class="footnote-ref" href="#fn:drivers">3</a></sup> Voorbeelden zijn instrumenten van <em>National Instruments</em> <sup id="fnref:5"><a class="footnote-ref" href="#fn:5">15</a></sup> of de <em>PicoScope</em> digitale oscilloscopen<sup id="fnref:picoscope"><a class="footnote-ref" href="#fn:picoscope">4</a></sup> <sup id="fnref:6"><a class="footnote-ref" href="#fn:6">16</a></sup>.</li>
 </ol>
 <p>De VISA-standaard is veelgebruikt, maar helaas komen <em>proprietary</em> protocollen veel voor. Dat is jammer, want in het laatste geval moet je het doen met de software die geleverd wordt door de fabrikant. Als die jouw besturingssysteem of favoriete programmeertaal niet ondersteunt heb je simpelweg pech.</p>
-<p>Wij gaan gebruik maken van de VISA-standaard. VISA staat voor <em>Virtual Instrument Software Architecture</em> en is héél breed en definieert protocollen om te communiceren via allerlei verouderde computerpoorten en kabels (\figref{fig:old_ports}).</p>
-<figure>
-<p><img alt="Poorten op oscilloscoop" src="../figures/Digitaloszilloskop_Schnittstellen_IMGP1974_WP.jpg" /></p>
-<figcaption>
-<p>Een voorbeeld van verschillende poorten zoals RS232 en GPIB aan de achterkant van een Tektronix TDS210 oscilloscoop. Bron: <a href="https://commons.wikimedia.org/wiki/File:Digitaloszilloskop_Schnittstellen_IMGP1974_WP.jpg">Wikimedia Commons</a>.</p>
-</figcaption>
-</figure>
-<p>\label{fig:old_ports}
-Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderdeel van VISA is de SCPI standaard <sup id="fnref:7"><a class="footnote-ref" href="#fn:7">17</a></sup>, wat staat voor <em>Standard Commands for Programmable Instruments</em>. Dit onderdeel definieert een bepaald formaat voor commando's die we naar ons instrument zullen sturen. De lijst met commando's die door de firmware van onze Arduino worden ondersteund is gegeven in \appref{ch:firmware}.</p>
+<p>Wij gaan gebruik maken van de VISA-standaard. VISA staat voor <em>Virtual Instrument Software Architecture</em> en is héél breed en definieert protocollen om te communiceren via allerlei verouderde computerpoorten en kabels. Hieronder zie je een voorbeeld van verschillende poorten zoals RS232 en GPIB aan de achterkant van een Tektronix TDS210 oscilloscoop.</p>
+<p><img alt="Poorten op oscilloscoop" src="../figures/Digitaloszilloskop_Schnittstellen_IMGP1974_WP.jpg" />
+Bron: <a href="https://commons.wikimedia.org/wiki/File:Digitaloszilloskop_Schnittstellen_IMGP1974_WP.jpg">Wikimedia Commons</a>.</p>
+<p>Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderdeel van VISA is de SCPI standaard <sup id="fnref:7"><a class="footnote-ref" href="#fn:7">17</a></sup>, wat staat voor <em>Standard Commands for Programmable Instruments</em>. Dit onderdeel definieert een bepaald formaat voor commando's die we naar ons instrument zullen sturen. De lijst met commando's die door de firmware van onze Arduino worden ondersteund is gegeven in de <a href="../firmware/">appendix</a>.</p>
 <h2 id="eerste-stappen">Eerste stappen<a class="headerlink" href="#eerste-stappen" title="Permanent link">&para;</a></h2>
 <div class="admonition waarschuwing">
 <p class="admonition-title">Waarschuwing</p>
-<p>Let op dat je de weerstand van 220 Ω gebruikt! Een te grote weerstand zorgt ervoor dat je nauwelijks iets kunt meten, maar een te kleine weerstand zorgt ervoor dat de stroomsterkte door de Arduino te groot wordt. In dat geval zul je de Arduino onherstelbaar beschadigen. De kleurcodes voor weerstanden vind je in \appref{ch:kleurcodes}.</p>
+<p>Let op dat je de weerstand van 220 Ω gebruikt! Een te grote weerstand zorgt ervoor dat je nauwelijks iets kunt meten, maar een te kleine weerstand zorgt ervoor dat de stroomsterkte door de Arduino te groot wordt. In dat geval zul je de Arduino onherstelbaar beschadigen. De kleurcodes voor weerstanden vind je in de <a href="../kleurcodes/">appendix</a>.</p>
 </div>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Schakeling bouwen</p>
-<p>Als je geen kant-en-klare schakeling bij je werkplek hebt liggen, druk de Arduino in het breadboard en bouw een schakeling met een LED op de manier die is weergegeven in \figref{fig:arduino-LED-breadboard}. De weerstand heeft een waarde van 220 &Omega;. De LED heeft aan één zijde een platte kant in de dikkere ring onderaan de plastic behuizing (goed kijken!); schakel die aan de kant van de aarde. Als de pootjes van de LED niet afgeknipt zijn, dan zit het korte pootje aan de platte zijde van de LED. Het heeft geen zin om naar het plaatje te kijken hoe het er ín de LED uitziet &mdash; dat verschilt per type LED.</p>
+<p>Als je geen kant-en-klare schakeling bij je werkplek hebt liggen, druk de Arduino in het breadboard en bouw een schakeling met een LED op de manier die is weergegeven in de figuur hieronder. De weerstand heeft een waarde van 220 &Omega;. De LED heeft aan één zijde een platte kant in de dikkere ring onderaan de plastic behuizing (goed kijken!); schakel die aan de kant van de aarde (de zwarte draad), dus aan de kant van de weerstand en <em>niet</em> aan de kant van de rode draad naar de Arduino. Als de pootjes van de LED niet afgeknipt zijn, dan zit het korte pootje aan de platte zijde van de LED. Het heeft geen zin om naar het plaatje te kijken hoe het er ín de LED uitziet &mdash; dat verschilt per type LED.</p>
+<p><img alt="Arduinoschakeling" src="../figures/I%2CU-curve-LED_bb.svg" /></p>
 </div>
-<figure>
-<p><img align="left" alt="Arduinoschakeling" src="../figures/I%2CU-curve-LED_bb.svg" />
-  <img align="right" alt="LED schakelschema" src="../figures/LED-schakeling.svg" />
-  </p>
-<figcaption style="clear:both">In de linkerfiguur is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld met een LED en een weerstand van 220 &Omega;. In een breadboard zijn in iedere rij alle kolommen A t/m E met elkaar verbonden (zo ook kolommen F t/m J). Draadjes die naast elkaar zijn ingeprikt zijn dus met elkaar verbonden. Zo zie je in de figuur dat het rode draadje een verbinding maakt tussen pin A0 van de Arduino en de bovenste pin van de LED. De onderste pin van de LED is verbonden met de weerstand. De kleurcodes voor weerstanden vind je in \appref{ch:kleurcodes}. De kleur van de draden is niet belangrijk. Kies draden met een handige lengte. De platte zijde in de ring van de LED wordt richting aarde geschakeld. De Arduino kan met deze schakeling een variabele spanning aanbrengen over de LED met weerstand, en de spanning meten over alleen de weerstand. In de rechterfiguur is het equivalente circuit weergegeven zoals je dat zou bouwen met twee losse voltmeters. De cijfers 0, 1 en 2 bij $U_0$, $U_1$ en $U_2$ zijn de _kanalen_ waarmee de Arduino spanningen kan sturen of uitlezen.}
-  \label{fig:arduino-LED-breadboard}
-  </caption>
-</figcaption>
-</figure>
+<p>In de figuur hierboven is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld met een LED en een weerstand van 220 &Omega;. In een breadboard zijn in iedere rij alle kolommen A t/m E met elkaar verbonden (zo ook kolommen F t/m J). Draadjes die naast elkaar zijn geprikt zijn dus met elkaar verbonden. Zo zie je in de figuur &mdash; als je inzoomt &mdash; dat het rode draadje een verbinding maakt tussen pin A0 van de Arduino en de bovenste pin van de LED. De onderste pin van de LED is verbonden met de weerstand. De kleurcodes voor weerstanden vind je in de <a href="../kleurcodes/">appendix</a>. De kleur van de draden is niet belangrijk. Kies altijd draden met een handige lengte. De platte zijde in de ring van de LED wordt richting aarde geschakeld. De Arduino kan met deze schakeling een variabele spanning aanbrengen over de LED met weerstand, en de spanning meten over alleen de weerstand. </p>
+<p>Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hieronder weergegeven. De cijfers 0, 1 en 2 bij $U_0$, $U_1$ en $U_2$ zijn de <em>kanalen</em> waarmee de Arduino spanningen kan sturen of uitlezen. Dat wordt zometeen belangrijk.</p>
+<div id="fig:LED-schakeling"></div>
+<p><img alt="LED schakelschema" src="../figures/LED-schakeling.svg" /></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Om met Python via het VISA-protocol te kunnen communiceren met apparaten hebben we specifieke packages nodig. Die gaan we installeren in een <em>conda environment</em>. Voor meer informatie over conda environments zie \secref{sec:conda-envs}.</p>
+<p>Om met Python via het VISA-protocol te kunnen communiceren met apparaten hebben we specifieke packages nodig. Die gaan we installeren in een <em>conda environment</em>. Voor meer informatie over conda environments zie <a href="../software-tools/#conda-environments">Conda environments</a>.</p>
 </div>
+<div id="opd:condaenv"></div>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Environment aanmaken</p>
-<p>\label{opd:condaenv}
-Omdat meerdere studenten gedurende de week achter dezelfde computer werken en environments aan gaan maken kun je het beste je initialen toevoegen aan de naam van je environment. Zo zit niemand elkaar in de weg. In dit voorbeeld gebruiken we <q>IK</q> als initialen. Maak de environment en installeer de juiste packages door een terminal te openen<sup id="fnref:terminal"><a class="footnote-ref" href="#fn:terminal">5</a></sup> en in te typen (<em>zonder</em> het dollarteken aan het begin):</p>
+<p>Omdat meerdere studenten gedurende de week achter dezelfde computer werken en environments aan gaan maken kun je het beste je initialen toevoegen aan de naam van je environment. Zo zit niemand elkaar in de weg. In dit voorbeeld gebruiken we <q>IK</q> als initialen. Maak de environment en installeer de juiste packages door een terminal te openen<sup id="fnref:terminal"><a class="footnote-ref" href="#fn:terminal">5</a></sup> en in te typen (<em>zonder</em> het dollarteken aan het begin):</p>
 <p><div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">conda</span> <span class="n">create</span> <span class="n">-n</span> <span class="n">pythondaq</span> <span class="n">-c</span> <span class="n">conda-forge</span> <span class="n">python</span> <span class="n">pyvisa-py</span>
 </span></code></pre></div>
 Om de conda environment daadwerkelijk te gebruiken moet je die altijd eerst <em>activeren</em> met:
@@ -749,7 +740,7 @@ Om de conda environment daadwerkelijk te gebruiken moet je die altijd eerst <em>
 <p class="admonition-title">Pyvisa error</p>
 <p>Probeer zelf ook de commando's <code>list</code>, <code>open</code>, en de <code>query</code> uit. Krijg je hetzelfde resultaat?</p>
 </div>
-<p>Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de documentatie van de firmware (\appref{ch:firmware}) dan zie je dat er bepaalde <em>terminator characters</em> nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een <q>enter</q> aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een <em>carriage return</em> (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een <em>line feed</em> (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van <em>carriage return + line feed</em> (CRLF). Maar MacOS/Linux/Unix gebruiken enkel een <em>line feed</em> (LF), want hoeveel meer heb je nodig? Af en toe is dat lastig, vooral wanneer er elektronica in het spel is want dan willen de regeleindes voor schrijven en lezen nog wel eens verschillend zijn.<sup id="fnref:regeleindes"><a class="footnote-ref" href="#fn:regeleindes">6</a></sup> We gaan nu het gebruik van de karakters instellen:</p>
+<p>Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de <a href="../firmware/">documentatie van de firmware</a> dan zie je dat er bepaalde <em>terminator characters</em> nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een <q>enter</q> aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een <em>carriage return</em> (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een <em>line feed</em> (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van <em>carriage return + line feed</em> (CRLF). Maar MacOS/Linux/Unix gebruiken enkel een <em>line feed</em> (LF), want hoeveel meer heb je nodig? Af en toe is dat lastig, vooral wanneer er elektronica in het spel is want dan willen de regeleindes voor schrijven en lezen nog wel eens verschillend zijn.<sup id="fnref:regeleindes"><a class="footnote-ref" href="#fn:regeleindes">6</a></sup> We gaan nu het gebruik van de karakters instellen:</p>
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>(open) termchar
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Termchar read: None write: CRLF
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>(open) termchar CRLF LF
@@ -806,7 +797,7 @@ Het volledige script &mdash; met een paar <code class="language-py highlight"><s
 </span></code></pre></div></p>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Pyvisa in pythonscript</p>
-<p>Maak in een geschikte map een bestand <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>test_arduino.py</code> en kopieer daarin bovenstaande code. Selecteer vervolgens in Visual Studio Code je conda environment zodat je het script ook daadwerkelijk kunt runnen. Hoe je dat doet lees je aan het eind van \secref{sec:conda-envs}. Sluit alle terminals.</p>
+<p>Maak in een geschikte map een bestand <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>test_arduino.py</code> en kopieer daarin bovenstaande code. Selecteer vervolgens in Visual Studio Code je conda environment zodat je het script ook daadwerkelijk kunt runnen. Hoe je dat doet lees je aan het eind van <a href="../software-tools/#conda-environments">Conda environments</a>. Sluit alle terminals.</p>
 </div>
 <p>Draaien we het script, dan zien we, afhankelijk van het systeem en het aantal apparaten dat verbonden is:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>(&#39;ASRL3::INSTR&#39;,)
@@ -829,10 +820,10 @@ Als je (nog) geen idee hebt wat dat inhoudt, lees dan de tutorial <em>Python 3's
 <p class="admonition-title">LED laten branden</p>
 <p>Schrijf een script dat de spanning over de LED laat oplopen van nul tot de maximale waarde. Wat gebeurt er als je de spanning laat oplopen tot twee keer die maximale waarde?</p>
 </div>
+<div id="opd:knipperled"></div>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">KnipperLED</p>
-<p>\label{opd:knipperled}
-Je kunt de LED ook andere dingen laten doen. Schrijf voor iedere opdracht een apart script.</p>
+<p>Je kunt de LED ook andere dingen laten doen. Schrijf voor iedere opdracht een apart script.</p>
 <ol>
 <li>Laat de LED in een regelmatig tempo knipperen.</li>
 <li>Maak een <em>breathing light</em> &mdash; een lamp die langzaam aan en uit gaat gevolgd door een pauze in het tempo dat iemand in- en uitademt.</li>
@@ -843,12 +834,11 @@ Je kunt de LED ook andere dingen laten doen. Schrijf voor iedere opdracht een ap
 <p>We hebben tot nu toe gewerkt met getallen van 0-1023 sturen en ontvangen. Wat is precies de betekenis van deze getallen? Daarvoor moeten we dieper ingaan op hoe de Arduino &mdash; en computers in het algemeen &mdash; getallen omzet in een spanning en hoe spanningen door de Arduino worden gemeten.</p>
 <p>Een <em>analoog</em> signaal is continu in zowel de tijd als de waardes die het signaal aan kan nemen. Een <em>digitaal</em> signaal is echter discreet: op vaste tijdstippen is er een waarde bekend en het signaal kan maar een beperkt aantal verschillende waardes aannemen. Een vallende bal is een continu proces. De bal heeft op elk willekeurig moment een positie. Je zou de positie kunnen meten op het tijdstip $t$ = 2.0 s, maar ook op $t$ = 2.1, 2.01, 2.001 of 2.0001 s. Ook kun je de positie net zo nauwkeurig bepalen als je wilt.<sup id="fnref:nauwkeurigheid"><a class="footnote-ref" href="#fn:nauwkeurigheid">8</a></sup> De natuur is analoog,<sup id="fnref:analoog"><a class="footnote-ref" href="#fn:analoog">9</a></sup> maar moderne computers zijn digitaal en dus discreet. Als je een foto op je computer te ver inzoomt zie je blokjes. Je kunt verder inzoomen, maar je gaat niet meer detail zien. De hoeveelheid informatie is beperkt.</p>
 <p><em>Bemonsteren</em> of <em>sampling</em> is het proces waarbij een analoog signaal wordt <q>uitgelezen</q> en wordt omgezet in een digitaal signaal. Zo wordt een audiosignaal al sinds eind jaren '70 van de vorige eeuw gewoonlijk bemonsterd met een frequentie van 44.1 kHz en een resolutie van 16 bits. Dus 44100 keer per seconde wordt er gekeken wat de waarde van het geluidssignaal is en dat wordt opgeslagen als een getal van 16 bits en kan dus $2^{16} = 65536$ verschillende waardes aannemen. Dit is nauwkeuriger dan het menselijk gehoor kan onderscheiden.</p>
-<p>De conversie van een analoog signaal naar een digitaal signaal (en andersom!) is de reden dat de spanningen die we kiezen en de metingen die we doen niet alle mogelijke waardes kunnen aannemen, maar <q>stapjes</q> maken. Zie \figref{fig:adc-conversie}.</p>
+<p>De conversie van een analoog signaal naar een digitaal signaal (en andersom!) is de reden dat de spanningen die we kiezen en de metingen die we doen niet alle mogelijke waardes kunnen aannemen, maar <q>stapjes</q> maken.</p>
 <p><img alt="Omzetting van analoog naar digitaal signaal" src="../figures/adc-process.svg" /></p>
-<p>\caption{Bovenste figuur: de omzetting van een analoog signaal naar een digitaal signaal. De ADC (<em>analog-to-digital converter</em>) <em>in dit voorbeeld</em> ondersteunt 16 niveau's (4-bits) in een bereik van 0 V tot 3.3 V (groen gearceerd). Lagere of hogere spanningen kunnen niet gemeten worden (rood gearceerd). Op gezette tijden wordt een meting gedaan (rode punten) waarbij de uitkomst van de meting het discrete niveau is dat het dichtst bij de analoge waarde ligt. Als het signaal te groot wordt kan de ADC als het ware <q>vastlopen</q> op het hoogste niveau. In de rechterflank is waar te nemen dat als het analoge signaal langzaam verandert dat het digitale signaal duidelijk sprongsgewijs verandert. Hoe meer niveau's een ADC heeft en hoe vaker het signaal bemonsterd kan worden, hoe nauwkeuriger het digitale signaal het analoge signaal benaderd. Onderste figuur: de digitale metingen die je programma krijgt van de ADC met de onzekerheid (halve afstand tot het volgende niveau). In lichtgrijs zie je het oorspronkelijke analoge signaal. De meting benadert het signaal dus maar gedeeltelijk.}
-  \label{fig:adc-conversie}
-\end{figure}
-De Arduino die we gebruiken heeft een bereik van 0 V tot 3.3 V en een resolutie van 10 bits, dus $2^{10} = 1024$ stapjes. Als je een experiment ontwerpt is het dus van belang te weten dat je nooit kunt meten met een nauwkeurigheid kleiner dan de stapgrootte. Voor ons is deze resolutie prima.</p>
+<p>De omzetting van een analoog signaal naar een digitaal signaal gebeurt als volgt. De ADC (<em>analog-to-digital converter</em>) <em>in dit voorbeeld</em> ondersteunt 16 niveau's (4-bits) in een bereik van 0 V tot 3.3 V (groen gearceerd). Lagere of hogere spanningen kunnen niet gemeten worden (rood gearceerd). Op gezette tijden wordt een meting gedaan (rode punten) waarbij de uitkomst van de meting het discrete niveau is dat het dichtst bij de analoge waarde ligt. Als het signaal te groot wordt kan de ADC als het ware <q>vastlopen</q> op het hoogste niveau. In de rechterflank is waar te nemen dat als het analoge signaal langzaam verandert dat het digitale signaal duidelijk sprongsgewijs verandert. Hoe meer niveau's een ADC heeft en hoe vaker het signaal bemonsterd kan worden, hoe nauwkeuriger het digitale signaal het analoge signaal benadert.</p>
+<p><img alt="Het digitale signaal" src="../figures/adc-process_p2.svg" /></p>
+<p>De digitale metingen die je programma krijgt van de ADC is hierboven weergegeven. De onzekerheid is gelijk aan de halve afstand tot het volgende niveau. In lichtgrijs zie je het oorspronkelijke analoge signaal. De meting benadert het signaal dus maar gedeeltelijk. De Arduino die we gebruiken heeft een bereik van 0 V tot 3.3 V en &mdash; in tegenstelling tot het voorbeeld hierboven &mdash; een resolutie van 10 bits, dus $2^{10} = 1024$ stapjes. Als je een experiment ontwerpt is het dus van belang te weten dat je nooit kunt meten met een nauwkeurigheid kleiner dan de stapgrootte. Voor ons is deze resolutie prima.</p>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Volt naar ADC</p>
 <p>We kunnen alleen maar de getallen 0 t/m 1023 naar de Arduino sturen. Ook krijgen we alleen maar dat bereik terug.</p>
@@ -862,7 +852,7 @@ De Arduino die we gebruiken heeft een bereik van 0 V tot 3.3 V en een resolutie 
 <h3 id="binair-talstelsel">Binair Talstelsel<a class="headerlink" href="#binair-talstelsel" title="Permanent link">&para;</a></h3>
 <details class="meer-leren">
 <summary>Meer leren</summary>
-<p>Wij schrijven onze getallen op in een <em>decimaal</em> (tientallig) talstelsel. We hebben tien verschillende cijfers (0 t/m 9) en plakken bij grotere getallen de tientallen, honderdtallen, etc. aan elkaar. Computers werken met <em>binaire</em> getallen &mdash; een tweetallig talstelsel. Dat betekent dat computers het getal 0 en 1 zonder problemen kunnen opslaan, maar bij het getal 2 wordt het al lastig. Zij moeten dan al met <q>tientallen</q> werken en schrijven het getal 2 op als 10. Het getal 3 is dan 11, 4 is 100, 5 is 101, enz. Zie onderstaande tabel voor nog een paar voorbeelden. De cijfers noem je <em>bits</em> en het getal 5 (101 binair) bestaat dus uit 3 bits. Als je maar 3 bits tot je beschikking hebt kun je $2^3 = 8$ verschillende getallen opslaan, dus 0 t/m 7. Een groepje van 8 bits (256 mogelijkheden) bleek een handige hoeveelheid en kun je op computers individueel opslaan. Zo'n groepje noem je een <em>byte</em>. Bestanden bestaan uit bytes, kilobytes (duizend bytes), megabytes (miljoen bytes) of gigabytes (miljard bytes). Wanneer je een signaal nauwkeurig wilt verwerken met een computer dan is het belangrijk om zoveel mogelijk bits tot je beschikking te hebben. Hoe meer bits, hoe meer verschillende waardes je kunt opslaan en hoe nauwkeuriger je signaal wordt bewaard.</p>
+<p>Wij schrijven onze getallen op in een <em>decimaal</em> (tientallig) talstelsel. We hebben tien verschillende cijfers (0 t/m 9) en plakken bij grotere getallen de tientallen, honderdtallen, etc. aan elkaar. Computers werken met <em>binaire</em> getallen &mdash; een tweetallig talstelsel. Dat betekent dat computers het getal 0 en 1 zonder problemen kunnen opslaan, maar bij het getal 2 wordt het al lastig. Zij moeten dan al met <q>tientallen</q> werken en schrijven het getal 2 op als 10. Het getal 3 is dan 11. Voor 4 zijn de cijfers alweer op en moeten we overschakelen naar <q>honderdtallen</q>, dus 4 is 100, 5 is 101, enz. Zie onderstaande tabel voor nog een paar voorbeelden. De cijfers noem je <em>bits</em> en het getal 5 (101 binair) bestaat dus uit 3 bits. Als je maar 3 bits tot je beschikking hebt kun je $2^3 = 8$ verschillende getallen opslaan, dus 0 t/m 7. Een groepje van 8 bits (256 mogelijkheden) bleek een handige hoeveelheid en kun je op computers individueel opslaan. Zo'n groepje noem je een <em>byte</em>. Bestanden bestaan uit bytes, kilobytes (duizend bytes), megabytes (miljoen bytes) of gigabytes (miljard bytes). Wanneer je een signaal nauwkeurig wilt verwerken met een computer dan is het belangrijk om zoveel mogelijk bits tot je beschikking te hebben. Hoe meer bits, hoe meer verschillende waardes je kunt opslaan en hoe nauwkeuriger je signaal wordt bewaard.</p>
 <p>Voorbeelden van het binair talstelsel:</p>
 <table>
 <thead>
@@ -923,17 +913,16 @@ De Arduino die we gebruiken heeft een bereik van 0 V tot 3.3 V en een resolutie 
 </tbody>
 </table>
 </details>
-<h2 id="de-iu-karakteristiek-van-een-led">De $I,U$-karakteristiek van een LED<a class="headerlink" href="#de-iu-karakteristiek-van-een-led" title="Permanent link">&para;</a></h2>
-<p>Je hebt op de middelbare school ongetwijfeld de $I,U$-karakteristiek van een ohmse weerstand onderzocht. Je neemt een <q>gewone</q> weerstand en zet daar een steeds hogere spanning op. Je meet de stroomsterkte en ook die neemt toe &mdash; rechtevenredig zelfs! Door $I$ tegen $U$ uit te zetten in een grafiek en de beste lijn door je metingen te trekken vind je met de richtingscoëfficiënt de weerstand $R$ (\figref{fig:ohmsestroom}). Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich <em>heel</em> anders. Met de schakeling die we hebben gebouwd kunnen we de $I,U$-karakteristiek van een LED bepalen. Voor meer informatie over de fysica achter diodes, zie \appref{ch:diode}.</p>
+<h2 id="de-iu-karakteristiek-van-een-led">De I,U-karakteristiek van een LED<a class="headerlink" href="#de-iu-karakteristiek-van-een-led" title="Permanent link">&para;</a></h2>
+<p>Je hebt op de middelbare school ongetwijfeld de $I,U$-karakteristiek van een ohmse weerstand onderzocht. Je neemt een <q>gewone</q> weerstand en zet daar een steeds hogere spanning op. Je meet de stroomsterkte en ook die neemt toe &mdash; rechtevenredig zelfs! Door $I$ tegen $U$ uit te zetten in een grafiek en de beste lijn door je metingen te trekken vind je met de richtingscoëfficiënt de inverse van de weerstand $R^{-1}$:</p>
 <p><img alt="I,U-curve van een weerstand" src="../figures/I%2CU-curve-resistor.svg" /></p>
-<p>\caption{De stroom door een weerstand ten gevolge van de spanning over de weerstand. De richtingscoëfficiënt komt overeen met de inverse van de weerstand $R^{-1}$.}
-  \label{fig:ohmsestroom}</p>
+<p>Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich <em>heel</em> anders. Met de schakeling die we hebben gebouwd kunnen we de $I,U$-karakteristiek van een LED bepalen. Voor meer informatie over de fysica achter diodes, zie de <a href="../diodes/">appendix</a>.</p>
 <div class="admonition opdracht-inlever">
-<p class="admonition-title">inleveren: Pythondaq: start script</p>
+<p class="admonition-title">Pythondaq: start script</p>
 <p>Voer de volgende opdrachten uit:</p>
 <ol>
 <li>Schrijf een script waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Kijk wat er gebeurt met de LED.</li>
-<li>Overleg met elkaar welke spanningen je precies meet met de verschillende kanalen (<em>channels</em>) die op de Arduino zijn aangesloten. Kijk nog eens goed naar \figref{fig:arduino-LED-breadboard}.</li>
+<li>Overleg met elkaar welke spanningen je precies meet met de verschillende kanalen (<em>channels</em>) die op de Arduino zijn aangesloten. Kijk nog eens goed naar <a href="#fig:LED-schakeling">de figuur van de schakeling</a>.</li>
 <li>Lees &mdash; tijdens het laten oplopen van de spanning over de LED &mdash; de spanning over de <em>weerstand</em> uit. Je zult daarvoor het antwoord van de Arduino (een <em>string</em>) om moeten zetten naar een <em>integer</em> en print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand. Voorbeeld van uitvoer:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>On LED:  750 (2.4 V)    Over resistor:  189 (0.6 V)
 </span></code></pre></div>
@@ -947,16 +936,16 @@ Je hebt nu feitelijk je eerste metingen verricht!</li>
 <div class="language-ps1con highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="go">conda install -c conda-forge matplotlib</span>
 </span></code></pre></div></p>
 </div>
+<div id="opd:quickndirty-meting"></div>
 <div class="admonition opdracht-inlever">
-<p class="admonition-title">inleveren: Pythondaq: Quick 'n dirty meting</p>
-<p>\label{opd:quickndirty-meting}
-Bereken in je script de spanning <em>over</em> en de stroomsterkte <em>door</em> de LED en bewaar deze metingen in, bijvoorbeeld, een lijst. Sluit je meting netjes af (zorg dat de LED niet blijft branden) en maak dan een grafiek van je metingen. Bekijk elkaars resultaten &mdash; ook van andere groepjes &mdash; en denk na of je meting fysisch helemaal correct is.</p>
+<p class="admonition-title">Pythondaq: Quick 'n dirty meting</p>
+<p>Bereken in je script de spanning <em>over</em> en de stroomsterkte <em>door</em> de LED en bewaar deze metingen in, bijvoorbeeld, een lijst. Sluit je meting netjes af (zorg dat de LED niet blijft branden) en maak dan een grafiek van je metingen. Bekijk elkaars resultaten &mdash; ook van andere groepjes &mdash; en denk na of je meting fysisch helemaal correct is.</p>
 </div>
 <h2 id="bewaren-van-meetgegevens">Bewaren van meetgegevens<a class="headerlink" href="#bewaren-van-meetgegevens" title="Permanent link">&para;</a></h2>
 <p>Het is fijn dat je script de meetgegevens op het scherm kan printen en een grafiek maakt, maar als je echt bezig bent met een onderzoek is een grafiek niet genoeg. Je wilt dat de data bewaard blijft zodat je die later nog kunt gebruiken voor nieuwe analyses. Ook is het zo dat data steeds vaker beschikbaar moet zijn voor andere wetenschappers die jouw onderzoek willen controleren. Steeds meer wetenschappelijke tijdschriften vragen auteurs niet alleen hun grafieken, maar ook hun onderliggende data beschikbaar te maken en te publiceren. Op die manier is het veel moeilijker om fraude te plegen; iets dat in de wetenschap helaas soms nog voor komt.</p>
 <p>Er zijn ontzettend veel verschillende bestandsformaten waarin je data kunt bewaren. Er zijn grofweg twee categoriën: tekstbestanden en binaire bestanden. De eerste zijn te lezen met ieder willekeurig programma. Sommige zijn heel eenvoudig (b.v. CSV), andere kunnen complexe datastructuren en extra informatie opslaan (b.v. JSON, XML). Binaire bestanden bevatten alle mogelijke karakters &mdash; niet alleen letters, cijfers, leestekens, maar ook <em>stuurcodes</em> zoals <em>carriage return</em> en de <em>line feed</em>, oorspronkelijk opdrachten voor bijvoorbeeld printers. Ze hebben vaak een strak formaat: zoveel bytes voor dit stukje informatie, zoveel bytes voor dat stukje, enzovoort. Met binaire karakters hoef je je dus niet te beperken tot letters, cijfers en leestekens en kunnen de bestanden wat kleiner zijn. Ook zorgen de vaste afspraken ervoor dat de lees- en schrijfroutines eenvoudiger kunnen zijn. Getallen worden in het interne geheugen van de computers ook binair opgeslagen dus het is vaak copy/paste vanuit of naar het bestand. Wel leiden kleine fouten vaak tot onbruikbare bestanden. Voor grote databestanden wordt vrijwel altijd gekozen voor een binair formaat, of het nou gaat om audio/video, databases of klimaatmodellen. Het uitwisselen van kleinere bestanden gebeurt echter vaak in een tekstformaat.</p>
 <h3 id="comma-separated-values-csv">Comma-separated values (CSV)<a class="headerlink" href="#comma-separated-values-csv" title="Permanent link">&para;</a></h3>
-<p>Het CSV-bestand is het werkpaard van de wetenschap. Als je data van het ene in het andere programma moet krijgen of je download wetenschappelijke gegevens van een website dan is het CSV-bestand vaak de beste keuze. Het formaat bestaat uit kolommen met getallen, gescheiden door een komma. De eerste regels kunnen commentaar bevatten (uitleg over de kolommen, bijvoorbeeld) en de namen van de kolommen bevatten. Een voorbeeld voor de afstand die een vallend voorwerp aflegt in 10 s, gegeven door $s = \frac{1}{2} g t^2$, is weergegeven in \figref{fig:csv-bestand}.</p>
+<p>Het CSV-bestand is het werkpaard van de wetenschap. Als je data van het ene in het andere programma moet krijgen of je download wetenschappelijke gegevens van een website dan is het CSV-bestand vaak de beste keuze. Het formaat bestaat uit kolommen met getallen, gescheiden door een komma. De eerste regels kunnen commentaar bevatten (uitleg over de kolommen, bijvoorbeeld) en de namen van de kolommen bevatten. Een voorbeeld voor de afstand die een vallend voorwerp aflegt in 10 s, gegeven door $s = \frac{1}{2} g t^2$, is hieronder weergegeven:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>t,s
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>0.0,0.0
 </span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>1.0,4.9
@@ -970,14 +959,11 @@ Bereken in je script de spanning <em>over</em> en de stroomsterkte <em>door</em>
 </span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>9.0,396.90000000000003
 </span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>10.0,490.00000000000006
 </span></code></pre></div>
-<p>\caption{Een CSV-bestand met kolommen $t$ en $s$. De getallen hebben een punt als decimaal scheidingsteken en de komma wordt gebruikt om de kolommen te scheiden.}
-  \label{fig:csv-bestand}
-\end{figure}
-Je kunt CSV-bestanden schrijven en lezen met de modules <code class="language-py highlight"><span class="n">csv</span></code>, <code class="language-py highlight"><span class="n">numpy</span></code> of <code class="language-py highlight"><span class="n">pandas</span></code>. De eerste is altijd meegeleverd met Python en is speciaal geschreven voor het bestandsformaat <sup id="fnref:10"><a class="footnote-ref" href="#fn:10">20</a></sup>, maar NumPy<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">21</a></sup><sup id="fnref:12"><a class="footnote-ref" href="#fn:12">22</a></sup> en Pandas <sup id="fnref:13"><a class="footnote-ref" href="#fn:13">23</a></sup><sup id="fnref:14"><a class="footnote-ref" href="#fn:14">24</a></sup> bevatten veel meer functionaliteit op het gebied van wiskunde en data-analyse. Als je die modules toch al gebruikt kun je beter niet kiezen voor de <q>kale</q> csv module.</p>
+<p>Het CSV-bestand heeft kolommen $t$ en $s$. De getallen hebben een punt als decimaal scheidingsteken en de komma wordt gebruikt om de kolommen te scheiden. Je kunt CSV-bestanden schrijven en lezen met de modules <code class="language-py highlight"><span class="n">csv</span></code>, <code class="language-py highlight"><span class="n">numpy</span></code> of <code class="language-py highlight"><span class="n">pandas</span></code>. De eerste is altijd meegeleverd met Python en is speciaal geschreven voor het bestandsformaat,<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">20</a></sup> maar NumPy<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">21</a></sup><sup id="fnref:12"><a class="footnote-ref" href="#fn:12">22</a></sup> en Pandas <sup id="fnref:13"><a class="footnote-ref" href="#fn:13">23</a></sup><sup id="fnref:14"><a class="footnote-ref" href="#fn:14">24</a></sup> bevatten veel meer functionaliteit op het gebied van wiskunde en data-analyse. Als je die modules toch al gebruikt kun je beter niet kiezen voor de <q>kale</q> csv module.</p>
+<div id="opd:quickndirty-csv"></div>
 <div class="admonition opdracht-inlever">
-<p class="admonition-title">inleveren: Pythondaq: csv</p>
-<p>\label{opd:quickndirty-csv}
-Breid je script uit zodat de data niet alleen maar weergegeven wordt in een grafiek maar ook wordt weggeschreven als CSV-bestand. Gebruik hiervoor een module naar keuze.</p>
+<p class="admonition-title">Pythondaq: CSV</p>
+<p>Breid je script uit zodat de data niet alleen maar weergegeven wordt in een grafiek maar ook wordt weggeschreven als CSV-bestand. Gebruik hiervoor een module naar keuze.</p>
 </div>
 <details class="opdracht-meer">
 <summary>CSV bestandsnaam</summary>
@@ -1113,16 +1099,22 @@ Breid je script uit zodat de data niet alleen maar weergegeven wordt in een graf
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
       
-        <script src="../javascripts/katex.js"></script>
+        
+          <script src="../javascripts/katex.js"></script>
+        
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+        
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+        
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+        
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+        
       
     
   </body>
