@@ -1,6 +1,6 @@
 # Introductie
 
-Welkom bij de cursus _experimentautomatisering met Python_. Je zou ook kunnen spreken van _data-acquisitie met Python_. Het doel van deze cursus is om jullie kennis te laten maken met het aansturen en uitlezen van een experiment.
+Welkom bij de _Experiment Control with Python Course_. Het doel van deze cursus is om jullie kennis te laten maken met het aansturen en uitlezen van een experiment.
 
 Bij heel eenvoudige experimenten kun je metingen één voor één verrichten en noteren in je labjournaal, bijvoorbeeld bij de trillingstijd van een slinger bij verschillende lengtes. Maar al snel wordt dan ondoenlijk, bijvoorbeeld wanneer je de hele beweging van de slinger wilt volgen met een ultrasoon afstandsdetector. In een gemiddeld lab worden alle experimenten via de computer aangestuurd en uitgelezen. Voor <q>standaard</q> handelingen zoals het bekijken van een sample onder een elektronenmicroscoop of het opnemen van een spectrum van een radioactieve bron kun je de door de fabrikant meegeleverde software gebruiken. Vaak echter is die software óf heel duur terwijl je maar een klein deel van de functionaliteit nodig hebt, of ongeschikt voor jouw doeleinden. En heel vaak voer je géén standaardexperiment uit, maar ben je een nieuw experiment aan het opzetten. In dat laatste geval is er helemaal geen software voor handen. Je zult dus zelf aan de slag moeten.
 
@@ -25,18 +25,20 @@ print(my_func(2))
 ```
 Rechtsboven in het blok staat een :material-content-copy:-icoon. Als je daar op klikt dan wordt de hele code gekopieerd naar het klembord en kun je het in Visual Studio Code weer plakken met ++ctrl+v++.
 
-Ook zullen we soms systeemopdrachten moeten uitvoeren. We willen bijvoorbeeld de een nieuwe Pythonbibliotheken installeren of onze nieuw-gebouwde applicaties testen. Dit doen we vanuit de _terminal_. De terminal biedt een zogeheten _command-line interface_ voor het systeem. Dit in tegenstelling tot een grafische interface.
+Ook zullen we soms systeemopdrachten moeten uitvoeren. We willen bijvoorbeeld nieuwe Pythonbibliotheken installeren of onze nieuw-gebouwde applicaties testen. Dit doen we vanuit de _terminal_. De terminal biedt een zogeheten _command-line interface_ voor het systeem. Dit in tegenstelling tot een grafische interface.
 
-De prompt ziet er in verschillende besturingssystemen (en _shells_) anders uit. Met deze notatie kun je als volgt :fontawesome-regular-file-code:`my-script.py` met python runnen:
-``` ps1con title="Terminal""
+Met deze notatie laten we zien hoe je :fontawesome-regular-file-code:`my-script.py` met python kunt runnen:
+``` ps1con title="Terminal"
 python my-script.py
 ```
-Wanneer we ook de uitvoer van commando's laten zien is het handiger om onderscheid te maken tussen het commando en de uitvoer. Als dat nodig is laten we ook de _prompt_ zien:
-``` ps1con title="Terminal""
+Wanneer we ook de uitvoer van commando's laten zien is het handiger om onderscheid te maken tussen het commando en de uitvoer. Als dat nodig is laten we ook de _prompt_[^prompts] zien:
+``` ps1con title="Terminal"
 PS> python --version
 Python 3.10.9
 ```
 Merk op dat de commando's dan iets donkerder gekleurd zijn dan de prompt en de uitvoer. Let dus op de verschillende code blocks. Is het een Python script of zijn het commando's die je moet uitvoeren in een terminal?
+
+[^prompts]: Er bestaan verschillende prompts, meestal afhankelijk van het besturingssysteem &mdash; al heeft Windows zelf al twee verschillende prompts: de _command prompt_ en de _powershell prompt_. In MacOS en Linux is de prompt vaak een `$`-teken. In veel documentatie op internet wordt deze prompt gebruikt.
 
 
 ## Opgaves
