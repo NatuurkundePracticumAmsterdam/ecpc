@@ -61,6 +61,16 @@ Je hebt op de middelbare school ongetwijfeld de $I,U$-karakteristiek van een ohm
 
 Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ anders. Met de schakeling die we hebben gebouwd kunnen we de $I,U$-karakteristiek van een LED bepalen. Voor meer informatie over de fysica achter diodes, zie de [appendix](diodes.md).
 
+!!! opdracht-inlever "Pythondaq: github"
+    Dan is het nu tijd om de bestanden die je hebt gemaakt voor pythondaq in \chref{ch:mvc} met Git in versiebeheer te gaan houden.
+
+    1. Maak een map :fontawesome-regular-folder:`pythondaq` en kopieer daarin alle python-bestanden die je gemaakt hebt voor het diode-experiment. Let er op dat je deze map _niet_ in een andere repository aanmaakt, maar daarbuiten. Overleg eventueel over een handige plek.
+    1. Maak van de map :fontawesome-regular-folder:`pythondaq` een repository.
+    1. Gooi oude bestanden weg en zorg dat je 3 bestanden over houdt: een model :fontawesome-regular-file-code:`diode_experiment.py`, een view :fontawesome-regular-file-code:`view.py` en een controller :fontawesome-regular-file-code:`arduino_device.py`.
+    1. Commit!
+    1. Ruim, indien nodig, je code op. Functies die je al 3 keer hebt herschreven en daarvoor steeds gekopieerd heb, maar wel als comment hebt laten staan, die kunnen nu ook weg. Verwijder stukjes commentaar die niet meer van toepassing zijn, enz.
+    1. Commit!
+
 !!! opdracht-inlever "Pythondaq: start script"
     Voer de volgende opdrachten uit:
 
