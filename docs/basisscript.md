@@ -61,26 +61,27 @@ Je hebt op de middelbare school ongetwijfeld de $I,U$-karakteristiek van een ohm
 
 Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ anders. Met de schakeling die we hebben gebouwd kunnen we de $I,U$-karakteristiek van een LED bepalen. Voor meer informatie over de fysica achter diodes, zie de [appendix](diodes.md).
 
-!!! opdracht-inlever "Pythondaq: github"
-    Dan is het nu tijd om de bestanden die je hebt gemaakt voor pythondaq in \chref{ch:mvc} met Git in versiebeheer te gaan houden.
+!!! opdracht-inlever "Pythondaq: repository"
+    Omdat we met een belangrijk project aan de slag gaan, namelijk een inleveropdracht, gaan we gelijk goed beginnen door een repository aan te maken. 
 
-    1. Maak een map :fontawesome-regular-folder:`pythondaq` en kopieer daarin alle python-bestanden die je gemaakt hebt voor het diode-experiment. Let er op dat je deze map _niet_ in een andere repository aanmaakt, maar daarbuiten. Overleg eventueel over een handige plek.
-    1. Maak van de map :fontawesome-regular-folder:`pythondaq` een repository.
-    1. Gooi oude bestanden weg en zorg dat je 3 bestanden over houdt: een model :fontawesome-regular-file-code:`diode_experiment.py`, een view :fontawesome-regular-file-code:`view.py` en een controller :fontawesome-regular-file-code:`arduino_device.py`.
-    1. Commit!
-    1. Ruim, indien nodig, je code op. Functies die je al 3 keer hebt herschreven en daarvoor steeds gekopieerd heb, maar wel als comment hebt laten staan, die kunnen nu ook weg. Verwijder stukjes commentaar die niet meer van toepassing zijn, enz.
-    1. Commit!
+    1. Open Github Desktop en ga naar **File > New repository ...**. Geef de repository een naam (Pythondaq) en kies een locatie. Let er op dat je deze map _niet_ in een andere repository aanmaakt, maar daarbuiten. Overleg eventueel over een handige plek.
+    1. Vink `Initialize this repository with a README` aan.
+    1. Kies bij `Git ignore` voor <q>Python</q>.
+    1. Klik op `Open in Visual Studio Code` en ga aan de slag. Vergeet niet regelmatig te committen!
 
 !!! opdracht-inlever "Pythondaq: start script"
     Voer de volgende opdrachten uit:
 
     1. Schrijf een script waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Kijk wat er gebeurt met de LED.
+    1. Commit.
     1. Overleg met elkaar welke spanningen je precies meet met de verschillende kanalen (_channels_) die op de Arduino zijn aangesloten. Kijk nog eens goed naar [de figuur van de schakeling](#fig:LED-schakeling).
+    1. Commit.
     1. Lees &mdash; tijdens het laten oplopen van de spanning over de LED &mdash; de spanning over de _weerstand_ uit. Je zult daarvoor het antwoord van de Arduino (een _string_) om moeten zetten naar een _integer_ en print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand. Voorbeeld van uitvoer:
     ``` consolecode
     On LED:  750 (2.4 V)    Over resistor:  189 (0.6 V)
     ```
     Je hebt nu feitelijk je eerste metingen verricht!
+    1. Commit! :material-party-popper:
 
 
 Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma of Python notebook o.i.d. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment hebben we ook alleen nog maar _ruwe_ metingen. We gaan hier voorbij aan het feit dat we graag de stroomsterkte door de LED $I$ zouden willen uitzetten tegen de spanning over de LED $U_\mathrm{LED}$.
