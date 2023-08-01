@@ -49,8 +49,9 @@ extra_css:
 nav:
   - index.md
   - communicatie.md
-  - mvc.md
   - github.md
+  - basisscript.md
+  - mvc.md
   - poetry.md
   - cli.md
   - gui.md
