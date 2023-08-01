@@ -57,7 +57,7 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
 
 <div id="opd:condaenv"></div>
 !!! opdracht-basis "Environment aanmaken"
-    Omdat meerdere studenten gedurende de week achter dezelfde computer werken en environments aan gaan maken kun je het beste je initialen toevoegen aan de naam van je environment. Zo zit niemand elkaar in de weg. In dit voorbeeld gebruiken we <q>IK</q> als initialen. Maak de environment en installeer de juiste packages door een terminal te openen[^terminal] en in te typen (_zonder_ het dollarteken aan het begin):
+    Maak de environment en installeer de juiste packages door een terminal te openen[^terminal] en in te typen:
 
     ``` ps1 title="Terminal"
     conda create -n pythondaq -c conda-forge python pyvisa-py
@@ -132,7 +132,10 @@ Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het ein
     (open) query MEAS:CH2?
     Response: 209
     ```
-    Wat is de _minimale waarde_ waarbij de LED _net_ licht geeft? Laat de spanning steeds verder oplopen; op een gegeven moment gebeurt er iets raars. Wat is de _maximale waarde_ waarbij de LED zonder problemen kan branden?
+
+    * Wat is de _minimale waarde_ waarbij de LED _net_ licht geeft? 
+    * Laat de spanning steeds verder oplopen; op een gegeven moment gebeurt er iets raars. 
+    * Wat is de _maximale waarde_ waarbij de LED zonder problemen kan branden?
 
 
 
@@ -165,6 +168,7 @@ Ten slotte sturen we een query naar de Arduino:
 device.query("*IDN?")
 ```
 Het volledige script &mdash; met een paar `#!py print`-statements &mdash; ziet er dan als volgt uit:
+
 ``` py
 import pyvisa
 
@@ -212,12 +216,9 @@ Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een 
 
 <div id="opd:knipperled"></div>
 !!! opdracht-basis "KnipperLED"
-    Je kunt de LED ook andere dingen laten doen. Schrijf voor iedere opdracht een apart script.
+    Je kunt de LED ook andere dingen laten doen. Maak een bestand :fontawesome-regular-file-code:`knipperLED.py` en maak een van de onderstaande opdrachten:
 
-    1. Laat de LED in een regelmatig tempo knipperen.
-    1. Maak een _breathing light_ &mdash; een lamp die langzaam aan en uit gaat gevolgd door een pauze in het tempo dat iemand in- en uitademt.
-    1. Maak een _heartbeat light_ &mdash; een lamp die twee keer kort na elkaar flitst gevolgd door een pauze in het tempo van een hartslag.
-
-
-
-
+    * Laat de LED in een regelmatig tempo knipperen.
+    * Maak een _breathing light_ &mdash; een lamp die langzaam aan en uit gaat gevolgd door een pauze in het tempo dat iemand in- en uitademt.
+    * Maak een _heartbeat light_ &mdash; een lamp die twee keer kort na elkaar flitst gevolgd door een pauze in het tempo van een hartslag.
+    * Bedenk je eigen knipperritme.
