@@ -30,8 +30,12 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
   - pymdownx.keys
+  - pymdownx.tabbed:
+      alternate_style: true
   - def_list
   - tables
+  - toc:
+      permalink: true
 
 extra_javascript:
   - javascripts/katex.js
@@ -43,7 +47,7 @@ extra_css:
   - stylesheets/extra.css
 
 nav:
-  - introductie.md
+  - index.md
   - communicatie.md
   - mvc.md
   - github.md
@@ -57,3 +61,4 @@ nav:
       - kleurcodes.md
       - diodes.md
       - zonnecel.md
+  - faq.md

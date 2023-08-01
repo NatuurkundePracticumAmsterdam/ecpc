@@ -96,7 +96,7 @@ build-backend = "poetry.core.masonry.api"
 
 [^setup.py]: Vroeger was er een `setup.py` maar Python schakelt nu langzaam over naar dit nieuwe bestand.
 
-Het bestand is in het TOML-formaat \cite{TOML}. Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. Overal zie je `poetry` terugkomen, want dat is de tool die wij gebruiken. In de eerste sectie staat informatie over ons project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. De tweede sectie bevat de _dependencies_. Dit zijn alle Pythonpackages die ons project nodig heeft. Op dit moment is dat alleen maar Python. Ook het versienummer van Python is belangrijk. Hier is dat 3.10 en het dakje geeft aan dat 3.11, 3.12, enz. ook prima zijn, maar 3.9 (te oud) 4.0 (te nieuw) _niet_. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python &mdash; bijvoorbeeld versie 3.9 &mdash; kunnen nu het package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.10 nodig hebt kun je aangeven dat een iets oudere versie van Python ook prima is.
+Het bestand is in het TOML-formaat [@TOML]. Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. Overal zie je `poetry` terugkomen, want dat is de tool die wij gebruiken. In de eerste sectie staat informatie over ons project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. De tweede sectie bevat de _dependencies_. Dit zijn alle Pythonpackages die ons project nodig heeft. Op dit moment is dat alleen maar Python. Ook het versienummer van Python is belangrijk. Hier is dat 3.10 en het dakje geeft aan dat 3.11, 3.12, enz. ook prima zijn, maar 3.9 (te oud) 4.0 (te nieuw) _niet_. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python &mdash; bijvoorbeeld versie 3.9 &mdash; kunnen nu het package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.10 nodig hebt kun je aangeven dat een iets oudere versie van Python ook prima is.
 
 !!! opdracht-basis "Dependency python aanpassen"
     
@@ -319,11 +319,11 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
     Merk op dat we nu niet gebruik hoeven te maken van de `conda-forge` channel. Python zelf staat in _alle_ kanalen en we gaan verder geen software installeren met conda, dus ook niet uit `conda-forge`.
 
 !!! opdracht-basis "Poetry knipperlicht"
-    We gaan nu poetry gebruiken om van de scripts met de knipperende lichtjes uit \opdref{opd:knipperled} een package te maken én om ons environment te beheren. Voer de volgende stappen uit:
+    We gaan nu poetry gebruiken om van de scripts met de knipperende lichtjes uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) een package te maken én om ons environment te beheren. Voer de volgende stappen uit:
     
     1. Maak in GitHub Desktop een _nieuwe_ repository :fontawesome-brands-github:`flasher`.
     1. Maak een map :fontawesome-regular-folder:`src` met daarin een map :fontawesome-regular-folder:`flasher`.
-    1. Kopieer uit de :fontawesome-brands-github:`Oefenopdrachten` die je bij \opdref{opd:add_repository} hebt aangemaakt de drie scriptjes uit \opdref{opd:knipperled} naar :fontawesome-regular-folder:`src/flasher`.
+    1. Kopieer uit de :fontawesome-brands-github:`Oefenopdrachten` die je bij \opdref{opd:add_repository} hebt aangemaakt de drie scriptjes uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) naar :fontawesome-regular-folder:`src/flasher`.
     1. Open :fontawesome-brands-github:`flasher` in Visual Studio Code.
     1. Commit alles dat je tot nu toe gedaan hebt.
     1. Open een terminal. Maak een nieuwe conda environment met alleen python 3.9:

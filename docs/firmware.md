@@ -1,11 +1,11 @@
 # Firmware
 \label{ch:firmware}
 
-De firmware bestaat uit een gedeeltelijke implementatie van het VISA-protocol \cite{VISA}. Het voornaamste verschil bestaat uit het feit dat VISA voor ieder commando zowel een korte als een lange versie heeft. Zo zou je in de documentatie van een instrument het commando `MEASure` kunnen vinden. Je kunt dan zowel `MEAS` als `MEASURE` gebruiken om het commando te geven. In deze implementatie is het slechts mogelijk om de korte vorm te gebruiken.
+De firmware bestaat uit een gedeeltelijke implementatie van het VISA-protocol [@VISA]. Het voornaamste verschil bestaat uit het feit dat VISA voor ieder commando zowel een korte als een lange versie heeft. Zo zou je in de documentatie van een instrument het commando `MEASure` kunnen vinden. Je kunt dan zowel `MEAS` als `MEASURE` gebruiken om het commando te geven. In deze implementatie is het slechts mogelijk om de korte vorm te gebruiken.
 
 De nummering van de kanalen volgt de nummering van de Arduino hardware. Dus kanaal 0 is pin A0 op de Arduino, kanaal 1 is pin A1, enz. De digitale resolutie is ingesteld op 10 bits ($2^{10}$~stappen, ofwel waardes tussen 0 en 1023) en het analoge bereik is 0 V tot 3.3 V.
 
-De code is terug te vinden in de repository :fontawesome-brands-github:`/davidfokkema/arduino-visa-firmware` \cite{arduino_visa_firmware}. Deze documentatie is voor versie~1.0.0. De commando's die geaccepteerd worden door de firmware zijn weergegeven in \tabref{tab:firmware}.
+De code is terug te vinden in de repository :fontawesome-brands-github:`/davidfokkema/arduino-visa-firmware` [@arduino_visa_firmware]. Deze documentatie is voor versie~1.0.0. De commando's die geaccepteerd worden door de firmware zijn weergegeven in \tabref{tab:firmware}.
 
 \begin{table}
   \caption{De commando's die geaccepteerd worden door de Arduino VISA firmware v1.0.0.}
