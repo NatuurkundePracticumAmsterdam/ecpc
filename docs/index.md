@@ -28,7 +28,7 @@ Rechtsboven in het blok staat een :material-content-copy:-icoon. Als je daar op 
 Ook zullen we soms systeemopdrachten moeten uitvoeren. We willen bijvoorbeeld nieuwe Pythonbibliotheken installeren of onze nieuw-gebouwde applicaties testen. Dit doen we vanuit de _terminal_. De terminal biedt een zogeheten _command-line interface_ voor het systeem. Dit in tegenstelling tot een grafische interface.
 
 Met deze notatie laten we zien hoe je :fontawesome-regular-file-code:`my-script.py` met python kunt runnen:
-``` ps1con title="Terminal"
+``` ps1 title="Terminal"
 python my-script.py
 ```
 Wanneer we ook de uitvoer van commando's laten zien is het handiger om onderscheid te maken tussen het commando en de uitvoer. Als dat nodig is laten we ook de _prompt_[^prompts] zien:
