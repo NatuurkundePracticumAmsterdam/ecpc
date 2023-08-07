@@ -38,8 +38,8 @@ Wij gaan werken met GitHub, je moet dan wel een (gratis) account aanmaken. Als s
 ### GitHub Desktop
 Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een desktop applicatie ontwikkeld.
 
+<div id="opd:add_repository"></div>
 !!! opdracht-basis "Repository toevoegen"
-    \label{opd:add_repository}
     Maak op de volgende manier een repository voor je Pythonscripts:
 
     1. Maak &mdash; bijvoorbeeld vanuit Visual Studio Code &mdash; een map :fontawesome-regular-folder:`Oefenopdrachten` en zet daarin alle python-bestandjes die je hebt gemaakt om te oefenen zoals de opdrachten [Pyvisa in pythonscript](communicatie.md#opd:test_arduino) en [KnipperLED](communicatie.md#opd:knipperled).
@@ -61,15 +61,15 @@ Alle wijzigingen aan bestanden in de repository kun je vanaf nu bijhouden door r
 Dit kan in GitHub Desktop, maar ook direct vanuit Visual Studio Code. Elke commit geef je een begeleidend schrijven mee. Je hoopt dat jij, maar ook je collega, na het lezen van het berichtje snel begrijpt wat er veranderd is én waarom. Wanneer je bepaalde wijzigingen ongedaan wilt maken, kan je snel vinden bij welke commit je dan moet zijn. En als je dan je applicatie gaat uitbrengen op Github kun je de commit messages gebruiken om snel op te sommen wat de nieuwste versie van jou app kan!
 
 !!! opdracht-basis "Commit"
-    \label{opd:commit}
     Voer de volgende opdrachten uit:
 
-    1. In Visual Studio Code, ga naar **File > Open Folder** en kies de map waar je in \opdref{opd:add_repository} een repository hebt aangemaakt.
+    1. In Visual Studio Code, ga naar **File > Open Folder** en kies de map waar je in [opdracht _Repository toevoegen_](#opd:add_repository) een repository hebt aangemaakt.
     1. Open één van je Pythonscripts.
     1. Type een stukje code erbij &mdash; bijvoorbeeld een print-statement &mdash; en haal ergens anders iets weg. Bewaar het bestand.
+    1. Links verschijnt een blauw bolletje bij `Source Control`:fontawesome-solid-code-branch: die laat weten dat er wijzigingen zijn ten opzichte van de vorige commit. Klik op `Source Control`.
     1. Links verschijnt een blauw bolletje bij `Source Control` :fontawesome-solid-code-branch: die laat weten dat er wijzigingen zijn ten opzichte van de vorige commit. Klik op `Source Control`.
     1. Onder `Changes` staat een lijst met bestanden waar wijzigingen in aan zijn gebracht. Kies welke bestanden je wilt committen door rechts op het +je te klikken. Deze bestanden komen nu op het podium te staan onder `Staged Changes`. Je kunt ook alle bestanden in een keer op het podium zetten door naast het kopje `Changes` op het +je te klikken.
-    1. Schrijf een nuttige <q>commit message</q>. Dus niet: <q>\opdref{opd:commit}</q>, maar: <q>feat: search for port name to open communication with device</q>.[^commit message]
+    1. Schrijf een nuttige <q>commit message</q>. Dus niet: <q>opdracht: commit</q>, maar zoiets als: <q>search for port name to open communication with device</q>.[^commit message]
     1. Klik op het vinkje om te committen. Gefeliciteerd! Je hebt je eerste commit gepleegd, vanaf nu kun je zonder angst dingen stuk maken want je kan altijd terug naar hoe het was
 
     [^commit message]: Je kunt je commit message opdelen in een titel (of summary) en een beschrijving. In Visual Studio Code, doe je dit door een witregel toe te voegen tussen de titel en de beschrijving.
@@ -146,5 +146,5 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
         * Open een repository naar keuze en maak een nieuwe branch aan.
         * Maak een aantal wijzigingen en commit.
         * Ga terug naar de main branch.
-        * Merch de nieuwe branch in de main branch.
+        * Merge de nieuwe branch in de main branch.
 

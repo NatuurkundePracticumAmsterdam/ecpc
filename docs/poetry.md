@@ -61,7 +61,7 @@ Er is nu de volgende structuur aangemaakt:
         pyproject.toml
         README.md
 
-Allereerst is er een projectmap `easystat` aangemaakt. Je kunt nu in GitHub Desktop deze map toevoegen als nieuwe repository, zoals we gedaan hebben in \opdref{opd:add_repository}.
+Allereerst is er een projectmap `easystat` aangemaakt. Je kunt nu in GitHub Desktop deze map toevoegen als nieuwe repository, zoals we gedaan hebben in [opdracht _Repository toevoegen_](github.md#opd:add_repository).
 
 Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaakt. We zien een :fontawesome-regular-file-lines:`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van ons project.[^README]
 
@@ -323,7 +323,7 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
     
     1. Maak in GitHub Desktop een _nieuwe_ repository :fontawesome-brands-github:`flasher`.
     1. Maak een map :fontawesome-regular-folder:`src` met daarin een map :fontawesome-regular-folder:`flasher`.
-    1. Kopieer uit de :fontawesome-brands-github:`Oefenopdrachten` die je bij \opdref{opd:add_repository} hebt aangemaakt de drie scriptjes uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) naar :fontawesome-regular-folder:`src/flasher`.
+    1. Kopieer uit de :fontawesome-brands-github:`Oefenopdrachten` die je bij [opdracht _Repository toevoegen_](github.md#opd:add_repository) hebt aangemaakt de drie scriptjes uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) naar :fontawesome-regular-folder:`src/flasher`.
     1. Open :fontawesome-brands-github:`flasher` in Visual Studio Code.
     1. Commit alles dat je tot nu toe gedaan hebt.
     1. Open een terminal. Maak een nieuwe conda environment met alleen python 3.9:
