@@ -1,6 +1,6 @@
 # Python voorkennis; Batteries (not yet) included
 
-Python is een \emph{batteries included} taal. Dat betekent dat als je `kaal' Python installeert er al heel veel functionaliteit standaard meegeleverd wordt. Allereerst omdat de taal zelf al behoorlijk krachtig is, maar ook omdat de \emph{standaardbibliotheek} zeer uitgebreid is. Met een eenvoudig \pythoninline{import}-statement haal je extra functionaliteit binnen, onder andere op het gebied van datatypes, wiskunde, toegang tot bestanden, een database, datacompressie, cryptografie, netwerktoegang, e-mail, multimedia, etc. Nog veel meer bibliotheken zijn beschikbaar via de \citetitle{pypi} \parencite{pypi}.
+Python is een \emph{batteries included} taal. Dat betekent dat als je `kaal' Python installeert er al heel veel functionaliteit standaard meegeleverd wordt. Allereerst omdat de taal zelf al behoorlijk krachtig is, maar ook omdat de \emph{standaardbibliotheek} zeer uitgebreid is. Met een eenvoudig `#!py import`-statement haal je extra functionaliteit binnen, onder andere op het gebied van datatypes, wiskunde, toegang tot bestanden, een database, datacompressie, cryptografie, netwerktoegang, e-mail, multimedia, etc. Nog veel meer bibliotheken zijn beschikbaar via de \citetitle{pypi} \parencite{pypi}.
 
 In dit hoofdstuk behandelen we de kennis die nuttig kan zijn voor de rest van deze cursus. We gaan ervan uit dat iedereen bekend is met recente versies van Python en we gaan niet in op de -- soms ingrijpende -- veranderingen die de taal heeft ondergaan.\footnote{Python 2 is dood. Leve Python 3!} Een deel van wat we hier behandelen kan al bekend zijn uit eerdere cursussen. Een ander deel is nieuw.\footnote{Tenzij je al veel zelf hebt geprogrammeerd in Python, buiten de cursussen om.}
 
@@ -37,7 +37,7 @@ Python is niet C (of iedere willekeurige andere programmeertaal). Er zit een ged
 %   If the implementation is easy to explain, it may be a good idea.\\
 %   Namespaces are one honking great idea -- let's do more of those!
 % \end{verse}
-Je kunt het nalezen middels een \emph{easter egg} in Python zelf: \pythoninline{import this}.
+Je kunt het nalezen middels een \emph{easter egg} in Python zelf: `#!py import this`.
 
 \begin{minimaal}
   \begin{opdracht}[zen]
@@ -65,7 +65,7 @@ Kun je zien wat de uitvoer van dit programma moet zijn? Misschien als we het op 
 \end{pythoncode}
 De code is langer, met duidelijkere namen van variabelen en zonder bitshifts of joins. De uitvoer vind je op \mypageref{fig:uitvoer_bytes}. Moraal van dit verhaal: we worden gelukkiger van code die leesbaar en begrijpelijk is, dan van code die wel heel slim in elkaar zit maar waar bijna niet uit te komen is. Overigens komt het regelmatig voor dat de programmeur zélf een paar weken later al niet zo goed meer weet hoe de code nou precies in elkaar zat.
 
-Als je samenwerkt aan software kan het andere Pythonprogrammeurs erg helpen om dingen `op de Python-manier te doen'. Een C-programmeur herken je vaak aan het typische gebruik van lijsten of arrays in \pythoninline{for}-loops. Als je een lijst hebt: \pythoninline{names = ['Alice', 'Bob', 'Carol']}, doe dan niet:
+Als je samenwerkt aan software kan het andere Pythonprogrammeurs erg helpen om dingen `op de Python-manier te doen'. Een C-programmeur herken je vaak aan het typische gebruik van lijsten of arrays in `#!py for`-loops. Als je een lijst hebt: `#!py names = ['Alice', 'Bob', 'Carol']`, doe dan niet:
 \begin{pythoncode}
   i = 0
   while i < len(names):
@@ -93,7 +93,7 @@ Dit kan dan in Python-code het makkelijkst als volgt:
   for idx, name in enumerate(names, 1):
       print(f"{idx}. {name}")
 \end{pythoncode}
-Hier maken we gebruik van de \pythoninline{enumerate(iterable, start=0)}-functie en de (relatief recent geïntroduceerde) f-strings. Er zijn dus veel manieren om programmeerproblemen op te lossen, maar het helpt om het op de `Pythonmanier' te doen. Andere programmeurs zijn dan veel minder tijd en energie kwijt om jouw code te begrijpen -- én andersom wanneer jij zelf op internet zoekt naar antwoorden op problemen. Immers, je herkent dan veel makkelijker en sneller hoe andermans code werkt. Dat brengt ons op het volgende punt: code lezen.
+Hier maken we gebruik van de `#!py enumerate(iterable, start=0)`-functie en de (relatief recent geïntroduceerde) f-strings. Er zijn dus veel manieren om programmeerproblemen op te lossen, maar het helpt om het op de `Pythonmanier' te doen. Andere programmeurs zijn dan veel minder tijd en energie kwijt om jouw code te begrijpen -- én andersom wanneer jij zelf op internet zoekt naar antwoorden op problemen. Immers, je herkent dan veel makkelijker en sneller hoe andermans code werkt. Dat brengt ons op het volgende punt: code lezen.
 
 
 ## Coding style
@@ -102,7 +102,7 @@ Hier maken we gebruik van de \pythoninline{enumerate(iterable, start=0)}-functie
 
 Python heeft een eigen style guide die je vooral eens door moet lezen \cite{pep8}. Google heeft ook een hele mooie, met duidelijke voorbeelden \cite{google_style_guide}.
 
-Fijn dat je code consistenter wordt, maar het moet nu ook weer niet zo zijn dat je uren kwijt bent met de style guides bestuderen of twijfelen waar je een regel code precies moet afbreken. Wel of niet een enter? Om daar vanaf te zijn zijn er verschillende pakketten die je code automatisch aanpassen aan de standaard. Standaard gebruikt \emph{Visual Studio Code} \texttt{autopep8}. Als je de instelling \menu{Editor: Format On Save} aan zet (staat standaard uit) dan wordt je code aangepast zodra je je bestand opslaat. De instelling \menu{Python > Formatting: Provider} kun je gebruiken om in plaats van \texttt{autopep8} bijvoorbeeld \verb|black| te kiezen \cite{black}. Black is een stuk strenger dan \texttt{autopep8} en heeft meer een `eigen mening'. Als je je daar bij neerlegt hoef je bijna niet meer na te denken over hoe je je code precies vormgeeft. De Black website zegt \cite{black}:
+Fijn dat je code consistenter wordt, maar het moet nu ook weer niet zo zijn dat je uren kwijt bent met de style guides bestuderen of twijfelen waar je een regel code precies moet afbreken. Wel of niet een enter? Om daar vanaf te zijn zijn er verschillende pakketten die je code automatisch aanpassen aan de standaard. Standaard gebruikt \emph{Visual Studio Code} `autopep8`. Als je de instelling \menu{Editor: Format On Save} aan zet (staat standaard uit) dan wordt je code aangepast zodra je je bestand opslaat. De instelling \menu{Python > Formatting: Provider} kun je gebruiken om in plaats van `autopep8` bijvoorbeeld \verb|black| te kiezen \cite{black}. Black is een stuk strenger dan `autopep8` en heeft meer een `eigen mening'. Als je je daar bij neerlegt hoef je bijna niet meer na te denken over hoe je je code precies vormgeeft. De Black website zegt \cite{black}:
 \begin{quotation}
   By using Black, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters.
 
@@ -116,89 +116,89 @@ De code in deze handleiding is geformat met \emph{Black}.
   \begin{center}
     \includegraphics[scale=.5]{figures/screenshot-black-not-installed}
   \end{center}
-  Kies \texttt{Yes} en dan krijg je bovenaan het scherm:
+  Kies `Yes` en dan krijg je bovenaan het scherm:
   \begin{center}
     \includegraphics[scale=.5]{figures/screenshot-install-black}
   \end{center}
-  Kies voor \texttt{Install using Conda}.
+  Kies voor `Install using Conda`.
 \end{attention}
 
-\begin{minopdracht}[black]
-  Om Black te installeren en te testen voer je de volgende opdrachten uit:
-  \begin{enumerate}
-    \item In Visual Studio Code, ga naar \menu{Code} onder MacOS of \menu{File} onder Windows en dan naar \menu{Preferences > Settings > Python Formatting: Provider} en kies \texttt{black}. Ga dan naar \menu{Preferences > Settings > Editor: Format On Save} en vink die \emph{aan}.
-    \item Open een Pythonbestand en type:
+!!! opdracht-basis "black"
+    Om Black te installeren en te testen voer je de volgende opdrachten uit:
+    
+    1. In Visual Studio Code, ga naar \menu{Code} onder MacOS of \menu{File} onder Windows en dan naar \menu{Preferences > Settings > Python Formatting: Provider} en kies `black`. Ga dan naar \menu{Preferences > Settings > Editor: Format On Save} en vink die \emph{aan}.
+    1. Open een Pythonbestand en type:
           \begin{pythoncode}
             l = [1,
             2, 3, 4]
           \end{pythoncode}
-          Sla het bestand op en controleer of \shellinline{black} werkt. Je zou dan \pythoninline{l = [1, 2, 3, 4]} moeten krijgen.
-    \item Type in:
+          Sla het bestand op en controleer of \shellinline{black} werkt. Je zou dan `#!py l = [1, 2, 3, 4]` moeten krijgen.
+    1. Type in:
           \begin{pythoncode}
             fruit_bowl = {"apple": 1, 'banana': 2, "pear": 3, "lemon": 4, "strawberry": 5, 'raspberry': 6}
           \end{pythoncode}
-          Let op! Allemaal één regel en wisselend gebruik van enkele (\pythoninline{'}) en dubbele (\pythoninline{"}) aanhalingstekens. Sla het bestand op en laat Black zijn werk doen. Welke dingen heeft Black aangepast?
-    \item Gebruik voortaan Black en geef je er aan over.
-  \end{enumerate}
-\end{minopdracht}
+          Let op! Allemaal één regel en wisselend gebruik van enkele (`#!py '`) en dubbele (`#!py "`) aanhalingstekens. Sla het bestand op en laat Black zijn werk doen. Welke dingen heeft Black aangepast?
+    1. Gebruik voortaan Black en geef je er aan over.
+    
+
 
 
 ## Datatypes
 
 Gehele getallen, kommagetallen, strings: allemaal voorbeelden van \emph{datatypes}. Veel zullen jullie al wel bekend voorkomen, zoals strings, lists en NumPy arrays. Andere zijn misschien alweer wat weggezakt, zoals dictionaries of booleans. Weer andere zijn misschien wat minder bekend, zoals complexe getallen of sets. En als laatste voegt Python af en toe nieuwe datatypes toe, zoals \emph{f-strings} in Python 3.6 of \emph{data classes} sinds Python 3.7.
 \begin{info}
-  De \citetitle{python-standard-library} documentatie \parencite{python-standard-library} bevat een mooi overzicht van alle datatypes met een beschrijving van operaties en eigenschappen. Voor uitgebreidere tutorials kun je vaak terecht bij \citetitle{real-python} \parencite{real-python}. Het kan makkelijk zijn om in een zoekmachine bijvoorbeeld \texttt{real python dict} te typen als je een tutorial zoekt over Python dictionaires.
+  De \citetitle{python-standard-library} documentatie \parencite{python-standard-library} bevat een mooi overzicht van alle datatypes met een beschrijving van operaties en eigenschappen. Voor uitgebreidere tutorials kun je vaak terecht bij \citetitle{real-python} \parencite{real-python}. Het kan makkelijk zijn om in een zoekmachine bijvoorbeeld `real python dict` te typen als je een tutorial zoekt over Python dictionaires.
 \end{info}
 
 Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
 
-\begin{minopdracht}[list]
-  Schrijf een kort scriptje.
-  \begin{enumerate}
-    \item Maak een \pythoninline{list} van de wortels van de getallen 1 tot en met 10. Dus de rij $\left(\sqrt{1}, \sqrt{2}, \sqrt{3}, \ldots, \sqrt{10}\right)$.
-    \item Print die rij onder elkaar (één getal per regel, met drie decimalen).
-    \item Geef weer of het getal 3 voorkomt in die rij en geef weer of het getal 4 voorkomt in die rij.
-  \end{enumerate}
-\end{minopdracht}
-
-\begin{minopdracht}[np.array]
-  Doe hetzelfde als de vorige opdracht, maar nu met NumPy arrays.
-\end{minopdracht}
-
-\begin{minopdracht}[f-strings]
-  Herschrijf het volgende script door f-strings te gebruiken:
-  \begin{pythoncode}
-    print("Enter your name and press return:")
-    name = input()
-    length_name = len(name)
+!!! opdracht-basis "list"
+    Schrijf een kort scriptje.
     
-    print(
-        "Hi %s, your name has %d letters and the first letter is a %c."
-        % (name, length_name, name[0])
-    )
-  \end{pythoncode}
-\end{minopdracht}
+      1. Maak een `#!py list` van de wortels van de getallen 1 tot en met 10. Dus de rij $\left(\sqrt{1}, \sqrt{2}, \sqrt{3}, \ldots, \sqrt{10}\right)$.
+      1. Print die rij onder elkaar (één getal per regel, met drie decimalen).
+      1. Geef weer of het getal 3 voorkomt in die rij en geef weer of het getal 4 voorkomt in die rij.
+    
 
-\begin{minopdracht}[dict]
-  Schrijf een kort scriptje:
-  \begin{enumerate}
-    \item Maak een dictionary \texttt{constants} met de waardes van de (natuur)constantes $\pi$, de valversnelling $g$, de lichtsnelheid $c$ en het elementaire ladingskwantum $e$.
-    \item Print de namen -- niet de waardes -- van de constantes die zijn opgeslagen in \texttt{constants}.
-    \item Bereken de zwaartekracht $F_\text{z} = mg$ voor een voorwerp met een massa van \qty{14}{\kilo\gram} door gebruik te maken van de waarde van $g$ uit de dictionary.
-    \item Maak een dictionary \texttt{measurement} die de resultaten van een meting bevat: een spanning van \qty{1.5}{\volt} bij een stroomsterkte van \qty{75}{\milli\ampere}.
-    \item Bereken de weerstand van de schakeling op basis van de voorgaande meting en bewaar het resultaat in dezelfde dictionary.
-  \end{enumerate}
-\end{minopdracht}
 
-In Python zijn \pythoninline{tuple}'s een soort `alleen-lezen' \pythoninline{list}'s. Een tuple is een \emph{immutable\footnote{Letterlijk: onveranderbaar.} object}. Daarom worden ze vaak gebruikt wanneer lijstachtige objecten altijd dezelfde vorm moeten hebben. Bijvoorbeeld een lijst van $(x, y)$-coördinaten zou je zo kunnen definiëren:
+!!! opdracht-basis "np.array"
+    Doe hetzelfde als de vorige opdracht, maar nu met NumPy arrays.
+
+
+!!! opdracht-basis "f-strings"
+    Herschrijf het volgende script door f-strings te gebruiken:
+    \begin{pythoncode}
+      print("Enter your name and press return:")
+      name = input()
+      length_name = len(name)
+      
+      print(
+          "Hi %s, your name has %d letters and the first letter is a %c."
+          % (name, length_name, name[0])
+      )
+    \end{pythoncode}
+
+
+!!! opdracht-basis "dict"
+    Schrijf een kort scriptje:
+    
+      1. Maak een dictionary `constants` met de waardes van de (natuur)constantes $\pi$, de valversnelling $g$, de lichtsnelheid $c$ en het elementaire ladingskwantum $e$.
+      1. Print de namen -- niet de waardes -- van de constantes die zijn opgeslagen in `constants`.
+      1. Bereken de zwaartekracht $F_\text{z} = mg$ voor een voorwerp met een massa van \qty{14}{\kilo\gram} door gebruik te maken van de waarde van $g$ uit de dictionary.
+      1. Maak een dictionary `measurement` die de resultaten van een meting bevat: een spanning van \qty{1.5}{\volt} bij een stroomsterkte van \qty{75}{\milli\ampere}.
+      1. Bereken de weerstand van de schakeling op basis van de voorgaande meting en bewaar het resultaat in dezelfde dictionary.
+    
+
+
+In Python zijn `#!py tuple`'s een soort `alleen-lezen' `#!py list`'s. Een tuple is een \emph{immutable\footnote{Letterlijk: onveranderbaar.} object}. Daarom worden ze vaak gebruikt wanneer lijstachtige objecten altijd dezelfde vorm moeten hebben. Bijvoorbeeld een lijst van $(x, y)$-coördinaten zou je zo kunnen definiëren:
 \begin{pythoncode}
   coords = [(0, 0), (1, 0), (0, 1)]
 \end{pythoncode}
-Hier is \pythoninline{coords[0]} gelijk aan \pythoninline{(0, 0)}. Je kunt nu \emph{niet} dit coördinaat uitbreiden naar drie dimensies met \pythoninline{coords[0].append(1)} en dat is waarschijnlijk precies wat je wilt voor een lijst met tweedimensionale coördinaten. Ook is dit object veel compacter dan een \pythoninline{dict}:
+Hier is `#!py coords[0]` gelijk aan `#!py (0, 0)`. Je kunt nu \emph{niet} dit coördinaat uitbreiden naar drie dimensies met `#!py coords[0].append(1)` en dat is waarschijnlijk precies wat je wilt voor een lijst met tweedimensionale coördinaten. Ook is dit object veel compacter dan een `#!py dict`:
 \begin{pythoncode}
   coords = [{"x": 0, "y": 0}, {"x": 1, "y": 0}, {"x": 0, "y": 1}]
 \end{pythoncode}
-Hier zijn tuples dus best handig, al moet je dus wel onthouden in welke volgorde de elementen staan. Dat is voor $(x, y)$-coördinaten niet zo'n probleem maar kan in andere situaties lastiger zijn.\footnote{Daar is bijvoorbeeld de \pythoninline{collections.namedtuple()} dan weer handig voor.} Tuples ondersteunen \emph{tuple unpacking}. Je kunt het volgende doen:
+Hier zijn tuples dus best handig, al moet je dus wel onthouden in welke volgorde de elementen staan. Dat is voor $(x, y)$-coördinaten niet zo'n probleem maar kan in andere situaties lastiger zijn.\footnote{Daar is bijvoorbeeld de `#!py collections.namedtuple()` dan weer handig voor.} Tuples ondersteunen \emph{tuple unpacking}. Je kunt het volgende doen:
 \begin{pythoncode}
   (x, y, z) = (2, 3, 4)
 \end{pythoncode}
@@ -238,27 +238,27 @@ Wat zelfs werkt is \emph{dictionary unpacking}. Je kunt aan functies ook argumen
   power(**kwargs)
 \end{pythoncode}
 
-\begin{minopdracht}[odds]
-  Gegeven de lijst \pythoninline{odds = [1, 3, 5, 7, 9]}, print de waardes uit deze lijst op één regel. Je mag er niet vanuit gaan dat de lijst altijd 5 elementen bevat.
-\end{minopdracht}
+!!! opdracht-basis "odds"
+    Gegeven de lijst `#!py odds = [1, 3, 5, 7, 9]`, print de waardes uit deze lijst op één regel. Je mag er niet vanuit gaan dat de lijst altijd 5 elementen bevat.
 
-Als laatste willen we nog de aandacht vestigen op \pythoninline{set}s: een unieke verzameling van objecten. Ieder element komt maar één keer voor in een set:
+
+Als laatste willen we nog de aandacht vestigen op `#!py set`s: een unieke verzameling van objecten. Ieder element komt maar één keer voor in een set:
 \begin{pythoncode}
   l = [1, 2, 2, 3, 5, 5]
   set(l)
   # {1, 2, 3, 5}
 \end{pythoncode}
-Je moet even oppassen: de \pythoninline{{}}-haakjes worden gebruikt voor zowel sets als dictionaries. Omdat een dictionary (key: value) paren heeft en een set losse elementen kan Python het verschil wel zien:
+Je moet even oppassen: de `#!py {`}-haakjes worden gebruikt voor zowel sets als dictionaries. Omdat een dictionary (key: value) paren heeft en een set losse elementen kan Python het verschil wel zien:
 \begin{pythoncode}
   is_set = {1, 2, 3, 4}
   is_dict = {1: 1, 2: 4, 3: 9, 4: 16}
 \end{pythoncode}
-Dat gaat alleen mis als je een \emph{lege} set wilt maken. Daarvoor zul je expliciet de \pythoninline{set()}-constructor moeten gebruiken:
+Dat gaat alleen mis als je een \emph{lege} set wilt maken. Daarvoor zul je expliciet de `#!py set()`-constructor moeten gebruiken:
 \begin{pythoncode}
   is_dict = {}
   is_set = set()
 \end{pythoncode}
-Je kunt elementen toevoegen aan een set met \pythoninline{.add()} en sets gebruiken om verzamelingen met elkaar te vergelijken. Komen er elementen wel of niet voor in een set? Is de ene set een subset van de andere set? Enzovoorts. Zie daarvoor verder de documentatie.
+Je kunt elementen toevoegen aan een set met `#!py .add()` en sets gebruiken om verzamelingen met elkaar te vergelijken. Komen er elementen wel of niet voor in een set? Is de ene set een subset van de andere set? Enzovoorts. Zie daarvoor verder de documentatie.
 
 
 ## Arrays en list comprehensions
@@ -276,7 +276,7 @@ NumPy voert de berekeningen uit binnen een C-bibliotheek\footnote{De programmert
   for u in x:
       y.append(sin(u))
 \end{pythoncode}
-Niet alleen is NumPy zo'n honderd keer sneller,\footnote{Echt. De sinus van 2000 $x$-waardes berekenen kostte NumPy in een test \qty{11.6}{\micro\second} en de for-loop wel \qty{1357.7}{\micro\second}.} het is ook veel korter op te schrijven. Het nadeel van NumPy arrays is dat je geen elementen kunt toevoegen.\footnote{Strikt genomen is dit niet helemaal waar. Je kunt een nieuwe array creëren door meerdere arrays aan elkaar te plakken. Maar een eenvoudige \pythoninline{append()}-method bestaat niet voor arrays.} Python lijsten hebben dus voordelen, zeker als rekentijd geen probleem voor je is.
+Niet alleen is NumPy zo'n honderd keer sneller,\footnote{Echt. De sinus van 2000 $x$-waardes berekenen kostte NumPy in een test \qty{11.6}{\micro\second} en de for-loop wel \qty{1357.7}{\micro\second}.} het is ook veel korter op te schrijven. Het nadeel van NumPy arrays is dat je geen elementen kunt toevoegen.\footnote{Strikt genomen is dit niet helemaal waar. Je kunt een nieuwe array creëren door meerdere arrays aan elkaar te plakken. Maar een eenvoudige `#!py append()`-method bestaat niet voor arrays.} Python lijsten hebben dus voordelen, zeker als rekentijd geen probleem voor je is.
 
 Door gebruik te maken van een \emph{list comprehension} kun je de for-loop in één regel opschrijven:
 \begin{pythoncode}
@@ -290,7 +290,7 @@ Er is in veel gevallen tegenwoordig geen groot verschil met een for-loop qua sne
   x = array(x)
   y = sin(x)
 \end{pythoncode}
-Als je veel functies uit NumPy gebruikt is het handig -- en gebruikelijk -- om je import-statements kort te houden en duidelijk te maken dat je de \pythoninline{sin()}-functie uit NumPy gebruikt en niet uit de \pythoninline{math} module. Constantes worden wel vaak los geïmporteerd:
+Als je veel functies uit NumPy gebruikt is het handig -- en gebruikelijk -- om je import-statements kort te houden en duidelijk te maken dat je de `#!py sin()`-functie uit NumPy gebruikt en niet uit de `#!py math` module. Constantes worden wel vaak los geïmporteerd:
 \begin{pythoncode}
   import numpy as np
   from numpy import pi
@@ -298,27 +298,27 @@ Als je veel functies uit NumPy gebruikt is het handig -- en gebruikelijk -- om j
   x = np.linspace(0, pi, 100)
   y = np.sin(x)
 \end{pythoncode}
-Kortom: \emph{berekeningen} met arrays zijn sneller, maar for-loops (en list comprehensions) zijn veelzijdiger. Het is zelfs mogelijk om een \pythoninline{if}-statement op te nemen in je list comprehension. Bijvoorbeeld:
+Kortom: \emph{berekeningen} met arrays zijn sneller, maar for-loops (en list comprehensions) zijn veelzijdiger. Het is zelfs mogelijk om een `#!py if`-statement op te nemen in je list comprehension. Bijvoorbeeld:
 \begin{pythoncode}
   filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
   pdfs = [name for name in filenames if name.endswith(".pdf")]
   # pdfs=['text.pdf', 'manual.pdf']
 \end{pythoncode}
-In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook \emph{set comprehensions}\footnote{Notatie hetzelfde, maar gebruik nu \pythoninline{{}}-haakjes.} en \emph{dict comprehensions}.
+In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook \emph{set comprehensions}\footnote{Notatie hetzelfde, maar gebruik nu `#!py {`}-haakjes.} en \emph{dict comprehensions}.
 
-\begin{minopdracht}[comprehensions]
-  Voer, door een script te schrijven, de volgende opdrachten uit:
-  \begin{enumerate}
-    \item Genereer een lijst van 50 willekeurige \emph{unieke} én \emph{gehele} getallen tussen de 0 en de 100.
-    \item Maak een set uit die getallen die deelbaar zijn door 3. Maak gebruik van een `gewone' \emph{for}-loop.
-    \item Maak nogmaals een set van de getallen die deelbaar zijn door 3, maar gebruik daarvoor nu een set comprehension.
-  \end{enumerate}
-\end{minopdracht}
+!!! opdracht-basis "comprehensions"
+    Voer, door een script te schrijven, de volgende opdrachten uit:
+    
+      1. Genereer een lijst van 50 willekeurige \emph{unieke} én \emph{gehele} getallen tussen de 0 en de 100.
+      1. Maak een set uit die getallen die deelbaar zijn door 3. Maak gebruik van een `gewone' \emph{for}-loop.
+      1. Maak nogmaals een set van de getallen die deelbaar zijn door 3, maar gebruik daarvoor nu een set comprehension.
+    
+
 
 
 ## Zip; De ritssluiting
 
-In het rijtje van fantastische uitvindingen waar we niet vaak genoeg bij stilstaan heeft de ritssluiting zeker een plaats. Bij een ritssluiting worden twee lange rijen tandjes naast elkaar geduwd waarna die stevig in elkaar haken. Iets soortgelijks kan in Python met de \pythoninline{zip()}-functie.\footnote{\emph{Eng.: to zip} betekent \emph{ritsen}.} Stel je hebt twee lijsten A en B en je wilt loopen over de waardes. In de eerste iteratie wil je de eerste waarde uit A mét de eerste waarde van B, vervolgens de tweede waarde van A met de tweede waarde van B, enz. Dat werkt als volgt:
+In het rijtje van fantastische uitvindingen waar we niet vaak genoeg bij stilstaan heeft de ritssluiting zeker een plaats. Bij een ritssluiting worden twee lange rijen tandjes naast elkaar geduwd waarna die stevig in elkaar haken. Iets soortgelijks kan in Python met de `#!py zip()`-functie.\footnote{\emph{Eng.: to zip} betekent \emph{ritsen}.} Stel je hebt twee lijsten A en B en je wilt loopen over de waardes. In de eerste iteratie wil je de eerste waarde uit A mét de eerste waarde van B, vervolgens de tweede waarde van A met de tweede waarde van B, enz. Dat werkt als volgt:
 \begin{pythoncode}
   A = [1, 2, 3, 4]
   B = [1, 4, 9, 16]
@@ -330,11 +330,11 @@ In het rijtje van fantastische uitvindingen waar we niet vaak genoeg bij stilsta
   # a=3 b=9 
   # a=4 b=16 
 \end{pythoncode}
-Dit is uiteenlopende situaties erg handig. Je kunt net zoveel lijsten in \pythoninline{zip()} gooien als je wilt: \pythoninline{for a, b, c, d, e in zip(A, B, C, D, E)} is geen probleem.
+Dit is uiteenlopende situaties erg handig. Je kunt net zoveel lijsten in `#!py zip()` gooien als je wilt: `#!py for a, b, c, d, e in zip(A, B, C, D, E)` is geen probleem.
 
-\begin{minopdracht}[zip]
-  Gegeven de spanningen $U$ gelijk aan \qtylist{1.2; 1.8; 2.4; 2.7; 3.1}{\volt} en de bijbehorende stroomsterktes $I$ gelijk aan \qtylist{0.3; 0.4; 0.6; 0.8; 1.0}{\ampere}, loop over de lijsten met \pythoninline{zip()} en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
-\end{minopdracht}
+!!! opdracht-basis "zip"
+    Gegeven de spanningen $U$ gelijk aan \qtylist{1.2; 1.8; 2.4; 2.7; 3.1}{\volt} en de bijbehorende stroomsterktes $I$ gelijk aan \qtylist{0.3; 0.4; 0.6; 0.8; 1.0}{\ampere}, loop over de lijsten met `#!py zip()` en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
+
 
 
 ## Lambda functions
@@ -345,7 +345,7 @@ In Python zijn functies ook objecten. Je kunt ze bewaren in een lijst of diction
   sorted(a)
   # ['apple', 'banana', 'kiwi']
 \end{pythoncode}
-Dat gaat heel makkelijk met de ingebouwde \pythoninline{sorted()}-functie. Je kunt aan deze functie ook een \texttt{key}-parameter meegeven; een ándere functie die gebruikt wordt om te bepalen waarop gesorteerd moet worden. Zo kun je sorteren op de \emph{lengte} van de fruitnamen door simpelweg de \pythoninline{len()}-functie als parameter mee te geven:
+Dat gaat heel makkelijk met de ingebouwde `#!py sorted()`-functie. Je kunt aan deze functie ook een `key`-parameter meegeven; een ándere functie die gebruikt wordt om te bepalen waarop gesorteerd moet worden. Zo kun je sorteren op de \emph{lengte} van de fruitnamen door simpelweg de `#!py len()`-functie als parameter mee te geven:
 \begin{pythoncode}
   len("apple")
   # 5
@@ -378,7 +378,7 @@ Aangezien de definitie van een lambdafunctie zelf ook een expression is kun je h
   # ['banana', 'kiwi', 'apple']
 \end{pythoncode}
 
-Lambdafuncties kom je ook tegen als je wilt fitten aan een bepaald model. Je definiëert je model dan in één regel met een lambdafunctie:\footnote{Het is hierbij wel belangrijk dat \pythoninline{lmfit} er vanuit gaat dat de eerste variabele in de functiedefinitie de onafhankelijke variabele ($x$-as) is. Dit is verder geen Pythonlimitatie.}
+Lambdafuncties kom je ook tegen als je wilt fitten aan een bepaald model. Je definiëert je model dan in één regel met een lambdafunctie:\footnote{Het is hierbij wel belangrijk dat `#!py lmfit` er vanuit gaat dat de eerste variabele in de functiedefinitie de onafhankelijke variabele ($x$-as) is. Dit is verder geen Pythonlimitatie.}
 \begin{pythoncode}
   # from lmfit import models
   f = lambda x, a, b: a * x + b
@@ -387,22 +387,22 @@ Lambdafuncties kom je ook tegen als je wilt fitten aan een bepaald model. Je def
 \end{pythoncode}
 Je kunt de functies ook bewaren in een dictionary voor later gebruik.
 
-\begin{minopdracht}[lambda]
-  Maak een dictionary \texttt{models} met functies voor een lineaire functie \texttt{linear} gegeven door $y = ax + b$, een kwadratische functie \texttt{quadratic} gegeven door $y = ax^2 + bx + c$ en een sinusfunctie \texttt{sine} gegeven door $a + b\sin(cx + d)$. Hierna moet de volgende code werken:
-  \begin{pythoncode}
-    f = models['linear']
-    f(5, a=2, b=3)
-    # 13
-  \end{pythoncode}
-  Maak een grafiek van de sinusfunctie op het domein $[0,\, 2\pi]$ met parameters $a=1$, $b=2$, $c=2$ en $d=\frac{\pi}{2}$.
-\end{minopdracht}
+!!! opdracht-basis "lambda"
+    Maak een dictionary `models` met functies voor een lineaire functie `linear` gegeven door $y = ax + b$, een kwadratische functie `quadratic` gegeven door $y = ax^2 + bx + c$ en een sinusfunctie `sine` gegeven door $a + b\sin(cx + d)$. Hierna moet de volgende code werken:
+    \begin{pythoncode}
+      f = models['linear']
+      f(5, a=2, b=3)
+      # 13
+    \end{pythoncode}
+    Maak een grafiek van de sinusfunctie op het domein $[0,\, 2\pi]$ met parameters $a=1$, $b=2$, $c=2$ en $d=\frac{\pi}{2}$.
+
 
 
 ## Generators
 
-Als een functie een serie metingen verricht kan het lang duren voordat de functie de resultaten teruggeeft. Laten we die functie even \pythoninline{perform_measurements()} noemen. Het is soms lastig als de rest van het programma daarop moet wachten voordat een analyse kan worden gedaan, of een melding aan de gebruiker kan worden gegeven. Het kan dan gebeuren dat je je programma draait en je dan afvraagt: `doet hij het, of doet hij het niet?' Je kunt dit oplossen door \pythoninline{print()}-statements in je programma op te nemen, maar dit is niet zo netjes. Als je \pythoninline{perform_measurements()} inbouwt in een tekstinterface die ook `stil' moet kunnen zijn? Of als je de functie gaat gebruiken vanuit een grafisch programma waarin je geen tekst wilt printen, maar een grafiek wilt opbouwen? Je moet dan steeds \pythoninline{perform_measurements()} gaan aanpassen. Een ander probleem kan optreden wanneer je langdurige metingen doet die ook veel geheugen innemen. Wachten op de hele meetserie betekent dat het geheugen vol kan lopen. Lastig op te lossen!
+Als een functie een serie metingen verricht kan het lang duren voordat de functie de resultaten teruggeeft. Laten we die functie even `#!py perform_measurements()` noemen. Het is soms lastig als de rest van het programma daarop moet wachten voordat een analyse kan worden gedaan, of een melding aan de gebruiker kan worden gegeven. Het kan dan gebeuren dat je je programma draait en je dan afvraagt: `doet hij het, of doet hij het niet?' Je kunt dit oplossen door `#!py print()`-statements in je programma op te nemen, maar dit is niet zo netjes. Als je `#!py perform_measurements()` inbouwt in een tekstinterface die ook `stil' moet kunnen zijn? Of als je de functie gaat gebruiken vanuit een grafisch programma waarin je geen tekst wilt printen, maar een grafiek wilt opbouwen? Je moet dan steeds `#!py perform_measurements()` gaan aanpassen. Een ander probleem kan optreden wanneer je langdurige metingen doet die ook veel geheugen innemen. Wachten op de hele meetserie betekent dat het geheugen vol kan lopen. Lastig op te lossen!
 
-Of\ldots je maakt gebruik van een \emph{generator function}: een functie die tussendoor resultaten teruggeeft. Dat kan door gebruik te maken van \pythoninline{yield} in plaats van \pythoninline{return}. De rest gaat automatisch. Maar: je moet wel even weten hoe je omgaat met de generator. Stel, we willen de kwadraten berekenen van een reeks getallen tot een bepaald maximum:
+Of\ldots je maakt gebruik van een \emph{generator function}: een functie die tussendoor resultaten teruggeeft. Dat kan door gebruik te maken van `#!py yield` in plaats van `#!py return`. De rest gaat automatisch. Maar: je moet wel even weten hoe je omgaat met de generator. Stel, we willen de kwadraten berekenen van een reeks getallen tot een bepaald maximum:
 \begin{pythoncode}
   def calculate_squares_up_to(max_number):
       """Calculate squares of all integers up to a maximum number"""
@@ -421,7 +421,7 @@ De functie berekent eerst alle kwadraten, voegt ze toe aan een lijst en geeft ve
       for number in range(max_number):
           yield number ** 2
 \end{pythoncode}
-Lekker kort, want we hoeven geen lijst bij te houden! Als je de functie aanroept krijg je geen resultaat terug, maar een \emph{generator}. Als je de waardes wil zien dan gebruik je \pythoninline{next()}, als volgt:
+Lekker kort, want we hoeven geen lijst bij te houden! Als je de functie aanroept krijg je geen resultaat terug, maar een \emph{generator}. Als je de waardes wil zien dan gebruik je `#!py next()`, als volgt:
 \begin{pythoncode}
   square_generator = calculate_squares_up_to(5)
   next(square_generator)
@@ -434,7 +434,7 @@ Lekker kort, want we hoeven geen lijst bij te houden! Als je de functie aanroept
   next(square_generator)
   # StopIteration
 \end{pythoncode}
-Als de generator is uitgeput (de for-loop is afgelopen, de functie sluit af) dan geeft Python een \pythoninline{StopIteration} exception en crasht het programma -- tenzij je de exception afvangt. Het werkt, maar het is niet helemaal ideaal. Makkelijker is om de generator te gebruiken in een loop:
+Als de generator is uitgeput (de for-loop is afgelopen, de functie sluit af) dan geeft Python een `#!py StopIteration` exception en crasht het programma -- tenzij je de exception afvangt. Het werkt, maar het is niet helemaal ideaal. Makkelijker is om de generator te gebruiken in een loop:
 \begin{pythoncode}
   for square in calculate_squares_up_to(5):
       print("Still calculating...")
@@ -451,16 +451,16 @@ Als de generator is uitgeput (de for-loop is afgelopen, de functie sluit af) dan
   # Still calculating...
   # 16
 \end{pythoncode}
-Dit kan ook in list comprehensions. En als je \emph{toch} wilt wachten op alle resultaten, dan kan dat eenvoudig met \pythoninline{squares = list(calculate_squares_up_to(5))}.
+Dit kan ook in list comprehensions. En als je \emph{toch} wilt wachten op alle resultaten, dan kan dat eenvoudig met `#!py squares = list(calculate_squares_up_to(5))`.
 
-\begin{minopdracht}[generators]
-  Schrijf een generator function die het \emph{vermoeden van Collatz} illustreert. Dat wil zeggen: beginnend bij een getal $n$, genereer het volgende getal als volgt: is het getal \emph{even}, deel het dan door twee; is het getal \emph{oneven}, vermenigvuldig het met 3 en tel er 1 bij op. Enzovoorts. Sluit de generator af als de uitkomst gelijk is aan 1. Dat is het vermoeden van Collatz: ongeacht met welk geheel getal je begint, je komt altijd op 1 uit. Als voorbeeld, beginnend bij het getal 3 krijg je de reeks 3, 10, 5, 16, 8, 4, 2, 1.
-\end{minopdracht}
+!!! opdracht-basis "generators"
+    Schrijf een generator function die het \emph{vermoeden van Collatz} illustreert. Dat wil zeggen: beginnend bij een getal $n$, genereer het volgende getal als volgt: is het getal \emph{even}, deel het dan door twee; is het getal \emph{oneven}, vermenigvuldig het met 3 en tel er 1 bij op. Enzovoorts. Sluit de generator af als de uitkomst gelijk is aan 1. Dat is het vermoeden van Collatz: ongeacht met welk geheel getal je begint, je komt altijd op 1 uit. Als voorbeeld, beginnend bij het getal 3 krijg je de reeks 3, 10, 5, 16, 8, 4, 2, 1.
+
 
 
 ### Dunder methods
 
-Hoe \emph{weet} Python eigenlijk wat de lengte is van een string? Of hoe je getallen optelt? Voor operatoren als \pythoninline{+ - * / **} wordt eigenlijk een \emph{method} aangeroepen. bijvoorbeeld \pythoninline{__add__()} voor \pythoninline{+}, en \pythoninline{__mul__()} voor \pythoninline{*}. Een ingebouwde functie als \pythoninline{len()} roept stiekem de \emph{method} \pythoninline{__len__()} aan en \pythoninline{print()} print de uitvoer van \pythoninline{__str__()}. Zulke methodes worden \emph{dunder methods}\footnote{Dunder staat voor \emph{double underscore}, de twee lage streepjes die om de naam heen staan.} of \emph{magic methods} genoemd. We kunnen zelf bijvoorbeeld een vector introduceren waarbij we de operatoren voor onze eigen doeleinden gebruiken \cite{operator_overloading}. We definiëren het optellen van vectoren en de absolute waarde (norm) van de vector:
+Hoe \emph{weet} Python eigenlijk wat de lengte is van een string? Of hoe je getallen optelt? Voor operatoren als `#!py + - * / **` wordt eigenlijk een \emph{method} aangeroepen. bijvoorbeeld `#!py __add__()` voor `#!py +`, en `#!py __mul__()` voor `#!py *`. Een ingebouwde functie als `#!py len()` roept stiekem de \emph{method} `#!py __len__()` aan en `#!py print()` print de uitvoer van `#!py __str__()`. Zulke methodes worden \emph{dunder methods}\footnote{Dunder staat voor \emph{double underscore}, de twee lage streepjes die om de naam heen staan.} of \emph{magic methods} genoemd. We kunnen zelf bijvoorbeeld een vector introduceren waarbij we de operatoren voor onze eigen doeleinden gebruiken \cite{operator_overloading}. We definiëren het optellen van vectoren en de absolute waarde (norm) van de vector:
 \begin{pythoncode}
   class Vector:
       def __init__(self, x, y):
@@ -475,7 +475,7 @@ Hoe \emph{weet} Python eigenlijk wat de lengte is van een string? Of hoe je geta
       def __abs__(self):
           return (self.x ** 2 + self.y ** 2) ** .5
 \end{pythoncode}
-De speciale \pythoninline{__init__()} methode zorgt voor de initialisatie van de klasse en de eerste parameter die alle methodes meekrijgen verwijst naar zichzelf en wordt dus gewoonlijk \pythoninline{self} genoemd.\footnote{Maar dat is niet verplicht, je mag in principe zelf een naam kiezen. Doe dat echter niet.} Met de regel \pythoninline{self.x = x} wordt de parameter \pythoninline{x} bewaard voor later gebruik. Je kunt de klasse gebruiken op de volgende manier:
+De speciale `#!py __init__()` methode zorgt voor de initialisatie van de klasse en de eerste parameter die alle methodes meekrijgen verwijst naar zichzelf en wordt dus gewoonlijk `#!py self` genoemd.\footnote{Maar dat is niet verplicht, je mag in principe zelf een naam kiezen. Doe dat echter niet.} Met de regel `#!py self.x = x` wordt de parameter `#!py x` bewaard voor later gebruik. Je kunt de klasse gebruiken op de volgende manier:
 \begin{pyconcode}
   >>> v1 = Vector(0, 1)
   >>> v2 = Vector(1, 0)
@@ -492,7 +492,7 @@ De speciale \pythoninline{__init__()} methode zorgt voor de initialisatie van de
   >>> print(v1 + v2)
   <__main__.Vector object at 0x7fdf80b45450>
 \end{pyconcode}
-In de eerste regels maken we twee vectoren $\vb{v_1}$ en $\vb{v_2}$ en berekenen de lengtes\footnote{Absolute waarde of beter, \emph{norm}, van een vector is eenvoudig gezegd haar lengte.} $\norm{\vb{v_1}}$, $\norm{\vb{v_2}}$ en $\norm{\vb{v_1 + v_2}}$. Ook kunnen we de coördinaten van de som bekijken. Het gaat mis als we de somvector willen printen of willen kijken wat voor object het is. We krijgen technisch juiste, maar totaal onbruikbare informatie terug. Dit lossen we op met het definiëren van \pythoninline{__str__()}, gebruikt door \pythoninline{str()} en dus ook \pythoninline{print()}, en \pythoninline{__repr__()}, gebruikt door \pythoninline{repr()} en de Python interpreter.\footnote{Het verschil tussen de twee is subtiel. De Pythondocumentatie geeft aan dat de \pythoninline{__repr__} altijd ondubbelzinnig moet zijn, terwijl de \pythoninline{__str__} vooral leesbaar moet zijn. Voor eenvoudige objecten zijn ze veelal gelijk.}
+In de eerste regels maken we twee vectoren $\vb{v_1}$ en $\vb{v_2}$ en berekenen de lengtes\footnote{Absolute waarde of beter, \emph{norm}, van een vector is eenvoudig gezegd haar lengte.} $\norm{\vb{v_1}}$, $\norm{\vb{v_2}}$ en $\norm{\vb{v_1 + v_2}}$. Ook kunnen we de coördinaten van de som bekijken. Het gaat mis als we de somvector willen printen of willen kijken wat voor object het is. We krijgen technisch juiste, maar totaal onbruikbare informatie terug. Dit lossen we op met het definiëren van `#!py __str__()`, gebruikt door `#!py str()` en dus ook `#!py print()`, en `#!py __repr__()`, gebruikt door `#!py repr()` en de Python interpreter.\footnote{Het verschil tussen de twee is subtiel. De Pythondocumentatie geeft aan dat de `#!py __repr__` altijd ondubbelzinnig moet zijn, terwijl de `#!py __str__` vooral leesbaar moet zijn. Voor eenvoudige objecten zijn ze veelal gelijk.}
 \begin{pythoncode}
   class Vector:
       ...
@@ -509,16 +509,16 @@ In de eerste regels maken we twee vectoren $\vb{v_1}$ en $\vb{v_2}$ en berekenen
   >>> print(v1 + v2)
   Vector: (1, 1)
 \end{pyconcode}
-We raden je aan altijd een zinnige \pythoninline{__str__} en \pythoninline{__repr__} te definiëren.
+We raden je aan altijd een zinnige `#!py __str__` en `#!py __repr__` te definiëren.
 
-Vaak hebben classes geen dunder methods nodig (behalve \pythoninline{__repr__} en \pythoninline{__str__}).
+Vaak hebben classes geen dunder methods nodig (behalve `#!py __repr__` en `#!py __str__`).
 
 Je kunt behalve een class ook een \emph{subclass} aanmaken. Stel dat je een class \verb|Animal| hebt aangemaakt met handige methods en attributes maar je wilt een nieuwe, iets specifiekere class maken (bijvoorbeeld \verb|Cow|). Het is duidelijk dat een koe een dier is, maar een dier nog geen koe. Je kunt een subclass maken:
 \begin{pythoncode}
   class Cow(Animal):
       pass
 \end{pythoncode}
-Het keyword \pythoninline{pass} doet niets overigens. Met alleen dit statement heeft de class \verb|Cow| precies alle functionaliteit van de class \verb|Animal|. Je kunt daarna zelf nog extra methods en attributes definiëren.
+Het keyword `#!py pass` doet niets overigens. Met alleen dit statement heeft de class \verb|Cow| precies alle functionaliteit van de class \verb|Animal|. Je kunt daarna zelf nog extra methods en attributes definiëren.
 
 
 ## Decorators
@@ -549,7 +549,7 @@ Stel je hebt een functie die eenvoudig twee getallen vermenigvuldigd. Je wilt de
   squared(f, 3, 4)
   # 144
 \end{pythoncode}
-Het werkt, maar we moeten er wel steeds aan denken om \pythoninline{squared()} aan te roepen en dan óók nog de functie \pythoninline{f()} als eerste argument mee te geven. Lastig. Maar omdat functies objecten zijn kan dit ook:
+Het werkt, maar we moeten er wel steeds aan denken om `#!py squared()` aan te roepen en dan óók nog de functie `#!py f()` als eerste argument mee te geven. Lastig. Maar omdat functies objecten zijn kan dit ook:
 \begin{pythoncode*}{linenos}
   def squared_func(func):
       def inner_func(a, b):
@@ -562,12 +562,12 @@ Het werkt, maar we moeten er wel steeds aan denken om \pythoninline{squared()} a
   g(3, 4)
   # 144
 \end{pythoncode*}
-Hier gebeurt iets geks\ldots Om te begrijpen wat hier gebeurt moeten we een beetje heen en weer springen. In regel 8 roepen we de functie \pythoninline{squared_func(f)} aan. In regel 5 zien we dat die functie een andere functie teruggeeft -- die \emph{niet} wordt aangeroepen! In regel 8 wordt die functie bewaard als \pythoninline{g} en pas in regel 9 roepen we hem aan. De functie \pythoninline{g()} is dus eigenlijk gelijk aan de functie \pythoninline{inner_func()} die in regels 2--3 gedefinieerd wordt. De aanroep in regel 9 zorgt er uiteindelijk voor dat in regel 3 de oorspronkelijke functie \pythoninline{f(a, b)} wordt aangeroepen en dat het antwoord gekwadrateerd wordt. Dit is echt wel even lastig.
+Hier gebeurt iets geks\ldots Om te begrijpen wat hier gebeurt moeten we een beetje heen en weer springen. In regel 8 roepen we de functie `#!py squared_func(f)` aan. In regel 5 zien we dat die functie een andere functie teruggeeft -- die \emph{niet} wordt aangeroepen! In regel 8 wordt die functie bewaard als `#!py g` en pas in regel 9 roepen we hem aan. De functie `#!py g()` is dus eigenlijk gelijk aan de functie `#!py inner_func()` die in regels 2--3 gedefinieerd wordt. De aanroep in regel 9 zorgt er uiteindelijk voor dat in regel 3 de oorspronkelijke functie `#!py f(a, b)` wordt aangeroepen en dat het antwoord gekwadrateerd wordt. Dit is echt wel even lastig.
 
 % \begin{todo}
 %   Als we studenten nog niet kwijt waren, dan raken we ze hier wel kwijt. De stap van a en b naar *args en **kwargs is best groot. Misschien kunnen we eerst @decorators uitleggen, dan een opdracht laten maken en dan nog een stapje verder met args en kwargs
 % \end{todo}
-In deze opzet moet de \pythoninline{inner_func(a, b)} nog weten dat de oorspronkelijke functie aangeroepen wordt met twee argumenten \pythoninline{a} en \pythoninline{b}. Maar ook dat hoeft niet. We hebben immers argument (un)packing met \pythoninline{*args}:
+In deze opzet moet de `#!py inner_func(a, b)` nog weten dat de oorspronkelijke functie aangeroepen wordt met twee argumenten `#!py a` en `#!py b`. Maar ook dat hoeft niet. We hebben immers argument (un)packing met `#!py *args`:
 \begin{pythoncode}
   def squared_func(func):
       def inner_func(*args):
@@ -637,7 +637,7 @@ Eenvoudig gezegd is een module een stuk Python code dat je kunt importeren en ge
   >>> math.sin(.5 * math.pi)
   1.0
 \end{pyconcode}
-Door de \pythoninline{math} module te importeren hebben we opeens de beschikking over het getal $\pi$ en de sinus- en wortelfunties.
+Door de `#!py math` module te importeren hebben we opeens de beschikking over het getal $\pi$ en de sinus- en wortelfunties.
 
 Je kunt je eigen code ook importeren, maar hier moet je wel even opletten. Stel, we hebben een bestand \filepath{square.py}:
 \begin{pythoncode}
@@ -660,18 +660,18 @@ Zoals verwacht! Maar nu willen we in een nieuw script, \filepath{just\_count.py}
   print(f"The square of 5 is {square.square(5)}")  
 \end{pythoncode}
 \begin{minopdracht}
-  Waarom staat er in bovenstaande code nu opeens \pythoninline{square.square()} in plaats van gewoon \pythoninline{square()}?
-\end{minopdracht}
+  Waarom staat er in bovenstaande code nu opeens `#!py square.square()` in plaats van gewoon `#!py square()`?
+
 Maar nu is er een probleem met de uitvoer van dit script:
 \begin{consolecode}
   The square of 4 is 16
   The square of 5 is 25
 \end{consolecode}
 Tijdens het importeren wordt alle code die aanwezig is in \filepath{square.py} ook daadwerkelijk gerunt. Er zijn twee manieren om dit op te lossen:
-\begin{enumerate}
-  \item Alle `extra' code verwijderen uit de module (\filepath{square.py})
-  \item De code in de module \emph{alleen} laten runnen als de module als script wordt aangeroepen, maar \emph{niet} wanneer de module wordt geïmporteerd
-\end{enumerate}
+
+  1. Alle `extra' code verwijderen uit de module (\filepath{square.py})
+  1. De code in de module \emph{alleen} laten runnen als de module als script wordt aangeroepen, maar \emph{niet} wanneer de module wordt geïmporteerd
+
 De tweede oplossing kan van pas komen. Je past dan \filepath{square.py} als volgt aan:
 \begin{pythoncode}
   # square.py
@@ -682,20 +682,20 @@ De tweede oplossing kan van pas komen. Je past dan \filepath{square.py} als volg
   if __name__ == "__main__":
       print(f"The square of 4 is {square(4)}")
 \end{pythoncode}
-Wanneer je een python script runt is de speciale variabele \pythoninline{__name__} gelijk aan de string \verb|__main__|. Maar als je een module importeert is
-\pythoninline{__name__} gelijk aan de \emph{naam} van de module; in dit geval \verb|square|. Met bovenstaande constructie wordt de code alleen uitgevoerd wanneer de module direct gerunt wordt:
+Wanneer je een python script runt is de speciale variabele `#!py __name__` gelijk aan de string \verb|__main__|. Maar als je een module importeert is
+`#!py __name__` gelijk aan de \emph{naam} van de module; in dit geval \verb|square|. Met bovenstaande constructie wordt de code alleen uitgevoerd wanneer de module direct gerunt wordt:
 \begin{ps1concode}
   PS> python square.py
   The square of 4 is 16
   PS> python just_count.py
   The square of 5 is 25
 \end{ps1concode}
-Het \pythoninline{if __name__ == '__main__'}-statement wordt heel veel gebruikt in Python modules.
+Het `#!py if __name__ == '__main__'`-statement wordt heel veel gebruikt in Python modules.
 
-\begin{minopdracht}[modules]
-  \label{opd:importeer_module}
-  Maak zelf de bestanden \path{square.py} en \path{just\_count.py} aan en probeer het importeren uit, met en zonder het \pythoninline{if __name__ == '__main__'}-statement.
-\end{minopdracht}
+!!! opdracht-basis "modules"
+    \label{opd:importeer_module}
+    Maak zelf de bestanden \path{square.py} en \path{just\_count.py} aan en probeer het importeren uit, met en zonder het `#!py if __name__ == '__main__'`-statement.
+
 
 
 ## Packages
@@ -705,7 +705,7 @@ In Python zijn \emph{packages} collecties van modules. Ook krijg je automatisch 
   import numpy.test
   import scipy.test
 \end{pythoncode}
-In bovenstaande code zijn \pythoninline{numpy} en \pythoninline{scipy} afzonderlijke namespaces. Ook zijn \pythoninline{numpy.test} en \pythoninline{scipy.test} afzonderlijke namespaces. De namen van bijvoorbeeld variabelen en functies binnen die modules zullen nooit met elkaar in conflict komen.
+In bovenstaande code zijn `#!py numpy` en `#!py scipy` afzonderlijke namespaces. Ook zijn `#!py numpy.test` en `#!py scipy.test` afzonderlijke namespaces. De namen van bijvoorbeeld variabelen en functies binnen die modules zullen nooit met elkaar in conflict komen.
 
 Wij gaan in deze cursus onze code ook in packages stoppen. Op die manier kun je een softwarebibliotheek opbouwen voor je experiment en die code makkelijker delen met andere onderzoekers. Een pakket is opgebouwd zoals weergegeven in \figref{fig:packagetree}: iedere package bestaat uit een directory met een \filepath{\_\_init\_\_.py}-bestand.\footnote{Dat bestand is vaak leeg, maar kan code bevatten die gerunt wordt zodra het package wordt geïmporteerd.}
 \begin{figure}
@@ -732,7 +732,7 @@ Wij gaan in deze cursus onze code ook in packages stoppen. Op die manier kun je 
   \caption{Voorbeeld van een directorystructuur van een Python package.}
   \label{fig:packagetree}
 \end{figure}
-De verschillende modules uit \figref{fig:packagetree} kun je als volgt importeren en gebruiken (we gaan er even vanuit dat iedere module een functie \pythoninline{some_func()} bevat):
+De verschillende modules uit \figref{fig:packagetree} kun je als volgt importeren en gebruiken (we gaan er even vanuit dat iedere module een functie `#!py some_func()` bevat):
 \begin{pythoncode}
   # module direct importeren
   import my_pkg.pkg1.module1
@@ -754,7 +754,7 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 \end{warning}
 
 % \begin{info}
-%   Als je in een module een andere module wilt importeren dan zijn daarvoor twee opties: relatieve en absolute imports. Relatief wil zeggen: importeer module1 uit \emph{dezelfde} directory, of ten opzichte van deze directory (\texttt{..} betekent een directory hoger bijvoorbeeld). Bij een absolute import moet je de volledige locatie binnen het package opgeven. Als voorbeeld, stel dat \texttt{module1} uit \figref{fig:packagetree} de modules \texttt{module2} en \texttt{module3} wil importeren:
+%   Als je in een module een andere module wilt importeren dan zijn daarvoor twee opties: relatieve en absolute imports. Relatief wil zeggen: importeer module1 uit \emph{dezelfde} directory, of ten opzichte van deze directory (`..` betekent een directory hoger bijvoorbeeld). Bij een absolute import moet je de volledige locatie binnen het package opgeven. Als voorbeeld, stel dat `module1` uit \figref{fig:packagetree} de modules `module2` en `module3` wil importeren:
 %   \begin{pythoncode}
 %     # module1.py
 
@@ -769,26 +769,26 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 %   Absolute imports zijn wat meer werk, maar je maakt wel heel duidelijk welke module je wilt importeren. Relative imports zorgen in de praktijk regelmatig voor -- soms lastig te vinden -- bugs. Als je tegen problemen aanloopt: gebruik dan absolute imports.
 % \end{info}
 
-\begin{minopdracht}[packages]
-  \label{opd:test_package}
-  In deze opdracht ga je oefenen met het aanmaken van packages, modules en het importeren en aanroepen daarvan.
-  \begin{enumerate}
-    \item Maak een package \pythoninline{models} met twee modules: \pythoninline{polynomials} en \pythoninline{tests}.
-    \item In de \pythoninline{polynomials}-module maak je een functie \pythoninline{line(x, a, b)} die de de vergelijking voor een lijn voor ons berekent: $y = ax + b$.
-    \item In de \pythoninline{tests}-module maak je een functie \pythoninline{test_line()} die het volgende doet:
-          \begin{enumerate}
-            \item gebruik de \pythoninline{line()}-functie uit de \pythoninline{polynomials}-module om de $y$-waarde uit te rekenen voor een bepaald punt bij een gegeven $a$ en $b$.
-            \item Vergelijk die berekende waarde met de waarde die het volgens jij moet zijn (met de hand nagerekend).
-            \item Print \texttt{TEST PASSED} als het klopt, en \texttt{TEST FAILED} als het niet klopt.
-          \end{enumerate}
-    \item Maak een script die:
-          \begin{enumerate}
-            \item Een grafiek maakt van jouw lijn. Bepaal zelf het domein en de waardes voor $a$ en $b$.
-            \item De test uitvoert door de \pythoninline{test_line()}-functie aan te roepen.
-            \item Pas je \pythoninline{line()}-functie eventjes aan om te kijken of je test ook echt werkt. Bijvoorbeeld: bij $y = ax$ zou je \texttt{TEST FAILED} moeten zien.
-          \end{enumerate}
-  \end{enumerate}
-\end{minopdracht}
+<div id="opd:test_package"></div>
+!!! opdracht-basis "Packages"
+    In deze opdracht ga je oefenen met het aanmaken van packages, modules en het importeren en aanroepen daarvan.
+    
+    1. Maak een package `#!py models` met twee modules: `#!py polynomials` en `#!py tests`.
+    1. In de `#!py polynomials`-module maak je een functie `#!py line(x, a, b)` die de de vergelijking voor een lijn voor ons berekent: $y = ax + b$.
+    1. In de `#!py tests`-module maak je een functie `#!py test_line()` die het volgende doet:
+            
+        1. gebruik de `#!py line()`-functie uit de `#!py polynomials`-module om de $y$-waarde uit te rekenen voor een bepaald punt bij een gegeven $a$ en $b$.
+        1. Vergelijk die berekende waarde met de waarde die het volgens jij moet zijn (met de hand nagerekend).
+        1. Print `TEST PASSED` als het klopt, en `TEST FAILED` als het niet klopt.
+            
+    1. Maak een script die:
+            
+        1. Een grafiek maakt van jouw lijn. Bepaal zelf het domein en de waardes voor $a$ en $b$.
+        1. De test uitvoert door de `#!py test_line()`-functie aan te roepen.
+        1. Pas je `#!py line()`-functie eventjes aan om te kijken of je test ook echt werkt. Bijvoorbeeld: bij $y = ax$ zou je `TEST FAILED` moeten zien.
+            
+    
+
 
 
 ## De Standard Library en de Python Package Index
@@ -816,7 +816,7 @@ Merk op dat je een exception met traceback meestal van onder naar boven leest. O
 
 Een exception kan vervelend zijn. Het is een beetje jammer als je bijvoorbeeld tijdens een langdurige meting telkens een weerstand aan het uitrekenen bent ($R = \frac{U}{I}$) en de stroomsterkte $I$ wordt na anderhalf uur heel eventjes nul. Je programma crasht en je metingen zijn weg. Zoek de fout (niet altijd makkelijk!) en probeer het nog eens.
 
-Je kunt exceptions afvangen en afhandelen met een \pythoninline{try...except} blok:
+Je kunt exceptions afvangen en afhandelen met een `#!py try...except` blok:
 \begin{pythoncode}
   def R(U, I):
       try:
@@ -869,22 +869,22 @@ Je kunt op deze manier voorkomen dat iemand dagen kwijt is aan het overdoen van 
           raise NoCurrentError("There is no current flowing through the resistor.")
       return R
 \end{pythoncode}
-In plaats van een \pythoninline{ZeroDivisionError} krijg je nu een \pythoninline{NoCurrentError}. Je programma crasht nog steeds (wellicht niet handig) maar de foutmelding is nu wel specifiek voor het probleem en kan in de rest van je programma wellicht beter afgevangen en opgelost worden. Misschien beter dan niet crashen en een mogelijk foute waarde doorgeven. Die afweging zul je zelf moeten maken.
+In plaats van een `#!py ZeroDivisionError` krijg je nu een `#!py NoCurrentError`. Je programma crasht nog steeds (wellicht niet handig) maar de foutmelding is nu wel specifiek voor het probleem en kan in de rest van je programma wellicht beter afgevangen en opgelost worden. Misschien beter dan niet crashen en een mogelijk foute waarde doorgeven. Die afweging zul je zelf moeten maken.
 
-\begin{minopdracht}[exceptions]
-  De volgende code berekent een gemiddelde van een lijst getallen:
-  \begin{pythoncode}
-    def average(values):
-        return sum(values) / len(values)    
-  \end{pythoncode}
-  Er is alleen geen foutafhandeling en dat kan leiden tot exceptions. De volgende aanroepen zorgen voor een crash (probeer ze allemaal uit!):
-  \begin{pythoncode}
-    average([])
-    average(4)
-    average("12345")
-  \end{pythoncode}
-  Pas de functie \pythoninline{average()} zodanig aan dat bij bovenstaande aanroepen slechts een waarschuwing wordt geprint. Vang daartoe de exceptions netjes af en geef de waarde \pythoninline{None} terug wanneer een gemiddelde niet berekend kan worden. Dus bovenstaande drie aanroepen krijgen \pythoninline{None} terug terwijl er een waarschuwing wordt geprint.
-\end{minopdracht}
+!!! opdracht-basis "exceptions"
+    De volgende code berekent een gemiddelde van een lijst getallen:
+    \begin{pythoncode}
+      def average(values):
+          return sum(values) / len(values)    
+    \end{pythoncode}
+    Er is alleen geen foutafhandeling en dat kan leiden tot exceptions. De volgende aanroepen zorgen voor een crash (probeer ze allemaal uit!):
+    \begin{pythoncode}
+      average([])
+      average(4)
+      average("12345")
+    \end{pythoncode}
+    Pas de functie `#!py average()` zodanig aan dat bij bovenstaande aanroepen slechts een waarschuwing wordt geprint. Vang daartoe de exceptions netjes af en geef de waarde `#!py None` terug wanneer een gemiddelde niet berekend kan worden. Dus bovenstaande drie aanroepen krijgen `#!py None` terug terwijl er een waarschuwing wordt geprint.
+
 
 
 \begin{figure}[b]

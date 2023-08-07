@@ -66,7 +66,7 @@ Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaa
 
 [^README]: Wanneer de repository op GitHub wordt geplaatst wordt deze README automatisch op de hoofdpagina van de repository getoond, onder de code.
 
-Daarna is er een map :fontawesome-regular-folder:`tests`. Goede software wordt getest. In deze map komen bestanden te staan die delen van de code runnen en resultaten vergelijken met verwachte resultaten &mdash; zoals je kunt doen in [opd:test_package](opd:test_package).[^unittest]
+Daarna is er een map :fontawesome-regular-folder:`tests`. Goede software wordt getest. In deze map komen bestanden te staan die delen van de code runnen en resultaten vergelijken met verwachte resultaten &mdash; zoals je kunt doen in [opdracht _Packages_](voorkennis.md#opd:test_package).[^unittest]
 
 [^unittest]: Python heeft een ingebouwde module `#!py unittest` die deze tests kan vinden, kan runnen en daarna een handige weergave geeft van welke tests geslaagd zijn en welke faalden. Ook het package `#!py pytest` is erg bekend. Op deze manier weet je altijd zeker dat wanneer je aanpassingen doet in je code, dat de rest van de code nog steeds is blijven werken &mdash; zónder dat je zelf uitvoerig alles hebt hoeven uitproberen. Je draait gewoon even snel alle tests. Helaas, helaas &mdash; in deze cursus is te weinig tijd om het schrijven van tests te behandelen.
 
@@ -384,7 +384,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
     1. Initialiseer Poetry, zodat een :fontawesome-regular-file-code:`pyproject.toml` wordt aangemaakt.
     1. Installeer je package.
     1. Test je :fontawesome-regular-file-code:`view.py` script, terwijl je dependencies toevoegt die je in je scripts nodig hebt.
-    1. Vergelijkbaar met [opd:test_package](opd:test_package) is het verstandig om het importeren van onderdelen van het package te testen voordat we het verder gaan uitbouwen. Maak een :fontawesome-regular-folder:`tests`-map met :fontawesome-regular-file-code:`__init__.py` aan in hoofdmap van de repository zodat je onderstaande structuur krijgt:
+    1. Vergelijkbaar met [opdracht _Packages_](voorkennis.md#opd:test_package) is het verstandig om het importeren van onderdelen van het package te testen voordat we het verder gaan uitbouwen. Maak een :fontawesome-regular-folder:`tests`-map met :fontawesome-regular-file-code:`__init__.py` aan in hoofdmap van de repository zodat je onderstaande structuur krijgt:
 
             pythondaq/
                 src/

@@ -47,6 +47,11 @@ f(x) \sin x,
 \end{equation}
 met $f(x)$ een functie van $x$.
 
+Voor code: hier een `#!py print`-statement, maar meer code met:
+``` py title="Titel"
+print("Hello, world!")
+```
+
 !!! opdracht-basis "oefenopdracht"
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et
