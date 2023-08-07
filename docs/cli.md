@@ -512,7 +512,7 @@ Options:
 
 ## Command-line interface voor ons experiment
 
-In [ch:mvc](ch:mvc) heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals :fontawesome-regular-file-code:`view.py`, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand :fontawesome-regular-file-code:`cli.py` aanmaken en dat langzaam opbouwen.
+In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals :fontawesome-regular-file-code:`view.py`, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand :fontawesome-regular-file-code:`cli.py` aanmaken en dat langzaam opbouwen.
 
 !!! opdracht-inlever "Pythondaq: commando's"
 
