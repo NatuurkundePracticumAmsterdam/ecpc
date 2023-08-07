@@ -67,11 +67,11 @@ Als je scripts schrijft in Visual Studio Code wil je dat ze ook runnen in de omg
 \begin{center}
     \includegraphics[scale=.75]{figures/screenshot-vscode-python-env}
 \end{center}
-Als je daarop klikt\footnote{Of: \menu{View > Command Palette > Python: Select Interpreter}.} kun je door de lijst met Pythonomgevingen scrollen. Kies de omgeving die je wilt gebruiken. _Let op:_ als je het environment net hebt aangemaakt dan staat hij er nog niet tussen. Klik dan rechtsbovenin eerst op het \menu{\faRedo\ Refresh Interpeter list}-knopje. Bijvoorbeeld:
+Als je daarop klikt\footnote{Of: **View > Command Palette > Python: Select Interpreter**.} kun je door de lijst met Pythonomgevingen scrollen. Kies de omgeving die je wilt gebruiken. _Let op:_ als je het environment net hebt aangemaakt dan staat hij er nog niet tussen. Klik dan rechtsbovenin eerst op het **\faRedo\ Refresh Interpeter list**-knopje. Bijvoorbeeld:
 \begin{center}
     \includegraphics[scale=.75]{figures/screenshot-vscode-python-env-daq}
 \end{center}
-Sluit alle <q>oude</q> terminals met het \faTrash*-icoon als je je muis aan de rechterkant over de namen van de terminals beweegt of in één keer met \menu{View > Command Palette > Terminal: Kill All Terminals}. Alle nieuwe terminals die je opent zullen de nieuw geselecteerde conda environment actief maken. Wanneer je nu je Pythoncode draait dan is dat binnen deze omgeving. Het kan wel zijn dat hij opeens klaagt over packages die niet geïnstalleerd zijn omdat je dat &mdash; in _die_ omgeving &mdash; nog niet had gedaan. Geen probleem: installeer ze dan.
+Sluit alle <q>oude</q> terminals met het \faTrash*-icoon als je je muis aan de rechterkant over de namen van de terminals beweegt of in één keer met **View > Command Palette > Terminal: Kill All Terminals**. Alle nieuwe terminals die je opent zullen de nieuw geselecteerde conda environment actief maken. Wanneer je nu je Pythoncode draait dan is dat binnen deze omgeving. Het kan wel zijn dat hij opeens klaagt over packages die niet geïnstalleerd zijn omdat je dat &mdash; in _die_ omgeving &mdash; nog niet had gedaan. Geen probleem: installeer ze dan.
 
 
 ### Pipx
@@ -102,7 +102,7 @@ Eén van de tools die problemen kunnen geven wanneer je van environment wisselt 
 
     1. Installeer `black` via `pipx`
     1. Run `pipx list` en let op de directory die genoemd is na: `apps are exposed on your \$PATH at`. Bijvoorbeeld: `/Users/david/.local/bin`.
-    1. In Visual Studio Code, ga naar \menu{Code} onder MacOS of \menu{File} onder Windows en dan naar \menu{Preferences > Settings > Python Formatting: Black Path}. Vul de directorynaam in gevolgd door `black`. Bijvoorbeeld: `/Users/david/.local/bin/black`.
+    1. In Visual Studio Code, ga naar **Code** onder MacOS of **File** onder Windows en dan naar **Preferences > Settings > Python Formatting: Black Path**. Vul de directorynaam in gevolgd door `black`. Bijvoorbeeld: `/Users/david/.local/bin/black`.
     1. Open een Pythonbestand en type:
             ``` py
             l = [1,
