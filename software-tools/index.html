@@ -216,8 +216,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../mvc/" class="md-nav__link">
-        Model-View-Controller
+      <a href="../github/" class="md-nav__link">
+        Versiebeheer met GitHub
       </a>
     </li>
   
@@ -231,8 +231,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../github/" class="md-nav__link">
-        Versiebeheer met GitHub
+      <a href="../basisscript/" class="md-nav__link">
+        Basisscript voor het experiment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mvc/" class="md-nav__link">
+        Model-View-Controller
       </a>
     </li>
   
@@ -313,17 +328,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
       
       
       
-        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
           Appendices
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_9">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
           Appendices
         </label>
@@ -467,6 +482,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voorkennis/" class="md-nav__link">
+        Python voorkennis; Batteries (not yet) included
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -564,9 +593,11 @@
 
 
 <h1 id="gereedschap">Gereedschap<a class="headerlink" href="#gereedschap" title="Permanent link">&para;</a></h1>
-<p>\label{ch:gereedschap}</p>
+<div id="ch:gereedschap"></div>
+
 <h2 id="isolatie-virtual-environments">Isolatie: virtual environments<a class="headerlink" href="#isolatie-virtual-environments" title="Permanent link">&para;</a></h2>
-<p>\label{sec:virtual-envs}</p>
+<div id="sec:virtual-envs"></div>
+
 <p>Je hebt het vast al gemerkt: Anaconda is groot. Dat is gek, want Python is best klein. Anaconda bevat alleen veel meer dan Python. Anaconda is een Python_distributie_ en bevat een enorme verzameling aan packages. Je kunt zelf extra packages installeren met <code>conda</code> of <code>pip</code>. Je loopt dan mogelijk wel tegen problemen aan: packages hebben vaak zelf weer andere packages nodig. En regelmatig ook met een bepaalde versie. Dit kan een ingewikkeld netwerk worden waarbij het installeren van een nieuwe package óf heel lang duurt, óf niet kan vanwege een conflict,\footnote{Package A heeft B nodig met versie &gt;= 1.1, maar package C heeft B nodig met versie 1.0. Nu kunnen package A en C dus niet tegelijkertijd geïnstalleerd worden.} óf <q>blind</q> gedaan wordt waarna sommige dingen niet meer willen werken. Alledrie is op te lossen door <em>virtual environments</em> te gebruiken. Geïsoleerde omgevingen waarin (soms) een <em>eigen</em> versie van Python draait met een <em>eigen</em> &mdash; veelal kleine &mdash; collectie van packages. Je kunt environments aanmaken voor specifieke projecten bijvoorbeeld. Wellicht heb je bij NSP1 een environment aangemaakt om Jupyter Notebooks en een verzameling packages te installeren voor de data-analyse.</p>
 <h3 id="pip-vs-conda">Pip vs Conda<a class="headerlink" href="#pip-vs-conda" title="Permanent link">&para;</a></h3>
 <p>De package manager van Python is <code>pip</code>. Je kunt hiermee alle Python packages installeren die bestaan uit <em>Python</em> code. NumPy bijvoorbeeld bevat echter ook veel code geschreven in C. Die code moet eerst gecompileerd worden. Dat kan <code>pip</code> óók doen, mits er een C compiler op je computer geïnstalleerd is. Via de Python package index kunnen gelukkig ook zogeheten <em>binary packages</em> verspreid worden waarin de code al is gecompileerd. Er zijn dan losse packages voor Windows, MacOS en Linux. Meestal gaat dit goed, maar helaas niet altijd. Historisch waren NumPy maar vooral ook SciPy een flink probleem. Ook het gebruik van grafische bibliotheken ging vaak moeizaam. Dan was het package wel geïnstalleerd, maar riep hij dat hij systeembibliotheken niet kon vinden. Heel vervelend.</p>
@@ -617,22 +648,22 @@
 \begin{center}
     \includegraphics[scale=.75]{figures/screenshot-vscode-python-env}
 \end{center}
-Als je daarop klikt\footnote{Of: \menu{View &gt; Command Palette &gt; Python: Select Interpreter}.} kun je door de lijst met Pythonomgevingen scrollen. Kies de omgeving die je wilt gebruiken. <em>Let op:</em> als je het environment net hebt aangemaakt dan staat hij er nog niet tussen. Klik dan rechtsbovenin eerst op het \menu{\faRedo Refresh Interpeter list}-knopje. Bijvoorbeeld:
+Als je daarop klikt\footnote{Of: <strong>View &gt; Command Palette &gt; Python: Select Interpreter</strong>.} kun je door de lijst met Pythonomgevingen scrollen. Kies de omgeving die je wilt gebruiken. <em>Let op:</em> als je het environment net hebt aangemaakt dan staat hij er nog niet tussen. Klik dan rechtsbovenin eerst op het <strong>\faRedo Refresh Interpeter list</strong>-knopje. Bijvoorbeeld:
 \begin{center}
     \includegraphics[scale=.75]{figures/screenshot-vscode-python-env-daq}
 \end{center}
-Sluit alle <q>oude</q> terminals met het \faTrash*-icoon als je je muis aan de rechterkant over de namen van de terminals beweegt of in één keer met \menu{View &gt; Command Palette &gt; Terminal: Kill All Terminals}. Alle nieuwe terminals die je opent zullen de nieuw geselecteerde conda environment actief maken. Wanneer je nu je Pythoncode draait dan is dat binnen deze omgeving. Het kan wel zijn dat hij opeens klaagt over packages die niet geïnstalleerd zijn omdat je dat &mdash; in <em>die</em> omgeving &mdash; nog niet had gedaan. Geen probleem: installeer ze dan.</p>
+Sluit alle <q>oude</q> terminals met het \faTrash<em>-icoon als je je muis aan de rechterkant over de namen van de terminals beweegt of in één keer met </em><em>View &gt; Command Palette &gt; Terminal: Kill All Terminals</em>*. Alle nieuwe terminals die je opent zullen de nieuw geselecteerde conda environment actief maken. Wanneer je nu je Pythoncode draait dan is dat binnen deze omgeving. Het kan wel zijn dat hij opeens klaagt over packages die niet geïnstalleerd zijn omdat je dat &mdash; in <em>die</em> omgeving &mdash; nog niet had gedaan. Geen probleem: installeer ze dan.</p>
 <h3 id="pipx">Pipx<a class="headerlink" href="#pipx" title="Permanent link">&para;</a></h3>
 <p>Pythonapplicaties, zoals <code>conda</code>, worden geïnstalleerd als commando dat je kunt aanroepen vanaf de command-line. Maar het <em>is</em> een Pythonapplicatie. En dat betekent dat als je van omgeving wisselt, dat de applicatie niet meer beschikbaar is. Ook kan het gebeuren dat je packages update of verwijdert waardoor de applicatie niet meer werkt. Met <code>pipx</code> is het mogelijk om dit soort applicaties in een <em>eigen</em> virtual environment te installeren. Je loopt geen risico dat je ze stukmaakt <em>en</em> ze zijn beschikbaar vanuit andere virtual environments. In plaats van:
-<div class="language-ps1con highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="go">pip install PACKAGE</span>
+<div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">pip</span> <span class="n">install</span> <span class="n">PACKAGE</span>
 </span></code></pre></div>
 doe je straks
-<div class="language-ps1con highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="go">pipx install PACKAGE</span>
+<div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">pipx</span> <span class="n">install</span> <span class="n">PACKAGE</span>
 </span></code></pre></div>
 Met <code>pipx list</code> bekijk je dan een lijst van geïnstalleerde pakketten.
 Je installeert <code>pipx</code> met:
-<div class="language-ps1con highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="go">python -m pip install --user pipx</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="go">python -m pipx ensurepath</span>
+<div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">python</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="p">-</span><span class="n">-user</span> <span class="n">pipx</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">python</span> <span class="n">-m</span> <span class="n">pipx</span> <span class="n">ensurepath</span>
 </span></code></pre></div>
 Herstart je terminal en test of het commando <code>pipx</code> werkt. Zo niet, dan zul je volledig uit moeten loggen en weer in moeten loggen om de shellomgeving opnieuw te laden.</p>
 <p>\subsubsection{Black}</p>
@@ -643,7 +674,7 @@ Herstart je terminal en test of het commando <code>pipx</code> werkt. Zo niet, d
 <ol>
 <li>Installeer <code>black</code> via <code>pipx</code></li>
 <li>Run <code>pipx list</code> en let op de directory die genoemd is na: <code>apps are exposed on your \$PATH at</code>. Bijvoorbeeld: <code>/Users/david/.local/bin</code>.</li>
-<li>In Visual Studio Code, ga naar \menu{Code} onder MacOS of \menu{File} onder Windows en dan naar \menu{Preferences &gt; Settings &gt; Python Formatting: Black Path}. Vul de directorynaam in gevolgd door <code>black</code>. Bijvoorbeeld: <code>/Users/david/.local/bin/black</code>.</li>
+<li>In Visual Studio Code, ga naar <strong>Code</strong> onder MacOS of <strong>File</strong> onder Windows en dan naar <strong>Preferences &gt; Settings &gt; Python Formatting: Black Path</strong>. Vul de directorynaam in gevolgd door <code>black</code>. Bijvoorbeeld: <code>/Users/david/.local/bin/black</code>.</li>
 <li>Open een Pythonbestand en type:
         <div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>

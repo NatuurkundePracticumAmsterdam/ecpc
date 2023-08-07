@@ -216,8 +216,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../mvc/" class="md-nav__link">
-        Model-View-Controller
+      <a href="../github/" class="md-nav__link">
+        Versiebeheer met GitHub
       </a>
     </li>
   
@@ -231,8 +231,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../github/" class="md-nav__link">
-        Versiebeheer met GitHub
+      <a href="../basisscript/" class="md-nav__link">
+        Basisscript voor het experiment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mvc/" class="md-nav__link">
+        Model-View-Controller
       </a>
     </li>
   
@@ -481,17 +496,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
       
       
       
-        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
           Appendices
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_9">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
           Appendices
         </label>
@@ -561,6 +576,20 @@
     <li class="md-nav__item">
       <a href="../zonnecel/" class="md-nav__link">
         Zonnecel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voorkennis/" class="md-nav__link">
+        Python voorkennis; Batteries (not yet) included
       </a>
     </li>
   
@@ -801,7 +830,7 @@ Eerst importeren we een paar bibliotheken. Het draait uiteindelijk om de <code c
 <p>Een aantal elementen uit dit programma (<code class="language-py highlight"><span class="n">sys</span><span class="o">.</span><span class="n">argv</span></code>, <code class="language-py highlight"><span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></code>) zijn strikt genomen niet noodzakelijk, maar wel <em>good practice</em>. Ook het schrijven van een <code class="language-py highlight"><span class="n">main</span><span class="p">()</span></code> functie is niet strikt noodzakelijk, maar het maakt het wel makkelijk om straks een zogeheten <em>entry point</em> te hebben als we weer een applicatie willen schrijven. In de <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>pyproject.toml</code> geven we dan aan dat we de <code class="language-py highlight"><span class="n">main</span><span class="p">()</span></code> functie willen aanroepen. Dat komt later.</p>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Voorbeeld gui</p>
-<p>\label{opd:minimal-gui}</p>
+<p><div id="opd:minimal-gui"></div></p>
 <ol>
 <li>Maak een nieuw bestand <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code>.</li>
 <li>Neem de pythoncode van de minimale Qt-applicatie over en test het in de <code>test-qt</code> conda environment.</li>
@@ -809,11 +838,12 @@ Eerst importeren we een paar bibliotheken. Het draait uiteindelijk om de <code c
 </div>
 <p>Elke keer als je een nieuwe Qt applicatie gaat schrijven kun je bovenstaand stukje code copy/pasten. Als we dit programma draaien hebben we echter een klein leeg venster op het scherm, zonder elementen. Die elementen kunnen we op twee manieren toevoegen: door ze te programmeren of door het gebruik van een visueel ontwerp met Qt Designer. Beide zullen in de volgende secties toegelicht worden.</p>
 <h3 id="de-interface-programmeren">De interface programmeren<a class="headerlink" href="#de-interface-programmeren" title="Permanent link">&para;</a></h3>
-<p>\label{sec:ui-prog}</p>
+<div id="sec:ui-prog"></div>
+
 <p>We gaan de eenvoudige interface programmeren die hieronder is weergegeven:</p>
 <p><img alt="screenshot eenvoudige GUI" src="../figures/screenshot-ui-prog.png" /></p>
 <p>We doen dat door de class <code class="language-py highlight"><span class="n">UserInterface</span></code> uit te breiden met widgets uit de <code class="language-py highlight"><span class="n">QtWidgets</span></code> bibliotheek.</p>
-<p>Het definiëren van layouts gebeurt in veruit de meeste opmaaksystemen met rechthoeken (<em>Engels: boxes</em>) die op verschillende manieren gestapeld worden &mdash; naast elkaar, boven elkaar, of op een rechthoekig grid bijvoorbeeld. Zulke systemen zijn ook <em>hiërarchisch</em>: je stopt boxes in andere boxes. De layout van \figref{fig:screenshot-ui-prog} is als volgt opgebouwd: ieder venster moet één centrale widget hebben (\figref{fig:layout-centerwidget}). Vervolgens geven we aan dat we die verticaal gaan opdelen (\figref{fig:layout-vbox}). In die indeling plaatsen we dan een widget voor tekstinvoer én een widget met een horizontale opdeling (\figref{fig:layout-text-hbox}). Als laatste plaatsen we in die horizontale opdeling twee knoppen (\figref{fig:layout-buttons}). Vergelijk die schematische voorstelling nog een keer met \figref{fig:screenshot-ui-prog}. Het is soms even puzzelen hoe je de layout van een applicatie het beste opbouwt.</p>
+<p>Het definiëren van layouts gebeurt in veruit de meeste opmaaksystemen met rechthoeken (<em>Engels: boxes</em>) die op verschillende manieren gestapeld worden &mdash; naast elkaar, boven elkaar, of op een rechthoekig grid bijvoorbeeld. Zulke systemen zijn ook <em>hiërarchisch</em>: je stopt boxes in andere boxes. De layout van <a href="fig:screenshot-ui-prog">fig:screenshot-ui-prog</a> is als volgt opgebouwd: ieder venster moet één centrale widget hebben (<a href="fig:layout-centerwidget">fig:layout-centerwidget</a>). Vervolgens geven we aan dat we die verticaal gaan opdelen (<a href="fig:layout-vbox">fig:layout-vbox</a>). In die indeling plaatsen we dan een widget voor tekstinvoer én een widget met een horizontale opdeling (<a href="fig:layout-text-hbox">fig:layout-text-hbox</a>). Als laatste plaatsen we in die horizontale opdeling twee knoppen (<a href="fig:layout-buttons">fig:layout-buttons</a>). Vergelijk die schematische voorstelling nog een keer met <a href="fig:screenshot-ui-prog">fig:screenshot-ui-prog</a>. Het is soms even puzzelen hoe je de layout van een applicatie het beste opbouwt.</p>
 <p>Het hoofdelement van de grafische interface is de <code>central widget</code>:</p>
 <p><img alt="de central widget" src="../figures/layout-schematic.svg" /></p>
 <p>De <code>central widget</code> krijgt een verticale layout die we <code>vbox</code> noemen:</p>
@@ -892,7 +922,7 @@ Allereerst definiëren we een <code>__init__()</code>. Helaas gaat dat niet zoma
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Parent class initialiseren</p>
 <ol>
-<li>Breid het script van \opdref{opd:minimal-gui} uit met een <code class="language-py highlight"><span class="fm">__init__</span></code>-method.</li>
+<li>Breid het script van <a href="opd:minimal-gui">opd:minimal-gui</a> uit met een <code class="language-py highlight"><span class="fm">__init__</span></code>-method.</li>
 <li>Zorg dat de parent class volledig geïnitialiseerd wordt.</li>
 <li>Test of <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code> nog steeds werkt.</li>
 </ol>
@@ -902,7 +932,7 @@ Allereerst definiëren we een <code>__init__()</code>. Helaas gaat dat niet zoma
 <p class="admonition-title">Central widget toevoegen</p>
 <ol>
 <li>Breid <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code> uit met een centrale widget.</li>
-<li>Geef aan dat dit het centrale widget gaat zijn (regels 11--12, \figref{fig:layout-centerwidget}).</li>
+<li>Geef aan dat dit het centrale widget gaat zijn (regels 11--12, <a href="fig:layout-centerwidget">fig:layout-centerwidget</a>).</li>
 <li>Test of <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code> nog steeds werkt.</li>
 </ol>
 </div>
@@ -910,18 +940,18 @@ Allereerst definiëren we een <code>__init__()</code>. Helaas gaat dat niet zoma
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Verticale layout toevoegen</p>
 <ol>
-<li>Breid <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code> uit met een verticale layout (regel 15, \figref{fig:layout-vbox}).</li>
+<li>Breid <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code> uit met een verticale layout (regel 15, <a href="fig:layout-vbox">fig:layout-vbox</a>).</li>
 <li>Maak een textbox (regel 16)</li>
 <li>Voeg de textbox toe aan de verticale layout (regel 17)</li>
 <li>Test of <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code> nog steeds werkt en of je tekst kan schrijven in de textbox.</li>
 </ol>
 </div>
-<p>De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we ook toe aan de <code class="language-py highlight"><span class="n">vbox</span></code>. En we maken de layout compleet (\figref{fig:layout-buttons}) door knoppen toe te voegen aan de <code class="language-py highlight"><span class="n">hbox</span></code>.</p>
+<p>De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we ook toe aan de <code class="language-py highlight"><span class="n">vbox</span></code>. En we maken de layout compleet (<a href="fig:layout-buttons">fig:layout-buttons</a>) door knoppen toe te voegen aan de <code class="language-py highlight"><span class="n">hbox</span></code>.</p>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Horizontale layout toevoegen</p>
 <ol>
 <li>Breid <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code> uit met een horizontale layout (regel 18).</li>
-<li>Voeg de horizontale layout toe aan de verticale layout (regel 19, \figref{fig:layout-text-hbox}).</li>
+<li>Voeg de horizontale layout toe aan de verticale layout (regel 19, <a href="fig:layout-text-hbox">fig:layout-text-hbox</a>).</li>
 <li>Maak een clear button en voeg deze toe aan de horizontale layout (regel 21,22).</li>
 <li>Maak ook een add button en voeg deze toe aan de horizontale layout (regel 23,24).</li>
 <li>Test of <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>example-gui.py</code> nog steeds werkt. <sup id="fnref:knop-stuk"><a class="footnote-ref" href="#fn:knop-stuk">4</a></sup></li>
@@ -985,7 +1015,7 @@ Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog ma
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Designer gebruiken</p>
 <ol>
-<li>Open Designer en kies bij <strong>templates/forms</strong> voor <code class="language-py highlight"><span class="n">MainWindow</span></code>. Klik dan op <strong>Create</strong>. Ontwerp de user interface uit \figref{fig:screenshot-ui-prog} en gebruik dezelfde namen voor de widgets als het voorbeeld in \secref{sec:ui-prog}. Dus een <code class="language-py highlight"><span class="n">add_button</span></code> knop, een <code class="language-py highlight"><span class="n">clear_button</span></code> knop en een <code class="language-py highlight"><span class="n">textedit</span></code> tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.</li>
+<li>Open Designer en kies bij <strong>templates/forms</strong> voor <code class="language-py highlight"><span class="n">MainWindow</span></code>. Klik dan op <strong>Create</strong>. Ontwerp de user interface uit <a href="fig:screenshot-ui-prog">fig:screenshot-ui-prog</a> en gebruik dezelfde namen voor de widgets als het voorbeeld in <a href="sec:ui-prog">sec:ui-prog</a>. Dus een <code class="language-py highlight"><span class="n">add_button</span></code> knop, een <code class="language-py highlight"><span class="n">clear_button</span></code> knop en een <code class="language-py highlight"><span class="n">textedit</span></code> tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.</li>
 <li>Bewaar het bestand als <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm56 256c-13.3 0-24 10.7-24 24s10.7 24 24 24h144c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24h144c13.3 0 24-10.7 24-24s-10.7-24-24-24H120z"/></svg></span><code>simple_app.ui</code>.</li>
 <li>In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan<sup id="fnref:overleg-navigeren"><a class="footnote-ref" href="#fn:overleg-navigeren">5</a></sup> en type in:
         <div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">pyside6-uic</span> <span class="n">simple_app</span><span class="p">.</span><span class="n">ui</span> <span class="n">-o</span> <span class="n">ui_simple_app</span><span class="p">.</span><span class="n">py</span>  
@@ -1207,7 +1237,7 @@ De functie <code class="language-py highlight"><span class="n">getSaveFileName</
 <p>Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeilijker dan gedacht. Zodra je andere devices gaat openen en commando's gaat sturen om te ontdekken wat voor apparaat het is kunnen er gekke dingen gebeuren. Onder MacOS bijvoorbeeld kunnen bluetooth luidsprekers en koptelefoons opeens ontkoppelen. <em>We gaan dus toch voor keuze 1.</em></p>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Pythondaq: selecteer Arduino</p>
-<p>Maak een keuzemenu (<code class="language-py highlight"><span class="n">QComboBox</span></code>) zodat je de Arduino kunt selecteren. Je zult in de <code>__init__()</code> eerst een lijst van devices moeten maken en die toe moeten voegen aan de widget. Zie ook \tabref{tab:widgets} en de documentatie. Het kan daarbij handig zijn om de device pas te <em>openen</em> als je een scan uitvoert en hem te sluiten (schrijf een soort <code class="language-py highlight"><span class="n">device</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code>) als de scan is afgelopen. In de controller werk je met een <code class="language-py highlight"><span class="n">pyvisa</span></code> device en die heeft al een <code class="language-py highlight"><span class="n">close</span><span class="p">()</span></code>-method.</p>
+<p>Maak een keuzemenu (<code class="language-py highlight"><span class="n">QComboBox</span></code>) zodat je de Arduino kunt selecteren. Je zult in de <code>__init__()</code> eerst een lijst van devices moeten maken en die toe moeten voegen aan de widget. Zie ook <a href="tab:widgets">tab:widgets</a> en de documentatie. Het kan daarbij handig zijn om de device pas te <em>openen</em> als je een scan uitvoert en hem te sluiten (schrijf een soort <code class="language-py highlight"><span class="n">device</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code>) als de scan is afgelopen. In de controller werk je met een <code class="language-py highlight"><span class="n">pyvisa</span></code> device en die heeft al een <code class="language-py highlight"><span class="n">close</span><span class="p">()</span></code>-method.</p>
 </div>
 <details class="opdracht-meer">
 <summary>Pythondaq: exception</summary>

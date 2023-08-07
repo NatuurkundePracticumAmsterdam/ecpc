@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../communicatie/">
+        <link rel="prev" href="../basisscript/">
       
       
-        <link rel="next" href="../github/">
+        <link rel="next" href="../poetry/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
@@ -214,6 +214,36 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        Versiebeheer met GitHub
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basisscript/" class="md-nav__link">
+        Basisscript voor het experiment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -274,21 +304,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../github/" class="md-nav__link">
-        Versiebeheer met GitHub
-      </a>
     </li>
   
 
@@ -366,17 +381,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
       
       
       
-        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
           Appendices
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_9">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
           Appendices
         </label>
@@ -446,6 +461,20 @@
     <li class="md-nav__item">
       <a href="../zonnecel/" class="md-nav__link">
         Zonnecel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voorkennis/" class="md-nav__link">
+        Python voorkennis; Batteries (not yet) included
       </a>
     </li>
   
@@ -536,14 +565,13 @@
 
 
 <h1 id="model-view-controller">Model-View-Controller<a class="headerlink" href="#model-view-controller" title="Permanent link">&para;</a></h1>
-<p>\label{ch:mvc}</p>
 <h2 id="mvc-en-het-gebruik-van-packages">MVC en het gebruik van packages<a class="headerlink" href="#mvc-en-het-gebruik-van-packages" title="Permanent link">&para;</a></h2>
-<p>MVC staat voor <em>Model-View-Controller</em> en is een belangrijk, maar wat diffuus concept in software engineering en is vooral van toepassing op gebruikersinterfaces. Het belangrijkste idee is dat een programma zoveel mogelijk wordt opgesplitst in onderdelen. Het <em>model</em> bevat de onderliggende data en concepten van het programma (een database, meetgegevens, berekeningen, etc.); de <em>controller</em> praat met de fysieke omgeving en reageert bijvoorbeeld op invoer van een gebruiker en past het model aan; de <em>view</em> is een weergave van de data uit het model en vormt de gebruikersinterface zelf. Vaak praten alle onderdelen met elkaar, maar een gelaagd model is makkelijker te overzien en dus eenvoudiger te programmeren. In het geval van een natuurkunde-experiment is dit vaak mogelijk. Daarmee krijgt MVC bij ons een andere betekenis dan bijvoorbeeld bij het bouwen van websites. Het gelaagd MVC-model dat wij gaan gebruiken is weergegeven in \figref{fig:mvc-model}.</p>
+<p>MVC staat voor <em>Model-View-Controller</em> en is een belangrijk, maar wat diffuus concept in software engineering en is vooral van toepassing op gebruikersinterfaces. Het belangrijkste idee is dat een programma zoveel mogelijk wordt opgesplitst in onderdelen. Het <em>model</em> bevat de onderliggende data en concepten van het programma (een database, meetgegevens, berekeningen, etc.); de <em>controller</em> praat met de fysieke omgeving en reageert bijvoorbeeld op invoer van een gebruiker en past het model aan; de <em>view</em> is een weergave van de data uit het model en vormt de gebruikersinterface zelf. Vaak praten alle onderdelen met elkaar, maar een gelaagd model is makkelijker te overzien en dus eenvoudiger te programmeren. In het geval van een natuurkunde-experiment is dit vaak mogelijk. Daarmee krijgt MVC bij ons een andere betekenis dan bijvoorbeeld bij het bouwen van websites. Het gelaagd MVC-model dat wij gaan gebruiken is hieronder weergegeven:</p>
+<div id="fig:mvc-model"></div>
 <p><img align="left" alt="Een gelaagd model-view-controller model" src="../figures/mvc-model.svg" /></p>
-<p>\caption{Een gelaagd <em>Model-View-Controller</em> patroon. De <em>controllers</em> communiceren met de apparatuur; het <em>model</em> bevat de meetgegevens, berekeningen en de opzet van het experiment; de <em>view</em> zorgt voor een gebruikersinterface met weergave van de data.}
-\label{fig:mvc-model}</p>
+<p>De <em>controllers</em> communiceren met de apparatuur; het <em>model</em> bevat de meetgegevens, berekeningen en de opzet van het experiment; de <em>view</em> zorgt voor een gebruikersinterface met weergave van de data.</p>
 <p>Het scheiden van je programma in deze lagen kan enorm helpen om ervoor te zorgen dat je geen <em>spaghetticode</em> schrijft &mdash; ongestructureerde en moeilijk te begrijpen code. Wanneer het drukken op een knop in de code van de grafische omgeving direct commando's stuurt naar de Arduino of dat de code voor het doen van een enkele meting meteen de $x$-as van een grafiek aanpast, sla je lagen over in ons model en knoop je delen van het programma aan elkaar die niet direct iets met elkaar te maken hebben. De knop moet een meting starten, ja, maar <em>hoe</em> dat precies moet is niet de taak van de gebruikersinterface. En de meting zelf moet zich niet bemoeien met welke grafiek er precies getekend wordt. Je zult merken dat het heel lastig wordt om overzicht te houden en later aanpassingen te doen als je alles door elkaar laat lopen. Je zult dan door je hele code moeten zoeken als je óf de aansturing van de Arduino, óf de grafische interface wilt aanpassen. En dus gaan we alles netjes structureren.</p>
-<p>De verschillende onderdelen in \figref{fig:mvc-model} kunnen we voor ons experiment als volgt beschrijven:</p>
+<p>De verschillende onderdelen in het model kunnen we voor ons experiment als volgt beschrijven:</p>
 <dl>
 <dt><strong>View</strong></dt>
 <dd>Het <q>startpunt</q> van je applicatie. Geeft de opdracht om een meting te starten en geeft na afloop de resultaten van de meting weer op het scherm.</dd>
@@ -587,35 +615,38 @@ In bovenstaand voorbeeld waren we eerst op zoek naar de eerste naam in een alfab
 <div class="language-py highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">cart</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">item</span> <span class="o">=</span> <span class="s2">&quot;Dune by Frank Herbert&quot;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># check that item is still available</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">cart</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">item</span> <span class="o">=</span> <span class="s2">&quot;Eon by Greg Bear&quot;</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># check that item is still available</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">cart</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">item</span> <span class="o">=</span> <span class="s2">&quot;The Hunger Games by Suzanne Collins&quot;</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># check that item is still available</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="n">cart</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c1"># removing an item</span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="n">item</span> <span class="o">=</span> <span class="s2">&quot;Eon by Greg Bear&quot;</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="c1"># check that item is actually in cart</span>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="n">cart</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">cart</span><span class="p">:</span>
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="c1"># Dune by Frank Herbert</span>
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="c1"># The Hunger Games by Suzanne Collins</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># ... some code to check that item is still available</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># add item to cart</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">cart</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">item</span> <span class="o">=</span> <span class="s2">&quot;Eon by Greg Bear&quot;</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># ... some code to check that item is still available</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># add item to cart</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">cart</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="n">item</span> <span class="o">=</span> <span class="s2">&quot;The Hunger Games by Suzanne Collins&quot;</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1"># ... some code to check that item is still available</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c1"># add item to cart</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="n">cart</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="c1"># removing an item</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="n">item</span> <span class="o">=</span> <span class="s2">&quot;Eon by Greg Bear&quot;</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="c1"># ... some code to check that item is actually in cart</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="n">cart</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">cart</span><span class="p">:</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="c1"># Dune by Frank Herbert</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="c1"># The Hunger Games by Suzanne Collins</span>
 </span></code></pre></div></p>
 <p>Vooral het implementeren van de controles dat producten nog leverbaar zijn is een hoop werk. Je besluit functies te gaan gebruiken zodat je die code maar op één plek hoeft te gebruiken:
 <div class="language-py highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span> <span class="nf">add_to_cart</span><span class="p">(</span><span class="n">cart</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="c1"># check that item is still available</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="c1"># ... some code to check that item is still available</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">cart</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">def</span> <span class="nf">remove_from_cart</span><span class="p">(</span><span class="n">cart</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="c1"># check that item is actually in cart</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="c1"># ... some code to check that item is actually in cart</span>
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">cart</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
 </span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
@@ -636,11 +667,11 @@ In bovenstaand voorbeeld waren we eerst op zoek naar de eerste naam in een alfab
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">contents</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="k">def</span> <span class="nf">add_to_cart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="c1"># check that item is still available</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="c1"># ... some code to check that item is still available</span>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">contents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 </span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
 </span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="k">def</span> <span class="nf">remove_from_cart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>        <span class="c1"># check that item is actually in cart</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>        <span class="c1"># ... some code to check that item is actually in cart</span>
 </span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">contents</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 </span></code></pre></div></p>
 <p>Wanneer we deze class gaan gebruiken hoeven we de parameter <code class="language-py highlight"><span class="bp">self</span></code> <em>niet</em> mee te geven, dat gaat automatisch. Wel moeten we de class eerst <q>klaarzetten</q> voor gebruik door hem aan te roepen:
@@ -676,7 +707,7 @@ en dat is even lang. Het grote voordeel ontstaat pas wanneer de class ingewikkel
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">cart</span> <span class="o">=</span> <span class="n">Cart</span><span class="p">()</span>
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="o">...</span>
 </span></code></pre></div>
-Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je type <code class="language-py highlight"><span class="n">cart</span><span class="o">.</span><span class="n">add</span></code> hoef je alleen maar op <span class="keys"><kbd class="key-tab">Tab</kbd></span> te drukken en VS Code vult de rest aan.</p>
+Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je typt <code class="language-py highlight"><span class="n">cart</span><span class="o">.</span><span class="n">add</span></code> hoef je alleen maar op <span class="keys"><kbd class="key-tab">Tab</kbd></span> te drukken en VS Code vult de rest aan.</p>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Opbouw van een class</p>
 <p>Beschouw de volgende code:
@@ -736,8 +767,7 @@ Bespreek met elkaar wat de code precies doet en markeer de volgende onderdelen: 
 </div>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Class ElectronicLoadMeasurements</p>
-<p>% \label{opd:class}
-Schrijf een class <code class="language-py highlight"><span class="n">ElectronicLoadMeasurements</span></code> waarmee je spanningsmetingen aan een weerstand (<em>load</em>) kunt bewaren. De class moet voldoen aan deze eisen:</p>
+<p>Schrijf een class <code class="language-py highlight"><span class="n">ElectronicLoadMeasurements</span></code> waarmee je spanningsmetingen aan een weerstand (<em>load</em>) kunt bewaren. De class moet voldoen aan deze eisen:</p>
 <ol>
 <li>Een method <code class="language-py highlight"><span class="n">add_measurement</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span></code> waarmee je een gekozen weerstandswaarde en een gemeten spanning kunt toevoegen aan de lijst van metingen.</li>
 <li>Een method <code class="language-py highlight"><span class="n">get_loads</span><span class="p">()</span></code> om de gekozen weerstanden in één keer terug te vragen.</li>
@@ -757,10 +787,10 @@ Schrijf een class <code class="language-py highlight"><span class="n">Electronic
 </span></code></pre></div></p>
 </div>
 <h2 id="implementeren-van-mvc">Implementeren van MVC<a class="headerlink" href="#implementeren-van-mvc" title="Permanent link">&para;</a></h2>
+<div id="opd:meting-class"></div>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Pythondaq: ArduinoVISADevice</p>
-<p>\label{opd:meting-class}
-Pak je script van <a href="../communicatie/#opd:quickndirty-csv">opdracht <em>Pythondaq: _CSV</em></a> erbij en schrijf bovenaan &mdash; maar <em>onder</em> de <code class="language-py highlight"><span class="kn">import</span></code>-statements &mdash; een class <code class="language-py highlight"><span class="n">ArduinoVISADevice</span></code>. Schrijf methods voor die class zodat onderstaande code minimaal zou moeten kunnen runnen:
+<p>Pak je script van <a href="../communicatie/#opd:quickndirty-csv">opdracht <em>Pythondaq: CSV</em></a> erbij en schrijf bovenaan &mdash; maar <em>onder</em> de <code class="language-py highlight"><span class="kn">import</span></code>-statements &mdash; een class <code class="language-py highlight"><span class="n">ArduinoVISADevice</span></code>. Schrijf methods voor die class zodat onderstaande code minimaal zou moeten kunnen runnen:
 <div class="language-py highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># we willen, voor de zekerheid, nog steeds een functie om</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># een lijst van poorten te krijgen, _buiten_ de class</span>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">list_devices</span><span class="p">())</span>
@@ -793,7 +823,7 @@ Bekijk bovenstaande code goed. Wat doet iedere regel met de Arduino? Overleg met
 <p>De class die we gemaakt hebben voor de aansturing van de Arduino valt in de categorie <em>controller</em>. Het laatste stuk waar de plot gemaakt wordt is dus eigenlijk een <em>view</em> en de rest van de code &mdash; waar de metingen worden uitgevoerd en de stroomsterkte $I$ wordt berekend &mdash; is een <em>model</em>. We gaan de code nog wat verder opsplitsen om dat duidelijk te maken én onderbrengen in verschillende bestanden &mdash; dat is uiteindelijk beter voor het overzicht.</p>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Pythondaq: Controller afsplitsen</p>
-<p>Pas het script aan uit opdracht \opdref{opd:meting-class}. Knip de class uit het bestand en plak die in een nieuw bestand <code class="language-py highlight"><span class="n">arduino_device</span><span class="o">.</span><span class="n">py</span></code>. Knip en plak <em>ook</em> de functie <code class="language-py highlight"><span class="n">list_devices</span><span class="p">()</span></code>, zodat alle <code class="language-py highlight"><span class="n">pyvisa</span></code>-code netjes in één bestand zit. Je vervangt de functie en de class in het oorspronkelijke script door dit import statement:
+<p>Pas het script aan uit <a href="#opd:meting-class">opdracht <em>Pythondaq: ArduinoVISADevice</em></a>. Knip de class uit het bestand en plak die in een nieuw bestand <code class="language-py highlight"><span class="n">arduino_device</span><span class="o">.</span><span class="n">py</span></code>. Knip en plak <em>ook</em> de functie <code class="language-py highlight"><span class="n">list_devices</span><span class="p">()</span></code>, zodat alle <code class="language-py highlight"><span class="n">pyvisa</span></code>-code netjes in één bestand zit. Je vervangt de functie en de class in het oorspronkelijke script door dit import statement:
 <div class="language-py highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">from</span> <span class="nn">arduino_device</span> <span class="kn">import</span> <span class="n">ArduinoVISADevice</span><span class="p">,</span> <span class="n">list_devices</span>
 </span></code></pre></div>
 Controleer dat je code nog steeds hetzelfde werkt &mdash; dat het een meting uitvoert en de resultaten in een grafiek weergeeft. Waarschijnlijk moet je daarvoor nog wat bugs aanpakken (een vergeten import bijvoorbeeld).</p>
@@ -802,7 +832,7 @@ Controleer dat je code nog steeds hetzelfde werkt &mdash; dat het een meting uit
 <p class="admonition-title">Pythondaq: Model afsplitsen</p>
 <p>We gaan nu met ongeveer dezelfde stappen het model afsplitsen van de rest van de code.</p>
 <ol>
-<li>Bespreek met elkaar en met de assistent welk deel van het script het model is. Kijk daarvoor nog eens goed naar \figref{fig:mvc-model}.</li>
+<li>Bespreek met elkaar en met de assistent welk deel van het script het model is. Kijk daarvoor nog eens goed naar <a href="#fig:mvc-model">figuur MVC-model</a>.</li>
 <li>Maak een class met (bijvoorbeeld) de naam <code class="language-py highlight"><span class="n">DiodeExperiment</span></code> en een method <code class="language-py highlight"><span class="n">scan</span><span class="p">()</span></code> die de meting met de for-loop uitvoert. Controleer dat het werkt.</li>
 <li>Volgens het schema praat alleen het model met de controller. De class <code class="language-py highlight"><span class="n">DiodeExperiment</span></code> &mdash; het model &mdash; is dus degene die de class <code class="language-py highlight"><span class="n">ArduinoVISADevice</span></code> &mdash; de controller &mdash; moet aanroepen en bewaren. Hoe doe je dat netjes? Overleg met elkaar.</li>
 <li>Het kan (later) handig zijn om niet altijd te scannen tussen 0 en 1023 maar een ander bereik te kiezen. Pas de <code class="language-py highlight"><span class="n">scan</span><span class="p">()</span></code> method aan zodat deze <code>start</code>- en <code>stop</code>-parameters accepteert.</li>

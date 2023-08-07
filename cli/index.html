@@ -216,8 +216,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../mvc/" class="md-nav__link">
-        Model-View-Controller
+      <a href="../github/" class="md-nav__link">
+        Versiebeheer met GitHub
       </a>
     </li>
   
@@ -231,8 +231,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../github/" class="md-nav__link">
-        Versiebeheer met GitHub
+      <a href="../basisscript/" class="md-nav__link">
+        Basisscript voor het experiment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mvc/" class="md-nav__link">
+        Model-View-Controller
       </a>
     </li>
   
@@ -454,17 +469,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
       
       
       
-        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
           Appendices
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_9">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
           Appendices
         </label>
@@ -534,6 +549,20 @@
     <li class="md-nav__item">
       <a href="../zonnecel/" class="md-nav__link">
         Zonnecel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voorkennis/" class="md-nav__link">
+        Python voorkennis; Batteries (not yet) included
       </a>
     </li>
   
@@ -766,7 +795,7 @@ Uitgesplitst in \textit{argumenten} en <strong>opties</strong>, met vierkante ha
 <p>Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de <em>standard library</em>. Een hele handige &mdash; die níet in de <em>standard library</em> zit maar wél meegeleverd is met Anaconda &mdash; is Click.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">9</a></sup></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Click maakt gebruik van <em>decorators</em> (<code class="language-py highlight"><span class="nd">@decorator</span></code>). Om decorators te <em>gebruiken</em>, hoef je niet per se te weten hoe ze <em>werken</em>. Als je meer wilt weten over de werking ervan lees dan \secref{sec:decorators}.</p>
+<p>Click maakt gebruik van <em>decorators</em> (<code class="language-py highlight"><span class="nd">@decorator</span></code>). Om decorators te <em>gebruiken</em>, hoef je niet per se te weten hoe ze <em>werken</em>. Als je meer wilt weten over de werking ervan lees dan <a href="sec:decorators">sec:decorators</a>.</p>
 </div>
 <p>Als kort voorbeeld &mdash; geïnspireerd op de documentatie van Click &mdash; nemen we het volgende script:
 <div class="language-py highlight"><span class="filename">hello.py</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
@@ -790,7 +819,7 @@ Uitgesplitst in \textit{argumenten} en <strong>opties</strong>, met vierkante ha
 </span></code></pre></div>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Help functie</p>
-<p>\label{opd:hello-help}
+<p><div id="opd:hello-help"></div>
 Neem het script <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>hello.py</code> over en vraag de helpfunctie op. Test dit met én zonder <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">()</span></code>.</p>
 </div>
 <div class="admonition opdracht-basis">
@@ -864,7 +893,7 @@ Neem het script <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" vi
 </span></code></pre></div>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Helptekst toevoegen</p>
-<p>Voeg de helptekst toe en vraag de helptekst op zoals in \opdref{opd:hello-help}.</p>
+<p>Voeg de helptekst toe en vraag de helptekst op zoals in <a href="opd:hello-help">opd:hello-help</a>.</p>
 </div>
 <p>Als je dit script gebruikt ziet dat er zo uit:</p>
 <div class="language-ps1con highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gp">PS&gt; </span><span class="n">python</span> <span class="n">hello</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-help</span>
@@ -888,7 +917,7 @@ Neem het script <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" vi
 </span></code></pre></div>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Pauze optie</p>
-<p>\label{opd:hello-pauze}
+<p><div id="opd:hello-pauze"></div>
 Breid het bovenstaande script <code>hello.py</code> uit met een optie om een korte pauze in te lassen na het printen van ieder <code class="language-py highlight"><span class="nb">print</span><span class="p">()</span></code>-statement. Een pauze kun je inlassen met <code class="language-py highlight"><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span></code>. Zorg er voor dat er zonder die optie géén pauze is en dat je met de optie kunt kiezen hoe lang er gewacht moet worden.</p>
 </div>
 <details class="opdracht-meer">
@@ -897,7 +926,7 @@ Breid het bovenstaande script <code>hello.py</code> uit met een optie om een kor
 </details>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Argumenten en opties</p>
-<p>Bij \opdref{opd:Poetry_commando} heb je een applicatie gemaakt om de oppervlakte van een tafel te berekenen met de bijbehorende onzekerheid. In deze opdracht gaan we het script uitbreiden om de lengte en de breedte én de onzekerheid daarop als argument of optie mee te geven op de command line. Voer de volgende stappen uit:</p>
+<p>Bij <a href="../poetry/#opd:Poetry_commando">opdracht <em>Error Analysis</em></a> heb je een applicatie gemaakt om de oppervlakte van een tafel te berekenen met de bijbehorende onzekerheid. In deze opdracht gaan we het script uitbreiden om de lengte en de breedte én de onzekerheid daarop als argument of optie mee te geven op de command line. Voer de volgende stappen uit:</p>
 <ol>
 <li>Maak een schone environment aan en installeer de applicatie (doet alles het nog?)</li>
 <li>Voeg click toe en pas het script aan zodat je de lengte zelf kan kiezen.<sup id="fnref:arg-type"><a class="footnote-ref" href="#fn:arg-type">4</a></sup></li>
@@ -910,7 +939,7 @@ Breid het bovenstaande script <code>hello.py</code> uit met een optie om een kor
 <p>Tot nu toe konden we maar één functie uitvoeren in onze applicatie. Maar het is ook mogelijk om subcommando's aan te maken zodat je met één programma meerdere <q>taken</q> kunt uitvoeren. Denk bijvoorbeeld aan <code>conda</code>. Je installeert packages met <code>conda install</code>, verwijdert ze met <code>conda remove</code>, maakt een environment met <code>conda create</code> en activeert het met <code>conda activate</code>.</p>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Subcommando's bedenken</p>
-<p>\label{opd:subcommandos}
+<p><div id="opd:subcommandos"></div>
 Je gaat de <code>pythondaq</code> applicatie straks verder uitbreiden zodat er veel meer mogelijk is dan nu. Wat zou je willen dat de applicatie allemaal kan? Welke subcommando's wil je gaan aanmaken? Overleg met elkaar om goede ideeën uit te wisselen.</p>
 </div>
 <p>Een eenvoudig voorbeeldscript waarin de conda commando's <code>install</code> en <code>remove</code> worden nagebootst leggen we hieronder uit. Eerst de code:</p>
@@ -953,7 +982,7 @@ Je gaat de <code>pythondaq</code> applicatie straks verder uitbreiden zodat er v
 In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeurig <code class="language-py highlight"><span class="n">cmd_group</span><span class="p">()</span></code> genoemd hebben en die we bovenaan definiëren. In tegenstelling tot het <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>hello.py</code>-script doet deze functie helemaal niets (<code class="language-py highlight"><span class="k">pass</span></code>). We vertellen aan click dat we een groep van commando's aan gaan maken met de <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">group</span><span class="p">()</span></code>-decorator in regel 3. Vervolgens gaan we commando's binnen deze groep hangen door <em>niet</em> de decorator <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">()</span></code> te gebruiken, maar <code class="language-py highlight"><span class="nd">@cmd_group</span><span class="o">.</span><span class="n">command</span><span class="p">()</span></code> &mdash; zie regels 7 en 12. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 7 en 9 maken samen het commando <code>install</code>. Verder werkt alles hetzelfde. Dus een argument toevoegen &mdash; zoals in regel 8 &mdash; is gewoon met <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">()</span></code>. Hier hoef je geen <code class="language-py highlight"><span class="n">cmd_group</span></code> te gebruiken.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>\label{warn:cmd_name}
+<p><div id="warn:cmd_name"></div>
 Omdat de naam van een subcommando gelijk is aan de functienaam kan dat voor problemen zorgen wanneer je gereserveerde namen van python wilt gebruiken zoals: <code class="language-py highlight"><span class="kn">import</span></code>, <code class="language-py highlight"><span class="k">return</span></code>, <code class="language-py highlight"><span class="k">lambda</span></code>. Of wanneer je de naam van het subcommando graag hetzelfde wilt hebben als een ander pythonfunctie zoals <code class="language-py highlight"><span class="n">sin</span></code> of <code class="language-py highlight"><span class="nb">list</span></code>.
 Een oplossing is om de functienaam aan te passen en de subcommando naam expliciet aan click mee te geven bij <code>command</code>:
 <div class="language-py highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>    <span class="nd">@cmd_group</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot;import&quot;</span><span class="p">)</span>
@@ -1014,12 +1043,12 @@ Hoe moet je de toml-file aanpassen zodat de volgende uitvoer mogelijk wordt?
 </span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
 </span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>    <span class="n">sin</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </span></code></pre></div></li>
-<li>Ga door naar \opdref{opd:smallangle} stap 2. Je mag stap 1 overslaan &mdash; dat werk heb je nu zelf al gedaan.</li>
+<li>Ga door naar <a href="opd:smallangle">opd:smallangle</a> stap 2. Je mag stap 1 overslaan &mdash; dat werk heb je nu zelf al gedaan.</li>
 </ol>
 </div>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">smallangle</p>
-<p>\label{opd:smallangle}
+<p><div id="opd:smallangle"></div>
 Het project <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span><code>smallangle</code> wordt met Poetry beheerd. Je gaat click aan de module <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>smallangle.py</code> toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.</p>
 <ol>
 <li>Ga naar GitHub en open <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span><code>AnneliesVlaar / smallangle</code> in GitHub Desktop en Visual Studio Code.</li>
@@ -1151,7 +1180,7 @@ Daarna kun je uitleg vragen voor de subcommando's waarbij je de hele docstring t
 </span></code></pre></div></p>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Smallangle: docstring</p>
-<p>Voorzie de functies in <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>smallangle.py</code> die je gemaakt hebt bij \opdref{opd:smallangle} volledig van docstrings, zodat <code>smallangle --help</code> zinvolle informatie geeft.<sup id="fnref:split-docstring"><a class="footnote-ref" href="#fn:split-docstring">6</a></sup></p>
+<p>Voorzie de functies in <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>smallangle.py</code> die je gemaakt hebt bij <a href="opd:smallangle">opd:smallangle</a> volledig van docstrings, zodat <code>smallangle --help</code> zinvolle informatie geeft.<sup id="fnref:split-docstring"><a class="footnote-ref" href="#fn:split-docstring">6</a></sup></p>
 </div>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Pythondaq: docstring</p>
@@ -1167,7 +1196,7 @@ Daarna kun je uitleg vragen voor de subcommando's waarbij je de hele docstring t
 <p>Het voert tijdens deze cursus te ver om veel aandacht te besteden aan MkDocs. Maar aangezien documentatie zo belangrijk is wilden we het toch noemen! Voor een uitgebreide tutorial, zie <em>Build Your Python Project Documentation With MkDocs</em>.<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">14</a></sup></p>
 </details>
 <h2 id="command-line-interface-voor-ons-experiment">Command-line interface voor ons experiment<a class="headerlink" href="#command-line-interface-voor-ons-experiment" title="Permanent link">&para;</a></h2>
-<p>In \chref{ch:mvc} heb je <code>pythondaq</code> uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een <em>view</em>. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>view.py</code>, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>cli.py</code> aanmaken en dat langzaam opbouwen.</p>
+<p>In <a href="../mvc/">hoofdstuk <em>Model-View-Controller</em></a> heb je <code>pythondaq</code> uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een <em>view</em>. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>view.py</code>, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>cli.py</code> aanmaken en dat langzaam opbouwen.</p>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Pythondaq: commando's</p>
 <ol>
@@ -1234,7 +1263,7 @@ De lijst met instrumenten kan er op Windows heel anders uitzien. Pas daarna <cod
 <p>Op dit punt hebben we de functionaliteit van ons snelle script van het vorige hoofdstuk bereikt. Dit was veel meer werk, maar het is veel flexibeler. Als je wilt meten met een andere Arduino, een ander bereik, of een andere stapgrootte dan type je gewoon een iets ander commando in de terminal. Je hoeft geen scripts meer aan te passen. Als je na een tijdje niet meer precies weet hoe het ook alweer werkte allemaal kun je dat snel weer oppakken door <code>--help</code> aan te roepen.</p>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Alle subcommando's implementeren</p>
-<p>Kijk nog eens terug naar het lijstje subcommando's die je in \opdref{opd:subcommandos} hebt opgeschreven. Heb je alles geïmplementeerd? Wat zou je willen dat je nog meer kan instellen? Als er tijd over is, kijk dan of dit lukt.</p>
+<p>Kijk nog eens terug naar het lijstje subcommando's die je in <a href="opd:subcommandos">opd:subcommandos</a> hebt opgeschreven. Heb je alles geïmplementeerd? Wat zou je willen dat je nog meer kan instellen? Als er tijd over is, kijk dan of dit lukt.</p>
 </div>
 <h2 id="een-interface-met-stijl">Een interface met stijl<a class="headerlink" href="#een-interface-met-stijl" title="Permanent link">&para;</a></h2>
 <details class="meer-leren">
@@ -1249,7 +1278,7 @@ De lijst met instrumenten kan er op Windows heel anders uitzien. Pas daarna <cod
 <h2 id="data-analyse">Data-analyse<a class="headerlink" href="#data-analyse" title="Permanent link">&para;</a></h2>
 <details class="meer-leren">
 <summary>Meer leren</summary>
-<p>Door de $I,U$-karakteristiek van de (lichtgevende) diode te analyseren is het mogelijk om de constante van Boltzmann te bepalen. De stoomsterkte door een diode wordt gegeven door de Shockley diodevergelijking \eqref{eq:Shockley}. Zie ook \appref{ch:diode}.</p>
+<p>Door de $I,U$-karakteristiek van de (lichtgevende) diode te analyseren is het mogelijk om de constante van Boltzmann te bepalen. De stoomsterkte door een diode wordt gegeven door de Shockley diodevergelijking <a href="eq:Shockley">eq:Shockley</a>. Zie ook <a href="ch:diode">ch:diode</a>.</p>
 <p>Lukt het, om binnen de te bepalen onzekerheid, overeenkomst te vinden met de literatuurwaarde? Een LED is helaas geen ideale diode dus dit kan lastig zijn.</p>
 <div class="admonition opdracht-meer">
 <p class="admonition-title">Model fitten<p>Fit het model van Shockley aan je $I,U$-karakteristiek. Welke parameters kun je bepalen? Overleg met je begeleider!</p>
@@ -1281,7 +1310,7 @@ De lijst met instrumenten kan er op Windows heel anders uitzien. Pas daarna <cod
 <p>Sphinx is van oudsher de standaard documentatiegenerator voor Pythonprojecten. Maar Sphinx is al redelijk op leeftijd en gebruikt als tekstformaat niet het bekende en zeer populaire <em>Markdown</em> maar het steeds minder populaire <em>Restructured Text</em>. MkDocs wordt steeds meer gebruikt en Sphinx steeds minder. Toch zul je Sphinx nog veel tegenkomen bij projecten omdat het na al die jaren zeer veel features heeft en zeer stabiel is.&#160;<a class="footnote-backref" href="#fnref:sphinx" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 <li id="fn:cmd_name">
-<p>Zie ook de waarschuwing op \mypageref{warn:cmd_name}&#160;<a class="footnote-backref" href="#fnref:cmd_name" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<p>Zie ook de waarschuwing op <a href="warn:cmd_name">warn:cmd_name</a>&#160;<a class="footnote-backref" href="#fnref:cmd_name" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 <li id="fn:1">
 <p>Pallets. Click. URL: <a href="https://click.palletsprojects.com/">https://click.palletsprojects.com/</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 9 in the text">&#8617;</a></p>
