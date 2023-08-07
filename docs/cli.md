@@ -223,7 +223,7 @@ Hello Alice!
 
 
 !!! opdracht-basis "Argumenten en opties"
-    Bij [opd:Poetry_commando](opd:Poetry_commando) heb je een applicatie gemaakt om de oppervlakte van een tafel te berekenen met de bijbehorende onzekerheid. In deze opdracht gaan we het script uitbreiden om de lengte en de breedte én de onzekerheid daarop als argument of optie mee te geven op de command line. Voer de volgende stappen uit:
+    Bij [opdracht _Error Analysis_](poetry.md#opd:Poetry_commando) heb je een applicatie gemaakt om de oppervlakte van een tafel te berekenen met de bijbehorende onzekerheid. In deze opdracht gaan we het script uitbreiden om de lengte en de breedte én de onzekerheid daarop als argument of optie mee te geven op de command line. Voer de volgende stappen uit:
 
     1. Maak een schone environment aan en installeer de applicatie (doet alles het nog?)
     1. Voeg click toe en pas het script aan zodat je de lengte zelf kan kiezen.[^arg-type]

@@ -30,7 +30,7 @@ poetry about
 
 ## Nieuw Poetry project
 !!! info
-    We gaan werken met modules en packages. Ben je daar nog niet zo bekent mee, zorg dan dat je [paragraaf _modules_](voorkennis.md#modules) en [paragraaf _packages_](voorkennis.md#packages) gemaakt hebt.
+    We gaan werken met modules en packages. Ben je daar nog niet zo bekent mee, zorg dan dat je [paragraaf _Modules_](voorkennis.md#modules) en [paragraaf _packages_](voorkennis.md#packages) gemaakt hebt.
 
 Stel je wilt een package schrijven met wat handige functies om veelgebruikte statistische berekeningen makkelijk uit te voeren. Je noemt het `easystat`. Het doel is eerst om het in al je eigen analyses makkelijk te kunnen gebruiken (`#!py import easystat`) maar je wilt het ook op GitHub zetten en wie weet vinden anderen het ook handig! Je wilt het dus ook _netjes_ doen. En niet later van anderen horen: <q>leuk, maar bij mij werkt het niet!</q>
 
@@ -95,7 +95,7 @@ build-backend = "poetry.core.masonry.api"
 
 [^setup.py]: Vroeger was er een `setup.py` maar Python schakelt nu langzaam over naar dit nieuwe bestand.
 
-Het bestand is in het TOML-formaat [@TOML]. Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. Overal zie je `poetry` terugkomen, want dat is de tool die wij gebruiken. In de eerste sectie staat informatie over ons project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. De tweede sectie bevat de _dependencies_. Dit zijn alle Pythonpackages die ons project nodig heeft. Op dit moment is dat alleen maar Python. Ook het versienummer van Python is belangrijk. Hier is dat 3.10 en het dakje geeft aan dat 3.11, 3.12, enz. ook prima zijn, maar 3.9 (te oud) 4.0 (te nieuw) _niet_. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python &mdash; bijvoorbeeld versie 3.9 &mdash; kunnen nu het package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.10 nodig hebt kun je aangeven dat een iets oudere versie van Python ook prima is.
+Het bestand is in het TOML-formaat.[@TOML] Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. Overal zie je `poetry` terugkomen, want dat is de tool die wij gebruiken. In de eerste sectie staat informatie over ons project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. De tweede sectie bevat de _dependencies_. Dit zijn alle Pythonpackages die ons project nodig heeft. Op dit moment is dat alleen maar Python. Ook het versienummer van Python is belangrijk. Hier is dat 3.10 en het dakje geeft aan dat nieuwere versies 3.11, 3.12, enz. ook prima zijn, maar 3.9 (te oud) 4.0 (te nieuw) _niet_. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python &mdash; bijvoorbeeld versie 3.9 &mdash; kunnen nu het package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.10 nodig hebt kun je aangeven dat een iets oudere versie van Python ook prima is.
 
 !!! opdracht-basis "Dependency python aanpassen"
     
@@ -167,7 +167,7 @@ We krijgen de foutmelding:
 ``` py
 ModuleNotFoundError: No module named 'easystat'
 ```
-Dit konden we verwachten. We hebben ons package immers nog niet geïnstaleerd. Als we ons package gaan delen met andere mensen verwachten wij dat zij ons package ook gaan installeren, door dezelfde stappen te doorlopen als andere gebruikers komen we erachter of alles wel goed werkt.
+Dit konden we verwachten. We hebben ons package immers nog niet geïnstalleerd. Als we ons package gaan delen met andere mensen verwachten wij dat zij ons package ook gaan installeren, door dezelfde stappen te doorlopen als andere gebruikers komen we erachter of alles wel goed werkt.
 
 ### Installeren van een package
 Het installeren van de package kan makkelijk met Poetry:
@@ -227,7 +227,7 @@ Ditmaal krijgen we:
 ```
 stdev_of_mean([1, 2, 2, 2, 3])=0.282842712474619
 ```
-Fijn! Als je nu de :fontawesome-regular-file-code:`pyproject.toml` nog eens bekijkt zie je dat NumPy daar als dependency is toegevoegd. Het verwijderen van dependency `PACKAGE` gaat met `poetry remove PACKAGE`. Poetry heeft Numpy nu toegevoegd aan de environment `easystat`.[^conda-list] Andersom zal Conda geen packages toevoegen aan je Poetry project als je `conda install package` aanroept. Gebruik daarom altijd `poetry add package` als je met Poetry aan een package werkt.
+Fijn! Als je nu de :fontawesome-regular-file-code:`pyproject.toml` nog eens bekijkt zie je dat NumPy daar als dependency is toegevoegd. Het verwijderen van dependency `PACKAGE` gaat met `poetry remove PACKAGE`. Poetry heeft Numpy nu toegevoegd aan de environment `easystat`.[^conda-list] Gewone package managers als Pip en Conda zullen geen packages toevoegen aan je Poetry project als je `pip/conda install package` aanroept. Gebruik daarom altijd `poetry add package` als je met Poetry aan een package werkt.
 
 [^conda-list]: De lijst met packages in de active Conda enviornment vraag je in de terminal op met het `conda list`, kijk maar of numpy daar tussen staat.
 
@@ -251,7 +251,7 @@ Fijn! Als je nu de :fontawesome-regular-file-code:`pyproject.toml` nog eens beki
 
     !!! opdracht-meer "Poetry.lock"
 
-        1. Installeer de `easystat` package.
+        1. Installeer de `easystat` package met `poetry`.
         1. Waarvoor gebruikt Poetry de lock file (:fontawesome-regular-file-lines:`poetry.lock)`?
         1. Draai :fontawesome-regular-file-code:`tests/try_shortcuts.py` en bekijk de uitkomst.
 
@@ -279,7 +279,7 @@ Fijn! Als je nu de :fontawesome-regular-file-code:`pyproject.toml` nog eens beki
     Een <q>sdist</q> is een _source distribution_. Een `.tar.gz`-bestand is een soort zipbestand met daarin de broncode van ons pakket. De tests worden daar niet in meegenomen. Een <q>wheel</q> is een soort bestand dat direct geïnstalleerd kan worden met `pip`. Zogenaamde _pure-python_ packages bevatten alleen Pythoncode &mdash; en geen C-code die gecompileerd moet worden voor verschillende besturingssystemen of hardwareplatforms. Je herkent ze aan `none-any` in de bestandsnaam. <q>None</q> voor <q>niet-OS-specifiek</q> en <q>any</q> voor <q>draait op elk hardwareplatform</q>. We kunnen dit bestand als download neerzetten op een website of aan anderen mailen.
 
     !!! opdracht-meer "Test wheel"
-        Laten we het wheel uitproberen. Maak een nieuwe conda environment aan, installeer het wheel en probeer het testscript te runnen &mdash; één keer vóór het installeren van het wheel en één keer ná het installeren.
+        Laten we het wheel uitproberen. We gaan straks een nieuwe conda environment aanmaken, installeren het wheel en proberen het testscript te runnen &mdash; één keer vóór het installeren van het wheel en één keer ná het installeren, als volgt:
 
         1. Maak een nieuwe conda environment aan met de naam `test-wheel` en activeer deze.
                 ``` ps1con title="Terminal"
@@ -292,6 +292,8 @@ Fijn! Als je nu de :fontawesome-regular-file-code:`pyproject.toml` nog eens beki
         1. Draai :fontawesome-regular-file-code:`tests/try_shortcuts.py` en bekijk de uitkomst.
         
     Het werkt! Je ziet dat `pip install` niet alleen ons package `easystat` installeert, maar _ook de dependency_ `numpy`. Dat is precies wat we willen.
+    
+    Het is belangrijk om de wheels _niet_ in je GitHub repository te committen. Je repository is voor _broncode_, waarmee wheels gebouwd kunnen worden. Als je de stappen voor het aanmaken van de repository netjes gevolgd hebt dan heb je een :fontawesome-regular-file-lines:`.gitignore` toegevoegd met Python-specifieke bestandsnamen en directories die genegeerd worden door Git en GitHub.
 
 
 ## Poetry gebruiken voor een bestaand project
@@ -410,7 +412,7 @@ python script.py
 ```
 Je moet dan wel de juiste map geopend hebben zodat python het bestand kan vinden. En als je de `run`-knop gebruikt moet wel het bestandje open hebben staan dat je wilt runnen. Kortom, best een beetje gedoe. Maar als we programma's zoals Poetry, Conda of Python willen gebruiken hoeven we helemaal niet het juiste bestandje op te zoeken en te runnen. We hoeven alleen maar een commando in de terminal te geven &mdash; bijvoorbeeld `python` of `conda` &mdash; en de computer start automatisch het juiste programma op.
 
-Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan een commando toevoegen om de module uit te voeren die je in [paragraaf _modules_](voorkennis.md#modules) kunt vinden. De twee bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`just_count.py` zijn netjes in een package geplaats in de nieuwe repository :fontawesome-brands-github:`just_count`:
+Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan een commando toevoegen om de module uit te voeren waarvan je de code in [paragraaf _Modules_](voorkennis.md#modules) kunt vinden. De twee bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`just_count.py` hebben we voor jullie netjes in een package geplaats in de repository :fontawesome-brands-github:`AnneliesVlaar/just_count` met de volgende structuur:
 
     just_count/
         src/
@@ -423,21 +425,22 @@ Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we
         pyproject.toml
         README.md
 
-De bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`just_count.py` zien er hetzelfde uit als in [paragraaf _modules_](voorkennis.md#modules):
-``` py
-# square.py
-def square(x):
-    return x ** 2
+De bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`just_count.py` zien er hetzelfde uit als in [paragraaf _Modules_](voorkennis.md#modules):
+=== "square.py"
+    ``` py
+    def square(x):
+        return x ** 2
 
-if __name__ == "__main__":
-    print(f"The square of 4 is {square(4)}")
+    if __name__ == "__main__":
+        print(f"The square of 4 is {square(4)}")
+    ```
+=== "count.py"
 
+    ``` py
+    import square
 
-# just_count.py
-import square
-
-print(f"The square of 5 is {square.square(5)}")  
-```
+    print(f"The square of 5 is {square(5)}")  
+    ```
 
 We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie uit te voeren.
 
@@ -445,13 +448,12 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
 
     1. Ga naar :fontawesome-brands-github:`AnneliesVlaar/just_count` en open de repository in GitHub desktop en daarna in Visual Studio Code.
     1. Maak een nieuwe conda environment met python 3.9, activeer deze en installeer de `just_count` package.
-    1. Open :fontawesome-regular-file-code:`src/just_count/just_count.py` en voeg een functie `#!py def main()` toe die de wortel van 5 print.
-    ``` py
-    # just_count.py
-    from count_count.model import square
+    1. Open :fontawesome-regular-file-code:`src/just_count/count.py` en voeg een functie `#!py def main()` toe die de wortel van 5 print.
+    ``` py title="count.py"
+    from square import square
     
     def main():
-        print(f"The square of 5 is {square.square(5)}")  
+        print(f"The square of 5 is {quare(5)}")
     ```
     We zetten daarmee de <q>body</q> van de module in een functie. Als je het script nu runt doet hij niets meer, want hij roept de functie `#!py main()` niet aan. Voeg een `#!py if __name__ == '__main__'`-statement toe waarin je de functie `#!py main()` aanroept. Als je het script runt, doet hij het weer.
     
@@ -469,10 +471,10 @@ Om de wijzigingen aan :fontawesome-regular-file-code:`pyproject.toml` door te vo
     1. Open :fontawesome-regular-file-code:`pyproject.toml` en voeg het kopje `[tool.poetry.scripts]` toe.
     1. Als naam voor het commando kiezen we `count`.
     1. Voor het gemak vullen we de rechterkant van het =-teken van rechts naar links in. Achter de dubbele punt komt de naam van de functie die uitgevoerd moet worden, dat is in ons geval `main`.
-    1. De functie `main` staat in module :fontawesome-regular-file-code:`just_count.py`. De module hebben we ondergebracht in de package :fontawesome-regular-folder:`just_count`.
+    1. De functie `main` staat in module :fontawesome-regular-file-code:`count.py`. De module hebben we ondergebracht in de package :fontawesome-regular-folder:`just_count`.
             ``` toml
             [tool.poetry.scripts]
-            count = "just_count.just_count:main"
+            count = "just_count.count:main"
             ```
     1. Omdat we handmatig de toml-file hebben aangepast installeren we de package `just_count` opnieuw met `poetry install`.
     
@@ -482,13 +484,13 @@ Om de wijzigingen aan :fontawesome-regular-file-code:`pyproject.toml` door te vo
 
     1. Type in de terminal het commando `count`.
     1. Je krijgt nu een `ModuleNotFoundError` voor de module square. Poetry zoekt vanuit de :fontawesome-regular-folder:`src`-map naar de packages en modules. Pas het importstatement in :fontawesome-regular-file-code:`just_count.py` aan zodat het count commando werkt.   
-    1. Activeer een andere conda environment en probeer het commando opnieuw; waarom werkt dit niet?
-    1. Navigeer naar een andere map met python-scripts. Activeer de conda environment waar je `count_count` hebt geïnstalleerd en test het commando.
+    1. Activeer een andere conda environment en probeer meteen het commando opnieuw; waarom werkt dit niet?
+    1. Navigeer naar een andere map met python-scripts. Activeer de conda environment waar je `just_count` hebt geïnstalleerd en test het commando.
     
 
 
+<div id="opd:Poetry_commando"></div>
 ??? opdracht-meer "Error analysis"
-    <div id="opd:Poetry_commando"></div>
     Als extra oefening gaan we met Poetry een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script :fontawesome-regular-file-code:`data_analysis.py` te laten runnen.
 
     1. Ga naar GitHub en open :fontawesome-brands-github:`AnneliesVlaar/Pr-erroranalysis` in GitHub Desktop en Visual Studio Code.
@@ -523,4 +525,4 @@ Om de wijzigingen aan :fontawesome-regular-file-code:`pyproject.toml` door te vo
     
 
 
-Wat een feest! Je hebt nu een applicatie geschreven die een arduino aanstuurt om een ledje te laten branden. En je kunt je applicatie gewoon vanuit de terminal aanroepen.
+Wat een feest! Je hebt nu een applicatie geschreven die een Arduino aanstuurt om een ledje te laten branden. En je kunt je applicatie gewoon vanuit de terminal aanroepen!
