@@ -39,6 +39,8 @@ Eenheden: 220 &Omega; m/s of ms^-1^ of $220\,ms^{-1}$ en $220\,\Omega$.
 Of werkt dit? ++context-menu++ -> ++"Code"++ ++"Add repository"++ -->
 Voor menu's gaan we het zo doen: **Menu > Code > Add repository** en voor toetsen ++ctrl+f++.
 
+Een referentie naar een opdracht of figuur maak je aan door `<div id="label"></div>` blokje als label neer te zetten. Verwijzen gaat dan met `[link text](bronbestand.md#label)` waarbij je dus ook het bestand moet weten waarin het label gedefinieerd wordt.
+
 Voor vergelijkingen:
 \begin{equation}
 f(x) \sin x,
