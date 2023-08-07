@@ -33,13 +33,13 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 Bestand: :fontawesome-regular-file-lines:`docs/index.md` en ook :fontawesome-regular-file-code:`pythondaq/models/diode.py`. Die vind je ook in de repository :fontawesome-brands-github:`davidfokkema/tailor`. Folder: :fontawesome-regular-folder:`Oefenopdrachten`.
 
-Eenheden: 220 &Omega; m/s of ms^-1^ of $220\,ms^{-1}$ en $220\,\Omega$.
+Eenheden: 220 &Omega; m/s of ms^-1^ of $220\,ms^{-1}$ en $220\,\Omega$. **We doen het eerste!!**
 
 <!-- Voor menu's kan misschien `Code -> Add repository` en voor toetsen ++ctrl+f++.
 Of werkt dit? ++context-menu++ -> ++"Code"++ ++"Add repository"++ -->
 Voor menu's gaan we het zo doen: **Menu > Code > Add repository** en voor toetsen ++ctrl+f++.
 
-Een referentie naar een opdracht of figuur maak je aan door `<div id="label"></div>` blokje als label neer te zetten. Verwijzen gaat dan met `[link text](bronbestand.md#label)` waarbij je dus ook het bestand moet weten waarin het label gedefinieerd wordt.
+Een referentie naar een opdracht of figuur maak je aan door `<div id="label"></div>` blokje als label neer te zetten. Verwijzen gaat dan met `[opdracht _label_](bronbestand.md#label)` waarbij je dus ook het bestand moet weten waarin het label gedefinieerd wordt.
 
 Voor vergelijkingen:
 \begin{equation}

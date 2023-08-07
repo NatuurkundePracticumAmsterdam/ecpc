@@ -42,7 +42,7 @@ Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een d
 !!! opdracht-basis "Repository toevoegen"
     Maak op de volgende manier een repository voor je Pythonscripts:
 
-    1. Maak &mdash; bijvoorbeeld vanuit Visual Studio Code &mdash; een map :fontawesome-regular-folder:`Oefenopdrachten` en zet daarin alle python-bestandjes die je hebt gemaakt om te oefenen zoals de opdrachten [Pyvisa in pythonscript](communicatie.md#opd:test_arduino) en [KnipperLED](communicatie.md#opd:knipperled).
+    1. Maak &mdash; bijvoorbeeld vanuit Visual Studio Code &mdash; een map :fontawesome-regular-folder:`Oefenopdrachten` en zet daarin alle python-bestandjes die je hebt gemaakt om te oefenen zoals de opdrachten [_Pyvisa in pythonscript_](communicatie.md#opd:test_arduino) en [_KnipperLED_](communicatie.md#opd:knipperled).
     1. Open GitHub desktop en log in met je GitHub account.
     1. **File > Add Local Repository**. Kies de map :fontawesome-regular-folder:`Oefenopdrachten`.
     1. Je kunt de repository niet toevoegen omdat de map weliswaar bestaat, maar nog geen bestaande repository is. Er verschijnt een waarschuwing met een stukje kleine blauwe tekst. Klik op `create a repository`.
@@ -104,7 +104,6 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
 
 
 ??? opdracht-meer "Clone repository"
-    \label{opd:clone_repository}
     Clone de LMfit-py repository op GitHub:
 
     1. Zoek de repository op GitHub op (`lmfit/lmfit-py`)
