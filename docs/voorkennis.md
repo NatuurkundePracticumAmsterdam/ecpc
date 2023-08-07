@@ -624,7 +624,6 @@ Als je meer wilt weten over hoe decorators werken en hoe je je eigen decorators 
 
 
 ## Modules
-\label{sec:modules}
 
 Als je een nieuw script begint te schrijven staat alle code in één bestand. Dat is lekker compact, maar heeft ook nadelen. Als je je experiment of programma gaat uitbreiden kan het erg onoverzichtelijk worden. Ook zul je al je wijzigingen steeds in dit bestand moeten doen terwijl je je code van eerdere experimenten misschien wel wilt bewaren. Mogelijk kopieer je steeds je script naar een nieuw bestand, maar dat is niet erg \emph{DRY}.\footnote{\emph{DRY} staat voor \emph{Don't Repeat Yourself}, een belangrijk principe in software engineering.} Als je dan bijvoorbeeld een functie of klasse wilt aanpassen, moet dat nog steeds op heel veel plekken. Daarom is het handig om gebruik te maken van \emph{modules}.
 
@@ -700,7 +699,6 @@ Het \pythoninline{if __name__ == '__main__'}-statement wordt heel veel gebruikt 
 
 
 ## Packages
-\label{sec:packages}
 
 In Python zijn \emph{packages} collecties van modules. Ook krijg je automatisch \emph{namespaces}. Dat wil zeggen, wanneer je functies en modules uit een package importeert zitten ze niet in één grote vormeloze berg, maar in een soort boomstructuur. Dat betekent dat namen niet uniek hoeven te zijn. Er zijn duizenden bibliotheken beschikbaar voor python (\verb|numpy|, \verb|scipy|, \verb|matplotlib|, etc.) en die mogen allemaal een module \verb|test| bevatten. Namespaces zorgen ervoor dat je ze uniek kunt benaderen:
 \begin{pythoncode}

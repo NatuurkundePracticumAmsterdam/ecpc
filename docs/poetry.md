@@ -1,5 +1,4 @@
 # Poetry
-<div id="ch:poetry"></div>
 
 In de vorige hoofdstukken heb je gewerkt met een eigen conda environment zodat je jouw pythonomgeving mooi gescheiden kan houden van andere studenten die op dezelfde computer werken. Dit is echt _de_ oplossing voor alle problemen waarbij volledige Pythoninstallaties onbruikbaar kunnen worden &mdash; waarna je alles opnieuw moet installeren.
 
@@ -31,7 +30,7 @@ poetry about
 
 ## Nieuw Poetry project
 !!! info
-    We gaan werken met modules en packages. Ben je daar nog niet zo bekent mee, zorg dan dat je [sec:modules](sec:modules) en [sec:packages](sec:packages) gemaakt hebt.
+    We gaan werken met modules en packages. Ben je daar nog niet zo bekent mee, zorg dan dat je [paragraaf _modules_](voorkennis.md#modules) en [paragraaf _packages_](voorkennis.md#packages) gemaakt hebt.
 
 Stel je wilt een package schrijven met wat handige functies om veelgebruikte statistische berekeningen makkelijk uit te voeren. Je noemt het `easystat`. Het doel is eerst om het in al je eigen analyses makkelijk te kunnen gebruiken (`#!py import easystat`) maar je wilt het ook op GitHub zetten en wie weet vinden anderen het ook handig! Je wilt het dus ook _netjes_ doen. En niet later van anderen horen: <q>leuk, maar bij mij werkt het niet!</q>
 
@@ -411,7 +410,7 @@ python script.py
 ```
 Je moet dan wel de juiste map geopend hebben zodat python het bestand kan vinden. En als je de `run`-knop gebruikt moet wel het bestandje open hebben staan dat je wilt runnen. Kortom, best een beetje gedoe. Maar als we programma's zoals Poetry, Conda of Python willen gebruiken hoeven we helemaal niet het juiste bestandje op te zoeken en te runnen. We hoeven alleen maar een commando in de terminal te geven &mdash; bijvoorbeeld `python` of `conda` &mdash; en de computer start automatisch het juiste programma op.
 
-Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan een commando toevoegen om de module uit te voeren die je in [sec:modules](sec:modules) kunt vinden. De twee bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`just_count.py` zijn netjes in een package geplaats in de nieuwe repository :fontawesome-brands-github:`just_count`:
+Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan een commando toevoegen om de module uit te voeren die je in [paragraaf _modules_](voorkennis.md#modules) kunt vinden. De twee bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`just_count.py` zijn netjes in een package geplaats in de nieuwe repository :fontawesome-brands-github:`just_count`:
 
     just_count/
         src/
@@ -424,7 +423,7 @@ Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we
         pyproject.toml
         README.md
 
-De bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`just_count.py` zien er hetzelfde uit als in [sec:modules](sec:modules):
+De bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`just_count.py` zien er hetzelfde uit als in [paragraaf _modules_](voorkennis.md#modules):
 ``` py
 # square.py
 def square(x):
