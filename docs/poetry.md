@@ -1,5 +1,5 @@
 # Poetry
-\label{ch:poetry}
+<div id="ch:poetry"></div>
 
 In de vorige hoofdstukken heb je gewerkt met een eigen conda environment zodat je jouw pythonomgeving mooi gescheiden kan houden van andere studenten die op dezelfde computer werken. Dit is echt _de_ oplossing voor alle problemen waarbij volledige Pythoninstallaties onbruikbaar kunnen worden &mdash; waarna je alles opnieuw moet installeren.
 
@@ -31,7 +31,7 @@ poetry about
 
 ## Nieuw Poetry project
 !!! info
-    We gaan werken met modules en packages. Ben je daar nog niet zo bekent mee, zorg dan dat je \secref{sec:modules} en \secref{sec:packages} gemaakt hebt.
+    We gaan werken met modules en packages. Ben je daar nog niet zo bekent mee, zorg dan dat je [sec:modules](sec:modules) en [sec:packages](sec:packages) gemaakt hebt.
 
 Stel je wilt een package schrijven met wat handige functies om veelgebruikte statistische berekeningen makkelijk uit te voeren. Je noemt het `easystat`. Het doel is eerst om het in al je eigen analyses makkelijk te kunnen gebruiken (`#!py import easystat`) maar je wilt het ook op GitHub zetten en wie weet vinden anderen het ook handig! Je wilt het dus ook _netjes_ doen. En niet later van anderen horen: <q>leuk, maar bij mij werkt het niet!</q>
 
@@ -67,7 +67,7 @@ Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaa
 
 [^README]: Wanneer de repository op GitHub wordt geplaatst wordt deze README automatisch op de hoofdpagina van de repository getoond, onder de code.
 
-Daarna is er een map :fontawesome-regular-folder:`tests`. Goede software wordt getest. In deze map komen bestanden te staan die delen van de code runnen en resultaten vergelijken met verwachte resultaten &mdash; zoals je kunt doen in \opdref{opd:test_package}.[^unittest]
+Daarna is er een map :fontawesome-regular-folder:`tests`. Goede software wordt getest. In deze map komen bestanden te staan die delen van de code runnen en resultaten vergelijken met verwachte resultaten &mdash; zoals je kunt doen in [opd:test_package](opd:test_package).[^unittest]
 
 [^unittest]: Python heeft een ingebouwde module `#!py unittest` die deze tests kan vinden, kan runnen en daarna een handige weergave geeft van welke tests geslaagd zijn en welke faalden. Ook het package `#!py pytest` is erg bekend. Op deze manier weet je altijd zeker dat wanneer je aanpassingen doet in je code, dat de rest van de code nog steeds is blijven werken &mdash; zónder dat je zelf uitvoerig alles hebt hoeven uitproberen. Je draait gewoon even snel alle tests. Helaas, helaas &mdash; in deze cursus is te weinig tijd om het schrijven van tests te behandelen.
 
@@ -385,7 +385,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
     1. Initialiseer Poetry, zodat een :fontawesome-regular-file-code:`pyproject.toml` wordt aangemaakt.
     1. Installeer je package.
     1. Test je :fontawesome-regular-file-code:`view.py` script, terwijl je dependencies toevoegt die je in je scripts nodig hebt.
-    1. Vergelijkbaar met \opdref{opd:test_package} is het verstandig om het importeren van onderdelen van het package te testen voordat we het verder gaan uitbouwen. Maak een :fontawesome-regular-folder:`tests`-map met :fontawesome-regular-file-code:`__init__.py` aan in hoofdmap van de repository zodat je onderstaande structuur krijgt:
+    1. Vergelijkbaar met [opd:test_package](opd:test_package) is het verstandig om het importeren van onderdelen van het package te testen voordat we het verder gaan uitbouwen. Maak een :fontawesome-regular-folder:`tests`-map met :fontawesome-regular-file-code:`__init__.py` aan in hoofdmap van de repository zodat je onderstaande structuur krijgt:
 
             pythondaq/
                 src/
@@ -411,7 +411,7 @@ python script.py
 ```
 Je moet dan wel de juiste map geopend hebben zodat python het bestand kan vinden. En als je de `run`-knop gebruikt moet wel het bestandje open hebben staan dat je wilt runnen. Kortom, best een beetje gedoe. Maar als we programma's zoals Poetry, Conda of Python willen gebruiken hoeven we helemaal niet het juiste bestandje op te zoeken en te runnen. We hoeven alleen maar een commando in de terminal te geven &mdash; bijvoorbeeld `python` of `conda` &mdash; en de computer start automatisch het juiste programma op.
 
-Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan een commando toevoegen om de module uit te voeren die je in \secref{sec:modules} kunt vinden. De twee bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`just_count.py` zijn netjes in een package geplaats in de nieuwe repository :fontawesome-brands-github:`just_count`:
+Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan een commando toevoegen om de module uit te voeren die je in [sec:modules](sec:modules) kunt vinden. De twee bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`just_count.py` zijn netjes in een package geplaats in de nieuwe repository :fontawesome-brands-github:`just_count`:
 
     just_count/
         src/
@@ -424,7 +424,7 @@ Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we
         pyproject.toml
         README.md
 
-De bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`just_count.py` zien er hetzelfde uit als in \secref{sec:modules}:
+De bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`just_count.py` zien er hetzelfde uit als in [sec:modules](sec:modules):
 ``` py
 # square.py
 def square(x):
@@ -489,7 +489,7 @@ Om de wijzigingen aan :fontawesome-regular-file-code:`pyproject.toml` door te vo
 
 
 ??? opdracht-meer "Error analysis"
-    \label{opd:Poetry_commando}
+    <div id="opd:Poetry_commando"></div>
     Als extra oefening gaan we met Poetry een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script :fontawesome-regular-file-code:`data_analysis.py` te laten runnen.
 
     1. Ga naar GitHub en open :fontawesome-brands-github:`AnneliesVlaar/Pr-erroranalysis` in GitHub Desktop en Visual Studio Code.

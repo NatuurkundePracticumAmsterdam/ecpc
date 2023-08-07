@@ -45,7 +45,7 @@ Eerst importeren we een paar bibliotheken. Het draait uiteindelijk om de `#!py U
 Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn strikt genomen niet noodzakelijk, maar wel _good practice_. Ook het schrijven van een `#!py main()` functie is niet strikt noodzakelijk, maar het maakt het wel makkelijk om straks een zogeheten _entry point_ te hebben als we weer een applicatie willen schrijven. In de :fontawesome-regular-file-code:`pyproject.toml` geven we dan aan dat we de `#!py main()` functie willen aanroepen. Dat komt later.
 
 !!! opdracht-basis "Voorbeeld gui"
-    \label{opd:minimal-gui}
+    <div id="opd:minimal-gui"></div>
 
     1. Maak een nieuw bestand :fontawesome-regular-file-code:`example-gui.py`.
     1. Neem de pythoncode van de minimale Qt-applicatie over en test het in de `test-qt` conda environment.
@@ -55,7 +55,7 @@ Elke keer als je een nieuwe Qt applicatie gaat schrijven kun je bovenstaand stuk
 
 
 ### De interface programmeren
-\label{sec:ui-prog}
+<div id="sec:ui-prog"></div>
 
 We gaan de eenvoudige interface programmeren die hieronder is weergegeven:
 
@@ -63,7 +63,7 @@ We gaan de eenvoudige interface programmeren die hieronder is weergegeven:
 
 We doen dat door de class `#!py UserInterface` uit te breiden met widgets uit de `#!py QtWidgets` bibliotheek.
 
-Het definiëren van layouts gebeurt in veruit de meeste opmaaksystemen met rechthoeken (_Engels: boxes_) die op verschillende manieren gestapeld worden &mdash; naast elkaar, boven elkaar, of op een rechthoekig grid bijvoorbeeld. Zulke systemen zijn ook _hiërarchisch_: je stopt boxes in andere boxes. De layout van \figref{fig:screenshot-ui-prog} is als volgt opgebouwd: ieder venster moet één centrale widget hebben (\figref{fig:layout-centerwidget}). Vervolgens geven we aan dat we die verticaal gaan opdelen (\figref{fig:layout-vbox}). In die indeling plaatsen we dan een widget voor tekstinvoer én een widget met een horizontale opdeling (\figref{fig:layout-text-hbox}). Als laatste plaatsen we in die horizontale opdeling twee knoppen (\figref{fig:layout-buttons}). Vergelijk die schematische voorstelling nog een keer met \figref{fig:screenshot-ui-prog}. Het is soms even puzzelen hoe je de layout van een applicatie het beste opbouwt.
+Het definiëren van layouts gebeurt in veruit de meeste opmaaksystemen met rechthoeken (_Engels: boxes_) die op verschillende manieren gestapeld worden &mdash; naast elkaar, boven elkaar, of op een rechthoekig grid bijvoorbeeld. Zulke systemen zijn ook _hiërarchisch_: je stopt boxes in andere boxes. De layout van [fig:screenshot-ui-prog](fig:screenshot-ui-prog) is als volgt opgebouwd: ieder venster moet één centrale widget hebben ([fig:layout-centerwidget](fig:layout-centerwidget)). Vervolgens geven we aan dat we die verticaal gaan opdelen ([fig:layout-vbox](fig:layout-vbox)). In die indeling plaatsen we dan een widget voor tekstinvoer én een widget met een horizontale opdeling ([fig:layout-text-hbox](fig:layout-text-hbox)). Als laatste plaatsen we in die horizontale opdeling twee knoppen ([fig:layout-buttons](fig:layout-buttons)). Vergelijk die schematische voorstelling nog een keer met [fig:screenshot-ui-prog](fig:screenshot-ui-prog). Het is soms even puzzelen hoe je de layout van een applicatie het beste opbouwt.
 
 Het hoofdelement van de grafische interface is de `central widget`:
 
@@ -122,7 +122,7 @@ De oplossing is gelukkig vrij eenvoudig: we kunnen de `__init__()` van de parent
 
 !!! opdracht-basis "Parent class initialiseren"
 
-    1. Breid het script van \opdref{opd:minimal-gui} uit met een `#!py __init__`-method.
+    1. Breid het script van [opd:minimal-gui](opd:minimal-gui) uit met een `#!py __init__`-method.
     1. Zorg dat de parent class volledig geïnitialiseerd wordt.
     1. Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt.
     
@@ -133,7 +133,7 @@ Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets 
 !!! opdracht-basis "Central widget toevoegen"
 
     1. Breid :fontawesome-regular-file-code:`example-gui.py` uit met een centrale widget.
-    1. Geef aan dat dit het centrale widget gaat zijn (regels 11--12, \figref{fig:layout-centerwidget}).
+    1. Geef aan dat dit het centrale widget gaat zijn (regels 11--12, [fig:layout-centerwidget](fig:layout-centerwidget)).
     1. Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt.
 
 
@@ -142,19 +142,19 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
 
 !!! opdracht-basis "Verticale layout toevoegen"
 
-    1. Breid :fontawesome-regular-file-code:`example-gui.py` uit met een verticale layout (regel 15, \figref{fig:layout-vbox}).
+    1. Breid :fontawesome-regular-file-code:`example-gui.py` uit met een verticale layout (regel 15, [fig:layout-vbox](fig:layout-vbox)).
     1. Maak een textbox (regel 16)
     1. Voeg de textbox toe aan de verticale layout (regel 17)
     1. Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt en of je tekst kan schrijven in de textbox.
     
 
 
-De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we ook toe aan de `#!py vbox`. En we maken de layout compleet (\figref{fig:layout-buttons}) door knoppen toe te voegen aan de `#!py hbox`.
+De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we ook toe aan de `#!py vbox`. En we maken de layout compleet ([fig:layout-buttons](fig:layout-buttons)) door knoppen toe te voegen aan de `#!py hbox`.
 
 !!! opdracht-basis "Horizontale layout toevoegen"
 
     1. Breid :fontawesome-regular-file-code:`example-gui.py` uit met een horizontale layout (regel 18).
-    1. Voeg de horizontale layout toe aan de verticale layout (regel 19, \figref{fig:layout-text-hbox}).
+    1. Voeg de horizontale layout toe aan de verticale layout (regel 19, [fig:layout-text-hbox](fig:layout-text-hbox)).
     1. Maak een clear button en voeg deze toe aan de horizontale layout (regel 21,22).
     1. Maak ook een add button en voeg deze toe aan de horizontale layout (regel 23,24).
     1. Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt. [^knop-stuk]
@@ -227,7 +227,7 @@ Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog ma
 
 !!! opdracht-basis "Designer gebruiken"
 
-    1. Open Designer en kies bij **templates/forms** voor `#!py MainWindow`. Klik dan op **Create**. Ontwerp de user interface uit \figref{fig:screenshot-ui-prog} en gebruik dezelfde namen voor de widgets als het voorbeeld in \secref{sec:ui-prog}. Dus een `#!py add_button` knop, een `#!py clear_button` knop en een `#!py textedit` tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.
+    1. Open Designer en kies bij **templates/forms** voor `#!py MainWindow`. Klik dan op **Create**. Ontwerp de user interface uit [fig:screenshot-ui-prog](fig:screenshot-ui-prog) en gebruik dezelfde namen voor de widgets als het voorbeeld in [sec:ui-prog](sec:ui-prog). Dus een `#!py add_button` knop, een `#!py clear_button` knop en een `#!py textedit` tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.
     1. Bewaar het bestand als :fontawesome-regular-file-lines:`simple_app.ui`.
     1. In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan[^overleg-navigeren] en type in:
             ``` ps1 title="Terminal"
@@ -442,7 +442,7 @@ Je hebt nu nog, waarschijnlijk, de poortnaam van de Arduino in je code gedefinie
 Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeilijker dan gedacht. Zodra je andere devices gaat openen en commando's gaat sturen om te ontdekken wat voor apparaat het is kunnen er gekke dingen gebeuren. Onder MacOS bijvoorbeeld kunnen bluetooth luidsprekers en koptelefoons opeens ontkoppelen. _We gaan dus toch voor keuze 1._
 
 !!! opdracht-inlever "Pythondaq: selecteer Arduino"
-    Maak een keuzemenu (`#!py QComboBox`) zodat je de Arduino kunt selecteren. Je zult in de `__init__()` eerst een lijst van devices moeten maken en die toe moeten voegen aan de widget. Zie ook \tabref{tab:widgets} en de documentatie. Het kan daarbij handig zijn om de device pas te _openen_ als je een scan uitvoert en hem te sluiten (schrijf een soort `#!py device.close()`) als de scan is afgelopen. In de controller werk je met een `#!py pyvisa` device en die heeft al een `#!py close()`-method.
+    Maak een keuzemenu (`#!py QComboBox`) zodat je de Arduino kunt selecteren. Je zult in de `__init__()` eerst een lijst van devices moeten maken en die toe moeten voegen aan de widget. Zie ook [tab:widgets](tab:widgets) en de documentatie. Het kan daarbij handig zijn om de device pas te _openen_ als je een scan uitvoert en hem te sluiten (schrijf een soort `#!py device.close()`) als de scan is afgelopen. In de controller werk je met een `#!py pyvisa` device en die heeft al een `#!py close()`-method.
 
 
 ??? opdracht-meer "Pythondaq: exception"

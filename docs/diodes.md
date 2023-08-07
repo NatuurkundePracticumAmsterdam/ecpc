@@ -1,5 +1,5 @@
 # De diode: een p-n-overgang
-\label{ch:diode}
+<div id="ch:diode"></div>
 
 In het introductie-experiment meten we de $I,U$-karakteristiek van een LED, een lichtgevende diode. In dit hoofdstuk gaan we iets dieper in op het aspect \emph{diode}.
 
@@ -22,22 +22,22 @@ Merk op dat hoewel n-type en p-type halfgeleiders beschikken over respectievelij
 
 ## p-n-overgangen
 
-Wanneer een p-type en een n-type halfgeleider elektrisch contact maken\footnote{In de praktijk worden er geen twee losse halfgeleiders aan elkaar verbonden maar wordt een enkel siliciumkristal zeer selectief plaatselijk verontreinigd: de ene helft om een p-type te maken, de andere helft om een n-type te maken.} dan kunnen de elektronen en de gaten elkaar in het midden tegenkomen. Immers, door diffusie verplaatsen de elektronen en gaten zich willekeurig door het materiaal (\figref{fig:pn-begin}).
+Wanneer een p-type en een n-type halfgeleider elektrisch contact maken[fig:pn-begin](fig:pn-begin)).
 
 \begin{figure}
   \centering
   \includestandalone[page=1]{figures/p-n-overgang}
   \caption{Elektronen (zwart) en gaten (wit) zijn de vrije ladingsdragers in respectievelijk n-type en p-type halfgeleiders. Wanneer beide typen elektrisch contact maken kunnen elektronen en gaten de grenslaag oversteken en \emph{recombineren}.}
-  \label{fig:pn-begin}
+  <div id="fig:pn-begin"></div>
 \end{figure}
 
-Het extra elektron kan een tekort aanvullen en alle naburige atomen kunnen zo vier covalente bindingen aangaan. Het elektron en het gat heffen elkaar dus op (\emph{recombinatie}). Dit is energetisch voordelig, maar er ontstaat in het midden een \emph{sperlaag}\footnote{Engels: \emph{depletion zone}.} waar geen vrije ladingsdragers meer aanwezig zijn. Dit betekent echter wel dat de onzuiverheden (ionen!) ervoor zorgen dat het materiaal niet langer neutraal is, maar elektrisch geladen. Waar de elektronen verdwenen zijn blijven positieve ionen achter en omgekeerd voor de gaten. Er ontstaat zo een elektrisch veld dat de elektronen en gaten tegenhoudt. Buiten de sperlaag is er geen elektrisch veld, net als bij een condensator.\footnote{Zie o.a. \textcite{Giancoli} voor een beschrijving van het veld van twee vlakke en tegengesteld geladen schijven.} Elektronen en gaten kunnen niet langer de sperlaag oversteken (\figref{fig:pn-evenwicht}).
+Het extra elektron kan een tekort aanvullen en alle naburige atomen kunnen zo vier covalente bindingen aangaan. Het elektron en het gat heffen elkaar dus op ([fig:pn-evenwicht](fig:pn-evenwicht)).
 
 \begin{figure}
   \centering
   \includestandalone[page=2]{figures/p-n-overgang}
   \caption{Na recombinatie van elektronen (zwart) en gaten (wit) ontstaat er een \emph{sperlaag} waar geen vrije ladingsdragers meer aanwezig zijn. De gedoteerde atomen vormen ionen in het rooster en er onstaat een postief geladen gebied en een negatief geladen gebied. Buiten de sperlaag is geen veld aanwezig, net als bij een condensator. Het resulterende elektrisch veld remt eerst en stopt uiteindelijk de diffusie van de elektronen en gaten. Er ontstaat een evenwicht waarbij vrije ladingsdragers de grenslaag niet meer kunnen oversteken.}
-  \label{fig:pn-evenwicht}
+  <div id="fig:pn-evenwicht"></div>
 \end{figure}
 
 
@@ -61,13 +61,13 @@ Wanneer een elektron en een gat elkaar tegenkomen is het energetisch gunstiger o
 Shockley, één van de uitvinders van de transistor, ontwikkelde een model voor p-n-overgangen. Volgens dat model [@Shockley] wordt de stroomsterkte gegeven door
 \begin{equation}
   I = I_\mathrm{S} \left(e^\frac{V_\mathrm{D}}{nV_\mathrm{T}} - 1 \right),
-  \label{eq:Shockley}
+  <div id="eq:Shockley"></div>
 \end{equation}
 met $I$ de diodestroom, $I_\mathrm{S}$ de diodelekstroom, $V_\mathrm{D}$ de spanning over de diode, $n$ de \emph{kwaliteitsfactor} van de diode en $V_\mathrm{T}$ de \emph{thermal voltage} gegeven door
 \begin{equation}
   V_\mathrm{T} = \frac{kT}{q},
 \end{equation}
-met $k$ de constante van Boltzmann, $T$ de temperatuur van het materiaal en $q$ de elementaire lading. De diodelekstroom is de stroomsterkte ten gevolge van de minderheidsladingsdragers\footnote{Engels: \emph{minority charge carriers.}} &mdash; het kleine aantal vrije elektronen in p-type halfgeleider en het kleine aantal gaten in n-type halfgeleider. Zie \figref{fig:diodestroom}.
+met $k$ de constante van Boltzmann, $T$ de temperatuur van het materiaal en $q$ de elementaire lading. De diodelekstroom is de stroomsterkte ten gevolge van de minderheidsladingsdragers[fig:diodestroom](fig:diodestroom).
 
 \begin{figure}
   \centering
@@ -79,5 +79,5 @@ met $k$ de constante van Boltzmann, $T$ de temperatuur van het materiaal en $q$ 
     \node[below left] at (0, 0) {0};
   \end{tikzpicture}
   \caption{De stroom door een diode ten gevolge van de spanning over de diode.}
-  \label{fig:diodestroom}
+  <div id="fig:diodestroom"></div>
 \end{figure}

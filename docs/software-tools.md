@@ -1,8 +1,8 @@
 # Gereedschap
-\label{ch:gereedschap}
+<div id="ch:gereedschap"></div>
 
 ## Isolatie: virtual environments
-\label{sec:virtual-envs}
+<div id="sec:virtual-envs"></div>
 
 Je hebt het vast al gemerkt: Anaconda is groot. Dat is gek, want Python is best klein. Anaconda bevat alleen veel meer dan Python. Anaconda is een Python_distributie_ en bevat een enorme verzameling aan packages. Je kunt zelf extra packages installeren met `conda` of `pip`. Je loopt dan mogelijk wel tegen problemen aan: packages hebben vaak zelf weer andere packages nodig. En regelmatig ook met een bepaalde versie. Dit kan een ingewikkeld netwerk worden waarbij het installeren van een nieuwe package óf heel lang duurt, óf niet kan vanwege een conflict,\footnote{Package A heeft B nodig met versie >= 1.1, maar package C heeft B nodig met versie 1.0. Nu kunnen package A en C dus niet tegelijkertijd geïnstalleerd worden.} óf <q>blind</q> gedaan wordt waarna sommige dingen niet meer willen werken. Alledrie is op te lossen door _virtual environments_ te gebruiken. Geïsoleerde omgevingen waarin (soms) een _eigen_ versie van Python draait met een _eigen_ &mdash; veelal kleine &mdash; collectie van packages. Je kunt environments aanmaken voor specifieke projecten bijvoorbeeld. Wellicht heb je bij NSP1 een environment aangemaakt om Jupyter Notebooks en een verzameling packages te installeren voor de data-analyse.
 
