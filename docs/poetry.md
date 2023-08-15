@@ -412,20 +412,20 @@ python script.py
 ```
 Je moet dan wel de juiste map geopend hebben zodat python het bestand kan vinden. En als je de `run`-knop gebruikt moet wel het bestandje open hebben staan dat je wilt runnen. Kortom, best een beetje gedoe. Maar als we programma's zoals Poetry, Conda of Python willen gebruiken hoeven we helemaal niet het juiste bestandje op te zoeken en te runnen. We hoeven alleen maar een commando in de terminal te geven &mdash; bijvoorbeeld `python` of `conda` &mdash; en de computer start automatisch het juiste programma op.
 
-Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan een commando toevoegen om de module uit te voeren waarvan je de code in [paragraaf _Modules_](voorkennis.md#modules) kunt vinden. De twee bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`just_count.py` hebben we voor jullie netjes in een package geplaats in de repository :fontawesome-brands-github:`AnneliesVlaar/just_count` met de volgende structuur:
+Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan een commando toevoegen om de module uit te voeren waarvan je de code in [paragraaf _Modules_](voorkennis.md#modules) kunt vinden. De twee bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`count_count.py` hebben we voor jullie netjes in een package geplaats in de repository :fontawesome-brands-github:`AnneliesVlaar/just_count` met de volgende structuur:
 
     just_count/
         src/
             just_count/
                 __init__.py
                 square.py
-                just_count.py
+                count_count.py
             tests/
                 __init__.py
         pyproject.toml
         README.md
 
-De bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`just_count.py` zien er hetzelfde uit als in [paragraaf _Modules_](voorkennis.md#modules):
+De bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-file-code:`count_count.py` zien er hetzelfde uit als in [paragraaf _Modules_](voorkennis.md#modules):
 === "square.py"
     ``` py
     def square(x):
@@ -434,28 +434,32 @@ De bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-
     if __name__ == "__main__":
         print(f"The square of 4 is {square(4)}")
     ```
-=== "count.py"
+=== "count_count.py"
 
     ``` py
-    import square
+    from square import square
 
     print(f"The square of 5 is {square(5)}")  
     ```
+
 
 We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie uit te voeren.
 
 !!! opdracht-basis "Main functie toevoegen"
 
-    1. Ga naar :fontawesome-brands-github:`AnneliesVlaar/just_count` en open de repository in GitHub desktop en daarna in Visual Studio Code.
+    1. Ga naar :fontawesome-brands-github:`AnneliesVlaar/just_count` en [open de repository in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en daarna in Visual Studio Code.
     1. Maak een nieuwe conda environment met python 3.9, activeer deze en installeer de `just_count` package.
-    1. Open :fontawesome-regular-file-code:`src/just_count/count.py` en voeg een functie `#!py def main()` toe die de wortel van 5 print.
-    ``` py title="count.py"
+    1. Open :fontawesome-regular-file-code:`src/just_count/count_count.py` en voeg een functie `#!py def main()` toe die de wortel van 5 print.
+    ``` py title="count_count.py"
     from square import square
-    
+
     def main():
-        print(f"The square of 5 is {quare(5)}")
+        print(f"The square of 5 is {square(5)}")
     ```
-    We zetten daarmee de <q>body</q> van de module in een functie. Als je het script nu runt doet hij niets meer, want hij roept de functie `#!py main()` niet aan. Voeg een `#!py if __name__ == '__main__'`-statement toe waarin je de functie `#!py main()` aanroept. Als je het script runt, doet hij het weer.
+    We zetten daarmee de <q>body</q> van de module in een functie. 
+    1. Als je het script nu runt doet hij niets meer, want hij roept de functie `#!py main()` niet aan. 
+    1. Voeg een `#!py if __name__ == '__main__'`-statement toe waarin je de functie `#!py main()` aanroept. 
+    1. Als je het script runt, doet hij het weer.
     
 
 
@@ -471,10 +475,10 @@ Om de wijzigingen aan :fontawesome-regular-file-code:`pyproject.toml` door te vo
     1. Open :fontawesome-regular-file-code:`pyproject.toml` en voeg het kopje `[tool.poetry.scripts]` toe.
     1. Als naam voor het commando kiezen we `count`.
     1. Voor het gemak vullen we de rechterkant van het =-teken van rechts naar links in. Achter de dubbele punt komt de naam van de functie die uitgevoerd moet worden, dat is in ons geval `main`.
-    1. De functie `main` staat in module :fontawesome-regular-file-code:`count.py`. De module hebben we ondergebracht in de package :fontawesome-regular-folder:`just_count`.
+    1. De functie `main` staat in module :fontawesome-regular-file-code:`count_count.py`. De module hebben we ondergebracht in de package :fontawesome-regular-folder:`just_count`.
             ``` toml
             [tool.poetry.scripts]
-            count = "just_count.count:main"
+            count = "just_count.count_count:main"
             ```
     1. Omdat we handmatig de toml-file hebben aangepast installeren we de package `just_count` opnieuw met `poetry install`.
     
@@ -483,9 +487,11 @@ Om de wijzigingen aan :fontawesome-regular-file-code:`pyproject.toml` door te vo
 !!! opdracht-basis "Commando testen"
 
     1. Type in de terminal het commando `count`.
-    1. Je krijgt nu een `ModuleNotFoundError` voor de module square. Poetry zoekt vanuit de :fontawesome-regular-folder:`src`-map naar de packages en modules. Pas het importstatement in :fontawesome-regular-file-code:`just_count.py` aan zodat het count commando werkt.   
+    1. Je krijgt nu een `ModuleNotFoundError` voor de module square. Poetry zoekt vanuit de :fontawesome-regular-folder:`src`-map naar de packages en modules. Pas het importstatement in :fontawesome-regular-file-code:`count_count.py` aan zodat het count commando werkt.   
     1. Activeer een andere conda environment en probeer meteen het commando opnieuw; waarom werkt dit niet?
-    1. Navigeer naar een andere map met python-scripts. Activeer de conda environment waar je `just_count` hebt geïnstalleerd en test het commando.
+    1. Navigeer naar de bovenliggende map met `cd..`. Zorg dat het conda environment waar je `just_count` hebt geïnstalleerd is geactiveerd en test het commando. 
+
+    Het maakt nu dus niet meer uit waar je bent, als je de juiste conda environment hebt geactiveerd kan je altijd je applicatie starten!
     
 
 
