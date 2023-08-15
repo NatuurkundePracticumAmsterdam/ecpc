@@ -437,9 +437,9 @@ De bestanden :fontawesome-regular-file-code:`square.py` en :fontawesome-regular-
 === "count_count.py"
 
     ``` py
-    from square import square
+    import square
 
-    print(f"The square of 5 is {square(5)}")  
+    print(f"The square of 5 is {square.square(5)}")  
     ```
 
 
@@ -451,10 +451,10 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
     1. Maak een nieuwe conda environment met python 3.9, activeer deze en installeer de `just_count` package.
     1. Open :fontawesome-regular-file-code:`src/just_count/count_count.py` en voeg een functie `#!py def main()` toe die de wortel van 5 print.
     ``` py title="count_count.py"
-    from square import square
+    import square
 
     def main():
-        print(f"The square of 5 is {square(5)}")
+        print(f"The square of 5 is {square.square(5)}")
     ```
     We zetten daarmee de <q>body</q> van de module in een functie. 
     1. Als je het script nu runt doet hij niets meer, want hij roept de functie `#!py main()` niet aan. 
