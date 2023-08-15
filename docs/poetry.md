@@ -320,11 +320,11 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
     Merk op dat we nu niet gebruik hoeven te maken van de `conda-forge` channel. Python zelf staat in _alle_ kanalen en we gaan verder geen software installeren met conda, dus ook niet uit `conda-forge`.
 
 !!! opdracht-basis "Poetry knipperlicht"
-    We gaan nu poetry gebruiken om van de scripts met de knipperende lichtjes uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) een package te maken én om ons environment te beheren. Voer de volgende stappen uit:
+    We gaan nu poetry gebruiken om van het script met de knipperende lichtjes uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) een package te maken én om ons environment te beheren. Voer de volgende stappen uit:
     
     1. Maak in GitHub Desktop een _nieuwe_ repository :fontawesome-brands-github:`flasher`.
     1. Maak een map :fontawesome-regular-folder:`src` met daarin een map :fontawesome-regular-folder:`flasher`.
-    1. Kopieer uit de :fontawesome-brands-github:`Oefenopdrachten` die je bij [opdracht _Repository toevoegen_](github.md#opd:add_repository) hebt aangemaakt de drie scriptjes uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) naar :fontawesome-regular-folder:`src/flasher`.
+    1. Kopieer uit de :fontawesome-brands-github:`Oefenopdrachten` die je bij [opdracht _Repository toevoegen_](github.md#opd:add_repository) hebt aangemaakt het scriptje uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) naar :fontawesome-regular-folder:`src/flasher`.
     1. Open :fontawesome-brands-github:`flasher` in Visual Studio Code.
     1. Commit alles dat je tot nu toe gedaan hebt.
     1. Open een terminal. Maak een nieuwe conda environment met alleen python 3.9:
@@ -339,7 +339,7 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
         om een :fontawesome-regular-file-code:`pyproject.toml` aan te maken.
     1. Gebruik `poetry add` om de dependencies van je script toe te voegen (welke Pythonpackages gebruik je?).[^dependencies]
     1. Installeer je `flasher` package met `poetry install`.
-    1. Test de 3 scriptjes, werken ze allemaal nog?
+    1. Test het scriptje, werkt het allemaal nog?
 
     [^dependencies]: In ieder geval pyvisa-py, maar wat nog meer? Waarschijnlijk krijg je een foutmelding: No module named 'serial'. Met de vraag om Pyserial te installeren. Het conda package van pyvisa gaf zelf al pyserial op als dependency om te communiceren over USB. Nu we conda niet gebruiken moeten we dat handmatig doen.
 
