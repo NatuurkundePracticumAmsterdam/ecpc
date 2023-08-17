@@ -499,7 +499,7 @@ Om de wijzigingen aan :fontawesome-regular-file-code:`pyproject.toml` door te vo
 ??? opdracht-meer "Error analysis"
     Als extra oefening gaan we met Poetry een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script :fontawesome-regular-file-code:`data_analysis.py` te laten runnen.
 
-    1. Ga naar GitHub en open :fontawesome-brands-github:`AnneliesVlaar/Pr-erroranalysis` in GitHub Desktop en Visual Studio Code.
+    1. Ga naar GitHub en open :fontawesome-brands-github:[`AnneliesVlaar/erroranalysis`](https://github.com/AnneliesVlaar/erroranalysis) in GitHub Desktop en Visual Studio Code.
     1. Natuurlijk maak je gelijk een nieuwe Conda environment aan, voordat we dit package gaan testen.
     1. Snuffel door de bestanden en mappen, en open :fontawesome-regular-file-code:`src/erroranalysis/data_analysis.py`. Dit is het script wat moet kunnen runnen.
     1. Run het script :fontawesome-regular-file-code:`data_analysis.py` en los de errors één voor één op.
@@ -512,7 +512,6 @@ Om de wijzigingen aan :fontawesome-regular-file-code:`pyproject.toml` door te vo
             naam_commando = "package.module:naam_functie"
             ```
             pas de regel aan zodat jouw commando de functie `#!py table()` aanroept in :fontawesome-regular-file-code:`src/erroranalysis/data_analysis.py`. Je mag de naam van het commando zelf kiezen.
-    1. Omdat we handmatig iets aan :fontawesome-regular-file-code:`pyproject.toml` hebben veranderd, gaan we de package opnieuw installeren.
     1. Ga naar de terminal en kijk of het werkt!
             ``` ps1con title="Terminal"
             PS> naam_commando
