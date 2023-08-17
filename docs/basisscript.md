@@ -67,7 +67,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
     1. Open Github Desktop en ga naar **File > New repository ...**. Geef de repository een naam (Pythondaq) en kies een locatie. Let er op dat je deze map _niet_ in een andere repository aanmaakt, maar daarbuiten. Overleg eventueel over een handige plek.
     1. Vink `Initialize this repository with a README` aan.
     1. Kies bij `Git ignore` voor <q>Python</q>.
-    1. Klik op `Open in Visual Studio Code` en ga aan de slag. Vergeet niet regelmatig te committen!
+    1. Ga naar **Repository > Open in Visual Studio Code** en ga aan de slag. Vergeet niet regelmatig te committen!
 
 !!! opdracht-inlever "Pythondaq: start script"
     Voer de volgende opdrachten uit:
