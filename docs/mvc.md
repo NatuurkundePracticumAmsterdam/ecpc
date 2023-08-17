@@ -212,7 +212,7 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
     # close the connection
     website.close()        
     ```
-    Bespreek met elkaar wat de code precies doet en markeer de volgende onderdelen: module, functie, class, class instance, class attribute, class method.
+    Bespreek met elkaar wat de code precies doet en markeer de volgende onderdelen: module, functie, class, class instance, instance attribute, class method.
 
 
 !!! opdracht-basis "Class Particle"
