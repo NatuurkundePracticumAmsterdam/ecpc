@@ -282,22 +282,14 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
     We hebben nu een commando `import` aangemaakt &mdash; _niet_ een commando `import_package`.
 
 !!! opdracht-basis "Pyproject toml"
-    Hieronder zie je :fontawesome-regular-file-code:`pyproject.toml` van fake-conda:
-    ``` toml title="pyproject.toml"
-    [tool.poetry]
-    name = "fake_conda"
-    version = "0.1.0"
-    description = ""
-    authors = ["YourName <YourName@users.noreply.github.com>"]
 
-    [tool.poetry.dependencies]
-    python = "^3.9"
-
-    [build-system]
-    requires = ["poetry-core>=1.0.0"]
-    build-backend = "poetry.core.masonry.api"
+    1. Maak een nieuw poetry project aan met de naam conda. 
+    ``` ps1 title="Terminal"
+    poetry new --src conda
     ```
-    Hoe moet je de toml-file aanpassen zodat de volgende uitvoer mogelijk wordt?
+    1. Voeg het bestand :fontawesome-regular-file-code:`fakeconda.py` toe. 
+    
+    1. Overleg met elkaar en zorg dat de volgende uitvoer mogelijk wordt:
     ``` ps1con title="Terminal"
     PS> fake_conda install scipy
     Installing scipy...
