@@ -28,10 +28,9 @@ Als applicaties veel verschillende functionaliteit hebben dan krijg je regelmati
 ``` ps1con title="Terminal"
 PS> conda create -n pythondaq -c conda-forge python pyvisa-py
 ```
-Uitgesplitst in \textit{argumenten} en __opties__, met vierkante haken [] om aan te geven welke onderdelen bij elkaar horen, is dat:
-\begin{quote}
-    conda \textit{create} [__-n__ \textit{pythondaq}] [__-c__ \textit{conda-forge}] [\textit{python pyvisa-py}]
-\end{quote}
+Uitgesplitst in _argumenten_ en __opties__, met vierkante haken [] om aan te geven welke onderdelen bij elkaar horen, is dat:
+
+<q>conda _create_ [__-n__ _pythondaq_] [__-c__ _conda-forge_] [_python pyvisa-py_]</q>
 
 
 !!! opdracht-basis "Poetry argumenten"
