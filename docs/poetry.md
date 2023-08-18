@@ -483,7 +483,7 @@ Om de wijzigingen aan :fontawesome-regular-file-code:`pyproject.toml` door te vo
     1. Omdat we handmatig de toml-file hebben aangepast installeren we de package `just_count` opnieuw met `poetry install`.
     
 
-
+<div id="opd:Poetry_commando"></div>
 !!! opdracht-basis "Commando testen"
 
     1. Type in de terminal het commando `count`.
@@ -495,7 +495,7 @@ Om de wijzigingen aan :fontawesome-regular-file-code:`pyproject.toml` door te vo
     
 
 
-<div id="opd:Poetry_commando"></div>
+
 ??? opdracht-meer "Error analysis"
     Als extra oefening gaan we met Poetry een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script :fontawesome-regular-file-code:`data_analysis.py` te laten runnen.
 

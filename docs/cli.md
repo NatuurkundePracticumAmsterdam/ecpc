@@ -222,13 +222,17 @@ Hello Alice!
 
 
 !!! opdracht-basis "Argumenten en opties"
-    Bij [opdracht _Error Analysis_](poetry.md#opd:Poetry_commando) heb je een applicatie gemaakt om de oppervlakte van een tafel te berekenen met de bijbehorende onzekerheid. In deze opdracht gaan we het script uitbreiden om de lengte en de breedte én de onzekerheid daarop als argument of optie mee te geven op de command line. Voer de volgende stappen uit:
+    Bij [opdracht _Commando testen_](poetry.md#opd:Poetry_commando) heb je een applicatie gemaakt om het kwadraat van een getal te printen. In deze opdracht gaan we het script uitbreiden om het getal als argument of optie mee te geven op de command line. Voer de volgende stappen uit:
 
     1. Maak een schone environment aan en installeer de applicatie (doet alles het nog?)
-    1. Voeg click toe en pas het script aan zodat je de lengte zelf kan kiezen.[^arg-type]
+    1. Voeg click toe en pas het script aan zodat je het getal zelf kan kiezen.[^arg-type] Wanneer kies je in het script voor een optie en wanneer voor een argument?
     1. Test de applicatie.
-    1. Voeg ook opties of argumenten toe om de breedte en de onzekerheden mee te geven. Wanneer kies je in het script voor een optie en wanneer voor een argument?
     1. Maak de applicatie compleet met helpteksten en default waardes.
+    
+    ??? opdracht-meer "Meer functies"
+        1. Pas de applicatie aan zodat je kan kiezen tussen het kwadraat of de wortel van het getal. 
+
+    
     
 [^arg-type]: Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieerd. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden
 
