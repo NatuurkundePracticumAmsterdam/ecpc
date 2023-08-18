@@ -220,44 +220,59 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
 
 
 ## Implementeren van MVC
+Het opsplitsen van het programma in MVC gaan we stapsgewijs doen. We gaan een class maken voor de aansturing van de Arduino, deze class valt in de categorie _controller_.
 
 <div id="opd:meting-class"></div>
-!!! opdracht-inlever "Pythondaq: ArduinoVISADevice"
-    Pak je script van [opdracht _Pythondaq: CSV_](communicatie.md#opd:quickndirty-csv) erbij en schrijf bovenaan &mdash; maar _onder_ de `#!py import`-statements &mdash; een class `#!py ArduinoVISADevice`. Schrijf methods voor die class zodat onderstaande code minimaal zou moeten kunnen runnen:
-    ``` py
-    # we willen, voor de zekerheid, nog steeds een functie om
-    # een lijst van poorten te krijgen, _buiten_ de class
-    print(list_devices())
-
-    # de poort moet je mogelijk zelf aanpassen
-    port = "ASRL3::INSTR"
+!!! opdracht-inlever "Pythondaq: controller bouwen"
+    Pak je script van [opdracht _Pythondaq: CSV_](communicatie.md#opd:quickndirty-csv) erbij en schrijf bovenaan &mdash; maar _onder_ de `#!py import`-statements &mdash; een class `#!py ArduinoVISADevice`.
+    We gaan de class stap voor stap opbouwen. Je kunt de class testen met de python-code onder elke opdracht. 
     
-    # zorg dat de device al geopend wordt in de __init__()
-    device = ArduinoVISADevice(port=port)
+    1. Maak een `#!py __init__()` method die het device opent. 
+        ``` py
+        # de poort moet je mogelijk zelf aanpassen
+        port = "ASRL3::INSTR"
+        
+        # maak een instance van je class aan
+        device = ArduinoVISADevice(port=port)
+        ```
+    1. Schrijf een method die de identificatiestring terug geeft. 
+        ``` py
+        # print identification string
+        print(device.get_identification())
+        ```
+    
+    1. Met de controller class willen we de arduino gaan aansturen en uitlezen. Maak een aantal methods zodat alle firmwarecommando's ondergebracht zijn in de class.
+        ``` py
+        # set OUTPUT voltage on channel 0, using ADC values (0 - 1023)
+        device.set_output_value(value=512)
 
-    # print identification string
-    print(device.get_identification())
+        # get the previously set OUTPUT voltage in ADC values (0 - 1023)
+        ch0_value = device.get_output_value()
 
-    # set OUTPUT voltage on channel 0, using ADC values (0 - 1023)
-    device.set_output_value(value=512)
+        # measure the voltage on INPUT channel 2 in ADC values (0 - 1023)
+        ch2_value = device.get_input_value(channel=2)
 
-    # get the previously set OUTPUT voltage in ADC values (0 - 1023)
-    ch0_value = device.get_output_value()
+        # measure the voltage on INPUT channel 2 in volts (0 - 3.3 V)
+        ch2_voltage = device.get_input_voltage(channel=2)
+        ```
+    
+    1. Wat is het verschil tussen `#!py set_output_value()` en `#!py get_output_value()`?
 
-    # measure the voltage on INPUT channel 2 in ADC values (0 - 1023)
-    ch2_value = device.get_input_value(channel=2)
+    1. Als je een instance van ArduinoVISADevice wilt maken, dan moet je nu de poort meegeven. Daarom is het handig om _buiten_ de klas een functie te hebben waarmee je een lijst krijgt van alle beschikbare poorten. 
+        ``` py
+        # get available ports
+        print(list_devices())  
+        ```
 
-    # measure the voltage on INPUT channel 2 in volts (0 - 3.3 V)
-    ch2_voltage = device.get_input_voltage(channel=2)
-    ```
-    Bekijk bovenstaande code goed. Wat doet iedere regel met de Arduino? Overleg met elkaar of met je assistent. Wat is het verschil tussen `#!py get_output_value()` en `#!py get_input_value()`?
+Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experiment. 
 
-    Pas je script &mdash; en vooral ook de class! &mdash; aan zodat hij precies hetzelfde doet als bij [opdracht _quick 'n dirty_ meting](communicatie.md#opd:quickndirty-meting). Gebruik bovenstaande code dus _alleen_ als voorbeeld van welke methods je moet schrijven. Zorg ervoor dat alle firmwarecommando's ondergebracht zijn in de class en dat in je <q>experiment</q>-code alleen maar aanroepen naar de class zitten.
-
+!!! opdracht-inlever "Pythondaq: Controller implementeren"
+    Pas je script &mdash; en vooral ook de class! &mdash;aan zodat in je <q>experiment</q>-code alleen maar aanroepen naar de class zitten.
+    Controlleer dat het schript precies hetzelfde doet als bij [opdracht _quick 'n dirty_ meting](communicatie.md#opd:quickndirty-meting).
 
 Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de precieze commando's zijn die je naar de hardware moet sturen. Als je de Arduino in de opstelling vervangt voor een ander meetinstrument moet je de class aanpassen, maar kan alle code die met het experiment zelf te maken heeft hetzelfde blijven.
 
-De class die we gemaakt hebben voor de aansturing van de Arduino valt in de categorie _controller_. Het laatste stuk waar de plot gemaakt wordt is dus eigenlijk een _view_ en de rest van de code &mdash; waar de metingen worden uitgevoerd en de stroomsterkte $I$ wordt berekend &mdash; is een _model_. We gaan de code nog wat verder opsplitsen om dat duidelijk te maken én onderbrengen in verschillende bestanden &mdash; dat is uiteindelijk beter voor het overzicht.
+Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een stukje code over. Het laatste stuk waar de plot gemaakt kunnen we beschouwen als een _view_ en de rest van de code &mdash; waar de metingen worden uitgevoerd en de stroomsterkte $I$ wordt berekend &mdash; is een _model_. We gaan de code nog wat verder opsplitsen om dat duidelijk te maken én onderbrengen in verschillende bestanden &mdash; dat is uiteindelijk beter voor het overzicht.
 
 !!! opdracht-inlever "Pythondaq: Controller afsplitsen"
     Pas het script aan uit [opdracht _Pythondaq: ArduinoVISADevice_](#opd:meting-class). Knip de class uit het bestand en plak die in een nieuw bestand `#!py arduino_device.py`. Knip en plak _ook_ de functie `#!py list_devices()`, zodat alle `#!py pyvisa`-code netjes in één bestand zit. Je vervangt de functie en de class in het oorspronkelijke script door dit import statement:
