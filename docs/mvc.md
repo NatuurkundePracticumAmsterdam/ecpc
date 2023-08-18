@@ -172,47 +172,12 @@ cart = Cart()
 ```
 Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je typt `#!py cart.add` hoef je alleen maar op ++tab++ te drukken en VS Code vult de rest aan.
 
+
+
 !!! opdracht-basis "Opbouw van een class"
     Beschouw de volgende code:
-    ``` py
-    import requests
-
-
-    def search_for_title(htmlcode):
-        """Search for <title> block in HTML code."""
-        for line in htmlcode.splitlines():
-            if "<title>" in line:
-                return line
-    
-    
-    class WebsiteInfo:
-        """Retrieve information from web URL."""
-    
-        def __init__(self, url):
-            self.url = url
-            self.response = requests.get(url)
-            # .text contains the HTML code of the website
-            self.htmlcode = self.response.text
-            # search for the <title> block
-            self.title = search_for_title(self.htmlcode)
-    
-        def get_page_size(self):
-            return len(self.htmlcode)
-    
-        def close(self):
-            self.response.close()
-    
-    
-    website = WebsiteInfo("https://example.com/")
-    print(website.title)
-    # <title>Example Domain</title>
-    print(website.get_page_size())
-    # 1256
-    
-    # close the connection
-    website.close()        
-    ```
-    Bespreek met elkaar wat de code precies doet en markeer de volgende onderdelen: module, functie, class, class instance, instance attribute, class method.
+    <iframe src="Class.html" scrolling="no" height="700"width="2139" style="border:none;"></iframe>
+    Bespreek met elkaar wat de code precies doet en verplaast de onderdelen naar de juiste plek in de code.
 
 
 !!! opdracht-basis "Class Particle"
