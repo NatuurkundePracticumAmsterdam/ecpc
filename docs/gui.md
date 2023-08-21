@@ -468,54 +468,55 @@ Threads geven vaak problemen omdat ze in zekere zin onvoorspelbaar zijn. Je weet
 
     ```py linenums="1"
     import sys
-    import time
-    
+
     import numpy as np
-    
+
     from PySide6 import QtWidgets
     import pyqtgraph as pg
 
     from model import Experiment
-    
-    
+
+
     class UserInterface(QtWidgets.QMainWindow):
         def __init__(self):
             super().__init__()
-    
+
             central_widget = QtWidgets.QWidget()
             self.setCentralWidget(central_widget)
-    
+
             vbox = QtWidgets.QVBoxLayout(central_widget)
             self.plot_widget = pg.PlotWidget()
             vbox.addWidget(self.plot_widget)
             start_button = QtWidgets.QPushButton("Start")
             vbox.addWidget(start_button)
-    
+
             start_button.clicked.connect(self.plot)
-    
+
             # Experiment
             self.experiment = Experiment()
-    
+
         def plot(self):
-            """Plot data van het experiment"""
             self.plot_widget.clear()
             x, y = self.experiment.scan(0, np.pi, 50)
             self.plot_widget.plot(x, y, symbol="o", symbolSize=5, pen=None)
-    
+
     def main():
         app = QtWidgets.QApplication(sys.argv)
         ui = UserInterface()
         ui.show()
         sys.exit(app.exec())
-    
-    
+
+
     if __name__ == "__main__":
-        main()  
+        main()   
     ```
 
 === "model.py"
 
     ``` py linenums="1"
+    import time
+    import numpy as np
+
     class Experiment:
         def scan(self, start, stop, steps):
             x = np.linspace(start, stop, steps)
@@ -526,11 +527,14 @@ Threads geven vaak problemen omdat ze in zekere zin onvoorspelbaar zijn. Je weet
             return x, y
     ```
 
-In regels 16--25 bouwen we een kleine user interface op met een plot widget en een startknop. We koppelen die knop aan de `#!py plot()`-method. In regel 28 maken we ons experiment (het model) aan en bewaren die. In regels 30--34 maken we de plot schoon, voeren we een scan uit en plotten het resultaat. :fontawesome-regular-file-code:`model.py` vormt ons experiment. Eerst wordt een rij $x$-waardes klaargezet en dan, in een loop, wordt punt voor punt de sinus uitgerekend en toegevoegd aan een lijst met $y$-waardes. De `#!py time.sleep(.1)` wacht steeds 0.1 s en zorgt hiermee voor de simulatie van _trage_ metingen. En inderdaad, als we deze code draaien dan moeten we zo'n vijf seconden wachten voordat de plot verschijnt.
+In regels 15--24 bouwen we een kleine user interface op met een plot widget en een startknop. We koppelen die knop aan de `#!py plot()`-method. In regel 27 maken we ons experiment (het model) aan en bewaren die. In regels 30--34 maken we de plot schoon, voeren we een scan uit en plotten het resultaat. :fontawesome-regular-file-code:`model.py` vormt ons experiment. Eerst wordt een rij $x$-waardes klaargezet en dan, in een loop, wordt punt voor punt de sinus uitgerekend en toegevoegd aan een lijst met $y$-waardes. De `#!py time.sleep(.1)` wacht steeds 0.1 s en zorgt hiermee voor de simulatie van _trage_ metingen. En inderdaad, als we deze code draaien dan moeten we zo'n vijf seconden wachten voordat de plot verschijnt.
 
 In de volgende opdrachten gaan we de code stap voor stap ombouwen naar threads. Als we daarmee klaar zijn worden de metingen gedaan binnen de `#!py scan()`-method van de `#!py Experiment()`-class en verversen we ondertussen af en toe de plot. De `#!py plot()`-method van onze user interface wordt regelmatig aangeroepen terwijl de meting nog loopt en moet dus de hele tijd de huidige metingen uit kunnen lezen. Dat kan, als de metingen worden bewaard in _instance attributes_.[^instance-attributes]
 
 [^instance-attributes]: Variabelen die we in een class definiëren door ze aan te maken met `#!py self.` ervoor zijn _instance attributes_.
+
+!!! opdracht-basis "Threads 0"
+    Neem `view.py` en `model.py` over en test de applicatie.
 
 
 ### Stap 1: de meetgegevens altijd beschikbaar maken
