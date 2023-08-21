@@ -492,10 +492,11 @@ Threads geven vaak problemen omdat ze in zekere zin onvoorspelbaar zijn. Je weet
 
             start_button.clicked.connect(self.plot)
 
-            # Experiment
+            # Maak een instance aan van Experiment
             self.experiment = Experiment()
 
         def plot(self):
+            """ Clear the plot widget and display experimental data. """
             self.plot_widget.clear()
             x, y = self.experiment.scan(0, np.pi, 50)
             self.plot_widget.plot(x, y, symbol="o", symbolSize=5, pen=None)
@@ -519,6 +520,7 @@ Threads geven vaak problemen omdat ze in zekere zin onvoorspelbaar zijn. Je weet
 
     class Experiment:
         def scan(self, start, stop, steps):
+            """ Perform a scan over a range with specified steps and return the scanned values. """
             x = np.linspace(start, stop, steps)
             y = []
             for u in x:
@@ -534,7 +536,7 @@ In de volgende opdrachten gaan we de code stap voor stap ombouwen naar threads. 
 [^instance-attributes]: Variabelen die we in een class definiëren door ze aan te maken met `#!py self.` ervoor zijn _instance attributes_.
 
 !!! opdracht-basis "Threads 0"
-    Neem `view.py` en `model.py` over en test de applicatie.
+    Neem :fontawesome-regular-file-code:`view.py` en :fontawesome-regular-file-code:`model.py` over en test de applicatie.
 
 
 ### Stap 1: de meetgegevens altijd beschikbaar maken
@@ -590,7 +592,7 @@ Nu we de meetgegevens bewaren als instance attributes van de `#!py Experiment`-c
         ...
 
         def plot(self):
-            """Plot data van het experiment"""
+            """ Clear the plot widget and display experimental data. """
             self.plot_widget.clear()
             self.experiment.scan(0, np.pi, 50)
             self.plot_widget.plot(
@@ -623,6 +625,7 @@ We gaan nu met threads werken. Je importeert daarvoor de `#!py threading` module
             self._scan_thread.start()
 
         def scan(self, start, stop, steps):
+            """ Perform a scan over a range with specified steps and return the scanned values. """
             x = np.linspace(start, stop, steps)
             self.x = []
             self.y = []
@@ -643,7 +646,7 @@ In plaats van dat onze plotfunctie de `#!py scan()`-method aanroept, moeten we n
         ...
 
         def plot(self):
-            """Plot data van het experiment"""
+            """ Clear the plot widget and display experimental data. """
             self.plot_widget.clear()
             self.experiment.start_scan(0, np.pi, 50)
             self.experiment._scan_thread.join()
@@ -653,7 +656,8 @@ In plaats van dat onze plotfunctie de `#!py scan()`-method aanroept, moeten we n
     ```
 
 !!! opdracht-basis "Threads III"
-    Pas de code aan zodat je een thread opstart om de scan op de achtergrond uit te voeren. Roep in je plotfunctie de goede method aan en wacht tot de thread klaar is. _Test je code._ Wederom moet het werken als vanouds. Kijk ook eens wat er gebeurt als je _niet_ wacht tot de metingen klaar zijn door de regel `#!py self.experiment._scan_thread.join()` uit te commentariëren (hekje ervoor). Niet vergeten het hekje weer weg te halen.
+    * Pas de code aan zodat je een thread opstart om de scan op de achtergrond uit te voeren. Roep in je plotfunctie de goede method aan en wacht tot de thread klaar is. _Test je code._ Wederom moet het werken als vanouds. 
+    * Kijk ook eens wat er gebeurt als je _niet_ wacht tot de metingen klaar zijn door de regel `#!py self.experiment._scan_thread.join()` uit te commentariëren (hekje ervoor). Niet vergeten het hekje weer weg te halen.
 
 
 
@@ -663,23 +667,18 @@ We zijn er nu bijna. We gebruiken threads om de metingen op de achtergrond uit t
 
 === "view.py"
 
-    ``` py linenums="1" hl_lines="1 18-22 24-25 30"
+    ``` py linenums="1" hl_lines="1 9 13-17 19-20 24"
     from PySide6 import QtWidgets, QtCore
 
     class UserInterface(QtWidgets.QMainWindow):
         def __init__(self):
             super().__init__()
 
-            central_widget = QtWidgets.QWidget()
-            self.setCentralWidget(central_widget)
+            ...
 
-            vbox = QtWidgets.QVBoxLayout(central_widget)
-            self.plot_widget = pg.PlotWidget()
-            vbox.addWidget(self.plot_widget)
-            start_button = QtWidgets.QPushButton("Start")
-            vbox.addWidget(start_button)
+            start_button.clicked.connect(self.start_scan)
 
-            start_button.clicked.connect(self.plot)            
+            ...            
             
             # Plot timer
             self.plot_timer = QtCore.QTimer()
@@ -688,12 +687,13 @@ We zijn er nu bijna. We gebruiken threads om de metingen op de achtergrond uit t
             self.plot_timer.start(100)
 
         def start_scan(self):
+            """Starts a scanning process with specified parameters."""
             self.experiment.start_scan(0, np.pi, 50)
 
         def plot(self):
-            """Plot data van het experiment"""
+            """ Clear the plot widget and display experimental data. """
             self.plot_widget.clear()
-            # removed two lines
+            # Deze twee regels code vind je terug in de prullenbak
             self.plot_widget.plot(
                 self.experiment.x, self.experiment.y, symbol="o", symbolSize=5, pen=None
             )
