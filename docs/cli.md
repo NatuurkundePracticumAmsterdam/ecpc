@@ -289,14 +289,16 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
     ```
     1. Voeg het bestand :fontawesome-regular-file-code:`fakeconda.py` toe. 
     
-    1. Overleg met elkaar en zorg dat de volgende uitvoer mogelijk wordt:
+    1. Overleg met elkaar[^poetry-script] en zorg dat de volgende uitvoer mogelijk wordt:
     ``` ps1con title="Terminal"
     PS> fake_conda install scipy
     Installing scipy...
     ```
 
+    [^poetry-script]: Als je een commando in Poetry toevoegd dan had dat de opbouw van `naam_commando = "package.module:naam_functie"`, welke functie moet uitgevoerd worden als je het commando aanroept?
 
-!!! opdracht-meer "Smallangle (uitdaging)"
+
+!!! opdracht-meer "Smallangle (meer leren)"
     Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt &mdash; maar jij weet precies over welk onderdeel we het hebben.
 
     1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam :fontawesome-brands-github:`smallangle`.
