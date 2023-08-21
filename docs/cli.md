@@ -498,9 +498,6 @@ Options:
     1. Schrijf ook docstrings voor de classes die je gemaakt hebt.
     1. Ga naar je _model_ en houd je muis bij `#!py set_output_voltage()` en zie daar verschijnt jou fantastische omschrijving van de method die in de _controller_ staat!
 
-    
-    
-
 
 ### Documentatie met _Material for MkDocs_
 ??? meer-leren "Meer leren"

@@ -120,9 +120,11 @@ Allereerst definiëren we een `__init__()`. Helaas gaat dat niet zomaar. We schr
 
 De oplossing is gelukkig vrij eenvoudig: we kunnen de `__init__()` van de parent class gewoon aanroepen en daarna ons eigen ding doen. De Pythonfunctie `#!py super()` verwijst altijd naar de parent class, dus met `#!py super().__init__()` wordt de parent class volledig geïnitialiseerd. Dat is dus het eerste dat we doen in regel 7.
 
+In de volgende opdrachten ga je zelf de hele applicatie opbouwen, zodat je precies weet wat in de code hierboven staat. 
+
 !!! opdracht-basis "Parent class initialiseren"
 
-    1. Breid het script van [opd:minimal-gui](opd:minimal-gui) uit met een `#!py __init__`-method.
+    1. Breid het script :fontawesome-regular-file-code:`example-gui.py` van [opd:minimal-gui](opd:minimal-gui) uit met een `#!py __init__`-method.
     1. Zorg dat de parent class volledig geïnitialiseerd wordt.
     1. Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt.
     
