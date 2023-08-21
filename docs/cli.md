@@ -379,7 +379,7 @@ def integers_up_to(number):
 
 help(integers_up_to)
 ```
-De eerste regel geeft een korte samenvatting weer, na de witregel komt een langere samenvatting. Met `Args:` worden alle argumenten opgesomd die aan de functie worden meegegeven en `Returns:` geeft aan wat de functie teruggeeft. We kunnen de documentatie van deze functie opvragen met: `#!py help(integers_up_to`. Dat geeft het volgende resultaat:
+De eerste regel geeft een korte samenvatting weer, na de witregel komt een langere samenvatting. Met `Args:` worden alle argumenten opgesomd die aan de functie worden meegegeven en `Returns:` geeft aan wat de functie teruggeeft. We kunnen de documentatie van deze functie opvragen met: `#!py help(integers_up_to)`. Dat geeft het volgende resultaat:
 ``` ps1con title="Terminal"
 PS> python integers_up_to.py 
     Help on function integers_up_to in module __main__:
@@ -496,6 +496,9 @@ Options:
 
     1. Pak de `pythondaq` applicatie erbij. Zet bij _alle_ functies een nuttige docstring.
     1. Schrijf ook docstrings voor de classes die je gemaakt hebt.
+    1. Ga naar je _model_ en houd je muis bij `#!py set_output_voltage()` en zie daar verschijnt jou fantastische omschrijving van de method die in de _controller_ staat!
+
+    
     
 
 
