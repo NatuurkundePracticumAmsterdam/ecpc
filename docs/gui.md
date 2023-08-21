@@ -386,6 +386,31 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
 !!! opdracht-inlever "Pythondaq: plot scan"
     Voeg aan je applicatie een `PlotWidget` toe. Laat je applicatie een scan uitvoeren (door het model te openen en aan te roepen) en laat het resultaat zien in een grafiek. Voor deze opdracht mag je nog gewoon de poortnaam in je code schrijven, net als start- en stop waardes e.d. De gebruiker hoeft nog niets te kunnen instellen. Dat komt straks.
 
+!!! info "Foutenvlaggen plotten"
+        Foutenvlaggen toevoegen aan een pyqtgraph is helaas iets minder intuitief dan bij matplotlib. Met _breedte_ en _hoogte_ geef je aan hoe groot de vlaggen zijn, de vlag is 2 keer zo groot als de onzekerheid. Samen met de x en y data maak je dan een `ErrorBarItem` aan die je expliciet toevoegd aan de plot.  
+    ``` py linenums="1" hl_lines="19 21"
+    def plot(self):
+        """ Clear the plot widget and display experimental data. """
+
+        # Neppe data
+        x = np.linspace(0, 2 * np.pi, 20)
+        y = np.sin(x)
+        x_err = 0.1
+        y_err = np.random.normal(0, 0.2, size=len(x))
+
+        # Maak eerst een scatterplot
+        self.plot_widget.plot(x, y, symbol="o", symbolSize=5, pen=None)
+
+        # nu de foutvlaggen, met 'breedte' en 'hoogte' in plaats van x errors en y errors
+        # let op: als je x_errors *lijsten* zijn, dan kun je niet gewoon 2 * doen, maar wel:
+        #
+        # width = 2 * np.array(x_err)
+        #
+        # (we maken er dus eerst een array van)
+        error_bars = pg.ErrorBarItem(x=x, y=y, width=2 * x_err, height=2 * y_err)
+        # we moeten de error_bars expliciet toevoegen aan de plot
+        self.plot_widget.addItem(error_bars)
+    ```
 
 !!! opdracht-inlever "Pythondaq: knoppen"
     Maak nu in je grafische interface widgets om de start- en stopwaardes, aantal metingen e.d. te kunnen instellen. Maak ook een startknop. Als je op de startknop drukt moet je applicatie een nieuwe meting uitvoeren.
