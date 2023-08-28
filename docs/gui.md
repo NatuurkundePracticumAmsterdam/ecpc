@@ -241,7 +241,7 @@ Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog ma
 [^overleg-navigeren]: Overleg met elkaar of met de assistent als je niet weet hoe dat moet.
 
 
-## Een oefening: functieplotter
+## Functieplotter
 
 Je hebt nu twee manieren gezien om een interface te bouwen: programmeren of Designer gebruiken. Let er wel op dat er dus een subtiel verschil is in het benaderen van de widgets. Je kunt bij zelf programmeren bijvoorbeeld `#!py self.add_button` gebruiken, maar als je Designer gebruikt moet dat `#!py self.ui.add_button` zijn.
 
