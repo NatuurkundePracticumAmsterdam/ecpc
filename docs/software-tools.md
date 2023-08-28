@@ -4,7 +4,9 @@
 ## Isolatie: virtual environments
 <div id="sec:virtual-envs"></div>
 
-Je hebt het vast al gemerkt: Anaconda is groot. Dat is gek, want Python is best klein. Anaconda bevat alleen veel meer dan Python. Anaconda is een Python_distributie_ en bevat een enorme verzameling aan packages. Je kunt zelf extra packages installeren met `conda` of `pip`. Je loopt dan mogelijk wel tegen problemen aan: packages hebben vaak zelf weer andere packages nodig. En regelmatig ook met een bepaalde versie. Dit kan een ingewikkeld netwerk worden waarbij het installeren van een nieuwe package óf heel lang duurt, óf niet kan vanwege een conflict,\footnote{Package A heeft B nodig met versie >= 1.1, maar package C heeft B nodig met versie 1.0. Nu kunnen package A en C dus niet tegelijkertijd geïnstalleerd worden.} óf <q>blind</q> gedaan wordt waarna sommige dingen niet meer willen werken. Alledrie is op te lossen door _virtual environments_ te gebruiken. Geïsoleerde omgevingen waarin (soms) een _eigen_ versie van Python draait met een _eigen_ &mdash; veelal kleine &mdash; collectie van packages. Je kunt environments aanmaken voor specifieke projecten bijvoorbeeld. Wellicht heb je bij NSP1 een environment aangemaakt om Jupyter Notebooks en een verzameling packages te installeren voor de data-analyse.
+Je hebt het vast al gemerkt: Anaconda is groot. Dat is gek, want Python is best klein. Anaconda bevat alleen veel meer dan Python. Anaconda is een Python_distributie_ en bevat een enorme verzameling aan packages. Je kunt zelf extra packages installeren met `conda` of `pip`. Je loopt dan mogelijk wel tegen problemen aan: packages hebben vaak zelf weer andere packages nodig. En regelmatig ook met een bepaalde versie. Dit kan een ingewikkeld netwerk worden waarbij het installeren van een nieuwe package óf heel lang duurt, óf niet kan vanwege een conflict[^Package conflict], óf <q>blind</q> gedaan wordt waarna sommige dingen niet meer willen werken. Alledrie is op te lossen door _virtual environments_ te gebruiken. Geïsoleerde omgevingen waarin (soms) een _eigen_ versie van Python draait met een _eigen_ &mdash; veelal kleine &mdash; collectie van packages. Je kunt environments aanmaken voor specifieke projecten bijvoorbeeld. Wellicht heb je bij NSP1 een environment aangemaakt om Jupyter Notebooks en een verzameling packages te installeren voor de data-analyse.
+
+[^Package conflict]: Package A heeft B nodig met versie >= 1.1, maar package C heeft B nodig met versie 1.0. Nu kunnen package A en C dus niet tegelijkertijd geïnstalleerd worden.
 
 
 ### Pip vs Conda
@@ -22,9 +24,9 @@ Er zijn verschillende tools voor het aanmaken van environments voor Python. Alle
 
 Je moet je realiseren dat het aanmaken (en weggooien) van een environment heel makkelijk is. Doe dat regelmatig zodat je scherp houdt welke packages je nu echt nodig hebt voor je analyse of voor de software die je schrijft. Hieronder geven we een overzicht van de meest gebruikte commando's om met conda environments te werken.
 
-\begin{info}
+!!! info
     Conda installeert packages vanuit verschillende _channels_. De `defaults` channel bevat packages die af en toe door Anaconda worden getest en samengenomen tot een distributie (versie `2021.05` bijvoorbeeld). Er zijn weinig updates. De `conda-forge` channel bevat alle nieuwste versies van die packages en bevat ook software die (nog) niet in de `defaults` channel terecht is gekomen. De conda-forge channel is daarom erg populair.
-\end{info}
+
 
 Hieronder volgen enkele voorbeelden van het gebruik van conda:
 ``` ps1con title="Terminal"
@@ -64,14 +66,17 @@ PS> conda update -c conda-forge --all
 ```
 
 Als je scripts schrijft in Visual Studio Code wil je dat ze ook runnen in de omgevingen die je net hebt aangemaakt. Als je in Visual Studio Code een python script opent dan geeft het linksonder, in de blauwe statusbalk, de huidige Pythonomgeving aan:
-\begin{center}
-    \includegraphics[scale=.75]{figures/screenshot-vscode-python-env}
-\end{center}
-Als je daarop klikt\footnote{Of: **View > Command Palette > Python: Select Interpreter**.} kun je door de lijst met Pythonomgevingen scrollen. Kies de omgeving die je wilt gebruiken. _Let op:_ als je het environment net hebt aangemaakt dan staat hij er nog niet tussen. Klik dan rechtsbovenin eerst op het **\faRedo\ Refresh Interpeter list**-knopje. Bijvoorbeeld:
-\begin{center}
-    \includegraphics[scale=.75]{figures/screenshot-vscode-python-env-daq}
-\end{center}
-Sluit alle <q>oude</q> terminals met het \faTrash*-icoon als je je muis aan de rechterkant over de namen van de terminals beweegt of in één keer met **View > Command Palette > Terminal: Kill All Terminals**. Alle nieuwe terminals die je opent zullen de nieuw geselecteerde conda environment actief maken. Wanneer je nu je Pythoncode draait dan is dat binnen deze omgeving. Het kan wel zijn dat hij opeens klaagt over packages die niet geïnstalleerd zijn omdat je dat &mdash; in _die_ omgeving &mdash; nog niet had gedaan. Geen probleem: installeer ze dan.
+
+![Python environment](figures/screenshot-vscode-python-env.png)
+
+
+Als je daarop klikt[^Python interpreter] kun je door de lijst met Pythonomgevingen scrollen. Kies de omgeving die je wilt gebruiken. _Let op:_ als je het environment net hebt aangemaakt dan staat hij er nog niet tussen. Klik dan rechtsbovenin eerst op het **:fontawesome-solid-arrow-rotate-right: Refresh Interpeter list**-knopje. Bijvoorbeeld:
+
+[^Python interpreter]: Of: **View > Command Palette > Python: Select Interpreter**.
+
+![Python env daq](figures/screenshot-vscode-python-env-daq.png)
+
+Sluit alle <q>oude</q> terminals met het :fontawesome-regular-trash-can:-icoon als je je muis aan de rechterkant over de namen van de terminals beweegt of in één keer met **View > Command Palette > Terminal: Kill All Terminals**. Alle nieuwe terminals die je opent zullen de nieuw geselecteerde conda environment actief maken. Wanneer je nu je Pythoncode draait dan is dat binnen deze omgeving. Het kan wel zijn dat hij opeens klaagt over packages die niet geïnstalleerd zijn omdat je dat &mdash; in _die_ omgeving &mdash; nog niet had gedaan. Geen probleem: installeer ze dan.
 
 
 ### Pipx
@@ -92,8 +97,7 @@ python -m pipx ensurepath
 ```
 Herstart je terminal en test of het commando `pipx` werkt. Zo niet, dan zul je volledig uit moeten loggen en weer in moeten loggen om de shellomgeving opnieuw te laden.
 
-
-\subsubsection{Black}
+### Black
 
 Eén van de tools die problemen kunnen geven wanneer je van environment wisselt is `black`. Misschien heb je bij het aanmaken van de environment voor deze cursus in [opdracht _Environment aanmaken_](communicatie.md#opd:condaenv) gemerkt dat Visual Studio Code soms klaagt dat `black` niet geïnstalleerd is. Het is lastig als je black in ieder environment moet installeren én het is lastig dat je schone environment al snel <q>vervuild</q> raakt met een tool en alle bijbehorende dependencies die niets te maken hebben met jouw project. Daarom installeren we `black` graag via `pipx`.
 
