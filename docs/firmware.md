@@ -12,8 +12,6 @@ De code is terug te vinden in de repository :fontawesome-brands-github:`/davidfo
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | *IDN?                     | Geeft informatie over de hardware.                                                                                                                                          |
 | OUT:CH<ch> <value>        | Zet een specifieke spanning `<value>` op uitvoerkanaal `<ch>`. Waardes mogen liggen tussen 0 (minimale spanning) en 1023 (maximale spanning). __Voorbeeld:__ `OUT:CH0 1023` |
-| % OUT:CH<ch>:VOLT <value> | Zet een specifieke spanning `<value>` op uitvoerkanaal `<ch>`. Waardes zijn in volt en mogen liggen in het bereik 0 V tot 3.3 V. __Voorbeeld:__ `OUT:CH0:VOLT 2.5`          |
 | OUT:CH<ch>?               | Geef de huidige instelling voor de spanning terug op uitvoerkanaal `<ch>` in het bereik 0 tot 1023. __Voorbeeld:__ `OUT:CH0?`                                               |
-| % OUT:CH<ch>:VOLT?        | Geef de huidige instelling voor de spanning terug op uitvoerkanaal `<ch>` in het bereik 0 V tot 3.3 V. __Voorbeeld:__ `OUT:CH0:VOLT?`                                       |
 | MEAS:CH<ch>?              | Meet de spanning op invoerkanaal `<ch>` in het bereik 0 tot 1023. __Voorbeeld:__ `MEAS:CH1?`                                                                                |
-| % MEAS:CH<ch>:VOLT?       | Meet de spanning op invoerkanaal `<ch>` in het bereik 0 V tot 3.3 V. __Voorbeeld:__ `MEAS:CH1:VOLT?`                                                                        |
+
