@@ -1,5 +1,5 @@
-# Kleurcodes voor weerstanden
 <div id="ch:kleurcodes"></div>
+# Kleurcodes voor weerstanden
 
 \colorlet{Rred}{red!80!black}
 \colorlet{Rbrown}{brown!80!black}

@@ -101,9 +101,8 @@ Dit levert ons nog niet zoveel op, maar op de achtergrond is click wel degelijk 
 ``` ps1con title="Terminal"
 PS> python hello.py --help
 ```
-
+<div id="opd:hello-help"></div>
 !!! opdracht-basis "Help functie"
-    <div id="opd:hello-help"></div>
     Neem het script :fontawesome-regular-file-code:`hello.py` over en vraag de helpfunctie op. Test dit met én zonder `#!py @click.command()`.
 
 
@@ -185,7 +184,7 @@ if __name__ == "__main__":
 ```
 
 !!! opdracht-basis "Helptekst toevoegen"
-    Voeg de helptekst toe en vraag de helptekst op zoals in [opd:hello-help](opd:hello-help).
+    Voeg de helptekst toe en vraag de helptekst op zoals in [opd:hello-help](cli.md#opd:hello-help).
 
 
 Als je dit script gebruikt ziet dat er zo uit:
@@ -211,9 +210,8 @@ Hello Alice!
 Hello Alice!
 ```
 
-
+<div id="opd:hello-pauze"></div>
 !!! opdracht-basis "Pauze optie"
-    <div id="opd:hello-pauze"></div>
     Breid het bovenstaande script `hello.py` uit met een optie om een korte pauze in te lassen na het printen van ieder `#!py print()`-statement. Een pauze kun je inlassen met `#!py time.sleep()`. Zorg er voor dat er zonder die optie géén pauze is en dat je met de optie kunt kiezen hoe lang er gewacht moet worden.
 
 
@@ -269,8 +267,8 @@ if __name__ == "__main__":
 ```
 In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeurig `#!py cmd_group()` genoemd hebben en die we bovenaan definiëren. In tegenstelling tot het :fontawesome-regular-file-code:`hello.py`-script doet deze functie helemaal niets (`#!py pass`). We vertellen aan click dat we een groep van commando's aan gaan maken met de `#!py @click.group()`-decorator in regel 3. Vervolgens gaan we commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` &mdash; zie regels 7 en 12. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 7 en 9 maken samen het commando `install`. Verder werkt alles hetzelfde. Dus een argument toevoegen &mdash; zoals in regel 8 &mdash; is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
 
+<div id="warn:cmd_name"></div>
 !!! warning
-    <div id="warn:cmd_name"></div>
     Omdat de naam van een subcommando gelijk is aan de functienaam kan dat voor problemen zorgen wanneer je gereserveerde namen van python wilt gebruiken zoals: `#!py import`, `#!py return`, `#!py lambda`. Of wanneer je de naam van het subcommando graag hetzelfde wilt hebben als een ander pythonfunctie zoals `#!py sin` of `#!py list`.
     Een oplossing is om de functienaam aan te passen en de subcommando naam expliciet aan click mee te geven bij `command`:
     ``` py
@@ -332,9 +330,8 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
     1. Ga door naar [opd:smallangle](opd:smallangle) stap 2. Je mag stap 1 overslaan &mdash; dat werk heb je nu zelf al gedaan.
     
 
-
+<div id="opd:smallangle"></div>
 !!! opdracht-inlever "smallangle"
-    <div id="opd:smallangle"></div>
     Het project :fontawesome-brands-github:`smallangle` wordt met Poetry beheerd. Je gaat click aan de module :fontawesome-regular-file-code:`smallangle.py` toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.
 
     1. Ga naar GitHub en open :fontawesome-brands-github:`AnneliesVlaar / smallangle` in GitHub Desktop en Visual Studio Code.

@@ -44,8 +44,8 @@ Eerst importeren we een paar bibliotheken. Het draait uiteindelijk om de `#!py U
 
 Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn strikt genomen niet noodzakelijk, maar wel _good practice_. Ook het schrijven van een `#!py main()` functie is niet strikt noodzakelijk, maar het maakt het wel makkelijk om straks een zogeheten _entry point_ te hebben als we weer een applicatie willen schrijven. In de :fontawesome-regular-file-code:`pyproject.toml` geven we dan aan dat we de `#!py main()` functie willen aanroepen. Dat komt later.
 
+<div id="opd:minimal-gui"></div>
 !!! opdracht-basis "Voorbeeld gui"
-    <div id="opd:minimal-gui"></div>
 
     1. Maak een nieuw bestand :fontawesome-regular-file-code:`example-gui.py`.
     1. Neem de pythoncode van de minimale Qt-applicatie over en test het in de `test-qt` conda environment.
@@ -53,9 +53,8 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
 
 Elke keer als je een nieuwe Qt applicatie gaat schrijven kun je bovenstaand stukje code copy/pasten. Als we dit programma draaien hebben we echter een klein leeg venster op het scherm, zonder elementen. Die elementen kunnen we op twee manieren toevoegen: door ze te programmeren of door het gebruik van een visueel ontwerp met Qt Designer. Beide zullen in de volgende secties toegelicht worden.
 
-
-### De interface programmeren
 <div id="sec:ui-prog"></div>
+### De interface programmeren
 
 We gaan de eenvoudige interface programmeren die hieronder is weergegeven:
 

@@ -1,5 +1,5 @@
-# Firmware
 <div id="ch:firmware"></div>
+# Firmware
 
 De firmware bestaat uit een gedeeltelijke implementatie van het VISA-protocol [@VISA]. Het voornaamste verschil bestaat uit het feit dat VISA voor ieder commando zowel een korte als een lange versie heeft. Zo zou je in de documentatie van een instrument het commando `MEASure` kunnen vinden. Je kunt dan zowel `MEAS` als `MEASURE` gebruiken om het commando te geven. In deze implementatie is het slechts mogelijk om de korte vorm te gebruiken.
 
