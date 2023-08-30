@@ -299,8 +299,8 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 !!! opdracht-meer "Smallangle (meer leren)"
     Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt &mdash; maar jij weet precies over welk onderdeel we het hebben.
 
-    1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam :fontawesome-brands-github:`smallangle`.
-    1. Let op de Octocat :fontawesome-brands-github: voor :fontawesome-brands-github:`smallangle`, het moet dus een repository zijn (of worden). 
+    1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam {{github}}`smallangle`.
+    1. Let op de Octocat {{github}} voor {{github}}`smallangle`, het moet dus een repository zijn (of worden). 
     1. Maak een nieuw environment die `smallangle` heet met daarin alleen Python.
     1. Zet in de package :fontawesome-regular-folder:`smallangle` een module {{file}}`smallangle.py`.
     1. Plak de onderstaande code in {{file}}`smallangle.py`:
@@ -332,9 +332,9 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 
 <div id="opd:smallangle"></div>
 !!! opdracht-inlever "smallangle"
-    Het project :fontawesome-brands-github:`smallangle` wordt met Poetry beheerd. Je gaat click aan de module {{file}}`smallangle.py` toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.
+    Het project {{github}}`smallangle` wordt met Poetry beheerd. Je gaat click aan de module {{file}}`smallangle.py` toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.
 
-    1. Ga naar GitHub en open :fontawesome-brands-github:`AnneliesVlaar / smallangle` in GitHub Desktop en Visual Studio Code.
+    1. Ga naar GitHub en open {{github}}`AnneliesVlaar / smallangle` in GitHub Desktop en Visual Studio Code.
     1. Installeer de package in een nieuw environment.
     1. Run het script {{file}}`smallangle.py` en los de errors op totdat het werkt.
     1. Voeg click toe zodat je de subcommando's `sin` en `tan` hebt. Het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) moet gekozen kunnen worden met een optie (geef een standaardwaarde mee, zodat de gebruiker de optie kan weglaten).

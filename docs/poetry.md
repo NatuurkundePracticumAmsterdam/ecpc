@@ -113,7 +113,7 @@ Bij het schrijven van een nieuw package is het zéker belangrijk om een environm
 !!! opdracht-basis "Environment aanmaken"
     We maken &mdash; speciaal voor `easystat` &mdash; een environment.
 
-    1. Open in Visual Studio Code de _project_map :fontawesome-brands-github:`easystat`
+    1. Open in Visual Studio Code de _project_map {{github}}`easystat`
     1. Open een terminal en maak een easystat conda environment aan:
             ``` ps1 title="Terminal"
             conda create -n easystat python=3.9
@@ -322,10 +322,10 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
 !!! opdracht-basis "Poetry knipperlicht"
     We gaan nu poetry gebruiken om van het script met de knipperende lichtjes uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) een package te maken én om ons environment te beheren. Voer de volgende stappen uit:
     
-    1. Maak in GitHub Desktop een _nieuwe_ repository :fontawesome-brands-github:`flasher`.
+    1. Maak in GitHub Desktop een _nieuwe_ repository {{github}}`flasher`.
     1. Maak een map :fontawesome-regular-folder:`src` met daarin een map :fontawesome-regular-folder:`flasher`.
-    1. Kopieer uit de :fontawesome-brands-github:`Oefenopdrachten` die je bij [opdracht _Repository toevoegen_](github.md#opd:add_repository) hebt aangemaakt het scriptje uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) naar :fontawesome-regular-folder:`src/flasher`.
-    1. Open :fontawesome-brands-github:`flasher` in Visual Studio Code.
+    1. Kopieer uit de {{github}}`Oefenopdrachten` die je bij [opdracht _Repository toevoegen_](github.md#opd:add_repository) hebt aangemaakt het scriptje uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) naar :fontawesome-regular-folder:`src/flasher`.
+    1. Open {{github}}`flasher` in Visual Studio Code.
     1. Commit alles dat je tot nu toe gedaan hebt.
     1. Open een terminal. Maak een nieuwe conda environment met alleen python 3.9:
         ``` ps1 title="Terminal"
@@ -351,9 +351,9 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
     Vergeet niet &mdash; waar nodig &mdash; de {{file}}`__init__.py` bestanden toe te voegen aan de packages.
 
 !!! opdracht-inlever "Pythondaq: package"
-    Zet :fontawesome-brands-github:`pythondaq` om in een src-structuur, als volgt, en vergeet niet na elke stap te committen:
+    Zet {{github}}`pythondaq` om in een src-structuur, als volgt, en vergeet niet na elke stap te committen:
 
-    1. Maak in :fontawesome-brands-github:`pythondaq` een map :fontawesome-regular-folder:`src` met daarin een map :fontawesome-regular-folder:`pythondaq`.
+    1. Maak in {{github}}`pythondaq` een map :fontawesome-regular-folder:`src` met daarin een map :fontawesome-regular-folder:`pythondaq`.
     1. Zet de model, view, controller scripts in de :fontawesome-regular-folder:`pythondaq` package zodat je onderstaande structuur krijgt:
 
             pythondaq/
@@ -381,7 +381,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
 !!! opdracht-inlever "Pythondaq: poetry"
     Gebruik Poetry om `pythondaq` als package te installeren, als volgt:
 
-    1. Ga in Visual Studio Code naar :fontawesome-brands-github:`pythondaq`. Open een terminal.
+    1. Ga in Visual Studio Code naar {{github}}`pythondaq`. Open een terminal.
     1. Overschrijf je conda environment zodat hij weer leeg is (met alleen `python=3.9`).
     1. Initialiseer Poetry, zodat een {{file}}`pyproject.toml` wordt aangemaakt.
     1. Installeer je package.
@@ -402,7 +402,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
             ```
             en run het script. Overleg met elkaar hoe je de import-errors op moet lossen zodat alles werkt. Als dat gelukt is dan werkt je package ook als je het aanroept van buiten de map met broncode.
     
-    Je :fontawesome-brands-github:`pythondaq`-repository is nu een volledig project dat je met andere gebruikers van Python kunt delen, bijvoorbeeld via een _wheel_. We gaan pythondaq in de komende hoofdstukken steeds verder uitbouwen.
+    Je {{github}}`pythondaq`-repository is nu een volledig project dat je met andere gebruikers van Python kunt delen, bijvoorbeeld via een _wheel_. We gaan pythondaq in de komende hoofdstukken steeds verder uitbouwen.
 
 
 ## Van script naar applicatie
@@ -412,7 +412,7 @@ python script.py
 ```
 Je moet dan wel de juiste map geopend hebben zodat python het bestand kan vinden. En als je de `run`-knop gebruikt moet wel het bestandje open hebben staan dat je wilt runnen. Kortom, best een beetje gedoe. Maar als we programma's zoals Poetry, Conda of Python willen gebruiken hoeven we helemaal niet het juiste bestandje op te zoeken en te runnen. We hoeven alleen maar een commando in de terminal te geven &mdash; bijvoorbeeld `python` of `conda` &mdash; en de computer start automatisch het juiste programma op.
 
-Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan een commando toevoegen om de module uit te voeren waarvan je de code in [paragraaf _Modules_](voorkennis.md#modules) kunt vinden. De twee bestanden {{file}}`square.py` en {{file}}`count_count.py` hebben we voor jullie netjes in een package geplaats in de repository :fontawesome-brands-github:`AnneliesVlaar/just_count` met de volgende structuur:
+Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan een commando toevoegen om de module uit te voeren waarvan je de code in [paragraaf _Modules_](voorkennis.md#modules) kunt vinden. De twee bestanden {{file}}`square.py` en {{file}}`count_count.py` hebben we voor jullie netjes in een package geplaats in de repository {{github}}`AnneliesVlaar/just_count` met de volgende structuur:
 
     just_count/
         src/
@@ -447,7 +447,7 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
 
 !!! opdracht-basis "Main functie toevoegen"
 
-    1. Ga naar :fontawesome-brands-github:`AnneliesVlaar/just_count` en [open de repository in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en daarna in Visual Studio Code.
+    1. Ga naar {{github}}`AnneliesVlaar/just_count` en [open de repository in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en daarna in Visual Studio Code.
     1. Maak een nieuwe conda environment met python 3.9, activeer deze en installeer de `just_count` package.
     1. Open {{file}}`src/just_count/count_count.py` en voeg een functie `#!py def main()` toe die de wortel van 5 print.
     ``` py title="count_count.py"
@@ -499,7 +499,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
 ??? opdracht-meer "Error analysis"
     Als extra oefening gaan we met Poetry een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script {{file}}`data_analysis.py` te laten runnen.
 
-    1. Ga naar GitHub en open :fontawesome-brands-github:[`AnneliesVlaar/erroranalysis`](https://github.com/AnneliesVlaar/erroranalysis) in GitHub Desktop en Visual Studio Code.
+    1. Ga naar GitHub en open {{github}}[`AnneliesVlaar/erroranalysis`](https://github.com/AnneliesVlaar/erroranalysis) in GitHub Desktop en Visual Studio Code.
     1. Natuurlijk maak je gelijk een nieuwe Conda environment aan, voordat we dit package gaan testen.
     1. Snuffel door de bestanden en mappen, en open {{file}}`src/erroranalysis/data_analysis.py`. Dit is het script wat moet kunnen runnen.
     1. Run het script {{file}}`data_analysis.py` en los de errors één voor één op.
@@ -519,7 +519,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
             ```
 
 !!! opdracht-inlever "Pythondaq: applicatie"
-    We gaan nu een commando maken voor :fontawesome-brands-github:`pythondaq`:
+    We gaan nu een commando maken voor {{github}}`pythondaq`:
 
     1. Schrijf een functie in {{file}}`view.py` die je wilt uitvoeren als je het commando gaat aanroepen. Je kunt hierin de hele body van je script plaatsen.
     1. Voeg een commando aan {{file}}`pyproject.toml` toe.

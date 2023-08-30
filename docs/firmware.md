@@ -5,7 +5,7 @@ De firmware bestaat uit een gedeeltelijke implementatie van het VISA-protocol [@
 
 De nummering van de kanalen volgt de nummering van de Arduino hardware. Dus kanaal 0 is pin A0 op de Arduino, kanaal 1 is pin A1, enz. De digitale resolutie is ingesteld op 10 bits ($2^{10}$~stappen, ofwel waardes tussen 0 en 1023) en het analoge bereik is 0 V tot 3.3 V.
 
-De code is terug te vinden in de repository :fontawesome-brands-github:`/davidfokkema/arduino-visa-firmware` [@arduino_visa_firmware]. Deze documentatie is voor versie~1.0.0. De commando's die geaccepteerd worden door de firmware zijn weergegeven in de tabel hieronder.
+De code is terug te vinden in de repository {{github}}`/davidfokkema/arduino-visa-firmware` [@arduino_visa_firmware]. Deze documentatie is voor versie~1.0.0. De commando's die geaccepteerd worden door de firmware zijn weergegeven in de tabel hieronder.
 
   <div id="tab:firmware"></div>
 |  Commando                 |  Beschrijving                                                                                                                                                               |
