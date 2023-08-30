@@ -1,7 +1,5 @@
-<div id="ch:gereedschap"></div>
 # Gereedschap
 
-<div id="sec:virtual-envs"></div>
 ## Isolatie: virtual environments
 
 
@@ -102,7 +100,7 @@ Herstart je terminal en test of het commando `pipx` werkt. Zo niet, dan zul je v
 
 Eén van de tools die problemen kunnen geven wanneer je van environment wisselt is `black`. Misschien heb je bij het aanmaken van de environment voor deze cursus in [opdracht _Environment aanmaken_](communicatie.md#opd:condaenv) gemerkt dat Visual Studio Code soms klaagt dat `black` niet geïnstalleerd is. Het is lastig als je black in ieder environment moet installeren én het is lastig dat je schone environment al snel <q>vervuild</q> raakt met een tool en alle bijbehorende dependencies die niets te maken hebben met jouw project. Daarom installeren we `black` graag via `pipx`.
 
-!!! question "minimaal"
+!!! opdracht-basis "Black"
     Voer het volgende uit:
 
     1. Installeer `black` via `pipx`
