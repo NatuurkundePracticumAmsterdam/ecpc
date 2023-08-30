@@ -66,7 +66,7 @@ Dit kan in GitHub Desktop, maar ook direct vanuit Visual Studio Code. Elke commi
     1. In Visual Studio Code, ga naar **File > Open Folder** en kies de map waar je in [opdracht _Repository toevoegen_](#opd:add_repository) een repository hebt aangemaakt.
     1. Open één van je Pythonscripts.
     1. Type een stukje code erbij &mdash; bijvoorbeeld een print-statement &mdash; en haal ergens anders iets weg. Bewaar het bestand.
-    1. Links verschijnt een blauw bolletje [^geen bolletje] bij `Source Control`:fontawesome-solid-code-branch: die laat weten dat er wijzigingen zijn ten opzichte van de vorige commit. Klik op `Source Control`.
+    1. Links verschijnt een blauw bolletje [^geen bolletje] bij `Source Control`{{branch}} die laat weten dat er wijzigingen zijn ten opzichte van de vorige commit. Klik op `Source Control`.
     1. Onder `Changes` staat een lijst met bestanden waar wijzigingen in aan zijn gebracht. Kies welke bestanden je wilt committen door rechts op het +je te klikken. Deze bestanden komen nu op het podium te staan onder `Staged Changes`. Je kunt ook alle bestanden in een keer op het podium zetten door naast het kopje `Changes` op het +je te klikken.
     1. Schrijf een nuttige <q>commit message</q>. Dus niet: <q>opdracht: commit</q>, maar zoiets als: <q>search for port name to open communication with device</q>.[^commit message]
     1. Klik op het vinkje om te committen. Gefeliciteerd! Je hebt je eerste commit gepleegd, vanaf nu kun je zonder angst dingen stuk maken want je kan altijd terug naar hoe het was!
@@ -98,7 +98,7 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
     1. Je kent het misschien wel, dat je een app gebruikt maar dat het niet helemaal goed werkt (bug), of je hebt een idee hoe het nog beter kan worden (enhancement). Daarvoor is op GitHub het tabblad `Issues`. Hoeveel bugs zijn er gerapporteerd? En hoeveel enhancements?
     1. Als het jou nu gelukt is om een bug te fixen, of je hebt een super handige feature ontworpen, dan kan je de eigenaren van de repository vragen om jouw code te implementeren door een pull request te sturen. Ga naar het tabblad `Pull requests`, klik op `Closed` en bekijk welke pull requests zijn geïmplementeerd.
     1. Het meest rechter tabblad `Insights` geeft je, tegen alle verwachtingen in, inzicht. Je kan zien door hoeveel mensen er aan gewerkt wordt. Kijk bij `Code frequency`, in welke periode is er het meest aan de code veranderd?
-    1. Als je een repository goed/handig/slim/fijn vindt kun je dit aangeven met een ster. Klik daarvoor rechtsboven op star :fontawesome-regular-star:.
+    1. Als je een repository goed/handig/slim/fijn vindt kun je dit aangeven met een ster. Klik daarvoor rechtsboven op star {{star}}.
     1. Dan tot slot die ene, meest in het oogspringende groene `code` knop. Met die knop kan je de repository als zip-bestand downloaden of openen met GitHub desktop.
 
 

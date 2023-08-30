@@ -81,7 +81,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
     On LED:  750 (2.4 V)    Over resistor:  189 (0.6 V)
     ```
     Je hebt nu feitelijk je eerste metingen verricht!
-    1. Commit! :material-party-popper:
+    1. Commit! {{feesttoeter}}
 
 
 Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma of Python notebook o.i.d. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment hebben we ook alleen nog maar _ruwe_ metingen. We gaan hier voorbij aan het feit dat we graag de stroomsterkte door de LED $I$ zouden willen uitzetten tegen de spanning over de LED $U_\mathrm{LED}$.

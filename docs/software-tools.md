@@ -71,13 +71,13 @@ Als je scripts schrijft in Visual Studio Code wil je dat ze ook runnen in de omg
 ![Python environment](figures/screenshot-vscode-python-env.png)
 
 
-Als je daarop klikt[^Python interpreter] kun je door de lijst met Pythonomgevingen scrollen. Kies de omgeving die je wilt gebruiken. _Let op:_ als je het environment net hebt aangemaakt dan staat hij er nog niet tussen. Klik dan rechtsbovenin eerst op het **:fontawesome-solid-arrow-rotate-right: Refresh Interpeter list**-knopje. Bijvoorbeeld:
+Als je daarop klikt[^Python interpreter] kun je door de lijst met Pythonomgevingen scrollen. Kies de omgeving die je wilt gebruiken. _Let op:_ als je het environment net hebt aangemaakt dan staat hij er nog niet tussen. Klik dan rechtsbovenin eerst op het **{{arrow_rotate}} Refresh Interpeter list**-knopje. Bijvoorbeeld:
 
 [^Python interpreter]: Of: **View > Command Palette > Python: Select Interpreter**.
 
 ![Python env daq](figures/screenshot-vscode-python-env-daq.png)
 
-Sluit alle <q>oude</q> terminals met het :fontawesome-regular-trash-can:-icoon als je je muis aan de rechterkant over de namen van de terminals beweegt of in één keer met **View > Command Palette > Terminal: Kill All Terminals**. Alle nieuwe terminals die je opent zullen de nieuw geselecteerde conda environment actief maken. Wanneer je nu je Pythoncode draait dan is dat binnen deze omgeving. Het kan wel zijn dat hij opeens klaagt over packages die niet geïnstalleerd zijn omdat je dat &mdash; in _die_ omgeving &mdash; nog niet had gedaan. Geen probleem: installeer ze dan.
+Sluit alle <q>oude</q> terminals met het {{trash}}-icoon als je je muis aan de rechterkant over de namen van de terminals beweegt of in één keer met **View > Command Palette > Terminal: Kill All Terminals**. Alle nieuwe terminals die je opent zullen de nieuw geselecteerde conda environment actief maken. Wanneer je nu je Pythoncode draait dan is dat binnen deze omgeving. Het kan wel zijn dat hij opeens klaagt over packages die niet geïnstalleerd zijn omdat je dat &mdash; in _die_ omgeving &mdash; nog niet had gedaan. Geen probleem: installeer ze dan.
 
 
 ### Pipx

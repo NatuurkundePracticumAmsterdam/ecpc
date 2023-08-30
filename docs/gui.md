@@ -13,7 +13,7 @@ Als je een grafische applicatie schrijft roep je functies aan van het besturings
     conda activate test-qt
     pip install pyside6 pyqtgraph
     ```
-    Selecteer het nieuwe `test-qt` conda environment in Visual Studio Code en sluit alle <q>oude</q> terminals met het :fontawesome-regular-trash-can: -icoon.[^kill-terminals]
+    Selecteer het nieuwe `test-qt` conda environment in Visual Studio Code en sluit alle <q>oude</q> terminals met het {{trash}} -icoon.[^kill-terminals]
 
  [^kill-terminals]: Of in één keer met **View > Command Palette > Terminal: Kill All Terminals**
 
