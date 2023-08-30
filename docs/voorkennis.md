@@ -1,12 +1,12 @@
 # Python voorkennis; Batteries (not yet) included
 
-Python is een \emph{batteries included} taal. Dat betekent dat als je `kaal' Python installeert er al heel veel functionaliteit standaard meegeleverd wordt. Allereerst omdat de taal zelf al behoorlijk krachtig is, maar ook omdat de \emph{standaardbibliotheek} zeer uitgebreid is. Met een eenvoudig `#!py import`-statement haal je extra functionaliteit binnen, onder andere op het gebied van datatypes, wiskunde, toegang tot bestanden, een database, datacompressie, cryptografie, netwerktoegang, e-mail, multimedia, etc. Nog veel meer bibliotheken zijn beschikbaar via de \citetitle{pypi} \parencite{pypi}.
+Python is een _batteries included_ taal. Dat betekent dat als je `kaal' Python installeert er al heel veel functionaliteit standaard meegeleverd wordt. Allereerst omdat de taal zelf al behoorlijk krachtig is, maar ook omdat de _standaardbibliotheek_ zeer uitgebreid is. Met een eenvoudig `#!py import`-statement haal je extra functionaliteit binnen, onder andere op het gebied van datatypes, wiskunde, toegang tot bestanden, een database, datacompressie, cryptografie, netwerktoegang, e-mail, multimedia, etc. Nog veel meer bibliotheken zijn beschikbaar via de \citetitle{pypi} \parencite{pypi}.
 
 In dit hoofdstuk behandelen we de kennis die nuttig kan zijn voor de rest van deze cursus. We gaan ervan uit dat iedereen bekend is met recente versies van Python en we gaan niet in op de -- soms ingrijpende -- veranderingen die de taal heeft ondergaan.\footnote{Python 2 is dood. Leve Python 3!} Een deel van wat we hier behandelen kan al bekend zijn uit eerdere cursussen. Een ander deel is nieuw.\footnote{Tenzij je al veel zelf hebt geprogrammeerd in Python, buiten de cursussen om.}
 
-In de cursus gaan we bibliotheken (\emph{modules, packages}) en een applicatie ontwikkelen. Dat betekent dat we verder gaan dan het schrijven van \emph{scripts} en dat we dus meer gaan doen dan functies schrijven. Uiteindelijk moet het mogelijk zijn de software te verspreiden op een wat meer professionele manier. Dus niet alleen via een zipje met wat Pythonbestanden waar uiteindelijk verschillende versies van rondslingeren en die lastig zijn te updaten. Wat er nodig is voor een goede distributie van software en om het mogelijk te maken met meerdere mensen software te (blijven) ontwikkelen zal in deze cursus aan bod komen.
+In de cursus gaan we bibliotheken (_modules, packages_) en een applicatie ontwikkelen. Dat betekent dat we verder gaan dan het schrijven van _scripts_ en dat we dus meer gaan doen dan functies schrijven. Uiteindelijk moet het mogelijk zijn de software te verspreiden op een wat meer professionele manier. Dus niet alleen via een zipje met wat Pythonbestanden waar uiteindelijk verschillende versies van rondslingeren en die lastig zijn te updaten. Wat er nodig is voor een goede distributie van software en om het mogelijk te maken met meerdere mensen software te (blijven) ontwikkelen zal in deze cursus aan bod komen.
 
-Een punt wat vaak onderschoven blijft is \emph{documentatie}. Als je software schrijft die gebruikt (en doorontwikkeld) wordt in een onderzoeksgroep, dan is het heel belangrijk dat iedereen kan begrijpen wat je software doet en hoe die uitgebreid kan worden. Het is zonder hulp vaak heel moeilijk om de code van een iemand anders te begrijpen. En in de praktijk blijkt heel vaak dat als je code schrijft en daar een paar weken of maanden later op terugkijkt, jij zélf die ander bent. Wat toen blijkbaar heel logisch leek, is dat later toch niet meer. Dus documentatie schrijf je heel vaak ook gewoon voor jezelf.
+Een punt wat vaak onderschoven blijft is _documentatie_. Als je software schrijft die gebruikt (en doorontwikkeld) wordt in een onderzoeksgroep, dan is het heel belangrijk dat iedereen kan begrijpen wat je software doet en hoe die uitgebreid kan worden. Het is zonder hulp vaak heel moeilijk om de code van een iemand anders te begrijpen. En in de praktijk blijkt heel vaak dat als je code schrijft en daar een paar weken of maanden later op terugkijkt, jij zélf die ander bent. Wat toen blijkbaar heel logisch leek, is dat later toch niet meer. Dus documentatie schrijf je heel vaak ook gewoon voor jezelf.
 
 
 ## Zen of Python
@@ -37,7 +37,7 @@ Python is niet C (of iedere willekeurige andere programmeertaal). Er zit een ged
 %   If the implementation is easy to explain, it may be a good idea.\\
 %   Namespaces are one honking great idea -- let's do more of those!
 % \end{verse}
-Je kunt het nalezen middels een \emph{easter egg} in Python zelf: `#!py import this`.
+Je kunt het nalezen middels een _easter egg_ in Python zelf: `#!py import this`.
 
 \begin{minimaal}
   \begin{opdracht}[zen]
@@ -48,7 +48,7 @@ Je kunt het nalezen middels een \emph{easter egg} in Python zelf: `#!py import t
   \end{opdracht}
 \end{minimaal}
 
-Deze tekst kan nog behoorlijk cryptisch overkomen, maar een paar dingen worden snel duidelijk: code moet \emph{mooi} zijn (regel 1) en duidelijk (regels 2, 3 en 6). Er bestaan prachtige programmeertrucs in één of twee regels, maar onleesbaar is het wel. Een voorbeeld \cite{contemplating_zenofpython}:
+Deze tekst kan nog behoorlijk cryptisch overkomen, maar een paar dingen worden snel duidelijk: code moet _mooi_ zijn (regel 1) en duidelijk (regels 2, 3 en 6). Er bestaan prachtige programmeertrucs in één of twee regels, maar onleesbaar is het wel. Een voorbeeld \cite{contemplating_zenofpython}:
 ``` py
   print('\n'.join("%i bytes = %i bits which has %i possible values." %
         (j, j*8, 256**j) for  j in (1 << i for i in range(4))))
@@ -77,7 +77,7 @@ of:
   for i in range(len(names)):
       print("Hi,", names[i])
 ```
-waarbij je loopt over een index \verb|i|. Gebruik liever het feit dat een lijst al een \emph{iterator} is:
+waarbij je loopt over een index \verb|i|. Gebruik liever het feit dat een lijst al een _iterator_ is:
 ``` py
   for name in names:
       print("Hi,", name)
@@ -98,18 +98,18 @@ Hier maken we gebruik van de `#!py enumerate(iterable, start=0)`-functie en de (
 
 ## Coding style
 
-``Code wordt veel vaker gelezen dan geschreven,'' is een veel geciteerd gezegde onder programmeurs. Je schrijft je code en zit vervolgens uren te puzzelen om een fout te vinden of hoe je de code het beste kunt uitbreiden. Je zoekt op internet naar voorbeeldcode, je helpt een medestudent of vraagt die om hulp. Heel vaak dus lees je niet je eigen code, maar die \emph{van iemand anders}. Is dat relevant? Ja! Want die code ziet er anders uit. Iedereen programmeert toch op zijn eigen manier. Het scheelt enorm als de code er tenminste grotendeels hetzelfde uitziet. Het kost je dan minder energie om te lezen. Daarom ook dat de artikelen in wetenschappelijke tijdschriften bijvoorbeeld er allemaal hetzelfde uitzien en de auteur niet de vrijheid krijgt om zélf lettertypes te kiezen. Net zo goed hebben grote organisaties vaak hun eigen \emph{coding style} ontwikkeld waar alle werknemers zich zoveel mogelijk aan moeten houden.
+``Code wordt veel vaker gelezen dan geschreven,'' is een veel geciteerd gezegde onder programmeurs. Je schrijft je code en zit vervolgens uren te puzzelen om een fout te vinden of hoe je de code het beste kunt uitbreiden. Je zoekt op internet naar voorbeeldcode, je helpt een medestudent of vraagt die om hulp. Heel vaak dus lees je niet je eigen code, maar die _van iemand anders_. Is dat relevant? Ja! Want die code ziet er anders uit. Iedereen programmeert toch op zijn eigen manier. Het scheelt enorm als de code er tenminste grotendeels hetzelfde uitziet. Het kost je dan minder energie om te lezen. Daarom ook dat de artikelen in wetenschappelijke tijdschriften bijvoorbeeld er allemaal hetzelfde uitzien en de auteur niet de vrijheid krijgt om zélf lettertypes te kiezen. Net zo goed hebben grote organisaties vaak hun eigen _coding style_ ontwikkeld waar alle werknemers zich zoveel mogelijk aan moeten houden.
 
 Python heeft een eigen style guide die je vooral eens door moet lezen \cite{pep8}. Google heeft ook een hele mooie, met duidelijke voorbeelden \cite{google_style_guide}.
 
-Fijn dat je code consistenter wordt, maar het moet nu ook weer niet zo zijn dat je uren kwijt bent met de style guides bestuderen of twijfelen waar je een regel code precies moet afbreken. Wel of niet een enter? Om daar vanaf te zijn zijn er verschillende pakketten die je code automatisch aanpassen aan de standaard. Standaard gebruikt \emph{Visual Studio Code} `autopep8`. Als je de instelling \menu{Editor: Format On Save} aan zet (staat standaard uit) dan wordt je code aangepast zodra je je bestand opslaat. De instelling \menu{Python > Formatting: Provider} kun je gebruiken om in plaats van `autopep8` bijvoorbeeld \verb|black| te kiezen \cite{black}. Black is een stuk strenger dan `autopep8` en heeft meer een `eigen mening'. Als je je daar bij neerlegt hoef je bijna niet meer na te denken over hoe je je code precies vormgeeft. De Black website zegt \cite{black}:
+Fijn dat je code consistenter wordt, maar het moet nu ook weer niet zo zijn dat je uren kwijt bent met de style guides bestuderen of twijfelen waar je een regel code precies moet afbreken. Wel of niet een enter? Om daar vanaf te zijn zijn er verschillende pakketten die je code automatisch aanpassen aan de standaard. Standaard gebruikt _Visual Studio Code}_`autopep8`. Als je de instelling \menu{Editor: Format On Save} aan zet (staat standaard uit) dan wordt je code aangepast zodra je je bestand opslaat. De instelling \menu{Python > Formatting: Provider} kun je gebruiken om in plaats van `autopep8` bijvoorbeeld \verb|black| te kiezen \cite{black}. Black is een stuk strenger dan `autopep8` en heeft meer een `eigen mening'. Als je je daar bij neerlegt hoef je bijna niet meer na te denken over hoe je je code precies vormgeeft. De Black website zegt \cite{black}:
 \begin{quotation}
   By using Black, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters.
 
   Black makes code review faster by producing the smallest diffs possible. Blackened code looks the same regardless of the project you’re reading. Formatting becomes transparent after a while and you can focus on the content instead.
 \end{quotation}
 %
-De code in deze handleiding is geformat met \emph{Black}.
+De code in deze handleiding is geformat met _Black_.
 
 \begin{attention}
   Bij de volgende opdracht kun je, als je niet de nieuwste versie van Anaconda hebt, een pop krijgen dat black nog niet geïnstalleerd is:
@@ -126,7 +126,7 @@ De code in deze handleiding is geformat met \emph{Black}.
 !!! opdracht-basis "black"
     Om Black te installeren en te testen voer je de volgende opdrachten uit:
     
-    1. In Visual Studio Code, ga naar \menu{Code} onder MacOS of \menu{File} onder Windows en dan naar \menu{Preferences > Settings > Python Formatting: Provider} en kies `black`. Ga dan naar \menu{Preferences > Settings > Editor: Format On Save} en vink die \emph{aan}.
+    1. In Visual Studio Code, ga naar \menu{Code} onder MacOS of \menu{File} onder Windows en dan naar \menu{Preferences > Settings > Python Formatting: Provider} en kies `black`. Ga dan naar \menu{Preferences > Settings > Editor: Format On Save} en vink die _aan_.
     1. Open een Pythonbestand en type:
           ``` py
             l = [1,
@@ -145,7 +145,7 @@ De code in deze handleiding is geformat met \emph{Black}.
 
 ## Datatypes
 
-Gehele getallen, kommagetallen, strings: allemaal voorbeelden van \emph{datatypes}. Veel zullen jullie al wel bekend voorkomen, zoals strings, lists en NumPy arrays. Andere zijn misschien alweer wat weggezakt, zoals dictionaries of booleans. Weer andere zijn misschien wat minder bekend, zoals complexe getallen of sets. En als laatste voegt Python af en toe nieuwe datatypes toe, zoals \emph{f-strings} in Python 3.6 of \emph{data classes} sinds Python 3.7.
+Gehele getallen, kommagetallen, strings: allemaal voorbeelden van _datatypes_. Veel zullen jullie al wel bekend voorkomen, zoals strings, lists en NumPy arrays. Andere zijn misschien alweer wat weggezakt, zoals dictionaries of booleans. Weer andere zijn misschien wat minder bekend, zoals complexe getallen of sets. En als laatste voegt Python af en toe nieuwe datatypes toe, zoals _f-strings_ in Python 3.6 of _data classes_ sinds Python 3.7.
 \begin{info}
   De \citetitle{python-standard-library} documentatie \parencite{python-standard-library} bevat een mooi overzicht van alle datatypes met een beschrijving van operaties en eigenschappen. Voor uitgebreidere tutorials kun je vaak terecht bij \citetitle{real-python} \parencite{real-python}. Het kan makkelijk zijn om in een zoekmachine bijvoorbeeld `real python dict` te typen als je een tutorial zoekt over Python dictionaires.
 \end{info}
@@ -190,15 +190,16 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
     
 
 
-In Python zijn `#!py tuple`'s een soort `alleen-lezen' `#!py list`'s. Een tuple is een \emph{immutable\footnote{Letterlijk: onveranderbaar.} object}. Daarom worden ze vaak gebruikt wanneer lijstachtige objecten altijd dezelfde vorm moeten hebben. Bijvoorbeeld een lijst van $(x, y)$-coördinaten zou je zo kunnen definiëren:
+In Python zijn `#!py tuple`'s een soort `alleen-lezen' `#!py list`'s. Een tuple is een _immutable[^immutable] object_. Daarom worden ze vaak gebruikt wanneer lijstachtige objecten altijd dezelfde vorm moeten hebben. Bijvoorbeeld een lijst van $(x, y)$-coördinaten zou je zo kunnen definiëren:
+[^immutable]: Letterlijk: onveranderbaar.
 ``` py
   coords = [(0, 0), (1, 0), (0, 1)]
 ```
-Hier is `#!py coords[0]` gelijk aan `#!py (0, 0)`. Je kunt nu \emph{niet} dit coördinaat uitbreiden naar drie dimensies met `#!py coords[0].append(1)` en dat is waarschijnlijk precies wat je wilt voor een lijst met tweedimensionale coördinaten. Ook is dit object veel compacter dan een `#!py dict`:
+Hier is `#!py coords[0]` gelijk aan `#!py (0, 0)`. Je kunt nu _niet_ dit coördinaat uitbreiden naar drie dimensies met `#!py coords[0].append(1)` en dat is waarschijnlijk precies wat je wilt voor een lijst met tweedimensionale coördinaten. Ook is dit object veel compacter dan een `#!py dict`:
 ``` py
   coords = [{"x": 0, "y": 0}, {"x": 1, "y": 0}, {"x": 0, "y": 1}]
 ```
-Hier zijn tuples dus best handig, al moet je dus wel onthouden in welke volgorde de elementen staan. Dat is voor $(x, y)$-coördinaten niet zo'n probleem maar kan in andere situaties lastiger zijn.\footnote{Daar is bijvoorbeeld de `#!py collections.namedtuple()` dan weer handig voor.} Tuples ondersteunen \emph{tuple unpacking}. Je kunt het volgende doen:
+Hier zijn tuples dus best handig, al moet je dus wel onthouden in welke volgorde de elementen staan. Dat is voor $(x, y)$-coördinaten niet zo'n probleem maar kan in andere situaties lastiger zijn.\footnote{Daar is bijvoorbeeld de `#!py collections.namedtuple()` dan weer handig voor.} Tuples ondersteunen _tuple unpacking_. Je kunt het volgende doen:
 ``` py
   (x, y, z) = (2, 3, 4)
 ```
@@ -228,7 +229,7 @@ Het uit elkaar plukken van argumenten kan zelfs als je een functie aanroept:
   args = 2, 7
   power(*args)
 ```
-Wat zelfs werkt is \emph{dictionary unpacking}. Je kunt aan functies ook argumenten bij naam meegeven -- de volgorde maakt dan niet uit en je maakt in je programma expliciet duidelijk welke argumenten je meegeeft. Dat werkt zo:
+Wat zelfs werkt is _dictionary unpacking_. Je kunt aan functies ook argumenten bij naam meegeven -- de volgorde maakt dan niet uit en je maakt in je programma expliciet duidelijk welke argumenten je meegeeft. Dat werkt zo:
 ``` py
   # regular function call
   power(b=7, a=2)
@@ -253,7 +254,7 @@ Je moet even oppassen: de `#!py {`}-haakjes worden gebruikt voor zowel sets als 
   is_set = {1, 2, 3, 4}
   is_dict = {1: 1, 2: 4, 3: 9, 4: 16}
 ```
-Dat gaat alleen mis als je een \emph{lege} set wilt maken. Daarvoor zul je expliciet de `#!py set()`-constructor moeten gebruiken:
+Dat gaat alleen mis als je een _lege_ set wilt maken. Daarvoor zul je expliciet de `#!py set()`-constructor moeten gebruiken:
 ``` py
   is_dict = {}
   is_set = set()
@@ -278,7 +279,7 @@ NumPy voert de berekeningen uit binnen een C-bibliotheek\footnote{De programmert
 ```
 Niet alleen is NumPy zo'n honderd keer sneller,\footnote{Echt. De sinus van 2000 $x$-waardes berekenen kostte NumPy in een test \qty{11.6}{\micro\second} en de for-loop wel \qty{1357.7}{\micro\second}.} het is ook veel korter op te schrijven. Het nadeel van NumPy arrays is dat je geen elementen kunt toevoegen.\footnote{Strikt genomen is dit niet helemaal waar. Je kunt een nieuwe array creëren door meerdere arrays aan elkaar te plakken. Maar een eenvoudige `#!py append()`-method bestaat niet voor arrays.} Python lijsten hebben dus voordelen, zeker als rekentijd geen probleem voor je is.
 
-Door gebruik te maken van een \emph{list comprehension} kun je de for-loop in één regel opschrijven:
+Door gebruik te maken van een _list comprehension_ kun je de for-loop in één regel opschrijven:
 ``` py
   # x = [list of x-values]
   y = [sin(u) for u in x]
@@ -298,19 +299,19 @@ Als je veel functies uit NumPy gebruikt is het handig -- en gebruikelijk -- om j
   x = np.linspace(0, pi, 100)
   y = np.sin(x)
 ```
-Kortom: \emph{berekeningen} met arrays zijn sneller, maar for-loops (en list comprehensions) zijn veelzijdiger. Het is zelfs mogelijk om een `#!py if`-statement op te nemen in je list comprehension. Bijvoorbeeld:
+Kortom: _berekeningen_ met arrays zijn sneller, maar for-loops (en list comprehensions) zijn veelzijdiger. Het is zelfs mogelijk om een `#!py if`-statement op te nemen in je list comprehension. Bijvoorbeeld:
 ``` py
   filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
   pdfs = [name for name in filenames if name.endswith(".pdf")]
   # pdfs=['text.pdf', 'manual.pdf']
 ```
-In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook \emph{set comprehensions}\footnote{Notatie hetzelfde, maar gebruik nu `#!py {`}-haakjes.} en \emph{dict comprehensions}.
+In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_\footnote{Notatie hetzelfde, maar gebruik nu `#!py {`}-haakjes.} en _dict comprehensions_.
 
 !!! opdracht-basis "comprehensions"
     Voer, door een script te schrijven, de volgende opdrachten uit:
     
-      1. Genereer een lijst van 50 willekeurige \emph{unieke} én \emph{gehele} getallen tussen de 0 en de 100.
-      1. Maak een set uit die getallen die deelbaar zijn door 3. Maak gebruik van een `gewone' \emph{for}-loop.
+      1. Genereer een lijst van 50 willekeurige _unieke_ én _gehele_ getallen tussen de 0 en de 100.
+      1. Maak een set uit die getallen die deelbaar zijn door 3. Maak gebruik van een `gewone' _for_-loop.
       1. Maak nogmaals een set van de getallen die deelbaar zijn door 3, maar gebruik daarvoor nu een set comprehension.
     
 
@@ -318,7 +319,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
 
 ## Zip; De ritssluiting
 
-In het rijtje van fantastische uitvindingen waar we niet vaak genoeg bij stilstaan heeft de ritssluiting zeker een plaats. Bij een ritssluiting worden twee lange rijen tandjes naast elkaar geduwd waarna die stevig in elkaar haken. Iets soortgelijks kan in Python met de `#!py zip()`-functie.\footnote{\emph{Eng.: to zip} betekent \emph{ritsen}.} Stel je hebt twee lijsten A en B en je wilt loopen over de waardes. In de eerste iteratie wil je de eerste waarde uit A mét de eerste waarde van B, vervolgens de tweede waarde van A met de tweede waarde van B, enz. Dat werkt als volgt:
+In het rijtje van fantastische uitvindingen waar we niet vaak genoeg bij stilstaan heeft de ritssluiting zeker een plaats. Bij een ritssluiting worden twee lange rijen tandjes naast elkaar geduwd waarna die stevig in elkaar haken. Iets soortgelijks kan in Python met de `#!py zip()`-functie.\footnote{_Eng.: to zip_ betekent _ritsen_.} Stel je hebt twee lijsten A en B en je wilt loopen over de waardes. In de eerste iteratie wil je de eerste waarde uit A mét de eerste waarde van B, vervolgens de tweede waarde van A met de tweede waarde van B, enz. Dat werkt als volgt:
 ``` py
   A = [1, 2, 3, 4]
   B = [1, 4, 9, 16]
@@ -345,7 +346,7 @@ In Python zijn functies ook objecten. Je kunt ze bewaren in een lijst of diction
   sorted(a)
   # ['apple', 'banana', 'kiwi']
 ```
-Dat gaat heel makkelijk met de ingebouwde `#!py sorted()`-functie. Je kunt aan deze functie ook een `key`-parameter meegeven; een ándere functie die gebruikt wordt om te bepalen waarop gesorteerd moet worden. Zo kun je sorteren op de \emph{lengte} van de fruitnamen door simpelweg de `#!py len()`-functie als parameter mee te geven:
+Dat gaat heel makkelijk met de ingebouwde `#!py sorted()`-functie. Je kunt aan deze functie ook een `key`-parameter meegeven; een ándere functie die gebruikt wordt om te bepalen waarop gesorteerd moet worden. Zo kun je sorteren op de _lengte_ van de fruitnamen door simpelweg de `#!py len()`-functie als parameter mee te geven:
 ``` py
   len("apple")
   # 5
@@ -362,7 +363,7 @@ Als je wilt sorteren op de tweede letter van de naam -- waarom niet? -- dan kun 
   sorted(a, key=second_letter)
   # ['banana', 'kiwi', 'apple']
 ```
-Lambdafuncties zijn bedacht om je een hoop typewerk te besparen. Je kunt korte functies in één regel opschrijven en gebruiken, zolang het maar een geldige \emph{expression} is. Géén if-then-else, maar de meeste andere dingen mogen wel. Bijvoorbeeld:
+Lambdafuncties zijn bedacht om je een hoop typewerk te besparen. Je kunt korte functies in één regel opschrijven en gebruiken, zolang het maar een geldige _expression_ is. Géén if-then-else, maar de meeste andere dingen mogen wel. Bijvoorbeeld:
 ``` py
   squared = lambda x: x ** 2
   squared(4)
@@ -402,7 +403,7 @@ Je kunt de functies ook bewaren in een dictionary voor later gebruik.
 
 Als een functie een serie metingen verricht kan het lang duren voordat de functie de resultaten teruggeeft. Laten we die functie even `#!py perform_measurements()` noemen. Het is soms lastig als de rest van het programma daarop moet wachten voordat een analyse kan worden gedaan, of een melding aan de gebruiker kan worden gegeven. Het kan dan gebeuren dat je je programma draait en je dan afvraagt: `doet hij het, of doet hij het niet?' Je kunt dit oplossen door `#!py print()`-statements in je programma op te nemen, maar dit is niet zo netjes. Als je `#!py perform_measurements()` inbouwt in een tekstinterface die ook `stil' moet kunnen zijn? Of als je de functie gaat gebruiken vanuit een grafisch programma waarin je geen tekst wilt printen, maar een grafiek wilt opbouwen? Je moet dan steeds `#!py perform_measurements()` gaan aanpassen. Een ander probleem kan optreden wanneer je langdurige metingen doet die ook veel geheugen innemen. Wachten op de hele meetserie betekent dat het geheugen vol kan lopen. Lastig op te lossen!
 
-Of\ldots je maakt gebruik van een \emph{generator function}: een functie die tussendoor resultaten teruggeeft. Dat kan door gebruik te maken van `#!py yield` in plaats van `#!py return`. De rest gaat automatisch. Maar: je moet wel even weten hoe je omgaat met de generator. Stel, we willen de kwadraten berekenen van een reeks getallen tot een bepaald maximum:
+Of\ldots je maakt gebruik van een _generator function_: een functie die tussendoor resultaten teruggeeft. Dat kan door gebruik te maken van `#!py yield` in plaats van `#!py return`. De rest gaat automatisch. Maar: je moet wel even weten hoe je omgaat met de generator. Stel, we willen de kwadraten berekenen van een reeks getallen tot een bepaald maximum:
 ``` py
   def calculate_squares_up_to(max_number):
       """Calculate squares of all integers up to a maximum number"""
@@ -421,7 +422,7 @@ De functie berekent eerst alle kwadraten, voegt ze toe aan een lijst en geeft ve
       for number in range(max_number):
           yield number ** 2
 ```
-Lekker kort, want we hoeven geen lijst bij te houden! Als je de functie aanroept krijg je geen resultaat terug, maar een \emph{generator}. Als je de waardes wil zien dan gebruik je `#!py next()`, als volgt:
+Lekker kort, want we hoeven geen lijst bij te houden! Als je de functie aanroept krijg je geen resultaat terug, maar een _generator_. Als je de waardes wil zien dan gebruik je `#!py next()`, als volgt:
 ``` py
   square_generator = calculate_squares_up_to(5)
   next(square_generator)
@@ -451,16 +452,16 @@ Als de generator is uitgeput (de for-loop is afgelopen, de functie sluit af) dan
   # Still calculating...
   # 16
 ```
-Dit kan ook in list comprehensions. En als je \emph{toch} wilt wachten op alle resultaten, dan kan dat eenvoudig met `#!py squares = list(calculate_squares_up_to(5))`.
+Dit kan ook in list comprehensions. En als je _toch_ wilt wachten op alle resultaten, dan kan dat eenvoudig met `#!py squares = list(calculate_squares_up_to(5))`.
 
 !!! opdracht-basis "generators"
-    Schrijf een generator function die het \emph{vermoeden van Collatz} illustreert. Dat wil zeggen: beginnend bij een getal $n$, genereer het volgende getal als volgt: is het getal \emph{even}, deel het dan door twee; is het getal \emph{oneven}, vermenigvuldig het met 3 en tel er 1 bij op. Enzovoorts. Sluit de generator af als de uitkomst gelijk is aan 1. Dat is het vermoeden van Collatz: ongeacht met welk geheel getal je begint, je komt altijd op 1 uit. Als voorbeeld, beginnend bij het getal 3 krijg je de reeks 3, 10, 5, 16, 8, 4, 2, 1.
+    Schrijf een generator function die het _vermoeden van Collatz_ illustreert. Dat wil zeggen: beginnend bij een getal $n$, genereer het volgende getal als volgt: is het getal _even_, deel het dan door twee; is het getal _oneven_, vermenigvuldig het met 3 en tel er 1 bij op. Enzovoorts. Sluit de generator af als de uitkomst gelijk is aan 1. Dat is het vermoeden van Collatz: ongeacht met welk geheel getal je begint, je komt altijd op 1 uit. Als voorbeeld, beginnend bij het getal 3 krijg je de reeks 3, 10, 5, 16, 8, 4, 2, 1.
 
 
 
 ### Dunder methods
 
-Hoe \emph{weet} Python eigenlijk wat de lengte is van een string? Of hoe je getallen optelt? Voor operatoren als `#!py + - * / **` wordt eigenlijk een \emph{method} aangeroepen. bijvoorbeeld `#!py __add__()` voor `#!py +`, en `#!py __mul__()` voor `#!py *`. Een ingebouwde functie als `#!py len()` roept stiekem de \emph{method} `#!py __len__()` aan en `#!py print()` print de uitvoer van `#!py __str__()`. Zulke methodes worden \emph{dunder methods}\footnote{Dunder staat voor \emph{double underscore}, de twee lage streepjes die om de naam heen staan.} of \emph{magic methods} genoemd. We kunnen zelf bijvoorbeeld een vector introduceren waarbij we de operatoren voor onze eigen doeleinden gebruiken \cite{operator_overloading}. We definiëren het optellen van vectoren en de absolute waarde (norm) van de vector:
+Hoe _weet_ Python eigenlijk wat de lengte is van een string? Of hoe je getallen optelt? Voor operatoren als `#!py + - * / **` wordt eigenlijk een _method_ aangeroepen. bijvoorbeeld `#!py __add__()` voor `#!py +`, en `#!py __mul__()` voor `#!py *`. Een ingebouwde functie als `#!py len()` roept stiekem de _method_ `#!py __len__()` aan en `#!py print()` print de uitvoer van `#!py __str__()`. Zulke methodes worden _dunder methods_\footnote{Dunder staat voor _double underscore_, de twee lage streepjes die om de naam heen staan.} of _magic methods_ genoemd. We kunnen zelf bijvoorbeeld een vector introduceren waarbij we de operatoren voor onze eigen doeleinden gebruiken \cite{operator_overloading}. We definiëren het optellen van vectoren en de absolute waarde (norm) van de vector:
 ``` py
   class Vector:
       def __init__(self, x, y):
@@ -492,7 +493,7 @@ De speciale `#!py __init__()` methode zorgt voor de initialisatie van de klasse 
   >>> print(v1 + v2)
   <__main__.Vector object at 0x7fdf80b45450>
 ```
-In de eerste regels maken we twee vectoren $\vb{v_1}$ en $\vb{v_2}$ en berekenen de lengtes\footnote{Absolute waarde of beter, \emph{norm}, van een vector is eenvoudig gezegd haar lengte.} $\norm{\vb{v_1}}$, $\norm{\vb{v_2}}$ en $\norm{\vb{v_1 + v_2}}$. Ook kunnen we de coördinaten van de som bekijken. Het gaat mis als we de somvector willen printen of willen kijken wat voor object het is. We krijgen technisch juiste, maar totaal onbruikbare informatie terug. Dit lossen we op met het definiëren van `#!py __str__()`, gebruikt door `#!py str()` en dus ook `#!py print()`, en `#!py __repr__()`, gebruikt door `#!py repr()` en de Python interpreter.\footnote{Het verschil tussen de twee is subtiel. De Pythondocumentatie geeft aan dat de `#!py __repr__` altijd ondubbelzinnig moet zijn, terwijl de `#!py __str__` vooral leesbaar moet zijn. Voor eenvoudige objecten zijn ze veelal gelijk.}
+In de eerste regels maken we twee vectoren $\vb{v_1}$ en $\vb{v_2}$ en berekenen de lengtes\footnote{Absolute waarde of beter, _norm_, van een vector is eenvoudig gezegd haar lengte.} $\norm{\vb{v_1}}$, $\norm{\vb{v_2}}$ en $\norm{\vb{v_1 + v_2}}$. Ook kunnen we de coördinaten van de som bekijken. Het gaat mis als we de somvector willen printen of willen kijken wat voor object het is. We krijgen technisch juiste, maar totaal onbruikbare informatie terug. Dit lossen we op met het definiëren van `#!py __str__()`, gebruikt door `#!py str()` en dus ook `#!py print()`, en `#!py __repr__()`, gebruikt door `#!py repr()` en de Python interpreter.\footnote{Het verschil tussen de twee is subtiel. De Pythondocumentatie geeft aan dat de `#!py __repr__` altijd ondubbelzinnig moet zijn, terwijl de `#!py __str__` vooral leesbaar moet zijn. Voor eenvoudige objecten zijn ze veelal gelijk.}
 ``` py
   class Vector:
       ...
@@ -513,7 +514,7 @@ We raden je aan altijd een zinnige `#!py __str__` en `#!py __repr__` te definië
 
 Vaak hebben classes geen dunder methods nodig (behalve `#!py __repr__` en `#!py __str__`).
 
-Je kunt behalve een class ook een \emph{subclass} aanmaken. Stel dat je een class \verb|Animal| hebt aangemaakt met handige methods en attributes maar je wilt een nieuwe, iets specifiekere class maken (bijvoorbeeld \verb|Cow|). Het is duidelijk dat een koe een dier is, maar een dier nog geen koe. Je kunt een subclass maken:
+Je kunt behalve een class ook een _subclass_ aanmaken. Stel dat je een class \verb|Animal| hebt aangemaakt met handige methods en attributes maar je wilt een nieuwe, iets specifiekere class maken (bijvoorbeeld \verb|Cow|). Het is duidelijk dat een koe een dier is, maar een dier nog geen koe. Je kunt een subclass maken:
 ``` py
   class Cow(Animal):
       pass
@@ -523,7 +524,7 @@ Het keyword `#!py pass` doet niets overigens. Met alleen dit statement heeft de 
 
 ## Decorators
 
-Functies zijn ook objecten in Python. Je kunt ze, zoals we eerder gezien hebben, meegeven als argument of bewaren in een dictionary. Ook kun je functies in functies definiëren en functies definiëren die functies teruggeven. Vaag\footnote{Calmcode doet een goeie poging om dit rustig uit te leggen, kijk daarvoor op \url{https://calmcode.io/decorators/functions.html}}. Ik moet hier altijd weer even over nadenken en daarom mag je dit stukje overslaan. Om decorators te \emph{gebruiken}, hoef je niet per se te weten hoe ze \emph{werken}.
+Functies zijn ook objecten in Python. Je kunt ze, zoals we eerder gezien hebben, meegeven als argument of bewaren in een dictionary. Ook kun je functies in functies definiëren en functies definiëren die functies teruggeven. Vaag\footnote{Calmcode doet een goeie poging om dit rustig uit te leggen, kijk daarvoor op \url{https://calmcode.io/decorators/functions.html}}. Ik moet hier altijd weer even over nadenken en daarom mag je dit stukje overslaan. Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_.
 % Met decorators kan je functionaliteit aan een functie toevoegen. 
 Decorators worden vaak gebruikt om het gedrag van een functie aan te passen.
 
@@ -561,7 +562,7 @@ Het werkt, maar we moeten er wel steeds aan denken om `#!py squared()` aan te ro
   g(3, 4)
   # 144
 \end{pythoncode*}
-Hier gebeurt iets geks\ldots Om te begrijpen wat hier gebeurt moeten we een beetje heen en weer springen. In regel 8 roepen we de functie `#!py squared_func(f)` aan. In regel 5 zien we dat die functie een andere functie teruggeeft -- die \emph{niet} wordt aangeroepen! In regel 8 wordt die functie bewaard als `#!py g` en pas in regel 9 roepen we hem aan. De functie `#!py g()` is dus eigenlijk gelijk aan de functie `#!py inner_func()` die in regels 2--3 gedefinieerd wordt. De aanroep in regel 9 zorgt er uiteindelijk voor dat in regel 3 de oorspronkelijke functie `#!py f(a, b)` wordt aangeroepen en dat het antwoord gekwadrateerd wordt. Dit is echt wel even lastig.
+Hier gebeurt iets geks\ldots Om te begrijpen wat hier gebeurt moeten we een beetje heen en weer springen. In regel 8 roepen we de functie `#!py squared_func(f)` aan. In regel 5 zien we dat die functie een andere functie teruggeeft -- die _niet_ wordt aangeroepen! In regel 8 wordt die functie bewaard als `#!py g` en pas in regel 9 roepen we hem aan. De functie `#!py g()` is dus eigenlijk gelijk aan de functie `#!py inner_func()` die in regels 2--3 gedefinieerd wordt. De aanroep in regel 9 zorgt er uiteindelijk voor dat in regel 3 de oorspronkelijke functie `#!py f(a, b)` wordt aangeroepen en dat het antwoord gekwadrateerd wordt. Dit is echt wel even lastig.
 
 % \begin{todo}
 %   Als we studenten nog niet kwijt waren, dan raken we ze hier wel kwijt. De stap van a en b naar *args en **kwargs is best groot. Misschien kunnen we eerst @decorators uitleggen, dan een opdracht laten maken en dan nog een stapje verder met args en kwargs
@@ -574,7 +575,7 @@ In deze opzet moet de `#!py inner_func(a, b)` nog weten dat de oorspronkelijke f
 
       return inner_func
 ```
-En nu komt het: in Python kun je de \emph{decorator syntax} gebruiken om je functie te vervangen door een iets aangepaste functie. In plaats van:
+En nu komt het: in Python kun je de _decorator syntax_ gebruiken om je functie te vervangen door een iets aangepaste functie. In plaats van:
 ``` py
   f = squared_func(f)
 ```
@@ -624,7 +625,7 @@ Als je meer wilt weten over hoe decorators werken en hoe je je eigen decorators 
 
 ## Modules
 
-Als je een nieuw script begint te schrijven staat alle code in één bestand. Dat is lekker compact, maar heeft ook nadelen. Als je je experiment of programma gaat uitbreiden kan het erg onoverzichtelijk worden. Ook zul je al je wijzigingen steeds in dit bestand moeten doen terwijl je je code van eerdere experimenten misschien wel wilt bewaren. Mogelijk kopieer je steeds je script naar een nieuw bestand, maar dat is niet erg \emph{DRY}.\footnote{\emph{DRY} staat voor \emph{Don't Repeat Yourself}, een belangrijk principe in software engineering.} Als je dan bijvoorbeeld een functie of klasse wilt aanpassen, moet dat nog steeds op heel veel plekken. Daarom is het handig om gebruik te maken van \emph{modules}.
+Als je een nieuw script begint te schrijven staat alle code in één bestand. Dat is lekker compact, maar heeft ook nadelen. Als je je experiment of programma gaat uitbreiden kan het erg onoverzichtelijk worden. Ook zul je al je wijzigingen steeds in dit bestand moeten doen terwijl je je code van eerdere experimenten misschien wel wilt bewaren. Mogelijk kopieer je steeds je script naar een nieuw bestand, maar dat is niet erg _DRY_.\footnote{_DRY_ staat voor _Don't Repeat Yourself_, een belangrijk principe in software engineering.} Als je dan bijvoorbeeld een functie of klasse wilt aanpassen, moet dat nog steeds op heel veel plekken. Daarom is het handig om gebruik te maken van _modules_.
 
 Eenvoudig gezegd is een module een stuk Python code dat je kunt importeren en gebruiken. Meestal worden er in een module handige functies en klasses gedefinieerd:
 ``` ps1 title="Terminal"
@@ -667,7 +668,7 @@ Maar nu is er een probleem met de uitvoer van dit script:
 Tijdens het importeren wordt alle code die aanwezig is in {{file}}square.py ook daadwerkelijk gerunt. Er zijn twee manieren om dit op te lossen:
 
   1. Alle `extra' code verwijderen uit de module ({{file}}square.py)
-  1. De code in de module \emph{alleen} laten runnen als de module als script wordt aangeroepen, maar \emph{niet} wanneer de module wordt geïmporteerd
+  1. De code in de module _alleen_ laten runnen als de module als script wordt aangeroepen, maar _niet_ wanneer de module wordt geïmporteerd
 
 De tweede oplossing kan van pas komen. Je past dan {{file}}square.py als volgt aan:
 ``` py
@@ -680,7 +681,7 @@ De tweede oplossing kan van pas komen. Je past dan {{file}}square.py als volgt a
       print(f"The square of 4 is {square(4)}")
 ```
 Wanneer je een python script runt is de speciale variabele `#!py __name__` gelijk aan de string \verb|__main__|. Maar als je een module importeert is
-`#!py __name__` gelijk aan de \emph{naam} van de module; in dit geval \verb|square|. Met bovenstaande constructie wordt de code alleen uitgevoerd wanneer de module direct gerunt wordt:
+`#!py __name__` gelijk aan de _naam_ van de module; in dit geval \verb|square|. Met bovenstaande constructie wordt de code alleen uitgevoerd wanneer de module direct gerunt wordt:
 \begin{ps1concode}
   PS> python square.py
   The square of 4 is 16
@@ -697,7 +698,7 @@ Het `#!py if __name__ == '__main__'`-statement wordt heel veel gebruikt in Pytho
 
 ## Packages
 
-In Python zijn \emph{packages} collecties van modules. Ook krijg je automatisch \emph{namespaces}. Dat wil zeggen, wanneer je functies en modules uit een package importeert zitten ze niet in één grote vormeloze berg, maar in een soort boomstructuur. Dat betekent dat namen niet uniek hoeven te zijn. Er zijn duizenden bibliotheken beschikbaar voor python (\verb|numpy|, \verb|scipy|, \verb|matplotlib|, etc.) en die mogen allemaal een module \verb|test| bevatten. Namespaces zorgen ervoor dat je ze uniek kunt benaderen:
+In Python zijn _packages_ collecties van modules. Ook krijg je automatisch _namespaces_. Dat wil zeggen, wanneer je functies en modules uit een package importeert zitten ze niet in één grote vormeloze berg, maar in een soort boomstructuur. Dat betekent dat namen niet uniek hoeven te zijn. Er zijn duizenden bibliotheken beschikbaar voor python (\verb|numpy|, \verb|scipy|, \verb|matplotlib|, etc.) en die mogen allemaal een module \verb|test| bevatten. Namespaces zorgen ervoor dat je ze uniek kunt benaderen:
 ``` py
   import numpy.test
   import scipy.test
@@ -747,11 +748,11 @@ De verschillende modules uit \figref{fig:packagetree} kun je als volgt importere
 In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script dus alleen maar in een map te stoppen en in diezelfde map een lege {{file}}\_\_init\_\_.py aan te maken.
 
 \begin{warning}
-  Let op: als je de {{file}}\_\_init\_\_.py vergeet dan lijkt alles het alsnog te doen. Maar je maakt nu een \emph{implicit namespace package} waarbij bepaalde directories toch weer op een grote hoop gegooid worden. Geloof me, echt niet handig.\footnote{En wat mij betreft: een fout dat zoiets überhaupt kan in Python. Zen of Python: \emph{explicit is better than implicit.}} Namespace packages kunnen handig zijn voor grote projecten, maar dat is het dan ook wel. Wij gaan hier niet verder op in. Kortom: let op en gebruik \emph{altijd} een {{file}}\_\_init\_\_.py.
+  Let op: als je de {{file}}\_\_init\_\_.py vergeet dan lijkt alles het alsnog te doen. Maar je maakt nu een _implicit namespace package_ waarbij bepaalde directories toch weer op een grote hoop gegooid worden. Geloof me, echt niet handig.\footnote{En wat mij betreft: een fout dat zoiets überhaupt kan in Python. Zen of Python: _explicit is better than implicit._} Namespace packages kunnen handig zijn voor grote projecten, maar dat is het dan ook wel. Wij gaan hier niet verder op in. Kortom: let op en gebruik _altijd_ een {{file}}\_\_init\_\_.py.
 \end{warning}
 
 % \begin{info}
-%   Als je in een module een andere module wilt importeren dan zijn daarvoor twee opties: relatieve en absolute imports. Relatief wil zeggen: importeer module1 uit \emph{dezelfde} directory, of ten opzichte van deze directory (`..` betekent een directory hoger bijvoorbeeld). Bij een absolute import moet je de volledige locatie binnen het package opgeven. Als voorbeeld, stel dat `module1` uit \figref{fig:packagetree} de modules `module2` en `module3` wil importeren:
+%   Als je in een module een andere module wilt importeren dan zijn daarvoor twee opties: relatieve en absolute imports. Relatief wil zeggen: importeer module1 uit _dezelfde_ directory, of ten opzichte van deze directory (`..` betekent een directory hoger bijvoorbeeld). Bij een absolute import moet je de volledige locatie binnen het package opgeven. Als voorbeeld, stel dat `module1` uit \figref{fig:packagetree} de modules `module2` en `module3` wil importeren:
 %   ``` py
 %     # module1.py
 
@@ -790,9 +791,9 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 
 ## De Standard Library en de Python Package Index
 
-Voor Python zijn ontzettend veel bibliotheken beschikbaar die het leven een stuk aangenamer maken. Voor een gedeelte daarvan geldt dat ze altijd aanwezig zijn als je Python geïnstalleerd hebt. Deze set vormt de \emph{standard library} \cite{python-standard-library}. Om te voorkomen dat je zelf het wiel uitvindt is het goed om af en toe door de lijst te bladeren zodat je een idee krijgt wat er allemaal beschikbaar is. Ziet het er bruikbaar uit? Lees dan vooral de documentatie! Tip: vergeet de \emph{built-in functions} niet.
+Voor Python zijn ontzettend veel bibliotheken beschikbaar die het leven een stuk aangenamer maken. Voor een gedeelte daarvan geldt dat ze altijd aanwezig zijn als je Python geïnstalleerd hebt. Deze set vormt de _standard library_ \cite{python-standard-library}. Om te voorkomen dat je zelf het wiel uitvindt is het goed om af en toe door de lijst te bladeren zodat je een idee krijgt wat er allemaal beschikbaar is. Ziet het er bruikbaar uit? Lees dan vooral de documentatie! Tip: vergeet de _built-in functions_ niet.
 
-Verder zijn er nog eindeloos veel packages beschikbaar gesteld door programmeurs, van hobbyist tot multinational. Deze kunnen centraal gepubliceerd worden in de \emph{Python Package Index} \cite{pypi}. Je kunt daar vaak ook zien hoe populair een package is. Dit is een belangrijke indicatie voor de kwaliteit en bruikbaarheid van een package.
+Verder zijn er nog eindeloos veel packages beschikbaar gesteld door programmeurs, van hobbyist tot multinational. Deze kunnen centraal gepubliceerd worden in de _Python Package Index_ \cite{pypi}. Je kunt daar vaak ook zien hoe populair een package is. Dit is een belangrijke indicatie voor de kwaliteit en bruikbaarheid van een package.
 
 
 ## Exceptions
@@ -809,7 +810,7 @@ Exceptions zijn de foutmeldingen van Python. Je krijgt ze als je bijvoorbeeld pr
     File "<stdin>", line 1, in <module>
   AttributeError: 'str' object has no attribute 'upler'
 ```
-Merk op dat je een exception met traceback meestal van onder naar boven leest. Onderaan staat de foutmelding (exception) en daar boven een \emph{traceback}: een kruimelpad van wáár in de code het probleem optrad; onderaan de regel waarin het echt fout ging, en naar boven toe alle tussenliggende functies en bibliotheken met bovenaan het hoofdprogramma.
+Merk op dat je een exception met traceback meestal van onder naar boven leest. Onderaan staat de foutmelding (exception) en daar boven een _traceback_: een kruimelpad van wáár in de code het probleem optrad; onderaan de regel waarin het echt fout ging, en naar boven toe alle tussenliggende functies en bibliotheken met bovenaan het hoofdprogramma.
 
 Een exception kan vervelend zijn. Het is een beetje jammer als je bijvoorbeeld tijdens een langdurige meting telkens een weerstand aan het uitrekenen bent ($R = \frac{U}{I}$) en de stroomsterkte $I$ wordt na anderhalf uur heel eventjes nul. Je programma crasht en je metingen zijn weg. Zoek de fout (niet altijd makkelijk!) en probeer het nog eens.
 
