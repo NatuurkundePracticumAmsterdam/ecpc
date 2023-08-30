@@ -44,7 +44,7 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
     Created package easystat in easystat
     ```
     
-    [^geschikte map]: Bijvoorbeeld :fontawesome-regular-folder:`Documents/NSP2/Experimentautomatisering`
+    [^geschikte map]: Bijvoorbeeld {{folder}}`Documents/NSP2/Experimentautomatisering`
     [^src-layout]: We gaan het package opbouwen in de zogenaamde src-layout[@srclayout]
 
 
@@ -62,17 +62,17 @@ Er is nu de volgende structuur aangemaakt:
 
 Allereerst is er een projectmap `easystat` aangemaakt. Je kunt nu in GitHub Desktop deze map toevoegen als nieuwe repository, zoals we gedaan hebben in [opdracht _Repository toevoegen_](github.md#opd:add_repository).
 
-Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaakt. We zien een :fontawesome-regular-file-lines:`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van ons project.[^README]
+Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaakt. We zien een {{file_lines}}`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van ons project.[^README]
 
 [^README]: Wanneer de repository op GitHub wordt geplaatst wordt deze README automatisch op de hoofdpagina van de repository getoond, onder de code.
 
-Daarna is er een map :fontawesome-regular-folder:`tests`. Goede software wordt getest. In deze map komen bestanden te staan die delen van de code runnen en resultaten vergelijken met verwachte resultaten &mdash; zoals je kunt doen in [opdracht _Packages_](voorkennis.md#opd:test_package).[^unittest]
+Daarna is er een map {{folder}}`tests`. Goede software wordt getest. In deze map komen bestanden te staan die delen van de code runnen en resultaten vergelijken met verwachte resultaten &mdash; zoals je kunt doen in [opdracht _Packages_](voorkennis.md#opd:test_package).[^unittest]
 
 [^unittest]: Python heeft een ingebouwde module `#!py unittest` die deze tests kan vinden, kan runnen en daarna een handige weergave geeft van welke tests geslaagd zijn en welke faalden. Ook het package `#!py pytest` is erg bekend. Op deze manier weet je altijd zeker dat wanneer je aanpassingen doet in je code, dat de rest van de code nog steeds is blijven werken &mdash; zónder dat je zelf uitvoerig alles hebt hoeven uitproberen. Je draait gewoon even snel alle tests. Helaas, helaas &mdash; in deze cursus is te weinig tijd om het schrijven van tests te behandelen.
 
-Dan komt de :fontawesome-regular-folder:`src`-map. Daarin komt ons nieuwe package :fontawesome-regular-folder:`easystat`[^projectmap] te staan. Er is alvast voor ons een {{file}}`__init__.py` aangemaakt. Handig!
+Dan komt de {{folder}}`src`-map. Daarin komt ons nieuwe package {{folder}}`easystat`[^projectmap] te staan. Er is alvast voor ons een {{file}}`__init__.py` aangemaakt. Handig!
 
-[^projectmap]: Ja er is een map :fontawesome-regular-folder:`easystat` met daarin een map :fontawesome-regular-folder:`src` met daarin weer een map :fontawesome-regular-folder:`easystat` &mdash; dat kan nog wel eens verwarrend zijn. Het is conventie om de projectmap dezelfde naam te geven als je package. Het pad is dus eigenlijk :fontawesome-regular-folder:`project/src/package` en dat wordt dan, in ons geval, :fontawesome-regular-folder:`easystat/src/easystat`.
+[^projectmap]: Ja er is een map {{folder}}`easystat` met daarin een map {{folder}}`src` met daarin weer een map {{folder}}`easystat` &mdash; dat kan nog wel eens verwarrend zijn. Het is conventie om de projectmap dezelfde naam te geven als je package. Het pad is dus eigenlijk {{folder}}`project/src/package` en dat wordt dan, in ons geval, {{folder}}`easystat/src/easystat`.
 
 En als laatste&hellip; een {{file}}`pyproject.toml`[^setup.py] waarin alle informatie over je project wordt bijgehouden. Ook staat er in dit bestand informatie voor de verschillende tools die je kunt gebruiken. De inhoud van het bestand ziet er ongeveer zo uit:
 ``` toml
@@ -143,7 +143,7 @@ We starten met ons package. Stel, we berekenen vaak de standaarddeviatie van het
 
 Nu willen we de package `easystat` importeren in een ander script zodat we de functie `stdev_of_mean` daar kunnen gebruiken. We maken een script om onze nieuwe code te testen.[^tests]
 
-[^tests]: Niet formeel. Dus hoewel we een script gaan plaatsen in de :fontawesome-regular-folder:`tests`-folder is het hier niet een test die automatisch gerunt kan worden.
+[^tests]: Niet formeel. Dus hoewel we een script gaan plaatsen in de {{folder}}`tests`-folder is het hier niet een test die automatisch gerunt kan worden.
 
 !!! opdracht-basis "Test script aanmaken"
     Maak het bestand {{file}}`tests/try_shortcuts.py`:
@@ -237,7 +237,7 @@ Fijn! Als je nu de {{file}}`pyproject.toml` nog eens bekijkt zie je dat NumPy da
 ### Poetry.lock
 
 ??? meer-leren "Meer leren"
-    Na het toevoegen van Numpy is er ook een bestand :fontawesome-regular-file-lines:`poetry.lock` bijgekomen. Hierin staan de exacte versies van alle geïnstalleerde packages. Vaak wordt dit bestand gecommit zodat collega-ontwikkelaars exact dezelfde versies installeren zodra ze `poetry install` aanroepen. Om dat te proberen maken we even een schone conda environment:
+    Na het toevoegen van Numpy is er ook een bestand {{file_lines}}`poetry.lock` bijgekomen. Hierin staan de exacte versies van alle geïnstalleerde packages. Vaak wordt dit bestand gecommit zodat collega-ontwikkelaars exact dezelfde versies installeren zodra ze `poetry install` aanroepen. Om dat te proberen maken we even een schone conda environment:
 
     !!! opdracht-meer "Schone environment"
 
@@ -252,7 +252,7 @@ Fijn! Als je nu de {{file}}`pyproject.toml` nog eens bekijkt zie je dat NumPy da
     !!! opdracht-meer "Poetry.lock"
 
         1. Installeer de `easystat` package met `poetry`.
-        1. Waarvoor gebruikt Poetry de lock file (:fontawesome-regular-file-lines:`poetry.lock)`?
+        1. Waarvoor gebruikt Poetry de lock file ({{file_lines}}`poetry.lock)`?
         1. Draai {{file}}`tests/try_shortcuts.py` en bekijk de uitkomst.
 
 
@@ -264,7 +264,7 @@ Fijn! Als je nu de {{file}}`pyproject.toml` nog eens bekijkt zie je dat NumPy da
     !!! opdracht-meer "Bouw een wheel"
         
         1. Bouw het wheel van easystat met `poetry build`.
-        1. Bekijk de namen van de bestanden in de nieuwe map :fontawesome-regular-folder:`easystat/dist`, welke extensie hebben ze?
+        1. Bekijk de namen van de bestanden in de nieuwe map {{folder}}`easystat/dist`, welke extensie hebben ze?
         
 
 
@@ -293,7 +293,7 @@ Fijn! Als je nu de {{file}}`pyproject.toml` nog eens bekijkt zie je dat NumPy da
         
     Het werkt! Je ziet dat `pip install` niet alleen ons package `easystat` installeert, maar _ook de dependency_ `numpy`. Dat is precies wat we willen.
     
-    Het is belangrijk om de wheels _niet_ in je GitHub repository te committen. Je repository is voor _broncode_, waarmee wheels gebouwd kunnen worden. Als je de stappen voor het aanmaken van de repository netjes gevolgd hebt dan heb je een :fontawesome-regular-file-lines:`.gitignore` toegevoegd met Python-specifieke bestandsnamen en directories die genegeerd worden door Git en GitHub.
+    Het is belangrijk om de wheels _niet_ in je GitHub repository te committen. Je repository is voor _broncode_, waarmee wheels gebouwd kunnen worden. Als je de stappen voor het aanmaken van de repository netjes gevolgd hebt dan heb je een {{file_lines}}`.gitignore` toegevoegd met Python-specifieke bestandsnamen en directories die genegeerd worden door Git en GitHub.
 
 
 ## Poetry gebruiken voor een bestaand project
@@ -323,8 +323,8 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
     We gaan nu poetry gebruiken om van het script met de knipperende lichtjes uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) een package te maken én om ons environment te beheren. Voer de volgende stappen uit:
     
     1. Maak in GitHub Desktop een _nieuwe_ repository {{github}}`flasher`.
-    1. Maak een map :fontawesome-regular-folder:`src` met daarin een map :fontawesome-regular-folder:`flasher`.
-    1. Kopieer uit de {{github}}`Oefenopdrachten` die je bij [opdracht _Repository toevoegen_](github.md#opd:add_repository) hebt aangemaakt het scriptje uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) naar :fontawesome-regular-folder:`src/flasher`.
+    1. Maak een map {{folder}}`src` met daarin een map {{folder}}`flasher`.
+    1. Kopieer uit de {{github}}`Oefenopdrachten` die je bij [opdracht _Repository toevoegen_](github.md#opd:add_repository) hebt aangemaakt het scriptje uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) naar {{folder}}`src/flasher`.
     1. Open {{github}}`flasher` in Visual Studio Code.
     1. Commit alles dat je tot nu toe gedaan hebt.
     1. Open een terminal. Maak een nieuwe conda environment met alleen python 3.9:
@@ -353,8 +353,8 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
 !!! opdracht-inlever "Pythondaq: package"
     Zet {{github}}`pythondaq` om in een src-structuur, als volgt, en vergeet niet na elke stap te committen:
 
-    1. Maak in {{github}}`pythondaq` een map :fontawesome-regular-folder:`src` met daarin een map :fontawesome-regular-folder:`pythondaq`.
-    1. Zet de model, view, controller scripts in de :fontawesome-regular-folder:`pythondaq` package zodat je onderstaande structuur krijgt:
+    1. Maak in {{github}}`pythondaq` een map {{folder}}`src` met daarin een map {{folder}}`pythondaq`.
+    1. Zet de model, view, controller scripts in de {{folder}}`pythondaq` package zodat je onderstaande structuur krijgt:
 
             pythondaq/
                 src/
@@ -372,7 +372,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
 ??? opdracht-meer "Model, view, controller packages"
     In grotere projecten is het gebruikelijk om model, view, controller niet alleen uit te splitsen in verschillende scripts, maar ook in aparte packages te zetten.
 
-    1. Maak 3 extra packages in de :fontawesome-regular-folder:`pythondaq` package. :fontawesome-regular-folder:`models`, :fontawesome-regular-folder:`views` en :fontawesome-regular-folder:`controllers`.
+    1. Maak 3 extra packages in de {{folder}}`pythondaq` package. {{folder}}`models`, {{folder}}`views` en {{folder}}`controllers`.
     1. Zet de modules in de juiste packages.
     1. Test {{file}}`view.py`. Waarschijnlijk krijg je import errors, los deze op totdat het werkt.
     
@@ -386,7 +386,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
     1. Initialiseer Poetry, zodat een {{file}}`pyproject.toml` wordt aangemaakt.
     1. Installeer je package.
     1. Test je {{file}}`view.py` script, terwijl je dependencies toevoegt die je in je scripts nodig hebt.
-    1. Vergelijkbaar met [opdracht _Packages_](voorkennis.md#opd:test_package) is het verstandig om het importeren van onderdelen van het package te testen voordat we het verder gaan uitbouwen. Maak een :fontawesome-regular-folder:`tests`-map met {{file}}`__init__.py` aan in hoofdmap van de repository zodat je onderstaande structuur krijgt:
+    1. Vergelijkbaar met [opdracht _Packages_](voorkennis.md#opd:test_package) is het verstandig om het importeren van onderdelen van het package te testen voordat we het verder gaan uitbouwen. Maak een {{folder}}`tests`-map met {{file}}`__init__.py` aan in hoofdmap van de repository zodat je onderstaande structuur krijgt:
 
             pythondaq/
                 src/
@@ -475,7 +475,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
     1. Open {{file}}`pyproject.toml` en voeg het kopje `[tool.poetry.scripts]` toe.
     1. Als naam voor het commando kiezen we `count`.
     1. Voor het gemak vullen we de rechterkant van het =-teken van rechts naar links in. Achter de dubbele punt komt de naam van de functie die uitgevoerd moet worden, dat is in ons geval `main`.
-    1. De functie `main` staat in module {{file}}`count_count.py`. De module hebben we ondergebracht in de package :fontawesome-regular-folder:`just_count`.
+    1. De functie `main` staat in module {{file}}`count_count.py`. De module hebben we ondergebracht in de package {{folder}}`just_count`.
             ``` toml
             [tool.poetry.scripts]
             count = "just_count.count_count:main"
@@ -487,7 +487,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
 !!! opdracht-basis "Commando testen"
 
     1. Type in de terminal het commando `count`.
-    1. Je krijgt nu een `ModuleNotFoundError` voor de module square. Poetry zoekt vanuit de :fontawesome-regular-folder:`src`-map naar de packages en modules. Pas het importstatement in {{file}}`count_count.py` aan zodat het count commando werkt.   
+    1. Je krijgt nu een `ModuleNotFoundError` voor de module square. Poetry zoekt vanuit de {{folder}}`src`-map naar de packages en modules. Pas het importstatement in {{file}}`count_count.py` aan zodat het count commando werkt.   
     1. Activeer een andere conda environment en probeer meteen het commando opnieuw; waarom werkt dit niet?
     1. Navigeer naar de bovenliggende map met `cd..`. Zorg dat het conda environment waar je `just_count` hebt geïnstalleerd is geactiveerd en test het commando. 
 

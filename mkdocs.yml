@@ -68,4 +68,6 @@ nav:
 
 extra:
     file: ':fontawesome-regular-file-code:'
+    file_lines: ':fontawesome-regular-file-lines:'
+    folder: ':fontawesome-regular-folder:'
     github: ':fontawesome-brands-github:'

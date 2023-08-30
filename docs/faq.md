@@ -31,7 +31,7 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
     En zo verder.
 
-Bestand: :fontawesome-regular-file-lines:`docs/index.md` en ook {{file}}`pythondaq/models/diode.py`. Die vind je ook in de repository {{github}}`davidfokkema/tailor`. Folder: :fontawesome-regular-folder:`Oefenopdrachten`.
+Bestand: {{file_lines}}:`docs/index.md` en ook {{file}}`pythondaq/models/diode.py`. Die vind je ook in de repository {{github}}`davidfokkema/tailor`. Folder: {{folder}}`Oefenopdrachten`.
 
 Eenheden: 220 &Omega; m/s of ms^-1^ of $220\,ms^{-1}$ en $220\,\Omega$. **We doen het eerste!!**
 

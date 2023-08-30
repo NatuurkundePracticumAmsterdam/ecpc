@@ -234,7 +234,7 @@ Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog ma
 !!! opdracht-basis "Designer gebruiken"
 
     1. Open Designer en kies bij **templates/forms** voor `#!py MainWindow`. Klik dan op **Create**. Ontwerp de user interface uit [fig:screenshot-ui-prog](#fig:screenshot-ui-prog) en gebruik dezelfde namen voor de widgets als het voorbeeld in [sec:ui-prog](#de-interface-programmeren). Dus een `#!py add_button` knop, een `#!py clear_button` knop en een `#!py textedit` tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.
-    1. Bewaar het bestand als :fontawesome-regular-file-lines:`simple_app.ui`.
+    1. Bewaar het bestand als {{file_lines}}`simple_app.ui`.
     1. In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan[^overleg-navigeren] en type in:
             ``` ps1 title="Terminal"
             pyside6-uic simple_app.ui -o ui_simple_app.py  
@@ -367,7 +367,7 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
         poetry add --group dev poethepoet
         ```
         We geven hiermee aan dat we dit package nodig hebben voor de ontwikkeling van onze applicatie, maar dat deze niet meegeleverd hoeft te worden als we de applicatie gaan delen met anderen.
-    1. Voeg aan je {{file}}`pyproject.toml` het volgende toe &mdash; uitgaande van de mappenstructuur in de `pythondaq` package en :fontawesome-regular-file-lines:`mainwindow.ui` als naam van je `.ui`-bestand:
+    1. Voeg aan je {{file}}`pyproject.toml` het volgende toe &mdash; uitgaande van de mappenstructuur in de `pythondaq` package en {{file_lines}}`mainwindow.ui` als naam van je `.ui`-bestand:
         ``` toml
         [tool.poe.tasks.compile]
         shell = """

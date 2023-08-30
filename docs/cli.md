@@ -302,7 +302,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
     1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam {{github}}`smallangle`.
     1. Let op de Octocat {{github}} voor {{github}}`smallangle`, het moet dus een repository zijn (of worden). 
     1. Maak een nieuw environment die `smallangle` heet met daarin alleen Python.
-    1. Zet in de package :fontawesome-regular-folder:`smallangle` een module {{file}}`smallangle.py`.
+    1. Zet in de package {{folder}}`smallangle` een module {{file}}`smallangle.py`.
     1. Plak de onderstaande code in {{file}}`smallangle.py`:
         ``` py
         import numpy as np
