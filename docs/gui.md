@@ -42,12 +42,12 @@ Eerst importeren we een paar bibliotheken. Het draait uiteindelijk om de `#!py U
 
 [^sys-argv-Qt]: Die kun je eventuele command-line arguments meegeven die door Python in `#!py sys.argv` bewaard worden. Meestal zijn die leeg, maar we geven ze gewoon door aan Qt.
 
-Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn strikt genomen niet noodzakelijk, maar wel _good practice_. Ook het schrijven van een `#!py main()` functie is niet strikt noodzakelijk, maar het maakt het wel makkelijk om straks een zogeheten _entry point_ te hebben als we weer een applicatie willen schrijven. In de :fontawesome-regular-file-code:`pyproject.toml` geven we dan aan dat we de `#!py main()` functie willen aanroepen. Dat komt later.
+Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn strikt genomen niet noodzakelijk, maar wel _good practice_. Ook het schrijven van een `#!py main()` functie is niet strikt noodzakelijk, maar het maakt het wel makkelijk om straks een zogeheten _entry point_ te hebben als we weer een applicatie willen schrijven. In de {{file}}`pyproject.toml` geven we dan aan dat we de `#!py main()` functie willen aanroepen. Dat komt later.
 
 <div id="opd:minimal-gui"></div>
 !!! opdracht-basis "Voorbeeld gui"
 
-    1. Maak een nieuw bestand :fontawesome-regular-file-code:`example-gui.py`.
+    1. Maak een nieuw bestand {{file}}`example-gui.py`.
     1. Neem de pythoncode van de minimale Qt-applicatie over en test het in de `test-qt` conda environment.
     
 
@@ -128,9 +128,9 @@ In de volgende opdrachten ga je zelf de hele applicatie opbouwen, zodat je preci
 
 !!! opdracht-basis "Parent class initialiseren"
 
-    1. Breid het script :fontawesome-regular-file-code:`example-gui.py` van [opd:minimal-gui](#opd:minimal-gui) uit met een `#!py __init__`-method.
+    1. Breid het script {{file}}`example-gui.py` van [opd:minimal-gui](#opd:minimal-gui) uit met een `#!py __init__`-method.
     1. Zorg dat de parent class volledig geïnitialiseerd wordt.
-    1. Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt.
+    1. Test of {{file}}`example-gui.py` nog steeds werkt.
     
 
 
@@ -138,9 +138,9 @@ Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets 
 
 !!! opdracht-basis "Central widget toevoegen"
 
-    1. Breid :fontawesome-regular-file-code:`example-gui.py` uit met een centrale widget.
+    1. Breid {{file}}`example-gui.py` uit met een centrale widget.
     1. Geef aan dat dit het centrale widget gaat zijn (regels 11--12, [fig:layout-centerwidget](#fig:layout-centerwidget)).
-    1. Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt.
+    1. Test of {{file}}`example-gui.py` nog steeds werkt.
 
 
 
@@ -148,10 +148,10 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
 
 !!! opdracht-basis "Verticale layout toevoegen"
 
-    1. Breid :fontawesome-regular-file-code:`example-gui.py` uit met een verticale layout (regel 15, [fig:layout-vbox](#fig:layout-vbox)).
+    1. Breid {{file}}`example-gui.py` uit met een verticale layout (regel 15, [fig:layout-vbox](#fig:layout-vbox)).
     1. Maak een textbox (regel 16)
     1. Voeg de textbox toe aan de verticale layout (regel 17)
-    1. Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt en of je tekst kan schrijven in de textbox.
+    1. Test of {{file}}`example-gui.py` nog steeds werkt en of je tekst kan schrijven in de textbox.
     
 
 
@@ -159,11 +159,11 @@ De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we 
 
 !!! opdracht-basis "Horizontale layout toevoegen"
 
-    1. Breid :fontawesome-regular-file-code:`example-gui.py` uit met een horizontale layout (regel 18).
+    1. Breid {{file}}`example-gui.py` uit met een horizontale layout (regel 18).
     1. Voeg de horizontale layout toe aan de verticale layout (regel 19, [fig:layout-text-hbox](#fig:layout-text-hbox)).
     1. Maak een clear button en voeg deze toe aan de horizontale layout (regel 21,22).
     1. Maak ook een add button en voeg deze toe aan de horizontale layout (regel 23,24).
-    1. Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt. [^knop-stuk]
+    1. Test of {{file}}`example-gui.py` nog steeds werkt. [^knop-stuk]
 
 [^knop-stuk]: Waarom doen de knoppen niets als je er op klikt?
 
@@ -179,10 +179,10 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
 
 !!! opdracht-basis "Slots en signals toevoegen"
 
-    1. Breid :fontawesome-regular-file-code:`example-gui.py` uit met slots en signals.
+    1. Breid {{file}}`example-gui.py` uit met slots en signals.
     1. Verbind de `Clear`-knop met de clear functie (regel 27).
     1. Definieer een `#!py add_button_clicked()` functie (regel 30--32) en verbind deze aan de `Add text`-knop (regel 28).
-    1. Test of :fontawesome-regular-file-code:`example-gui.py` nog steeds werkt en of de knoppen doen wat je verwacht.
+    1. Test of {{file}}`example-gui.py` nog steeds werkt en of de knoppen doen wat je verwacht.
     
 
 
@@ -193,7 +193,7 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 
 
 !!! opdracht-basis "Hello world-knop toevoegen"
-    Probeer het volgende in :fontawesome-regular-file-code:`example-gui.py`:
+    Probeer het volgende in {{file}}`example-gui.py`:
 
     1. Voeg een derde knop `Hello, world` toe die de tekst _Hello, world_ toevoegt aan het venster.
     1. Zet een hekje voor de `#!py super()`-aanroep of haal de regel weg. Wat gebeurt er als je de code opstart? (Zet de regel weer terug!)
@@ -367,7 +367,7 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
         poetry add --group dev poethepoet
         ```
         We geven hiermee aan dat we dit package nodig hebben voor de ontwikkeling van onze applicatie, maar dat deze niet meegeleverd hoeft te worden als we de applicatie gaan delen met anderen.
-    1. Voeg aan je :fontawesome-regular-file-code:`pyproject.toml` het volgende toe &mdash; uitgaande van de mappenstructuur in de `pythondaq` package en :fontawesome-regular-file-lines:`mainwindow.ui` als naam van je `.ui`-bestand:
+    1. Voeg aan je {{file}}`pyproject.toml` het volgende toe &mdash; uitgaande van de mappenstructuur in de `pythondaq` package en :fontawesome-regular-file-lines:`mainwindow.ui` als naam van je `.ui`-bestand:
         ``` toml
         [tool.poe.tasks.compile]
         shell = """
@@ -426,7 +426,7 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
 !!! opdracht-inlever "Pythondaq: app"
     Het is weer mogelijk om van het script een applicatie te maken die je aan kunt roepen vanaf de command-line. Daar moeten we het volgende voor doen:
 
-    1. Voeg een nieuw item toe voor je applicatie in de sectie `[tool.poetry.scripts]` in de :fontawesome-regular-file-code:`pyproject.toml` zoals je dat ook gedaan hebt voor je command-line applicatie.
+    1. Voeg een nieuw item toe voor je applicatie in de sectie `[tool.poetry.scripts]` in de {{file}}`pyproject.toml` zoals je dat ook gedaan hebt voor je command-line applicatie.
     1. Installeer je package opnieuw met:
         ``` ps1
         poetry install
@@ -558,14 +558,14 @@ Threads geven vaak problemen omdat ze in zekere zin onvoorspelbaar zijn. Je weet
             return x, y
     ```
 
-In regels 15--24 bouwen we een kleine user interface op met een plot widget en een startknop. We koppelen die knop aan de `#!py plot()`-method. In regel 27 maken we ons experiment (het model) aan en bewaren die. In regels 30--34 maken we de plot schoon, voeren we een scan uit en plotten het resultaat. :fontawesome-regular-file-code:`model.py` vormt ons experiment. Eerst wordt een rij $x$-waardes klaargezet en dan, in een loop, wordt punt voor punt de sinus uitgerekend en toegevoegd aan een lijst met $y$-waardes. De `#!py time.sleep(.1)` wacht steeds 0.1 s en zorgt hiermee voor de simulatie van _trage_ metingen. En inderdaad, als we deze code draaien dan moeten we zo'n vijf seconden wachten voordat de plot verschijnt.
+In regels 15--24 bouwen we een kleine user interface op met een plot widget en een startknop. We koppelen die knop aan de `#!py plot()`-method. In regel 27 maken we ons experiment (het model) aan en bewaren die. In regels 30--34 maken we de plot schoon, voeren we een scan uit en plotten het resultaat. {{file}}`model.py` vormt ons experiment. Eerst wordt een rij $x$-waardes klaargezet en dan, in een loop, wordt punt voor punt de sinus uitgerekend en toegevoegd aan een lijst met $y$-waardes. De `#!py time.sleep(.1)` wacht steeds 0.1 s en zorgt hiermee voor de simulatie van _trage_ metingen. En inderdaad, als we deze code draaien dan moeten we zo'n vijf seconden wachten voordat de plot verschijnt.
 
 In de volgende opdrachten gaan we de code stap voor stap ombouwen naar threads. Als we daarmee klaar zijn worden de metingen gedaan binnen de `#!py scan()`-method van de `#!py Experiment()`-class en verversen we ondertussen af en toe de plot. De `#!py plot()`-method van onze user interface wordt regelmatig aangeroepen terwijl de meting nog loopt en moet dus de hele tijd de huidige metingen uit kunnen lezen. Dat kan, als de metingen worden bewaard in _instance attributes_.[^instance-attributes]
 
 [^instance-attributes]: Variabelen die we in een class definiëren door ze aan te maken met `#!py self.` ervoor zijn _instance attributes_.
 
 !!! opdracht-basis "Threads 0"
-    Neem :fontawesome-regular-file-code:`view.py` en :fontawesome-regular-file-code:`model.py` over en test de applicatie.
+    Neem {{file}}`view.py` en {{file}}`model.py` over en test de applicatie.
 
 
 ### Stap 1: de meetgegevens altijd beschikbaar maken

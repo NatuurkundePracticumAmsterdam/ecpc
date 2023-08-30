@@ -103,7 +103,7 @@ PS> python hello.py --help
 ```
 <div id="opd:hello-help"></div>
 !!! opdracht-basis "Help functie"
-    Neem het script :fontawesome-regular-file-code:`hello.py` over en vraag de helpfunctie op. Test dit met én zonder `#!py @click.command()`.
+    Neem het script {{file}}`hello.py` over en vraag de helpfunctie op. Test dit met én zonder `#!py @click.command()`.
 
 
 !!! opdracht-basis "Argument toevoegen"
@@ -123,8 +123,8 @@ PS> python hello.py --help
             if __name__ == "__main__":
                 hello()
             ```
-    1. Draai :fontawesome-regular-file-code:`hello.py` eerst zonder een argument `python hello.py` en bekijk de foutmelding.
-    1. Draai :fontawesome-regular-file-code:`hello.py` nu met een argument: `python hello.py Alice`.
+    1. Draai {{file}}`hello.py` eerst zonder een argument `python hello.py` en bekijk de foutmelding.
+    1. Draai {{file}}`hello.py` nu met een argument: `python hello.py Alice`.
     
 
 
@@ -155,7 +155,7 @@ if __name__ == "__main__":
 ```
 
 !!! opdracht-basis "Test hello"
-    Neem bovenstaande pythoncode over en test :fontawesome-regular-file-code:`hello.py`. Kun je 5 keer een begroeting printen met de naam van je assistent?
+    Neem bovenstaande pythoncode over en test {{file}}`hello.py`. Kun je 5 keer een begroeting printen met de naam van je assistent?
 
 
 !!! warning
@@ -265,7 +265,7 @@ def remove(package):
 if __name__ == "__main__":
     cmd_group()
 ```
-In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeurig `#!py cmd_group()` genoemd hebben en die we bovenaan definiëren. In tegenstelling tot het :fontawesome-regular-file-code:`hello.py`-script doet deze functie helemaal niets (`#!py pass`). We vertellen aan click dat we een groep van commando's aan gaan maken met de `#!py @click.group()`-decorator in regel 3. Vervolgens gaan we commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` &mdash; zie regels 7 en 12. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 7 en 9 maken samen het commando `install`. Verder werkt alles hetzelfde. Dus een argument toevoegen &mdash; zoals in regel 8 &mdash; is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
+In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeurig `#!py cmd_group()` genoemd hebben en die we bovenaan definiëren. In tegenstelling tot het {{file}}`hello.py`-script doet deze functie helemaal niets (`#!py pass`). We vertellen aan click dat we een groep van commando's aan gaan maken met de `#!py @click.group()`-decorator in regel 3. Vervolgens gaan we commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` &mdash; zie regels 7 en 12. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 7 en 9 maken samen het commando `install`. Verder werkt alles hetzelfde. Dus een argument toevoegen &mdash; zoals in regel 8 &mdash; is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
 
 <div id="warn:cmd_name"></div>
 !!! warning
@@ -285,7 +285,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
     ``` ps1 title="Terminal"
     poetry new --src conda
     ```
-    1. Voeg het bestand :fontawesome-regular-file-code:`fakeconda.py` toe. 
+    1. Voeg het bestand {{file}}`fakeconda.py` toe. 
     
     1. Overleg met elkaar[^poetry-script] en zorg dat de volgende uitvoer mogelijk wordt:
     ``` ps1con title="Terminal"
@@ -302,8 +302,8 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
     1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam :fontawesome-brands-github:`smallangle`.
     1. Let op de Octocat :fontawesome-brands-github: voor :fontawesome-brands-github:`smallangle`, het moet dus een repository zijn (of worden). 
     1. Maak een nieuw environment die `smallangle` heet met daarin alleen Python.
-    1. Zet in de package :fontawesome-regular-folder:`smallangle` een module :fontawesome-regular-file-code:`smallangle.py`.
-    1. Plak de onderstaande code in :fontawesome-regular-file-code:`smallangle.py`:
+    1. Zet in de package :fontawesome-regular-folder:`smallangle` een module {{file}}`smallangle.py`.
+    1. Plak de onderstaande code in {{file}}`smallangle.py`:
         ``` py
         import numpy as np
         from numpy import pi
@@ -332,11 +332,11 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 
 <div id="opd:smallangle"></div>
 !!! opdracht-inlever "smallangle"
-    Het project :fontawesome-brands-github:`smallangle` wordt met Poetry beheerd. Je gaat click aan de module :fontawesome-regular-file-code:`smallangle.py` toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.
+    Het project :fontawesome-brands-github:`smallangle` wordt met Poetry beheerd. Je gaat click aan de module {{file}}`smallangle.py` toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.
 
     1. Ga naar GitHub en open :fontawesome-brands-github:`AnneliesVlaar / smallangle` in GitHub Desktop en Visual Studio Code.
     1. Installeer de package in een nieuw environment.
-    1. Run het script :fontawesome-regular-file-code:`smallangle.py` en los de errors op totdat het werkt.
+    1. Run het script {{file}}`smallangle.py` en los de errors op totdat het werkt.
     1. Voeg click toe zodat je de subcommando's `sin` en `tan` hebt. Het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) moet gekozen kunnen worden met een optie (geef een standaardwaarde mee, zodat de gebruiker de optie kan weglaten).
 
     ??? info "TypeError: 'int' object is not iterable"
@@ -506,7 +506,7 @@ Options:
 ```
 
 !!! opdracht-inlever "Smallangle: docstring"
-    Voorzie de functies in :fontawesome-regular-file-code:`smallangle.py` die je gemaakt hebt bij [opd:smallangle](#opd:smallangle) volledig van docstrings, zodat `smallangle --help` zinvolle informatie geeft.[^split-docstring]
+    Voorzie de functies in {{file}}`smallangle.py` die je gemaakt hebt bij [opd:smallangle](#opd:smallangle) volledig van docstrings, zodat `smallangle --help` zinvolle informatie geeft.[^split-docstring]
 
 [^split-docstring]: Als de docstring zeer uitgebreid wordt met meerdere argumenten dan wordt de helptekst van click onoverzichtelijk. Als je wilt dat alleen de korte samenvatting in de help verschijnt, zet dan na de korte samenvatting: `#!py \f`.
 
@@ -529,11 +529,11 @@ Options:
 
 ## Command-line interface voor ons experiment
 
-In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals :fontawesome-regular-file-code:`view.py`, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand :fontawesome-regular-file-code:`cli.py` aanmaken en dat langzaam opbouwen.
+In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals {{file}}`view.py`, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand {{file}}`cli.py` aanmaken en dat langzaam opbouwen.
 
 !!! opdracht-inlever "Pythondaq: commando's"
 
-    1. Maak een nieuw bestand :fontawesome-regular-file-code:`src/pythondaq/cli.py`.
+    1. Maak een nieuw bestand {{file}}`src/pythondaq/cli.py`.
     1. Maak een `#!py @click.group()` aan en voeg de subcommando's `list` en `scan` daaraan toe. Laat de commando's voorlopig alleen tekst printen. Merk op dat `#!py list()` een Pythonfunctie is.[^cmd_name]
     1. Zorg dat je de command-line applicatie met een commando in de terminal kunt aanroepen, inclusief de subcommando's `list` en `scan`.
     

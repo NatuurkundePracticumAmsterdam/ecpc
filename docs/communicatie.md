@@ -189,7 +189,7 @@ print(device.query("*IDN?"))
 
 <div id="opd:test_arduino"></div>
 !!! opdracht-basis "Pyvisa in pythonscript"
-    Maak in een geschikte map een bestand :fontawesome-regular-file-code:`test_arduino.py` en kopieer daarin bovenstaande code. Selecteer vervolgens in Visual Studio Code je conda environment zodat je het script ook daadwerkelijk kunt runnen. Hoe je dat doet lees je aan het eind van [Conda environments](software-tools.md#conda-environments). Sluit alle terminals.
+    Maak in een geschikte map een bestand {{file}}`test_arduino.py` en kopieer daarin bovenstaande code. Selecteer vervolgens in Visual Studio Code je conda environment zodat je het script ook daadwerkelijk kunt runnen. Hoe je dat doet lees je aan het eind van [Conda environments](software-tools.md#conda-environments). Sluit alle terminals.
 
 
 Draaien we het script, dan zien we, afhankelijk van het systeem en het aantal apparaten dat verbonden is:
@@ -222,7 +222,7 @@ Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een 
 
 <div id="opd:knipperled"></div>
 !!! opdracht-basis "KnipperLED"
-    Je kunt de LED ook andere dingen laten doen. Maak een bestand :fontawesome-regular-file-code:`knipperLED.py` en maak een van de onderstaande opdrachten:
+    Je kunt de LED ook andere dingen laten doen. Maak een bestand {{file}}`knipperLED.py` en maak een van de onderstaande opdrachten:
 
     * Laat de LED in een regelmatig tempo knipperen.
     * Maak een _breathing light_ &mdash; een lamp die langzaam aan en uit gaat gevolgd door een pauze in het tempo dat iemand in- en uitademt.

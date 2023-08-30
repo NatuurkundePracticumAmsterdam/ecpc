@@ -163,7 +163,7 @@ hebben we nu
 ``` py
 cart.add_to_cart("Eon by Greg Bear")
 ```
-en dat is even lang. Het grote voordeel ontstaat pas wanneer de class ingewikkelder wordt en meer data gaat bewaren. Ook kun je de class in een ander pythonbestand (bijvoorbeeld :fontawesome-regular-file-code:`my_webshop_backend.py` zetten en alle functionaliteit in één keer importeren met:
+en dat is even lang. Het grote voordeel ontstaat pas wanneer de class ingewikkelder wordt en meer data gaat bewaren. Ook kun je de class in een ander pythonbestand (bijvoorbeeld {{file}}`my_webshop_backend.py` zetten en alle functionaliteit in één keer importeren met:
 ``` py
 from my_webshop_backend import Cart
 
@@ -290,7 +290,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
     1. Volgens het schema praat alleen het model met de controller. De class `#!py DiodeExperiment` &mdash; het model &mdash; is dus degene die de class `#!py ArduinoVISADevice` &mdash; de controller &mdash; moet aanroepen en bewaren. Hoe doe je dat netjes? Overleg met elkaar.
     1. Het kan (later) handig zijn om niet altijd te scannen tussen 0 en 1023 maar een ander bereik te kiezen. Pas de `#!py scan()` method aan zodat deze `start`- en `stop`-parameters accepteert.
     1. Knip de class eruit en plaats die in het bestand `#!py diode_experiment.py` en gebruik weer een import-statement. Haal import-statements die je niet meer nodig hebt weg.
-    1. Hernoem het overgebleven script naar :fontawesome-regular-file-code:`view.py`.
+    1. Hernoem het overgebleven script naar {{file}}`view.py`.
     
 
 

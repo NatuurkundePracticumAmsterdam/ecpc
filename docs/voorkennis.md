@@ -638,7 +638,7 @@ Eenvoudig gezegd is een module een stuk Python code dat je kunt importeren en ge
 ```
 Door de `#!py math` module te importeren hebben we opeens de beschikking over het getal $\pi$ en de sinus- en wortelfunties.
 
-Je kunt je eigen code ook importeren, maar hier moet je wel even opletten. Stel, we hebben een bestand :fontawesome-regular-file-code:square.py:
+Je kunt je eigen code ook importeren, maar hier moet je wel even opletten. Stel, we hebben een bestand {{file}}square.py:
 ``` py title="square.py"
 def square(x):
     return x ** 2
@@ -650,7 +650,7 @@ Als je deze code runt is de uitvoer:
 ``` ps1 title="Terminal"
   The square of 4 is 16
 ```
-Zoals verwacht! Maar nu willen we in een nieuw script, :fontawesome-regular-file-code:count\_count.py, de functie importeren en gebruiken:
+Zoals verwacht! Maar nu willen we in een nieuw script, {{file}}count\_count.py, de functie importeren en gebruiken:
 ``` py title="count_count.py"
   import square
 
@@ -664,12 +664,12 @@ Maar nu is er een probleem met de uitvoer van dit script:
   The square of 4 is 16
   The square of 5 is 25
 ```
-Tijdens het importeren wordt alle code die aanwezig is in :fontawesome-regular-file-code:square.py ook daadwerkelijk gerunt. Er zijn twee manieren om dit op te lossen:
+Tijdens het importeren wordt alle code die aanwezig is in {{file}}square.py ook daadwerkelijk gerunt. Er zijn twee manieren om dit op te lossen:
 
-  1. Alle `extra' code verwijderen uit de module (:fontawesome-regular-file-code:square.py)
+  1. Alle `extra' code verwijderen uit de module ({{file}}square.py)
   1. De code in de module \emph{alleen} laten runnen als de module als script wordt aangeroepen, maar \emph{niet} wanneer de module wordt geïmporteerd
 
-De tweede oplossing kan van pas komen. Je past dan :fontawesome-regular-file-code:square.py als volgt aan:
+De tweede oplossing kan van pas komen. Je past dan {{file}}square.py als volgt aan:
 ``` py
   # square.py
   def square(x):
@@ -704,7 +704,7 @@ In Python zijn \emph{packages} collecties van modules. Ook krijg je automatisch 
 ```
 In bovenstaande code zijn `#!py numpy` en `#!py scipy` afzonderlijke namespaces. Ook zijn `#!py numpy.test` en `#!py scipy.test` afzonderlijke namespaces. De namen van bijvoorbeeld variabelen en functies binnen die modules zullen nooit met elkaar in conflict komen.
 
-Wij gaan in deze cursus onze code ook in packages stoppen. Op die manier kun je een softwarebibliotheek opbouwen voor je experiment en die code makkelijker delen met andere onderzoekers. Een pakket is opgebouwd zoals weergegeven in \figref{fig:packagetree}: iedere package bestaat uit een directory met een :fontawesome-regular-file-code:\_\_init\_\_.py-bestand.\footnote{Dat bestand is vaak leeg, maar kan code bevatten die gerunt wordt zodra het package wordt geïmporteerd.}
+Wij gaan in deze cursus onze code ook in packages stoppen. Op die manier kun je een softwarebibliotheek opbouwen voor je experiment en die code makkelijker delen met andere onderzoekers. Een pakket is opgebouwd zoals weergegeven in \figref{fig:packagetree}: iedere package bestaat uit een directory met een {{file}}\_\_init\_\_.py-bestand.\footnote{Dat bestand is vaak leeg, maar kan code bevatten die gerunt wordt zodra het package wordt geïmporteerd.}
 \begin{figure}
   % \centering
   \quad
@@ -712,17 +712,17 @@ Wij gaan in deze cursus onze code ook in packages stoppen. Op die manier kun je 
     for tree={grow'=0,folder,font=\ttfamily}
     [\githubrepo{my\_project\_folder}
       [\folderpath{my\_pkg}
-        [:fontawesome-regular-file-code:\_\_init\_\_.py]
+        [{{file}}\_\_init\_\_.py]
         [\folderpath{pkg1}
-          [:fontawesome-regular-file-code:\_\_init\_\_.py]
-          [:fontawesome-regular-file-code:module1.py]
-          [:fontawesome-regular-file-code:module2.py]
+          [{{file}}\_\_init\_\_.py]
+          [{{file}}module1.py]
+          [{{file}}module2.py]
         ]
         [\folderpath{pkg2}
-          [:fontawesome-regular-file-code:\_\_init\_\_.py]
-          [:fontawesome-regular-file-code:module3.py]
+          [{{file}}\_\_init\_\_.py]
+          [{{file}}module3.py]
         ]
-        [:fontawesome-regular-file-code:module4.py]
+        [{{file}}module4.py]
       ]
     ]
   \end{forest}
@@ -744,10 +744,10 @@ De verschillende modules uit \figref{fig:packagetree} kun je als volgt importere
   m4.some_func()
 ```
 
-In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script dus alleen maar in een map te stoppen en in diezelfde map een lege :fontawesome-regular-file-code:\_\_init\_\_.py aan te maken.
+In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script dus alleen maar in een map te stoppen en in diezelfde map een lege {{file}}\_\_init\_\_.py aan te maken.
 
 \begin{warning}
-  Let op: als je de :fontawesome-regular-file-code:\_\_init\_\_.py vergeet dan lijkt alles het alsnog te doen. Maar je maakt nu een \emph{implicit namespace package} waarbij bepaalde directories toch weer op een grote hoop gegooid worden. Geloof me, echt niet handig.\footnote{En wat mij betreft: een fout dat zoiets überhaupt kan in Python. Zen of Python: \emph{explicit is better than implicit.}} Namespace packages kunnen handig zijn voor grote projecten, maar dat is het dan ook wel. Wij gaan hier niet verder op in. Kortom: let op en gebruik \emph{altijd} een :fontawesome-regular-file-code:\_\_init\_\_.py.
+  Let op: als je de {{file}}\_\_init\_\_.py vergeet dan lijkt alles het alsnog te doen. Maar je maakt nu een \emph{implicit namespace package} waarbij bepaalde directories toch weer op een grote hoop gegooid worden. Geloof me, echt niet handig.\footnote{En wat mij betreft: een fout dat zoiets überhaupt kan in Python. Zen of Python: \emph{explicit is better than implicit.}} Namespace packages kunnen handig zijn voor grote projecten, maar dat is het dan ook wel. Wij gaan hier niet verder op in. Kortom: let op en gebruik \emph{altijd} een {{file}}\_\_init\_\_.py.
 \end{warning}
 
 % \begin{info}
