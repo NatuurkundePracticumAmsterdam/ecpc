@@ -522,7 +522,6 @@ Het keyword `#!py pass` doet niets overigens. Met alleen dit statement heeft de 
 
 
 ## Decorators
-\label{sec:decorators}
 
 Functies zijn ook objecten in Python. Je kunt ze, zoals we eerder gezien hebben, meegeven als argument of bewaren in een dictionary. Ook kun je functies in functies definiëren en functies definiëren die functies teruggeven. Vaag\footnote{Calmcode doet een goeie poging om dit rustig uit te leggen, kijk daarvoor op \url{https://calmcode.io/decorators/functions.html}}. Ik moet hier altijd weer even over nadenken en daarom mag je dit stukje overslaan. Om decorators te \emph{gebruiken}, hoef je niet per se te weten hoe ze \emph{werken}.
 % Met decorators kan je functionaliteit aan een functie toevoegen. 

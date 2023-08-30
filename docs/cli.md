@@ -72,7 +72,7 @@ else:
 Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de _standard library_. Een hele handige &mdash; die níet in de _standard library_ zit maar wél meegeleverd is met Anaconda &mdash; is Click.[@click]
 
 !!! info
-    Click maakt gebruik van _decorators_ (`#!py @decorator`). Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_. Als je meer wilt weten over de werking ervan lees dan [sec:decorators](sec:decorators).
+    Click maakt gebruik van _decorators_ (`#!py @decorator`). Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_. Als je meer wilt weten over de werking ervan lees dan [sec:decorators](voorkennis.md#decorators).
 
 Als kort voorbeeld &mdash; geïnspireerd op de documentatie van Click &mdash; nemen we het volgende script:
 ``` py title="hello.py"
@@ -184,7 +184,7 @@ if __name__ == "__main__":
 ```
 
 !!! opdracht-basis "Helptekst toevoegen"
-    Voeg de helptekst toe en vraag de helptekst op zoals in [opd:hello-help](cli.md#opd:hello-help).
+    Voeg de helptekst toe en vraag de helptekst op zoals in [opd:hello-help](#opd:hello-help).
 
 
 Als je dit script gebruikt ziet dat er zo uit:
@@ -327,7 +327,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
         if __name__ == "__main__":
             sin(10)
         ```
-    1. Ga door naar [opd:smallangle](opd:smallangle) stap 2. Je mag stap 1 overslaan &mdash; dat werk heb je nu zelf al gedaan.
+    1. Ga door naar [opd:smallangle](#opd:smallangle) stap 2. Je mag stap 1 overslaan &mdash; dat werk heb je nu zelf al gedaan.
     
 
 <div id="opd:smallangle"></div>
@@ -506,7 +506,7 @@ Options:
 ```
 
 !!! opdracht-inlever "Smallangle: docstring"
-    Voorzie de functies in :fontawesome-regular-file-code:`smallangle.py` die je gemaakt hebt bij [opd:smallangle](opd:smallangle) volledig van docstrings, zodat `smallangle --help` zinvolle informatie geeft.[^split-docstring]
+    Voorzie de functies in :fontawesome-regular-file-code:`smallangle.py` die je gemaakt hebt bij [opd:smallangle](#opd:smallangle) volledig van docstrings, zodat `smallangle --help` zinvolle informatie geeft.[^split-docstring]
 
 [^split-docstring]: Als de docstring zeer uitgebreid wordt met meerdere argumenten dan wordt de helptekst van click onoverzichtelijk. Als je wilt dat alleen de korte samenvatting in de help verschijnt, zet dan na de korte samenvatting: `#!py \f`.
 
@@ -537,7 +537,7 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
     1. Maak een `#!py @click.group()` aan en voeg de subcommando's `list` en `scan` daaraan toe. Laat de commando's voorlopig alleen tekst printen. Merk op dat `#!py list()` een Pythonfunctie is.[^cmd_name]
     1. Zorg dat je de command-line applicatie met een commando in de terminal kunt aanroepen, inclusief de subcommando's `list` en `scan`.
     
-[^cmd_name]: Zie ook de waarschuwing op [warn:cmd_name](warn:cmd_name)
+[^cmd_name]: Zie ook de waarschuwing op [warn:cmd_name](#warn:cmd_name)
 
 
 ### Het uitvoeren van een meetserie
@@ -601,7 +601,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 Op dit punt hebben we de functionaliteit van ons snelle script van het vorige hoofdstuk bereikt. Dit was veel meer werk, maar het is veel flexibeler. Als je wilt meten met een andere Arduino, een ander bereik, of een andere stapgrootte dan type je gewoon een iets ander commando in de terminal. Je hoeft geen scripts meer aan te passen. Als je na een tijdje niet meer precies weet hoe het ook alweer werkte allemaal kun je dat snel weer oppakken door `--help` aan te roepen.
 
 !!! opdracht-basis "Alle subcommando's implementeren"
-    Kijk nog eens terug naar het lijstje subcommando's die je in [opd:subcommandos](opd:subcommandos) hebt opgeschreven. Heb je alles geïmplementeerd? Wat zou je willen dat je nog meer kan instellen? Als er tijd over is, kijk dan of dit lukt.
+    Kijk nog eens terug naar het lijstje subcommando's die je in [opd:subcommandos](cli.md#opd:subcommandos) hebt opgeschreven. Heb je alles geïmplementeerd? Wat zou je willen dat je nog meer kan instellen? Als er tijd over is, kijk dan of dit lukt.
 
 
 ## Een interface met stijl
@@ -618,7 +618,7 @@ Op dit punt hebben we de functionaliteit van ons snelle script van het vorige ho
 ## Data-analyse
 ??? meer-leren "Meer leren"
 
-    Door de $I,U$-karakteristiek van de (lichtgevende) diode te analyseren is het mogelijk om de constante van Boltzmann te bepalen. De stoomsterkte door een diode wordt gegeven door de Shockley diodevergelijking [eq:Shockley](eq:Shockley). Zie ook [ch:diode](ch:diode).
+    Door de $I,U$-karakteristiek van de (lichtgevende) diode te analyseren is het mogelijk om de constante van Boltzmann te bepalen. De stoomsterkte door een diode wordt gegeven door de Shockley diodevergelijking [eq:Shockley](diodes.md#eq:Shockley). Zie ook [hoofdstuk diode](diodes.md).
 
     Lukt het, om binnen de te bepalen onzekerheid, overeenkomst te vinden met de literatuurwaarde? Een LED is helaas geen ideale diode dus dit kan lastig zijn.
 

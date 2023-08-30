@@ -2,7 +2,7 @@
 
 In het eerste jaar bepalen natuurkundestudenten een $I,U$-curve van een zonnepanneel. Zij variëren met de hand de weerstand en lezen de stroom en spanning af. Wij gaan het experiment automatiseren zodat met 1 druk op de knop een $I,U$-curve getoond wordt. 
 
-Deze opdracht is vergelijkbaar is met wat we tot nu toe gedaan hebben. We gaan wederom een $I,U$-curve bepalen, maar niet van een diode maar van een zonnepaneel. Een zonnepaneel gedraagt zich, afhankelijk van de belastingsweerstand van het circuit, soms als een spanningsbron en soms als een stroombron. Het geleverde vermogen is ook zeer afhankelijk van deze belasting. Voor de werking van de zonnecel en een beschrijving van de $I,U$- en $P,R$-curves, zie [ch:zonnecel](ch:zonnecel).
+Deze opdracht is vergelijkbaar is met wat we tot nu toe gedaan hebben. We gaan wederom een $I,U$-curve bepalen, maar niet van een diode maar van een zonnepaneel. Een zonnepaneel gedraagt zich, afhankelijk van de belastingsweerstand van het circuit, soms als een spanningsbron en soms als een stroombron. Het geleverde vermogen is ook zeer afhankelijk van deze belasting. Voor de werking van de zonnecel en een beschrijving van de $I,U$- en $P,R$-curves, zie [hoofdstuk zonnecel](zonnecel.md).
 
 
 ## De schakeling

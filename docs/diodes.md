@@ -1,4 +1,3 @@
-<div id="ch:diode"></div>
 # De diode: een p-n-overgang
 
 In het introductie-experiment meten we de $I,U$-karakteristiek van een LED, een lichtgevende diode. In dit hoofdstuk gaan we iets dieper in op het aspect \emph{diode}.
@@ -22,7 +21,7 @@ Merk op dat hoewel n-type en p-type halfgeleiders beschikken over respectievelij
 
 ## p-n-overgangen
 
-Wanneer een p-type en een n-type halfgeleider elektrisch contact maken[fig:pn-begin](fig:pn-begin)).
+Wanneer een p-type en een n-type halfgeleider elektrisch contact maken[fig:pn-begin](#fig:pn-begin).
 
 <div id="fig:pn-begin"></div>
 \begin{figure}
@@ -31,7 +30,7 @@ Wanneer een p-type en een n-type halfgeleider elektrisch contact maken[fig:pn-be
   \caption{Elektronen (zwart) en gaten (wit) zijn de vrije ladingsdragers in respectievelijk n-type en p-type halfgeleiders. Wanneer beide typen elektrisch contact maken kunnen elektronen en gaten de grenslaag oversteken en \emph{recombineren}.}
 \end{figure}
 
-Het extra elektron kan een tekort aanvullen en alle naburige atomen kunnen zo vier covalente bindingen aangaan. Het elektron en het gat heffen elkaar dus op ([fig:pn-evenwicht](fig:pn-evenwicht)).
+Het extra elektron kan een tekort aanvullen en alle naburige atomen kunnen zo vier covalente bindingen aangaan. Het elektron en het gat heffen elkaar dus op ([fig:pn-evenwicht](diodes.md#fig:pn-evenwicht)).
 
 <div id="fig:pn-evenwicht"></div>
 \begin{figure}
@@ -68,7 +67,7 @@ met $I$ de diodestroom, $I_\mathrm{S}$ de diodelekstroom, $V_\mathrm{D}$ de span
 \begin{equation}
   V_\mathrm{T} = \frac{kT}{q},
 \end{equation}
-met $k$ de constante van Boltzmann, $T$ de temperatuur van het materiaal en $q$ de elementaire lading. De diodelekstroom is de stroomsterkte ten gevolge van de minderheidsladingsdragers[fig:diodestroom](fig:diodestroom).
+met $k$ de constante van Boltzmann, $T$ de temperatuur van het materiaal en $q$ de elementaire lading. De diodelekstroom is de stroomsterkte ten gevolge van de minderheidsladingsdragers[fig:diodestroom](#fig:diodestroom).
 
 <div id="fig:diodestroom"></div>
 \begin{figure}
