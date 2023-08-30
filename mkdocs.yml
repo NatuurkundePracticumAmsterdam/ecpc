@@ -9,6 +9,7 @@ plugins:
   - search
   - bibtex:
       bib_file: "docs/referenties.bib"
+  - macros
 
 markdown_extensions:
   - admonition
@@ -64,3 +65,6 @@ nav:
       - zonnecel.md
       - voorkennis.md
   - faq.md
+
+extra:
+    file: ':fontawesome-regular-file-code:'
