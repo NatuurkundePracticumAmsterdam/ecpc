@@ -1,0 +1,12 @@
+
+\documentclass[11pt,tikz,border=5pt]{standalone}
+
+\begin{document}
+    \begin{tikzpicture}
+        \clip (-1em, -1.2em) rectangle (8, 5.5);
+        \draw[very thick, domain=0:7] plot (\x, {1e-2 * (exp(\x) - 1)});
+        \draw[->, thick] (0, 0) -- (7, 0) node[right] {$U_\mathrm{D}$};
+        \draw[->, thick] (0, 0) -- (0, 5) node[above] {$I$};
+        \node[below left] at (0, 0) {0};
+    \end{tikzpicture}
+\end{document}

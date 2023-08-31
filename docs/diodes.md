@@ -21,28 +21,30 @@ Merk op dat hoewel n-type en p-type halfgeleiders beschikken over respectievelij
 
 ## p-n-overgangen
 
-Wanneer een p-type en een n-type halfgeleider elektrisch contact maken[fig:pn-begin](#fig:pn-begin).
+Wanneer een p-type en een n-type halfgeleider elektrisch contact maken [^halfgeleiders] dan kunnen de elektronen en de gaten elkaar in het midden tegenkomen. Immers, door diffusie verplaatsen de elektronen en gaten zich willekeurig door het materiaal.
+
+ [^halfgeleiders]: In de praktijk worden er geen twee losse halfgeleiders aan elkaar verbonden maar wordt een enkel siliciumkristal zeer selectief plaatselijk verontreinigd: de ene helft om een p-type te maken, de andere helft om een n-type te maken.
 
 <div id="fig:pn-begin"></div>
-\begin{figure}
-  \centering
-  \includestandalone[page=1]{figures/p-n-overgang}
-  \caption{Elektronen (zwart) en gaten (wit) zijn de vrije ladingsdragers in respectievelijk n-type en p-type halfgeleiders. Wanneer beide typen elektrisch contact maken kunnen elektronen en gaten de grenslaag oversteken en _recombineren_.}
-\end{figure}
+![pn-begin](figures/p-n-overgang.svg)
 
-Het extra elektron kan een tekort aanvullen en alle naburige atomen kunnen zo vier covalente bindingen aangaan. Het elektron en het gat heffen elkaar dus op ([fig:pn-evenwicht](diodes.md#fig:pn-evenwicht)).
+Elektronen (zwart) en gaten (wit) zijn de vrije ladingsdragers in respectievelijk n-type en p-type halfgeleiders. Wanneer beide typen elektrisch contact maken kunnen elektronen en gaten de grenslaag oversteken en _recombineren_.
+
+Het extra elektron kan een tekort aanvullen en alle naburige atomen kunnen zo vier covalente bindingen aangaan. Het elektron en het gat heffen elkaar dus op _recombinatie_. Dit is energetisch voordelig, maar er ontstaat in het midden een _sperlaag_ [^depletion] waar geen vrije ladingsdragers meer aanwezig zijn. Dit betekent echter wel dat de onzuiverheden (ionen!) ervoor zorgen dat het materiaal niet langer neutraal is, maar elektrisch geladen. Waar de elektronen verdwenen zijn blijven positieve ionen achter en omgekeerd voor de gaten. Er ontstaat zo een elektrisch veld dat de elektronen en gaten tegenhoudt. Buiten de sperlaag is er geen elektrisch veld, net als bij een condensator.[^veld] Elektronen en gaten kunnen niet langer de sperlaag oversteken.
+
+[^depletion]: Engels: _depletion zone_.
+[^veld]: Zie o.a. Giancoli[@Giancoli] voor een beschrijving van het veld van twee vlakke en tegengesteld geladen schijven.
 
 <div id="fig:pn-evenwicht"></div>
-\begin{figure}
-  \centering
-  \includestandalone[page=2]{figures/p-n-overgang}
-  \caption{Na recombinatie van elektronen (zwart) en gaten (wit) ontstaat er een _sperlaag_ waar geen vrije ladingsdragers meer aanwezig zijn. De gedoteerde atomen vormen ionen in het rooster en er onstaat een postief geladen gebied en een negatief geladen gebied. Buiten de sperlaag is geen veld aanwezig, net als bij een condensator. Het resulterende elektrisch veld remt eerst en stopt uiteindelijk de diffusie van de elektronen en gaten. Er ontstaat een evenwicht waarbij vrije ladingsdragers de grenslaag niet meer kunnen oversteken.}
-\end{figure}
+![pn-evenwicht](figures/p-n-overgang_p2.svg)
 
+Na recombinatie van elektronen (zwart) en gaten (wit) ontstaat er een _sperlaag_ waar geen vrije ladingsdragers meer aanwezig zijn. De gedoteerde atomen vormen ionen in het rooster en er onstaat een postief geladen gebied en een negatief geladen gebied. Buiten de sperlaag is geen veld aanwezig, net als bij een condensator. Het resulterende elektrisch veld remt eerst en stopt uiteindelijk de diffusie van de elektronen en gaten. Er ontstaat een evenwicht waarbij vrije ladingsdragers de grenslaag niet meer kunnen oversteken.
 
 ### Sperrichting
 
-Wanneer een diode wordt verbonden met een elektrisch circuit is de richting van het potentiaalverschil van belang. Wanneer het p-type halfgeleider verbonden wordt met de negatieve pool en het n-type met de positieve pool dan ontstaat er een elektrisch veld in de zelfde richting als dat van de sperlaag. Hierdoor wordt het veld sterker en zullen vrije ladingsdragers de sperlaag _zeker_ niet kunnen oversteken. De diode staat in sperrichting en er zal nauwelijks\footnote{Bedenk dat in een niet-gedoteerde halfgeleider door roostertrillingen elektron-gat-paren worden gevormd waardoor de halfgeleider een beetje geleidt. Dit gebeurt óók in een gedoteerde halfgeleider. In n-type komen dus ook (weinig) gaten voor, en in p-type ook (weinig) elektronen. Deze kunnen de sperlaag _wel_ oversteken en er zal dus toch een zeer kleine stroom kunnen lopen.} stroom lopen. Een andere manier om dit in te zien is dat de gaten naar de negatieve pool worden getrokken en het gebied rond de sperlaag verlaten. Daar blijven nu dus _nog meer_ negatieve ionen achter; de sperlaag wordt dikker. Idem aan de andere zijde van de sperlaag.
+Wanneer een diode wordt verbonden met een elektrisch circuit is de richting van het potentiaalverschil van belang. Wanneer het p-type halfgeleider verbonden wordt met de negatieve pool en het n-type met de positieve pool dan ontstaat er een elektrisch veld in de zelfde richting als dat van de sperlaag. Hierdoor wordt het veld sterker en zullen vrije ladingsdragers de sperlaag _zeker_ niet kunnen oversteken. De diode staat in sperrichting en er zal nauwelijks[^roostertrillingen] stroom lopen. Een andere manier om dit in te zien is dat de gaten naar de negatieve pool worden getrokken en het gebied rond de sperlaag verlaten. Daar blijven nu dus _nog meer_ negatieve ionen achter; de sperlaag wordt dikker. Idem aan de andere zijde van de sperlaag.
+
+[^roostertrillingen]: Bedenk dat in een niet-gedoteerde halfgeleider door roostertrillingen elektron-gat-paren worden gevormd waardoor de halfgeleider een beetje geleidt. Dit gebeurt óók in een gedoteerde halfgeleider. In n-type komen dus ook (weinig) gaten voor, en in p-type ook (weinig) elektronen. Deze kunnen de sperlaag _wel_ oversteken en er zal dus toch een zeer kleine stroom kunnen lopen.
 
 
 ### Doorlaatrichting
@@ -55,7 +57,7 @@ Wanneer we de polariteit omdraaien en de p-typezijde verbinden aan de _positieve
 Wanneer een elektron en een gat elkaar tegenkomen is het energetisch gunstiger om te recombineren. Het elektron bindt zich aan de atomen in het rooster. Hierbij komt dus energie vrij. Meestal is dit in de vorm van roostertrillingen (warmte). Wanneer de materialen goed gekozen worden is het mogelijk om het energieverlies niet dominant via roostertrillingen te laten verlopen, maar via emissie van licht. Bij een doorzichtige halfgeleider kan het licht de grenslaag verlaten en uitgestraald worden. De LEDs die wij gebruiken bestaan uit een heel klein stukje halfgeleidermateriaal in een kegelvormige reflector om het licht naar boven te richting. Het geheel is ter bescherming in kunststof gegoten en de bolvorm zorgt voor een lenseffect om zoveel mogelijk licht in één richting uit te stralen.
 
 
-### De \texorpdfstring{$I,U${I,U}-karakteristiek van een diode}
+### De $I,U$-karakteristiek van een diode
 
 Shockley, één van de uitvinders van de transistor, ontwikkelde een model voor p-n-overgangen. Volgens dat model [@Shockley] wordt de stroomsterkte gegeven door
 
@@ -67,17 +69,11 @@ met $I$ de diodestroom, $I_\mathrm{S}$ de diodelekstroom, $V_\mathrm{D}$ de span
 \begin{equation}
   V_\mathrm{T} = \frac{kT}{q},
 \end{equation}
-met $k$ de constante van Boltzmann, $T$ de temperatuur van het materiaal en $q$ de elementaire lading. De diodelekstroom is de stroomsterkte ten gevolge van de minderheidsladingsdragers[fig:diodestroom](#fig:diodestroom).
+met $k$ de constante van Boltzmann, $T$ de temperatuur van het materiaal en $q$ de elementaire lading. De diodelekstroom is de stroomsterkte ten gevolge van de minderheidsladingsdragers[^minority] &mdash; het kleine aantal vrije elektronen in p-type halfgeleider en het kleine aantal gaten in n-type halfgeleider.
+
+[^minority]: Engels: _minority charge carriers._ 
 
 <div id="fig:diodestroom"></div>
-\begin{figure}
-  \centering
-  \begin{tikzpicture}
-    \clip (-1em, -1.2em) rectangle (8, 5.5);
-    \draw[very thick, domain=0:7] plot (\x, {1e-2 * (exp(\x) - 1)});
-    \draw[->, thick] (0, 0) &mdash; (7, 0) node[right] {$U_\mathrm{D}$};
-    \draw[->, thick] (0, 0) &mdash; (0, 5) node[above] {$I$};
-    \node[below left] at (0, 0) {0};
-  \end{tikzpicture}
-  \caption{De stroom door een diode ten gevolge van de spanning over de diode.}
-\end{figure}
+![diodestroom](figures/diodestroom.svg)
+
+De stroom door een diode ten gevolge van de spanning over de diode.

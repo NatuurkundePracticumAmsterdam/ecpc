@@ -38,7 +38,7 @@ De werking van een zonnecel hangt sterk samen met de werking van een diode. Een 
 \begin{equation}
   I_d = I_0 \left( {\rm e}^{\frac{eU}{kT}} - 1 \right),
 \end{equation}
-waarbij $e$ de elektronlading is ($e [fig:diode](#fig:diode).
+waarbij $e$ de elektronlading is ($e \approx 1.602 \cdot 10^{-19}$ C), $U$ de spanning over de diode, $k$ de Boltzmannconstante ($k \approx {1.381} \cdot 10^{-23}$ JK$^{-1}$) en $T$ de temperatuur. $I_0$ is de lekstroom van de diode. Als de spanning over de diode negatief is, geldt dat $\exp \left( \frac{eU}{kT} \right) \ll 1$ en is $I_d \approx - I_0 \approx 5-7 \; \mu$A en dus bij benadering 0. Als de spanning over de diode positief is groeit de stroom exponentieel en is de weerstand van de diode bij benadering 0. Dit gedrag wordt ge\"{i}llustreerd in figuur [fig:diode](#fig:diode).
 
 <div id="fig:diode"></div>
 \begin{figure}[t]
