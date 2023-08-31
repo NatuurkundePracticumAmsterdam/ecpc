@@ -84,33 +84,6 @@ Het is bij zonnepanelen natuurlijk interessant om naar het elektrisch vermogen t
 
 Het vermogen dat geleverd kan worden door een zonnecel uitgezet tegen de belasting (weerstand) van het circuit. Er is duidelijk een maximum in het vermogen bij een optimale weerstand.
 
-
-% \subsubsection{Verdieping (extra)}
-
-%### Uitgebreidere modelbeschrijving
-%Als je naar de $IU$-karakteristiek kijkt, zie je dat het zonnepaneel bij lage spanningen zich gedraagt als een niet-ideale stroombron. Als je rond de maximale spanning kijkt, zie je dat het zonnepaneel zich daar vrijwel gedraagt als een niet-ideale spanningsbron. Met deze kennis is het mogelijk om het vereenvoudigde model van de zonnecel (zie figuur [fig:zc](#fig:zc) en vergelijking [eq:zc](#eq:zc)) iets uit te breiden. Voor een niet-ideale stroombron heb je eerder gezien dat er parallel aan de stroombron een interne weerstand, een shuntweerstand $R_{sh}$, staat. Voor een niet-ideale spanningsbron is er een interne weerstand in serie aanwezig, een serieweerstand $R_s$. Als we hier rekening mee houden, kunnen we het model voor de zonnecel uitbreiden zoals weergegeven is in figuur [fig:zc2](#fig:zc2). 
-
-%Door rekening te houden met beide interne weerstanden wordt vergelijking [eq:zc](#eq:zc) gegeven als
-%<div id="eq:zc2"></div>
-%\begin{equation}
-%I = I_{L} - I_d - I_{R_{sh}} = I_{L} - I_0 \left( {\rm e}^{ \frac{e (U+I R_s)}{nkT}} - 1 \right) - \frac{U+I R_s}{R_{sh}}.
-%\end{equation}
-%Deze vergelijking ziet er indrukwekkend uit, maar eigenlijk zijn er ten opzichte van vergelijking [eq:zc](#eq:zc) maar twee dingen toegevoegd. Zo staat in vergelijking [eq:zc](#eq:zc) de spanning $U$ voor de spanning over de diode, welke in het vereenvoudigde model gelijk is aan de spanning gemeten over de belastingsweerstand $R_b$. De totale spanning die over de stroombron staat, wordt in het uitgebreidere model verdeeld over de serieweerstand $R_s$ en de belastingsweerstand $R_b$. Daarmee wordt de spanning over de diode $U+I R_s$, waarbij $U$ gelijk staat aan de spanning over de belastingsweerstand $R_b$. Verder heb je in het uitgebreidere model stroom lopen door de diode, de shuntweerstand $R_{sh}$ en door het externe circuit. Om te weten hoeveel stroom er door het externe circuit loopt, moet je in vergelijking [eq:zc](#eq:zc) nog de stroom $I_{R_{sh}}$ die door de shuntweerstand loopt meenemen en aftrekken van de stroom $I_L$ opgewekt door elektron-gat-paren. En deze twee toevoegingen geven vergelijking [eq:zc2](#eq:zc2).
-
-%<div id="fig:zc2"></div>					
-%![zc2](Figures/zc2.png)	    
-%
-% Een voorstelling van een zonnecel waarbij rekening gehouden wordt met interne weerstanden met daarop aangesloten een belastingsweerstand. $I_L$ is de stroom opgewekt door elektron-gat-paren, $I_d$ is de stroom die door de diode loopt en $I$ is de stroom die door belastingsweerstand $R_b$ loopt die aangesloten is op de zonnecel. $R_{sh}$ en $R_s$ zijn interne weerstanden die toegevoegd zijn aan het vereenvoudigde model.
-
-%\begin{opdracht}
-%\begin{deelvraag}
-%1. Leg uit waaraan je kunt zien dat het zonnepaneel zich bij lage spanningen gedraagt als een niet-ideale stroombron.
-%1. Leg uit waaraan je kunt zien dat het zonnepaneel zich rond de maximale spanning gedraagt als een niet-ideale spanningsbron.
-%1. Leg uit hoe de $IU$-karakteristiek verandert wanneer de waarde van $R_{sh}$ kleiner wordt.
-%1. Leg uit hoe de $IU$-karakteristiek verandert wanneer de waarde van $R_{s}$ groter wordt.
-%\end{deelvraag}
-%\end{opdracht}
-
 ### Fill factor
 De kwaliteit van een zonnecel/-paneel wordt experimenteel vaak aangeduid met de fill factor $FF$. De fill factor wordt gegeven door
 \begin{equation}
