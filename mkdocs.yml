@@ -2,6 +2,8 @@ site_name: Experiment Control with Python Course
 
 theme:
   name: material
+  logo: figures/ECPC_logo_plain.svg
+  favicon: figures/ECPC_logo_simple.svg
   features:
     - content.code.copy
 
