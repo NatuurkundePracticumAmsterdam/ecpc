@@ -1,0 +1,11 @@
+\documentclass[11pt,tikz,border=5pt]{standalone}
+
+\begin{document}
+\begin{tikzpicture}
+    % \clip (-1em, -1.2em) rectangle (8, 5.5);
+    \draw[very thick] (0, 0) .. controls (1, 4) and (1.5, 4.5) .. (2, 4.5) .. controls (2.5, 4.5) and (4, 3) .. (6.75, 2);
+    \draw[->, thick] (0, 0) -- (7, 0) node[right] {$R$};
+    \draw[->, thick] (0, 0) -- (0, 5) node[above] {$P$};
+    \node[below left] at (0, 0) {0};
+  \end{tikzpicture}
+\end{document}
