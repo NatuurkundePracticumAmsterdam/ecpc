@@ -14,7 +14,7 @@
       
         <link rel="next" href="../poetry/">
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../figures/ECPC_logo_simple.svg">
       <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
@@ -83,8 +83,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Experiment Control with Python Course" class="md-header__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../figures/ECPC_logo_plain.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -169,8 +168,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Experiment Control with Python Course" class="md-nav__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../figures/ECPC_logo_plain.svg" alt="logo">
 
     </a>
     Experiment Control with Python Course
@@ -711,58 +709,22 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Opbouw van een class</p>
 <p>Beschouw de volgende code:
-<div class="language-py highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span> <span class="nn">requests</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">def</span> <span class="nf">search_for_title</span><span class="p">(</span><span class="n">htmlcode</span><span class="p">):</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Search for &lt;title&gt; block in HTML code.&quot;&quot;&quot;</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">htmlcode</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>        <span class="k">if</span> <span class="s2">&quot;&lt;title&gt;&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>            <span class="k">return</span> <span class="n">line</span>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="k">class</span> <span class="nc">WebsiteInfo</span><span class="p">:</span>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Retrieve information from web URL.&quot;&quot;&quot;</span>
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
-</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>        <span class="c1"># .text contains the HTML code of the website</span>
-</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">htmlcode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">text</span>
-</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>        <span class="c1"># search for the &lt;title&gt; block</span>
-</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">search_for_title</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">htmlcode</span><span class="p">)</span>
-</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>
-</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>    <span class="k">def</span> <span class="nf">get_page_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">htmlcode</span><span class="p">)</span>
-</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>
-</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>
-</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>
-</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a><span class="n">website</span> <span class="o">=</span> <span class="n">WebsiteInfo</span><span class="p">(</span><span class="s2">&quot;https://example.com/&quot;</span><span class="p">)</span>
-</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a><span class="nb">print</span><span class="p">(</span><span class="n">website</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
-</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a><span class="c1"># &lt;title&gt;Example Domain&lt;/title&gt;</span>
-</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a><span class="nb">print</span><span class="p">(</span><span class="n">website</span><span class="o">.</span><span class="n">get_page_size</span><span class="p">())</span>
-</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a><span class="c1"># 1256</span>
-</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>
-</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a><span class="c1"># close the connection</span>
-</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a><span class="n">website</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>        
-</span></code></pre></div>
-Bespreek met elkaar wat de code precies doet en markeer de volgende onderdelen: module, functie, class, class instance, class attribute, class method.</p>
+<iframe src="Class.html" scrolling="no" height="700"width="2139" style="border:none;"></iframe>
+Bespreek met elkaar wat de code precies doet en verplaast de onderdelen naar de juiste plek in de code.</p>
 </div>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Class Particle</p>
 <p>Maak een class <code class="language-py highlight"><span class="n">Particle</span></code> die de naam van het deeltje en de spin van het deeltje bewaard. Een method <code class="language-py highlight"><span class="n">is_up_or_down</span><span class="p">()</span></code> vertelt je of het deeltje spin omhoog (positief) of spin omlaag (negatief) heeft. Maak nog een method <code class="language-py highlight"><span class="n">flip</span><span class="p">()</span></code> die de spin van het deeltje omkeert. De volgende code zou moeten werken:
-<div class="language-py highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">proton</span> <span class="o">=</span> <span class="n">Particle</span><span class="p">(</span><span class="s1">&#39;mooi proton&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">proton</span><span class="o">.</span><span class="n">is_up_or_down</span><span class="p">()</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># &#39;up&#39;</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">proton</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="n">proton</span><span class="o">.</span><span class="n">is_up_or_down</span><span class="p">()</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1"># &#39;down&#39;</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="n">proton</span><span class="o">.</span><span class="n">spin</span>
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1"># -0.5</span>
-</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="n">proton</span><span class="o">.</span><span class="n">name</span>
-</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1"># &#39;mooi proton&#39;</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">proton</span> <span class="o">=</span> <span class="n">Particle</span><span class="p">(</span><span class="s1">&#39;mooi proton&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">proton</span><span class="o">.</span><span class="n">is_up_or_down</span><span class="p">()</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># &#39;up&#39;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">proton</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">proton</span><span class="o">.</span><span class="n">is_up_or_down</span><span class="p">()</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1"># &#39;down&#39;</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="n">proton</span><span class="o">.</span><span class="n">spin</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="c1"># -0.5</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="n">proton</span><span class="o">.</span><span class="n">name</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="c1"># &#39;mooi proton&#39;</span>
 </span></code></pre></div></p>
 </div>
 <div class="admonition opdracht-inlever">
@@ -777,54 +739,74 @@ Bespreek met elkaar wat de code precies doet en markeer de volgende onderdelen: 
 <li>Een method <code class="language-py highlight"><span class="n">clear</span><span class="p">()</span></code> waarmee je alle metingen in één keer kunt wissen.</li>
 </ol>
 <p>Gebruik de geschreven class bijvoorbeeld op de volgende manier:
-<div class="language-py highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">measurements</span> <span class="o">=</span> <span class="n">ElectronicLoadMeasurements</span><span class="p">()</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">measurements</span><span class="o">.</span><span class="n">add_measurement</span><span class="p">(</span><span class="n">R</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">measurements</span><span class="o">.</span><span class="n">add_measurement</span><span class="p">(</span><span class="n">R</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">R</span> <span class="o">=</span> <span class="n">measurements</span><span class="o">.</span><span class="n">get_loads</span><span class="p">()</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1"># R=[10, 20]</span>
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="n">I</span> <span class="o">=</span> <span class="n">measurements</span><span class="o">.</span><span class="n">get_currents</span><span class="p">()</span>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># I=[0.05, 0.05]</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">measurements</span> <span class="o">=</span> <span class="n">ElectronicLoadMeasurements</span><span class="p">()</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">measurements</span><span class="o">.</span><span class="n">add_measurement</span><span class="p">(</span><span class="n">R</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">measurements</span><span class="o">.</span><span class="n">add_measurement</span><span class="p">(</span><span class="n">R</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">R</span> <span class="o">=</span> <span class="n">measurements</span><span class="o">.</span><span class="n">get_loads</span><span class="p">()</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># R=[10, 20]</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">I</span> <span class="o">=</span> <span class="n">measurements</span><span class="o">.</span><span class="n">get_currents</span><span class="p">()</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># I=[0.05, 0.05]</span>
 </span></code></pre></div></p>
 </div>
 <h2 id="implementeren-van-mvc">Implementeren van MVC<a class="headerlink" href="#implementeren-van-mvc" title="Permanent link">&para;</a></h2>
+<p>Het opsplitsen van het programma in MVC gaan we stapsgewijs doen. We gaan een class maken voor de aansturing van de Arduino, deze class valt in de categorie <em>controller</em>.</p>
 <div id="opd:meting-class"></div>
 <div class="admonition opdracht-inlever">
-<p class="admonition-title">Pythondaq: ArduinoVISADevice</p>
-<p>Pak je script van <a href="../communicatie/#opd:quickndirty-csv">opdracht <em>Pythondaq: CSV</em></a> erbij en schrijf bovenaan &mdash; maar <em>onder</em> de <code class="language-py highlight"><span class="kn">import</span></code>-statements &mdash; een class <code class="language-py highlight"><span class="n">ArduinoVISADevice</span></code>. Schrijf methods voor die class zodat onderstaande code minimaal zou moeten kunnen runnen:
-<div class="language-py highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># we willen, voor de zekerheid, nog steeds een functie om</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># een lijst van poorten te krijgen, _buiten_ de class</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">list_devices</span><span class="p">())</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1"># de poort moet je mogelijk zelf aanpassen</span>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="n">port</span> <span class="o">=</span> <span class="s2">&quot;ASRL3::INSTR&quot;</span>
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="c1"># zorg dat de device al geopend wordt in de __init__()</span>
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="n">device</span> <span class="o">=</span> <span class="n">ArduinoVISADevice</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">)</span>
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
-</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="c1"># print identification string</span>
-</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">get_identification</span><span class="p">())</span>
-</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>
-</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="c1"># set OUTPUT voltage on channel 0, using ADC values (0 - 1023)</span>
-</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="n">device</span><span class="o">.</span><span class="n">set_output_value</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
-</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>
-</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="c1"># get the previously set OUTPUT voltage in ADC values (0 - 1023)</span>
-</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="n">ch0_value</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">get_output_value</span><span class="p">()</span>
-</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>
-</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="c1"># measure the voltage on INPUT channel 2 in ADC values (0 - 1023)</span>
-</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="n">ch2_value</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">get_input_value</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>
-</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="c1"># measure the voltage on INPUT channel 2 in volts (0 - 3.3 V)</span>
-</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="n">ch2_voltage</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">get_input_voltage</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</span></code></pre></div>
-Bekijk bovenstaande code goed. Wat doet iedere regel met de Arduino? Overleg met elkaar of met je assistent. Wat is het verschil tussen <code class="language-py highlight"><span class="n">get_output_value</span><span class="p">()</span></code> en <code class="language-py highlight"><span class="n">get_input_value</span><span class="p">()</span></code>?</p>
-<p>Pas je script &mdash; en vooral ook de class! &mdash; aan zodat hij precies hetzelfde doet als bij <a href="../communicatie/#opd:quickndirty-meting">opdracht <em>quick 'n dirty</em> meting</a>. Gebruik bovenstaande code dus <em>alleen</em> als voorbeeld van welke methods je moet schrijven. Zorg ervoor dat alle firmwarecommando's ondergebracht zijn in de class en dat in je <q>experiment</q>-code alleen maar aanroepen naar de class zitten.</p>
+<p class="admonition-title">Pythondaq: controller bouwen</p>
+<p>Pak je script van <a href="../communicatie/#opd:quickndirty-csv">opdracht <em>Pythondaq: CSV</em></a> erbij en schrijf bovenaan &mdash; maar <em>onder</em> de <code class="language-py highlight"><span class="kn">import</span></code>-statements &mdash; een class <code class="language-py highlight"><span class="n">ArduinoVISADevice</span></code>.
+We gaan de class stap voor stap opbouwen. Je kunt de class testen met de python-code onder elke opdracht. </p>
+<ol>
+<li>Maak een <code class="language-py highlight"><span class="fm">__init__</span><span class="p">()</span></code> method die het device opent. 
+    <div class="language-py highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># de poort moet je mogelijk zelf aanpassen</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">port</span> <span class="o">=</span> <span class="s2">&quot;ASRL3::INSTR&quot;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># maak een instance van je class aan</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">device</span> <span class="o">=</span> <span class="n">ArduinoVISADevice</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">)</span>
+</span></code></pre></div></li>
+<li>
+<p>Schrijf een method die de identificatiestring terug geeft. 
+    <div class="language-py highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># print identification string</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">get_identification</span><span class="p">())</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Met de controller class willen we de arduino gaan aansturen en uitlezen. Maak een aantal methods zodat alle firmwarecommando's ondergebracht zijn in de class.
+    <div class="language-py highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># set OUTPUT voltage on channel 0, using ADC values (0 - 1023)</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">device</span><span class="o">.</span><span class="n">set_output_value</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># get the previously set OUTPUT voltage in ADC values (0 - 1023)</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">ch0_value</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">get_output_value</span><span class="p">()</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># measure the voltage on INPUT channel 2 in ADC values (0 - 1023)</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="n">ch2_value</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">get_input_value</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="c1"># measure the voltage on INPUT channel 2 in volts (0 - 3.3 V)</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="n">ch2_voltage</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">get_input_voltage</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Wat is het verschil tussen <code class="language-py highlight"><span class="n">set_output_value</span><span class="p">()</span></code> en <code class="language-py highlight"><span class="n">get_output_value</span><span class="p">()</span></code>?</p>
+</li>
+<li>
+<p>Als je een instance van ArduinoVISADevice wilt maken, dan moet je nu de poort meegeven. Daarom is het handig om <em>buiten</em> de klas een functie te hebben waarmee je een lijst krijgt van alle beschikbare poorten. 
+    <div class="language-py highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># get available ports</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">list_devices</span><span class="p">())</span>  
+</span></code></pre></div></p>
+</li>
+</ol>
+</div>
+<p>Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experiment. </p>
+<div class="admonition opdracht-inlever">
+<p class="admonition-title">Pythondaq: Controller implementeren</p>
+<p>Pas je script &mdash; en vooral ook de class! &mdash;aan zodat in je <q>experiment</q>-code alleen maar aanroepen naar de class zitten.
+Controlleer dat het schript precies hetzelfde doet als bij <a href="../communicatie/#opd:quickndirty-meting">opdracht <em>quick 'n dirty</em> meting</a>.</p>
 </div>
 <p>Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de precieze commando's zijn die je naar de hardware moet sturen. Als je de Arduino in de opstelling vervangt voor een ander meetinstrument moet je de class aanpassen, maar kan alle code die met het experiment zelf te maken heeft hetzelfde blijven.</p>
-<p>De class die we gemaakt hebben voor de aansturing van de Arduino valt in de categorie <em>controller</em>. Het laatste stuk waar de plot gemaakt wordt is dus eigenlijk een <em>view</em> en de rest van de code &mdash; waar de metingen worden uitgevoerd en de stroomsterkte $I$ wordt berekend &mdash; is een <em>model</em>. We gaan de code nog wat verder opsplitsen om dat duidelijk te maken én onderbrengen in verschillende bestanden &mdash; dat is uiteindelijk beter voor het overzicht.</p>
+<p>Nu we de <em>controller</em> hebben gemaakt die de Arduino aanstuurt, blijft er nog een stukje code over. Het laatste stuk waar de plot gemaakt kunnen we beschouwen als een <em>view</em> en de rest van de code &mdash; waar de metingen worden uitgevoerd en de stroomsterkte $I$ wordt berekend &mdash; is een <em>model</em>. We gaan de code nog wat verder opsplitsen om dat duidelijk te maken én onderbrengen in verschillende bestanden &mdash; dat is uiteindelijk beter voor het overzicht.</p>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Pythondaq: Controller afsplitsen</p>
 <p>Pas het script aan uit <a href="#opd:meting-class">opdracht <em>Pythondaq: ArduinoVISADevice</em></a>. Knip de class uit het bestand en plak die in een nieuw bestand <code class="language-py highlight"><span class="n">arduino_device</span><span class="o">.</span><span class="n">py</span></code>. Knip en plak <em>ook</em> de functie <code class="language-py highlight"><span class="n">list_devices</span><span class="p">()</span></code>, zodat alle <code class="language-py highlight"><span class="n">pyvisa</span></code>-code netjes in één bestand zit. Je vervangt de functie en de class in het oorspronkelijke script door dit import statement:
-<div class="language-py highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">from</span> <span class="nn">arduino_device</span> <span class="kn">import</span> <span class="n">ArduinoVISADevice</span><span class="p">,</span> <span class="n">list_devices</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">from</span> <span class="nn">arduino_device</span> <span class="kn">import</span> <span class="n">ArduinoVISADevice</span><span class="p">,</span> <span class="n">list_devices</span>
 </span></code></pre></div>
 Controleer dat je code nog steeds hetzelfde werkt &mdash; dat het een meting uitvoert en de resultaten in een grafiek weergeeft. Waarschijnlijk moet je daarvoor nog wat bugs aanpakken (een vergeten import bijvoorbeeld).</p>
 </div>

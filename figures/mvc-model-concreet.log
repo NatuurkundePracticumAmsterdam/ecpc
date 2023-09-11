@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.24)  31 JUL 2023 13:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.24)  11 SEP 2023 10:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -483,7 +483,7 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count297
 \l__pdf_internal_box=\box73
 )
-(./mvc-model-concreet.aux)
+No file mvc-model-concreet.aux.
 \openout1 = `mvc-model-concreet.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
@@ -500,7 +500,6 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
-
 (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count298
@@ -556,8 +555,8 @@ Underfull \hbox (badness 1147) in paragraph at lines 30--30
 al/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 (./mvc-model-concreet.aux) ) 
 Here is how much of TeX's memory you used:
- 17349 strings out of 476025
- 400814 string characters out of 5790017
+ 17347 strings out of 476025
+ 400768 string characters out of 5790017
  1857388 words of memory out of 5000000
  37542 multiletter control sequences out of 15000+600000
  516281 words of font info for 45 fonts, out of 8000000 for 9000

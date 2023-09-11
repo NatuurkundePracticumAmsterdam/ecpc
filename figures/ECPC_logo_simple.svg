@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #0071bc;
+        stroke: #0071bc;
+        stroke-miterlimit: 10;
+        stroke-width: 7px;
+      }
+
+      .cls-2 {
+        fill: #00addc;
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        fill: #fff;
+        font-family: FiraCodeRoman-Bold, 'Fira Code';
+        font-size: 226.53px;
+        font-variation-settings: 'wght' 700;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <g id="shadow">
+    <rect class="cls-1" x="5.35" y="12.37" width="214.23" height="225.26" rx="28" ry="28"/>
+    <rect class="cls-1" x="250.57" y="12.68" width="214.23" height="225.26" rx="28" ry="28"/>
+    <g>
+      <rect class="cls-1" x="33.45" y="261.69" width="214.23" height="225.26" rx="28" ry="28"/>
+      <rect class="cls-1" x="281.6" y="261.69" width="214.23" height="225.26" rx="28" ry="28"/>
+    </g>
+  </g>
+  <g id="front">
+    <rect class="cls-2" x="247.14" y="9.23" width="210.3" height="210.3" rx="28" ry="28"/>
+    <rect class="cls-2" x="1.83" y="8.81" width="210.3" height="210.3" rx="28" ry="28"/>
+    <rect class="cls-2" x="29.64" y="258.13" width="210.3" height="210.3" rx="28" ry="28"/>
+    <rect class="cls-2" x="278.13" y="258.13" width="210.3" height="210.3" rx="28" ry="28"/>
+  </g>
+  <g id="Letters">
+    <text class="cls-3" transform="translate(33.43 195.31)"><tspan x="0" y="0">E</tspan></text>
+    <text class="cls-3" transform="translate(278.07 192.46)"><tspan x="0" y="0">C</tspan></text>
+    <text class="cls-3" transform="translate(308.27 446.19)"><tspan x="0" y="0">C</tspan></text>
+    <text class="cls-3" transform="translate(71.69 445.38)"><tspan x="0" y="0">P</tspan></text>
+  </g>
+</svg>

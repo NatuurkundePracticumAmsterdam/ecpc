@@ -14,7 +14,7 @@
       
         <link rel="next" href="../github/">
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../figures/ECPC_logo_simple.svg">
       <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
@@ -83,8 +83,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Experiment Control with Python Course" class="md-header__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../figures/ECPC_logo_plain.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -169,8 +168,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Experiment Control with Python Course" class="md-nav__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../figures/ECPC_logo_plain.svg" alt="logo">
 
     </a>
     Experiment Control with Python Course
@@ -661,7 +659,12 @@ Om de conda environment daadwerkelijk te gebruiken moet je die altijd eerst <em>
 <p class="admonition-title">Pyvisa error</p>
 <p>Probeer zelf ook de commando's <code>list</code>, <code>open</code>, en de <code>query</code> uit. Krijg je hetzelfde resultaat?</p>
 </div>
-<p>Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de <a href="../firmware/">documentatie van de firmware</a> dan zie je dat er bepaalde <em>terminator characters</em> nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een <q>enter</q> aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een <em>carriage return</em> (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een <em>line feed</em> (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van <em>carriage return + line feed</em> (CRLF). Maar MacOS/Linux/Unix gebruiken enkel een <em>line feed</em> (LF), want hoeveel meer heb je nodig? Af en toe is dat lastig, vooral wanneer er elektronica in het spel is want dan willen de regeleindes voor schrijven en lezen nog wel eens verschillend zijn.<sup id="fnref:regeleindes"><a class="footnote-ref" href="#fn:regeleindes">6</a></sup> We gaan nu het gebruik van de karakters instellen:</p>
+<p>Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de <a href="../firmware/">documentatie van de firmware</a> dan zie je dat er bepaalde <em>terminator characters</em> nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een <q>enter</q> aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een <em>carriage return</em> (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een <em>line feed</em> (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van <em>carriage return + line feed</em> (CRLF). </p>
+<details class="info">
+<summary>Video Carriage Return Line Feed</summary>
+<p><iframe id="kmsembed-1_mwjafxs5" width="1920" height="446" src="https://video.vu.nl/embed/secure/iframe/entryId/1_mwjafxs5/uiConfId/30491791/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Carriage_Return_Line_Feed"></iframe></p>
+</details>
+<p>Maar MacOS/Linux/Unix gebruiken enkel een <em>line feed</em> (LF), want hoeveel meer heb je nodig? Af en toe is dat lastig, vooral wanneer er elektronica in het spel is want dan willen de regeleindes voor schrijven en lezen nog wel eens verschillend zijn.<sup id="fnref:regeleindes"><a class="footnote-ref" href="#fn:regeleindes">6</a></sup> We gaan nu het gebruik van de karakters instellen:</p>
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>(open) termchar
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Termchar read: None write: CRLF
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>(open) termchar CRLF LF

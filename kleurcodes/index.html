@@ -14,7 +14,7 @@
       
         <link rel="next" href="../diodes/">
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../figures/ECPC_logo_simple.svg">
       <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
@@ -83,8 +83,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Experiment Control with Python Course" class="md-header__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../figures/ECPC_logo_plain.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -169,8 +168,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Experiment Control with Python Course" class="md-nav__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../figures/ECPC_logo_plain.svg" alt="logo">
 
     </a>
     Experiment Control with Python Course
@@ -493,52 +491,92 @@
 
 
 <h1 id="kleurcodes-voor-weerstanden">Kleurcodes voor weerstanden<a class="headerlink" href="#kleurcodes-voor-weerstanden" title="Permanent link">&para;</a></h1>
-<div id="ch:kleurcodes"></div>
-
-<p>\colorlet{Rred}{red!80!black}
-\colorlet{Rbrown}{brown!80!black}</p>
-<p>\newcommand{\drawband}[4][0pt]{
-\draw[line width=7pt, color=#3] ({#2 * .9}, -1) &mdash; +(0, 2);
-\draw[thick, &lt;-, &gt;={Stealth[round]}] ({#2 * .9}, 1cm + 3pt) &mdash; +(0, 1cm + #1) node[above, align=center] {#4};
-}</p>
-<p>\vspace{-.5cm}</p>
-<p>\begin{center}
-  \begin{tikzpicture}[scale=.6]
-    \draw[line width=5pt] (0, 0) &mdash; +(-2, 0) (6, 0) &mdash; +(2, 0);
-    \fill[LightSteelBlue] (0, -1) rectangle (6, 1);</p>
-<div class="language-text highlight"><pre><span></span><code>\drawband{1}{Rred}{1}
-\drawband{2}{Rred}{2}
-\drawband{3}{black}{3}
-\drawband[2em]{4}{black}{vermenigvuldigings-\\factor}
-\drawband{5.1 / .9}{Rbrown}{tolerantie}
-
-\draw[ultra thick] (0, -1) rectangle (6, 1);
-</code></pre></div>
-<p>\end{tikzpicture}
-\end{center}
-\begin{center}
-  \def\arraystretch{1.3}
-  \begin{tabular}{lS[table-number-alignment=center]S[retain-zero-exponent]S[table-number-alignment=center]}
-    \toprule
-    {Kleur} &amp; {Cijferwaarde} &amp; {Vermenigvuldigingsfactor} &amp; {Tolerantie [\unit{\percent}]} \
-    \midrule
-    Zilver  &amp; {---}          &amp; e-2                        &amp; 10                             \
-    Goud    &amp; {---}          &amp; e-1                        &amp; 5                              \
-    Zwart   &amp; 0              &amp; e0                         &amp; {---}                          \
-    Bruin   &amp; 1              &amp; e1                         &amp; 1                              \
-    Rood    &amp; 2              &amp; e2                         &amp; 2                              \
-    Oranje  &amp; 3              &amp; e3                         &amp; 0.05                           \
-    Geel    &amp; 4              &amp; e4                         &amp; 0.02                           \
-    Groen   &amp; 5              &amp; e5                         &amp; 0.5                            \
-    Blauw   &amp; 6              &amp; e6                         &amp; 0.25                           \
-    Paars   &amp; 7              &amp; e7                         &amp; 0.1                            \
-    Grijs   &amp; 8              &amp; e8                         &amp; 0.01                           \
-    Wit     &amp; 9              &amp; e9                         &amp; {---}                          \
-    \bottomrule
-  \end{tabular}
-\end{center}</p>
-<p>\noindent
-Helaas is het niet altijd mogelijk om de linkerkant van de weerstand van de rechterkant te onderscheiden. In dat geval moet je de weerstand beide kanten oplezen en vergelijken met je materialenlijst of de overige weerstanden om zeker te weten dat je de goede hebt gevonden. Bovenstaande weerstand heeft de waarde $\qty[retain-zero-exponent]{220}{&Omega;} \pm 1 \percent$, en <em>niet</em> de waarde $100e2 &Omega; \pm 2 \percent$.</p>
+<p><img alt="Kleurcodes" src="../figures/kleurcodes.svg" /></p>
+<table>
+<thead>
+<tr>
+<th>Kleur</th>
+<th>Cijferwaarde</th>
+<th>Vermenigvuldigingsfactor</th>
+<th>Tolerantie (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zilver</td>
+<td>---</td>
+<td>e<sup>-2</sup></td>
+<td>10</td>
+</tr>
+<tr>
+<td>Goud</td>
+<td>---</td>
+<td>e<sup>-1</sup></td>
+<td>5</td>
+</tr>
+<tr>
+<td>Zwart</td>
+<td>0</td>
+<td>e<sup>0</sup></td>
+<td>---</td>
+</tr>
+<tr>
+<td>Bruin</td>
+<td>1</td>
+<td>e<sup>1</sup></td>
+<td>1</td>
+</tr>
+<tr>
+<td>Rood</td>
+<td>2</td>
+<td>e<sup>2</sup></td>
+<td>2</td>
+</tr>
+<tr>
+<td>Oranje</td>
+<td>3</td>
+<td>e<sup>3</sup></td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>Geel</td>
+<td>4</td>
+<td>e<sup>4</sup></td>
+<td>0.02</td>
+</tr>
+<tr>
+<td>Groen</td>
+<td>5</td>
+<td>e<sup>5</sup></td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>Blauw</td>
+<td>6</td>
+<td>e<sup>6</sup></td>
+<td>0.25</td>
+</tr>
+<tr>
+<td>Paars</td>
+<td>7</td>
+<td>e<sup>7</sup></td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>Grijs</td>
+<td>8</td>
+<td>e<sup>8</sup></td>
+<td>0.01</td>
+</tr>
+<tr>
+<td>Wit</td>
+<td>9</td>
+<td>e<sup>9</sup></td>
+<td>---</td>
+</tr>
+</tbody>
+</table>
+<p>Helaas is het niet altijd mogelijk om de linkerkant van de weerstand van de rechterkant te onderscheiden. In dat geval moet je de weerstand beide kanten oplezen en vergelijken met je materialenlijst of de overige weerstanden om zeker te weten dat je de goede hebt gevonden. Bovenstaande weerstand heeft de waarde  220&sdot;10<sup>0</sup> &Omega; &plusmn; 1 %, en <em>niet</em> de waarde 100&sdot;10<sup>2</sup> &Omega; &plusmn; 2 %.</p>
 
 
 

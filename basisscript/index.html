@@ -14,7 +14,7 @@
       
         <link rel="next" href="../mvc/">
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../figures/ECPC_logo_simple.svg">
       <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
@@ -83,8 +83,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Experiment Control with Python Course" class="md-header__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../figures/ECPC_logo_plain.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -169,8 +168,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Experiment Control with Python Course" class="md-nav__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../figures/ECPC_logo_plain.svg" alt="logo">
 
     </a>
     Experiment Control with Python Course
@@ -718,7 +716,7 @@
 <h2 id="de-iu-karakteristiek-van-een-led">De I,U-karakteristiek van een LED<a class="headerlink" href="#de-iu-karakteristiek-van-een-led" title="Permanent link">&para;</a></h2>
 <p>Je hebt op de middelbare school ongetwijfeld de $I,U$-karakteristiek van een ohmse weerstand onderzocht. Je neemt een <q>gewone</q> weerstand en zet daar een steeds hogere spanning op. Je meet de stroomsterkte en ook die neemt toe &mdash; rechtevenredig zelfs! Door $I$ tegen $U$ uit te zetten in een grafiek en de beste lijn door je metingen te trekken vind je met de richtingscoëfficiënt de inverse van de weerstand $R^{-1}$:</p>
 <p><img alt="I,U-curve van een weerstand" src="../figures/I%2CU-curve-resistor.svg" /></p>
-<p>Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich <em>heel</em> anders. Met de schakeling die we hebben gebouwd kunnen we de $I,U$-karakteristiek van een LED bepalen. Voor meer informatie over de fysica achter diodes, zie de <a href="../diodes/">appendix</a>.</p>
+<p>Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich <em>heel</em> anders. Met de schakeling die we hebben gebouwd kunnen we de $I,U$-karakteristiek van een LED bepalen. Voor meer informatie over de fysica achter diodes, zie de <a href="../diodes/">appendix Diodes</a>.</p>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Pythondaq: repository</p>
 <p>Omdat we met een belangrijk project aan de slag gaan, namelijk een inleveropdracht, gaan we gelijk goed beginnen door een repository aan te maken. </p>
@@ -726,7 +724,7 @@
 <li>Open Github Desktop en ga naar <strong>File &gt; New repository ...</strong>. Geef de repository een naam (Pythondaq) en kies een locatie. Let er op dat je deze map <em>niet</em> in een andere repository aanmaakt, maar daarbuiten. Overleg eventueel over een handige plek.</li>
 <li>Vink <code>Initialize this repository with a README</code> aan.</li>
 <li>Kies bij <code>Git ignore</code> voor <q>Python</q>.</li>
-<li>Klik op <code>Open in Visual Studio Code</code> en ga aan de slag. Vergeet niet regelmatig te committen!</li>
+<li>Ga naar <strong>Repository &gt; Open in Visual Studio Code</strong> en ga aan de slag. Vergeet niet regelmatig te committen!</li>
 </ol>
 </div>
 <div class="admonition opdracht-inlever">
@@ -735,7 +733,7 @@
 <ol>
 <li>Schrijf een script waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Kijk wat er gebeurt met de LED.</li>
 <li>Commit.</li>
-<li>Overleg met elkaar welke spanningen je precies meet met de verschillende kanalen (<em>channels</em>) die op de Arduino zijn aangesloten. Kijk nog eens goed naar <a href="#fig:LED-schakeling">de figuur van de schakeling</a>.</li>
+<li>Overleg met elkaar welke spanningen je precies meet met de verschillende kanalen (<em>channels</em>) die op de Arduino zijn aangesloten. Kijk nog eens goed naar <a href="../communicatie/#fig:LED-schakeling">de figuur van de schakeling</a>.</li>
 <li>Commit.</li>
 <li>Lees &mdash; tijdens het laten oplopen van de spanning over de LED &mdash; de spanning over de <em>weerstand</em> uit. Je zult daarvoor het antwoord van de Arduino (een <em>string</em>) om moeten zetten naar een <em>integer</em> en print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand. Voorbeeld van uitvoer:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>On LED:  750 (2.4 V)    Over resistor:  189 (0.6 V)
