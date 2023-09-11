@@ -427,6 +427,7 @@ Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we
 
 De bestanden {{file}}`square.py` en {{file}}`count_count.py` zien er hetzelfde uit als in [paragraaf _Modules_](voorkennis.md#modules):
 === "square.py"
+
     ``` py
     def square(x):
         return x ** 2

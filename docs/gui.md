@@ -87,38 +87,38 @@ In de horizontale layout plaatsen we twee `button`s:
 
 Het stuk programma om bovenstaande layout op te bouwen geven we hieronder weer. We bespreken de code regel voor regel _na_ de code hieronder.
 ``` py linenums="1"
-  from PySide6.QtCore import Slot
+from PySide6.QtCore import Slot
 
 
-  class UserInterface(QtWidgets.QMainWindow):
-      def __init__(self):
-          # roep de __init__() aan van de parent class
-          super().__init__()
-  
-          # elk QMainWindow moet een central widget hebben
-          # hierbinnen maak je een layout en hang je andere widgets
-          central_widget = QtWidgets.QWidget()
-          self.setCentralWidget(central_widget)
-  
-          # voeg geneste layouts en widgets toe
-          vbox = QtWidgets.QVBoxLayout(central_widget)
-          self.textedit = QtWidgets.QTextEdit()
-          vbox.addWidget(self.textedit)
-          hbox = QtWidgets.QHBoxLayout()
-          vbox.addLayout(hbox)
-  
-          clear_button = QtWidgets.QPushButton("Clear")
-          hbox.addWidget(clear_button)
-          add_button = QtWidgets.QPushButton("Add text")
-          hbox.addWidget(add_button)
-  
-          # Slots and signals
-          clear_button.clicked.connect(self.textedit.clear)
-          add_button.clicked.connect(self.add_button_clicked)
-  
-      @Slot()
-      def add_button_clicked(self):
-          self.textedit.append("You clicked me.")
+class UserInterface(QtWidgets.QMainWindow):
+    def __init__(self):
+        # roep de __init__() aan van de parent class
+        super().__init__()
+
+        # elk QMainWindow moet een central widget hebben
+        # hierbinnen maak je een layout en hang je andere widgets
+        central_widget = QtWidgets.QWidget()
+        self.setCentralWidget(central_widget)
+
+        # voeg geneste layouts en widgets toe
+        vbox = QtWidgets.QVBoxLayout(central_widget)
+        self.textedit = QtWidgets.QTextEdit()
+        vbox.addWidget(self.textedit)
+        hbox = QtWidgets.QHBoxLayout()
+        vbox.addLayout(hbox)
+
+        clear_button = QtWidgets.QPushButton("Clear")
+        hbox.addWidget(clear_button)
+        add_button = QtWidgets.QPushButton("Add text")
+        hbox.addWidget(add_button)
+
+        # Slots and signals
+        clear_button.clicked.connect(self.textedit.clear)
+        add_button.clicked.connect(self.add_button_clicked)
+
+    @Slot()
+    def add_button_clicked(self):
+        self.textedit.append("You clicked me.")
 ```
 Allereerst definiëren we een `__init__()`. Helaas gaat dat niet zomaar. We schrijven namelijk _niet_ helemaal zelf een nieuwe class (`#!py class UserInterface`), maar breiden de `#!py QMainWindow`-class uit (`#!py class UserInterface(QtWidgets.QMainWindow)`). Door dat te doen zijn er heel veel methods al voor ons gedefinieerd. Daar hoeven we verder niet over na te denken, onze interface <q>werkt gewoon</q>. Het gaat mis als wij zelf nieuwe methods gaan schrijven die dezelfde naam hebben. Stel dat de _parent class_ `#!py QMainWindow` een method `#!py click_this_button()` heeft. Als onze class _ook_ een method `#!py click_this_button()` heeft, dan zal _die_ worden aangeroepen in plaats van de method uit de parent class. Dat is handig als je de parent method wilt vervangen maar niet zo handig als je de parent method wilt _aanvullen_, zoals nodig is bij `__init__()`. Immers, we willen onze eigen class initialiseren, maar we willen ook dat de parent class volledig wordt geïnitialiseerd.
 

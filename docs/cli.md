@@ -272,10 +272,10 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
     Omdat de naam van een subcommando gelijk is aan de functienaam kan dat voor problemen zorgen wanneer je gereserveerde namen van python wilt gebruiken zoals: `#!py import`, `#!py return`, `#!py lambda`. Of wanneer je de naam van het subcommando graag hetzelfde wilt hebben als een ander pythonfunctie zoals `#!py sin` of `#!py list`.
     Een oplossing is om de functienaam aan te passen en de subcommando naam expliciet aan click mee te geven bij `command`:
     ``` py
-        @cmd_group.command("import")
-        @click.argument("package")
-        def import_package(package):
-            print(f"import {package}...")
+    @cmd_group.command("import")
+    @click.argument("package")
+    def import_package(package):
+        print(f"import {package}...")
     ```
     We hebben nu een commando `import` aangemaakt &mdash; _niet_ een commando `import_package`.
 
