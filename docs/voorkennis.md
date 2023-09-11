@@ -1,8 +1,12 @@
 # Python voorkennis; Batteries (not yet) included
 
-Python is een _batteries included_ taal. Dat betekent dat als je `kaal' Python installeert er al heel veel functionaliteit standaard meegeleverd wordt. Allereerst omdat de taal zelf al behoorlijk krachtig is, maar ook omdat de _standaardbibliotheek_ zeer uitgebreid is. Met een eenvoudig `#!py import`-statement haal je extra functionaliteit binnen, onder andere op het gebied van datatypes, wiskunde, toegang tot bestanden, een database, datacompressie, cryptografie, netwerktoegang, e-mail, multimedia, etc. Nog veel meer bibliotheken zijn beschikbaar via de \citetitle{pypi} \parencite{pypi}.
+Python is een _batteries included_ taal. Dat betekent dat als je 'kaal' Python installeert er al heel veel functionaliteit standaard meegeleverd wordt. Allereerst omdat de taal zelf al behoorlijk krachtig is, maar ook omdat de _standaardbibliotheek_ zeer uitgebreid is. Met een eenvoudig `#!py import`-statement haal je extra functionaliteit binnen, onder andere op het gebied van datatypes, wiskunde, toegang tot bestanden, een database, datacompressie, cryptografie, netwerktoegang, e-mail, multimedia, etc. Nog veel meer bibliotheken zijn beschikbaar via de _Python Package Index_[@pypi].
 
-In dit hoofdstuk behandelen we de kennis die nuttig kan zijn voor de rest van deze cursus. We gaan ervan uit dat iedereen bekend is met recente versies van Python en we gaan niet in op de -- soms ingrijpende -- veranderingen die de taal heeft ondergaan.\footnote{Python 2 is dood. Leve Python 3!} Een deel van wat we hier behandelen kan al bekend zijn uit eerdere cursussen. Een ander deel is nieuw.\footnote{Tenzij je al veel zelf hebt geprogrammeerd in Python, buiten de cursussen om.}
+In dit hoofdstuk behandelen we de kennis die nuttig kan zijn voor de rest van deze cursus. We gaan ervan uit dat iedereen bekend is met recente versies van Python en we gaan niet in op de -- soms ingrijpende -- veranderingen die de taal heeft ondergaan.[^python3] Een deel van wat we hier behandelen kan al bekend zijn uit eerdere cursussen. Een ander deel is nieuw.[^zelf programmeren]
+
+[^python3]: Python 2 is dood. Leve Python 3!
+[^zelf programmeren]:Tenzij je al veel zelf hebt geprogrammeerd in Python, buiten de cursussen om.
+
 
 In de cursus gaan we bibliotheken (_modules, packages_) en een applicatie ontwikkelen. Dat betekent dat we verder gaan dan het schrijven van _scripts_ en dat we dus meer gaan doen dan functies schrijven. Uiteindelijk moet het mogelijk zijn de software te verspreiden op een wat meer professionele manier. Dus niet alleen via een zipje met wat Pythonbestanden waar uiteindelijk verschillende versies van rondslingeren en die lastig zijn te updaten. Wat er nodig is voor een goede distributie van software en om het mogelijk te maken met meerdere mensen software te (blijven) ontwikkelen zal in deze cursus aan bod komen.
 
@@ -11,10 +15,10 @@ Een punt wat vaak onderschoven blijft is _documentatie_. Als je software schrijf
 
 ## Zen of Python
 
-Als je niet zo heel veel in Python geprogrammeerd hebt kan het helpen om het materiaal van de cursus \citetitle{inl_prog} nog eens door te nemen \parencite{inl_prog}. Een boek dat zeker bij natuurkundigen in de smaak kan vallen is \citetitle{eff_comp_physics}, maar deze is niet gratis verkrijgbaar \parencite{eff_comp_physics}. Een boek dat zowel op papier te bestellen is als in de vorm van een pdf of webpagina is te lezen is \citetitle{think_python} \parencite{think_python}.
+Als je niet zo heel veel in Python geprogrammeerd hebt kan het helpen om het materiaal van de cursus inleiding programmeren[@inl_prog] nog eens door te nemen. Een boek dat zeker bij natuurkundigen in de smaak kan vallen is _Effective Computation in Physics_[@eff_comp_physics], maar deze is niet gratis verkrijgbaar. Een boek dat zowel op papier te bestellen is als in de vorm van een pdf of webpagina is te lezen is _Think Python_.[@think_python]
 
-Python is niet C (of iedere willekeurige andere programmeertaal). Er zit een gedachte achter die op een gegeven moment verwoord is door \textcite{zenofpython}.
-% \begin{verse}
+Python is niet C (of iedere willekeurige andere programmeertaal). Er zit een gedachte achter die op een gegeven moment verwoord is door Tim Peters[@zenofpython].
+<!-- % \begin{verse}
 %   The Zen of Python, by Tim Peters
 
 %   Beautiful is better than ugly.\\
@@ -36,25 +40,24 @@ Python is niet C (of iedere willekeurige andere programmeertaal). Er zit een ged
 %   If the implementation is hard to explain, it's a bad idea.\\
 %   If the implementation is easy to explain, it may be a good idea.\\
 %   Namespaces are one honking great idea -- let's do more of those!
-% \end{verse}
-Je kunt het nalezen middels een _easter egg_ in Python zelf: `#!py import this`.
+% \end{verse} -->
 
-\begin{minimaal}
-  \begin{opdracht}[zen]
+Je kunt het lezen middels een _easter egg_ in Python zelf: `#!py import this`.
+
+!!! opdracht-basis "zen"
     Open een Python terminal en type in:
     ``` ps1 title="Terminal"
-    >>> import this
-  ```
-  \end{opdracht}
-\end{minimaal}
+    import this
+    ```
 
-Deze tekst kan nog behoorlijk cryptisch overkomen, maar een paar dingen worden snel duidelijk: code moet _mooi_ zijn (regel 1) en duidelijk (regels 2, 3 en 6). Er bestaan prachtige programmeertrucs in één of twee regels, maar onleesbaar is het wel. Een voorbeeld \cite{contemplating_zenofpython}:
+Deze tekst kan nog behoorlijk cryptisch overkomen, maar een paar dingen worden snel duidelijk: code moet _mooi_ zijn (regel 1) en duidelijk (regels 2, 3 en 6). Er bestaan prachtige programmeertrucs in één of twee regels, maar onleesbaar is het wel. Een voorbeeld [@contemplating_zenofpython]:
 ``` py
   print('\n'.join("%i bytes = %i bits which has %i possible values." %
         (j, j*8, 256**j) for  j in (1 << i for i in range(4))))
 ```
-\label{code_bytes}
+
 Kun je zien wat de uitvoer van dit programma moet zijn? Misschien als we het op deze manier uitschrijven:
+
 ``` py
   for num_bytes in [1, 2, 4, 8]:
       num_bits = 8 * num_bytes
@@ -63,9 +66,18 @@ Kun je zien wat de uitvoer van dit programma moet zijn? Misschien als we het op 
           f"{num_bytes} bytes = {num_bits} bits which has {num_possible_values} possible values."
       )
 ```
-De code is langer, met duidelijkere namen van variabelen en zonder bitshifts of joins. De uitvoer vind je op \mypageref{fig:uitvoer_bytes}. Moraal van dit verhaal: we worden gelukkiger van code die leesbaar en begrijpelijk is, dan van code die wel heel slim in elkaar zit maar waar bijna niet uit te komen is. Overigens komt het regelmatig voor dat de programmeur zélf een paar weken later al niet zo goed meer weet hoe de code nou precies in elkaar zat.
+De code is langer, met duidelijkere namen van variabelen en zonder bitshifts of joins. De uitvoer zie je hieronder.
 
-Als je samenwerkt aan software kan het andere Pythonprogrammeurs erg helpen om dingen `op de Python-manier te doen'. Een C-programmeur herken je vaak aan het typische gebruik van lijsten of arrays in `#!py for`-loops. Als je een lijst hebt: `#!py names = ['Alice', 'Bob', 'Carol']`, doe dan niet:
+``` ps1 title="Terminal"
+  1 bytes = 8 bits which has 256 possible values.
+  2 bytes = 16 bits which has 65536 possible values.
+  4 bytes = 32 bits which has 4294967296 possible values.
+  8 bytes = 64 bits which has 18446744073709551616 possible values.
+```
+
+Moraal van dit verhaal: we worden gelukkiger van code die leesbaar en begrijpelijk is, dan van code die wel heel slim in elkaar zit maar waar bijna niet uit te komen is. Overigens komt het regelmatig voor dat de programmeur zélf een paar weken later al niet zo goed meer weet hoe de code nou precies in elkaar zat.
+
+Als je samenwerkt aan software kan het andere Pythonprogrammeurs erg helpen om dingen 'op de Python-manier te doen'. Een C-programmeur herken je vaak aan het typische gebruik van lijsten of arrays in `#!py for`-loops. Als je een lijst hebt: `#!py names = ['Alice', 'Bob', 'Carol']`, doe dan niet:
 ``` py
   i = 0
   while i < len(names):
@@ -77,17 +89,18 @@ of:
   for i in range(len(names)):
       print("Hi,", names[i])
 ```
-waarbij je loopt over een index \verb|i|. Gebruik liever het feit dat een lijst al een _iterator_ is:
+waarbij je loopt over een index `#!py i`. Gebruik liever het feit dat een lijst al een _iterator_ is:
 ``` py
   for name in names:
       print("Hi,", name)
 ```
 Deze code is bovendien veel korter en gebruikt minder variabelen. Soms is het nodig om de index te hebben, bijvoorbeeld wanneer je een namenlijstje wilt nummeren:
-\begin{textcode}
+``` ps1 title="Terminal"
   1. Alice
   2. Bob
   3. Carol
-\end{textcode}
+```
+
 Dit kan dan in Python-code het makkelijkst als volgt:
 ``` py
   for idx, name in enumerate(names, 1):
@@ -98,41 +111,37 @@ Hier maken we gebruik van de `#!py enumerate(iterable, start=0)`-functie en de (
 
 ## Coding style
 
-``Code wordt veel vaker gelezen dan geschreven,'' is een veel geciteerd gezegde onder programmeurs. Je schrijft je code en zit vervolgens uren te puzzelen om een fout te vinden of hoe je de code het beste kunt uitbreiden. Je zoekt op internet naar voorbeeldcode, je helpt een medestudent of vraagt die om hulp. Heel vaak dus lees je niet je eigen code, maar die _van iemand anders_. Is dat relevant? Ja! Want die code ziet er anders uit. Iedereen programmeert toch op zijn eigen manier. Het scheelt enorm als de code er tenminste grotendeels hetzelfde uitziet. Het kost je dan minder energie om te lezen. Daarom ook dat de artikelen in wetenschappelijke tijdschriften bijvoorbeeld er allemaal hetzelfde uitzien en de auteur niet de vrijheid krijgt om zélf lettertypes te kiezen. Net zo goed hebben grote organisaties vaak hun eigen _coding style_ ontwikkeld waar alle werknemers zich zoveel mogelijk aan moeten houden.
+<q>Code wordt veel vaker gelezen dan geschreven,</q> is een veel geciteerd gezegde onder programmeurs. Je schrijft je code en zit vervolgens uren te puzzelen om een fout te vinden of hoe je de code het beste kunt uitbreiden. Je zoekt op internet naar voorbeeldcode, je helpt een medestudent of vraagt die om hulp. Heel vaak dus lees je niet je eigen code, maar die _van iemand anders_. Is dat relevant? Ja! Want die code ziet er anders uit. Iedereen programmeert toch op zijn eigen manier. Het scheelt enorm als de code er tenminste grotendeels hetzelfde uitziet. Het kost je dan minder energie om te lezen. Daarom ook dat de artikelen in wetenschappelijke tijdschriften bijvoorbeeld er allemaal hetzelfde uitzien en de auteur niet de vrijheid krijgt om zélf lettertypes te kiezen. Net zo goed hebben grote organisaties vaak hun eigen _coding style_ ontwikkeld waar alle werknemers zich zoveel mogelijk aan moeten houden.
 
-Python heeft een eigen style guide die je vooral eens door moet lezen \cite{pep8}. Google heeft ook een hele mooie, met duidelijke voorbeelden \cite{google_style_guide}.
+Python heeft een eigen style guide die je vooral eens door moet lezen.[@pep8] Google heeft ook een hele mooie, met duidelijke voorbeelden.[@google_style_guide]
 
-Fijn dat je code consistenter wordt, maar het moet nu ook weer niet zo zijn dat je uren kwijt bent met de style guides bestuderen of twijfelen waar je een regel code precies moet afbreken. Wel of niet een enter? Om daar vanaf te zijn zijn er verschillende pakketten die je code automatisch aanpassen aan de standaard. Standaard gebruikt _Visual Studio Code}_`autopep8`. Als je de instelling \menu{Editor: Format On Save} aan zet (staat standaard uit) dan wordt je code aangepast zodra je je bestand opslaat. De instelling \menu{Python > Formatting: Provider} kun je gebruiken om in plaats van `autopep8` bijvoorbeeld \verb|black| te kiezen \cite{black}. Black is een stuk strenger dan `autopep8` en heeft meer een `eigen mening'. Als je je daar bij neerlegt hoef je bijna niet meer na te denken over hoe je je code precies vormgeeft. De Black website zegt \cite{black}:
-\begin{quotation}
+Fijn dat je code consistenter wordt, maar het moet nu ook weer niet zo zijn dat je uren kwijt bent met de style guides bestuderen of twijfelen waar je een regel code precies moet afbreken. Wel of niet een enter? Om daar vanaf te zijn zijn er verschillende pakketten die je code automatisch aanpassen aan de standaard. Standaard gebruikt _Visual Studio Code_`autopep8`. Als je de instelling **Editor: Format On Save** aan zet (staat standaard uit) dan wordt je code aangepast zodra je je bestand opslaat. De instelling **Python > Formatting: Provider** kun je gebruiken om in plaats van `autopep8` bijvoorbeeld `black` te kiezen.[@black] Black is een stuk strenger dan `autopep8` en heeft meer een `eigen mening'. Als je je daar bij neerlegt hoef je bijna niet meer na te denken over hoe je je code precies vormgeeft. De Black website zegt[@black]:
+
+<q>
   By using Black, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters.
 
   Black makes code review faster by producing the smallest diffs possible. Blackened code looks the same regardless of the project you’re reading. Formatting becomes transparent after a while and you can focus on the content instead.
-\end{quotation}
-%
+</q>
+
 De code in deze handleiding is geformat met _Black_.
 
-\begin{attention}
-  Bij de volgende opdracht kun je, als je niet de nieuwste versie van Anaconda hebt, een pop krijgen dat black nog niet geïnstalleerd is:
-  \begin{center}
-    \includegraphics[scale=.5]{figures/screenshot-black-not-installed}
-  \end{center}
-  Kies `Yes` en dan krijg je bovenaan het scherm:
-  \begin{center}
-    \includegraphics[scale=.5]{figures/screenshot-install-black}
-  \end{center}
-  Kies voor `Install using Conda`.
-\end{attention}
+!!! info
+    Bij de volgende opdracht kun je, als je niet de nieuwste versie van Anaconda hebt, een pop krijgen dat black nog niet geïnstalleerd is:
+    ![screenshot-black-not-installed](figures/screenshot-black-not-installed.png)
+    Kies `Yes` en dan krijg je bovenaan het scherm:
+    ![screenshot-install-black](figures/screenshot-install-black.png)
+    Kies voor `Install using Conda`.
 
 !!! opdracht-basis "black"
     Om Black te installeren en te testen voer je de volgende opdrachten uit:
     
-    1. In Visual Studio Code, ga naar \menu{Code} onder MacOS of \menu{File} onder Windows en dan naar \menu{Preferences > Settings > Python Formatting: Provider} en kies `black`. Ga dan naar \menu{Preferences > Settings > Editor: Format On Save} en vink die _aan_.
+    1. In Visual Studio Code, ga naar **Code** onder MacOS of **File** onder Windows en dan naar **Preferences > Settings > Python Formatting: Provider** en kies `black`. Ga dan naar **Preferences > Settings > Editor: Format On Save** en vink die _aan_.
     1. Open een Pythonbestand en type:
           ``` py
             l = [1,
             2, 3, 4]
           ```
-          Sla het bestand op en controleer of \shellinline{black} werkt. Je zou dan `#!py l = [1, 2, 3, 4]` moeten krijgen.
+          Sla het bestand op en controleer of `black` werkt. Je zou dan `#!py l = [1, 2, 3, 4]` moeten krijgen.
     1. Type in:
           ``` py
             fruit_bowl = {"apple": 1, 'banana': 2, "pear": 3, "lemon": 4, "strawberry": 5, 'raspberry': 6}
@@ -146,9 +155,9 @@ De code in deze handleiding is geformat met _Black_.
 ## Datatypes
 
 Gehele getallen, kommagetallen, strings: allemaal voorbeelden van _datatypes_. Veel zullen jullie al wel bekend voorkomen, zoals strings, lists en NumPy arrays. Andere zijn misschien alweer wat weggezakt, zoals dictionaries of booleans. Weer andere zijn misschien wat minder bekend, zoals complexe getallen of sets. En als laatste voegt Python af en toe nieuwe datatypes toe, zoals _f-strings_ in Python 3.6 of _data classes_ sinds Python 3.7.
-\begin{info}
-  De \citetitle{python-standard-library} documentatie \parencite{python-standard-library} bevat een mooi overzicht van alle datatypes met een beschrijving van operaties en eigenschappen. Voor uitgebreidere tutorials kun je vaak terecht bij \citetitle{real-python} \parencite{real-python}. Het kan makkelijk zijn om in een zoekmachine bijvoorbeeld `real python dict` te typen als je een tutorial zoekt over Python dictionaires.
-\end{info}
+
+!!! info
+    De _python-standard-library_ documentatie [@python-standard-library] bevat een mooi overzicht van alle datatypes met een beschrijving van operaties en eigenschappen. Voor uitgebreidere tutorials kun je vaak terecht bij _real-python_ [@real-python]. Het kan makkelijk zijn om in een zoekmachine bijvoorbeeld `real python dict` te typen als je een tutorial zoekt over Python dictionaires.
 
 Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
 
@@ -184,14 +193,15 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
     
       1. Maak een dictionary `constants` met de waardes van de (natuur)constantes $\pi$, de valversnelling $g$, de lichtsnelheid $c$ en het elementaire ladingskwantum $e$.
       1. Print de namen -- niet de waardes -- van de constantes die zijn opgeslagen in `constants`.
-      1. Bereken de zwaartekracht $F_\text{z} = mg$ voor een voorwerp met een massa van \qty{14}{\kilo\gram} door gebruik te maken van de waarde van $g$ uit de dictionary.
-      1. Maak een dictionary `measurement` die de resultaten van een meting bevat: een spanning van \qty{1.5}{\volt} bij een stroomsterkte van \qty{75}{\milli\ampere}.
+      1. Bereken de zwaartekracht $F_\text{z} = mg$ voor een voorwerp met een massa van 14 kg door gebruik te maken van de waarde van $g$ uit de dictionary.
+      1. Maak een dictionary `measurement` die de resultaten van een meting bevat: een spanning van 1.5 V bij een stroomsterkte van 75 mA.
       1. Bereken de weerstand van de schakeling op basis van de voorgaande meting en bewaar het resultaat in dezelfde dictionary.
     
 
 
-In Python zijn `#!py tuple`'s een soort `alleen-lezen' `#!py list`'s. Een tuple is een _immutable[^immutable] object_. Daarom worden ze vaak gebruikt wanneer lijstachtige objecten altijd dezelfde vorm moeten hebben. Bijvoorbeeld een lijst van $(x, y)$-coördinaten zou je zo kunnen definiëren:
+In Python zijn `#!py tuple`'s een soort <q>alleen-lezen</q> `#!py list`'s. Een tuple is een _immutable[^immutable] object_. Daarom worden ze vaak gebruikt wanneer lijstachtige objecten altijd dezelfde vorm moeten hebben. Bijvoorbeeld een lijst van $(x, y)$-coördinaten zou je zo kunnen definiëren:
 [^immutable]: Letterlijk: onveranderbaar.
+
 ``` py
   coords = [(0, 0), (1, 0), (0, 1)]
 ```
@@ -199,7 +209,9 @@ Hier is `#!py coords[0]` gelijk aan `#!py (0, 0)`. Je kunt nu _niet_ dit coördi
 ``` py
   coords = [{"x": 0, "y": 0}, {"x": 1, "y": 0}, {"x": 0, "y": 1}]
 ```
-Hier zijn tuples dus best handig, al moet je dus wel onthouden in welke volgorde de elementen staan. Dat is voor $(x, y)$-coördinaten niet zo'n probleem maar kan in andere situaties lastiger zijn.\footnote{Daar is bijvoorbeeld de `#!py collections.namedtuple()` dan weer handig voor.} Tuples ondersteunen _tuple unpacking_. Je kunt het volgende doen:
+Hier zijn tuples dus best handig, al moet je dus wel onthouden in welke volgorde de elementen staan. Dat is voor $(x, y)$-coördinaten niet zo'n probleem maar kan in andere situaties lastiger zijn.[^tuple] Tuples ondersteunen _tuple unpacking_. Je kunt het volgende doen:
+[^tuple]:Daar is bijvoorbeeld de `#!py collections.namedtuple()` dan weer handig voor.
+
 ``` py
   (x, y, z) = (2, 3, 4)
 ```
@@ -243,13 +255,13 @@ Wat zelfs werkt is _dictionary unpacking_. Je kunt aan functies ook argumenten b
     Gegeven de lijst `#!py odds = [1, 3, 5, 7, 9]`, print de waardes uit deze lijst op één regel. Je mag er niet vanuit gaan dat de lijst altijd 5 elementen bevat.
 
 
-Als laatste willen we nog de aandacht vestigen op `#!py set`s: een unieke verzameling van objecten. Ieder element komt maar één keer voor in een set:
+Als laatste willen we nog de aandacht vestigen op `#!py set`'s: een unieke verzameling van objecten. Ieder element komt maar één keer voor in een set:
 ``` py
   l = [1, 2, 2, 3, 5, 5]
   set(l)
   # {1, 2, 3, 5}
 ```
-Je moet even oppassen: de `#!py {`}-haakjes worden gebruikt voor zowel sets als dictionaries. Omdat een dictionary (key: value) paren heeft en een set losse elementen kan Python het verschil wel zien:
+Je moet even oppassen: de `#!py {}`-haakjes worden gebruikt voor zowel sets als dictionaries. Omdat een dictionary (key: value) paren heeft en een set losse elementen kan Python het verschil wel zien:
 ``` py
   is_set = {1, 2, 3, 4}
   is_dict = {1: 1, 2: 4, 3: 9, 4: 16}
@@ -270,14 +282,20 @@ NumPy arrays zijn vaak handiger dan lists. Als je een array hebt van 20 $x$-waar
   x = linspace(0, pi, 20)
   y = sin(x)
 ```
-NumPy voert de berekeningen uit binnen een C-bibliotheek\footnote{De programmertaal C ligt dichter bij machinetaal dan Python en is daarmee veel sneller maar ook veel minder geavanceerd.} en is daarmee veel sneller dan een berekening in Python zelf:
+NumPy voert de berekeningen uit binnen een C-bibliotheek[^C] en is daarmee veel sneller dan een berekening in Python zelf:
+
+[^C]: De programmertaal C ligt dichter bij machinetaal dan Python en is daarmee veel sneller maar ook veel minder geavanceerd.
+
 ``` py
   # x = [list of x-values]
   y = []
   for u in x:
       y.append(sin(u))
 ```
-Niet alleen is NumPy zo'n honderd keer sneller,\footnote{Echt. De sinus van 2000 $x$-waardes berekenen kostte NumPy in een test \qty{11.6}{\micro\second} en de for-loop wel \qty{1357.7}{\micro\second}.} het is ook veel korter op te schrijven. Het nadeel van NumPy arrays is dat je geen elementen kunt toevoegen.\footnote{Strikt genomen is dit niet helemaal waar. Je kunt een nieuwe array creëren door meerdere arrays aan elkaar te plakken. Maar een eenvoudige `#!py append()`-method bestaat niet voor arrays.} Python lijsten hebben dus voordelen, zeker als rekentijd geen probleem voor je is.
+Niet alleen is NumPy zo'n honderd keer sneller,[^numpy] het is ook veel korter op te schrijven. Het nadeel van NumPy arrays is dat je geen elementen kunt toevoegen.[^arrays] Python lijsten hebben dus voordelen, zeker als rekentijd geen probleem voor je is.
+
+[^numpy]:Echt. De sinus van 2000 $x$-waardes berekenen kostte NumPy in een test 11.6$\micro$s en de for-loop wel 1357.7$\micro$s.
+[^arrays]:Strikt genomen is dit niet helemaal waar. Je kunt een nieuwe array creëren door meerdere arrays aan elkaar te plakken. Maar een eenvoudige `#!py append()`-method bestaat niet voor arrays.
 
 Door gebruik te maken van een _list comprehension_ kun je de for-loop in één regel opschrijven:
 ``` py
@@ -305,7 +323,9 @@ Kortom: _berekeningen_ met arrays zijn sneller, maar for-loops (en list comprehe
   pdfs = [name for name in filenames if name.endswith(".pdf")]
   # pdfs=['text.pdf', 'manual.pdf']
 ```
-In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_\footnote{Notatie hetzelfde, maar gebruik nu `#!py {`}-haakjes.} en _dict comprehensions_.
+In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_[^{}] en _dict comprehensions_.
+
+[^{}]: Notatie hetzelfde, maar gebruik nu `#!py {`}-haakjes.
 
 !!! opdracht-basis "comprehensions"
     Voer, door een script te schrijven, de volgende opdrachten uit:
@@ -319,7 +339,10 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
 
 ## Zip; De ritssluiting
 
-In het rijtje van fantastische uitvindingen waar we niet vaak genoeg bij stilstaan heeft de ritssluiting zeker een plaats. Bij een ritssluiting worden twee lange rijen tandjes naast elkaar geduwd waarna die stevig in elkaar haken. Iets soortgelijks kan in Python met de `#!py zip()`-functie.\footnote{_Eng.: to zip_ betekent _ritsen_.} Stel je hebt twee lijsten A en B en je wilt loopen over de waardes. In de eerste iteratie wil je de eerste waarde uit A mét de eerste waarde van B, vervolgens de tweede waarde van A met de tweede waarde van B, enz. Dat werkt als volgt:
+In het rijtje van fantastische uitvindingen waar we niet vaak genoeg bij stilstaan heeft de ritssluiting zeker een plaats. Bij een ritssluiting worden twee lange rijen tandjes naast elkaar geduwd waarna die stevig in elkaar haken. Iets soortgelijks kan in Python met de `#!py zip()`-functie.[^zip] Stel je hebt twee lijsten A en B en je wilt loopen over de waardes. In de eerste iteratie wil je de eerste waarde uit A mét de eerste waarde van B, vervolgens de tweede waarde van A met de tweede waarde van B, enz. Dat werkt als volgt:
+
+[^zip]:_Eng.: to zip_ betekent _ritsen_.
+
 ``` py
   A = [1, 2, 3, 4]
   B = [1, 4, 9, 16]
@@ -334,7 +357,7 @@ In het rijtje van fantastische uitvindingen waar we niet vaak genoeg bij stilsta
 Dit is uiteenlopende situaties erg handig. Je kunt net zoveel lijsten in `#!py zip()` gooien als je wilt: `#!py for a, b, c, d, e in zip(A, B, C, D, E)` is geen probleem.
 
 !!! opdracht-basis "zip"
-    Gegeven de spanningen $U$ gelijk aan \qtylist{1.2; 1.8; 2.4; 2.7; 3.1}{\volt} en de bijbehorende stroomsterktes $I$ gelijk aan \qtylist{0.3; 0.4; 0.6; 0.8; 1.0}{\ampere}, loop over de lijsten met `#!py zip()` en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
+    Gegeven de spanningen $U$ gelijk aan 1.2 V; 1.8 V; 2.4 V; 2.7 V; 3.1 V en de bijbehorende stroomsterktes $I$ gelijk aan 0.3 A; 0.4 A; 0.6 A; 0.8 A; 1.0 A, loop over de lijsten met `#!py zip()` en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
 
 
 
@@ -379,7 +402,10 @@ Aangezien de definitie van een lambdafunctie zelf ook een expression is kun je h
   # ['banana', 'kiwi', 'apple']
 ```
 
-Lambdafuncties kom je ook tegen als je wilt fitten aan een bepaald model. Je definiëert je model dan in één regel met een lambdafunctie:\footnote{Het is hierbij wel belangrijk dat `#!py lmfit` er vanuit gaat dat de eerste variabele in de functiedefinitie de onafhankelijke variabele ($x$-as) is. Dit is verder geen Pythonlimitatie.}
+Lambdafuncties kom je ook tegen als je wilt fitten aan een bepaald model. Je definiëert je model dan in één regel met een lambdafunctie:[^lmfit]
+
+[^lmfit]: Het is hierbij wel belangrijk dat `#!py lmfit` er vanuit gaat dat de eerste variabele in de functiedefinitie de onafhankelijke variabele ($x$-as) is. Dit is verder geen Pythonlimitatie.
+
 ``` py
   # from lmfit import models
   f = lambda x, a, b: a * x + b
@@ -401,9 +427,9 @@ Je kunt de functies ook bewaren in een dictionary voor later gebruik.
 
 ## Generators
 
-Als een functie een serie metingen verricht kan het lang duren voordat de functie de resultaten teruggeeft. Laten we die functie even `#!py perform_measurements()` noemen. Het is soms lastig als de rest van het programma daarop moet wachten voordat een analyse kan worden gedaan, of een melding aan de gebruiker kan worden gegeven. Het kan dan gebeuren dat je je programma draait en je dan afvraagt: `doet hij het, of doet hij het niet?' Je kunt dit oplossen door `#!py print()`-statements in je programma op te nemen, maar dit is niet zo netjes. Als je `#!py perform_measurements()` inbouwt in een tekstinterface die ook `stil' moet kunnen zijn? Of als je de functie gaat gebruiken vanuit een grafisch programma waarin je geen tekst wilt printen, maar een grafiek wilt opbouwen? Je moet dan steeds `#!py perform_measurements()` gaan aanpassen. Een ander probleem kan optreden wanneer je langdurige metingen doet die ook veel geheugen innemen. Wachten op de hele meetserie betekent dat het geheugen vol kan lopen. Lastig op te lossen!
+Als een functie een serie metingen verricht kan het lang duren voordat de functie de resultaten teruggeeft. Laten we die functie even `#!py perform_measurements()` noemen. Het is soms lastig als de rest van het programma daarop moet wachten voordat een analyse kan worden gedaan, of een melding aan de gebruiker kan worden gegeven. Het kan dan gebeuren dat je je programma draait en je dan afvraagt: <q>doet hij het, of doet hij het niet?</q> Je kunt dit oplossen door `#!py print()`-statements in je programma op te nemen, maar dit is niet zo netjes. Als je `#!py perform_measurements()` inbouwt in een tekstinterface die ook <q>stil</q> moet kunnen zijn? Of als je de functie gaat gebruiken vanuit een grafisch programma waarin je geen tekst wilt printen, maar een grafiek wilt opbouwen? Je moet dan steeds `#!py perform_measurements()` gaan aanpassen. Een ander probleem kan optreden wanneer je langdurige metingen doet die ook veel geheugen innemen. Wachten op de hele meetserie betekent dat het geheugen vol kan lopen. Lastig op te lossen!
 
-Of\ldots je maakt gebruik van een _generator function_: een functie die tussendoor resultaten teruggeeft. Dat kan door gebruik te maken van `#!py yield` in plaats van `#!py return`. De rest gaat automatisch. Maar: je moet wel even weten hoe je omgaat met de generator. Stel, we willen de kwadraten berekenen van een reeks getallen tot een bepaald maximum:
+Of&hellip; je maakt gebruik van een _generator function_: een functie die tussendoor resultaten teruggeeft. Dat kan door gebruik te maken van `#!py yield` in plaats van `#!py return`. De rest gaat automatisch. Maar: je moet wel even weten hoe je omgaat met de generator. Stel, we willen de kwadraten berekenen van een reeks getallen tot een bepaald maximum:
 ``` py
   def calculate_squares_up_to(max_number):
       """Calculate squares of all integers up to a maximum number"""
@@ -461,7 +487,10 @@ Dit kan ook in list comprehensions. En als je _toch_ wilt wachten op alle result
 
 ### Dunder methods
 
-Hoe _weet_ Python eigenlijk wat de lengte is van een string? Of hoe je getallen optelt? Voor operatoren als `#!py + - * / **` wordt eigenlijk een _method_ aangeroepen. bijvoorbeeld `#!py __add__()` voor `#!py +`, en `#!py __mul__()` voor `#!py *`. Een ingebouwde functie als `#!py len()` roept stiekem de _method_ `#!py __len__()` aan en `#!py print()` print de uitvoer van `#!py __str__()`. Zulke methodes worden _dunder methods_\footnote{Dunder staat voor _double underscore_, de twee lage streepjes die om de naam heen staan.} of _magic methods_ genoemd. We kunnen zelf bijvoorbeeld een vector introduceren waarbij we de operatoren voor onze eigen doeleinden gebruiken \cite{operator_overloading}. We definiëren het optellen van vectoren en de absolute waarde (norm) van de vector:
+Hoe _weet_ Python eigenlijk wat de lengte is van een string? Of hoe je getallen optelt? Voor operatoren als `#!py + - * / **` wordt eigenlijk een _method_ aangeroepen. bijvoorbeeld `#!py __add__()` voor `#!py +`, en `#!py __mul__()` voor `#!py *`. Een ingebouwde functie als `#!py len()` roept stiekem de _method_ `#!py __len__()` aan en `#!py print()` print de uitvoer van `#!py __str__()`. Zulke methodes worden _dunder methods_[^dunder] of _magic methods_ genoemd. We kunnen zelf bijvoorbeeld een vector introduceren waarbij we de operatoren voor onze eigen doeleinden gebruiken [@operator_overloading]. We definiëren het optellen van vectoren en de absolute waarde (norm) van de vector:
+
+[^dunder]: Dunder staat voor _double underscore_, de twee lage streepjes die om de naam heen staan.
+
 ``` py
   class Vector:
       def __init__(self, x, y):
@@ -476,7 +505,10 @@ Hoe _weet_ Python eigenlijk wat de lengte is van een string? Of hoe je getallen 
       def __abs__(self):
           return (self.x ** 2 + self.y ** 2) ** .5
 ```
-De speciale `#!py __init__()` methode zorgt voor de initialisatie van de klasse en de eerste parameter die alle methodes meekrijgen verwijst naar zichzelf en wordt dus gewoonlijk `#!py self` genoemd.\footnote{Maar dat is niet verplicht, je mag in principe zelf een naam kiezen. Doe dat echter niet.} Met de regel `#!py self.x = x` wordt de parameter `#!py x` bewaard voor later gebruik. Je kunt de klasse gebruiken op de volgende manier:
+De speciale `#!py __init__()` methode zorgt voor de initialisatie van de klasse en de eerste parameter die alle methodes meekrijgen verwijst naar zichzelf en wordt dus gewoonlijk `#!py self` genoemd.[^niet_doen] Met de regel `#!py self.x = x` wordt de parameter `#!py x` bewaard voor later gebruik. Je kunt de klasse gebruiken op de volgende manier:
+
+[^niet_doen]: Maar dat is niet verplicht, je mag in principe zelf een naam kiezen. Doe dat echter niet.
+
 ``` ps1 title="Terminal"
   >>> v1 = Vector(0, 1)
   >>> v2 = Vector(1, 0)
@@ -493,7 +525,11 @@ De speciale `#!py __init__()` methode zorgt voor de initialisatie van de klasse 
   >>> print(v1 + v2)
   <__main__.Vector object at 0x7fdf80b45450>
 ```
-In de eerste regels maken we twee vectoren $\vb{v_1}$ en $\vb{v_2}$ en berekenen de lengtes\footnote{Absolute waarde of beter, _norm_, van een vector is eenvoudig gezegd haar lengte.} $\norm{\vb{v_1}}$, $\norm{\vb{v_2}}$ en $\norm{\vb{v_1 + v_2}}$. Ook kunnen we de coördinaten van de som bekijken. Het gaat mis als we de somvector willen printen of willen kijken wat voor object het is. We krijgen technisch juiste, maar totaal onbruikbare informatie terug. Dit lossen we op met het definiëren van `#!py __str__()`, gebruikt door `#!py str()` en dus ook `#!py print()`, en `#!py __repr__()`, gebruikt door `#!py repr()` en de Python interpreter.\footnote{Het verschil tussen de twee is subtiel. De Pythondocumentatie geeft aan dat de `#!py __repr__` altijd ondubbelzinnig moet zijn, terwijl de `#!py __str__` vooral leesbaar moet zijn. Voor eenvoudige objecten zijn ze veelal gelijk.}
+In de eerste regels maken we twee vectoren **v_1** en **v_2** en berekenen de lengtes[^norm] **||v_1||**, **||v_2||** en **||v_1 + v_2||**. Ook kunnen we de coördinaten van de som bekijken. Het gaat mis als we de somvector willen printen of willen kijken wat voor object het is. We krijgen technisch juiste, maar totaal onbruikbare informatie terug. Dit lossen we op met het definiëren van `#!py __str__()`, gebruikt door `#!py str()` en dus ook `#!py print()`, en `#!py __repr__()`, gebruikt door `#!py repr()` en de Python interpreter.[^subtiel_verschil]
+
+[^norm]: Absolute waarde of beter, _norm_, van een vector is eenvoudig gezegd haar lengte.
+[^subtiel_verschil]: Het verschil tussen de twee is subtiel. De Pythondocumentatie geeft aan dat de `#!py __repr__` altijd ondubbelzinnig moet zijn, terwijl de `#!py __str__` vooral leesbaar moet zijn. Voor eenvoudige objecten zijn ze veelal gelijk.
+
 ``` py
   class Vector:
       ...
@@ -514,28 +550,31 @@ We raden je aan altijd een zinnige `#!py __str__` en `#!py __repr__` te definië
 
 Vaak hebben classes geen dunder methods nodig (behalve `#!py __repr__` en `#!py __str__`).
 
-Je kunt behalve een class ook een _subclass_ aanmaken. Stel dat je een class \verb|Animal| hebt aangemaakt met handige methods en attributes maar je wilt een nieuwe, iets specifiekere class maken (bijvoorbeeld \verb|Cow|). Het is duidelijk dat een koe een dier is, maar een dier nog geen koe. Je kunt een subclass maken:
+Je kunt behalve een class ook een _subclass_ aanmaken. Stel dat je een class `#!py Animal` hebt aangemaakt met handige methods en attributes maar je wilt een nieuwe, iets specifiekere class maken (bijvoorbeeld `#!py Cow`). Het is duidelijk dat een koe een dier is, maar een dier nog geen koe. Je kunt een subclass maken:
 ``` py
   class Cow(Animal):
       pass
 ```
-Het keyword `#!py pass` doet niets overigens. Met alleen dit statement heeft de class \verb|Cow| precies alle functionaliteit van de class \verb|Animal|. Je kunt daarna zelf nog extra methods en attributes definiëren.
+Het keyword `#!py pass` doet niets overigens. Met alleen dit statement heeft de class `#!py Cow` precies alle functionaliteit van de class `#!py Animal`. Je kunt daarna zelf nog extra methods en attributes definiëren.
 
 
 ## Decorators
 
-Functies zijn ook objecten in Python. Je kunt ze, zoals we eerder gezien hebben, meegeven als argument of bewaren in een dictionary. Ook kun je functies in functies definiëren en functies definiëren die functies teruggeven. Vaag\footnote{Calmcode doet een goeie poging om dit rustig uit te leggen, kijk daarvoor op \url{https://calmcode.io/decorators/functions.html}}. Ik moet hier altijd weer even over nadenken en daarom mag je dit stukje overslaan. Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_.
-% Met decorators kan je functionaliteit aan een functie toevoegen. 
+Functies zijn ook objecten in Python. Je kunt ze, zoals we eerder gezien hebben, meegeven als argument of bewaren in een dictionary. Ook kun je functies in functies definiëren en functies definiëren die functies teruggeven. Vaag[^Calmcode]. Ik moet hier altijd weer even over nadenken en daarom mag je dit stukje overslaan. Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_.
+
+[^Calmcode]: Calmcode doet een goeie poging om dit rustig uit te leggen, kijk daarvoor op [https://calmcode.io/decorators/functions.html](https://calmcode.io/decorators/functions.html)
+
+<!-- % Met decorators kan je functionaliteit aan een functie toevoegen.  -->
 Decorators worden vaak gebruikt om het gedrag van een functie aan te passen.
 
-% \begin{todo}
-%   Ik vind dit voorbeeld best lastig, maar misschien komt dat dus omdat mijn hoofd zich de hele tijd afvraagd, maar WAAROM zou je dat willen of WAAROM zou je dat doen.
-% \end{todo}
+
+<!-- %   Ik vind dit voorbeeld best lastig, maar misschien komt dat dus omdat mijn hoofd zich de hele tijd afvraagd, maar WAAROM zou je dat willen of WAAROM zou je dat doen. -->
+
 
 Stel je hebt een functie die eenvoudig twee getallen vermenigvuldigd. Je wilt deze functie, zonder hem van binnen te veranderen, aanpassen zodat hij altijd het kwadraat van de vermenigvuldiging geeft. Dus niet $a\cdot b$, maar $(a\cdot b)^2$. Dat kan als volgt:
-% \begin{todo}
-%   Het voorbeeld is al vrij abstract, misschien maakt 'f' het als functienaam nog abstracter. Misschien moeten we hem gewoon multiply noemen.
-% \end{todo}
+
+<!-- %   Het voorbeeld is al vrij abstract, misschien maakt 'f' het als functienaam nog abstracter. Misschien moeten we hem gewoon multiply noemen. -->
+
 ``` py
   def f(a, b):
       return a * b
@@ -550,23 +589,26 @@ Stel je hebt een functie die eenvoudig twee getallen vermenigvuldigd. Je wilt de
   # 144
 ```
 Het werkt, maar we moeten er wel steeds aan denken om `#!py squared()` aan te roepen en dan óók nog de functie `#!py f()` als eerste argument mee te geven. Lastig. Maar omdat functies objecten zijn kan dit ook:
-\begin{pythoncode*}{linenos}
-  def squared_func(func):
-      def inner_func(a, b):
-          return func(a, b) ** 2
+``` py linenums="1"
+def squared_func(func):
+    def inner_func(a, b):
+        return func(a, b) ** 2
 
-      return inner_func
+    return inner_func
 
 
-  g = squared_func(f)
-  g(3, 4)
-  # 144
-\end{pythoncode*}
-Hier gebeurt iets geks\ldots Om te begrijpen wat hier gebeurt moeten we een beetje heen en weer springen. In regel 8 roepen we de functie `#!py squared_func(f)` aan. In regel 5 zien we dat die functie een andere functie teruggeeft -- die _niet_ wordt aangeroepen! In regel 8 wordt die functie bewaard als `#!py g` en pas in regel 9 roepen we hem aan. De functie `#!py g()` is dus eigenlijk gelijk aan de functie `#!py inner_func()` die in regels 2--3 gedefinieerd wordt. De aanroep in regel 9 zorgt er uiteindelijk voor dat in regel 3 de oorspronkelijke functie `#!py f(a, b)` wordt aangeroepen en dat het antwoord gekwadrateerd wordt. Dit is echt wel even lastig.
+g = squared_func(f)
+g(3, 4)
+# 144
 
-% \begin{todo}
+```
+
+Hier gebeurt iets geks&hellip; Om te begrijpen wat hier gebeurt moeten we een beetje heen en weer springen. In regel 8 roepen we de functie `#!py squared_func(f)` aan. In regel 5 zien we dat die functie een andere functie teruggeeft -- die _niet_ wordt aangeroepen! In regel 8 wordt die functie bewaard als `#!py g` en pas in regel 9 roepen we hem aan. De functie `#!py g()` is dus eigenlijk gelijk aan de functie `#!py inner_func()` die in regels 2--3 gedefinieerd wordt. De aanroep in regel 9 zorgt er uiteindelijk voor dat in regel 3 de oorspronkelijke functie `#!py f(a, b)` wordt aangeroepen en dat het antwoord gekwadrateerd wordt. Dit is echt wel even lastig.
+
+<!-- % \begin{todo}
 %   Als we studenten nog niet kwijt waren, dan raken we ze hier wel kwijt. De stap van a en b naar *args en **kwargs is best groot. Misschien kunnen we eerst @decorators uitleggen, dan een opdracht laten maken en dan nog een stapje verder met args en kwargs
-% \end{todo}
+% \end{todo} -->
+
 In deze opzet moet de `#!py inner_func(a, b)` nog weten dat de oorspronkelijke functie aangeroepen wordt met twee argumenten `#!py a` en `#!py b`. Maar ook dat hoeft niet. We hebben immers argument (un)packing met `#!py *args`:
 ``` py
   def squared_func(func):
@@ -589,9 +631,9 @@ op te nemen in je code kun je de functie meteen `decoraten' als volgt:
   # 144
 ```
 
-Als je meer wilt weten over hoe decorators werken en hoe je je eigen decorators kunt maken, dan vind je een uitgebreide uitleg in \citetitle{decorators} \cite{decorators}. Deze tutorial heb je niet per se nodig voor de volgende opdracht.
+Als je meer wilt weten over hoe decorators werken en hoe je je eigen decorators kunt maken, dan vind je een uitgebreide uitleg in _Primer on Python Decorators_ [@decorators]. Deze tutorial heb je niet per se nodig voor de volgende opdracht.
 
-% \begin{todo}
+<!-- % \begin{todo}
 %   Deze opdracht vond ik best lastig, vooral omdat ik er volgens mij nog geen drol van begreep. Misschien is het goed om hier een opzetje te maken. Dus een scriptje met een functie die argumenten nodig heeft een een waarde teruggeeft.
 %   ``` py
 %     import datetime
@@ -614,18 +656,18 @@ Als je meer wilt weten over hoe decorators werken en hoe je je eigen decorators 
 %     print(f(3, b=4))
 %     ```
 %   En dan in een paar stappen. Zorg eerst dat de logfunctie het zonder poespas gaat doen (oftewel run die handel en los de error op) en dan functionaliteit toevoegen dat de datum enzo wordt geprint.
-% \end{todo}
+% \end{todo} -->
 
-\begin{bonus}
-  \begin{opdracht}[decorators]
+!!! opdracht-meer "decorators"
     Schrijf en test een decorator die werkt als een soort logboek. Als je een functie aanroept die gedecoreerd is print dan een regel op het scherm met het tijdstip van de aanroep, de parameters die meegegeven werden én de return value van de functie.
-  \end{opdracht}
-\end{bonus}
+
 
 
 ## Modules
 
-Als je een nieuw script begint te schrijven staat alle code in één bestand. Dat is lekker compact, maar heeft ook nadelen. Als je je experiment of programma gaat uitbreiden kan het erg onoverzichtelijk worden. Ook zul je al je wijzigingen steeds in dit bestand moeten doen terwijl je je code van eerdere experimenten misschien wel wilt bewaren. Mogelijk kopieer je steeds je script naar een nieuw bestand, maar dat is niet erg _DRY_.\footnote{_DRY_ staat voor _Don't Repeat Yourself_, een belangrijk principe in software engineering.} Als je dan bijvoorbeeld een functie of klasse wilt aanpassen, moet dat nog steeds op heel veel plekken. Daarom is het handig om gebruik te maken van _modules_.
+Als je een nieuw script begint te schrijven staat alle code in één bestand. Dat is lekker compact, maar heeft ook nadelen. Als je je experiment of programma gaat uitbreiden kan het erg onoverzichtelijk worden. Ook zul je al je wijzigingen steeds in dit bestand moeten doen terwijl je je code van eerdere experimenten misschien wel wilt bewaren. Mogelijk kopieer je steeds je script naar een nieuw bestand, maar dat is niet erg _DRY_.[^DRY] Als je dan bijvoorbeeld een functie of klasse wilt aanpassen, moet dat nog steeds op heel veel plekken. Daarom is het handig om gebruik te maken van _modules_.
+
+[^DRY]: _DRY_ staat voor _Don't Repeat Yourself_, een belangrijk principe in software engineering.
 
 Eenvoudig gezegd is een module een stuk Python code dat je kunt importeren en gebruiken. Meestal worden er in een module handige functies en klasses gedefinieerd:
 ``` ps1 title="Terminal"
@@ -657,8 +699,8 @@ Zoals verwacht! Maar nu willen we in een nieuw script, {{file}}count\_count.py, 
 
   print(f"The square of 5 is {square.square(5)}")  
 ```
-\begin{minopdracht}
-  Waarom staat er in bovenstaande code nu opeens `#!py square.square()` in plaats van gewoon `#!py square()`?
+!!! opdracht-basis "square.square"
+    Waarom staat er in bovenstaande code nu opeens `#!py square.square()` in plaats van gewoon `#!py square()`?
 
 Maar nu is er een probleem met de uitvoer van dit script:
 ``` ps1 title="Terminal"
@@ -680,57 +722,52 @@ De tweede oplossing kan van pas komen. Je past dan {{file}}square.py als volgt a
   if __name__ == "__main__":
       print(f"The square of 4 is {square(4)}")
 ```
-Wanneer je een python script runt is de speciale variabele `#!py __name__` gelijk aan de string \verb|__main__|. Maar als je een module importeert is
-`#!py __name__` gelijk aan de _naam_ van de module; in dit geval \verb|square|. Met bovenstaande constructie wordt de code alleen uitgevoerd wanneer de module direct gerunt wordt:
-\begin{ps1concode}
+Wanneer je een python script runt is de speciale variabele `#!py __name__` gelijk aan de string `__main__`. Maar als je een module importeert is
+`#!py __name__` gelijk aan de _naam_ van de module; in dit geval `#!py square`. Met bovenstaande constructie wordt de code alleen uitgevoerd wanneer de module direct gerunt wordt:
+
+```ps1con title="Terminal"
   PS> python square.py
   The square of 4 is 16
   PS> python just_count.py
   The square of 5 is 25
-\end{ps1concode}
+```
+
 Het `#!py if __name__ == '__main__'`-statement wordt heel veel gebruikt in Python modules.
 
 !!! opdracht-basis "modules"
-    \label{opd:importeer_module}
-    Maak zelf de bestanden \path{square.py} en \path{just\_count.py} aan en probeer het importeren uit, met en zonder het `#!py if __name__ == '__main__'`-statement.
+    Maak zelf de bestanden {{file}}square.py en {{file}}just\_count.py aan en probeer het importeren uit, met en zonder het `#!py if __name__ == '__main__'`-statement.
 
 
 
 ## Packages
 
-In Python zijn _packages_ collecties van modules. Ook krijg je automatisch _namespaces_. Dat wil zeggen, wanneer je functies en modules uit een package importeert zitten ze niet in één grote vormeloze berg, maar in een soort boomstructuur. Dat betekent dat namen niet uniek hoeven te zijn. Er zijn duizenden bibliotheken beschikbaar voor python (\verb|numpy|, \verb|scipy|, \verb|matplotlib|, etc.) en die mogen allemaal een module \verb|test| bevatten. Namespaces zorgen ervoor dat je ze uniek kunt benaderen:
+In Python zijn _packages_ collecties van modules. Ook krijg je automatisch _namespaces_. Dat wil zeggen, wanneer je functies en modules uit een package importeert zitten ze niet in één grote vormeloze berg, maar in een soort boomstructuur. Dat betekent dat namen niet uniek hoeven te zijn. Er zijn duizenden bibliotheken beschikbaar voor python (`numpy`, `scipy`, `matplotlib`, etc.) en die mogen allemaal een module `test` bevatten. Namespaces zorgen ervoor dat je ze uniek kunt benaderen:
 ``` py
   import numpy.test
   import scipy.test
 ```
 In bovenstaande code zijn `#!py numpy` en `#!py scipy` afzonderlijke namespaces. Ook zijn `#!py numpy.test` en `#!py scipy.test` afzonderlijke namespaces. De namen van bijvoorbeeld variabelen en functies binnen die modules zullen nooit met elkaar in conflict komen.
 
-Wij gaan in deze cursus onze code ook in packages stoppen. Op die manier kun je een softwarebibliotheek opbouwen voor je experiment en die code makkelijker delen met andere onderzoekers. Een pakket is opgebouwd zoals weergegeven in \figref{fig:packagetree}: iedere package bestaat uit een directory met een {{file}}\_\_init\_\_.py-bestand.\footnote{Dat bestand is vaak leeg, maar kan code bevatten die gerunt wordt zodra het package wordt geïmporteerd.}
-\begin{figure}
-  % \centering
-  \quad
-  \begin{forest}
-    for tree={grow'=0,folder,font=\ttfamily}
-    [\githubrepo{my\_project\_folder}
-      [\folderpath{my\_pkg}
-        [{{file}}\_\_init\_\_.py]
-        [\folderpath{pkg1}
-          [{{file}}\_\_init\_\_.py]
-          [{{file}}module1.py]
-          [{{file}}module2.py]
-        ]
-        [\folderpath{pkg2}
-          [{{file}}\_\_init\_\_.py]
-          [{{file}}module3.py]
-        ]
-        [{{file}}module4.py]
-      ]
-    ]
-  \end{forest}
-  \caption{Voorbeeld van een directorystructuur van een Python package.}
-  \label{fig:packagetree}
-\end{figure}
-De verschillende modules uit \figref{fig:packagetree} kun je als volgt importeren en gebruiken (we gaan er even vanuit dat iedere module een functie `#!py some_func()` bevat):
+Wij gaan in deze cursus onze code ook in packages stoppen. Op die manier kun je een softwarebibliotheek opbouwen voor je experiment en die code makkelijker delen met andere onderzoekers. Een pakket is opgebouwd zoals hieronder weergegeven:
+
+<div id="fig:packagetree"></div>
+- {{github}} my\_project\_folder
+    - {{folder}} my\_pkg
+        - {{file}} \_\_init\_\_.py
+        - {{folder}} pkg1
+            - {{file}} \_\_init\_\_.py
+            - {{file}} module1.py
+            - {{file}} module2.py
+        - {{folder}} pkg2
+            - {{file}}\_\_init\_\_.py
+            - {{file}}module3.py
+        - {{file}}module4.py
+
+Iedere package bestaat uit een directory met een {{file}}\_\_init\_\_.py-bestand.[^init]
+
+[^init]: Dat bestand is vaak leeg, maar kan code bevatten die gerunt wordt zodra het package wordt geïmporteerd.
+
+De verschillende modules uit [figuur fig:packagetree](voorkennis.md#fig:packagetree) kun je als volgt importeren en gebruiken (we gaan er even vanuit dat iedere module een functie `#!py some_func()` bevat):
 ``` py
   # module direct importeren
   import my_pkg.pkg1.module1
@@ -747,11 +784,12 @@ De verschillende modules uit \figref{fig:packagetree} kun je als volgt importere
 
 In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script dus alleen maar in een map te stoppen en in diezelfde map een lege {{file}}\_\_init\_\_.py aan te maken.
 
-\begin{warning}
-  Let op: als je de {{file}}\_\_init\_\_.py vergeet dan lijkt alles het alsnog te doen. Maar je maakt nu een _implicit namespace package_ waarbij bepaalde directories toch weer op een grote hoop gegooid worden. Geloof me, echt niet handig.\footnote{En wat mij betreft: een fout dat zoiets überhaupt kan in Python. Zen of Python: _explicit is better than implicit._} Namespace packages kunnen handig zijn voor grote projecten, maar dat is het dan ook wel. Wij gaan hier niet verder op in. Kortom: let op en gebruik _altijd_ een {{file}}\_\_init\_\_.py.
-\end{warning}
+!!! waarschuwing
+    Let op: als je de {{file}}\_\_init\_\_.py vergeet dan lijkt alles het alsnog te doen. Maar je maakt nu een _implicit namespace package_ waarbij bepaalde directories toch weer op een grote hoop gegooid worden. Geloof me, echt niet handig.[^fout] Namespace packages kunnen handig zijn voor grote projecten, maar dat is het dan ook wel. Wij gaan hier niet verder op in. Kortom: let op en gebruik _altijd_ een {{file}}\_\_init\_\_.py.
 
-% \begin{info}
+[^fout]: En wat mij betreft: een fout dat zoiets überhaupt kan in Python. Zen of Python: _explicit is better than implicit._
+
+<!-- % \begin{info}
 %   Als je in een module een andere module wilt importeren dan zijn daarvoor twee opties: relatieve en absolute imports. Relatief wil zeggen: importeer module1 uit _dezelfde_ directory, of ten opzichte van deze directory (`..` betekent een directory hoger bijvoorbeeld). Bij een absolute import moet je de volledige locatie binnen het package opgeven. Als voorbeeld, stel dat `module1` uit \figref{fig:packagetree} de modules `module2` en `module3` wil importeren:
 %   ``` py
 %     # module1.py
@@ -765,7 +803,7 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 %     from my_pkg.pkg2 import module3
 %   ```
 %   Absolute imports zijn wat meer werk, maar je maakt wel heel duidelijk welke module je wilt importeren. Relative imports zorgen in de praktijk regelmatig voor -- soms lastig te vinden -- bugs. Als je tegen problemen aanloopt: gebruik dan absolute imports.
-% \end{info}
+% \end{info} -->
 
 <div id="opd:test_package"></div>
 !!! opdracht-basis "Packages"
@@ -791,9 +829,9 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 
 ## De Standard Library en de Python Package Index
 
-Voor Python zijn ontzettend veel bibliotheken beschikbaar die het leven een stuk aangenamer maken. Voor een gedeelte daarvan geldt dat ze altijd aanwezig zijn als je Python geïnstalleerd hebt. Deze set vormt de _standard library_ \cite{python-standard-library}. Om te voorkomen dat je zelf het wiel uitvindt is het goed om af en toe door de lijst te bladeren zodat je een idee krijgt wat er allemaal beschikbaar is. Ziet het er bruikbaar uit? Lees dan vooral de documentatie! Tip: vergeet de _built-in functions_ niet.
+Voor Python zijn ontzettend veel bibliotheken beschikbaar die het leven een stuk aangenamer maken. Voor een gedeelte daarvan geldt dat ze altijd aanwezig zijn als je Python geïnstalleerd hebt. Deze set vormt de _standard library_ [@python-standard-library]. Om te voorkomen dat je zelf het wiel uitvindt is het goed om af en toe door de lijst te bladeren zodat je een idee krijgt wat er allemaal beschikbaar is. Ziet het er bruikbaar uit? Lees dan vooral de documentatie! Tip: vergeet de _built-in functions_ niet.
 
-Verder zijn er nog eindeloos veel packages beschikbaar gesteld door programmeurs, van hobbyist tot multinational. Deze kunnen centraal gepubliceerd worden in de _Python Package Index_ \cite{pypi}. Je kunt daar vaak ook zien hoe populair een package is. Dit is een belangrijke indicatie voor de kwaliteit en bruikbaarheid van een package.
+Verder zijn er nog eindeloos veel packages beschikbaar gesteld door programmeurs, van hobbyist tot multinational. Deze kunnen centraal gepubliceerd worden in de _Python Package Index_ [@pypi]. Je kunt daar vaak ook zien hoe populair een package is. Dit is een belangrijke indicatie voor de kwaliteit en bruikbaarheid van een package.
 
 
 ## Exceptions
@@ -885,7 +923,7 @@ In plaats van een `#!py ZeroDivisionError` krijg je nu een `#!py NoCurrentError`
 
 
 
-\begin{figure}[b]
+<!-- \begin{figure}[b]
   \begin{verbatim}
     1 bytes = 8 bits which has 256 possible values.
     2 bytes = 16 bits which has 65536 possible values.
@@ -894,4 +932,4 @@ In plaats van een `#!py ZeroDivisionError` krijg je nu een `#!py NoCurrentError`
   \end{verbatim}
   \caption{De uitvoer van het in eerste instantie cryptische scriptje op \mypageref{code_bytes}.}
   \label{fig:uitvoer_bytes}
-\end{figure}
+\end{figure} -->
