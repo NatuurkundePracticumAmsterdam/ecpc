@@ -1,15 +1,16 @@
 \documentclass[11pt,tikz,border=5pt]{standalone}
 
+\usepackage{amsmath}
 
 \begin{document}
-    \begin{tikzpicture}
-        \clip (-1em, -1.2em) rectangle (8, 5.5);
-        \begin{scope}
+\begin{tikzpicture}
+    \clip (-1em, -1.2em) rectangle (8, 5.5);
+    \begin{scope}
         \clip (0, 0) rectangle (8, 5);
         \draw[very thick, domain=0:7] plot (\x, {4 - 1e-2 * (exp(\x) - 1)});
-        \end{scope}
-        \draw[->, thick] (0, 0) -- (7, 0) node[right] {$U_\text{PV}$};
-        \draw[->, thick] (0, 0) -- (0, 5) node[above] {$I$};
-        \node[below left] at (0, 0) {0};
-    \end{tikzpicture}
+    \end{scope}
+    \draw[->, thick] (0, 0) -- (7, 0) node[right] {$U_\text{PV}$};
+    \draw[->, thick] (0, 0) -- (0, 5) node[above] {$I$};
+    \node[below left] at (0, 0) {0};
+\end{tikzpicture}
 \end{document}
