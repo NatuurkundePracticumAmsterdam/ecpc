@@ -53,7 +53,7 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
 ![LED schakelschema](figures/LED-schakeling.svg)
 
 !!! info
-    Om met Python via het VISA-protocol te kunnen communiceren met apparaten hebben we specifieke packages nodig. Die gaan we installeren in een _conda environment_. Voor meer informatie over conda environments zie [Conda environments](software-tools.md#conda-environments).
+    Om met Python via het VISA-protocol te kunnen communiceren met apparaten hebben we specifieke packages nodig. Die gaan we installeren in een _conda environment_. Voor meer informatie over conda environments zie [paragraaf _Conda environments_](software-tools.md#conda-environments).
 
 <div id="opd:condaenv"></div>
 !!! opdracht-basis "Environment aanmaken"
@@ -189,7 +189,7 @@ print(device.query("*IDN?"))
 
 <div id="opd:test_arduino"></div>
 !!! opdracht-basis "Pyvisa in pythonscript"
-    Maak in een geschikte map een bestand {{file}}`test_arduino.py` en kopieer daarin bovenstaande code. Selecteer vervolgens in Visual Studio Code je conda environment zodat je het script ook daadwerkelijk kunt runnen. Hoe je dat doet lees je aan het eind van [Conda environments](software-tools.md#conda-environments). Sluit alle terminals.
+    Maak in een geschikte map een bestand {{file}}`test_arduino.py` en kopieer daarin bovenstaande code. Selecteer vervolgens in Visual Studio Code je conda environment zodat je het script ook daadwerkelijk kunt runnen. Hoe je dat doet lees je aan het eind van de [paragraaf _Conda environments_](software-tools.md#conda-environments). Sluit alle terminals.
 
 
 Draaien we het script, dan zien we, afhankelijk van het systeem en het aantal apparaten dat verbonden is:

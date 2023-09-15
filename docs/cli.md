@@ -72,7 +72,7 @@ else:
 Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de _standard library_. Een hele handige &mdash; die níet in de _standard library_ zit maar wél meegeleverd is met Anaconda &mdash; is Click.[@click]
 
 !!! info
-    Click maakt gebruik van _decorators_ (`#!py @decorator`). Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_. Als je meer wilt weten over de werking ervan lees dan [sec:decorators](voorkennis.md#decorators).
+    Click maakt gebruik van _decorators_ (`#!py @decorator`). Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_. Als je meer wilt weten over de werking ervan lees dan [paragraaf _decorators_](voorkennis.md#decorators).
 
 Als kort voorbeeld &mdash; geïnspireerd op de documentatie van Click &mdash; nemen we het volgende script:
 ``` py title="hello.py"
@@ -272,10 +272,10 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
     Omdat de naam van een subcommando gelijk is aan de functienaam kan dat voor problemen zorgen wanneer je gereserveerde namen van python wilt gebruiken zoals: `#!py import`, `#!py return`, `#!py lambda`. Of wanneer je de naam van het subcommando graag hetzelfde wilt hebben als een ander pythonfunctie zoals `#!py sin` of `#!py list`.
     Een oplossing is om de functienaam aan te passen en de subcommando naam expliciet aan click mee te geven bij `command`:
     ``` py
-        @cmd_group.command("import")
-        @click.argument("package")
-        def import_package(package):
-            print(f"import {package}...")
+    @cmd_group.command("import")
+    @click.argument("package")
+    def import_package(package):
+        print(f"import {package}...")
     ```
     We hebben nu een commando `import` aangemaakt &mdash; _niet_ een commando `import_package`.
 
@@ -601,7 +601,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 Op dit punt hebben we de functionaliteit van ons snelle script van het vorige hoofdstuk bereikt. Dit was veel meer werk, maar het is veel flexibeler. Als je wilt meten met een andere Arduino, een ander bereik, of een andere stapgrootte dan type je gewoon een iets ander commando in de terminal. Je hoeft geen scripts meer aan te passen. Als je na een tijdje niet meer precies weet hoe het ook alweer werkte allemaal kun je dat snel weer oppakken door `--help` aan te roepen.
 
 !!! opdracht-basis "Alle subcommando's implementeren"
-    Kijk nog eens terug naar het lijstje subcommando's die je in [opd:subcommandos](cli.md#opd:subcommandos) hebt opgeschreven. Heb je alles geïmplementeerd? Wat zou je willen dat je nog meer kan instellen? Als er tijd over is, kijk dan of dit lukt.
+    Kijk nog eens terug naar het lijstje subcommando's die je in [opdracht _Subcommando's bedenken_](cli.md#opd:subcommandos) hebt opgeschreven. Heb je alles geïmplementeerd? Wat zou je willen dat je nog meer kan instellen? Als er tijd over is, kijk dan of dit lukt.
 
 
 ## Een interface met stijl
@@ -618,7 +618,7 @@ Op dit punt hebben we de functionaliteit van ons snelle script van het vorige ho
 ## Data-analyse
 ??? meer-leren "Meer leren"
 
-    Door de $I,U$-karakteristiek van de (lichtgevende) diode te analyseren is het mogelijk om de constante van Boltzmann te bepalen. De stoomsterkte door een diode wordt gegeven door de Shockley diodevergelijking [eq:Shockley](diodes.md#eq:Shockley). Zie ook [hoofdstuk diode](diodes.md).
+    Door de $I,U$-karakteristiek van de (lichtgevende) diode te analyseren is het mogelijk om de constante van Boltzmann te bepalen. De stoomsterkte door een diode wordt gegeven door de [_Shockley diodevergelijking_](diodes.md#eq:Shockley). Zie ook [hoofdstuk _diode_](diodes.md).
 
     Lukt het, om binnen de te bepalen onzekerheid, overeenkomst te vinden met de literatuurwaarde? Een LED is helaas geen ideale diode dus dit kan lastig zijn.
 
