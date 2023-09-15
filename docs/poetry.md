@@ -113,13 +113,14 @@ Bij het schrijven van een nieuw package is het zéker belangrijk om een environm
 !!! opdracht-basis "Environment aanmaken"
     We maken &mdash; speciaal voor `easystat` &mdash; een environment.
 
-    1. Open in Visual Studio Code de _project_map {{github}}`easystat`
+    1. Open in Visual Studio Code de _project_-map {{github}}`easystat`
     1. Open een terminal en maak een easystat conda environment aan:
             ``` ps1 title="Terminal"
             conda create -n easystat python=3.9
             ```
     1. Selecteer dit nieuwe conda environment in Visual Studio Code.
     
+    Merk op dat we nu niet gebruik hoeven te maken van de `conda-forge` channel. Python zelf staat in _alle_ kanalen en we gaan verder geen software installeren met conda, dus ook niet uit `conda-forge`.
 
 
 ### Maken van de easystat-package
@@ -317,8 +318,6 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
     ```
     Je overschrijft dus je huidige environment met een nieuwe, lege. Je kunt daarna met `poetry add` packages toevoegen net zo lang tot je geen `#!py ImportError` meer krijgt.
 
-    Merk op dat we nu niet gebruik hoeven te maken van de `conda-forge` channel. Python zelf staat in _alle_ kanalen en we gaan verder geen software installeren met conda, dus ook niet uit `conda-forge`.
-
 !!! opdracht-basis "Poetry knipperlicht"
     We gaan nu poetry gebruiken om van het script met de knipperende lichtjes uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) een package te maken én om ons environment te beheren. Voer de volgende stappen uit:
     
@@ -473,6 +472,8 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
 
 !!! opdracht-basis "commando toevoegen"
 
+    Voor de volgende stappen uit:
+
     1. Open {{file}}`pyproject.toml` en voeg het kopje `[tool.poetry.scripts]` toe.
     1. Als naam voor het commando kiezen we `count`.
     1. Voor het gemak vullen we de rechterkant van het =-teken van rechts naar links in. Achter de dubbele punt komt de naam van de functie die uitgevoerd moet worden, dat is in ons geval `main`.
@@ -492,10 +493,8 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
     1. Activeer een andere conda environment en probeer meteen het commando opnieuw; waarom werkt dit niet?
     1. Navigeer naar de bovenliggende map met `cd..`. Zorg dat het conda environment waar je `just_count` hebt geïnstalleerd is geactiveerd en test het commando. 
 
-    Het maakt nu dus niet meer uit waar je bent, als je de juiste conda environment hebt geactiveerd kan je altijd je applicatie starten!
+    Het maakt nu dus niet meer uit waar je bent, als je de juiste conda environment hebt geactiveerd kun je altijd je applicatie starten!
     
-
-
 
 ??? opdracht-meer "Error analysis"
     Als extra oefening gaan we met Poetry een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script {{file}}`data_analysis.py` te laten runnen.

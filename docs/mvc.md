@@ -268,7 +268,7 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
 
 !!! opdracht-inlever "Pythondaq: Controller implementeren"
     Pas je script &mdash; en vooral ook de class! &mdash;aan zodat in je <q>experiment</q>-code alleen maar aanroepen naar de class zitten.
-    Controlleer dat het schript precies hetzelfde doet als bij [opdracht _quick 'n dirty_ meting](communicatie.md#opd:quickndirty-meting).
+    Controleer dat het schript precies hetzelfde doet als bij [opdracht _quick 'n dirty_ meting](communicatie.md#opd:quickndirty-meting).
 
 Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de precieze commando's zijn die je naar de hardware moet sturen. Als je de Arduino in de opstelling vervangt voor een ander meetinstrument moet je de class aanpassen, maar kan alle code die met het experiment zelf te maken heeft hetzelfde blijven.
 
