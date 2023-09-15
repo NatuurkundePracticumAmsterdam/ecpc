@@ -288,7 +288,7 @@ Fijn! Als je nu de {{file}}`pyproject.toml` nog eens bekijkt zie je dat NumPy da
                 PS> conda activate test-wheel
                 ```
         1. Draai {{file}}`tests/try_shortcuts.py` en bekijk de foutmelding.
-        1. installeer het wheel met `pip install dist/easystat-0.1.0-py3-none-any.whl`.
+        1. Installeer het wheel met `pip install dist/easystat-0.1.0-py3-none-any.whl`.
         1. Draai {{file}}`tests/try_shortcuts.py` en bekijk de uitkomst.
         
     Het werkt! Je ziet dat `pip install` niet alleen ons package `easystat` installeert, maar _ook de dependency_ `numpy`. Dat is precies wat we willen.
