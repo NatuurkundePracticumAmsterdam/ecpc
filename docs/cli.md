@@ -57,7 +57,7 @@ PS> python cli.py test 123
 ```
 
 Met if-statements kunnen we acties verbinden aan bepaalde argumenten:
-``` py title="cli.py" hl_lines="8-11"
+``` py title="cli.py" hl_lines="6-9"
 import sys
 
 args = sys.argv
@@ -72,7 +72,7 @@ else:
 Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de _standard library_. Een hele handige &mdash; die níet in de _standard library_ zit maar wél meegeleverd is met Anaconda &mdash; is Click.[@click]
 
 !!! info
-    Click maakt gebruik van _decorators_ (`#!py @decorator`). Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_. Als je meer wilt weten over de werking ervan lees dan [paragraaf _decorators_](voorkennis.md#decorators).
+    Click maakt gebruik van _decorators_ (`#!py @decorator`). Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_. Als je meer wilt weten over de werking ervan kijk dan de [calmcode tutorial](https://calmcode.io/decorators/introduction.html) of lees de [Primer on Python Decorators](https://realpython.com/primer-on-python-decorators/).
 
 Als kort voorbeeld &mdash; geïnspireerd op de documentatie van Click &mdash; nemen we het volgende script:
 ``` py title="hello.py"
@@ -85,7 +85,7 @@ if __name__ == "__main__":
 
 Dit script print de uitdrukking "Hello physicist!". We gaan dit aanpassen en maken het mogelijk om de naam en het aantal begroetingen te kiezen. Hiervoor gebruiken we Click. Allereerst moeten we `#!py click` importeren en aangeven dat we de `#!py hello()`-functie willen gebruiken als _commando_:
 
-``` py title="hello.py" hl_lines="5"
+``` py title="hello.py" hl_lines="3"
 import click
 
 @click.command()
@@ -110,9 +110,7 @@ PS> python hello.py --help
     Laten we zorgen dat we een naam als argument mee kunnen geven.
     
     1. In de code hieronder geven we met de regel `#!py @click.argument("name")` aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie `hello`:
-            ``` py hl_lines="6 8"
-            # hello.py
-            
+            ``` py title="hello.py" hl_lines="4 6"
             import click
             
             @click.command()
@@ -136,7 +134,7 @@ Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij _opt
 [^flag]: Gebruik forward slash om een vlaggetje te maken: `#!py @click.option("-f", "--flag/--no-flag`
 [^weggooivariabele]: Merk op in de code hieronder: `#!py _` is de weggooivariabele in Python. Het gaat ons erom dat de lus een aantal keer doorlopen wordt en we hoeven niets te doen met de loop index.
 
-``` py title="hello.py" hl_lines="7-11 13"
+``` py title="hello.py" hl_lines="5-9 11"
 import click
 
 @click.command()
@@ -163,7 +161,7 @@ if __name__ == "__main__":
 
 Het is handig om een korte helptekst toe te voegen. Dit gaat als volgt:
 
-``` py title="hello.py" hl_lines="9 10"
+``` py title="hello.py" hl_lines="9-10"
 import click
 
 @click.command()
@@ -184,7 +182,7 @@ if __name__ == "__main__":
 ```
 
 !!! opdracht-basis "Helptekst toevoegen"
-    Voeg de helptekst toe en vraag de helptekst op zoals in [opd:hello-help](#opd:hello-help).
+    Voeg de helptekst toe en vraag de helptekst op zoals in de [_opdracht Help functie_](#opd:hello-help).
 
 
 Als je dit script gebruikt ziet dat er zo uit:
@@ -285,15 +283,15 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
     ``` ps1 title="Terminal"
     poetry new --src conda
     ```
-    1. Voeg het bestand {{file}}`fakeconda.py` toe. 
+    1. Voeg het bestand {{file}}`fakeconda.py` toe (copy/paste de code hierboven).
     
-    1. Overleg met elkaar[^poetry-script] en zorg dat de volgende uitvoer mogelijk wordt:
+    1. Overleg met elkaar[^poetry-script] en zorg dat de volgende uitvoer mogelijk wordt (je hoeft alleen tekst te printen):
     ``` ps1con title="Terminal"
     PS> fake_conda install scipy
     Installing scipy...
     ```
 
-    [^poetry-script]: Als je een commando in Poetry toevoegd dan had dat de opbouw van `naam_commando = "package.module:naam_functie"`, welke functie moet uitgevoerd worden als je het commando aanroept?
+    [^poetry-script]: Als je een commando in Poetry toevoegt dan heeft dat de opbouw `naam_commando = "package.module:naam_functie"`, welke functie moet uitgevoerd worden als je het commando aanroept?
 
 
 !!! opdracht-meer "Smallangle (meer leren)"
@@ -302,7 +300,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
     1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam {{github}}`smallangle`.
     1. Let op de Octocat {{github}} voor {{github}}`smallangle`, het moet dus een repository zijn (of worden). 
     1. Maak een nieuw environment die `smallangle` heet met daarin alleen Python.
-    1. Zet in de package {{folder}}`smallangle` een module {{file}}`smallangle.py`.
+    1. Zet in het package {{folder}}`smallangle` een module {{file}}`smallangle.py`.
     1. Plak de onderstaande code in {{file}}`smallangle.py`:
         ``` py
         import numpy as np
@@ -327,7 +325,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
         if __name__ == "__main__":
             sin(10)
         ```
-    1. Ga door naar [opd:smallangle](#opd:smallangle) stap 2. Je mag stap 1 overslaan &mdash; dat werk heb je nu zelf al gedaan.
+    1. Ga door naar stap 2 van de [_opdracht smallangle_](#opd:smallangle). Je mag stap 1 overslaan &mdash; dat werk heb je nu zelf al gedaan.
     
 
 <div id="opd:smallangle"></div>
@@ -355,14 +353,11 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
         TypeError: 'int' object is not iterable
         ```
 
-        Dan komt dat doordat je `#!py sin(10)` probeert uit te voeren, terwijl de functie al verClickt is. De functie verwacht een argument vanuit de terminal en geen interger vanuit het pythonscript.
-        Pas je script aan zodat `#!py if __name__ == "__main__":` naar de juiste functie verwijst. 
-        
-    
+        Dan komt dat doordat je `#!py sin(10)` probeert uit te voeren, terwijl de functie al verClickt is. De functie verwacht een argument vanuit de terminal en geen integer vanuit het pythonscript.
+        Pas je script aan zodat `#!py if __name__ == "__main__":` naar de juiste functie verwijst en Click aanroept; niet `#!py sin(10)`.
 
     1. Zorg dat smallangle een applicatie wordt die je aan kunt roepen met bijvoorbeeld `smallangle sin -n 9`.
     
-
 
 ??? opdracht-meer "Smallangle (uitdaging)"
     Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\lvert x - \sin(x) \rvert \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over .000, .001 en .002, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
@@ -506,7 +501,7 @@ Options:
 ```
 
 !!! opdracht-inlever "Smallangle: docstring"
-    Voorzie de functies in {{file}}`smallangle.py` die je gemaakt hebt bij [opd:smallangle](#opd:smallangle) volledig van docstrings, zodat `smallangle --help` zinvolle informatie geeft.[^split-docstring]
+    Voorzie de functies in {{file}}`smallangle.py` die je gemaakt hebt bij de [_opdracht smallangle_](#opd:smallangle) volledig van docstrings, zodat `smallangle --help` zinvolle informatie geeft.[^split-docstring]
 
 [^split-docstring]: Als de docstring zeer uitgebreid wordt met meerdere argumenten dan wordt de helptekst van click onoverzichtelijk. Als je wilt dat alleen de korte samenvatting in de help verschijnt, zet dan na de korte samenvatting: `#!py \f`.
 
@@ -515,12 +510,12 @@ Options:
 
     1. Pak de `pythondaq` applicatie erbij. Zet bij _alle_ functies een nuttige docstring.
     1. Schrijf ook docstrings voor de classes die je gemaakt hebt.
-    1. Ga naar je _model_ en houd je muis bij `#!py set_output_voltage()` en zie daar verschijnt jou fantastische omschrijving van de method die in de _controller_ staat!
+    1. Ga naar je _model_ en houd je muis bij `#!py set_output_voltage()` en zie daar verschijnt jouw fantastische omschrijving van de method die in de _controller_ staat!
 
 
 ### Documentatie met _Material for MkDocs_
 ??? meer-leren "Meer leren"
-    Een bijkomend voordeel van docstrings is dat ze gebruikt kunnen worden om automatisch documentatie te genereren voor een heel project met behulp van bijvoorbeeld MkDocs of Sphinx.[^sphinx] _MkDocs_ is een documentatie generator en _Material for MkDocs_ is daar de meestgebruikte uitbreiding op. Het wordt veel gebruikt om documentatie te schrijven voor software projecten. Een paar voorbeelden zijn bijvoorbeeld de website van de _Accelerators and Beam Physics Computing_ groep op CERN[@abp-computing] of de nieuwe _Textual_ bibliotheek[@textual] om zogenaamde _terminal user interfaces_ te maken, een tegenhanger van grafische interfaces. Behalve dat je vrij eenvoudig uitgebreide documentatie kunt schrijven kan MkDocs alle docstrings gebruiken om een referentie op te bouwen. Deze website is ook gebouwd met Material for MkDocs.
+    Een bijkomend voordeel van docstrings is dat ze gebruikt kunnen worden om automatisch documentatie te genereren voor een heel project met behulp van bijvoorbeeld MkDocs of Sphinx.[^sphinx] _MkDocs_ is een documentatie generator en _Material for MkDocs_ is daar de meestgebruikte uitbreiding op. Het wordt veel gebruikt om documentatie te schrijven voor software projecten. Een paar voorbeelden zijn bijvoorbeeld de website van de _Accelerators and Beam Physics Computing_ groep op CERN[@abp-computing] of de nieuwe _Textual_ bibliotheek[@textual] om zogenaamde _terminal user interfaces_ te maken, een tegenhanger van grafische interfaces. Behalve dat je vrij eenvoudig uitgebreide documentatie kunt schrijven kan MkDocs alle docstrings gebruiken om een referentie op te bouwen. De website voor de [ECPC cursus](https://natuurkundepracticumamsterdam.github.io/ecpc/) is ook gebouwd met Material for MkDocs.
 
     Het voert tijdens deze cursus te ver om veel aandacht te besteden aan MkDocs. Maar aangezien documentatie zo belangrijk is wilden we het toch noemen! Voor een uitgebreide tutorial, zie _Build Your Python Project Documentation With MkDocs_.[@mkdocs-tutorial]
 
@@ -545,7 +540,7 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
 We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het tonen van de resultaten daarvan aan de gebruiker.
 
 !!! info
-    Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen 0 en 3.3 V. Je kunt dit doen door de `#!py type`-parameter in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven (bijvoorbeeld: `#!py type=int` of `#!py type=float`) en Click heeft speciale types zoals `#!py type=click.FloatRange(0, 3.3)` voor een kommagetal tussen 0 en 3.3. Bekijken alle speciale types op [https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types](https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types). Als je hiervan gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat voor je.
+    Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen 0 en 3.3 V. Je kunt dit doen door de `#!py type`-parameter in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven (bijvoorbeeld: `#!py type=int` of `#!py type=float`) en Click heeft speciale types zoals `#!py type=click.FloatRange(0, 3.3)` voor een kommagetal tussen 0 en 3.3. Bekijk alle speciale types in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types). Als je hiervan gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat voor je.
 
 !!! opdracht-inlever "Pythondaq: `scan`"
     Met het commando `scan` wil je een meetserie uitvoeren over een spanningsbereik. De uitvoer is een lijst van metingen van de stroomsterkte door en de spanning over de LED. De gebruiker moet het spanningsbereik (in volt) zelf kunnen kiezen. Geef ook de mogelijkheid de metingen op te slaan als CSV-bestand. Gebruik daarvoor een optie `--output FILENAME`. Wanneer met die optie een bestandsnaam wordt meegegeven sla je de metingen op en anders niet. Als een meting lang duurt is het niet erg als de resultaten pas ná de meting worden weergegeven.
@@ -576,7 +571,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
 
 !!! opdracht-inlever "Pythondaq: Grafiek"
-    Breid je `scan` opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `--graph` om een grafiek te tekenen en `--no-graph` om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags voor Click op [https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
+    Breid je `scan` opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `--graph` om een grafiek te tekenen en `--no-graph` om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
 
 
 ??? opdracht-meer "Pythondaq: `list --search`"
@@ -595,7 +590,9 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
     
     ASRL/dev/cu.usbmodem143401::INSTR
     ```
-    De lijst met instrumenten kan er op Windows heel anders uitzien. Pas daarna `scan` en `info` aan zodat het niet nodig is om de volledige devicenaam mee te geven, maar alleen een zoekterm.
+    De lijst met instrumenten kan er op Windows heel anders uitzien. Sterker nog, op Windows is de lijst meestal vrij saai. Maar leen eens heel even een Arduino van iemand anders en je ziet dat er dan _twee_ poorten in de lijst verschijnen.
+    
+    Pas &mdash; na het uitbreiden van `list` &mdash; de commando's `scan` en `info` aan zodat het niet nodig is om de volledige devicenaam mee te geven, maar alleen een zoekterm.
 
 
 Op dit punt hebben we de functionaliteit van ons snelle script van het vorige hoofdstuk bereikt. Dit was veel meer werk, maar het is veel flexibeler. Als je wilt meten met een andere Arduino, een ander bereik, of een andere stapgrootte dan type je gewoon een iets ander commando in de terminal. Je hoeft geen scripts meer aan te passen. Als je na een tijdje niet meer precies weet hoe het ook alweer werkte allemaal kun je dat snel weer oppakken door `--help` aan te roepen.
@@ -609,7 +606,7 @@ Op dit punt hebben we de functionaliteit van ons snelle script van het vorige ho
 
     Ook command-line interfaces gaan met hun tijd mee. Vroeger waren ze per definitie zwart/wit en statisch, maar tegenwoordig worden interfaces vaak opgeleukt met kleur, emoji's en bewegende progressbars. _Rich_[@rich] is een project dat in recordtijd heel populair is geworden. Het bestaat pas sinds november 2019 en heeft precies twee jaar later meer dan 31000{{star}} verzameld. Dat is _veel_ &mdash; en de populariteit is sindsdien nog verder toegenomen.
 
-    Rich is ontzettend uitgebreid en heeft heel veel mogelijkheden. Voor ons project kan het handig zijn om een progressbar te gebruiken of met Rich een tabel weer te geven. De documentatie[@rich-docs] van Rich is best goed, maar kan lastig zijn om een mooi overzicht te krijgen. Een serie van korte video tutorials kun je vinden bij [https://calmcode.io/rich/introduction.html](https://calmcode.io/rich/introduction.html). Iedere video duurt maar één tot twee minuten en laat mooi de mogelijkheden zien. Voor de functies die je wilt gebruiken kun je dan meer informatie opzoeken in de documentatie van Rich zelf.
+    Rich is ontzettend uitgebreid en heeft heel veel mogelijkheden. Voor ons project kan het handig zijn om een progressbar te gebruiken of met Rich een tabel weer te geven. De documentatie[@rich-docs] van Rich is best goed, maar kan lastig zijn om een mooi overzicht te krijgen. Een serie van korte video tutorials kun je vinden bij [calmcode](https://calmcode.io/rich/introduction.html). Iedere video duurt maar één tot twee minuten en laat mooi de mogelijkheden zien. Voor de functies die je wilt gebruiken kun je dan meer informatie opzoeken in de documentatie van Rich zelf.
 
     !!! opdracht-meer "Rich"
         Verrijk je interface met Rich. Doe dit naar eigen wens en inzicht.
