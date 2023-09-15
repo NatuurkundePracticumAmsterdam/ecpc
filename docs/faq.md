@@ -31,7 +31,9 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
     En zo verder.
 
-Bestand: {{file_lines}}:`docs/index.md` en ook {{file}}`pythondaq/models/diode.py`. Die vind je ook in de repository {{github}}`davidfokkema/tailor`. Folder: {{folder}}`Oefenopdrachten`.
+Bestand: {{file_lines}}:`docs/index.md` en ook {{file}}`pythondaq/models/diode.py`. Die vind je[^voetnoot] ook in de repository {{github}}`davidfokkema/tailor`. Folder: {{folder}}`Oefenopdrachten`.
+
+[^voetnoot]: en dit is dus een voetnoot
 
 Eenheden: 220 &Omega; m/s of ms^-1^ of $220\,ms^{-1}$ en $220\,\Omega$. **We doen het eerste!!**
 

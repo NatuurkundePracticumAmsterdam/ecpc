@@ -94,7 +94,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
 
 <div id="opd:quickndirty-meting"></div>
 !!! opdracht-inlever "Pythondaq: Quick 'n dirty meting"
-    Bereken in je script de spanning _over_ en de stroomsterkte _door_ de LED en bewaar deze metingen in, bijvoorbeeld, een lijst. Sluit je meting netjes af (zorg dat de LED niet blijft branden) en maak dan een grafiek van je metingen. Bekijk elkaars resultaten &mdash; ook van andere groepjes &mdash; en denk na of je meting fysisch helemaal correct is.
+    Bereken in je script de spanning _over_ en de stroomsterkte _door_ de LED en bewaar deze metingen in een lijst met spanningen en een lijst met stroomsterktes. Sluit je meting netjes af (zorg dat de LED niet blijft branden) en maak dan een grafiek van je metingen. Bekijk elkaars resultaten &mdash; ook van andere groepjes &mdash; en denk na of je meting fysisch helemaal correct is.
 
 
 
@@ -124,26 +124,71 @@ t,s
 10.0,490.00000000000006
 ```
 
-Het CSV-bestand heeft kolommen $t$ en $s$. De getallen hebben een punt als decimaal scheidingsteken en de komma wordt gebruikt om de kolommen te scheiden. Je kunt CSV-bestanden schrijven en lezen met de modules `#!py csv`, `#!py numpy` of `#!py pandas`. De eerste is altijd meegeleverd met Python en is speciaal geschreven voor het bestandsformaat,[@csv-module] maar NumPy[@numpy;@numpy-paper] en Pandas [@pandas;@pandas-paper] bevatten veel meer functionaliteit op het gebied van wiskunde en data-analyse. Als je die modules toch al gebruikt kun je beter niet kiezen voor de <q>kale</q> csv module.
+Het CSV-bestand heeft kolommen $t$ en $s$. De getallen hebben een punt als decimaal scheidingsteken en de komma wordt gebruikt om de kolommen te scheiden. Je kunt CSV-bestanden schrijven en lezen met de modules `#!py csv`, `#!py numpy` of `#!py pandas`. De eerste is altijd meegeleverd met Python en is speciaal geschreven voor het bestandsformaat,[@csv-module] maar NumPy[@numpy;@numpy-paper] en Pandas[@pandas;@pandas-paper] bevatten veel meer functionaliteit op het gebied van wiskunde en data-analyse. Als je die modules toch al gebruikt hoef je niet te kiezen voor de <q>kale</q> csv module.
 
+#### De functie `#!py zip()`
+
+Het viel je misschien op dat in bovenstaand CSV-bestand iedere regel een $t$-waarde en een $s$-waarde heeft. Als je een lijst met $t$'s en een lijst met $s$'en hebt dan bevat de eerste regel het eerste element uit beide lijsten, de tweede regel het tweede element, etc. Je kunt dan een for-loop schrijven die Python's indexnotatie gebruikt: `#!py t[i]`, `#!py s[i]`, etc. Het kan óók, makkelijker, met de `#!py zip()`-functie. Beide methodes kun je als volgt gebruiken in het geval van twee lijsten A en B:
+
+=== "with_indexing.py"
+    ``` py hl_lines="4 5"
+    --8<-- "scripts/with_indexing.py"
+    ```
+=== "with_zip.py"
+    ``` py hl_lines="4 5"
+    --8<-- "scripts/with_zip.py"
+    ```
+
+Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de lengte van de lijst op te zoeken en krijg je meteen de losse elementen zonder dat je ze zelf uit de lijst moet plukken met indexnotatie.
+
+
+#### Het gebruik van de `#!py csv`-module
+
+Wanneer je de `#!py csv`-module wilt gebruiken moet je éérst een bestand openen om in te schrijven, daarna een <q>writer</q> object aanmaken, en dat object gebruiken om regels te schrijven. Daarna moet het bestand netjes afgesloten worden zodat het ook echt naar schijf weggeschreven wordt. Het openen en sluiten van een bestand kun je Python het beste laten doen met het `#!py with`-statement:[^context-manager]
+
+``` py hl_lines="1"
+with open('metingen.csv', 'w', newline='') as csvfile:
+    # csvfile is nu een bestandsobject
+    ...
+    # na dit blok sluit Python automatisch het bestand
+```
+
+Bij `#!py open()` geef je eerst de naam van een bestand, dan `#!py 'w'` om aan te geven dat het bestand <q>writeable</q> moet zijn (gebruik `#!py 'r'` om te lezen) en `#!py newline=''` om Python niet zelf regeleindes te laten schrijven; dat doet de `#!py csv`-module. Op de volgende manier schrijven we dan de CSV-data weg:
+
+``` py hl_lines="1 4-8"
+import csv
+
+with open('metingen.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(['t', 's'])
+    writer.writerow([0.0, 0.0])
+    writer.writerow([1.0, 4.9])
+    writer.writerow([2.0, 19.6])
+    ...
+```
+Je kunt het wegschrijven van de regels vervangen door een for-loop.
+
+[^context-manager]: hier is `#!py open()` een zogeheten <q>context manager</q>, een functie die je kunt gebruiken met een `#!py with`-statement en dat bij de start iets doet &mdash; hier een bestand openen &mdash; en bij het eind iets doet &mdash; hier het bestand weer netjes afsluiten. Je kunt zelf ook context managers schrijven, als je wilt.
 
 <div id="opd:quickndirty-csv"></div>
 !!! opdracht-inlever "Pythondaq: CSV"
-    Breid je script uit zodat de data niet alleen maar weergegeven wordt in een grafiek maar ook wordt weggeschreven als CSV-bestand. Gebruik hiervoor een module naar keuze.
+    Breid je script uit zodat de data niet alleen maar weergegeven wordt in een grafiek maar ook wordt weggeschreven als CSV-bestand. Gebruik de `#!py zip()`-functie en de `#!py csv`-module.
 
 
 ??? opdracht-meer "CSV bestandsnaam"
-    Pas de code zodanig aan dat een CSV-bestand nooit wordt overschreven. Je kunt bijvoorbeeld aan de bestandsnaam een oplopend getal toevoegen (`data-001.csv`, `data-002.csv`, etc.).
+    Pas de code zodanig aan dat een CSV-bestand nooit wordt overschreven. Je kunt bijvoorbeeld controleren of het bestand al bestaat en aan de bestandsnaam een oplopend getal toevoegen (`data-001.csv`, `data-002.csv`, etc.) totdat je uitkomt bij een bestandsnaam die nog niet bestaat. Controleer dat je programma ook echt geen data overschrijft.
 
 
 
 ### HDF5, PyTables
 ??? meer-leren "Meer leren"
-    Een populair binair formaat in de wetenschappelijke wereld is HDF5.[^HDF5] [@hdf5] Je kunt hiermee verschillende datasets bewaren in één bestand. Je kunt een soort boomstructuur aanbrengen en zo verschillende datasets groeperen en er ook nog extra informatie (metadata) aanhangen zoals datum van de meting, beschrijving van de condities, etc. Je kunt een meetserie opslaan als reeks die in één keer in en uit het bestand wordt geladen maar ook als tabel. Die laatste biedt de mogelijkheid om &mdash; net als in een database &mdash; data te selecteren en alleen die data in te laden uit het bestand. Op die manier is het mogelijk om met datasets te werken die groter zijn dan het geheugen van je computer.
+    Een populair binair formaat in de wetenschappelijke wereld is HDF5.[^HDF5] [@hdf5] Je kunt hiermee verschillende datasets bewaren in één bestand. Je kunt een soort boomstructuur aanbrengen en zo verschillende datasets groeperen en er ook nog extra informatie (metadata) aanhangen zoals datum van de meting, beschrijving van de condities, etc. Je kunt een meetserie opslaan als reeks die in één keer in en uit het bestand wordt geladen maar ook als tabel. Die laatste biedt de mogelijkheid om &mdash; net als in een database &mdash; data te selecteren en alleen die data in te laden uit het bestand. Op die manier is het mogelijk om met datasets te werken die groter zijn dan het geheugen van je computer.[^HDF-blog]
 
-    [^HDF5]: Hierarchical Data Format Version 5.
+    [^HDF5]: Hierarchical Data Format Version 5, in gebruik bij bijvoorbeeld de LOFAR radiotelescoop, het IceCube neutrino-observatorium en de LIGO zwaartekrachtsgolvendetector.
+
+    [^HDF-blog]: Lees bijvoorbeeld [deze korte blog post](https://www.hdfgroup.org/2015/03/hdf5-as-a-zero-configuration-ad-hoc-scientific-database-for-python/) over het gebruik van HDF5.
 
     PyTables[@pytables] is een Python bibliotheek die het werken met HDF5-bestanden makkelijker maakt. Er zijn uiteraard functies om de bestanden aan te maken en uit te lezen maar ook om _queries_ uit te voeren. Pandas kan &mdash; via PyTables &mdash; ook werken met HDF5-bestanden.
 
     !!! opdracht-meer "PyTables"
-        Lees de tutorial van PyTables[@pytables] en pas je script aan zodat de meetserie van de LED wordt opgeslagen in een HDF5-bestand. Gebruik één bestand en maak daarin een nieuwe dataset voor iedere meetserie. Bewaar ook wat metadata (bijvoorbeeld tijdstip van de meting). Iedere keer dat je je script runt wordt er aan _hetzelfde_ databestand een nieuwe dataset toegevoegd.
+        Lees de [tutorial](http://www.pytables.org/usersguide/tutorials.html) van PyTables[@pytables] en pas je script aan zodat de meetserie van de LED wordt opgeslagen in een HDF5-bestand. Vraag hulp als je uitleg wilt over wat een `UInt16` voor een ding is. Gebruik één bestand en maak daarin een nieuwe dataset voor iedere meetserie. Bewaar ook wat metadata (bijvoorbeeld tijdstip van de meting). Iedere keer dat je je script runt wordt er aan _hetzelfde_ databestand een nieuwe dataset toegevoegd.
