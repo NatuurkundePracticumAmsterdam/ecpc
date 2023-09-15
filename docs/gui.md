@@ -45,7 +45,7 @@ Eerst importeren we een paar bibliotheken. Het draait uiteindelijk om de `#!py U
 Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn strikt genomen niet noodzakelijk, maar wel _good practice_. Ook het schrijven van een `#!py main()` functie is niet strikt noodzakelijk, maar het maakt het wel makkelijk om straks een zogeheten _entry point_ te hebben als we weer een applicatie willen schrijven. In de {{file}}`pyproject.toml` geven we dan aan dat we de `#!py main()` functie willen aanroepen. Dat komt later.
 
 <div id="opd:minimal-gui"></div>
-!!! opdracht-basis "Voorbeeld gui"
+!!! opdracht-basis "Minimale GUI"
 
     1. Maak een nieuw bestand {{file}}`example-gui.py`.
     1. Neem de pythoncode van de minimale Qt-applicatie over en test het in de `test-qt` conda environment.
@@ -63,9 +63,9 @@ We gaan de eenvoudige interface programmeren die hieronder is weergegeven:
 
 We doen dat door de class `#!py UserInterface` uit te breiden met widgets uit de `#!py QtWidgets` bibliotheek.
 
-Het definiëren van layouts gebeurt in veruit de meeste opmaaksystemen met rechthoeken (_Engels: boxes_) die op verschillende manieren gestapeld worden &mdash; naast elkaar, boven elkaar, of op een rechthoekig grid bijvoorbeeld. Zulke systemen zijn ook _hiërarchisch_: je stopt boxes in andere boxes. De layout van [fig:screenshot-ui-prog](#fig:screenshot-ui-prog) is als volgt opgebouwd: ieder venster moet één centrale widget hebben ([fig:layout-centerwidget](#fig:layout-centerwidget)). Vervolgens geven we aan dat we die verticaal gaan opdelen ([fig:layout-vbox](#fig:layout-vbox)). In die indeling plaatsen we dan een widget voor tekstinvoer én een widget met een horizontale opdeling ([fig:layout-text-hbox](#fig:layout-text-hbox)). Als laatste plaatsen we in die horizontale opdeling twee knoppen ([fig:layout-buttons](#fig:layout-buttons)). Vergelijk die schematische voorstelling nog een keer met [fig:screenshot-ui-prog](#fig:screenshot-ui-prog). Het is soms even puzzelen hoe je de layout van een applicatie het beste opbouwt.
+Het definiëren van layouts gebeurt in veruit de meeste opmaaksystemen met rechthoeken (_Engels: boxes_) die op verschillende manieren gestapeld worden &mdash; naast elkaar, boven elkaar, of op een rechthoekig grid bijvoorbeeld. Zulke systemen zijn ook _hiërarchisch_: je stopt boxes in andere boxes.
 
-Het hoofdelement van de grafische interface is de `central widget`:
+De layout van bovenstaande screenshot is als volgt opgebouwd. Het hoofdelement van de grafische interface is de `central widget`:
 
 <div id="fig:layout-centerwidget"></div>
 ![de central widget](figures/layout-schematic.svg)
@@ -85,7 +85,8 @@ In de horizontale layout plaatsen we twee `button`s:
 <div id="fig:layout-buttons"></div>
 ![twee knoppen in de horizontale layout](figures/layout-schematic_p4.svg)
 
-Het stuk programma om bovenstaande layout op te bouwen geven we hieronder weer. We bespreken de code regel voor regel _na_ de code hieronder.
+Het stuk programma om bovenstaande layout op te bouwen geven we hieronder weer. We bespreken straks de code regel voor regel.
+<div id="code:layout"></div>
 ``` py linenums="1"
 from PySide6.QtCore import Slot
 
@@ -128,50 +129,41 @@ In de volgende opdrachten ga je zelf de hele applicatie opbouwen, zodat je preci
 
 !!! opdracht-basis "Parent class initialiseren"
 
-    1. Breid het script {{file}}`example-gui.py` van [opd:minimal-gui](#opd:minimal-gui) uit met een `#!py __init__`-method.
+    1. Breid het script {{file}}`example-gui.py` van [_opdracht minimale GUI_](#opd:minimal-gui) uit met een `#!py __init__`-method. Deze hoeft verder nog niets te doen.
     1. Zorg dat de parent class volledig geïnitialiseerd wordt.
     1. Test of {{file}}`example-gui.py` nog steeds werkt.
     
-
-
 Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets zijn bijvoorbeeld een menubalk, knoppenbalk of statusbalk.
 
 !!! opdracht-basis "Central widget toevoegen"
 
     1. Breid {{file}}`example-gui.py` uit met een centrale widget.
-    1. Geef aan dat dit het centrale widget gaat zijn (regels 11--12, [fig:layout-centerwidget](#fig:layout-centerwidget)).
+    1. Geef aan dat dit het centrale widget gaat zijn ([regels 11-12](#code:layout)).
     1. Test of {{file}}`example-gui.py` nog steeds werkt.
-
-
 
 Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen netjes uitgelijnd worden. We willen het tekstvenster en de knoppen onder elkaar zetten en maken dus eerst een verticale layout. Aan die layout voegen we een textbox toe.
 
 !!! opdracht-basis "Verticale layout toevoegen"
 
-    1. Breid {{file}}`example-gui.py` uit met een verticale layout (regel 15, [fig:layout-vbox](#fig:layout-vbox)).
-    1. Maak een textbox (regel 16)
-    1. Voeg de textbox toe aan de verticale layout (regel 17)
+    1. Breid {{file}}`example-gui.py` uit met een verticale layout ([regel 15](#code:layout)).
+    1. Maak een textbox ([regel 16](#code:layout)).
+    1. Voeg de textbox toe aan de verticale layout ([regel 17](#code:layout)).
     1. Test of {{file}}`example-gui.py` nog steeds werkt en of je tekst kan schrijven in de textbox.
     
-
-
-De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we ook toe aan de `#!py vbox`. En we maken de layout compleet ([fig:layout-buttons](#fig:layout-buttons)) door knoppen toe te voegen aan de `#!py hbox`.
+De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we ook toe aan de `#!py vbox`. En we maken de layout compleet door knoppen toe te voegen aan de `#!py hbox`.
 
 !!! opdracht-basis "Horizontale layout toevoegen"
 
-    1. Breid {{file}}`example-gui.py` uit met een horizontale layout (regel 18).
-    1. Voeg de horizontale layout toe aan de verticale layout (regel 19, [fig:layout-text-hbox](#fig:layout-text-hbox)).
-    1. Maak een clear button en voeg deze toe aan de horizontale layout (regel 21,22).
-    1. Maak ook een add button en voeg deze toe aan de horizontale layout (regel 23,24).
-    1. Test of {{file}}`example-gui.py` nog steeds werkt. [^knop-stuk]
+    1. Breid {{file}}`example-gui.py` uit met een horizontale layout ([regel 18](#code:layout)).
+    1. Voeg de horizontale layout toe aan de verticale layout ([regel 19](#code:layout)).
+    1. Maak een clear button en voeg deze toe aan de horizontale layout ([regels 21-22](#code:layout)).
+    1. Maak ook een add button en voeg deze toe aan de horizontale layout ([regel 23-24](#code:layout)).
+    1. Test of {{file}}`example-gui.py` nog steeds werkt.[^knop-stuk]
 
 [^knop-stuk]: Waarom doen de knoppen niets als je er op klikt?
 
-
-
 !!! info
     Widgets zoals knoppen voeg je toe met `#!py addWidget()`. Layouts voeg je toe aan andere layouts met `#!py addLayout()`.
-
 
 De horizontale layout (voor de knoppen) moeten we expliciet toevoegen aan de verticale layout zodat hij netjes verticaal onder het tekstvenster verschijnt. Merk op dat de verticale layout `#!py vbox` _niet_ expliciet wordt toegevoegd (aan de centrale widget). De centrale widget (en _alleen_ de centrale widget) krijgt een layout door bij het aanmaken van de layout de parent `#!py central_widget` op te geven, dus: `#!py QtWidgets.QVBoxLayout(central_widget)`. Alle andere widgets en layouts worden expliciet toegevoegd en daarvoor hoef je dus geen parent op te geven.
 
@@ -180,16 +172,14 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
 !!! opdracht-basis "Slots en signals toevoegen"
 
     1. Breid {{file}}`example-gui.py` uit met slots en signals.
-    1. Verbind de `Clear`-knop met de clear functie (regel 27).
-    1. Definieer een `#!py add_button_clicked()` functie (regel 30--32) en verbind deze aan de `Add text`-knop (regel 28).
+    1. Verbind de `Clear`-knop met de clear functie ([regel 27](#code:layout)).
+    1. Definieer een `#!py add_button_clicked()` functie ([regels 30-32](#code:layout)) en verbind deze aan de `Add text`-knop ([regel 28](#code:layout)).
     1. Test of {{file}}`example-gui.py` nog steeds werkt en of de knoppen doen wat je verwacht.
     
-
-
-Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst hier: [https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes](https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes). Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies `CamelCase` namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we `snake_case` gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
+Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst in de [Qt for Python-documentatie](https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes). Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk naar Python. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies `CamelCase` namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we `snake_case` gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
 
 ??? opdracht-meer "Volgorde layout aanpassen"
-    De volgorde waarin je layout en widgets toevoegt bepaald het uiterlijk van de grafische interface. Verander de code om de layout aan te passen (zet bijvoorbeeld de knoppen boven de textbox of zet de knoppen onder elkaar en naast de textbox).
+    De volgorde waarin je layout en widgets toevoegt bepaalt het uiterlijk van de grafische interface. Verander de code om de layout aan te passen (zet bijvoorbeeld de knoppen boven de textbox of zet de knoppen onder elkaar en naast de textbox).
 
 
 !!! opdracht-basis "Hello world-knop toevoegen"
@@ -197,18 +187,16 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 
     1. Voeg een derde knop `Hello, world` toe die de tekst _Hello, world_ toevoegt aan het venster.
     1. Zet een hekje voor de `#!py super()`-aanroep of haal de regel weg. Wat gebeurt er als je de code opstart? (Zet de regel weer terug!)
-    1. Voeg _onder_ de andere knoppen een `Quit`-knop toe. Als je daar op klikt moet de method `#!py self.close()` aangeroepen worden. Daarmee sluit je het programma af. Denk erom dat als je het `#!py clicked`-signaal verbind met `#!py clicked.connect()` dat je de functie die je meegeeft nog _niet_ moet aanroepen maar alleen moet meegeven zodat die _later_ kan worden aangeroepen. Concreet betekent dit dat je de haakjes weglaat. Zie ook regel 27 en 28 van bovenstaande code.
+    1. Voeg _onder_ de andere knoppen een `Quit`-knop toe. Als je daar op klikt moet de method `#!py self.close()` aangeroepen worden. Daarmee sluit je het programma af. Denk erom dat als je het `#!py clicked`-signaal verbind met `#!py clicked.connect()` dat je de functie die je meegeeft nog _niet_ moet aanroepen maar alleen moet meegeven zodat die _later_ kan worden aangeroepen. Concreet betekent dit dat je de haakjes weglaat. Zie ook regel 27 en 28 van [bovenstaande code](#code:layout).
     
-
-
 
 ### De interface ontwerpen met Qt Designer
 
 !!! info
     Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op met de zoekfunctie: links onderin bij Windows (vergrootglas of tekstveld). Type `designer` in, wacht heel even en kies de applicatie. Als hij hem niet kan vinden open dan een terminal, activeer je `test-qt` conda environment en type `pyside6-designer`.
 
-
-Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Je bewaart dat als een `.ui`-bestand. Vervolgens vertaal je het `.ui`-bestand naar een Pythonbestand dat je importeert in je eigen programma. De volledige class van het vorige voorbeeld kan dan vervangen worden door:
+Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Je bewaart dat als een `.ui`-bestand. Vervolgens vertaal je het `.ui`-bestand naar een Pythonbestand dat je importeert in je eigen programma. De volledige class van het [vorige voorbeeld](#code:layout) kan dan vervangen worden door:
+<div id="code:designer"></div>
 ``` py
 from ui_simple_app import Ui_MainWindow
 
@@ -233,14 +221,14 @@ Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog ma
 
 !!! opdracht-basis "Designer gebruiken"
 
-    1. Open Designer en kies bij **templates/forms** voor `#!py MainWindow`. Klik dan op **Create**. Ontwerp de user interface uit [fig:screenshot-ui-prog](#fig:screenshot-ui-prog) en gebruik dezelfde namen voor de widgets als het voorbeeld in [sec:ui-prog](#de-interface-programmeren). Dus een `#!py add_button` knop, een `#!py clear_button` knop en een `#!py textedit` tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.
+    1. Open Designer en kies bij **templates/forms** voor `#!py MainWindow`. Klik dan op **Create**. Ontwerp de user interface van [het screenshot](#fig:screenshot-ui-prog) en gebruik dezelfde namen voor de widgets als het voorbeeld. Dus een `#!py add_button` knop, een `#!py clear_button` knop en een `#!py textedit` tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.
     1. Bewaar het bestand als {{file_lines}}`simple_app.ui`.
     1. In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan[^overleg-navigeren] en type in:
             ``` ps1 title="Terminal"
             pyside6-uic simple_app.ui -o ui_simple_app.py  
             ```
             Deze stap moet je doen elke keer als je in Designer iets wijzigt. Gebruik de ++up++-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met Poetry, zullen we dit eenvoudiger maken.
-    1. Copy/paste nu de voorbeeldcode in een nieuw script, fix eventuele importerrors en test de applicatie.
+    1. Copy/paste nu de [voorbeeldcode](#code:designer) in een nieuw script, fix eventuele importerrors en test de applicatie.
 
 [^overleg-navigeren]: Overleg met elkaar of met de assistent als je niet weet hoe dat moet.
 
@@ -251,9 +239,7 @@ Je hebt nu twee manieren gezien om een interface te bouwen: programmeren of Desi
 
 In de eindopracht willen we data weergeven op een scherm. We zullen dus nog moeten plotten. In de volgende opdrachten gaan we daarmee aan de slag.
 
-Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties. Helaas is matplotlib voor het gebruik in interactieve interfaces nogal traag zodra we te maken krijgen met meer data. We kiezen daarom voor een populair alternatief: PyQtGraph. Eén nadeel: de documentatie[^documentatie-PyQtGraph] is niet fantastisch. Het geeft dus niets als je ergens niet uitkomt en je hebt hulp nodig van de assistent of een staflid.
-
-[^documentatie-PyQtGraph]: [https://pyqtgraph.readthedocs.io/en/latest/](https://pyqtgraph.readthedocs.io/en/latest/)
+Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties. Helaas is matplotlib voor het gebruik in interactieve interfaces nogal traag zodra we te maken krijgen met meer data. We kiezen daarom voor een populair alternatief: PyQtGraph. Eén nadeel: [de documentatie](https://pyqtgraph.readthedocs.io/en/latest/) is niet fantastisch. Het geeft dus niets als je ergens niet uitkomt en je hebt hulp nodig van de assistent of een staflid.
 
 ### De plotter als script
 
@@ -289,7 +275,7 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
 
 
 !!! info "Handige widgets"
-    In onderstaande tabel zie je een lijst van zeer handige widgets die je vrijwel zeker nodig hebt. Als je nog meer widgets wilt gebruiken, kijk dan in de lijst van Designer en/of op [https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html).
+    In onderstaande tabel zie je een lijst van zeer handige widgets die je vrijwel zeker nodig hebt. Als je nog meer widgets wilt gebruiken, kijk dan in de lijst van Designer en/of op [https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes).
 
     | <div style="width:120px">Naam class</div> | <div style="width:100px">Naam Designer</div> | Beschrijving  |
     |------------------|-------------------|---------------|
@@ -335,11 +321,11 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen`, 
     Voeg aan de functiekiezer de functies $x$, $x^2$, $x^3$, en $\frac{1}{x}$ toe. Je kunt daarvoor _lambda functions_ gebruiken, maar dat is niet per se nodig.
 
 
-!!! opdracht meer "Functieplotter: functies typen"
+??? opdracht-meer "Functieplotter: functies typen"
     Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals `x ** 2`, `sin(x)` of `1 / sqrt(x + 1)`. Gebruik daarvoor het `asteval` package.[@asteval] Documentatie vind je op [https://newville.github.io/asteval/](https://newville.github.io/asteval/).
 
-!!! waarschuwing 
-    Gebruik _nooit_ zomaar `#!py eval()` op een string die iemand anders aanlevert. Anders kan iemand met typen in een tekstveld of het inlezen van een tekstbestand je computer wissen bijvoorbeeld, of malware installeren. Als je `#!py eval()` wilt gebruiken, lees dan de sectie _Minimizing the Security Issues of eval()_ in _Python eval(): Evaluate Expressions Dynamically_.[@eval] Maar _veel makkelijker_ is om `asteval` te gebruiken.
+    !!! waarschuwing 
+        Gebruik _nooit_ zomaar `#!py eval()` op een string die iemand anders aanlevert. Anders kan iemand met typen in een tekstveld of het inlezen van een tekstbestand je computer wissen bijvoorbeeld, of malware installeren. Als je `#!py eval()` wilt gebruiken, lees dan de sectie _Minimizing the Security Issues of eval()_ in _Python eval(): Evaluate Expressions Dynamically_.[@eval] Maar _veel makkelijker_ is om `asteval` te gebruiken.
 
 ## Een grafische interface voor ons experiment
 
