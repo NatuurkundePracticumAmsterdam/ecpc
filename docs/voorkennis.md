@@ -108,50 +108,7 @@ for idx, name in enumerate(names, 1):
 ```
 Hier maken we gebruik van de `#!py enumerate(iterable, start=0)`-functie en de (relatief recent geïntroduceerde) f-strings. Er zijn dus veel manieren om programmeerproblemen op te lossen, maar het helpt om het op de `Pythonmanier' te doen. Andere programmeurs zijn dan veel minder tijd en energie kwijt om jouw code te begrijpen -- én andersom wanneer jij zelf op internet zoekt naar antwoorden op problemen. Immers, je herkent dan veel makkelijker en sneller hoe andermans code werkt. Dat brengt ons op het volgende punt: code lezen.
 
-
-## Coding style
-
-<q>Code wordt veel vaker gelezen dan geschreven,</q> is een veel geciteerd gezegde onder programmeurs. Je schrijft je code en zit vervolgens uren te puzzelen om een fout te vinden of hoe je de code het beste kunt uitbreiden. Je zoekt op internet naar voorbeeldcode, je helpt een medestudent of vraagt die om hulp. Heel vaak dus lees je niet je eigen code, maar die _van iemand anders_. Is dat relevant? Ja! Want die code ziet er anders uit. Iedereen programmeert toch op zijn eigen manier. Het scheelt enorm als de code er tenminste grotendeels hetzelfde uitziet. Het kost je dan minder energie om te lezen. Daarom ook dat de artikelen in wetenschappelijke tijdschriften bijvoorbeeld er allemaal hetzelfde uitzien en de auteur niet de vrijheid krijgt om zélf lettertypes te kiezen. Net zo goed hebben grote organisaties vaak hun eigen _coding style_ ontwikkeld waar alle werknemers zich zoveel mogelijk aan moeten houden.
-
-Python heeft een eigen style guide die je vooral eens door moet lezen.[@pep8] Google heeft ook een hele mooie, met duidelijke voorbeelden.[@google_style_guide]
-
-Fijn dat je code consistenter wordt, maar het moet nu ook weer niet zo zijn dat je uren kwijt bent met de style guides bestuderen of twijfelen waar je een regel code precies moet afbreken. Wel of niet een enter? Om daar vanaf te zijn zijn er verschillende pakketten die je code automatisch aanpassen aan de standaard. Standaard gebruikt _Visual Studio Code_`autopep8`. Als je de instelling **Editor: Format On Save** aan zet (staat standaard uit) dan wordt je code aangepast zodra je je bestand opslaat. De instelling **Python > Formatting: Provider** kun je gebruiken om in plaats van `autopep8` bijvoorbeeld `black` te kiezen.[@black] Black is een stuk strenger dan `autopep8` en heeft meer een `eigen mening'. Als je je daar bij neerlegt hoef je bijna niet meer na te denken over hoe je je code precies vormgeeft. De Black website zegt[@black]:
-
-<q>
-  By using Black, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters.
-
-  Black makes code review faster by producing the smallest diffs possible. Blackened code looks the same regardless of the project you’re reading. Formatting becomes transparent after a while and you can focus on the content instead.
-</q>
-
-De code in deze handleiding is geformat met _Black_.
-
-!!! info
-    Bij de volgende opdracht kun je, als je niet de nieuwste versie van Anaconda hebt, een pop krijgen dat black nog niet geïnstalleerd is:
-    ![screenshot-black-not-installed](figures/screenshot-black-not-installed.png)
-    Kies `Yes` en dan krijg je bovenaan het scherm:
-    ![screenshot-install-black](figures/screenshot-install-black.png)
-    Kies voor `Install using Conda`.
-
-!!! opdracht-basis "black"
-    Om Black te installeren en te testen voer je de volgende opdrachten uit:
-    
-    1. In Visual Studio Code, ga naar **Code** onder MacOS of **File** onder Windows en dan naar **Preferences > Settings > Python Formatting: Provider** en kies `black`. Ga dan naar **Preferences > Settings > Editor: Format On Save** en vink die _aan_.
-    1. Open een Pythonbestand en type:
-          ``` py
-          l = [1,
-          2, 3, 4]
-          ```
-          Sla het bestand op en controleer of `black` werkt. Je zou dan `#!py l = [1, 2, 3, 4]` moeten krijgen.
-    1. Type in:
-          ``` py
-          fruit_bowl = {"apple": 1, 'banana': 2, "pear": 3, "lemon": 4, "strawberry": 5, 'raspberry': 6}
-          ```
-          Let op! Allemaal één regel en wisselend gebruik van enkele (`#!py '`) en dubbele (`#!py "`) aanhalingstekens. Sla het bestand op en laat Black zijn werk doen. Welke dingen heeft Black aangepast?
-    1. Gebruik voortaan Black en geef je er aan over.
-    
-
-
-
+  
 ## Datatypes
 
 Gehele getallen, kommagetallen, strings: allemaal voorbeelden van _datatypes_. Veel zullen jullie al wel bekend voorkomen, zoals strings, lists en NumPy arrays. Andere zijn misschien alweer wat weggezakt, zoals dictionaries of booleans. Weer andere zijn misschien wat minder bekend, zoals complexe getallen of sets. En als laatste voegt Python af en toe nieuwe datatypes toe, zoals _f-strings_ in Python 3.6 of _data classes_ sinds Python 3.7.
