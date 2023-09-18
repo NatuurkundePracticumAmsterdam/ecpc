@@ -18,6 +18,8 @@ Als je een grafische applicatie schrijft roep je functies aan van het besturings
  [^kill-terminals]: Of in één keer met **View > Command Palette > Terminal: Kill All Terminals**
 
 Een minimale Qt-applicatie ziet er als volgt uit:
+<div id="code:minimal"></div>
+
 ``` py
 import sys
 
@@ -87,6 +89,7 @@ In de horizontale layout plaatsen we twee `button`s:
 
 Het stuk programma om bovenstaande layout op te bouwen geven we hieronder weer. We bespreken straks de code regel voor regel.
 <div id="code:layout"></div>
+
 ``` py linenums="1"
 from PySide6.QtCore import Slot
 
@@ -197,6 +200,7 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 
 Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Je bewaart dat als een `.ui`-bestand. Vervolgens vertaal je het `.ui`-bestand naar een Pythonbestand dat je importeert in je eigen programma. De volledige class van het [vorige voorbeeld](#code:layout) kan dan vervangen worden door:
 <div id="code:designer"></div>
+
 ``` py
 from ui_simple_app import Ui_MainWindow
 
@@ -244,6 +248,7 @@ Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties.
 ### De plotter als script
 
 Om PyQtGraph te importeren en globale opties in te stellen moeten we bovenaan ons programma het volgende schrijven:
+
 ``` py
 import pyqtgraph as pg
 
@@ -273,6 +278,7 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
     
     Nu je dit een keer gedaan hebt kun je voortaan op een Graphics View meteen kiezen voor **Promote to > PlotWidget** en hoef je niets meer in te typen. Vergeet niet je widget nog even een handige naam te geven, bijvoorbeeld `plot_widget`.
 
+<div id="info:widgets"></div>
 
 !!! info "Handige widgets"
     In onderstaande tabel zie je een lijst van zeer handige widgets die je vrijwel zeker nodig hebt. Als je nog meer widgets wilt gebruiken, kijk dan in de lijst van Designer en/of op [https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes).
@@ -290,6 +296,7 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
     | `QDoubleSpinBox` | Double Spin Box   | Kies een kommagetal (intypen of met pijltjes selecteren). Signals: `valueChanged`.                                              |
 
 Om daadwerkelijk een functie te plotten kun je deze code gebruiken:
+
 ``` py
 import numpy as np
 
@@ -329,26 +336,26 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen`, 
 
 ## Een grafische interface voor ons experiment
 
-In het vorige hoofdstuk hebben we een _tekst_ interface geschreven voor ons experiment. We gaan nu een _grafische_ interface schrijven voor hetzelfde experiment.
+In het vorige hoofdstuk hebben we een _tekst_-interface geschreven voor ons experiment. We gaan nu een _grafische_ interface schrijven voor hetzelfde experiment.
 
 We hebben tot nu toe veel moeite gedaan om onze code te splitsen volgens het MVC-model: werken in laagjes, goed nadenken over wat waar hoort. Als dat netjes gelukt is kunnen we relatief makkelijk één van die laagjes vervangen. We kunnen de `#!py ArduinoVISADevice` vervangen door een `#!py RaspberryPiDevice` of een `#!py PicoScopeDevice`. Ook kunnen we een nieuwe applicatie schrijven voor ons bestaande experiment. We hoeven dan alleen een extra view te schrijven (de interface met de gebruiker) en de rest kunnen we hergebruiken. Misschien dat we hier en daar iets willen aanpassen maar zorg er dan voor dat je oude applicatie nog steeds werkt!
 
 [^nieuwe-controller]: Je moet dan wel eerst nieuwe controllers schrijven (of krijgen van een collega) om deze nieuwe instrumenten aan te sturen. Maar als je die hebt kun je vrij eenvoudig wisselen.
 
-We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat in stapjes doen.
+We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor ons experiment.
 
 !!! info
     Je mag zelf kiezen of je de grafische interface gaat ontwerpen met Designer of dat je hem volledig programmeert.
 
-    Zorg dat je in je `daq` conda environment zit of maak een nieuwe. Voeg de dependencies PySide6 en PyQtGraph toe met:
+    Zorg dat je in je `pythondaq` conda environment zit of maak een nieuwe. Voeg de dependencies PySide6 en PyQtGraph toe met:
     ``` ps1 title="Terminal"
     poetry add pyside6 pyqtgraph
     ```
 
 !!! info
-    Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met Poetry <q>taken</q> aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn niet meer beschikbaar als je je applicatie deelt met andere mensen &mdash; ze zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. En dat is wat we willen. Doe dit als volgt:
+    Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met Poetry taken aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. Doe dit als volgt:
 
-    1. Installeer _Poe the Poet_ &mdash; onze _task runner_ &mdash; als _development dependency_ met:
+    1. Installeer _Poe the Poet_ &mdash; een zogeheten _task runner_ &mdash; als _development dependency_ met:
         ``` ps1 title="Terminal"
         poetry add --group dev poethepoet
         ```
@@ -361,7 +368,7 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
         """
         ```
         Je kunt binnen de driedubbele aanhalingstekens meerdere regels toevoegen als je meerdere `.ui`-bestanden hebt &mdash; voor ieder bestand een regel.
-    1. In bovenstaande regels is de naam _na_ `tool.poe.tasks` de naam van de taak &mdash; in dit geval dus `compile`. Je kunt die naam zelf kiezen. Voer de taak uit door in de terminal in te typen:
+    1. In bovenstaande regels is de naam _na_ `tool.poe.tasks` de naam van de taak &mdash; in dit geval dus `compile`. Je kunt die naam zelf kiezen en vervolgens gebruiken om de taak uit te voeren in de terminal:
         ``` ps1 title="Terminal"
         poe compile
         ```
@@ -370,19 +377,20 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
 
 
 !!! opdracht-inlever "Pythondaq: leeg venster"
-    Maak een nieuwe applicatie aan de hand van de code aan het begin van het hoofdstuk (minimale Qt-applicatie). De applicatie doet dus nog niets anders dan het tonen van een leeg venster.
+    Maak een nieuwe applicatie aan de hand van de code aan het begin van het hoofdstuk ([_minimale Qt-applicatie_](#code:minimal)). De applicatie doet dus nog niets anders dan het tonen van een leeg venster.
 
 
 !!! opdracht-inlever "Pythondaq: plot scan"
-    Voeg aan je applicatie een `PlotWidget` toe. Laat je applicatie een scan uitvoeren (door het model te openen en aan te roepen) en laat het resultaat zien in een grafiek. Voor deze opdracht mag je nog gewoon de poortnaam in je code schrijven, net als start- en stop waardes e.d. De gebruiker hoeft nog niets te kunnen instellen. Dat komt straks.
+    Voeg aan je applicatie een `PlotWidget` toe &mdash; geprogrammeerd of met Designer. Laat je applicatie een scan uitvoeren (door het model te openen en aan te roepen) en laat het resultaat zien in een grafiek. Voor deze opdracht mag je nog gewoon de poortnaam in je code schrijven, net als start- en stop waardes e.d. De gebruiker hoeft nog niets te kunnen instellen. Dat komt straks.
 
 !!! info "Foutenvlaggen plotten"
-        Foutenvlaggen toevoegen aan een pyqtgraph is helaas iets minder intuitief dan bij matplotlib. Met _breedte_ en _hoogte_ geef je aan hoe groot de vlaggen zijn, de vlag is 2 keer zo groot als de onzekerheid. Samen met de x en y data maak je dan een `ErrorBarItem` aan die je expliciet toevoegd aan de plot.  
-    ``` py linenums="1" hl_lines="19 21"
-    def plot(self):
-        """ Clear the plot widget and display experimental data. """
+        Foutenvlaggen toevoegen aan een pyqtgraph is helaas iets minder intuitief dan bij matplotlib. Met _breedte_ en _hoogte_ geef je aan hoe groot de vlaggen zijn, de vlag is 2 keer zo hoog of breed als de onzekerheid. Samen met de $x$ en $y$ data maak je dan een `ErrorBarItem` aan die je expliciet toevoegt aan de plot.
 
-        # Neppe data
+    ``` py linenums="1" hl_lines="20 22"
+    def plot(self):
+        """Clear the plot widget and display experimental data."""
+
+        # Genereer wat data als demo
         x = np.linspace(0, 2 * np.pi, 20)
         y = np.sin(x)
         x_err = 0.1
@@ -391,12 +399,13 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
         # Maak eerst een scatterplot
         self.plot_widget.plot(x, y, symbol="o", symbolSize=5, pen=None)
 
-        # nu de foutvlaggen, met 'breedte' en 'hoogte' in plaats van x errors en y errors
-        # let op: als je x_errors *lijsten* zijn, dan kun je niet gewoon 2 * doen, maar wel:
+        # nu de foutvlaggen, met 'breedte' en 'hoogte' in plaats van x errors en y
+        # errors let op: als je x_errors *lijsten* zijn, dan kun je niet gewoon 2 *
+        # doen, maar wel als je eerst een NumPy array maakt:
         #
         # width = 2 * np.array(x_err)
         #
-        # (we maken er dus eerst een array van)
+        # (we maken er voor de zekerheid eerst een array van)
         error_bars = pg.ErrorBarItem(x=x, y=y, width=2 * x_err, height=2 * y_err)
         # we moeten de error_bars expliciet toevoegen aan de plot
         self.plot_widget.addItem(error_bars)
@@ -410,9 +419,9 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
 ### Van script naar applicatie
 
 !!! opdracht-inlever "Pythondaq: app"
-    Het is weer mogelijk om van het script een applicatie te maken die je aan kunt roepen vanaf de command-line. Daar moeten we het volgende voor doen:
+    Het is weer mogelijk om van het script een applicatie te maken die je aan kunt roepen vanaf de command line. Daar moeten we het volgende voor doen:
 
-    1. Voeg een nieuw item toe voor je applicatie in de sectie `[tool.poetry.scripts]` in de {{file}}`pyproject.toml` zoals je dat ook gedaan hebt voor je command-line applicatie.
+    1. Voeg een nieuw item toe voor je applicatie in de sectie `[tool.poetry.scripts]` in de {{file}}`pyproject.toml` zoals je dat ook gedaan hebt voor je command-line-applicatie.
     1. Installeer je package opnieuw met:
         ``` ps1
         poetry install
@@ -424,11 +433,13 @@ We gaan nu een grafische applicatie schrijven voor ons experiment. We gaan dat i
 
 ### Bewaren van meetgegevens
 
-Je kunt na iedere meting de gegevens automatisch wegschrijven naar bestanden zonder dat de gebruiker nog iets kan kiezen, maar je kunt ook gebruik maken van een `Save`-knop en dialoogvensters. Je kunt de knop koppelen aan een method `#!py save_data()` en daarin de volgende regel opnemen:
+Je zou na iedere meting de gegevens automatisch kunnen wegschrijven naar bestanden zonder dat de gebruiker nog iets kan kiezen, maar je kunt ook gebruik maken van een `Save`-knop en dialoogvensters. Je kunt de knop koppelen aan een method `#!py save_data()` en daarin de volgende regel opnemen:
+
 ``` py
 filename, _ = QtWidgets.QFileDialog.getSaveFileName(filter="CSV files (*.csv)")
 ```
-De functie `#!py getSaveFileName()` opent een dialoogvenster om een bestand op te slaan. Vanwege het filter argument geeft het venster (op sommige besturingssystemen) alleen CSV-bestanden weer. In elk geval geldt op alle besturingssystemen dat als de gebruiker als naam `metingen` intypt, dat het filterargument ervoor zorgt dat er automatisch `.csv` achter geplakt wordt.[^csv-extensie] De functie geeft twee variabelen terug: `filename` en (weer) `filter`. Die laatste kenden we al en gooien we weg met behulp van de weggooivariabele `#!py _`.
+
+De functie `#!py getSaveFileName()` opent een dialoogvenster om een bestand op te slaan. Vanwege het filter argument geeft het venster (op sommige besturingssystemen) alleen CSV-bestanden weer. In elk geval geldt op alle besturingssystemen dat als de gebruiker als naam `metingen` intypt, dat het filterargument ervoor zorgt dat er automatisch `.csv` achter geplakt wordt.[^csv-extensie] De functie geeft twee variabelen terug: `filename` en `filter`, die je zelf hebt meegegeven in bovenstaande aanroep. Die laatste kenden we dus al en gooien we weg met behulp van de weggooivariabele `#!py _`.
 
 [^csv-extensie]: Het eerste deel van het argument (`CSV files`) is vrij te kiezen en geeft alleen informatie aan de gebruiker. Het deel tussen haakjes (`*.csv`) is het gedeelte dat echt van belang is. Het geeft de extensie die achter alle bestandsnamen geplakt wordt.
 
@@ -451,19 +462,19 @@ Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder
 
 ### Selecteer de Arduino
 
-Je hebt nu nog, waarschijnlijk, de poortnaam van de Arduino in je code gedefinieerd als vaste waarde. Dat betekent dat als je de code deelt met iemand anders &mdash; bijvoorbeeld wanneer je de code inlevert op Canvas of wanneer je je experiment op een labcomputer wilt draaien &mdash; je het risico loopt dat je applicatie crasht omdat de Arduino aan een andere poort hangt. Zeker bij de overstap van Windows naar MacOS of Linux, of andersom! Je kunt dit op twee manieren oplossen:
+Je hebt nu waarschijnlijk nog de poortnaam van de Arduino in je code gedefinieerd als vaste waarde. Dat betekent dat als je de code deelt met iemand anders &mdash; bijvoorbeeld wanneer je de code inlevert op Canvas of wanneer je je experiment op een labcomputer wilt draaien &mdash; je het risico loopt dat je applicatie crasht omdat de Arduino aan een andere poort hangt. Zeker bij de overstap van Windows naar MacOS of Linux, of andersom! Je kunt dit op twee manieren oplossen:
 
-1. Je maakt een keuzemenu dat de gebruiker bij het opstarten éérst krijgt te zien. Hierin kan de gebruiker de Arduino aanklikken en dan pas wordt het hoofdprogramma opgestart;
+1. Je maakt een keuzemenu waarmee de gebruiker de Arduino kan selecteren;
 1. Je probeert de Arduino te detecteren op één van de poorten. De gebruiker hoeft dan niet te weten welke poort dat zou kunnen zijn. Het werkt dan vanzelf!
 
-Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeilijker dan gedacht. Zodra je andere devices gaat openen en commando's gaat sturen om te ontdekken wat voor apparaat het is kunnen er gekke dingen gebeuren. Onder MacOS bijvoorbeeld kunnen bluetooth luidsprekers en koptelefoons opeens ontkoppelen. _We gaan dus toch voor keuze 1._
+Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeilijker dan gedacht. Zodra je andere devices gaat openen en commando's gaat sturen om te ontdekken wat voor apparaat het is kunnen er gekke dingen gebeuren. Onder MacOS bijvoorbeeld kunnen Bluetooth luidsprekers en koptelefoons opeens ontkoppelen. _We gaan dus toch voor keuze 1._ Bijkomend voordeel van deze keuze is dat je meerdere Arduino's aan je computer kunt hangen en kunt schakelen &mdash; vooral handig als je meerdere experimenten vanaf één computer wilt aansturen.
 
 !!! opdracht-inlever "Pythondaq: selecteer Arduino"
-    Maak een keuzemenu (`#!py QComboBox`) zodat je de Arduino kunt selecteren. Je zult in de `__init__()` eerst een lijst van devices moeten maken en die toe moeten voegen aan de widget. Zie ook [tab:widgets](#tab:widgets) en de documentatie. Het kan daarbij handig zijn om de device pas te _openen_ als je een scan uitvoert en hem te sluiten (schrijf een soort `#!py device.close()`) als de scan is afgelopen. In de controller werk je met een `#!py pyvisa` device en die heeft al een `#!py close()`-method.
+    Maak een keuzemenu (`#!py QComboBox`) zodat je de Arduino kunt selecteren. Je zult in de `__init__()` eerst een lijst van devices moeten maken en die toe moeten voegen aan de widget. Zie ook de [_lijst met handige widgets_](#info:widgets) en de documentatie. Het kan daarbij handig zijn om de device pas te _openen_ als je een scan uitvoert en hem te sluiten (schrijf een soort `#!py device.close()`) als de scan is afgelopen. In de controller werk je met een `#!py pyvisa` device en die heeft al een `#!py close()`-method.
 
-
-??? opdracht-meer "Pythondaq: exception"
-    Het is natuurlijk niet zo mooi wanneer je de verkeerde poort kiest en het programma crasht. Vang de exception af en geef een melding (gebruik bijvoorbeeld `#!py QDialog`) dat het device geen Arduino VISA device is. De gebruiker kan daarna een andere poort proberen.
+<!-- 
+??? opdracht-meer "Pythondaq: Exceptions"
+    Het is natuurlijk niet zo mooi wanneer je de verkeerde poort kiest en het programma crasht. Vang de exception af en geef een melding (gebruik bijvoorbeeld `#!py QDialog`) dat het device geen Arduino VISA device is. De gebruiker kan daarna een andere poort proberen. -->
 
 
 ## Meerdere dingen tegelijkertijd: threads
