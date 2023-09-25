@@ -410,15 +410,15 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#black" class="md-nav__link">
-    Black
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-style-black" class="md-nav__link">
+    Coding style: Black
+  </a>
   
 </li>
       
@@ -577,15 +577,15 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#black" class="md-nav__link">
-    Black
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-style-black" class="md-nav__link">
+    Coding style: Black
+  </a>
   
 </li>
       
@@ -606,37 +606,37 @@
 
 <h1 id="gereedschap">Gereedschap<a class="headerlink" href="#gereedschap" title="Permanent link">&para;</a></h1>
 <h2 id="isolatie-virtual-environments">Isolatie: virtual environments<a class="headerlink" href="#isolatie-virtual-environments" title="Permanent link">&para;</a></h2>
-<p>Je hebt het vast al gemerkt: Anaconda is groot. Dat is gek, want Python is best klein. Anaconda bevat alleen veel meer dan Python. Anaconda is een Python_distributie_ en bevat een enorme verzameling aan packages. Je kunt zelf extra packages installeren met <code>conda</code> of <code>pip</code>. Je loopt dan mogelijk wel tegen problemen aan: packages hebben vaak zelf weer andere packages nodig. En regelmatig ook met een bepaalde versie. Dit kan een ingewikkeld netwerk worden waarbij het installeren van een nieuwe package óf heel lang duurt, óf niet kan vanwege een conflict<sup id="fnref:Package conflict"><a class="footnote-ref" href="#fn:Package conflict">1</a></sup>, óf <q>blind</q> gedaan wordt waarna sommige dingen niet meer willen werken. Alledrie is op te lossen door <em>virtual environments</em> te gebruiken. Geïsoleerde omgevingen waarin (soms) een <em>eigen</em> versie van Python draait met een <em>eigen</em> &mdash; veelal kleine &mdash; collectie van packages. Je kunt environments aanmaken voor specifieke projecten bijvoorbeeld. Wellicht heb je bij NSP1 een environment aangemaakt om Jupyter Notebooks en een verzameling packages te installeren voor de data-analyse.</p>
+<p>Je hebt het misschien al gemerkt: Anaconda neemt veel schijfruimte in beslag. Dat is gek, want Python is best klein. Anaconda bevat alleen veel meer dan Python. Anaconda is een Python-<em>distributie</em> en bevat een enorme verzameling aan packages. Je kunt zelf extra packages installeren met <code>conda</code> of <code>pip</code>. Je loopt dan mogelijk wel tegen problemen aan: packages hebben vaak zelf weer andere packages nodig. En regelmatig ook met een bepaalde versie. Dit kan een ingewikkeld netwerk worden waarbij het installeren van een nieuwe package óf heel lang duurt, óf niet kan vanwege een conflict,<sup id="fnref:Package conflict"><a class="footnote-ref" href="#fn:Package conflict">1</a></sup> óf <q>blind</q> gedaan wordt waarna sommige dingen niet meer willen werken. Alledrie is op te lossen door <em>virtual environments</em> te gebruiken. Geïsoleerde omgevingen met een eigen &mdash; veelal kleine &mdash; collectie van packages. Soms zelfs met een <em>eigen</em> versie van Python. Je kunt environments aanmaken voor specifieke projecten bijvoorbeeld: een omgeving voor NSP1, een omgeving voor ECPC en een omgeving voor een hobbyproject. Wellicht heb je bij NSP1 een environment aangemaakt om Jupyter Notebooks en een verzameling packages te installeren voor de data-analyse.</p>
 <h3 id="pip-vs-conda">Pip vs Conda<a class="headerlink" href="#pip-vs-conda" title="Permanent link">&para;</a></h3>
 <p>De package manager van Python is <code>pip</code>. Je kunt hiermee alle Python packages installeren die bestaan uit <em>Python</em> code. NumPy bijvoorbeeld bevat echter ook veel code geschreven in C. Die code moet eerst gecompileerd worden. Dat kan <code>pip</code> óók doen, mits er een C compiler op je computer geïnstalleerd is. Via de Python package index kunnen gelukkig ook zogeheten <em>binary packages</em> verspreid worden waarin de code al is gecompileerd. Er zijn dan losse packages voor Windows, MacOS en Linux. Meestal gaat dit goed, maar helaas niet altijd. Historisch waren NumPy maar vooral ook SciPy een flink probleem. Ook het gebruik van grafische bibliotheken ging vaak moeizaam. Dan was het package wel geïnstalleerd, maar riep hij dat hij systeembibliotheken niet kon vinden. Heel vervelend.</p>
 <p>Een ander probleem van <code>pip</code> is dat deze &mdash; tot voor kort &mdash; geen controle deed op de versies van al geïnstalleerde pakketten. Je kon dus packages installeren die nieuwe versies binnenhaalden van andere packages, waarna al <em>eerder</em> geïnstalleerde packages soms stopten met werken.</p>
-<p>Om die reden is <code>conda</code> in het leven geroepen. Conda installeert alleen binary packages, kan naast Python packages ook systeembibliotheken installeren als dat nodig is én doet een uitgebreide controle op alle versies van te installeren en al eerder geïnstalleerde packages zodat alles altijd blijft werken. Nadeel is dat die controle nogal lang kan duren als je al veel geïnstalleerd hebt. Omdat je met <code>conda</code> dus <em>wel</em> heel makkelijk uitgebreide wetenschappelijke packages kon installeren met een mix van Python-, C-, of zelfs Fortrancode is <code>conda</code> (en Anaconda, de distributie) heel populair geworden in de wetenschappelijke wereld. Om die reden gebruiken we in deze cursus ook Anaconda / <code>conda</code>.</p>
+<p>Om die reden is <code>conda</code> in het leven geroepen. Conda installeert alleen binary packages, kan naast Python packages ook systeembibliotheken installeren als dat nodig is én doet een uitgebreide controle op alle versies van te installeren en al eerder geïnstalleerde packages zodat alles altijd blijft werken. Nadeel is dat die controle nogal lang kan duren als je al veel geïnstalleerd hebt. Omdat je met <code>conda</code> dus <em>wel</em> heel makkelijk uitgebreide wetenschappelijke packages kon installeren met een mix van Python-, C-, of zelfs Fortrancode is <code>conda</code> (en Anaconda, de distributie) heel populair geworden in de wetenschappelijke wereld. Omdat jullie bij vorige cursussen al gewerkt hebben met Anaconda zullen we dat deze cursus ook gebruiken, maar we gaan veel met <code>pip</code> werken om packages te schrijven die door <em>alle</em> Pythongebruikers gebruikt kunnen worden.</p>
 <h3 id="conda-environments">Conda environments<a class="headerlink" href="#conda-environments" title="Permanent link">&para;</a></h3>
 <p>Er zijn verschillende tools voor het aanmaken van environments voor Python. Allemaal hebben ze hun voor- en nadelen. Langzamerhand blijven de populairste over. De <q>officiële</q> is <code class="language-py highlight"><span class="n">venv</span></code>, maar op dit moment niet de meest populaire. Binnen een groot deel van de wetenschappelijke gemeenschap is <code>conda</code> de standaardkeuze. Het voordeel van <code>conda</code> ten opzichte van veel andere tools is dat je verschillende environments kunt maken met verschillende versies van Python. Ideaal om te testen of je code ook werkt met de allernieuwste Pythonversie of juist met wat oudere versies.</p>
 <p>Je moet je realiseren dat het aanmaken (en weggooien) van een environment heel makkelijk is. Doe dat regelmatig zodat je scherp houdt welke packages je nu echt nodig hebt voor je analyse of voor de software die je schrijft. Hieronder geven we een overzicht van de meest gebruikte commando's om met conda environments te werken.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Conda installeert packages vanuit verschillende <em>channels</em>. De <code>defaults</code> channel bevat packages die af en toe door Anaconda worden getest en samengenomen tot een distributie (versie <code>2021.05</code> bijvoorbeeld). Er zijn weinig updates. De <code>conda-forge</code> channel bevat alle nieuwste versies van die packages en bevat ook software die (nog) niet in de <code>defaults</code> channel terecht is gekomen. De conda-forge channel is daarom erg populair.</p>
+<p>Conda installeert packages vanuit verschillende <em>channels</em>. De <code>defaults</code> channel bevat packages die af en toe door Anaconda worden getest en samengenomen tot een distributie (versie <code>2021.05</code> bijvoorbeeld). Er zijn weinig updates. De <code>conda-forge</code> channel bevat alle nieuwste versies van die packages en bevat ook software die (nog) niet in de <code>defaults</code> channel terecht is gekomen. De conda-forge channel is daarom erg populair, maar er gaat ook regelmatig iets stuk.</p>
 </div>
 <p>Hieronder volgen enkele voorbeelden van het gebruik van conda:
-<div class="language-ps1con highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="go">Leeg environment aanmaken met naam &#39;daq&#39;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">PS&gt; </span><span class="n">conda</span> <span class="n">create</span> <span class="n">-n</span> <span class="n">daq</span>
+<div class="language-ps1con highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="go">Leeg environment aanmaken met naam &#39;pythondaq&#39; (leeg = zelfs geen Python)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">PS&gt; </span><span class="n">conda</span> <span class="n">create</span> <span class="n">-n</span> <span class="n">pythondaq</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="go">Nieuw environment aanmaken met Python versie 3.9</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="gp">PS&gt; </span><span class="n">conda</span> <span class="n">create</span> <span class="n">-n</span> <span class="n">daq</span> <span class="n">python</span><span class="p">=</span><span class="n">3</span><span class="p">.</span><span class="n">9</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="gp">PS&gt; </span><span class="n">conda</span> <span class="n">create</span> <span class="n">-n</span> <span class="n">pythondaq</span> <span class="n">python</span><span class="p">=</span><span class="n">3</span><span class="p">.</span><span class="n">9</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="go">Packages installeren vanuit de &#39;conda-forge&#39; channel en nieuwste Python</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="go">Als het environment al bestaat vraagt hij of hij die moet overschrijven met een nieuwe schone versie</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="gp">PS&gt; </span><span class="n">conda</span> <span class="n">create</span> <span class="n">-n</span> <span class="n">daq</span> <span class="n">-c</span> <span class="n">conda-forge</span> <span class="n">python</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="gp">PS&gt; </span><span class="n">conda</span> <span class="n">create</span> <span class="n">-n</span> <span class="n">pythondaq</span> <span class="n">-c</span> <span class="n">conda-forge</span> <span class="n">python</span>
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="go">Environment activeren</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="gp">PS&gt; </span><span class="n">conda</span> <span class="n">activate</span> <span class="n">daq</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="gp">PS&gt; </span><span class="n">conda</span> <span class="n">activate</span> <span class="n">pythondaq</span>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="go">Environment deactiveren</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="gp">PS&gt; </span><span class="n">conda</span> <span class="n">deactivate</span>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="go">Environment wissen</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="gp">PS&gt; </span><span class="n">conda</span> <span class="n">env</span> <span class="n">remove</span> <span class="n">-n</span> <span class="n">daq</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="gp">PS&gt; </span><span class="n">conda</span> <span class="n">env</span> <span class="n">remove</span> <span class="n">-n</span> <span class="n">pythondaq</span>
 </span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
 </span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="go">Lijst van environments bekijken</span>
 </span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="gp">PS&gt; </span><span class="n">conda</span> <span class="n">env</span> <span class="n">list</span>
@@ -653,13 +653,13 @@
 </span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="go">Alle packages updaten naar nieuwe versie in het ACTIEVE environment</span>
 </span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="gp">PS&gt; </span><span class="n">conda</span> <span class="n">update</span> <span class="n">-c</span> <span class="n">conda-forge</span> <span class="p">-</span><span class="n">-all</span>
 </span></code></pre></div></p>
-<p>Als je scripts schrijft in Visual Studio Code wil je dat ze ook runnen in de omgevingen die je net hebt aangemaakt. Als je in Visual Studio Code een python script opent dan geeft het linksonder, in de blauwe statusbalk, de huidige Pythonomgeving aan:</p>
+<p>Als je scripts schrijft in Visual Studio Code wil je dat ze ook runnen in de omgevingen die je net hebt aangemaakt. Als je in Visual Studio Code een python script opent dan geeft het rechtsonder, in de statusbalk, de huidige Pythonomgeving aan:</p>
 <p><img alt="Python environment" src="../figures/screenshot-vscode-python-env.png" /></p>
 <p>Als je daarop klikt<sup id="fnref:Python interpreter"><a class="footnote-ref" href="#fn:Python interpreter">2</a></sup> kun je door de lijst met Pythonomgevingen scrollen. Kies de omgeving die je wilt gebruiken. <em>Let op:</em> als je het environment net hebt aangemaakt dan staat hij er nog niet tussen. Klik dan rechtsbovenin eerst op het <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32h128c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2l-17.6-17.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8 229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3 163.8-62.5 226.3 0l17.2 17.2z"/></svg></span> Refresh Interpeter list</strong>-knopje. Bijvoorbeeld:</p>
 <p><img alt="Python env daq" src="../figures/screenshot-vscode-python-env-daq.png" /></p>
 <p>Sluit alle <q>oude</q> terminals met het <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="m170.5 51.6-19 28.4h145l-19-28.4c-1.5-2.2-4-3.6-6.7-3.6h-93.7c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6 36.7 55H424c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8v304c0 44.2-35.8 80-80 80H112c-44.2 0-80-35.8-80-80V128h-8c-13.3 0-24-10.7-24-24s10.7-24 24-24h69.8l36.7-55.1C140.9 9.4 158.4 0 177.1 0h93.7c18.7 0 36.2 9.4 46.6 24.9zM80 128v304c0 17.7 14.3 32 32 32h224c17.7 0 32-14.3 32-32V128H80zm80 64v208c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0v208c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0v208c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16z"/></svg></span>-icoon als je je muis aan de rechterkant over de namen van de terminals beweegt of in één keer met <strong>View &gt; Command Palette &gt; Terminal: Kill All Terminals</strong>. Alle nieuwe terminals die je opent zullen de nieuw geselecteerde conda environment actief maken. Wanneer je nu je Pythoncode draait dan is dat binnen deze omgeving. Het kan wel zijn dat hij opeens klaagt over packages die niet geïnstalleerd zijn omdat je dat &mdash; in <em>die</em> omgeving &mdash; nog niet had gedaan. Geen probleem: installeer ze dan.</p>
 <h3 id="pipx">Pipx<a class="headerlink" href="#pipx" title="Permanent link">&para;</a></h3>
-<p>Pythonapplicaties, zoals <code>conda</code>, worden geïnstalleerd als commando dat je kunt aanroepen vanaf de command-line. Maar het <em>is</em> een Pythonapplicatie. En dat betekent dat als je van omgeving wisselt, dat de applicatie niet meer beschikbaar is. Ook kan het gebeuren dat je packages update of verwijdert waardoor de applicatie niet meer werkt. Met <code>pipx</code> is het mogelijk om dit soort applicaties in een <em>eigen</em> virtual environment te installeren. Je loopt geen risico dat je ze stukmaakt <em>en</em> ze zijn beschikbaar vanuit andere virtual environments. In plaats van:
+<p>Pythonapplicaties, zoals <code>conda</code>, worden geïnstalleerd als commando dat je kunt aanroepen vanaf de command-line. Maar het <em>is</em> een Pythonapplicatie. En dat betekent dat als je van omgeving wisselt, de applicatie niet meer beschikbaar is. Ook kan het gebeuren dat je packages update of verwijdert waardoor de applicatie niet meer werkt. Met <code>pipx</code> is het mogelijk om dit soort applicaties in een <em>eigen</em> virtual environment te installeren. Je loopt geen risico dat je ze stukmaakt <em>en</em> ze zijn beschikbaar vanuit andere virtual environments. In plaats van:
 <div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">pip</span> <span class="n">install</span> <span class="n">PACKAGE</span>
 </span></code></pre></div>
 doe je straks
@@ -670,31 +670,54 @@ Je installeert <code>pipx</code> met:
 <div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">python</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="p">-</span><span class="n">-user</span> <span class="n">pipx</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">python</span> <span class="n">-m</span> <span class="n">pipx</span> <span class="n">ensurepath</span>
 </span></code></pre></div>
-Herstart je terminal en test of het commando <code>pipx</code> werkt. Zo niet, dan zul je volledig uit moeten loggen en weer in moeten loggen om de shellomgeving opnieuw te laden.</p>
-<h3 id="black">Black<a class="headerlink" href="#black" title="Permanent link">&para;</a></h3>
-<p>Eén van de tools die problemen kunnen geven wanneer je van environment wisselt is <code>black</code>. Misschien heb je bij het aanmaken van de environment voor deze cursus in <a href="../communicatie/#opd:condaenv">opdracht <em>Environment aanmaken</em></a> gemerkt dat Visual Studio Code soms klaagt dat <code>black</code> niet geïnstalleerd is. Het is lastig als je black in ieder environment moet installeren én het is lastig dat je schone environment al snel <q>vervuild</q> raakt met een tool en alle bijbehorende dependencies die niets te maken hebben met jouw project. Daarom installeren we <code>black</code> graag via <code>pipx</code>.</p>
-<div class="admonition opdracht-basis">
-<p class="admonition-title">Black</p>
-<p>Voer het volgende uit:</p>
-<ol>
-<li>Installeer <code>black</code> via <code>pipx</code></li>
-<li>Run <code>pipx list</code> en let op de directory die genoemd is na: <code>apps are exposed on your \$PATH at</code>. Bijvoorbeeld: <code>/Users/david/.local/bin</code>.</li>
-<li>In Visual Studio Code, ga naar <strong>Code</strong> onder MacOS of <strong>File</strong> onder Windows en dan naar <strong>Preferences &gt; Settings &gt; Python Formatting: Black Path</strong>. Vul de directorynaam in gevolgd door <code>black</code>. Bijvoorbeeld: <code>/Users/david/.local/bin/black</code>.</li>
-<li>Open een Pythonbestand en type:
-        <div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+Herstart je terminal en test of het commando <code>pipx</code> werkt. Als je in een terminal in Visual Studio Code werkt moet je dat ook herstarten en als je VS Code gestart hebt vanuit GitHub Desktop moet je óók dat herstarten. Werkt het nog steeds niet, dan zul je volledig uit moeten loggen en weer in moeten loggen om de shellomgeving opnieuw te laden en/of vraag om hulp.</p>
+<h2 id="coding-style-black">Coding style: Black<a class="headerlink" href="#coding-style-black" title="Permanent link">&para;</a></h2>
+<p><q>Code wordt veel vaker gelezen dan geschreven,</q> is een veel geciteerd gezegde onder programmeurs. Je schrijft je code en zit vervolgens uren te puzzelen om een fout te vinden of hoe je de code het beste kunt uitbreiden. Je zoekt op internet naar voorbeeldcode, je helpt een medestudent of vraagt die om hulp. Heel vaak dus lees je niet je eigen code, maar die <em>van iemand anders</em>. Is dat relevant? Ja! Want die code ziet er anders uit. Iedereen programmeert toch op zijn eigen manier. Het scheelt enorm als de code er tenminste grotendeels hetzelfde uitziet. Het kost je dan minder energie om te lezen. Daarom ook dat de artikelen in wetenschappelijke tijdschriften bijvoorbeeld er allemaal hetzelfde uitzien en de auteur niet de vrijheid krijgt om zélf lettertypes te kiezen. Net zo goed hebben grote organisaties vaak hun eigen <em>coding style</em> ontwikkeld waar alle werknemers zich zoveel mogelijk aan moeten houden.</p>
+<p>Python heeft een eigen style guide die je vooral eens door moet lezen.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">3</a></sup> Google heeft ook een hele mooie, met duidelijke voorbeelden.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">4</a></sup></p>
+<p>Fijn dat je code consistenter wordt, maar het moet nu ook weer niet zo zijn dat je uren kwijt bent met de style guides bestuderen of twijfelen waar je een regel code precies moet afbreken. Wel of niet een enter? Om daar vanaf te zijn zijn er verschillende pakketten die je code automatisch aanpassen aan de standaard. Als je de instelling <strong>Editor: Format On Save</strong> aan zet (staat standaard uit) dan wordt je code aangepast zodra je je bestand opslaat. Black is zo'n formatter en heeft een `eigen mening'. Als je je daar bij neerlegt hoef je bijna niet meer na te denken over hoe je je code precies vormgeeft. De Black website zegt<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">5</a></sup>:</p>
+<p><q>
+  By using Black, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters.
+</q></p>
+<p>Black is tegenwoordig immens populair en in Visual Studio Code kun je hem gebruiken door de <em>Black Formatter</em>-extensie van Microsoft te installeren. De code in deze handleiding is geformat met Black. In Visual Studio Code, ga naar <strong>File</strong> en dan naar <strong>Preferences &gt; Settings &gt; Editor: Format On Save</strong> en vink die <em>aan</em>. De eerste keer dat je je bestand opslaat zal hij vragen of hij Black moet gebruiken, daarna wordt je code altijd netjes gemaakt zodra je je Pythonbestand bewaart.</p>
+<p>De volgende code:</p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">s1</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;World&quot;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">f</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">g</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span><span class="n">b</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">h</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">phi</span><span class="p">)</span> <span class="o">+</span> <span class="n">A2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">f2</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">phi2</span><span class="p">)</span> <span class="o">+</span> <span class="n">A3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">f3</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">phi3</span><span class="p">)</span>
 </span></code></pre></div>
-        Sla het bestand op en controleer of <code>black</code> werkt. Je zou dan <code class="language-py highlight"><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span></code> moeten krijgen.</li>
-</ol>
-</div>
+<p>wordt door Black omgezet in:</p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;World&quot;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">f</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">g</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">h</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">f</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="o">+</span> <span class="n">A2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">f2</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phi2</span><span class="p">)</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="o">+</span> <span class="n">A3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">f3</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phi3</span><span class="p">)</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">)</span>
+</span></code></pre></div>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:Package conflict">
-<p>Package A heeft B nodig met versie &gt;= 1.1, maar package C heeft B nodig met versie 1.0. Nu kunnen package A en C dus niet tegelijkertijd geïnstalleerd worden.&#160;<a class="footnote-backref" href="#fnref:Package conflict" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Stel package A heeft package B nodig met versie &gt;= 1.1, maar package C heeft package B nodig met versie 1.0. Nu kunnen packages A en C dus niet tegelijkertijd geïnstalleerd worden.&#160;<a class="footnote-backref" href="#fnref:Package conflict" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:Python interpreter">
 <p>Of: <strong>View &gt; Command Palette &gt; Python: Select Interpreter</strong>.&#160;<a class="footnote-backref" href="#fnref:Python interpreter" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:1">
+<p>Guide van Rossum. Pep 8 – style guide for python code. URL: <a href="https://www.python.org/dev/peps/pep-0008/">https://www.python.org/dev/peps/pep-0008/</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Google. Google python style guide. URL: <a href="https://google.github.io/styleguide/pyguide.html">https://google.github.io/styleguide/pyguide.html</a>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Łukasz Langa. Black, the uncompromising code formatter. URL: <a href="https://black.readthedocs.io/en/stable/">https://black.readthedocs.io/en/stable/</a>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

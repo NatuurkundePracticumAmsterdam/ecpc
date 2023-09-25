@@ -302,6 +302,26 @@
     Comma-separated values (CSV)
   </a>
   
+    <nav class="md-nav" aria-label="Comma-separated values (CSV)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#de-functie-zip" class="md-nav__link">
+    De functie zip()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#het-gebruik-van-de-csv-module" class="md-nav__link">
+    Het gebruik van de csv-module
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -599,6 +619,26 @@
     Comma-separated values (CSV)
   </a>
   
+    <nav class="md-nav" aria-label="Comma-separated values (CSV)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#de-functie-zip" class="md-nav__link">
+    De functie zip()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#het-gebruik-van-de-csv-module" class="md-nav__link">
+    Het gebruik van de csv-module
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -733,7 +773,7 @@
 <ol>
 <li>Schrijf een script waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Kijk wat er gebeurt met de LED.</li>
 <li>Commit.</li>
-<li>Overleg met elkaar welke spanningen je precies meet met de verschillende kanalen (<em>channels</em>) die op de Arduino zijn aangesloten. Kijk nog eens goed naar <a href="../communicatie/#fig:LED-schakeling">de figuur van de schakeling</a>.</li>
+<li>Overleg met elkaar welke spanningen je precies meet met de verschillende kanalen (<em>channels</em>) die op de Arduino zijn aangesloten. Kijk nog eens goed naar de <a href="../communicatie/#fig:LED-schakeling">figuur van de schakeling</a>.</li>
 <li>Commit.</li>
 <li>Lees &mdash; tijdens het laten oplopen van de spanning over de LED &mdash; de spanning over de <em>weerstand</em> uit. Je zult daarvoor het antwoord van de Arduino (een <em>string</em>) om moeten zetten naar een <em>integer</em> en print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand. Voorbeeld van uitvoer:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>On LED:  750 (2.4 V)    Over resistor:  189 (0.6 V)
@@ -752,7 +792,7 @@ Je hebt nu feitelijk je eerste metingen verricht!</li>
 <div id="opd:quickndirty-meting"></div>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Pythondaq: Quick 'n dirty meting</p>
-<p>Bereken in je script de spanning <em>over</em> en de stroomsterkte <em>door</em> de LED en bewaar deze metingen in, bijvoorbeeld, een lijst. Sluit je meting netjes af (zorg dat de LED niet blijft branden) en maak dan een grafiek van je metingen. Bekijk elkaars resultaten &mdash; ook van andere groepjes &mdash; en denk na of je meting fysisch helemaal correct is.</p>
+<p>Bereken in je script de spanning <em>over</em> en de stroomsterkte <em>door</em> de LED en bewaar deze metingen in een lijst met spanningen en een lijst met stroomsterktes. Sluit je meting netjes af (zorg dat de LED niet blijft branden) en maak dan een grafiek van je metingen. Bekijk elkaars resultaten &mdash; ook van andere groepjes &mdash; en denk na of je meting fysisch helemaal correct is.</p>
 </div>
 <h2 id="bewaren-van-meetgegevens">Bewaren van meetgegevens<a class="headerlink" href="#bewaren-van-meetgegevens" title="Permanent link">&para;</a></h2>
 <p>Het is fijn dat je script de meetgegevens op het scherm kan printen en een grafiek maakt, maar als je echt bezig bent met een onderzoek is een grafiek niet genoeg. Je wilt dat de data bewaard blijft zodat je die later nog kunt gebruiken voor nieuwe analyses. Ook is het zo dat data steeds vaker beschikbaar moet zijn voor andere wetenschappers die jouw onderzoek willen controleren. Steeds meer wetenschappelijke tijdschriften vragen auteurs niet alleen hun grafieken, maar ook hun onderliggende data beschikbaar te maken en te publiceren. Op die manier is het veel moeilijker om fraude te plegen; iets dat in de wetenschap helaas soms nog voor komt.</p>
@@ -772,24 +812,80 @@ Je hebt nu feitelijk je eerste metingen verricht!</li>
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>9.0,396.90000000000003
 </span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>10.0,490.00000000000006
 </span></code></pre></div>
-<p>Het CSV-bestand heeft kolommen $t$ en $s$. De getallen hebben een punt als decimaal scheidingsteken en de komma wordt gebruikt om de kolommen te scheiden. Je kunt CSV-bestanden schrijven en lezen met de modules <code class="language-py highlight"><span class="n">csv</span></code>, <code class="language-py highlight"><span class="n">numpy</span></code> of <code class="language-py highlight"><span class="n">pandas</span></code>. De eerste is altijd meegeleverd met Python en is speciaal geschreven voor het bestandsformaat,<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">4</a></sup> maar NumPy<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">5</a></sup><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">6</a></sup> en Pandas <sup id="fnref:4"><a class="footnote-ref" href="#fn:4">7</a></sup><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">8</a></sup> bevatten veel meer functionaliteit op het gebied van wiskunde en data-analyse. Als je die modules toch al gebruikt kun je beter niet kiezen voor de <q>kale</q> csv module.</p>
+<p>Het CSV-bestand heeft kolommen $t$ en $s$. De getallen hebben een punt als decimaal scheidingsteken en de komma wordt gebruikt om de kolommen te scheiden. Je kunt CSV-bestanden schrijven en lezen met de modules <code class="language-py highlight"><span class="n">csv</span></code>, <code class="language-py highlight"><span class="n">numpy</span></code> of <code class="language-py highlight"><span class="n">pandas</span></code>. De eerste is altijd meegeleverd met Python en is speciaal geschreven voor het bestandsformaat,<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">6</a></sup> maar NumPy<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">7</a></sup><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">8</a></sup> en Pandas<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">9</a></sup><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">10</a></sup> bevatten veel meer functionaliteit op het gebied van wiskunde en data-analyse. Als je die modules toch al gebruikt hoef je niet te kiezen voor de <q>kale</q> csv module.</p>
+<h4 id="de-functie-zip">De functie <code class="language-py highlight"><span class="nb">zip</span><span class="p">()</span></code><a class="headerlink" href="#de-functie-zip" title="Permanent link">&para;</a></h4>
+<p>Het viel je misschien op dat in bovenstaand CSV-bestand iedere regel een $t$-waarde en een $s$-waarde heeft. Als je een lijst met $t$'s en een lijst met $s$'en hebt dan bevat de eerste regel het eerste element uit beide lijsten, de tweede regel het tweede element, etc. Je kunt dan een for-loop schrijven die Python's indexnotatie gebruikt: <code class="language-py highlight"><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span></code>, <code class="language-py highlight"><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span></code>, etc. Het kan óók, makkelijker, met de <code class="language-py highlight"><span class="nb">zip</span><span class="p">()</span></code>-functie. Beide methodes kun je als volgt gebruiken in het geval van twee lijsten A en B:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">with_indexing.py</label><label for="__tabbed_1_2">with_zip.py</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-py highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="hll"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)):</span>
+</span></span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="hll">    <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Output:</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">#</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># 1 1</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># 2 4</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c1"># 3 9</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="c1"># 4 16</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="hll"><span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+</span></span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="hll">    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Output:</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1">#</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1"># 1 1</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># 2 4</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1"># 3 9</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># 4 16</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>Vergelijk beide methodes goed. In het geval van <code class="language-py highlight"><span class="nb">zip</span><span class="p">()</span></code> hoef je niet de lengte van de lijst op te zoeken en krijg je meteen de losse elementen zonder dat je ze zelf uit de lijst moet plukken met indexnotatie.</p>
+<h4 id="het-gebruik-van-de-csv-module">Het gebruik van de <code class="language-py highlight"><span class="n">csv</span></code>-module<a class="headerlink" href="#het-gebruik-van-de-csv-module" title="Permanent link">&para;</a></h4>
+<p>Wanneer je de <code class="language-py highlight"><span class="n">csv</span></code>-module wilt gebruiken moet je éérst een bestand openen om in te schrijven, daarna een <q>writer</q> object aanmaken, en dat object gebruiken om regels te schrijven. Daarna moet het bestand netjes afgesloten worden zodat het ook echt naar schijf weggeschreven wordt. Het openen en sluiten van een bestand kun je Python het beste laten doen met het <code class="language-py highlight"><span class="k">with</span></code>-statement:<sup id="fnref:context-manager"><a class="footnote-ref" href="#fn:context-manager">3</a></sup></p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="hll"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;metingen.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+</span></span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="c1"># csvfile is nu een bestandsobject</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="o">...</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="c1"># na dit blok sluit Python automatisch het bestand</span>
+</span></code></pre></div>
+<p>Bij <code class="language-py highlight"><span class="nb">open</span><span class="p">()</span></code> geef je eerst de naam van een bestand, dan <code class="language-py highlight"><span class="s1">&#39;w&#39;</span></code> om aan te geven dat het bestand <q>writeable</q> moet zijn (gebruik <code class="language-py highlight"><span class="s1">&#39;r&#39;</span></code> om te lezen) en <code class="language-py highlight"><span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span></code> om Python niet zelf regeleindes te laten schrijven; dat doet de <code class="language-py highlight"><span class="n">csv</span></code>-module. Op de volgende manier schrijven we dan de CSV-data weg:</p>
+<p><div class="language-py highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="hll"><span class="kn">import</span> <span class="nn">csv</span>
+</span></span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;metingen.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="hll">    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span>
+</span></span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="hll">    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">])</span>
+</span></span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="hll">    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+</span></span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="hll">    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">4.9</span><span class="p">])</span>
+</span></span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="hll">    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">19.6</span><span class="p">])</span>
+</span></span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="o">...</span>
+</span></code></pre></div>
+Je kunt het wegschrijven van de regels vervangen door een for-loop.</p>
 <div id="opd:quickndirty-csv"></div>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Pythondaq: CSV</p>
-<p>Breid je script uit zodat de data niet alleen maar weergegeven wordt in een grafiek maar ook wordt weggeschreven als CSV-bestand. Gebruik hiervoor een module naar keuze.</p>
+<p>Breid je script uit zodat de data niet alleen maar weergegeven wordt in een grafiek maar ook wordt weggeschreven als CSV-bestand. Gebruik de <code class="language-py highlight"><span class="nb">zip</span><span class="p">()</span></code>-functie en de <code class="language-py highlight"><span class="n">csv</span></code>-module.</p>
 </div>
 <details class="opdracht-meer">
 <summary>CSV bestandsnaam</summary>
-<p>Pas de code zodanig aan dat een CSV-bestand nooit wordt overschreven. Je kunt bijvoorbeeld aan de bestandsnaam een oplopend getal toevoegen (<code>data-001.csv</code>, <code>data-002.csv</code>, etc.).</p>
+<p>Pas de code zodanig aan dat een CSV-bestand nooit wordt overschreven. Je kunt bijvoorbeeld controleren of het bestand al bestaat en aan de bestandsnaam een oplopend getal toevoegen (<code>data-001.csv</code>, <code>data-002.csv</code>, etc.) totdat je uitkomt bij een bestandsnaam die nog niet bestaat. Controleer dat je programma ook echt geen data overschrijft.</p>
 </details>
 <h3 id="hdf5-pytables">HDF5, PyTables<a class="headerlink" href="#hdf5-pytables" title="Permanent link">&para;</a></h3>
 <details class="meer-leren">
 <summary>Meer leren</summary>
-<p>Een populair binair formaat in de wetenschappelijke wereld is HDF5.<sup id="fnref:HDF5"><a class="footnote-ref" href="#fn:HDF5">3</a></sup> <sup id="fnref:6"><a class="footnote-ref" href="#fn:6">9</a></sup> Je kunt hiermee verschillende datasets bewaren in één bestand. Je kunt een soort boomstructuur aanbrengen en zo verschillende datasets groeperen en er ook nog extra informatie (metadata) aanhangen zoals datum van de meting, beschrijving van de condities, etc. Je kunt een meetserie opslaan als reeks die in één keer in en uit het bestand wordt geladen maar ook als tabel. Die laatste biedt de mogelijkheid om &mdash; net als in een database &mdash; data te selecteren en alleen die data in te laden uit het bestand. Op die manier is het mogelijk om met datasets te werken die groter zijn dan het geheugen van je computer.</p>
-<p>PyTables<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">10</a></sup> is een Python bibliotheek die het werken met HDF5-bestanden makkelijker maakt. Er zijn uiteraard functies om de bestanden aan te maken en uit te lezen maar ook om <em>queries</em> uit te voeren. Pandas kan &mdash; via PyTables &mdash; ook werken met HDF5-bestanden.</p>
+<p>Een populair binair formaat in de wetenschappelijke wereld is HDF5.<sup id="fnref:HDF5"><a class="footnote-ref" href="#fn:HDF5">4</a></sup> <sup id="fnref:6"><a class="footnote-ref" href="#fn:6">11</a></sup> Je kunt hiermee verschillende datasets bewaren in één bestand. Je kunt een soort boomstructuur aanbrengen en zo verschillende datasets groeperen en er ook nog extra informatie (metadata) aanhangen zoals datum van de meting, beschrijving van de condities, etc. Je kunt een meetserie opslaan als reeks die in één keer in en uit het bestand wordt geladen maar ook als tabel. Die laatste biedt de mogelijkheid om &mdash; net als in een database &mdash; data te selecteren en alleen die data in te laden uit het bestand. Op die manier is het mogelijk om met datasets te werken die groter zijn dan het geheugen van je computer.<sup id="fnref:HDF-blog"><a class="footnote-ref" href="#fn:HDF-blog">5</a></sup></p>
+<p>PyTables<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">12</a></sup> is een Python bibliotheek die het werken met HDF5-bestanden makkelijker maakt. Er zijn uiteraard functies om de bestanden aan te maken en uit te lezen maar ook om <em>queries</em> uit te voeren. Pandas kan &mdash; via PyTables &mdash; ook werken met HDF5-bestanden.</p>
 <div class="admonition opdracht-meer">
 <p class="admonition-title">PyTables</p>
-<p>Lees de tutorial van PyTables<sup id="fnref2:7"><a class="footnote-ref" href="#fn:7">10</a></sup> en pas je script aan zodat de meetserie van de LED wordt opgeslagen in een HDF5-bestand. Gebruik één bestand en maak daarin een nieuwe dataset voor iedere meetserie. Bewaar ook wat metadata (bijvoorbeeld tijdstip van de meting). Iedere keer dat je je script runt wordt er aan <em>hetzelfde</em> databestand een nieuwe dataset toegevoegd.</p>
+<p>Lees de <a href="http://www.pytables.org/usersguide/tutorials.html">tutorial</a> van PyTables<sup id="fnref2:7"><a class="footnote-ref" href="#fn:7">12</a></sup> en pas je script aan zodat de meetserie van de LED wordt opgeslagen in een HDF5-bestand. Vraag hulp als je uitleg wilt over wat een <code>UInt16</code> voor een ding is. Gebruik één bestand en maak daarin een nieuwe dataset voor iedere meetserie. Bewaar ook wat metadata (bijvoorbeeld tijdstip van de meting). Iedere keer dat je je script runt wordt er aan <em>hetzelfde</em> databestand een nieuwe dataset toegevoegd.</p>
 </div>
 </details>
 <div class="footnote">
@@ -801,29 +897,35 @@ Je hebt nu feitelijk je eerste metingen verricht!</li>
 <li id="fn:analoog">
 <p>Totdat je het domein van de kwantummechanica betreedt, dan blijkt de natuur ook een discrete kant te hebben.&#160;<a class="footnote-backref" href="#fnref:analoog" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
+<li id="fn:context-manager">
+<p>hier is <code class="language-py highlight"><span class="nb">open</span><span class="p">()</span></code> een zogeheten <q>context manager</q>, een functie die je kunt gebruiken met een <code class="language-py highlight"><span class="k">with</span></code>-statement en dat bij de start iets doet &mdash; hier een bestand openen &mdash; en bij het eind iets doet &mdash; hier het bestand weer netjes afsluiten. Je kunt zelf ook context managers schrijven, als je wilt.&#160;<a class="footnote-backref" href="#fnref:context-manager" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
 <li id="fn:HDF5">
-<p>Hierarchical Data Format Version 5.&#160;<a class="footnote-backref" href="#fnref:HDF5" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>Hierarchical Data Format Version 5, in gebruik bij bijvoorbeeld de LOFAR radiotelescoop, het IceCube neutrino-observatorium en de LIGO zwaartekrachtsgolvendetector.&#160;<a class="footnote-backref" href="#fnref:HDF5" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:HDF-blog">
+<p>Lees bijvoorbeeld <a href="https://www.hdfgroup.org/2015/03/hdf5-as-a-zero-configuration-ad-hoc-scientific-database-for-python/">deze korte blog post</a> over het gebruik van HDF5.&#160;<a class="footnote-backref" href="#fnref:HDF-blog" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:1">
-<p>Python Software Foundation. Csv – csv file reading and writing. URL: <a href="https://docs.python.org/3/library/csv.html">https://docs.python.org/3/library/csv.html</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>Python Software Foundation. Csv – csv file reading and writing. URL: <a href="https://docs.python.org/3/library/csv.html">https://docs.python.org/3/library/csv.html</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>The NumPy Development Team. Numpy – the fundamental package for scientific computing with python. URL: <a href="https://numpy.org">https://numpy.org</a>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>The NumPy Development Team. Numpy – the fundamental package for scientific computing with python. URL: <a href="https://numpy.org">https://numpy.org</a>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>Charles R. Harris, K. Jarrod Millman, St'efan J. van der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J. Smith, Robert Kern, Matti Picus, Stephan Hoyer, Marten H. van Kerkwijk, Matthew Brett, Allan Haldane, Jaime Fern'andez del R'ıo, Mark Wiebe, Pearu Peterson, Pierre G'erard-Marchant, Kevin Sheppard, Tyler Reddy, Warren Weckesser, Hameer Abbasi, Christoph Gohlke, and Travis E. Oliphant. Array programming with NumPy. <em>Nature</em>, 585(7825):357–362, September 2020. URL: <a href="https://doi.org/10.1038/s41586-020-2649-2">https://doi.org/10.1038/s41586-020-2649-2</a>, <a href="https://doi.org/10.1038/s41586-020-2649-2">doi:10.1038/s41586-020-2649-2</a>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>Charles R. Harris, K. Jarrod Millman, St'efan J. van der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J. Smith, Robert Kern, Matti Picus, Stephan Hoyer, Marten H. van Kerkwijk, Matthew Brett, Allan Haldane, Jaime Fern'andez del R'ıo, Mark Wiebe, Pearu Peterson, Pierre G'erard-Marchant, Kevin Sheppard, Tyler Reddy, Warren Weckesser, Hameer Abbasi, Christoph Gohlke, and Travis E. Oliphant. Array programming with NumPy. <em>Nature</em>, 585(7825):357–362, September 2020. URL: <a href="https://doi.org/10.1038/s41586-020-2649-2">https://doi.org/10.1038/s41586-020-2649-2</a>, <a href="https://doi.org/10.1038/s41586-020-2649-2">doi:10.1038/s41586-020-2649-2</a>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>The pandas development team. Pandas-dev/pandas: pandas 1.0.5. June 2020. URL: <a href="https://doi.org/10.5281/zenodo.3898987">https://doi.org/10.5281/zenodo.3898987</a>, <a href="https://doi.org/10.5281/zenodo.3898987">doi:10.5281/zenodo.3898987</a>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p>The pandas development team. Pandas-dev/pandas: pandas 1.0.5. June 2020. URL: <a href="https://doi.org/10.5281/zenodo.3898987">https://doi.org/10.5281/zenodo.3898987</a>, <a href="https://doi.org/10.5281/zenodo.3898987">doi:10.5281/zenodo.3898987</a>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 9 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>Wes McKinney. Data Structures for Statistical Computing in Python. In Stéfan van der Walt and Jarrod Millman, editors, <em>Proceedings of the 9th Python in Science Conference</em>, 56 &ndash; 61. 2010. <a href="https://doi.org/10.25080/Majora-92bf1922-00a">doi:10.25080/Majora-92bf1922-00a</a>.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<p>Wes McKinney. Data Structures for Statistical Computing in Python. In Stéfan van der Walt and Jarrod Millman, editors, <em>Proceedings of the 9th Python in Science Conference</em>, 56 &ndash; 61. 2010. <a href="https://doi.org/10.25080/Majora-92bf1922-00a">doi:10.25080/Majora-92bf1922-00a</a>.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 10 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p>The HDF Group. The hdf5 library and file format. URL: <a href="https://www.hdfgroup.org/solutions/hdf5/">https://www.hdfgroup.org/solutions/hdf5/</a>.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+<p>The HDF Group. The hdf5 library and file format. URL: <a href="https://www.hdfgroup.org/solutions/hdf5/">https://www.hdfgroup.org/solutions/hdf5/</a>.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 11 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p>Ivan Vilata Francesc Alted and others. PyTables: hierarchical datasets in Python. URL: <a href="http://www.pytables.org/">http://www.pytables.org/</a>.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 10 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:7" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+<p>Ivan Vilata Francesc Alted and others. PyTables: hierarchical datasets in Python. URL: <a href="http://www.pytables.org/">http://www.pytables.org/</a>.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 12 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:7" title="Jump back to footnote 12 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
