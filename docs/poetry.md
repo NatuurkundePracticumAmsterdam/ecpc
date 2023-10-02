@@ -373,7 +373,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
 
     1. Maak 3 extra packages in de {{folder}}`pythondaq` package. {{folder}}`models`, {{folder}}`views` en {{folder}}`controllers`.
     1. Zet de modules in de juiste packages.
-    1. Test {{file}}`view.py`. Waarschijnlijk krijg je import errors, los deze op totdat het werkt.
+    1. Ga door naar opdracht Pythondaq: poetry.
     
 
 
