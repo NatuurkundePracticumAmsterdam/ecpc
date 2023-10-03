@@ -12,10 +12,10 @@ In de cursus gaan we bibliotheken (_modules, packages_) en een applicatie ontwik
 
 Een punt wat vaak onderschoven blijft is _documentatie_. Als je software schrijft die gebruikt (en doorontwikkeld) wordt in een onderzoeksgroep, dan is het heel belangrijk dat iedereen kan begrijpen wat je software doet en hoe die uitgebreid kan worden. Het is zonder hulp vaak heel moeilijk om de code van een iemand anders te begrijpen. En in de praktijk blijkt heel vaak dat als je code schrijft en daar een paar weken of maanden later op terugkijkt, jij zélf die ander bent. Wat toen blijkbaar heel logisch leek, is dat later toch niet meer. Dus documentatie schrijf je heel vaak ook gewoon voor jezelf.
 
+Als je niet zo heel veel in Python geprogrammeerd hebt kan het helpen om de [paragraaf over de cursus _inleiding programmeren_](voorkennis.md#inleiding-programmeren-terugblik)[@inl_prog] door te nemen. Een boek dat zeker bij natuurkundigen in de smaak kan vallen is _Effective Computation in Physics_[@eff_comp_physics], maar deze is niet gratis verkrijgbaar. Een boek dat zowel op papier te bestellen is als in de vorm van een pdf of webpagina is te lezen is _Think Python_.[@think_python]
+
 
 ## Zen of Python
-
-Als je niet zo heel veel in Python geprogrammeerd hebt kan het helpen om het materiaal van de cursus inleiding programmeren[@inl_prog] nog eens door te nemen. Een boek dat zeker bij natuurkundigen in de smaak kan vallen is _Effective Computation in Physics_[@eff_comp_physics], maar deze is niet gratis verkrijgbaar. Een boek dat zowel op papier te bestellen is als in de vorm van een pdf of webpagina is te lezen is _Think Python_.[@think_python]
 
 Python is niet C (of iedere willekeurige andere programmeertaal). Er zit een gedachte achter die op een gegeven moment verwoord is door Tim Peters[@zenofpython].
 <!-- % \begin{verse}
@@ -106,7 +106,7 @@ Dit kan dan in Python-code het makkelijkst als volgt:
 for idx, name in enumerate(names, 1):
     print(f"{idx}. {name}")
 ```
-Hier maken we gebruik van de `#!py enumerate(iterable, start=0)`-functie en de (relatief recent geïntroduceerde) f-strings. Er zijn dus veel manieren om programmeerproblemen op te lossen, maar het helpt om het op de `Pythonmanier' te doen. Andere programmeurs zijn dan veel minder tijd en energie kwijt om jouw code te begrijpen -- én andersom wanneer jij zelf op internet zoekt naar antwoorden op problemen. Immers, je herkent dan veel makkelijker en sneller hoe andermans code werkt. Dat brengt ons op het volgende punt: code lezen.
+Hier maken we gebruik van de `#!py enumerate(iterable, start=0)`-functie en de (relatief recent geïntroduceerde) f-strings. Er zijn dus veel manieren om programmeerproblemen op te lossen, maar het helpt om het op de `Pythonmanier' te doen. Andere programmeurs zijn dan veel minder tijd en energie kwijt om jouw code te begrijpen -- én andersom wanneer jij zelf op internet zoekt naar antwoorden op problemen. Immers, je herkent dan veel makkelijker en sneller hoe andermans code werkt.
 
   
 ## Datatypes
@@ -144,94 +144,99 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
     )
     ```
 
+### dictionaries, tuples, * args, ** kwargs and sets
 
-!!! opdracht-basis "dict"
-    Schrijf een kort scriptje:
-    
-      1. Maak een dictionary `constants` met de waardes van de (natuur)constantes $\pi$, de valversnelling $g$, de lichtsnelheid $c$ en het elementaire ladingskwantum $e$.
-      1. Print de namen -- niet de waardes -- van de constantes die zijn opgeslagen in `constants`.
-      1. Bereken de zwaartekracht $F_\text{z} = mg$ voor een voorwerp met een massa van 14 kg door gebruik te maken van de waarde van $g$ uit de dictionary.
-      1. Maak een dictionary `measurement` die de resultaten van een meting bevat: een spanning van 1.5 V bij een stroomsterkte van 75 mA.
-      1. Bereken de weerstand van de schakeling op basis van de voorgaande meting en bewaar het resultaat in dezelfde dictionary.
-    
+??? meer-leren "Meer leren"
 
+    Dictionaries zijn een bijzonder handige manier om informatie op te slaan. Een dictionary bestaat uit een of meerder key-value tweetallen. Met een handige gekozen naam voor de key kan je betekenis geven aan een value. 
 
-In Python zijn `#!py tuple`'s een soort <q>alleen-lezen</q> `#!py list`'s. Een tuple is een _immutable[^immutable] object_. Daarom worden ze vaak gebruikt wanneer lijstachtige objecten altijd dezelfde vorm moeten hebben. Bijvoorbeeld een lijst van $(x, y)$-coördinaten zou je zo kunnen definiëren:
-[^immutable]: Letterlijk: onveranderbaar.
-
-``` py
-coords = [(0, 0), (1, 0), (0, 1)]
-```
-Hier is `#!py coords[0]` gelijk aan `#!py (0, 0)`. Je kunt nu _niet_ dit coördinaat uitbreiden naar drie dimensies met `#!py coords[0].append(1)` en dat is waarschijnlijk precies wat je wilt voor een lijst met tweedimensionale coördinaten. Ook is dit object veel compacter dan een `#!py dict`:
-``` py
-coords = [{"x": 0, "y": 0}, {"x": 1, "y": 0}, {"x": 0, "y": 1}]
-```
-Hier zijn tuples dus best handig, al moet je dus wel onthouden in welke volgorde de elementen staan. Dat is voor $(x, y)$-coördinaten niet zo'n probleem maar kan in andere situaties lastiger zijn.[^tuple] Tuples ondersteunen _tuple unpacking_. Je kunt het volgende doen:
-[^tuple]:Daar is bijvoorbeeld de `#!py collections.namedtuple()` dan weer handig voor.
-
-``` py
-(x, y, z) = (2, 3, 4)
-```
-Na deze operatie geldt $x = 2$, $y = 3$ en $z = 4$. Je mag zelfs de haakjes weglaten voor nog compactere notatie:
-``` py
-x, y, z = 2, 3, 4
-```
-Op deze manier kan een functie ook meerdere argumenten teruggeven die je vervolgens uit elkaar plukt:
-``` py
-def get_measurement():
-    ...  # perform measurement
-    return voltage, current
+    !!! opdracht-meer "dict"
+        Schrijf een kort scriptje:
+        
+        1. Maak een dictionary `constants` met de waardes van de (natuur)constantes $\pi$, de valversnelling $g$, de lichtsnelheid $c$ en het elementaire ladingskwantum $e$.
+        1. Print de namen -- niet de waardes -- van de constantes die zijn opgeslagen in `constants`.
+        1. Bereken de zwaartekracht $F_\text{z} = mg$ voor een voorwerp met een massa van 14 kg door gebruik te maken van de waarde van $g$ uit de dictionary.
+        1. Maak een dictionary `measurement` die de resultaten van een meting bevat: een spanning van 1.5 V bij een stroomsterkte van 75 mA.
+        1. Bereken de weerstand van de schakeling op basis van de voorgaande meting en bewaar het resultaat in dezelfde dictionary.
+        
 
 
-voltage, current = get_measurement()
-```
-Het uit elkaar plukken van argumenten kan zelfs als je een functie aanroept:
-``` py
-def power(a, b):
-    return a ** b
+    In Python zijn `#!py tuple`'s een soort <q>alleen-lezen</q> `#!py list`'s. Een tuple is een _immutable[^immutable] object_. Daarom worden ze vaak gebruikt wanneer lijstachtige objecten altijd dezelfde vorm moeten hebben. Bijvoorbeeld een lijst van $(x, y)$-coördinaten zou je zo kunnen definiëren:
+    [^immutable]: Letterlijk: onveranderbaar.
+
+    ``` py
+    coords = [(0, 0), (1, 0), (0, 1)]
+    ```
+    Hier is `#!py coords[0]` gelijk aan `#!py (0, 0)`. Je kunt nu _niet_ dit coördinaat uitbreiden naar drie dimensies met `#!py coords[0].append(1)` en dat is waarschijnlijk precies wat je wilt voor een lijst met tweedimensionale coördinaten. Ook is dit object veel compacter dan een `#!py dict`:
+    ``` py
+    coords = [{"x": 0, "y": 0}, {"x": 1, "y": 0}, {"x": 0, "y": 1}]
+    ```
+    Hier zijn tuples dus best handig, al moet je dus wel onthouden in welke volgorde de elementen staan. Dat is voor $(x, y)$-coördinaten niet zo'n probleem maar kan in andere situaties lastiger zijn.[^tuple] Tuples ondersteunen _tuple unpacking_. Je kunt het volgende doen:
+    [^tuple]:Daar is bijvoorbeeld de `#!py collections.namedtuple()` dan weer handig voor.
+
+    ``` py
+    (x, y, z) = (2, 3, 4)
+    ```
+    Na deze operatie geldt $x = 2$, $y = 3$ en $z = 4$. Je mag zelfs de haakjes weglaten voor nog compactere notatie:
+    ``` py
+    x, y, z = 2, 3, 4
+    ```
+    Op deze manier kan een functie ook meerdere argumenten teruggeven die je vervolgens uit elkaar plukt:
+    ``` py
+    def get_measurement():
+        ...  # perform measurement
+        return voltage, current
 
 
-# regular function call
-power(2, 7)
-
-# function call with tuple unpacking
-args = 2, 7
-power(*args)
-```
-Wat zelfs werkt is _dictionary unpacking_. Je kunt aan functies ook argumenten bij naam meegeven -- de volgorde maakt dan niet uit en je maakt in je programma expliciet duidelijk welke argumenten je meegeeft. Dat werkt zo:
-``` py
-# regular function call
-power(b=7, a=2)
-
-# function call with dictionary unpacking
-kwargs = {"b": 7, "a": 2}
-power(**kwargs)
-```
-
-!!! opdracht-basis "odds"
-    Gegeven de lijst `#!py odds = [1, 3, 5, 7, 9]`, print de waardes uit deze lijst op één regel. Je mag er niet vanuit gaan dat de lijst altijd 5 elementen bevat.
+    voltage, current = get_measurement()
+    ```
+    Het uit elkaar plukken van argumenten kan zelfs als je een functie aanroept:
+    ``` py
+    def power(a, b):
+        return a ** b
 
 
-Als laatste willen we nog de aandacht vestigen op `#!py set`'s: een unieke verzameling van objecten. Ieder element komt maar één keer voor in een set:
-``` py
-l = [1, 2, 2, 3, 5, 5]
-set(l)
-# {1, 2, 3, 5}
-```
-Je moet even oppassen: de `#!py {}`-haakjes worden gebruikt voor zowel sets als dictionaries. Omdat een dictionary (key: value) paren heeft en een set losse elementen kan Python het verschil wel zien:
-``` py
-is_set = {1, 2, 3, 4}
-is_dict = {1: 1, 2: 4, 3: 9, 4: 16}
-```
-Dat gaat alleen mis als je een _lege_ set wilt maken. Daarvoor zul je expliciet de `#!py set()`-constructor moeten gebruiken:
-``` py
-is_dict = {}
-is_set = set()
-```
-Je kunt elementen toevoegen aan een set met `#!py .add()` en sets gebruiken om verzamelingen met elkaar te vergelijken. Komen er elementen wel of niet voor in een set? Is de ene set een subset van de andere set? Enzovoorts. Zie daarvoor verder de documentatie.
+    # regular function call
+    power(2, 7)
+
+    # function call with tuple unpacking
+    args = 2, 7
+    power(*args)
+    ```
+    Wat zelfs werkt is _dictionary unpacking_. Je kunt aan functies ook argumenten bij naam meegeven -- de volgorde maakt dan niet uit en je maakt in je programma expliciet duidelijk welke argumenten je meegeeft. Dat werkt zo:
+    ``` py
+    # regular function call
+    power(b=7, a=2)
+
+    # function call with dictionary unpacking
+    kwargs = {"b": 7, "a": 2}
+    power(**kwargs)
+    ```
+
+    !!! opdracht-meer "odds"
+        Gegeven de lijst `#!py odds = [1, 3, 5, 7, 9]`, print de waardes uit deze lijst op één regel. Je mag er niet vanuit gaan dat de lijst altijd 5 elementen bevat.
 
 
-## Arrays en list comprehensions
+    Als laatste willen we nog de aandacht vestigen op `#!py set`'s: een unieke verzameling van objecten. Ieder element komt maar één keer voor in een set:
+    ``` py
+    l = [1, 2, 2, 3, 5, 5]
+    set(l)
+    # {1, 2, 3, 5}
+    ```
+    Je moet even oppassen: de `#!py {}`-haakjes worden gebruikt voor zowel sets als dictionaries. Omdat een dictionary (key: value) paren heeft en een set losse elementen kan Python het verschil wel zien:
+    ``` py
+    is_set = {1, 2, 3, 4}
+    is_dict = {1: 1, 2: 4, 3: 9, 4: 16}
+    ```
+    Dat gaat alleen mis als je een _lege_ set wilt maken. Daarvoor zul je expliciet de `#!py set()`-constructor moeten gebruiken:
+    ``` py
+    is_dict = {}
+    is_set = set()
+    ```
+    Je kunt elementen toevoegen aan een set met `#!py .add()` en sets gebruiken om verzamelingen met elkaar te vergelijken. Komen er elementen wel of niet voor in een set? Is de ene set een subset van de andere set? Enzovoorts. Zie daarvoor verder de documentatie.
+
+
+## Arrays en comprehensions
 
 NumPy arrays zijn vaak handiger dan lists. Als je een array hebt van 20 $x$-waardes in het domein $[0, \pi]$ kun je in één keer alle waardes van $\sin x$ uitrekenen. Bijvoorbeeld:
 ``` py
@@ -254,18 +259,6 @@ Niet alleen is NumPy zo'n honderd keer sneller,[^numpy] het is ook veel korter o
 [^numpy]:Echt. De sinus van 2000 $x$-waardes berekenen kostte NumPy in een test 11.6$\micro$s en de for-loop wel 1357.7$\micro$s.
 [^arrays]:Strikt genomen is dit niet helemaal waar. Je kunt een nieuwe array creëren door meerdere arrays aan elkaar te plakken. Maar een eenvoudige `#!py append()`-method bestaat niet voor arrays.
 
-Door gebruik te maken van een _list comprehension_ kun je de for-loop in één regel opschrijven:
-``` py
-# x = [list of x-values]
-y = [sin(u) for u in x]
-```
-Er is in veel gevallen tegenwoordig geen groot verschil met een for-loop qua snelheid. In andere gevallen is de list comprehension net wat sneller. Als je lijsten niet te lang zijn is het makkelijker (en sneller) om een list comprehension te gebruiken in plaats van je lijst éérst naar een array te veranderen en er dan mee verder te rekenen. Als je lijst wél lang is of je weet al dat je meerdere berekeningen wilt uitvoeren kan dat wel:
-``` py
-# from numpy import sin, array
-# x = [list of x-values]
-x = array(x)
-y = sin(x)
-```
 Als je veel functies uit NumPy gebruikt is het handig -- en gebruikelijk -- om je import-statements kort te houden en duidelijk te maken dat je de `#!py sin()`-functie uit NumPy gebruikt en niet uit de `#!py math` module. Constantes worden wel vaak los geïmporteerd:
 ``` py
 import numpy as np
@@ -274,350 +267,345 @@ from numpy import pi
 x = np.linspace(0, pi, 100)
 y = np.sin(x)
 ```
-Kortom: _berekeningen_ met arrays zijn sneller, maar for-loops (en list comprehensions) zijn veelzijdiger. Het is zelfs mogelijk om een `#!py if`-statement op te nemen in je list comprehension. Bijvoorbeeld:
-``` py
-filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
-pdfs = [name for name in filenames if name.endswith(".pdf")]
-# pdfs=['text.pdf', 'manual.pdf']
-```
-In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_[^{}] en _dict comprehensions_.
 
-[^{}]: Notatie hetzelfde, maar gebruik nu `#!py {`}-haakjes.
+### comprehensions
 
-!!! opdracht-basis "comprehensions"
-    Voer, door een script te schrijven, de volgende opdrachten uit:
-    
-      1. Genereer een lijst van 50 willekeurige _unieke_ én _gehele_ getallen tussen de 0 en de 100.
-      1. Maak een set uit die getallen die deelbaar zijn door 3. Maak gebruik van een `gewone' _for_-loop.
-      1. Maak nogmaals een set van de getallen die deelbaar zijn door 3, maar gebruik daarvoor nu een set comprehension.
-    
+??? meer-leren "meer leren"
 
+    Door gebruik te maken van een _list comprehension_ kun je de for-loop in één regel opschrijven:
+    ``` py
+    # x = [list of x-values]
+    y = [sin(u) for u in x]
+    ```
+    Er is in veel gevallen tegenwoordig geen groot verschil met een for-loop qua snelheid. In andere gevallen is de list comprehension net wat sneller. Als je lijsten niet te lang zijn is het makkelijker (en sneller) om een list comprehension te gebruiken in plaats van je lijst éérst naar een array te veranderen en er dan mee verder te rekenen. Als je lijst wél lang is of je weet al dat je meerdere berekeningen wilt uitvoeren kan dat wel:
+    ``` py
+    # from numpy import sin, array
+    # x = [list of x-values]
+    x = array(x)
+    y = sin(x)
+    ```
 
+    Kortom: _berekeningen_ met arrays zijn sneller, maar for-loops (en list comprehensions) zijn veelzijdiger. Het is zelfs mogelijk om een `#!py if`-statement op te nemen in je list comprehension. Bijvoorbeeld:
+    ``` py
+    filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
+    pdfs = [name for name in filenames if name.endswith(".pdf")]
+    # pdfs=['text.pdf', 'manual.pdf']
+    ```
+    In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_[^{}] en _dict comprehensions_.
 
-## Zip; De ritssluiting
+    [^{}]: Notatie hetzelfde, maar gebruik nu `#!py {`}-haakjes.
 
-In het rijtje van fantastische uitvindingen waar we niet vaak genoeg bij stilstaan heeft de ritssluiting zeker een plaats. Bij een ritssluiting worden twee lange rijen tandjes naast elkaar geduwd waarna die stevig in elkaar haken. Iets soortgelijks kan in Python met de `#!py zip()`-functie.[^zip] Stel je hebt twee lijsten A en B en je wilt loopen over de waardes. In de eerste iteratie wil je de eerste waarde uit A mét de eerste waarde van B, vervolgens de tweede waarde van A met de tweede waarde van B, enz. Dat werkt als volgt:
-
-[^zip]:_Eng.: to zip_ betekent _ritsen_.
-
-``` py
-A = [1, 2, 3, 4]
-B = [1, 4, 9, 16]
-
-for a, b in zip(A, B):
-    print(f"{a=} {b=}")
-# a=1 b=1 
-# a=2 b=4 
-# a=3 b=9 
-# a=4 b=16 
-```
-Dit is uiteenlopende situaties erg handig. Je kunt net zoveel lijsten in `#!py zip()` gooien als je wilt: `#!py for a, b, c, d, e in zip(A, B, C, D, E)` is geen probleem.
-
-!!! opdracht-basis "zip"
-    Gegeven de spanningen $U$ gelijk aan 1.2 V; 1.8 V; 2.4 V; 2.7 V; 3.1 V en de bijbehorende stroomsterktes $I$ gelijk aan 0.3 A; 0.4 A; 0.6 A; 0.8 A; 1.0 A, loop over de lijsten met `#!py zip()` en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
-
+    !!! opdracht-meer "comprehensions"
+        Voer, door een script te schrijven, de volgende opdrachten uit:
+        
+        1. Genereer een lijst van 50 willekeurige _unieke_ én _gehele_ getallen tussen de 0 en de 100.
+        1. Maak een set uit die getallen die deelbaar zijn door 3. Maak gebruik van een `gewone' _for_-loop.
+        1. Maak nogmaals een set van de getallen die deelbaar zijn door 3, maar gebruik daarvoor nu een set comprehension.
 
 
 ## Lambda functions
 
-In Python zijn functies ook objecten. Je kunt ze bewaren in een lijst of dictionary, of je kunt ze meegeven als parameter aan een andere functie. Dat kan heel handig zijn! Stel je hebt een lijst met verschillende soorten fruit die je wilt sorteren op alfabet:
-``` py
-a = ["kiwi", "banana", "apple"]
-sorted(a)
-# ['apple', 'banana', 'kiwi']
-```
-Dat gaat heel makkelijk met de ingebouwde `#!py sorted()`-functie. Je kunt aan deze functie ook een `key`-parameter meegeven; een ándere functie die gebruikt wordt om te bepalen waarop gesorteerd moet worden. Zo kun je sorteren op de _lengte_ van de fruitnamen door simpelweg de `#!py len()`-functie als parameter mee te geven:
-``` py
-len("apple")
-# 5
-sorted(a, key=len)
-# ['kiwi', 'apple', 'banana']
-```
-Als je wilt sorteren op de tweede letter van de naam -- waarom niet? -- dan kun je zelf een functie definiëren en gebruiken:
-``` py
-def second_letter(value):
-    return value[1]
-
-second_letter("lemon")
-# e
-sorted(a, key=second_letter)
-# ['banana', 'kiwi', 'apple']
-```
-Lambdafuncties zijn bedacht om je een hoop typewerk te besparen. Je kunt korte functies in één regel opschrijven en gebruiken, zolang het maar een geldige _expression_ is. Géén if-then-else, maar de meeste andere dingen mogen wel. Bijvoorbeeld:
-``` py
-squared = lambda x: x ** 2
-squared(4)
-# 16
-
-second_letter = lambda x: x[1]
-sorted(a, key=second_letter)
-# ['banana', 'kiwi', 'apple']
-```
-Aangezien de definitie van een lambdafunctie zelf ook een expression is kun je het sorteren op de tweede letter zelfs in één regel doen:
-``` py
-sorted(a, key=lambda x: x[1])
-# ['banana', 'kiwi', 'apple']
-```
-
-Lambdafuncties kom je ook tegen als je wilt fitten aan een bepaald model. Je definiëert je model dan in één regel met een lambdafunctie:[^lmfit]
-
-[^lmfit]: Het is hierbij wel belangrijk dat `#!py lmfit` er vanuit gaat dat de eerste variabele in de functiedefinitie de onafhankelijke variabele ($x$-as) is. Dit is verder geen Pythonlimitatie.
-
-``` py
-# from lmfit import models
-f = lambda x, a, b: a * x + b
-model = models.Model(f)
-fit = model.fit(y, x=x)
-```
-Je kunt de functies ook bewaren in een dictionary voor later gebruik.
-
-!!! opdracht-basis "lambda"
-    Maak een dictionary `models` met functies voor een lineaire functie `linear` gegeven door $y = ax + b$, een kwadratische functie `quadratic` gegeven door $y = ax^2 + bx + c$ en een sinusfunctie `sine` gegeven door $a + b\sin(cx + d)$. Hierna moet de volgende code werken:
+??? meer-leren "meer leren"
+    In Python zijn functies ook objecten. Je kunt ze bewaren in een lijst of dictionary, of je kunt ze meegeven als parameter aan een andere functie. Dat kan heel handig zijn! Stel je hebt een lijst met verschillende soorten fruit die je wilt sorteren op alfabet:
     ``` py
-    f = models['linear']
-    f(5, a=2, b=3)
-    # 13
+    a = ["kiwi", "banana", "apple"]
+    sorted(a)
+    # ['apple', 'banana', 'kiwi']
     ```
-    Maak een grafiek van de sinusfunctie op het domein $[0,\, 2\pi]$ met parameters $a=1$, $b=2$, $c=2$ en $d=\frac{\pi}{2}$.
+    Dat gaat heel makkelijk met de ingebouwde `#!py sorted()`-functie. Je kunt aan deze functie ook een `key`-parameter meegeven; een ándere functie die gebruikt wordt om te bepalen waarop gesorteerd moet worden. Zo kun je sorteren op de _lengte_ van de fruitnamen door simpelweg de `#!py len()`-functie als parameter mee te geven:
+    ``` py
+    len("apple")
+    # 5
+    sorted(a, key=len)
+    # ['kiwi', 'apple', 'banana']
+    ```
+    Als je wilt sorteren op de tweede letter van de naam -- waarom niet? -- dan kun je zelf een functie definiëren en gebruiken:
+    ``` py
+    def second_letter(value):
+        return value[1]
+
+    second_letter("lemon")
+    # e
+    sorted(a, key=second_letter)
+    # ['banana', 'kiwi', 'apple']
+    ```
+    Lambdafuncties zijn bedacht om je een hoop typewerk te besparen. Je kunt korte functies in één regel opschrijven en gebruiken, zolang het maar een geldige _expression_ is. Géén if-then-else, maar de meeste andere dingen mogen wel. Bijvoorbeeld:
+    ``` py
+    squared = lambda x: x ** 2
+    squared(4)
+    # 16
+
+    second_letter = lambda x: x[1]
+    sorted(a, key=second_letter)
+    # ['banana', 'kiwi', 'apple']
+    ```
+    Aangezien de definitie van een lambdafunctie zelf ook een expression is kun je het sorteren op de tweede letter zelfs in één regel doen:
+    ``` py
+    sorted(a, key=lambda x: x[1])
+    # ['banana', 'kiwi', 'apple']
+    ```
+
+    Lambdafuncties kom je ook tegen als je wilt fitten aan een bepaald model. Je definiëert je model dan in één regel met een lambdafunctie:[^lmfit]
+
+    [^lmfit]: Het is hierbij wel belangrijk dat `#!py lmfit` er vanuit gaat dat de eerste variabele in de functiedefinitie de onafhankelijke variabele ($x$-as) is. Dit is verder geen Pythonlimitatie.
+
+    ``` py
+    # from lmfit import models
+    f = lambda x, a, b: a * x + b
+    model = models.Model(f)
+    fit = model.fit(y, x=x)
+    ```
+    Je kunt de functies ook bewaren in een dictionary voor later gebruik.
+
+    !!! opdracht-meer "lambda"
+        Maak een dictionary `models` met functies voor een lineaire functie `linear` gegeven door $y = ax + b$, een kwadratische functie `quadratic` gegeven door $y = ax^2 + bx + c$ en een sinusfunctie `sine` gegeven door $a + b\sin(cx + d)$. Hierna moet de volgende code werken:
+        ``` py
+        f = models['linear']
+        f(5, a=2, b=3)
+        # 13
+        ```
+        Maak een grafiek van de sinusfunctie op het domein $[0,\, 2\pi]$ met parameters $a=1$, $b=2$, $c=2$ en $d=\frac{\pi}{2}$.
 
 
 
 ## Generators
 
-Als een functie een serie metingen verricht kan het lang duren voordat de functie de resultaten teruggeeft. Laten we die functie even `#!py perform_measurements()` noemen. Het is soms lastig als de rest van het programma daarop moet wachten voordat een analyse kan worden gedaan, of een melding aan de gebruiker kan worden gegeven. Het kan dan gebeuren dat je je programma draait en je dan afvraagt: <q>doet hij het, of doet hij het niet?</q> Je kunt dit oplossen door `#!py print()`-statements in je programma op te nemen, maar dit is niet zo netjes. Als je `#!py perform_measurements()` inbouwt in een tekstinterface die ook <q>stil</q> moet kunnen zijn? Of als je de functie gaat gebruiken vanuit een grafisch programma waarin je geen tekst wilt printen, maar een grafiek wilt opbouwen? Je moet dan steeds `#!py perform_measurements()` gaan aanpassen. Een ander probleem kan optreden wanneer je langdurige metingen doet die ook veel geheugen innemen. Wachten op de hele meetserie betekent dat het geheugen vol kan lopen. Lastig op te lossen!
+??? meer-leren "meer leren"
+    Als een functie een serie metingen verricht kan het lang duren voordat de functie de resultaten teruggeeft. Laten we die functie even `#!py perform_measurements()` noemen. Het is soms lastig als de rest van het programma daarop moet wachten voordat een analyse kan worden gedaan, of een melding aan de gebruiker kan worden gegeven. Het kan dan gebeuren dat je je programma draait en je dan afvraagt: <q>doet hij het, of doet hij het niet?</q> Je kunt dit oplossen door `#!py print()`-statements in je programma op te nemen, maar dit is niet zo netjes. Als je `#!py perform_measurements()` inbouwt in een tekstinterface die ook <q>stil</q> moet kunnen zijn? Of als je de functie gaat gebruiken vanuit een grafisch programma waarin je geen tekst wilt printen, maar een grafiek wilt opbouwen? Je moet dan steeds `#!py perform_measurements()` gaan aanpassen. Een ander probleem kan optreden wanneer je langdurige metingen doet die ook veel geheugen innemen. Wachten op de hele meetserie betekent dat het geheugen vol kan lopen. Lastig op te lossen!
 
-Of&hellip; je maakt gebruik van een _generator function_: een functie die tussendoor resultaten teruggeeft. Dat kan door gebruik te maken van `#!py yield` in plaats van `#!py return`. De rest gaat automatisch. Maar: je moet wel even weten hoe je omgaat met de generator. Stel, we willen de kwadraten berekenen van een reeks getallen tot een bepaald maximum:
-``` py
-def calculate_squares_up_to(max_number):
-    """Calculate squares of all integers up to a maximum number"""
-    squares = []
-    for number in range(max_number):
-        squares.append(number ** 2)
-    return squares
+    Of&hellip; je maakt gebruik van een _generator function_: een functie die tussendoor resultaten teruggeeft. Dat kan door gebruik te maken van `#!py yield` in plaats van `#!py return`. De rest gaat automatisch. Maar: je moet wel even weten hoe je omgaat met de generator. Stel, we willen de kwadraten berekenen van een reeks getallen tot een bepaald maximum:
+    ``` py
+    def calculate_squares_up_to(max_number):
+        """Calculate squares of all integers up to a maximum number"""
+        squares = []
+        for number in range(max_number):
+            squares.append(number ** 2)
+        return squares
 
-calculate_squares_up_to(5)
-# [0, 1, 4, 9, 16]
-```
-De functie berekent eerst alle kwadraten, voegt ze toe aan een lijst en geeft vervolgens de lijst met uitkomsten terug. Een generator definieer je als volgt:
-``` py
-def calculate_squares_up_to(max_number):
-    """Generate squares of all integers up to a maximum number"""
-    for number in range(max_number):
-        yield number ** 2
-```
-Lekker kort, want we hoeven geen lijst bij te houden! Als je de functie aanroept krijg je geen resultaat terug, maar een _generator_. Als je de waardes wil zien dan gebruik je `#!py next()`, als volgt:
-``` py
-square_generator = calculate_squares_up_to(5)
-next(square_generator)
-# 0
-next(square_generator)
-# 1
-...
-next(square_generator)
-# 16
-next(square_generator)
-# StopIteration
-```
-Als de generator is uitgeput (de for-loop is afgelopen, de functie sluit af) dan geeft Python een `#!py StopIteration` exception en crasht het programma -- tenzij je de exception afvangt. Het werkt, maar het is niet helemaal ideaal. Makkelijker is om de generator te gebruiken in een loop:
-``` py
-for square in calculate_squares_up_to(5):
-    print("Still calculating...")
-    print(square)
+    calculate_squares_up_to(5)
+    # [0, 1, 4, 9, 16]
+    ```
+    De functie berekent eerst alle kwadraten, voegt ze toe aan een lijst en geeft vervolgens de lijst met uitkomsten terug. Een generator definieer je als volgt:
+    ``` py
+    def calculate_squares_up_to(max_number):
+        """Generate squares of all integers up to a maximum number"""
+        for number in range(max_number):
+            yield number ** 2
+    ```
+    Lekker kort, want we hoeven geen lijst bij te houden! Als je de functie aanroept krijg je geen resultaat terug, maar een _generator_. Als je de waardes wil zien dan gebruik je `#!py next()`, als volgt:
+    ``` py
+    square_generator = calculate_squares_up_to(5)
+    next(square_generator)
+    # 0
+    next(square_generator)
+    # 1
+    ...
+    next(square_generator)
+    # 16
+    next(square_generator)
+    # StopIteration
+    ```
+    Als de generator is uitgeput (de for-loop is afgelopen, de functie sluit af) dan geeft Python een `#!py StopIteration` exception en crasht het programma -- tenzij je de exception afvangt. Het werkt, maar het is niet helemaal ideaal. Makkelijker is om de generator te gebruiken in een loop:
+    ``` py
+    for square in calculate_squares_up_to(5):
+        print("Still calculating...")
+        print(square)
 
-# Still calculating...
-# 0
-# Still calculating...
-# 1
-# Still calculating...
-# 4
-# Still calculating...
-# 9
-# Still calculating...
-# 16
-```
-Dit kan ook in list comprehensions. En als je _toch_ wilt wachten op alle resultaten, dan kan dat eenvoudig met `#!py squares = list(calculate_squares_up_to(5))`.
+    # Still calculating...
+    # 0
+    # Still calculating...
+    # 1
+    # Still calculating...
+    # 4
+    # Still calculating...
+    # 9
+    # Still calculating...
+    # 16
+    ```
+    Dit kan ook in list comprehensions. En als je _toch_ wilt wachten op alle resultaten, dan kan dat eenvoudig met `#!py squares = list(calculate_squares_up_to(5))`.
 
-!!! opdracht-basis "generators"
-    Schrijf een generator function die het _vermoeden van Collatz_ illustreert. Dat wil zeggen: beginnend bij een getal $n$, genereer het volgende getal als volgt: is het getal _even_, deel het dan door twee; is het getal _oneven_, vermenigvuldig het met 3 en tel er 1 bij op. Enzovoorts. Sluit de generator af als de uitkomst gelijk is aan 1. Dat is het vermoeden van Collatz: ongeacht met welk geheel getal je begint, je komt altijd op 1 uit. Als voorbeeld, beginnend bij het getal 3 krijg je de reeks 3, 10, 5, 16, 8, 4, 2, 1.
+    !!! opdracht-meer "generators"
+        Schrijf een generator function die het _vermoeden van Collatz_ illustreert. Dat wil zeggen: beginnend bij een getal $n$, genereer het volgende getal als volgt: is het getal _even_, deel het dan door twee; is het getal _oneven_, vermenigvuldig het met 3 en tel er 1 bij op. Enzovoorts. Sluit de generator af als de uitkomst gelijk is aan 1. Dat is het vermoeden van Collatz: ongeacht met welk geheel getal je begint, je komt altijd op 1 uit. Als voorbeeld, beginnend bij het getal 3 krijg je de reeks 3, 10, 5, 16, 8, 4, 2, 1.
 
 
 
 ### Dunder methods
 
-Hoe _weet_ Python eigenlijk wat de lengte is van een string? Of hoe je getallen optelt? Voor operatoren als `#!py + - * / **` wordt eigenlijk een _method_ aangeroepen. bijvoorbeeld `#!py __add__()` voor `#!py +`, en `#!py __mul__()` voor `#!py *`. Een ingebouwde functie als `#!py len()` roept stiekem de _method_ `#!py __len__()` aan en `#!py print()` print de uitvoer van `#!py __str__()`. Zulke methodes worden _dunder methods_[^dunder] of _magic methods_ genoemd. We kunnen zelf bijvoorbeeld een vector introduceren waarbij we de operatoren voor onze eigen doeleinden gebruiken [@operator_overloading]. We definiëren het optellen van vectoren en de absolute waarde (norm) van de vector:
+??? meer-leren "meer leren"
+    Hoe _weet_ Python eigenlijk wat de lengte is van een string? Of hoe je getallen optelt? Voor operatoren als `#!py + - * / **` wordt eigenlijk een _method_ aangeroepen. bijvoorbeeld `#!py __add__()` voor `#!py +`, en `#!py __mul__()` voor `#!py *`. Een ingebouwde functie als `#!py len()` roept stiekem de _method_ `#!py __len__()` aan en `#!py print()` print de uitvoer van `#!py __str__()`. Zulke methodes worden _dunder methods_[^dunder] of _magic methods_ genoemd. We kunnen zelf bijvoorbeeld een vector introduceren waarbij we de operatoren voor onze eigen doeleinden gebruiken [@operator_overloading]. We definiëren het optellen van vectoren en de absolute waarde (norm) van de vector:
 
-[^dunder]: Dunder staat voor _double underscore_, de twee lage streepjes die om de naam heen staan.
+    [^dunder]: Dunder staat voor _double underscore_, de twee lage streepjes die om de naam heen staan.
 
-``` py
-class Vector:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
+    ``` py
+    class Vector:
+        def __init__(self, x, y):
+            self.x = x
+            self.y = y
 
-    def __add__(self, other):
-        new_x = self.x + other.x
-        new_y = self.y + other.y
-        return Vector(new_x, new_y)
+        def __add__(self, other):
+            new_x = self.x + other.x
+            new_y = self.y + other.y
+            return Vector(new_x, new_y)
 
-    def __abs__(self):
-        return (self.x ** 2 + self.y ** 2) ** .5
-```
-De speciale `#!py __init__()` methode zorgt voor de initialisatie van de klasse en de eerste parameter die alle methodes meekrijgen verwijst naar zichzelf en wordt dus gewoonlijk `#!py self` genoemd.[^niet_doen] Met de regel `#!py self.x = x` wordt de parameter `#!py x` bewaard voor later gebruik. Je kunt de klasse gebruiken op de volgende manier:
+        def __abs__(self):
+            return (self.x ** 2 + self.y ** 2) ** .5
+    ```
+    De speciale `#!py __init__()` methode zorgt voor de initialisatie van de klasse en de eerste parameter die alle methodes meekrijgen verwijst naar zichzelf en wordt dus gewoonlijk `#!py self` genoemd.[^niet_doen] Met de regel `#!py self.x = x` wordt de parameter `#!py x` bewaard voor later gebruik. Je kunt de klasse gebruiken op de volgende manier:
 
-[^niet_doen]: Maar dat is niet verplicht, je mag in principe zelf een naam kiezen. Doe dat echter niet.
+    [^niet_doen]: Maar dat is niet verplicht, je mag in principe zelf een naam kiezen. Doe dat echter niet.
 
-``` ps1 title="Terminal"
->>> v1 = Vector(0, 1)
->>> v2 = Vector(1, 0)
->>> abs(v1)
-1.0
->>> abs(v2)
-1.0
->>> abs(v1 + v2)
-1.4142135623730951
->>> (v1 + v2).x, (v1 + v2).y
-(1, 1)
->>> v1 + v2
-<__main__.Vector object at 0x7fdf80b3ae10>
->>> print(v1 + v2)
-<__main__.Vector object at 0x7fdf80b45450>
-```
-In de eerste regels maken we twee vectoren **v_1** en **v_2** en berekenen de lengtes[^norm] **||v_1||**, **||v_2||** en **||v_1 + v_2||**. Ook kunnen we de coördinaten van de som bekijken. Het gaat mis als we de somvector willen printen of willen kijken wat voor object het is. We krijgen technisch juiste, maar totaal onbruikbare informatie terug. Dit lossen we op met het definiëren van `#!py __str__()`, gebruikt door `#!py str()` en dus ook `#!py print()`, en `#!py __repr__()`, gebruikt door `#!py repr()` en de Python interpreter.[^subtiel_verschil]
+    ``` ps1 title="Terminal"
+    >>> v1 = Vector(0, 1)
+    >>> v2 = Vector(1, 0)
+    >>> abs(v1)
+    1.0
+    >>> abs(v2)
+    1.0
+    >>> abs(v1 + v2)
+    1.4142135623730951
+    >>> (v1 + v2).x, (v1 + v2).y
+    (1, 1)
+    >>> v1 + v2
+    <__main__.Vector object at 0x7fdf80b3ae10>
+    >>> print(v1 + v2)
+    <__main__.Vector object at 0x7fdf80b45450>
+    ```
+    In de eerste regels maken we twee vectoren **v_1** en **v_2** en berekenen de lengtes[^norm] **||v_1||**, **||v_2||** en **||v_1 + v_2||**. Ook kunnen we de coördinaten van de som bekijken. Het gaat mis als we de somvector willen printen of willen kijken wat voor object het is. We krijgen technisch juiste, maar totaal onbruikbare informatie terug. Dit lossen we op met het definiëren van `#!py __str__()`, gebruikt door `#!py str()` en dus ook `#!py print()`, en `#!py __repr__()`, gebruikt door `#!py repr()` en de Python interpreter.[^subtiel_verschil]
 
-[^norm]: Absolute waarde of beter, _norm_, van een vector is eenvoudig gezegd haar lengte.
-[^subtiel_verschil]: Het verschil tussen de twee is subtiel. De Pythondocumentatie geeft aan dat de `#!py __repr__` altijd ondubbelzinnig moet zijn, terwijl de `#!py __str__` vooral leesbaar moet zijn. Voor eenvoudige objecten zijn ze veelal gelijk.
+    [^norm]: Absolute waarde of beter, _norm_, van een vector is eenvoudig gezegd haar lengte.
+    [^subtiel_verschil]: Het verschil tussen de twee is subtiel. De Pythondocumentatie geeft aan dat de `#!py __repr__` altijd ondubbelzinnig moet zijn, terwijl de `#!py __str__` vooral leesbaar moet zijn. Voor eenvoudige objecten zijn ze veelal gelijk.
 
-``` py
-class Vector:
-    ...
-    def __repr__(self):
-        return f"Vector: ({self.x}, {self.y})"
+    ``` py
+    class Vector:
+        ...
+        def __repr__(self):
+            return f"Vector: ({self.x}, {self.y})"
 
-    def __str__(self):
-        # roept __repr__ aan
-        return repr(self)
-```
-``` ps1 title="Terminal"
->>> v1 + v2
-Vector: (1, 1)
->>> print(v1 + v2)
-Vector: (1, 1)
-```
-We raden je aan altijd een zinnige `#!py __str__` en `#!py __repr__` te definiëren.
+        def __str__(self):
+            # roept __repr__ aan
+            return repr(self)
+    ```
+    ``` ps1 title="Terminal"
+    >>> v1 + v2
+    Vector: (1, 1)
+    >>> print(v1 + v2)
+    Vector: (1, 1)
+    ```
+    We raden je aan altijd een zinnige `#!py __str__` en `#!py __repr__` te definiëren.
 
-Vaak hebben classes geen dunder methods nodig (behalve `#!py __repr__` en `#!py __str__`).
+    Vaak hebben classes geen dunder methods nodig (behalve `#!py __repr__` en `#!py __str__`).
 
-Je kunt behalve een class ook een _subclass_ aanmaken. Stel dat je een class `#!py Animal` hebt aangemaakt met handige methods en attributes maar je wilt een nieuwe, iets specifiekere class maken (bijvoorbeeld `#!py Cow`). Het is duidelijk dat een koe een dier is, maar een dier nog geen koe. Je kunt een subclass maken:
-``` py
-class Cow(Animal):
-    pass
-```
-Het keyword `#!py pass` doet niets overigens. Met alleen dit statement heeft de class `#!py Cow` precies alle functionaliteit van de class `#!py Animal`. Je kunt daarna zelf nog extra methods en attributes definiëren.
+    Je kunt behalve een class ook een _subclass_ aanmaken. Stel dat je een class `#!py Animal` hebt aangemaakt met handige methods en attributes maar je wilt een nieuwe, iets specifiekere class maken (bijvoorbeeld `#!py Cow`). Het is duidelijk dat een koe een dier is, maar een dier nog geen koe. Je kunt een subclass maken:
+    ``` py
+    class Cow(Animal):
+        pass
+    ```
+    Het keyword `#!py pass` doet niets overigens. Met alleen dit statement heeft de class `#!py Cow` precies alle functionaliteit van de class `#!py Animal`. Je kunt daarna zelf nog extra methods en attributes definiëren.
 
 
 ## Decorators
 
-Functies zijn ook objecten in Python. Je kunt ze, zoals we eerder gezien hebben, meegeven als argument of bewaren in een dictionary. Ook kun je functies in functies definiëren en functies definiëren die functies teruggeven. Vaag[^Calmcode]. Ik moet hier altijd weer even over nadenken en daarom mag je dit stukje overslaan. Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_.
+??? meer-leren "meer leren"
+    Functies zijn ook objecten in Python. Je kunt ze, zoals we eerder gezien hebben, meegeven als argument of bewaren in een dictionary. Ook kun je functies in functies definiëren en functies definiëren die functies teruggeven. Vaag[^Calmcode]. Ik moet hier altijd weer even over nadenken en daarom mag je dit stukje overslaan. Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_.
 
-[^Calmcode]: Calmcode doet een goeie poging om dit rustig uit te leggen, kijk daarvoor op [https://calmcode.io/decorators/functions.html](https://calmcode.io/decorators/functions.html)
+    [^Calmcode]: Calmcode doet een goeie poging om dit rustig uit te leggen, kijk daarvoor op [https://calmcode.io/decorators/functions.html](https://calmcode.io/decorators/functions.html)
 
-<!-- % Met decorators kan je functionaliteit aan een functie toevoegen.  -->
-Decorators worden vaak gebruikt om het gedrag van een functie aan te passen.
-
-
-<!-- %   Ik vind dit voorbeeld best lastig, maar misschien komt dat dus omdat mijn hoofd zich de hele tijd afvraagd, maar WAAROM zou je dat willen of WAAROM zou je dat doen. -->
+    <!-- % Met decorators kan je functionaliteit aan een functie toevoegen.  -->
+    Decorators worden vaak gebruikt om het gedrag van een functie aan te passen.
 
 
-Stel je hebt een functie die eenvoudig twee getallen vermenigvuldigd. Je wilt deze functie, zonder hem van binnen te veranderen, aanpassen zodat hij altijd het kwadraat van de vermenigvuldiging geeft. Dus niet $a\cdot b$, maar $(a\cdot b)^2$. Dat kan als volgt:
-
-<!-- %   Het voorbeeld is al vrij abstract, misschien maakt 'f' het als functienaam nog abstracter. Misschien moeten we hem gewoon multiply noemen. -->
-
-``` py
-def f(a, b):
-    return a * b
+    <!-- %   Ik vind dit voorbeeld best lastig, maar misschien komt dat dus omdat mijn hoofd zich de hele tijd afvraagd, maar WAAROM zou je dat willen of WAAROM zou je dat doen. -->
 
 
-def squared(func, a, b):
-    return func(a, b) ** 2
+    Stel je hebt een functie die eenvoudig twee getallen vermenigvuldigd. Je wilt deze functie, zonder hem van binnen te veranderen, aanpassen zodat hij altijd het kwadraat van de vermenigvuldiging geeft. Dus niet $a\cdot b$, maar $(a\cdot b)^2$. Dat kan als volgt:
 
-f(3, 4)
-# 12
-squared(f, 3, 4)
-# 144
-```
-Het werkt, maar we moeten er wel steeds aan denken om `#!py squared()` aan te roepen en dan óók nog de functie `#!py f()` als eerste argument mee te geven. Lastig. Maar omdat functies objecten zijn kan dit ook:
-``` py linenums="1"
-def squared_func(func):
-    def inner_func(a, b):
+    <!-- %   Het voorbeeld is al vrij abstract, misschien maakt 'f' het als functienaam nog abstracter. Misschien moeten we hem gewoon multiply noemen. -->
+
+    ``` py
+    def f(a, b):
+        return a * b
+
+
+    def squared(func, a, b):
         return func(a, b) ** 2
 
-    return inner_func
+    f(3, 4)
+    # 12
+    squared(f, 3, 4)
+    # 144
+    ```
+    Het werkt, maar we moeten er wel steeds aan denken om `#!py squared()` aan te roepen en dan óók nog de functie `#!py f()` als eerste argument mee te geven. Lastig. Maar omdat functies objecten zijn kan dit ook:
+    ``` py linenums="1"
+    def squared_func(func):
+        def inner_func(a, b):
+            return func(a, b) ** 2
+
+        return inner_func
 
 
-g = squared_func(f)
-g(3, 4)
-# 144
+    g = squared_func(f)
+    g(3, 4)
+    # 144
 
-```
+    ```
 
-Hier gebeurt iets geks&hellip; Om te begrijpen wat hier gebeurt moeten we een beetje heen en weer springen. In regel 8 roepen we de functie `#!py squared_func(f)` aan. In regel 5 zien we dat die functie een andere functie teruggeeft -- die _niet_ wordt aangeroepen! In regel 8 wordt die functie bewaard als `#!py g` en pas in regel 9 roepen we hem aan. De functie `#!py g()` is dus eigenlijk gelijk aan de functie `#!py inner_func()` die in regels 2--3 gedefinieerd wordt. De aanroep in regel 9 zorgt er uiteindelijk voor dat in regel 3 de oorspronkelijke functie `#!py f(a, b)` wordt aangeroepen en dat het antwoord gekwadrateerd wordt. Dit is echt wel even lastig.
+    Hier gebeurt iets geks&hellip; Om te begrijpen wat hier gebeurt moeten we een beetje heen en weer springen. In regel 8 roepen we de functie `#!py squared_func(f)` aan. In regel 5 zien we dat die functie een andere functie teruggeeft -- die _niet_ wordt aangeroepen! In regel 8 wordt die functie bewaard als `#!py g` en pas in regel 9 roepen we hem aan. De functie `#!py g()` is dus eigenlijk gelijk aan de functie `#!py inner_func()` die in regels 2--3 gedefinieerd wordt. De aanroep in regel 9 zorgt er uiteindelijk voor dat in regel 3 de oorspronkelijke functie `#!py f(a, b)` wordt aangeroepen en dat het antwoord gekwadrateerd wordt. Dit is echt wel even lastig.
 
-<!-- % \begin{todo}
-%   Als we studenten nog niet kwijt waren, dan raken we ze hier wel kwijt. De stap van a en b naar *args en **kwargs is best groot. Misschien kunnen we eerst @decorators uitleggen, dan een opdracht laten maken en dan nog een stapje verder met args en kwargs
-% \end{todo} -->
+    <!-- % \begin{todo}
+    %   Als we studenten nog niet kwijt waren, dan raken we ze hier wel kwijt. De stap van a en b naar *args en **kwargs is best groot. Misschien kunnen we eerst @decorators uitleggen, dan een opdracht laten maken en dan nog een stapje verder met args en kwargs
+    % \end{todo} -->
 
-In deze opzet moet de `#!py inner_func(a, b)` nog weten dat de oorspronkelijke functie aangeroepen wordt met twee argumenten `#!py a` en `#!py b`. Maar ook dat hoeft niet. We hebben immers argument (un)packing met `#!py *args`:
-``` py
-def squared_func(func):
-    def inner_func(*args):
-        return func(*args) ** 2
+    In deze opzet moet de `#!py inner_func(a, b)` nog weten dat de oorspronkelijke functie aangeroepen wordt met twee argumenten `#!py a` en `#!py b`. Maar ook dat hoeft niet. We hebben immers argument (un)packing met `#!py *args`:
+    ``` py
+    def squared_func(func):
+        def inner_func(*args):
+            return func(*args) ** 2
 
-    return inner_func
-```
-En nu komt het: in Python kun je de _decorator syntax_ gebruiken om je functie te vervangen door een iets aangepaste functie. In plaats van:
-``` py
-f = squared_func(f)
-```
-op te nemen in je code kun je de functie meteen `decoraten' als volgt:
-``` py
-@squared_func
-def f(a, b):
-    return a * b
+        return inner_func
+    ```
+    En nu komt het: in Python kun je de _decorator syntax_ gebruiken om je functie te vervangen door een iets aangepaste functie. In plaats van:
+    ``` py
+    f = squared_func(f)
+    ```
+    op te nemen in je code kun je de functie meteen `decoraten' als volgt:
+    ``` py
+    @squared_func
+    def f(a, b):
+        return a * b
 
-f(3, 4)
-# 144
-```
+    f(3, 4)
+    # 144
+    ```
 
-Als je meer wilt weten over hoe decorators werken en hoe je je eigen decorators kunt maken, dan vind je een uitgebreide uitleg in _Primer on Python Decorators_ [@decorators]. Deze tutorial heb je niet per se nodig voor de volgende opdracht.
+    Als je meer wilt weten over hoe decorators werken en hoe je je eigen decorators kunt maken, dan vind je een uitgebreide uitleg in _Primer on Python Decorators_ [@decorators]. Deze tutorial heb je niet per se nodig voor de volgende opdracht.
 
-<!-- % \begin{todo}
-%   Deze opdracht vond ik best lastig, vooral omdat ik er volgens mij nog geen drol van begreep. Misschien is het goed om hier een opzetje te maken. Dus een scriptje met een functie die argumenten nodig heeft een een waarde teruggeeft.
-%   ``` py
-%     import datetime
-
-
-%     def log(func):
-%         def inner():
-
-%             return func(a,b)
-
-%         return inner
+    <!-- % \begin{todo}
+    %   Deze opdracht vond ik best lastig, vooral omdat ik er volgens mij nog geen drol van begreep. Misschien is het goed om hier een opzetje te maken. Dus een scriptje met een functie die argumenten nodig heeft een een waarde teruggeeft.
+    %   ``` py
+    %     import datetime
 
 
-%     @log
-%     def f(a, b):
-%         return a * b
+    %     def log(func):
+    %         def inner():
+
+    %             return func(a,b)
+
+    %         return inner
 
 
-%     print(f(3, 4))
-%     print(f(3, b=4))
-%     ```
-%   En dan in een paar stappen. Zorg eerst dat de logfunctie het zonder poespas gaat doen (oftewel run die handel en los de error op) en dan functionaliteit toevoegen dat de datum enzo wordt geprint.
-% \end{todo} -->
+    %     @log
+    %     def f(a, b):
+    %         return a * b
 
-!!! opdracht-meer "decorators"
-    Schrijf en test een decorator die werkt als een soort logboek. Als je een functie aanroept die gedecoreerd is print dan een regel op het scherm met het tijdstip van de aanroep, de parameters die meegegeven werden én de return value van de functie.
 
+    %     print(f(3, 4))
+    %     print(f(3, b=4))
+    %     ```
+    %   En dan in een paar stappen. Zorg eerst dat de logfunctie het zonder poespas gaat doen (oftewel run die handel en los de error op) en dan functionaliteit toevoegen dat de datum enzo wordt geprint.
+    % \end{todo} -->
+
+    !!! opdracht-meer "decorators"
+        Schrijf en test een decorator die werkt als een soort logboek. Als je een functie aanroept die gedecoreerd is print dan een regel op het scherm met het tijdstip van de aanroep, de parameters die meegegeven werden én de return value van de functie.
 
 
 ## Modules
@@ -640,11 +628,7 @@ Door de `#!py math` module te importeren hebben we opeens de beschikking over he
 
 Je kunt je eigen code ook importeren, maar hier moet je wel even opletten. Stel, we hebben een bestand {{file}}square.py:
 ``` py title="square.py"
-def square(x):
-    return x ** 2
-
-
-print(f"The square of 4 is {square(4)}")
+--8<-- "scripts/square-1.py"
 ```
 Als je deze code runt is de uitvoer:
 ``` ps1 title="Terminal"
@@ -652,9 +636,7 @@ The square of 4 is 16
 ```
 Zoals verwacht! Maar nu willen we in een nieuw script, {{file}}count\_count.py, de functie importeren en gebruiken:
 ``` py title="count_count.py"
-import square
-
-print(f"The square of 5 is {square.square(5)}")  
+--8<-- "scripts/count_count.py"
 ```
 !!! opdracht-basis "square.square"
     Waarom staat er in bovenstaande code nu opeens `#!py square.square()` in plaats van gewoon `#!py square()`?
@@ -669,15 +651,9 @@ Tijdens het importeren wordt alle code die aanwezig is in {{file}}square.py ook 
   1. Alle `extra' code verwijderen uit de module ({{file}}square.py)
   1. De code in de module _alleen_ laten runnen als de module als script wordt aangeroepen, maar _niet_ wanneer de module wordt geïmporteerd
 
-De tweede oplossing kan van pas komen. Je past dan {{file}}square.py als volgt aan:
-``` py
-# square.py
-def square(x):
-    return x ** 2
-
-
-if __name__ == "__main__":
-    print(f"The square of 4 is {square(4)}")
+De eerste oplossing is lang niet altijd wenselijk. Voor de tweede oplossing pas je {{file}}square.py als volgt aan:
+``` py title="square.py"
+--8<-- "scripts/square.py"
 ```
 Wanneer je een python script runt is de speciale variabele `#!py __name__` gelijk aan de string `__main__`. Maar als je een module importeert is
 `#!py __name__` gelijk aan de _naam_ van de module; in dit geval `#!py square`. Met bovenstaande constructie wordt de code alleen uitgevoerd wanneer de module direct gerunt wordt:
@@ -692,8 +668,8 @@ The square of 5 is 25
 Het `#!py if __name__ == '__main__'`-statement wordt heel veel gebruikt in Python modules.
 
 !!! opdracht-basis "modules"
-    Maak zelf de bestanden {{file}}square.py en {{file}}just\_count.py aan en probeer het importeren uit, met en zonder het `#!py if __name__ == '__main__'`-statement.
-
+    * Maak zelf de bestanden {{file}}square.py en {{file}}just\_count.py aan en probeer het importeren uit, met en zonder het `#!py if __name__ == '__main__'`-statement.
+    * Voeg `#!py print(f"{__name__ = }")` toe bovenaan {{file}}square.py. Run {{file}}square.py en daarna {{file}}just\_count.py. Zie hoe de speciale variabele `#!py __name__` veranderd. 
 
 
 ## Packages
@@ -786,100 +762,104 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 
 ## De Standard Library en de Python Package Index
 
-Voor Python zijn ontzettend veel bibliotheken beschikbaar die het leven een stuk aangenamer maken. Voor een gedeelte daarvan geldt dat ze altijd aanwezig zijn als je Python geïnstalleerd hebt. Deze set vormt de _standard library_ [@python-standard-library]. Om te voorkomen dat je zelf het wiel uitvindt is het goed om af en toe door de lijst te bladeren zodat je een idee krijgt wat er allemaal beschikbaar is. Ziet het er bruikbaar uit? Lees dan vooral de documentatie! Tip: vergeet de _built-in functions_ niet.
+??? meer-leren "meer leren"
+    Voor Python zijn ontzettend veel bibliotheken beschikbaar die het leven een stuk aangenamer maken. Voor een gedeelte daarvan geldt dat ze altijd aanwezig zijn als je Python geïnstalleerd hebt. Deze set vormt de _standard library_ [@python-standard-library]. Om te voorkomen dat je zelf het wiel uitvindt is het goed om af en toe door de lijst te bladeren zodat je een idee krijgt wat er allemaal beschikbaar is. Ziet het er bruikbaar uit? Lees dan vooral de documentatie! Tip: vergeet de _built-in functions_ niet.
 
-Verder zijn er nog eindeloos veel packages beschikbaar gesteld door programmeurs, van hobbyist tot multinational. Deze kunnen centraal gepubliceerd worden in de _Python Package Index_ [@pypi]. Je kunt daar vaak ook zien hoe populair een package is. Dit is een belangrijke indicatie voor de kwaliteit en bruikbaarheid van een package.
+    Verder zijn er nog eindeloos veel packages beschikbaar gesteld door programmeurs, van hobbyist tot multinational. Deze kunnen centraal gepubliceerd worden in de _Python Package Index_ [@pypi]. Je kunt daar vaak ook zien hoe populair een package is. Dit is een belangrijke indicatie voor de kwaliteit en bruikbaarheid van een package.
 
 
 ## Exceptions
 
-Exceptions zijn de foutmeldingen van Python. Je krijgt ze als je bijvoorbeeld probeert te delen door nul of wanneer je een typefout maakt in de naam van een method of attribute:
-``` ps1 title="Terminal"
->>> 1 / 0
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-ZeroDivisionError: division by zero
->>> s = "particle"
->>> s.upler()
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-AttributeError: 'str' object has no attribute 'upler'
-```
-Merk op dat je een exception met traceback meestal van onder naar boven leest. Onderaan staat de foutmelding (exception) en daar boven een _traceback_: een kruimelpad van wáár in de code het probleem optrad; onderaan de regel waarin het echt fout ging, en naar boven toe alle tussenliggende functies en bibliotheken met bovenaan het hoofdprogramma.
-
-Een exception kan vervelend zijn. Het is een beetje jammer als je bijvoorbeeld tijdens een langdurige meting telkens een weerstand aan het uitrekenen bent ($R = \frac{U}{I}$) en de stroomsterkte $I$ wordt na anderhalf uur heel eventjes nul. Je programma crasht en je metingen zijn weg. Zoek de fout (niet altijd makkelijk!) en probeer het nog eens.
-
-Je kunt exceptions afvangen en afhandelen met een `#!py try...except` blok:
-``` py
-def R(U, I):
-    try:
-        R = U / I
-    except ZeroDivisionError:
-        R = "Inf"
-    return R
-```
-``` ps1 title="Terminal"
->>> R(10, 2)
-5.0
->>> R(10, 0)
-'Inf'
-```
-
-Ook kun je zelf exceptions maken. Stel je schrijft een programma om een oscilloscoop uit te lezen dat twee kanalen heeft om de spanning te meten. Kanaal 0 en kanaal 1. Het programma moet gebruikt kunnen worden door andere studenten in de onderzoeksgroep dus het kan nu eenmaal gebeuren dat iemand niet op zit te letten -- niet jij, jij let altijd goed op. Een andere student die een programma schrijft en jouw code gebruikt wil een spanning meten op kanaal 2, het was immers een tweekanaals oscilloscoop. Maar kanaal 2 bestaat niet. Sommige oscilloscopen klagen dan niet maar geven een random getal terug. Dit kan leiden tot heel vervelende en lastig te achterhalen fouten in het experiment. Met dat idee in je achterhoofd kun je code schrijven die controleert op het kanaalnummer en een exception geeft:
-``` py
-# we maken een subclass van de 'standaard' Exception
-class InvalidChannelException(Exception):
-    pass
-
-def get_voltage(channel):
-    if channel not in [0, 1]:
-        raise InvalidChannelException(f"Use channel 0 or 1, not {channel}")
-    ...
-    return voltage
-```
-Met deze uitvoer in het geval dat er iets mis gaat:
-``` ps1 title="Terminal"
->>> get_voltage(1)
-1.0
->>> get_voltage(2)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-    get_voltage(2)
-  File "exc_channel.py", line 6, in get_voltage
-    raise InvalidChannelException(f"Use channel 0 or 1, not {channel}")
-InvalidChannelException: Use channel 0 or 1, not 2
-```
-Je kunt op deze manier voorkomen dat iemand dagen kwijt is aan het overdoen van achteraf verkeerd gebleken metingen. Ook kun je 'vage' foutmeldingen omzetten in duidelijkere foutmeldingen:
-``` py
-class NoCurrentError(Exception):
-    pass
-
-
-def R(U, I):
-    try:
-        R = U / I
-    except ZeroDivisionError:
-        raise NoCurrentError("There is no current flowing through the resistor.")
-    return R
-```
-In plaats van een `#!py ZeroDivisionError` krijg je nu een `#!py NoCurrentError`. Je programma crasht nog steeds (wellicht niet handig) maar de foutmelding is nu wel specifiek voor het probleem en kan in de rest van je programma wellicht beter afgevangen en opgelost worden. Misschien beter dan niet crashen en een mogelijk foute waarde doorgeven. Die afweging zul je zelf moeten maken.
-
-=== "Opdracht"
-    !!! opdracht-basis "exceptions"
-        De volgende code berekent een gemiddelde van een lijst getallen:
-        ``` py
-        def average(values):
-            return sum(values) / len(values)    
-        ```
-        Er is alleen geen foutafhandeling en dat kan leiden tot exceptions. De volgende aanroepen zorgen voor een crash (probeer ze allemaal uit!):
-        ``` py
-        average([])
-        average(4)
-        average("12345")
-        ```
-        Pas de functie `#!py average()` zodanig aan dat bij bovenstaande aanroepen slechts een waarschuwing wordt geprint. Vang daartoe de exceptions netjes af en geef de waarde `#!py None` terug wanneer een gemiddelde niet berekend kan worden. Dus bovenstaande drie aanroepen krijgen `#!py None` terug terwijl er een waarschuwing wordt geprint.
-
-=== "uitwerkingen"
-    ``` py
-    --8<-- "uitwerkingen-on/exceptions-on.py"
+??? meer-leren "meer leren"
+    Exceptions zijn de foutmeldingen van Python. Je krijgt ze als je bijvoorbeeld probeert te delen door nul of wanneer je een typefout maakt in de naam van een method of attribute:
+    ``` ps1 title="Terminal"
+    >>> 1 / 0
+    Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+    ZeroDivisionError: division by zero
+    >>> s = "particle"
+    >>> s.upler()
+    Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+    AttributeError: 'str' object has no attribute 'upler'
     ```
+    Merk op dat je een exception met traceback meestal van onder naar boven leest. Onderaan staat de foutmelding (exception) en daar boven een _traceback_: een kruimelpad van wáár in de code het probleem optrad; onderaan de regel waarin het echt fout ging, en naar boven toe alle tussenliggende functies en bibliotheken met bovenaan het hoofdprogramma.
+
+    Een exception kan vervelend zijn. Het is een beetje jammer als je bijvoorbeeld tijdens een langdurige meting telkens een weerstand aan het uitrekenen bent ($R = \frac{U}{I}$) en de stroomsterkte $I$ wordt na anderhalf uur heel eventjes nul. Je programma crasht en je metingen zijn weg. Zoek de fout (niet altijd makkelijk!) en probeer het nog eens.
+
+    Je kunt exceptions afvangen en afhandelen met een `#!py try...except` blok:
+    ``` py
+    def R(U, I):
+        try:
+            R = U / I
+        except ZeroDivisionError:
+            R = "Inf"
+        return R
+    ```
+    ``` ps1 title="Terminal"
+    >>> R(10, 2)
+    5.0
+    >>> R(10, 0)
+    'Inf'
+    ```
+
+    Ook kun je zelf exceptions maken. Stel je schrijft een programma om een oscilloscoop uit te lezen dat twee kanalen heeft om de spanning te meten. Kanaal 0 en kanaal 1. Het programma moet gebruikt kunnen worden door andere studenten in de onderzoeksgroep dus het kan nu eenmaal gebeuren dat iemand niet op zit te letten -- niet jij, jij let altijd goed op. Een andere student die een programma schrijft en jouw code gebruikt wil een spanning meten op kanaal 2, het was immers een tweekanaals oscilloscoop. Maar kanaal 2 bestaat niet. Sommige oscilloscopen klagen dan niet maar geven een random getal terug. Dit kan leiden tot heel vervelende en lastig te achterhalen fouten in het experiment. Met dat idee in je achterhoofd kun je code schrijven die controleert op het kanaalnummer en een exception geeft:
+    ``` py
+    # we maken een subclass van de 'standaard' Exception
+    class InvalidChannelException(Exception):
+        pass
+
+    def get_voltage(channel):
+        if channel not in [0, 1]:
+            raise InvalidChannelException(f"Use channel 0 or 1, not {channel}")
+        ...
+        return voltage
+    ```
+    Met deze uitvoer in het geval dat er iets mis gaat:
+    ``` ps1 title="Terminal"
+    >>> get_voltage(1)
+    1.0
+    >>> get_voltage(2)
+    Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+        get_voltage(2)
+    File "exc_channel.py", line 6, in get_voltage
+        raise InvalidChannelException(f"Use channel 0 or 1, not {channel}")
+    InvalidChannelException: Use channel 0 or 1, not 2
+    ```
+    Je kunt op deze manier voorkomen dat iemand dagen kwijt is aan het overdoen van achteraf verkeerd gebleken metingen. Ook kun je 'vage' foutmeldingen omzetten in duidelijkere foutmeldingen:
+    ``` py
+    class NoCurrentError(Exception):
+        pass
+
+
+    def R(U, I):
+        try:
+            R = U / I
+        except ZeroDivisionError:
+            raise NoCurrentError("There is no current flowing through the resistor.")
+        return R
+    ```
+    In plaats van een `#!py ZeroDivisionError` krijg je nu een `#!py NoCurrentError`. Je programma crasht nog steeds (wellicht niet handig) maar de foutmelding is nu wel specifiek voor het probleem en kan in de rest van je programma wellicht beter afgevangen en opgelost worden. Misschien beter dan niet crashen en een mogelijk foute waarde doorgeven. Die afweging zul je zelf moeten maken.
+
+    === "Opdracht"
+        !!! opdracht-meer "exceptions"
+            De volgende code berekent een gemiddelde van een lijst getallen:
+            ``` py
+            def average(values):
+                return sum(values) / len(values)    
+            ```
+            Er is alleen geen foutafhandeling en dat kan leiden tot exceptions. De volgende aanroepen zorgen voor een crash (probeer ze allemaal uit!):
+            ``` py
+            average([])
+            average(4)
+            average("12345")
+            ```
+            Pas de functie `#!py average()` zodanig aan dat bij bovenstaande aanroepen slechts een waarschuwing wordt geprint. Vang daartoe de exceptions netjes af en geef de waarde `#!py None` terug wanneer een gemiddelde niet berekend kan worden. Dus bovenstaande drie aanroepen krijgen `#!py None` terug terwijl er een waarschuwing wordt geprint.
+
+    === "uitwerkingen"
+        ``` py
+        --8<-- "uitwerkingen-on/exceptions-on.py"
+        ```
+
+## Inleiding programmeren; terugblik

@@ -128,7 +128,7 @@ Het CSV-bestand heeft kolommen $t$ en $s$. De getallen hebben een punt als decim
 
 #### De functie `#!py zip()`
 
-Het viel je misschien op dat in bovenstaand CSV-bestand iedere regel een $t$-waarde en een $s$-waarde heeft. Als je een lijst met $t$'s en een lijst met $s$'en hebt dan bevat de eerste regel het eerste element uit beide lijsten, de tweede regel het tweede element, etc. Je kunt dan een for-loop schrijven die Python's indexnotatie gebruikt: `#!py t[i]`, `#!py s[i]`, etc. Het kan óók, makkelijker, met de `#!py zip()`-functie. Beide methodes kun je als volgt gebruiken in het geval van twee lijsten A en B:
+Het viel je misschien op dat in bovenstaand CSV-bestand iedere regel een $t$-waarde en een $s$-waarde heeft. Als je een lijst met $t$'s en een lijst met $s$'en hebt dan bevat de eerste regel het eerste element uit beide lijsten, de tweede regel het tweede element, etc. Je kunt dan een for-loop schrijven die Python's indexnotatie gebruikt: `#!py t[i]`, `#!py s[i]`, etc. Het kan óók, makkelijker, met de `#!py zip()`-functie. Beide methodes kun je als volgt gebruiken in het geval van twee[^meer-dan-twee] lijsten A en B:
 
 === "with_indexing.py"
     ``` py hl_lines="4 5"
@@ -139,7 +139,12 @@ Het viel je misschien op dat in bovenstaand CSV-bestand iedere regel een $t$-waa
     --8<-- "scripts/with_zip.py"
     ```
 
+[^meer-dan-twee]: Je kunt net zoveel lijsten in `#!py zip()` gooien als je wilt: `#!py for a, b, c, d, e in zip(A, B, C, D, E)` is geen probleem.
+
 Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de lengte van de lijst op te zoeken en krijg je meteen de losse elementen zonder dat je ze zelf uit de lijst moet plukken met indexnotatie.
+
+??? opdracht-meer "oefenen met zip"
+    Gegeven de spanningen $U$ gelijk aan 1.2 V; 1.8 V; 2.4 V; 2.7 V; 3.1 V en de bijbehorende stroomsterktes $I$ gelijk aan 0.3 A; 0.4 A; 0.6 A; 0.8 A; 1.0 A, loop over de lijsten met `#!py zip()` en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
 
 
 #### Het gebruik van de `#!py csv`-module

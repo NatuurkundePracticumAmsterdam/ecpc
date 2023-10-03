@@ -428,18 +428,12 @@ De bestanden {{file}}`square.py` en {{file}}`count_count.py` zien er hetzelfde u
 === "square.py"
 
     ``` py
-    def square(x):
-        return x ** 2
-
-    if __name__ == "__main__":
-        print(f"The square of 4 is {square(4)}")
+    --8<-- "scripts/square.py"
     ```
 === "count_count.py"
 
     ``` py
-    import square
-
-    print(f"The square of 5 is {square.square(5)}")  
+    --8<-- "scripts/count_count.py"
     ```
 
 
