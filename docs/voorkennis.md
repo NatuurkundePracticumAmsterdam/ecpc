@@ -864,29 +864,22 @@ def R(U, I):
 ```
 In plaats van een `#!py ZeroDivisionError` krijg je nu een `#!py NoCurrentError`. Je programma crasht nog steeds (wellicht niet handig) maar de foutmelding is nu wel specifiek voor het probleem en kan in de rest van je programma wellicht beter afgevangen en opgelost worden. Misschien beter dan niet crashen en een mogelijk foute waarde doorgeven. Die afweging zul je zelf moeten maken.
 
-!!! opdracht-basis "exceptions"
-    De volgende code berekent een gemiddelde van een lijst getallen:
+=== "Opdracht"
+    !!! opdracht-basis "exceptions"
+        De volgende code berekent een gemiddelde van een lijst getallen:
+        ``` py
+        def average(values):
+            return sum(values) / len(values)    
+        ```
+        Er is alleen geen foutafhandeling en dat kan leiden tot exceptions. De volgende aanroepen zorgen voor een crash (probeer ze allemaal uit!):
+        ``` py
+        average([])
+        average(4)
+        average("12345")
+        ```
+        Pas de functie `#!py average()` zodanig aan dat bij bovenstaande aanroepen slechts een waarschuwing wordt geprint. Vang daartoe de exceptions netjes af en geef de waarde `#!py None` terug wanneer een gemiddelde niet berekend kan worden. Dus bovenstaande drie aanroepen krijgen `#!py None` terug terwijl er een waarschuwing wordt geprint.
+
+=== "uitwerkingen"
     ``` py
-    def average(values):
-        return sum(values) / len(values)    
+    --8<-- "uitwerkingen-on/exceptions-on.py"
     ```
-    Er is alleen geen foutafhandeling en dat kan leiden tot exceptions. De volgende aanroepen zorgen voor een crash (probeer ze allemaal uit!):
-    ``` py
-    average([])
-    average(4)
-    average("12345")
-    ```
-    Pas de functie `#!py average()` zodanig aan dat bij bovenstaande aanroepen slechts een waarschuwing wordt geprint. Vang daartoe de exceptions netjes af en geef de waarde `#!py None` terug wanneer een gemiddelde niet berekend kan worden. Dus bovenstaande drie aanroepen krijgen `#!py None` terug terwijl er een waarschuwing wordt geprint.
-
-
-
-<!-- \begin{figure}[b]
-  \begin{verbatim}
-    1 bytes = 8 bits which has 256 possible values.
-    2 bytes = 16 bits which has 65536 possible values.
-    4 bytes = 32 bits which has 4294967296 possible values.
-    8 bytes = 64 bits which has 18446744073709551616 possible values.
-  \end{verbatim}
-  \caption{De uitvoer van het in eerste instantie cryptische scriptje op \mypageref{code_bytes}.}
-  \label{fig:uitvoer_bytes}
-\end{figure} -->
