@@ -863,3 +863,79 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
         ```
 
 ## Inleiding programmeren; terugblik
+
+Bij de cursus inleiding programmeren heb je de basis van het programmeren in Python geleerd. Bij inleiding programmeren mocht je kiezen om je code in het Nederlands of Engels te schrijven. Omdat wij jullie voorbereiden om in een onderzoeksgroep je bachelor project te gaan doen waar je hoogstwaarschijnlijk internationale collega's gaat treffen vragen we jou om bij ECPC alles in het Engels te schrijven. In deze paragraaf nemen we de hoofdlijnen van inleiding programmeren met je door in een aantal opdrachten. 
+
+!!! opdracht-basis "f-strings, variabelen en input"
+    1. Schrijf een python script waarin je de gebruiker vraagt wat de diameter van de bal is. 
+    1. Bereken de radius van de bal.
+    1. Print de diameter en radius in een zin en maak gebruik van f-string. Bijvoorbeeld: "A ball with a diameter of 2.8 m has a radius of 1.4 m."
+    1. Test je script met het getal 2.8. 
+
+
+!!! opdracht-basis "if-statement en operatoren"
+    Met een `#!py if`-statement kan je een conditie testen door operatoren te gebruiken. 
+
+    1. Schrijf de operatoren op voor:
+        * gelijk aan
+        * ongelijk aan
+        * groter dan
+        * groter of gelijk aan
+        * kleiner dan
+        * kleiner dan of gelijk aan
+    1. Vul op de `#!py ...` de juiste condities in door gebruik te maken van `#!py and`, `#!py not` en `#!py or`.
+    ``` py
+    rain = False
+    umbrella = False
+
+    if ... :
+        print("Lucky you have your umbrella with you since it's raining.")
+
+    if ... :
+        if ... :
+            print("You will get wet without an umbrella since it's raining.")
+        if ... :
+            print("you can use your umbrella as a walking stick since it doesn't rain")
+
+    if ... :
+        print("Without an umbrella there is no problem since it's not raining.")
+    ```
+
+!!! opdracht-basis "For-loop, while-loop en break"
+    1. Beschouw de volgende code:
+    ``` py
+    voltage = 0  # mV
+    steps = 50  # mV
+    while voltage < 3300:
+        voltage += steps
+    ```
+    
+    Bij het programmeren krijg je vaak errors. Bij het debuggen van een loop zijn twee dingen heel handig `#!py print` en `#!py break`.
+
+    1. Gebruik `#!py print` om het voltage te printen in the while-loop, doe dit handig met f-strings zodat je weet wat je je print bijvoorbeeld: "The voltage is set to 0 mV."
+    1. Gebruik dan `#!py break` om de loop maar een keer te laten lopen. 
+    1. Schrijf de code om waarbij je gebruikt maakt van een `#!py for`-loop. 
+
+
+!!! opdracht-basis "functies"
+    1. Maak uit de onderstaande code de functie _exponentiation_ werkend. 
+    ``` py
+    def exponentiation():
+        solution =
+        ...
+
+
+    number_1 = 2
+    number_2 = 8
+
+    answer = exponentiation(number_1, number_2)
+    print(f"{number_1}^{number_2} = {answer}")
+    ```
+
+    1. In deze opdracht zijn 4 variabele `#!py solution`, `#!py number_1`, `#!py number_2` en `#!py answer`. Welk van deze variabele zijn globaal en welke zijn lokaal?
+    1. Leg uit wat daarvan de consequentie is voor het gebruiken van deze variabelen. 
+
+!!! opdracht-basis "lijsten"
+    1. Schrijf een python script waarin je een lijst definieerd met de namen van de maanden.
+    1. Print de negende maand.
+    1. Voeg een dertiende maand toe aan de lijst.
