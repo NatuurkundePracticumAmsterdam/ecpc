@@ -949,11 +949,22 @@ Bij inleiding programmeren heb je ook geleerd hoe je code netjes opschrijft zoda
 
 Ook heb je geleerd om functies uit andere (python) modules te importeren, meer hierover vind je in de [paragraaf _Modules_](voorkennis.md#modules). 
 
-!!! opdracht-basis "
-
 !!! opdracht-basis "Grafieken"
     Gebruik matplotlib om een scatterplot te maken van twee lijsten die hieronder zijn weergegeven. Zet de grootheden en eenheden bij beide assen en sla het figuur op als .png-bestand.
     ``` py 
     time = [0, 0.5, 1, 1.5, 2, 2.5, 3] #seconds
     distance = [0, 15, 50, 100, 200, 300, 400] #meters
     ```
+
+!!! opdracht-basis "txt-bestanden lezen"
+    Hieronder vind je een verhaal, kopieer de inhoud naar een .txt-bestand en sla deze op een handige plek op.
+    ```
+    Op een zaterdagmorgen doe ik boodschappen in de supermarkt.
+    Opeens sta ik bij het botervak en daar zie ik meterslang allemaal van die kuipjes staan,
+    Met van die verleidelijke kleurtjes en met van die verleidelijke naampjes zoals:
+    "Sense", "Twenty Four", "Elmer" en natuurlijk ook "aaah".
+    En dan die ene met die vrolijke spetterende kleurtjes die ze "Lätte" noemen.
+    Maar dan, ik kan mijn ogen niet geloven, durven ze er ook nog eentje "Balade" te noemen...
+    ```
+
+    Schrijf een script om het .txt-bestand te lezen en regel voor regel te printen.
