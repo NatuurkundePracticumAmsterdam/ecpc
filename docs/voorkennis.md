@@ -270,37 +270,36 @@ y = np.sin(x)
 
 ### comprehensions
 
-??? meer-leren "meer leren"
+Door gebruik te maken van een _list comprehension_ kun je de for-loop in één regel opschrijven:
+``` py
+# x = [list of x-values]
+y = [sin(u) for u in x]
+```
+Er is in veel gevallen tegenwoordig geen groot verschil met een for-loop qua snelheid. In andere gevallen is de list comprehension net wat sneller. Als je lijsten niet te lang zijn is het makkelijker (en sneller) om een list comprehension te gebruiken in plaats van je lijst éérst naar een array te veranderen en er dan mee verder te rekenen. Als je lijst wél lang is of je weet al dat je meerdere berekeningen wilt uitvoeren kan dat wel:
+``` py
+# from numpy import sin, array
+# x = [list of x-values]
+x = array(x)
+y = sin(x)
+```
 
-    Door gebruik te maken van een _list comprehension_ kun je de for-loop in één regel opschrijven:
-    ``` py
-    # x = [list of x-values]
-    y = [sin(u) for u in x]
-    ```
-    Er is in veel gevallen tegenwoordig geen groot verschil met een for-loop qua snelheid. In andere gevallen is de list comprehension net wat sneller. Als je lijsten niet te lang zijn is het makkelijker (en sneller) om een list comprehension te gebruiken in plaats van je lijst éérst naar een array te veranderen en er dan mee verder te rekenen. Als je lijst wél lang is of je weet al dat je meerdere berekeningen wilt uitvoeren kan dat wel:
-    ``` py
-    # from numpy import sin, array
-    # x = [list of x-values]
-    x = array(x)
-    y = sin(x)
-    ```
+Kortom: _berekeningen_ met arrays zijn sneller, maar for-loops (en list comprehensions) zijn veelzijdiger. Het is zelfs mogelijk om een `#!py if`-statement op te nemen in je list comprehension. Bijvoorbeeld:
+``` py
+filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
+pdfs = [name for name in filenames if name.endswith(".pdf")]
+# pdfs=['text.pdf', 'manual.pdf']
+```
+In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_[^{}] en _dict comprehensions_.
 
-    Kortom: _berekeningen_ met arrays zijn sneller, maar for-loops (en list comprehensions) zijn veelzijdiger. Het is zelfs mogelijk om een `#!py if`-statement op te nemen in je list comprehension. Bijvoorbeeld:
-    ``` py
-    filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
-    pdfs = [name for name in filenames if name.endswith(".pdf")]
-    # pdfs=['text.pdf', 'manual.pdf']
-    ```
-    In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_[^{}] en _dict comprehensions_.
+[^{}]: Notatie hetzelfde, maar gebruik nu `#!py {`}-haakjes.
 
-    [^{}]: Notatie hetzelfde, maar gebruik nu `#!py {`}-haakjes.
-
-    !!! opdracht-meer "comprehensions"
-        Voer, door een script te schrijven, de volgende opdrachten uit:
-        
-        1. Genereer een lijst van 50 willekeurige _unieke_ én _gehele_ getallen tussen de 0 en de 100.
-        1. Maak een set uit die getallen die deelbaar zijn door 3. Maak gebruik van een `gewone' _for_-loop.
-        1. Maak nogmaals een set van de getallen die deelbaar zijn door 3, maar gebruik daarvoor nu een set comprehension.
+!!! opdracht-basis "array, for-loops en comprehensions"
+    Voer, door een script te schrijven, de volgende opdrachten uit:
+    
+    1. Maak een lijst van de getallen 1 tot en met 10.
+    1. Gebruik een 'gewone' _for_-loop om een lijst te maken van de derdemachtswortel van de getallen.
+    1. Maak nogmaals een lijst van de derdemachtswortel van de getallen maar gebruik nu list comprehension.
+    1. Gebruik tot slot arrays om de lijst met derdemachtswortels van de getallen te maken. 
 
 
 ## Lambda functions
@@ -939,3 +938,22 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
     1. Schrijf een python script waarin je een lijst definieerd met de namen van de maanden.
     1. Print de negende maand.
     1. Voeg een dertiende maand toe aan de lijst.
+
+Bij inleiding programmeren heb je ook geleerd hoe je code netjes opschrijft zodat het leesbaar en begrijpelijk is. Hieronder vind je een samenvatting, die een beetje aangevuld is met ECPC stijl.
+- Je schrijft je code in het Engels.
+- `#!py def functie_namen_met_doel():` Namen van functies mogen lang zijn, maar geven duidelijk weer wat de functie doet.
+- `#!py korte_variabele = 28` de namen van variabele houd je kort en duidelijk. Gebruik alleen afkortingen waarneer deze door veel mensen gekend zijn.
+- Je hoeft de code niet af te drukken dus gebruik liever meer regels dan een hele lange regel waar meer dan 1 ding gebeurd.
+- Gebruik `#!py #commentaar-kopjes` om een stukje code samen te vatten, een waarschuwing te geven, uitleg van complexe algoritmen te doen, voor bronvermelding, uitleg van een variabele te geven en zet dit altijd boven het stukje code waar het omgaat. 
+- Spring in waar nodig, gebruik witregels, zet spaties rondom operatoren.
+
+Ook heb je geleerd om functies uit andere (python) modules te importeren, meer hierover vind je in de [paragraaf _Modules_](voorkennis.md#modules). 
+
+!!! opdracht-basis "
+
+!!! opdracht-basis "Grafieken"
+    Gebruik matplotlib om een scatterplot te maken van twee lijsten die hieronder zijn weergegeven. Zet de grootheden en eenheden bij beide assen en sla het figuur op als .png-bestand.
+    ``` py 
+    time = [0, 0.5, 1, 1.5, 2, 2.5, 3] #seconds
+    distance = [0, 15, 50, 100, 200, 300, 400] #meters
+    ```
