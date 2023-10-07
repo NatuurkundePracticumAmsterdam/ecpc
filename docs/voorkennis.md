@@ -959,12 +959,15 @@ Ook heb je geleerd om functies uit andere (python) modules te importeren, meer h
 !!! opdracht-basis "txt-bestanden lezen"
     Hieronder vind je een verhaal, kopieer de inhoud naar een .txt-bestand en sla deze op een handige plek op.
     ```
-    Op een zaterdagmorgen doe ik boodschappen in de supermarkt.
-    Opeens sta ik bij het botervak en daar zie ik meterslang allemaal van die kuipjes staan,
-    Met van die verleidelijke kleurtjes en met van die verleidelijke naampjes zoals:
-    "Sense", "Twenty Four", "Elmer" en natuurlijk ook "aaah".
-    En dan die ene met die vrolijke spetterende kleurtjes die ze "Lätte" noemen.
-    Maar dan, ik kan mijn ogen niet geloven, durven ze er ook nog eentje "Balade" te noemen...
+    "Do you have a favourite
+    saying?" asked the boy.
+    "Yes" said the mole
+    "What is it?"
+    "If at first you don't 
+    succeed have some cake."
+    "I see, does it work?"
+    "Every time."
+    From: The Boy, the mole, the fox and the Horse - Charlie Mackesy
     ```
 
     Schrijf een script om het .txt-bestand te lezen en regel voor regel te printen.
