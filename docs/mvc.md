@@ -206,13 +206,17 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
     1. Een method `#!py get_powers()` om een lijst vermogens op te vragen, berekend op basis van de metingen.
     1. Een method `#!py clear()` waarmee je alle metingen in één keer kunt wissen.
     
-    Gebruik de geschreven class bijvoorbeeld op de volgende manier:
+    Test je class uitgebreid, je kunt het volgende scriptje als inspiratie gebruiken:
     ``` py
     measurements = ElectronicLoadMeasurements()
     measurements.add_measurement(R=10, U=.5)
     measurements.add_measurement(R=20, U=1.0)
     R = measurements.get_loads()
     # R=[10, 20]
+    U = measurements.get_voltages()
+    # U=[0.5, 1.0]
+    P = measurements.get_powers()
+    # P=[0.025, 0.05]
     I = measurements.get_currents()
     # I=[0.05, 0.05]
     ```
