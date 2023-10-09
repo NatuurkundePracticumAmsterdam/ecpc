@@ -738,14 +738,18 @@ Bespreek met elkaar wat de code precies doet en verplaast de onderdelen naar de 
 <li>Een method <code class="language-py highlight"><span class="n">get_powers</span><span class="p">()</span></code> om een lijst vermogens op te vragen, berekend op basis van de metingen.</li>
 <li>Een method <code class="language-py highlight"><span class="n">clear</span><span class="p">()</span></code> waarmee je alle metingen in één keer kunt wissen.</li>
 </ol>
-<p>Gebruik de geschreven class bijvoorbeeld op de volgende manier:
+<p>Test je class uitgebreid, je kunt het volgende scriptje als inspiratie gebruiken:
 <div class="language-py highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">measurements</span> <span class="o">=</span> <span class="n">ElectronicLoadMeasurements</span><span class="p">()</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">measurements</span><span class="o">.</span><span class="n">add_measurement</span><span class="p">(</span><span class="n">R</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">measurements</span><span class="o">.</span><span class="n">add_measurement</span><span class="p">(</span><span class="n">R</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">measurements</span><span class="o">.</span><span class="n">add_measurement</span><span class="p">(</span><span class="n">R</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">R</span> <span class="o">=</span> <span class="n">measurements</span><span class="o">.</span><span class="n">get_loads</span><span class="p">()</span>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># R=[10, 20]</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">I</span> <span class="o">=</span> <span class="n">measurements</span><span class="o">.</span><span class="n">get_currents</span><span class="p">()</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># I=[0.05, 0.05]</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">U</span> <span class="o">=</span> <span class="n">measurements</span><span class="o">.</span><span class="n">get_voltages</span><span class="p">()</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># U=[0.5, 1.5]</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="n">P</span> <span class="o">=</span> <span class="n">measurements</span><span class="o">.</span><span class="n">get_powers</span><span class="p">()</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="c1"># P=[0.025, 0.1125]</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="n">I</span> <span class="o">=</span> <span class="n">measurements</span><span class="o">.</span><span class="n">get_currents</span><span class="p">()</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="c1"># I=[0.05, 0.075]</span>
 </span></code></pre></div></p>
 </div>
 <h2 id="implementeren-van-mvc">Implementeren van MVC<a class="headerlink" href="#implementeren-van-mvc" title="Permanent link">&para;</a></h2>
