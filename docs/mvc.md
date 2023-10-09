@@ -210,15 +210,19 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
     ``` py
     measurements = ElectronicLoadMeasurements()
     measurements.add_measurement(R=10, U=.5)
-    measurements.add_measurement(R=20, U=1.0)
+    measurements.add_measurement(R=20, U=1.5)
     R = measurements.get_loads()
     # R=[10, 20]
     U = measurements.get_voltages()
-    # U=[0.5, 1.0]
+    # U=[0.5, 1.5]
     P = measurements.get_powers()
-    # P=[0.025, 0.05]
+    # P=[0.025, 0.1125]
     I = measurements.get_currents()
-    # I=[0.05, 0.05]
+    # I=[0.05, 0.075]
+
+
+
+
     ```
 
 
