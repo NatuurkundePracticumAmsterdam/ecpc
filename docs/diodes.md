@@ -2,7 +2,7 @@
 
 In het introductie-experiment meten we de $I,U$-karakteristiek van een LED, een lichtgevende diode. In dit hoofdstuk gaan we iets dieper in op het aspect _diode_.
 
-Uiteindelijk is een diode een eenrichtingsweg voor stroom. Dat wil zeggen: er kan maar in één richting stroom door de diode lopen. De diode heeft een lage weerstand, maar als de polariteit wordt omgedraaid dan is de weerstand plots zeer groot en loopt er nauwelijks stroom. Diodes kunnen bijvoorbeeld gebruikt worden als _gelijkrichter_ waarbij een wisselspanning met een stelsel diodes wordt omgezet in een gelijkspanning. Ook zijn er dus diodes die licht geven. Voor een LED is het vaak niet interessant dat het een stroom maar in één richting doorlaat; het fysisch principe achter een diode zorgt ervoor dat er, in sommige gevallen, zeer energiezuinig licht geproduceerd kan worden.
+Uiteindelijk is een diode een eenrichtingsweg voor stroom. Dat wil zeggen: er kan maar in één richting stroom door de diode lopen. De diode heeft een lage weerstand, maar als de polariteit wordt omgedraaid dan is de weerstand plots zeer groot en loopt er nauwelijks stroom. Diodes kunnen bijvoorbeeld gebruikt worden als _gelijkrichter_ waarbij een wisselspanning met een stelsel diodes wordt omgezet in een gelijkspanning. Ook zijn er dus diodes die licht geven. Het fysisch principe achter een diode zorgt ervoor dat er, in sommige gevallen, zeer energiezuinig licht geproduceerd kan worden.
 
 
 ## Halfgeleiders
@@ -21,7 +21,7 @@ Merk op dat hoewel n-type en p-type halfgeleiders beschikken over respectievelij
 
 ## p-n-overgangen
 
-Wanneer een p-type en een n-type halfgeleider elektrisch contact maken [^halfgeleiders] dan kunnen de elektronen en de gaten elkaar in het midden tegenkomen. Immers, door diffusie verplaatsen de elektronen en gaten zich willekeurig door het materiaal.
+Wanneer een p-type en een n-type halfgeleider elektrisch contact maken[^halfgeleiders] dan kunnen de elektronen en de gaten elkaar in het midden tegenkomen. Immers, door diffusie verplaatsen de elektronen en gaten zich willekeurig door het materiaal.
 
  [^halfgeleiders]: In de praktijk worden er geen twee losse halfgeleiders aan elkaar verbonden maar wordt een enkel siliciumkristal zeer selectief plaatselijk verontreinigd: de ene helft om een p-type te maken, de andere helft om een n-type te maken.
 
@@ -30,7 +30,7 @@ Wanneer een p-type en een n-type halfgeleider elektrisch contact maken [^halfgel
 
 Elektronen (zwart) en gaten (wit) zijn de vrije ladingsdragers in respectievelijk n-type en p-type halfgeleiders. Wanneer beide typen elektrisch contact maken kunnen elektronen en gaten de grenslaag oversteken en _recombineren_.
 
-Het extra elektron kan een tekort aanvullen en alle naburige atomen kunnen zo vier covalente bindingen aangaan. Het elektron en het gat heffen elkaar dus op _recombinatie_. Dit is energetisch voordelig, maar er ontstaat in het midden een _sperlaag_ [^depletion] waar geen vrije ladingsdragers meer aanwezig zijn. Dit betekent echter wel dat de onzuiverheden (ionen!) ervoor zorgen dat het materiaal niet langer neutraal is, maar elektrisch geladen. Waar de elektronen verdwenen zijn blijven positieve ionen achter en omgekeerd voor de gaten. Er ontstaat zo een elektrisch veld dat de elektronen en gaten tegenhoudt. Buiten de sperlaag is er geen elektrisch veld, net als bij een condensator.[^veld] Elektronen en gaten kunnen niet langer de sperlaag oversteken.
+Het extra elektron kan een tekort aanvullen en alle naburige atomen kunnen zo vier covalente bindingen aangaan. Het elektron en het gat heffen elkaar dus op _recombinatie_. Dit is energetisch voordelig, maar er ontstaat in het midden een _sperlaag_[^depletion] waar geen vrije ladingsdragers meer aanwezig zijn. Dit betekent echter wel dat de onzuiverheden (ionen!) ervoor zorgen dat het materiaal niet langer neutraal is, maar elektrisch geladen. Waar de elektronen verdwenen zijn blijven positieve ionen achter en omgekeerd voor de gaten. Er ontstaat zo een elektrisch veld dat de elektronen en gaten tegenhoudt. Buiten de sperlaag is er geen elektrisch veld, net als bij een condensator.[^veld] Elektronen en gaten kunnen niet langer de sperlaag oversteken.
 
 [^depletion]: Engels: _depletion zone_.
 [^veld]: Zie o.a. Giancoli[@Giancoli] voor een beschrijving van het veld van twee vlakke en tegengesteld geladen schijven.
@@ -54,12 +54,12 @@ Wanneer we de polariteit omdraaien en de p-typezijde verbinden aan de _positieve
 
 ### Lichtgevende diode
 
-Wanneer een elektron en een gat elkaar tegenkomen is het energetisch gunstiger om te recombineren. Het elektron bindt zich aan de atomen in het rooster. Hierbij komt dus energie vrij. Meestal is dit in de vorm van roostertrillingen (warmte). Wanneer de materialen goed gekozen worden is het mogelijk om het energieverlies niet dominant via roostertrillingen te laten verlopen, maar via emissie van licht. Bij een doorzichtige halfgeleider kan het licht de grenslaag verlaten en uitgestraald worden. De LEDs die wij gebruiken bestaan uit een heel klein stukje halfgeleidermateriaal in een kegelvormige reflector om het licht naar boven te richting. Het geheel is ter bescherming in kunststof gegoten en de bolvorm zorgt voor een lenseffect om zoveel mogelijk licht in één richting uit te stralen.
+Wanneer een elektron en een gat elkaar tegenkomen is het energetisch gunstiger om te recombineren. Het elektron bindt zich aan de atomen in het rooster. Hierbij komt dus energie vrij. Meestal is dit in de vorm van roostertrillingen (warmte). Wanneer de materialen goed gekozen worden is het mogelijk om het energieverlies niet dominant via roostertrillingen te laten verlopen, maar via emissie van licht. Bij een doorzichtige halfgeleider kan het licht de grenslaag verlaten en uitgestraald worden. De LEDs die wij gebruiken bestaan uit een heel klein stukje halfgeleidermateriaal in een kegelvormige reflector om het licht naar boven te richten. Het geheel is ter bescherming in kunststof gegoten en de bolvorm zorgt voor een lenseffect om zoveel mogelijk licht in één richting uit te stralen.
 
 
 ### De $I,U$-karakteristiek van een diode
 
-Shockley, één van de uitvinders van de transistor, ontwikkelde een model voor p-n-overgangen. Volgens dat model [@Shockley] wordt de stroomsterkte gegeven door
+Shockley, één van de uitvinders van de transistor, ontwikkelde een model voor p-n-overgangen. Volgens dat model[@Shockley] wordt de stroomsterkte gegeven door
 
 <div id="eq:Shockley"></div>
 \begin{equation}
