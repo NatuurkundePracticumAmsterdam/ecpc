@@ -30,7 +30,7 @@ poetry about
 
 ## Nieuw Poetry project
 !!! info
-    We gaan werken met modules en packages. Ben je daar nog niet zo bekent mee, zorg dan dat je [paragraaf _Modules_](voorkennis.md#modules) en [paragraaf _packages_](voorkennis.md#packages) gemaakt hebt.
+    We gaan werken met modules en packages. Ben je daar nog niet zo bekend mee, zorg dan dat je [paragraaf _Modules_](voorkennis.md#modules) en [paragraaf _packages_](voorkennis.md#packages) gemaakt hebt.
 
 Stel je wilt een package schrijven met wat handige functies om veelgebruikte statistische berekeningen makkelijk uit te voeren. Je noemt het `easystat`. Het doel is eerst om het in al je eigen analyses makkelijk te kunnen gebruiken (`#!py import easystat`) maar je wilt het ook op GitHub zetten en wie weet vinden anderen het ook handig! Je wilt het dus ook _netjes_ doen. En niet later van anderen horen: <q>leuk, maar bij mij werkt het niet!</q>
 
@@ -138,8 +138,7 @@ We starten met ons package. Stel, we berekenen vaak de standaarddeviatie van het
         return np.std(values) / np.sqrt(len(values))    
     ```
 
-    [^missende import]: Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import <q>numpy</q> could not be resolved`. Daar moeten we misschien wat mee.
-
+    [^missende import]: Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee en dat gaan we *straks* ook doen.
 
 
 Nu willen we de package `easystat` importeren in een ander script zodat we de functie `stdev_of_mean` daar kunnen gebruiken. We maken een script om onze nieuwe code te testen.[^tests]
@@ -158,7 +157,7 @@ Nu willen we de package `easystat` importeren in een ander script zodat we de fu
 
 In de eerste regel importeren we de functie uit het nieuwe package om uit te proberen. In de laatste regel gebruiken we een handige functie van f-strings.[^f-string-=]
 
-[^f-string-=]: In f-strings kunnen tussen de accolades variabelen of functieaanroepen staan. Voeg daar het `=`-teken aan toe en je krijgt niet alleen de _waarde_, maar ook de variabele of aanroep zelf te zien. Bijvoorbeeld: als je definieert `#!py name = "Alice"`, dan geeft `#!py print(f"{name`")
+[^f-string-=]: In f-strings kunnen tussen de accolades variabelen of functieaanroepen staan. Voeg daar het `=`-teken aan toe en je krijgt niet alleen de _waarde_, maar ook de variabele of aanroep zelf te zien. Bijvoorbeeld: als je definieert `#!py name = "Alice"`, dan geeft `#!py print(f"{name}")` als uitkomst `#!py Alice`. Maar voeg je het `=`-teken toe zoals in `#!py print(f"{name=")}` wordt de uitvoer `#!py name='Alice'`. Je ziet dan dus ook meteen de naam van de variabele en dat kan handig zijn.
 
 !!! opdracht-basis "Script testen"
     Run {{file}}`tests/try_shortcuts.py` en kijk of het script het doet.
@@ -393,6 +392,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
                 tests/
                     __init__.py
                 README.md
+                pyproject.toml
             
 
     1. Maak een script {{file}}`tests/test_imports.py` met de regel:
