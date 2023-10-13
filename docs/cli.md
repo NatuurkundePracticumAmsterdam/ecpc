@@ -546,7 +546,7 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
     Met het commando `scan` wil je een meetserie uitvoeren over een spanningsbereik. De uitvoer is een lijst van metingen van de stroomsterkte door en de spanning over de LED. De gebruiker moet het spanningsbereik (in volt) zelf kunnen kiezen. Geef ook de mogelijkheid de metingen op te slaan als CSV-bestand. Gebruik daarvoor een optie `--output FILENAME`. Wanneer met die optie een bestandsnaam wordt meegegeven sla je de metingen op en anders niet. Als een meting lang duurt is het niet erg als de resultaten pas ná de meting worden weergegeven.
 
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
-    Het is wel fijn om de onzekerheid op de metingen te weten. Bouw een optie in waarmee het aantal herhaalmetingen bij iedere spanning in de meetserie gekozen kan worden. Bereken op basis van de herhaalmetingen de beste schatting van de stoomsterkte en de onzekerheid daarop, en ook voor de spanning over de LED.
+    Als het goed is geeft je programma al een onzekerheid op de metingen terug. Bouw een optie in waarmee het aantal herhaalmetingen gekozen kan worden. Bereken op basis van de herhaalmetingen de beste schatting van de stoomsterkte en de onzekerheid daarop, en ook voor de spanning over de LED.
 
 
 ### Het meetinstrument kiezen
