@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.24)  11 SEP 2023 10:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.24)  13 OCT 2023 17:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -537,7 +537,7 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count303
 \l__pdf_internal_box=\box74
 )
-No file PV-vervang-schakeling.aux.
+(./PV-vervang-schakeling.aux)
 \openout1 = `PV-vervang-schakeling.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
@@ -554,6 +554,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
+
 (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count304
@@ -596,17 +597,17 @@ Missing character: There is no ) in font nullfont!
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 (./PV-vervang-schakeling.aux) ) 
 Here is how much of TeX's memory you used:
- 33845 strings out of 476025
- 895994 string characters out of 5790017
+ 33847 strings out of 476025
+ 896046 string characters out of 5790017
  1860388 words of memory out of 5000000
  53991 multiletter control sequences out of 15000+600000
  515026 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,7n,118p,406b,1013s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,7n,118p,406b,1031s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmr8.pfb>
-Output written on PV-vervang-schakeling.pdf (1 page, 20181 bytes).
+Output written on PV-vervang-schakeling.pdf (1 page, 20210 bytes).
 PDF statistics:
  21 PDF objects out of 1000 (max. 8388607)
  13 compressed objects within 1 object stream

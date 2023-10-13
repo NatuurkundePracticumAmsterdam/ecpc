@@ -840,21 +840,21 @@ Eerst importeren we een paar bibliotheken. Het draait uiteindelijk om de <code c
 <h3 id="de-interface-programmeren">De interface programmeren<a class="headerlink" href="#de-interface-programmeren" title="Permanent link">&para;</a></h3>
 <p>We gaan de eenvoudige interface programmeren die hieronder is weergegeven:</p>
 <div id="fig:screenshot-ui-prog"></div>
-<p><img alt="screenshot eenvoudige GUI" src="../figures/screenshot-ui-prog.png" /></p>
+<p><img alt="screenshot eenvoudige GUI" src="../figures/screenshot-ui-prog.png" style="width:75%" /></p>
 <p>We doen dat door de class <code class="language-py highlight"><span class="n">UserInterface</span></code> uit te breiden met widgets uit de <code class="language-py highlight"><span class="n">QtWidgets</span></code> bibliotheek.</p>
 <p>Het definiëren van layouts gebeurt in veruit de meeste opmaaksystemen met rechthoeken (<em>Engels: boxes</em>) die op verschillende manieren gestapeld worden &mdash; naast elkaar, boven elkaar, of op een rechthoekig grid bijvoorbeeld. Zulke systemen zijn ook <em>hiërarchisch</em>: je stopt boxes in andere boxes.</p>
 <p>De layout van bovenstaande screenshot is als volgt opgebouwd. Het hoofdelement van de grafische interface is de <code>central widget</code>:</p>
 <div id="fig:layout-centerwidget"></div>
-<p><img alt="de central widget" src="../figures/layout-schematic.svg" /></p>
+<p><img alt="de central widget" src="../figures/layout-schematic.svg" style="width:40%" /></p>
 <p>De <code>central widget</code> krijgt een verticale layout die we <code>vbox</code> noemen:</p>
 <div id="fig:layout-vbox"></div>
-<p><img alt="central widget met verticale layout" src="../figures/layout-schematic_p2.svg" /></p>
+<p><img alt="central widget met verticale layout" src="../figures/layout-schematic_p2.svg" style="width:40%" /></p>
 <p>In de verticale layout plaatsen we een <code>textbox</code> en een horizontale layout die we <code>hbox</code> noemen:</p>
 <div id="fig:layout-text-hbox"></div>
-<p><img alt="horizontale layout binnen in de verticale box" src="../figures/layout-schematic_p3.svg" /></p>
+<p><img alt="horizontale layout binnen in de verticale box" src="../figures/layout-schematic_p3.svg" style="width:40%" /></p>
 <p>In de horizontale layout plaatsen we twee <code>button</code>s:</p>
 <div id="fig:layout-buttons"></div>
-<p><img alt="twee knoppen in de horizontale layout" src="../figures/layout-schematic_p4.svg" /></p>
+<p><img alt="twee knoppen in de horizontale layout" src="../figures/layout-schematic_p4.svg" style="width:40%" /></p>
 <p>Het stuk programma om bovenstaande layout op te bouwen geven we hieronder weer. We bespreken straks de code regel voor regel.</p>
 <div id="code:layout"></div>
 
@@ -911,15 +911,15 @@ Eerst importeren we een paar bibliotheken. Het draait uiteindelijk om de <code c
 </span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20"></a>
 </span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21"></a>        <span class="n">clear_button</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Clear&quot;</span><span class="p">)</span>
 </span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22"></a>        <span class="n">hbox</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">clear_button</span><span class="p">)</span>
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23"></a>        <span class="n">add_button</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Add text&quot;</span><span class="p">)</span>
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24"></a>        <span class="n">hbox</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">add_button</span><span class="p">)</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23"></a>        <span class="n">add_text_button</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Add text&quot;</span><span class="p">)</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24"></a>        <span class="n">hbox</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">add_text_button</span><span class="p">)</span>
 </span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25"></a>
 </span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26"></a>        <span class="c1"># Slots and signals</span>
 </span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27"></a>        <span class="n">clear_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">textedit</span><span class="o">.</span><span class="n">clear</span><span class="p">)</span>
-</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28"></a>        <span class="n">add_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">add_button_clicked</span><span class="p">)</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28"></a>        <span class="n">add_text_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">add_text_button_clicked</span><span class="p">)</span>
 </span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29"></a>
 </span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30"></a>    <span class="nd">@Slot</span><span class="p">()</span>
-</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31"></a>    <span class="k">def</span> <span class="nf">add_button_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31"></a>    <span class="k">def</span> <span class="nf">add_text_button_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">textedit</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;You clicked me.&quot;</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
 Allereerst definiëren we een <code>__init__()</code>. Helaas gaat dat niet zomaar. We schrijven namelijk <em>niet</em> helemaal zelf een nieuwe class (<code class="language-py highlight"><span class="k">class</span> <span class="nc">UserInterface</span></code>), maar breiden de <code class="language-py highlight"><span class="n">QMainWindow</span></code>-class uit (<code class="language-py highlight"><span class="k">class</span> <span class="nc">UserInterface</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">)</span></code>). Door dat te doen zijn er heel veel methods al voor ons gedefinieerd. Daar hoeven we verder niet over na te denken, onze interface <q>werkt gewoon</q>. Het gaat mis als wij zelf nieuwe methods gaan schrijven die dezelfde naam hebben. Stel dat de <em>parent class</em> <code class="language-py highlight"><span class="n">QMainWindow</span></code> een method <code class="language-py highlight"><span class="n">click_this_button</span><span class="p">()</span></code> heeft. Als onze class <em>ook</em> een method <code class="language-py highlight"><span class="n">click_this_button</span><span class="p">()</span></code> heeft, dan zal <em>die</em> worden aangeroepen in plaats van de method uit de parent class. Dat is handig als je de parent method wilt vervangen maar niet zo handig als je de parent method wilt <em>aanvullen</em>, zoals nodig is bij <code>__init__()</code>. Immers, we willen onze eigen class initialiseren, maar we willen ook dat de parent class volledig wordt geïnitialiseerd.</p>
@@ -1138,14 +1138,14 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
 </span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">plot_widget</span><span class="o">.</span><span class="n">setLabel</span><span class="p">(</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="s2">&quot;sin(x)&quot;</span><span class="p">)</span>
 </span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">plot_widget</span><span class="o">.</span><span class="n">setLabel</span><span class="p">(</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span> <span class="s2">&quot;x [radians]&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-Je kunt uiteraard spelen met de instellingen zoals <code class="language-py highlight"><span class="n">symbol</span></code> en <code class="language-py highlight"><span class="n">pen</span></code>, of je laat ze weg. Leeg maken kan met <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">plot_widget</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></code>.</p>
+Je kunt uiteraard spelen met de instellingen zoals <code class="language-py highlight"><span class="n">symbol</span></code> en <code class="language-py highlight"><span class="n">pen</span></code> om te zien wat ze doen. Leeg maken kan met <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">plot_widget</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></code>.</p>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Functieplotter: plot</p>
-<p>Schrijf een script en ontwerp een (eenvoudige!) grafische interface waarmee je de functie $\sin(x)$ plot in het domein $(-\pi, \pi)$. De <q>applicatie</q> hoeft verder niets te kunnen.</p>
+<p>Schrijf een script en ontwerp een (eenvoudige!) grafische interface waarmee je de functie $\sin(x)$ plot in het domein $(0, 2\pi)$. De <q>applicatie</q> hoeft verder niets te kunnen.</p>
 </div>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Functieplotter: knoppen</p>
-<p>Voeg knoppen toe om het domein aan te passen. Maak bijvoorbeeld een <code>start</code> die mag lopen van 0 tot 100. Maak ook een <code>stop</code> en een <code>numpoints</code> om het aantal punten te kiezen. Kies daarvoor ook een handige standaardwaarde. Zorg ervoor dat als je de waardes aanpast dat de functie automatisch opnieuw wordt geplot.</p>
+<p>Voeg knoppen toe om het domein aan te passen. Maak bijvoorbeeld een <code>start</code>, een <code>stop</code> en een <code>numpoints</code> om het aantal punten te kiezen. Kies daarvoor ook een handige standaardwaarde. Zorg ervoor dat als je de waardes aanpast dat de functie automatisch opnieuw wordt geplot.</p>
 </div>
 <details class="opdracht-meer">
 <summary>Functieplotter: functie kiezen drop-down menu</summary>
