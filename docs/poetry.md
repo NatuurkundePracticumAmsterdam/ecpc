@@ -419,8 +419,8 @@ Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we
                 __init__.py
                 square.py
                 count_count.py
-            tests/
-                __init__.py
+        tests/
+            __init__.py
         pyproject.toml
         README.md
 
@@ -443,7 +443,7 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
 
     1. Ga naar {{github}}`AnneliesVlaar/just_count` en [open de repository in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en daarna in Visual Studio Code.
     1. Maak een nieuwe conda environment met python 3.9, activeer deze en installeer de `just_count` package.
-    1. Open {{file}}`src/just_count/count_count.py` en voeg een functie `#!py def main()` toe die de wortel van 5 print.
+    1. Open {{file}}`src/just_count/count_count.py` en voeg een functie `#!py def main()` toe die het kwadraat van 5 print.
     ``` py title="count_count.py"
     import square
 
