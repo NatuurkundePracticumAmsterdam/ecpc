@@ -113,15 +113,15 @@ class UserInterface(QtWidgets.QMainWindow):
 
         clear_button = QtWidgets.QPushButton("Clear")
         hbox.addWidget(clear_button)
-        add_button = QtWidgets.QPushButton("Add text")
-        hbox.addWidget(add_button)
+        add_text_button = QtWidgets.QPushButton("Add text")
+        hbox.addWidget(add_text_button)
 
         # Slots and signals
         clear_button.clicked.connect(self.textedit.clear)
-        add_button.clicked.connect(self.add_button_clicked)
+        add_text_button.clicked.connect(self.add_text_button_clicked)
 
     @Slot()
-    def add_button_clicked(self):
+    def add_text_button_clicked(self):
         self.textedit.append("You clicked me.")
 ```
 Allereerst definiëren we een `__init__()`. Helaas gaat dat niet zomaar. We schrijven namelijk _niet_ helemaal zelf een nieuwe class (`#!py class UserInterface`), maar breiden de `#!py QMainWindow`-class uit (`#!py class UserInterface(QtWidgets.QMainWindow)`). Door dat te doen zijn er heel veel methods al voor ons gedefinieerd. Daar hoeven we verder niet over na te denken, onze interface <q>werkt gewoon</q>. Het gaat mis als wij zelf nieuwe methods gaan schrijven die dezelfde naam hebben. Stel dat de _parent class_ `#!py QMainWindow` een method `#!py click_this_button()` heeft. Als onze class _ook_ een method `#!py click_this_button()` heeft, dan zal _die_ worden aangeroepen in plaats van de method uit de parent class. Dat is handig als je de parent method wilt vervangen maar niet zo handig als je de parent method wilt _aanvullen_, zoals nodig is bij `__init__()`. Immers, we willen onze eigen class initialiseren, maar we willen ook dat de parent class volledig wordt geïnitialiseerd.
