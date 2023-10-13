@@ -10,7 +10,7 @@ Deze opdracht is vergelijkbaar met wat we tot nu toe hebben gedaan. We gaan wede
 In de figuur hieronder is de equivalente schakeling die we gaan bouwen weergegeven.
 
 <div id="fig:pv-equivalente-schakeling"></div>
-![Equivalente schakeling zonnepaneel](figures/PV-vervang-schakeling.svg)
+![Equivalente schakeling zonnepaneel](figures/PV-vervang-schakeling.svg){: style="width:75%"}
 
 We gebruiken een variabele weerstand $R_\text{var}$ om de belasting van het zonnepaneel te variëren. Deze is in serie geschakeld met een stroomsterktemeter om de stroomsterkte door het circuit te meten. Parallel is een spanningsmeter geschakeld waarmee we de spanning die geleverd wordt door het zonnepaneel kunnen meten.
 
@@ -21,9 +21,9 @@ Merk op dat onze Arduino geen stroomsterktemeter heeft. We zullen dus de spannin
 
 De schakeling voor onze Arduino is weergegeven in de figuur hieronder. Hier belasten we het zonnepaneel met een MOSFET. In serie hiermee staat een kleine weerstand van 4.7 &Omega; waarover we de spanning meten ten behoeve van de bepaling van de stroomsterkte. De pin van de Arduino die verbonden is met de _gate_ van de MOSFET is beschermd met een weerstand van 1 k&Omega;. Dit is belangrijk, want wanneer er een spanning gezet wordt op de gate kan er kortdurend een vrij grote stroom lopen. De gate gedraagt zich als een kleine capaciteit. Parallel aan de MOSFET + weerstand is een 3:1 spanningsdeler geschakeld met weerstanden van 2 M&Omega; en 1 M&Omega;. 
 
-![Schakeling zonnepaneel](figures/PV-schakeling.svg)
+![Schakeling zonnepaneel](figures/PV-schakeling.svg){: style="width:75%"}
 
 In de figuur hieronder is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld. Aan de linkerkant van het breadboard is de serieschakeling van de MOSFET met de kleine weerstand geplaatst. De pinnen van de MOSFET zijn van boven naar beneden de gate, de drain (+) en de source (-). De rechterkant bevat de spanningsdeler. Het zonnepaneel zelf wordt aan de $+$ en $-$ power rails aan de rechterkant van het bord geschakeld (de twee pinnen rechtsboven, zonnepaneel niet weergegeven). 
 
 <div id="fig:arduino-PV-breadboard"></div>
-![Arduinoschakeling zonnepaneel](figures/PV-measurement_bb.svg)
+![Arduinoschakeling zonnepaneel](figures/PV-measurement_bb.svg){: style="width:50%"}

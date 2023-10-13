@@ -26,7 +26,7 @@ Wanneer een p-type en een n-type halfgeleider elektrisch contact maken[^halfgele
  [^halfgeleiders]: In de praktijk worden er geen twee losse halfgeleiders aan elkaar verbonden maar wordt een enkel siliciumkristal zeer selectief plaatselijk verontreinigd: de ene helft om een p-type te maken, de andere helft om een n-type te maken.
 
 <div id="fig:pn-begin"></div>
-![pn-begin](figures/p-n-overgang.svg)
+![pn-begin](figures/p-n-overgang.svg){: style="width:75%"}
 
 Elektronen (zwart) en gaten (wit) zijn de vrije ladingsdragers in respectievelijk n-type en p-type halfgeleiders. Wanneer beide typen elektrisch contact maken kunnen elektronen en gaten de grenslaag oversteken en _recombineren_.
 
@@ -36,7 +36,7 @@ Het extra elektron kan een tekort aanvullen en alle naburige atomen kunnen zo vi
 [^veld]: Zie o.a. Giancoli[@Giancoli] voor een beschrijving van het veld van twee vlakke en tegengesteld geladen schijven.
 
 <div id="fig:pn-evenwicht"></div>
-![pn-evenwicht](figures/p-n-overgang_p2.svg)
+![pn-evenwicht](figures/p-n-overgang_p2.svg){: style="width:75%"}
 
 Na recombinatie van elektronen (zwart) en gaten (wit) ontstaat er een _sperlaag_ waar geen vrije ladingsdragers meer aanwezig zijn. De gedoteerde atomen vormen ionen in het rooster en er onstaat een postief geladen gebied en een negatief geladen gebied. Buiten de sperlaag is geen veld aanwezig, net als bij een condensator. Het resulterende elektrisch veld remt eerst en stopt uiteindelijk de diffusie van de elektronen en gaten. Er ontstaat een evenwicht waarbij vrije ladingsdragers de grenslaag niet meer kunnen oversteken.
 
@@ -74,6 +74,6 @@ met $k$ de constante van Boltzmann, $T$ de temperatuur van het materiaal en $q$ 
 [^minority]: Engels: _minority charge carriers._ 
 
 <div id="fig:diodestroom"></div>
-![diodestroom](figures/diodestroom.svg)
+![diodestroom](figures/diodestroom.svg){: style="width:75%"}
 
 De stroom door een diode ten gevolge van de spanning over de diode.
