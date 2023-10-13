@@ -10,7 +10,7 @@ Deze opdracht is vergelijkbaar met wat we tot nu toe hebben gedaan. We gaan wede
 In de figuur hieronder is de equivalente schakeling die we gaan bouwen weergegeven.
 
 <div id="fig:pv-equivalente-schakeling"></div>
-![Equivalente schakeling zonnepaneel](figures/PV-vervang-schakeling.svg){: style="width:75%"}
+![Equivalente schakeling zonnepaneel](figures/PV-vervang-schakeling.svg){: style="width:60%"}
 
 We gebruiken een variabele weerstand $R_\text{var}$ om de belasting van het zonnepaneel te variëren. Deze is in serie geschakeld met een stroomsterktemeter om de stroomsterkte door het circuit te meten. Parallel is een spanningsmeter geschakeld waarmee we de spanning die geleverd wordt door het zonnepaneel kunnen meten.
 
