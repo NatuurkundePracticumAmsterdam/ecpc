@@ -219,10 +219,6 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
     # P=[0.025, 0.1125]
     I = measurements.get_currents()
     # I=[0.05, 0.075]
-
-
-
-
     ```
 
 
