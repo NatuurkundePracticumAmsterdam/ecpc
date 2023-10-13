@@ -132,7 +132,7 @@ PS> python hello.py --help
 Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij _opties_ is dat anders. Je geeft met mintekens aan dat je een optie meegeeft. Veel opties hebben een lange naam en een afkorting (bijvoorbeeld `--count` en `-c`). Opties kunnen zelf weer een argument hebben (bijvoorbeeld `--count 3`). Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag] Het is handig om een standaardwaarde te definiëren. In dat geval mag de gebruiker de optie weglaten. We voegen een for-loop[^weggooivariabele] toe om de begroeting te herhalen.
 
 [^flag]: Gebruik forward slash om een vlaggetje te maken: `#!py @click.option("-f", "--flag/--no-flag`
-[^weggooivariabele]: Merk op in de code hieronder: `#!py _` is de weggooivariabele in Python. Het gaat ons erom dat de lus een aantal keer doorlopen wordt en we hoeven niets te doen met de loop index.
+[^weggooivariabele]: Merk op in de code hieronder: `#!py _` is de weggooivariabele in Python. Het gaat ons erom dat de loop een aantal keer doorlopen wordt en we hoeven niets te doen met de loop index.
 
 ``` py title="hello.py" hl_lines="5-9 11"
 import click
@@ -529,8 +529,13 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
 !!! opdracht-inlever "Pythondaq: commando's"
 
     1. Maak een nieuw bestand {{file}}`src/pythondaq/cli.py`.
-    1. Maak een `#!py @click.group()` aan en voeg de subcommando's `list` en `scan` daaraan toe. Laat de commando's voorlopig alleen tekst printen. Merk op dat `#!py list()` een Pythonfunctie is.[^cmd_name]
-    1. Zorg dat je de command-line applicatie met een commando in de terminal kunt aanroepen, inclusief de subcommando's `list` en `scan`.
+    1. Maak een `#!py @click.group()` aan en voeg de subcommando's `list` en `scan` daaraan toe. Laat de commando's voorlopig alleen een willekeurige korte tekst printen; ze hoeven nu nog niet echt iets te doen. Merk op dat `#!py list()` een Pythonfunctie is, dus daar moet je misschien nog iets mee.[^cmd_name]
+    1. Zorg dat je de command-line applicatie met de naam `diode` in de terminal kunt aanroepen, inclusief de subcommando's `list` en `scan`, dus bijvoorbeeld:
+
+        ``` ps1con title="Terminal"
+        PS> diode list
+        List, dit moet ik later nog afmaken.
+        ```
     
 [^cmd_name]: Zie ook de waarschuwing op [warn:cmd_name](#warn:cmd_name)
 
@@ -543,7 +548,11 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
     Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen 0 en 3.3 V. Je kunt dit doen door de `#!py type`-parameter in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven (bijvoorbeeld: `#!py type=int` of `#!py type=float`) en Click heeft speciale types zoals `#!py type=click.FloatRange(0, 3.3)` voor een kommagetal tussen 0 en 3.3. Bekijk alle speciale types in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types). Als je hiervan gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat voor je.
 
 !!! opdracht-inlever "Pythondaq: `scan`"
-    Met het commando `scan` wil je een meetserie uitvoeren over een spanningsbereik. De uitvoer is een lijst van metingen van de stroomsterkte door en de spanning over de LED. De gebruiker moet het spanningsbereik (in volt) zelf kunnen kiezen. Geef ook de mogelijkheid de metingen op te slaan als CSV-bestand. Gebruik daarvoor een optie `--output FILENAME`. Wanneer met die optie een bestandsnaam wordt meegegeven sla je de metingen op en anders niet. Als een meting lang duurt is het niet erg als de resultaten pas ná de meting worden weergegeven.
+    Met het commando `scan` wil je een meetserie uitvoeren over een spanningsbereik. Als een meting lang duurt is het niet erg als de resultaten pas ná de meting worden weergegeven. Je applicatie moet straks het volgende kunnen:
+    
+    1. Print een lijst van metingen van de stroomsterkte dóór en de spanning óver de LED.
+    1. De gebruiker moet het spanningsbereik (in volt) zelf kunnen opgeven met argumenten of opties.
+    1. Geef ook de mogelijkheid de metingen op te slaan als CSV-bestand. Gebruik daarvoor een optie `--output FILENAME`. Wanneer met die optie een bestandsnaam wordt meegegeven sla je de metingen op en anders niet.
 
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
     Als het goed is geeft je programma al een onzekerheid op de metingen terug. Bouw een optie in waarmee het aantal herhaalmetingen gekozen kan worden. Bereken op basis van de herhaalmetingen de beste schatting van de stoomsterkte en de onzekerheid daarop, en ook voor de spanning over de LED.
@@ -558,12 +567,13 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
 
 !!! opdracht-inlever "Pythondaq: choose device"
-    Pas het commando `scan` aan zodat je de naam van een device moet meegeven.
-    Zorg dat het gekozen device ook daadwerkelijk wordt gebruikt in het model en de controller.
+    Pas het commando `scan` aan zodat je de poortnaam van een device kunt meegeven. Zorg dat het gekozen device ook daadwerkelijk wordt gebruikt in het model en de controller. Als je géén poortnaam opgeeft, geef dan een foutmelding.
 
 
 !!! opdracht-inlever "Pythondaq: `info`"
-    Maak een commando `info` waarmee je de identificatiestring van een opgegeven instrument opvraagt en weergeeft. Je kunt het instrument met een optie of argument meegeven.
+    Maak een commando `info` waarmee je de identificatiestring[^identificatie] van een opgegeven instrument opvraagt en weergeeft. Je kunt het instrument met een optie of argument meegeven.
+
+    [^identificatie]: De identificatiestring van onze Arduino was `Arduino VISA firmware v1.0.0`. Je moet natuurlijk niet letterlijk deze string copy/pasten, maar de identificatie opvragen van het instrument. Welk firmwarecommando moest je daarvoor ook alweer gebruiken?
 
 
 !!! opdracht-inlever "Pythondaq: Helpteksten"
