@@ -310,14 +310,14 @@ class UserInterface(QtWidgets.QMainWindow):
         self.plot_widget.setLabel("left", "sin(x)")
         self.plot_widget.setLabel("bottom", "x [radians]")
 ```
-Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen`, of je laat ze weg. Leeg maken kan met `#!py self.plot_widget.clear()`.
+Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` om te zien wat ze doen. Leeg maken kan met `#!py self.plot_widget.clear()`.
 
 !!! opdracht-inlever "Functieplotter: plot"
-    Schrijf een script en ontwerp een (eenvoudige!) grafische interface waarmee je de functie $\sin(x)$ plot in het domein $(-\pi, \pi)$. De <q>applicatie</q> hoeft verder niets te kunnen.
+    Schrijf een script en ontwerp een (eenvoudige!) grafische interface waarmee je de functie $\sin(x)$ plot in het domein $(0, 2\pi)$. De <q>applicatie</q> hoeft verder niets te kunnen.
 
 
 !!! opdracht-inlever "Functieplotter: knoppen"
-    Voeg knoppen toe om het domein aan te passen. Maak bijvoorbeeld een `start` die mag lopen van 0 tot 100. Maak ook een `stop` en een `numpoints` om het aantal punten te kiezen. Kies daarvoor ook een handige standaardwaarde. Zorg ervoor dat als je de waardes aanpast dat de functie automatisch opnieuw wordt geplot.
+    Voeg knoppen toe om het domein aan te passen. Maak bijvoorbeeld een `start`, een `stop` en een `numpoints` om het aantal punten te kiezen. Kies daarvoor ook een handige standaardwaarde. Zorg ervoor dat als je de waardes aanpast dat de functie automatisch opnieuw wordt geplot.
 
 
 ??? opdracht-meer "Functieplotter: functie kiezen drop-down menu"
