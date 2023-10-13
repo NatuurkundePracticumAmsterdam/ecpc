@@ -16,7 +16,7 @@ PS> python script.py
 Als eerste vertel je welke applicatie je wilt gaan starten; in dit geval: `python`. Daarna geef je met het _argument_ `script.py` aan welk Pythonscript je wilt uitvoeren. Vaak kun je ook _opties_ meegeven zoals in:
 ``` ps1con title="Terminal"
 PS> python -V
-Python 3.9.13
+Python 3.10.13
 ```
 Hiermee vraag je Python om het versienummer weer te geven. Soms kunnen _opties_ zelf weer een _argument_ meekrijgen. Bijvoorbeeld:
 ``` ps1con title="Terminal"

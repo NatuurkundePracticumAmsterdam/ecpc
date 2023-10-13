@@ -95,15 +95,7 @@ build-backend = "poetry.core.masonry.api"
 
 [^setup.py]: Vroeger was er een `setup.py` maar Python schakelt nu langzaam over naar dit nieuwe bestand.
 
-Het bestand is in het TOML-formaat.[@TOML] Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. Overal zie je `poetry` terugkomen, want dat is de tool die wij gebruiken. In de eerste sectie staat informatie over ons project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. De tweede sectie bevat de _dependencies_. Dit zijn alle Pythonpackages die ons project nodig heeft. Op dit moment is dat alleen maar Python. Ook het versienummer van Python is belangrijk. Hier is dat 3.10 en het dakje geeft aan dat nieuwere versies 3.11, 3.12, enz. ook prima zijn, maar 3.9 (te oud) 4.0 (te nieuw) _niet_. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python &mdash; bijvoorbeeld versie 3.9 &mdash; kunnen nu het package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.10 nodig hebt kun je aangeven dat een iets oudere versie van Python ook prima is.
-
-!!! opdracht-basis "Dependency python aanpassen"
-    
-    1. Open het bestand {{file}}`pyproject.toml`
-    1. Verander bij de dependencies voor python `^3.10` in `^3.9`.
-    
-
-
+Het bestand is in het TOML-formaat.[@TOML] Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. Overal zie je `poetry` terugkomen, want dat is de tool die wij gebruiken. In de eerste sectie staat informatie over ons project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. De tweede sectie bevat de _dependencies_. Dit zijn alle Pythonpackages die ons project nodig heeft. Op dit moment is dat alleen maar Python. Ook het versienummer van Python is belangrijk. Hier is dat 3.10 en het dakje geeft aan dat nieuwere versies 3.11, 3.12, enz. ook prima zijn, maar 3.9 (te oud) 4.0 (te nieuw) _niet_. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python &mdash; bijvoorbeeld versie 3.9 &mdash; kunnen nu het package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.10 nodig hebt kun je aangeven dat een iets oudere versie van Python ook prima is. Op dit moment &mdash; herfst 2023 &mdash; is Python 3.12 de nieuwste versie. Het is dus prima om minimaal 3.10 te vragen &mdash; die versie is inmiddels twee jaar oud.
 
 
 ### Environment aanmaken
@@ -116,7 +108,7 @@ Bij het schrijven van een nieuw package is het zéker belangrijk om een environm
     1. Open in Visual Studio Code de _project_-map {{github}}`easystat`
     1. Open een terminal en maak een easystat conda environment aan:
             ``` ps1 title="Terminal"
-            conda create -n easystat python=3.9
+            conda create -n easystat python=3.10
             ```
     1. Selecteer dit nieuwe conda environment in Visual Studio Code.
     
@@ -241,7 +233,7 @@ Fijn! Als je nu de {{file}}`pyproject.toml` nog eens bekijkt zie je dat NumPy da
 
     !!! opdracht-meer "Schone environment"
 
-        1. Maak een schone conda environment met `PS> conda create -n easystat python=3.9`
+        1. Maak een schone conda environment met `PS> conda create -n easystat python=3.10`
         1. Kies voor ja als Conda een waarschuwing geeft dat deze environment al bestaat en vraagt of je het bestaande environment wilt verwijderen.
         1. Draai {{file}}`tests/try_shortcuts.py` en bekijk de foutmelding.
         
@@ -283,7 +275,7 @@ Fijn! Als je nu de {{file}}`pyproject.toml` nog eens bekijkt zie je dat NumPy da
 
         1. Maak een nieuwe conda environment aan met de naam `test-wheel` en activeer deze.
                 ``` ps1con title="Terminal"
-                PS> conda create -n test-wheel python=3.9
+                PS> conda create -n test-wheel python=3.10
                 ...
                 PS> conda activate test-wheel
                 ```
@@ -309,7 +301,7 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
 !!! info
     Als je al bezig bent met een project dan werk je als het goed is al in een conda environment. Daar heb je dan met `conda install` al packages geïnstalleerd die je nodig hebt. Het gebeurt dan makkelijk dat je vergeet om dat aan te geven met `poetry add`. Dat betekent alleen dat als iemand anders je package installeert dat er dependencies missen en dat jouw code dus _niet_ werkt! Dit is makkelijk op te lossen. Zodra je Poetry gaat gebruiken _wis dan je environment en maak een nieuwe aan met alleen Python._ Dat gaat het makkelijkst als volgt. Stel dat je bezig bent in het environment `pythondaq`. We maken dan een nieuw environment met dezelfde naam:
     ``` ps1 title="Terminal"
-    conda create -n pythondaq python=3.9
+    conda create -n pythondaq python=3.10
     WARNING: A conda environment already exists at '/Users/david/opt/anaconda3/envs/pythondaq'
     Remove existing environment (y/[n])? y
 
@@ -325,9 +317,9 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
     1. Kopieer uit de {{github}}`Oefenopdrachten` die je bij [opdracht _Repository toevoegen_](github.md#opd:add_repository) hebt aangemaakt het scriptje uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) naar {{folder}}`src/flasher`.
     1. Open {{github}}`flasher` in Visual Studio Code.
     1. Commit alles dat je tot nu toe gedaan hebt.
-    1. Open een terminal. Maak een nieuwe conda environment met alleen python 3.9:
+    1. Open een terminal. Maak een nieuwe conda environment met alleen python 3.10:
         ``` ps1 title="Terminal"
-        conda create -n flasher python=3.9
+        conda create -n flasher python=3.10
         ```
         en maak dat actief in Visual Studio Code.
     1. Voer dan het volgende commando uit:
@@ -380,7 +372,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
     Gebruik Poetry om `pythondaq` als package te installeren, als volgt:
 
     1. Ga in Visual Studio Code naar {{github}}`pythondaq`. Open een terminal.
-    1. Overschrijf je conda environment zodat hij weer leeg is (met alleen `python=3.9`).
+    1. Overschrijf je conda environment zodat hij weer leeg is (met alleen `python=3.10`).
     1. Initialiseer Poetry, zodat een {{file}}`pyproject.toml` wordt aangemaakt.
     1. Installeer je package.
     1. Test je {{file}}`view.py` script, terwijl je dependencies toevoegt die je in je scripts nodig hebt.
@@ -442,7 +434,7 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
 !!! opdracht-basis "Main functie toevoegen"
 
     1. Ga naar {{github}}`AnneliesVlaar/just_count` en [open de repository in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en daarna in Visual Studio Code.
-    1. Maak een nieuwe conda environment met python 3.9, activeer deze en installeer de `just_count` package.
+    1. Maak een nieuwe conda environment met python 3.10, activeer deze en installeer de `just_count` package.
     1. Open {{file}}`src/just_count/count_count.py` en voeg een functie `#!py def main()` toe die het kwadraat van 5 print.
     ``` py title="count_count.py"
     import square
