@@ -479,270 +479,271 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
 
 ## Meerdere dingen tegelijkertijd: threads
 
-Afhankelijk van de instellingen die we gekozen hebben kan een meting best lang duren. In ieder geval moeten we even wachten tot de meting afgelopen is en pas daarna krijgen we de resultaten te zien in een plot. Als een meting langer duurt dan een paar seconden kan het besturingssysteem zelfs aangeven dat onze applicatie niet meer reageert. En inderdaad, als we ondertussen op knoppen proberen te drukken dan reageert hij nergens op. Onze applicatie kan helaas niet twee dingen tegelijk. Kon hij dat wel, dan zouden we zien hoe de grafiek langzaam opbouwt tot het eindresultaat.
+??? meer-leren "meer-leren"
+    Afhankelijk van de instellingen die we gekozen hebben kan een meting best lang duren. In ieder geval moeten we even wachten tot de meting afgelopen is en pas daarna krijgen we de resultaten te zien in een plot. Als een meting langer duurt dan een paar seconden kan het besturingssysteem zelfs aangeven dat onze applicatie niet meer reageert. En inderdaad, als we ondertussen op knoppen proberen te drukken dan reageert hij nergens op. Onze applicatie kan helaas niet twee dingen tegelijk. Kon hij dat wel, dan zouden we zien hoe de grafiek langzaam opbouwt tot het eindresultaat.
 
-De manier waarop besturingssystemen meerdere dingen tegelijk doen is gebaseerd op _processes_ en _threads_. Een _process_ is, eenvoudig gezegd, een programma. Als je meerdere applicaties opstart zijn dat allemaal processen. Besturingssystemen regelen dat ieder proces een stuk geheugen krijgt en tijd van de processor krijgt toegewezen om zijn werk te doen. Processen zijn mooi gescheiden en kunnen dus eenvoudig naast elkaar draaien. Het wordt iets lastiger als een _proces_ meerdere dingen tegelijk wil doen. Dat kan wel, met _threads_. Het besturingssysteem zorgt dat meerdere threads naast elkaar draaien.[^threads-parallel]
+    De manier waarop besturingssystemen meerdere dingen tegelijk doen is gebaseerd op _processes_ en _threads_. Een _process_ is, eenvoudig gezegd, een programma. Als je meerdere applicaties opstart zijn dat allemaal processen. Besturingssystemen regelen dat ieder proces een stuk geheugen krijgt en tijd van de processor krijgt toegewezen om zijn werk te doen. Processen zijn mooi gescheiden en kunnen dus eenvoudig naast elkaar draaien. Het wordt iets lastiger als een _proces_ meerdere dingen tegelijk wil doen. Dat kan wel, met _threads_. Het besturingssysteem zorgt dat meerdere threads naast elkaar draaien.[^threads-parallel]
 
-[^threads-parallel]: Er is een subtiliteit. In Python draaien threads _niet_ tegelijk, maar om de beurt. In de praktijk merk je daar niet veel van: threads worden zó vaak per seconde gewisseld dat het _lijkt_ alsof ze tegelijk draaien. Terwijl de ene thread steeds even tijd krijgt voor een meting kan de andere thread steeds even de plot verversen. In het geval van zwaar rekenwerk schiet het alleen niet op. Er draait maar één berekening tegelijkertijd dus threads of niet, het is even snel. Wil je _echt_ parallel rekenen, dan moet je kijken naar de `multiprocessing` module om meerdere processen te starten in plaats van threads.
+    [^threads-parallel]: Er is een subtiliteit. In Python draaien threads _niet_ tegelijk, maar om de beurt. In de praktijk merk je daar niet veel van: threads worden zó vaak per seconde gewisseld dat het _lijkt_ alsof ze tegelijk draaien. Terwijl de ene thread steeds even tijd krijgt voor een meting kan de andere thread steeds even de plot verversen. In het geval van zwaar rekenwerk schiet het alleen niet op. Er draait maar één berekening tegelijkertijd dus threads of niet, het is even snel. Wil je _echt_ parallel rekenen, dan moet je kijken naar de `multiprocessing` module om meerdere processen te starten in plaats van threads.
 
-Threads geven vaak problemen omdat ze in zekere zin onvoorspelbaar zijn. Je weet niet precies hoe <q>snel</q> een thread draait, dus je weet niet zeker wat er in welke volgorde gebeurt. Dit kan leiden tot problemen waarvan de oorzaak maar lastig te vinden is. Google maar eens op `thread problems in programming`. We moeten dus voorzichtig zijn! Ook is het ombouwen van code zonder threads naar code met threads een klus waar makkelijk iets fout gaat. Het is dus belangrijk dat je _in kleine stapjes_ je code aanpast en _vaak test_ of het nog werkt.
+    Threads geven vaak problemen omdat ze in zekere zin onvoorspelbaar zijn. Je weet niet precies hoe <q>snel</q> een thread draait, dus je weet niet zeker wat er in welke volgorde gebeurt. Dit kan leiden tot problemen waarvan de oorzaak maar lastig te vinden is. Google maar eens op `thread problems in programming`. We moeten dus voorzichtig zijn! Ook is het ombouwen van code zonder threads naar code met threads een klus waar makkelijk iets fout gaat. Het is dus belangrijk dat je _in kleine stapjes_ je code aanpast en _vaak test_ of het nog werkt.
 
-!!! info
-    We gaan in het volgende stuk een kleine applicatie ombouwen van <q>no-threads</q> naar <q>threads</q>. We raden je ten zeerste aan om de code te copy/pasten en dan stapje voor stapje aan te passen zoals in de handleiding gebeurt. _Probeer alle stappen dus zelf!_ Pas _na stap 4_ ga je aan de slag om je eigen code om te bouwen. Samenvattend: doorloop dit stuk handleiding _twee keer_. De eerste keer doe je de opdrachten met het demoscript, de tweede keer met je eigen code voor {{github}}`pythondaq`.
+    !!! info
+        We gaan in het volgende stuk een kleine applicatie ombouwen van <q>no-threads</q> naar <q>threads</q>. We raden je ten zeerste aan om de code te copy/pasten en dan stapje voor stapje aan te passen zoals in de handleiding gebeurt. _Probeer alle stappen dus zelf!_ Pas _na stap 4_ ga je aan de slag om je eigen code om te bouwen. Samenvattend: doorloop dit stuk handleiding _twee keer_. De eerste keer doe je de opdrachten met het demoscript, de tweede keer met je eigen code voor {{github}}`pythondaq`.
 
-=== "view.py"
+    === "view.py"
 
-    ```py linenums="1"
-    import sys
+        ```py linenums="1"
+        import sys
 
-    import numpy as np
+        import numpy as np
 
-    from PySide6 import QtWidgets
-    import pyqtgraph as pg
+        from PySide6 import QtWidgets
+        import pyqtgraph as pg
 
-    from model import Experiment
+        from model import Experiment
 
 
-    class UserInterface(QtWidgets.QMainWindow):
-        def __init__(self):
-            super().__init__()
+        class UserInterface(QtWidgets.QMainWindow):
+            def __init__(self):
+                super().__init__()
 
-            central_widget = QtWidgets.QWidget()
-            self.setCentralWidget(central_widget)
+                central_widget = QtWidgets.QWidget()
+                self.setCentralWidget(central_widget)
 
-            vbox = QtWidgets.QVBoxLayout(central_widget)
-            self.plot_widget = pg.PlotWidget()
-            vbox.addWidget(self.plot_widget)
-            start_button = QtWidgets.QPushButton("Start")
-            vbox.addWidget(start_button)
+                vbox = QtWidgets.QVBoxLayout(central_widget)
+                self.plot_widget = pg.PlotWidget()
+                vbox.addWidget(self.plot_widget)
+                start_button = QtWidgets.QPushButton("Start")
+                vbox.addWidget(start_button)
 
-            start_button.clicked.connect(self.plot)
+                start_button.clicked.connect(self.plot)
 
-            # Maak een instance aan van Experiment
-            self.experiment = Experiment()
+                # Maak een instance aan van Experiment
+                self.experiment = Experiment()
 
-        def plot(self):
-            """ Clear the plot widget and display experimental data. """
-            self.plot_widget.clear()
-            x, y = self.experiment.scan(0, np.pi, 50)
-            self.plot_widget.plot(x, y, symbol="o", symbolSize=5, pen=None)
+            def plot(self):
+                """ Clear the plot widget and display experimental data. """
+                self.plot_widget.clear()
+                x, y = self.experiment.scan(0, np.pi, 50)
+                self.plot_widget.plot(x, y, symbol="o", symbolSize=5, pen=None)
 
-    def main():
-        app = QtWidgets.QApplication(sys.argv)
-        ui = UserInterface()
-        ui.show()
-        sys.exit(app.exec())
+        def main():
+            app = QtWidgets.QApplication(sys.argv)
+            ui = UserInterface()
+            ui.show()
+            sys.exit(app.exec())
 
 
-    if __name__ == "__main__":
-        main()   
-    ```
+        if __name__ == "__main__":
+            main()   
+        ```
 
-=== "model.py"
+    === "model.py"
 
-    ``` py linenums="1"
-    import time
-    import numpy as np
+        ``` py linenums="1"
+        import time
+        import numpy as np
 
-    class Experiment:
-        def scan(self, start, stop, steps):
-            """ Perform a scan over a range with specified steps and return the scanned values. """
-            x = np.linspace(start, stop, steps)
-            y = []
-            for u in x:
-                y.append(np.sin(u))
-                time.sleep(0.1)
-            return x, y
-    ```
+        class Experiment:
+            def scan(self, start, stop, steps):
+                """ Perform a scan over a range with specified steps and return the scanned values. """
+                x = np.linspace(start, stop, steps)
+                y = []
+                for u in x:
+                    y.append(np.sin(u))
+                    time.sleep(0.1)
+                return x, y
+        ```
 
-In regels 15--24 bouwen we een kleine user interface op met een plot widget en een startknop. We koppelen die knop aan de `#!py plot()`-method. In regel 27 maken we ons experiment (het model) aan en bewaren die. In regels 30--34 maken we de plot schoon, voeren we een scan uit en plotten het resultaat. {{file}}`model.py` vormt ons experiment. Eerst wordt een rij $x$-waardes klaargezet en dan, in een loop, wordt punt voor punt de sinus uitgerekend en toegevoegd aan een lijst met $y$-waardes. De `#!py time.sleep(.1)` wacht steeds 0.1 s en zorgt hiermee voor de simulatie van _trage_ metingen. En inderdaad, als we deze code draaien dan moeten we zo'n vijf seconden wachten voordat de plot verschijnt.
+    In regels 15--24 bouwen we een kleine user interface op met een plot widget en een startknop. We koppelen die knop aan de `#!py plot()`-method. In regel 27 maken we ons experiment (het model) aan en bewaren die. In regels 30--34 maken we de plot schoon, voeren we een scan uit en plotten het resultaat. {{file}}`model.py` vormt ons experiment. Eerst wordt een rij $x$-waardes klaargezet en dan, in een loop, wordt punt voor punt de sinus uitgerekend en toegevoegd aan een lijst met $y$-waardes. De `#!py time.sleep(.1)` wacht steeds 0.1 s en zorgt hiermee voor de simulatie van _trage_ metingen. En inderdaad, als we deze code draaien dan moeten we zo'n vijf seconden wachten voordat de plot verschijnt.
 
-In de volgende opdrachten gaan we de code stap voor stap ombouwen naar threads. Als we daarmee klaar zijn worden de metingen gedaan binnen de `#!py scan()`-method van de `#!py Experiment()`-class en verversen we ondertussen af en toe de plot. De `#!py plot()`-method van onze user interface wordt regelmatig aangeroepen terwijl de meting nog loopt en moet dus de hele tijd de huidige metingen uit kunnen lezen. Dat kan, als de metingen worden bewaard in _instance attributes_.[^instance-attributes]
+    In de volgende opdrachten gaan we de code stap voor stap ombouwen naar threads. Als we daarmee klaar zijn worden de metingen gedaan binnen de `#!py scan()`-method van de `#!py Experiment()`-class en verversen we ondertussen af en toe de plot. De `#!py plot()`-method van onze user interface wordt regelmatig aangeroepen terwijl de meting nog loopt en moet dus de hele tijd de huidige metingen uit kunnen lezen. Dat kan, als de metingen worden bewaard in _instance attributes_.[^instance-attributes]
 
-[^instance-attributes]: Variabelen die we in een class definiëren door ze aan te maken met `#!py self.` ervoor zijn _instance attributes_.
+    [^instance-attributes]: Variabelen die we in een class definiëren door ze aan te maken met `#!py self.` ervoor zijn _instance attributes_.
 
-!!! opdracht-basis "Threads 0"
-    Neem {{file}}`view.py` en {{file}}`model.py` over en test de applicatie.
+    !!! opdracht-meer "Threads 0"
+        Neem {{file}}`view.py` en {{file}}`model.py` over en test de applicatie.
 
 
-### Stap 1: de meetgegevens altijd beschikbaar maken
+    ### Stap 1: de meetgegevens altijd beschikbaar maken
 
-We maken in de `#!py scan()`-method lege lijsten `#!py self.x` en `#!py self.y`. Hier komen de meetgegevens in en die staan dus los van de lijst met $x$-waardes die je klaarzet. Met andere woorden: de variabele `#!py x` is _niet hetzelfde_ als de variabele `#!py self.x`:
+    We maken in de `#!py scan()`-method lege lijsten `#!py self.x` en `#!py self.y`. Hier komen de meetgegevens in en die staan dus los van de lijst met $x$-waardes die je klaarzet. Met andere woorden: de variabele `#!py x` is _niet hetzelfde_ als de variabele `#!py self.x`:
 
-=== "model.py"
+    === "model.py"
 
-    ``` py linenums="1" hl_lines="4-5 7-8 10"
-    class Experiment:
-        def scan(self, start, stop, steps):
-            x = np.linspace(start, stop, steps)
-            self.x = []
-            self.y = []
-            for u in x:
-                self.x.append(u)
-                self.y.append(np.sin(u))
-                time.sleep(0.1)
-            return self.x, self.y
-    ```
-We zorgen er zo voor dat de lijst met meetgegevens voor zowel de $x$- als de $y$-waardes steeds even lang zijn. Dit is nodig voor het plotten: hij kan geen grafiek maken van 50 $x$-waardes en maar 10 $y$-waardes.[^threads-problemen] Ook moeten we er voor zorgen dat er _altijd_ (lege) meetgegevens beschikbaar zijn &mdash; ook als de meting nog niet gestart is. Anders krijgen we voordat we een meting hebben kunnen doen een foutmelding dat `#!py self.x` niet bestaat. We doen dat in de `#!py __init__()`:
+        ``` py linenums="1" hl_lines="4-5 7-8 10"
+        class Experiment:
+            def scan(self, start, stop, steps):
+                x = np.linspace(start, stop, steps)
+                self.x = []
+                self.y = []
+                for u in x:
+                    self.x.append(u)
+                    self.y.append(np.sin(u))
+                    time.sleep(0.1)
+                return self.x, self.y
+        ```
+    We zorgen er zo voor dat de lijst met meetgegevens voor zowel de $x$- als de $y$-waardes steeds even lang zijn. Dit is nodig voor het plotten: hij kan geen grafiek maken van 50 $x$-waardes en maar 10 $y$-waardes.[^threads-problemen] Ook moeten we er voor zorgen dat er _altijd_ (lege) meetgegevens beschikbaar zijn &mdash; ook als de meting nog niet gestart is. Anders krijgen we voordat we een meting hebben kunnen doen een foutmelding dat `#!py self.x` niet bestaat. We doen dat in de `#!py __init__()`:
 
-[^threads-problemen]: Hier zie je een probleem met threads. Het kán &mdash; in uitzonderlijke situaties &mdash; voorkomen dat de plot-functie nét wil gaan plotten als de $x$-waardes al langer gemaakt zijn, maar de $y$-waardes nog niet. Die kans is heel klein en wij accepteren het risico. Schrijf je software voor een complex experiment dat drie dagen draait, dan is dit iets waar je echt rekening mee moet houden. Je moet dan gebruik gaan maken van zogeheten _locks_ of _semaphores_ maar dat valt buiten het bestek van deze cursus.
+    [^threads-problemen]: Hier zie je een probleem met threads. Het kán &mdash; in uitzonderlijke situaties &mdash; voorkomen dat de plot-functie nét wil gaan plotten als de $x$-waardes al langer gemaakt zijn, maar de $y$-waardes nog niet. Die kans is heel klein en wij accepteren het risico. Schrijf je software voor een complex experiment dat drie dagen draait, dan is dit iets waar je echt rekening mee moet houden. Je moet dan gebruik gaan maken van zogeheten _locks_ of _semaphores_ maar dat valt buiten het bestek van deze cursus.
 
-=== "model.py"
+    === "model.py"
 
-    ``` py linenums="1" hl_lines="2-4"
-    class Experiment:
-        def __init__(self):
-            self.x = []
-            self.y = []
+        ``` py linenums="1" hl_lines="2-4"
+        class Experiment:
+            def __init__(self):
+                self.x = []
+                self.y = []
 
-        ...
-    ```
+            ...
+        ```
 
-We laten `#!py self.x = []` (en idem voor `#!py self.y`) _ook_ staan in de `#!py scan()`-methode zodat bij iedere nieuwe scan de oude meetgegevens worden leeggemaakt.
+    We laten `#!py self.x = []` (en idem voor `#!py self.y`) _ook_ staan in de `#!py scan()`-methode zodat bij iedere nieuwe scan de oude meetgegevens worden leeggemaakt.
 
-!!! opdracht-basis "Threads I"
-    Pas de code aan zodat de meetgegevens altijd beschikbaar zijn. _Test je code,_ de applicatie moet nog steeds werken.
+    !!! opdracht-meer "Threads I"
+        Pas de code aan zodat de meetgegevens altijd beschikbaar zijn. _Test je code,_ de applicatie moet nog steeds werken.
 
 
-### Stap 2: plot de meetgegevens vanuit het experiment
+    ### Stap 2: plot de meetgegevens vanuit het experiment
 
-Nu we de meetgegevens bewaren als instance attributes van de `#!py Experiment`-class kunnen we die ook plotten. We geven ze nog steeds terug als return value vanuit de `#!py scan()`-method voor <q>ouderwetse</q> code,[^cli-gui-tegelijkertijd] maar wij gaan nu de <q>nieuwerwetse</q> instance attributes gebruiken:
+    Nu we de meetgegevens bewaren als instance attributes van de `#!py Experiment`-class kunnen we die ook plotten. We geven ze nog steeds terug als return value vanuit de `#!py scan()`-method voor <q>ouderwetse</q> code,[^cli-gui-tegelijkertijd] maar wij gaan nu de <q>nieuwerwetse</q> instance attributes gebruiken:
 
-[^cli-gui-tegelijkertijd]: Door een beetje ons best te doen kunnen we ervoor zorgen dat zowel de command-line interface als de grafische interface allebei gebruikt kunnen worden.
+    [^cli-gui-tegelijkertijd]: Door een beetje ons best te doen kunnen we ervoor zorgen dat zowel de command-line interface als de grafische interface allebei gebruikt kunnen worden.
 
-=== "view.py"
+    === "view.py"
 
-    ``` py linenums="1" hl_lines="8-11"
-    class UserInterface(QtWidgets.QMainWindow):
-
-        ...
-
-        def plot(self):
-            """ Clear the plot widget and display experimental data. """
-            self.plot_widget.clear()
-            self.experiment.scan(0, np.pi, 50)
-            self.plot_widget.plot(
-                self.experiment.x, self.experiment.y, symbol="o", symbolSize=5, pen=None
-            )
-    ```
-
-De code wordt hier niet sneller van &mdash; hij maakt nog steeds pas een grafiek als de meting helemaal is afgelopen &mdash; maar we bereiden de code wel voor op het gebruik van de instance attributes.
-
-!!! opdracht-basis "Threads II"
-    Pas de code aan zodat je instance attributes gebruikt voor het plotten. _Test je code,_ het moet nog steeds werken als vanouds.
-
-
-
-### Stap 3: threads
-
-We gaan nu met threads werken. Je importeert daarvoor de `#!py threading` module en maakt voor iedere thread een `#!py threading.Thread()` instance. Deze heeft twee belangrijke parameters: `#!py target` waarmee je de functie (of method) aangeeft die in de thread moet worden uitgevoerd, en `#!py args` waarmee je argumenten meegeeft voor die functie of method. We maken een _nieuwe_ method `#!py start_scan()` waarmee we een nieuwe thread starten om een scan uit te voeren. We doen dit als volgt:
-
-=== "model.py"
-
-    ``` py linenums="1" hl_lines="4-9"
-    import threading
-
-    class Experiment:
-        def start_scan(self, start, stop, steps):
-            """Start a new thread to execute a scan."""
-            self._scan_thread = threading.Thread(
-                target=self.scan, args=(start, stop, steps)
-            )
-            self._scan_thread.start()
-
-        def scan(self, start, stop, steps):
-            """ Perform a scan over a range with specified steps and return the scanned values. """
-            x = np.linspace(start, stop, steps)
-            self.x = []
-            self.y = []
-            for u in x:
-                self.x.append(u)
-                self.y.append(np.sin(u))
-                time.sleep(0.1)
-            return self.x, self.y
-    ```
-
-In plaats van dat onze plotfunctie de `#!py scan()`-method aanroept, moeten we nu de `#!py start_scan()`-method aanroepen. Maar: die method start een scan en sluit meteen af, terwijl de daadwerkelijke meting op de achtergrond wordt uitgevoerd. De plotfunctie moet &mdash; in deze stap nog even &mdash; wachten tot de scan klaar is. Er is een manier om op een thread te wachten. Je moet daartoe de `#!py join()` method van de thread aanroepen. In bovenstaande code hebben we de thread bewaard in de variabele `#!py _scan_thread`, dus hij is voor ons beschikbaar:
-
-=== "view.py"
-
-    ``` py linenums="1" hl_lines="8-9"
-    class UserInterface(QtWidgets.QMainWindow):
-
-        ...
-
-        def plot(self):
-            """ Clear the plot widget and display experimental data. """
-            self.plot_widget.clear()
-            self.experiment.start_scan(0, np.pi, 50)
-            self.experiment._scan_thread.join()
-            self.plot_widget.plot(
-                self.experiment.x, self.experiment.y, symbol="o", symbolSize=5, pen=None
-            )
-    ```
-
-!!! opdracht-basis "Threads III"
-    * Pas de code aan zodat je een thread opstart om de scan op de achtergrond uit te voeren. Roep in je plotfunctie de goede method aan en wacht tot de thread klaar is. _Test je code._ Wederom moet het werken als vanouds. 
-    * Kijk ook eens wat er gebeurt als je _niet_ wacht tot de metingen klaar zijn door de regel `#!py self.experiment._scan_thread.join()` uit te commentariëren (hekje ervoor). Niet vergeten het hekje weer weg te halen.
-
-
-
-### Stap 4: plotten op de achtergrond
-
-We zijn er nu bijna. We gebruiken threads om de metingen op de achtergrond uit te voeren maar we wachten nog steeds tot de metingen klaar zijn voordat we &mdash; eenmalig &mdash; de grafiek plotten. In deze laatste stap doen we dat niet meer. Als je straks op de startknop drukt dan start de meting op de achtergrond. Ondertussen wordt er regelmatig geplot. Je ziet dan tijdens de metingen de plot opbouwen. We doen dat door het scannen en plotten van elkaar los te koppelen &mdash; niet meer samen in één functie &mdash; en door met een `#!py QTimer` de plotfunctie periodiek aan te roepen. Kijk de code goed door.
-
-=== "view.py"
-
-    ``` py linenums="1" hl_lines="1 9 13-17 19-20 24"
-    from PySide6 import QtWidgets, QtCore
-
-    class UserInterface(QtWidgets.QMainWindow):
-        def __init__(self):
-            super().__init__()
+        ``` py linenums="1" hl_lines="8-11"
+        class UserInterface(QtWidgets.QMainWindow):
 
             ...
 
-            start_button.clicked.connect(self.start_scan)
+            def plot(self):
+                """ Clear the plot widget and display experimental data. """
+                self.plot_widget.clear()
+                self.experiment.scan(0, np.pi, 50)
+                self.plot_widget.plot(
+                    self.experiment.x, self.experiment.y, symbol="o", symbolSize=5, pen=None
+                )
+        ```
 
-            ...            
-            
-            # Plot timer
-            self.plot_timer = QtCore.QTimer()
-            # Roep iedere 100 ms de plotfunctie aan
-            self.plot_timer.timeout.connect(self.plot)
-            self.plot_timer.start(100)
+    De code wordt hier niet sneller van &mdash; hij maakt nog steeds pas een grafiek als de meting helemaal is afgelopen &mdash; maar we bereiden de code wel voor op het gebruik van de instance attributes.
 
-        def start_scan(self):
-            """Starts a scanning process with specified parameters."""
-            self.experiment.start_scan(0, np.pi, 50)
-
-        def plot(self):
-            """ Clear the plot widget and display experimental data. """
-            self.plot_widget.clear()
-            # Deze twee regels code vind je terug in de prullenbak
-            self.plot_widget.plot(
-                self.experiment.x, self.experiment.y, symbol="o", symbolSize=5, pen=None
-            )
-    ```
-
-Hiermee zijn we klaar met de implementatie van threads. De gebruiker hoeft niet langer in spanning te wachten maar krijgt onmiddelijke feedback.
-
-!!! opdracht-basis "Threads IV"
-    Pas de code op dezelfde manier aan zodat de metingen op de achergrond worden uitgevoerd terwijl je de plot ziet opbouwen. De code werkt nu _niet_ als vanouds, en _voelt_ veel sneller!
-
-!!! opdracht-inlever "Pythondaq: threads in je eigen code"
-    Doorloop nu opnieuw stappen 1 t/m 4 maar dan voor je eigen `pythondaq`-applicatie.
+    !!! opdracht-meer "Threads II"
+        Pas de code aan zodat je instance attributes gebruikt voor het plotten. _Test je code,_ het moet nog steeds werken als vanouds.
 
 
 
-### Stap 5: puntjes op de <q>i</q>: _events_
-??? meer-leren "Meer leren"
+    ### Stap 3: threads
 
-    Wanneer je op de startknop drukt, even wacht en dan wéér op de startknop drukt, dan kun je zien dat er _twee_ metingen tegelijk worden uitgevoerd op de achtergrond. Dat wil je voorkomen. Ook is het wel aardig om metingen tussentijds te kunnen stoppen. Dat is vooral handig als je merkt dat een meting veel te lang gaat duren. Verder is het ook nog zo dat we er nu met onze timer voor gezorgd hebben dat de plotfunctie meerdere keren per seconde wordt uitgevoerd &mdash; of er nu een meting loopt of niet.
+    We gaan nu met threads werken. Je importeert daarvoor de `#!py threading` module en maakt voor iedere thread een `#!py threading.Thread()` instance. Deze heeft twee belangrijke parameters: `#!py target` waarmee je de functie (of method) aangeeft die in de thread moet worden uitgevoerd, en `#!py args` waarmee je argumenten meegeeft voor die functie of method. We maken een _nieuwe_ method `#!py start_scan()` waarmee we een nieuwe thread starten om een scan uit te voeren. We doen dit als volgt:
 
-    Je kunt dit oplossen met `#!py threading.Event()` objecten. Dit zijn objecten met `#!py set()`, `#!py clear()` en `#!py wait()` methods om gebeurtenissen aan te geven of er op te wachten. Zo kun je een event `#!py is_scanning` aanmaken die je `#!py set()` zodra een meting begint en `#!py clear()` zodra de meting is afgelopen. Je controleert bij de start van de meting dan bijvoorbeeld eerst of de meting al loopt met `#!py is_scanning.is_set()` en start alleen een meting als dat nog niet zo is.
+    === "model.py"
 
-    Ook kun je in de grafische interface na het starten van een meting de startknop onbeschikbaar maken met `#!py start_button.setEnabled(False)` en weer beschikbaar maken met `#!py start_button.setEnabled(True)`. De knop wordt dan tussendoor grijs. Dat kan handig zijn om duidelijk te maken dat een meting al loopt en dat je niet nogmaals op de startknop kunt drukken.
+        ``` py linenums="1" hl_lines="4-9"
+        import threading
 
-    !!! opdracht-meer "Vergrendelen"
-            Pas je code aan zodat je niet meerdere metingen tegelijk kunt starten. Zorg er ook voor dat de grafiek alleen geplot wordt tijdens de metingen (of tot kort daarna), maar niet de hele tijd.
+        class Experiment:
+            def start_scan(self, start, stop, steps):
+                """Start a new thread to execute a scan."""
+                self._scan_thread = threading.Thread(
+                    target=self.scan, args=(start, stop, steps)
+                )
+                self._scan_thread.start()
+
+            def scan(self, start, stop, steps):
+                """ Perform a scan over a range with specified steps and return the scanned values. """
+                x = np.linspace(start, stop, steps)
+                self.x = []
+                self.y = []
+                for u in x:
+                    self.x.append(u)
+                    self.y.append(np.sin(u))
+                    time.sleep(0.1)
+                return self.x, self.y
+        ```
+
+    In plaats van dat onze plotfunctie de `#!py scan()`-method aanroept, moeten we nu de `#!py start_scan()`-method aanroepen. Maar: die method start een scan en sluit meteen af, terwijl de daadwerkelijke meting op de achtergrond wordt uitgevoerd. De plotfunctie moet &mdash; in deze stap nog even &mdash; wachten tot de scan klaar is. Er is een manier om op een thread te wachten. Je moet daartoe de `#!py join()` method van de thread aanroepen. In bovenstaande code hebben we de thread bewaard in de variabele `#!py _scan_thread`, dus hij is voor ons beschikbaar:
+
+    === "view.py"
+
+        ``` py linenums="1" hl_lines="8-9"
+        class UserInterface(QtWidgets.QMainWindow):
+
+            ...
+
+            def plot(self):
+                """ Clear the plot widget and display experimental data. """
+                self.plot_widget.clear()
+                self.experiment.start_scan(0, np.pi, 50)
+                self.experiment._scan_thread.join()
+                self.plot_widget.plot(
+                    self.experiment.x, self.experiment.y, symbol="o", symbolSize=5, pen=None
+                )
+        ```
+
+    !!! opdracht-meer "Threads III"
+        * Pas de code aan zodat je een thread opstart om de scan op de achtergrond uit te voeren. Roep in je plotfunctie de goede method aan en wacht tot de thread klaar is. _Test je code._ Wederom moet het werken als vanouds. 
+        * Kijk ook eens wat er gebeurt als je _niet_ wacht tot de metingen klaar zijn door de regel `#!py self.experiment._scan_thread.join()` uit te commentariëren (hekje ervoor). Niet vergeten het hekje weer weg te halen.
+
+
+
+    ### Stap 4: plotten op de achtergrond
+
+    We zijn er nu bijna. We gebruiken threads om de metingen op de achtergrond uit te voeren maar we wachten nog steeds tot de metingen klaar zijn voordat we &mdash; eenmalig &mdash; de grafiek plotten. In deze laatste stap doen we dat niet meer. Als je straks op de startknop drukt dan start de meting op de achtergrond. Ondertussen wordt er regelmatig geplot. Je ziet dan tijdens de metingen de plot opbouwen. We doen dat door het scannen en plotten van elkaar los te koppelen &mdash; niet meer samen in één functie &mdash; en door met een `#!py QTimer` de plotfunctie periodiek aan te roepen. Kijk de code goed door.
+
+    === "view.py"
+
+        ``` py linenums="1" hl_lines="1 9 13-17 19-20 24"
+        from PySide6 import QtWidgets, QtCore
+
+        class UserInterface(QtWidgets.QMainWindow):
+            def __init__(self):
+                super().__init__()
+
+                ...
+
+                start_button.clicked.connect(self.start_scan)
+
+                ...            
+                
+                # Plot timer
+                self.plot_timer = QtCore.QTimer()
+                # Roep iedere 100 ms de plotfunctie aan
+                self.plot_timer.timeout.connect(self.plot)
+                self.plot_timer.start(100)
+
+            def start_scan(self):
+                """Starts a scanning process with specified parameters."""
+                self.experiment.start_scan(0, np.pi, 50)
+
+            def plot(self):
+                """ Clear the plot widget and display experimental data. """
+                self.plot_widget.clear()
+                # Deze twee regels code vind je terug in de prullenbak
+                self.plot_widget.plot(
+                    self.experiment.x, self.experiment.y, symbol="o", symbolSize=5, pen=None
+                )
+        ```
+
+    Hiermee zijn we klaar met de implementatie van threads. De gebruiker hoeft niet langer in spanning te wachten maar krijgt onmiddelijke feedback.
+
+    !!! opdracht-meer "Threads IV"
+        Pas de code op dezelfde manier aan zodat de metingen op de achergrond worden uitgevoerd terwijl je de plot ziet opbouwen. De code werkt nu _niet_ als vanouds, en _voelt_ veel sneller!
+
+    !!! opdracht-meer "Pythondaq: threads in je eigen code"
+        Doorloop nu opnieuw stappen 1 t/m 4 maar dan voor je eigen `pythondaq`-applicatie.
+
+
+
+    ### Stap 5: puntjes op de <q>i</q>: _events_
+    ??? meer-leren "Meer leren"
+
+        Wanneer je op de startknop drukt, even wacht en dan wéér op de startknop drukt, dan kun je zien dat er _twee_ metingen tegelijk worden uitgevoerd op de achtergrond. Dat wil je voorkomen. Ook is het wel aardig om metingen tussentijds te kunnen stoppen. Dat is vooral handig als je merkt dat een meting veel te lang gaat duren. Verder is het ook nog zo dat we er nu met onze timer voor gezorgd hebben dat de plotfunctie meerdere keren per seconde wordt uitgevoerd &mdash; of er nu een meting loopt of niet.
+
+        Je kunt dit oplossen met `#!py threading.Event()` objecten. Dit zijn objecten met `#!py set()`, `#!py clear()` en `#!py wait()` methods om gebeurtenissen aan te geven of er op te wachten. Zo kun je een event `#!py is_scanning` aanmaken die je `#!py set()` zodra een meting begint en `#!py clear()` zodra de meting is afgelopen. Je controleert bij de start van de meting dan bijvoorbeeld eerst of de meting al loopt met `#!py is_scanning.is_set()` en start alleen een meting als dat nog niet zo is.
+
+        Ook kun je in de grafische interface na het starten van een meting de startknop onbeschikbaar maken met `#!py start_button.setEnabled(False)` en weer beschikbaar maken met `#!py start_button.setEnabled(True)`. De knop wordt dan tussendoor grijs. Dat kan handig zijn om duidelijk te maken dat een meting al loopt en dat je niet nogmaals op de startknop kunt drukken.
+
+        !!! opdracht-meer "Vergrendelen"
+                Pas je code aan zodat je niet meerdere metingen tegelijk kunt starten. Zorg er ook voor dat de grafiek alleen geplot wordt tijdens de metingen (of tot kort daarna), maar niet de hele tijd.
