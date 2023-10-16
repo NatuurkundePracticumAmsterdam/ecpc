@@ -1,6 +1,6 @@
 # Kleurcodes voor weerstanden
 
-![Kleurcodes](figures/kleurcodes.svg)
+![Kleurcodes](figures/kleurcodes.svg){: style="width:50%"}
 
 |  Kleur   |  Cijferwaarde  |  Vermenigvuldigingsfactor  |  Tolerantie (%)  |
 |----------|----------------|----------------------------|------------------|

@@ -32,8 +32,8 @@ Hieronder volgen enkele voorbeelden van het gebruik van conda:
 Leeg environment aanmaken met naam 'pythondaq' (leeg = zelfs geen Python)
 PS> conda create -n pythondaq
 
-Nieuw environment aanmaken met Python versie 3.9
-PS> conda create -n pythondaq python=3.9
+Nieuw environment aanmaken met Python versie 3.10
+PS> conda create -n pythondaq python=3.10
 
 Packages installeren vanuit de 'conda-forge' channel en nieuwste Python
 Als het environment al bestaat vraagt hij of hij die moet overschrijven met een nieuwe schone versie

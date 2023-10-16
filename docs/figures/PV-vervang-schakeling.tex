@@ -4,8 +4,8 @@
 
 \begin{document}
 \begin{tikzpicture}[yscale=2]
-  \draw (0, -2) to[pvsource,v=$U_\text{PV}$] ++(0, 2);
-  \draw (0, 0) -- (2, 0) to[potentiometer, name=P, l_=$R_\text{var}$] ++(0, -1) to[rmeterwa, t=$I$] ++(0, -1) -- ++(-2, 0);
+  \draw (2, 0) to[potentiometer, name=P, l_=$R_\text{var}$] ++(0, -1) to[rmeterwa, t=$I$] ++(0, -1);
   \draw (2, 0) -- ++(3, 0) to[rmeterwa, t=$V$] ++(0, -2) -- (2, -2);)
+  \draw (5, -2) -- ++(2, 0) to[pvsource,v=$U_\text{PV}$] ++(0, 2) -- ++(-2, 0);
 \end{tikzpicture}
 \end{document}

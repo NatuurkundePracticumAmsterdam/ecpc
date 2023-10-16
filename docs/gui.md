@@ -61,7 +61,7 @@ Elke keer als je een nieuwe Qt applicatie gaat schrijven kun je bovenstaand stuk
 We gaan de eenvoudige interface programmeren die hieronder is weergegeven:
 
 <div id="fig:screenshot-ui-prog"></div>
-![screenshot eenvoudige GUI](figures/screenshot-ui-prog.png)
+![screenshot eenvoudige GUI](figures/screenshot-ui-prog.png){: style="width:75%"}
 
 We doen dat door de class `#!py UserInterface` uit te breiden met widgets uit de `#!py QtWidgets` bibliotheek.
 
@@ -70,22 +70,22 @@ Het definiëren van layouts gebeurt in veruit de meeste opmaaksystemen met recht
 De layout van bovenstaande screenshot is als volgt opgebouwd. Het hoofdelement van de grafische interface is de `central widget`:
 
 <div id="fig:layout-centerwidget"></div>
-![de central widget](figures/layout-schematic.svg)
+![de central widget](figures/layout-schematic.svg){: style="width:40%"}
 
 De `central widget` krijgt een verticale layout die we `vbox` noemen:
 
 <div id="fig:layout-vbox"></div>
-![central widget met verticale layout](figures/layout-schematic_p2.svg)
+![central widget met verticale layout](figures/layout-schematic_p2.svg){: style="width:40%"}
 
 In de verticale layout plaatsen we een `textbox` en een horizontale layout die we `hbox` noemen:
 
 <div id="fig:layout-text-hbox"></div>
-![horizontale layout binnen in de verticale box](figures/layout-schematic_p3.svg)
+![horizontale layout binnen in de verticale box](figures/layout-schematic_p3.svg){: style="width:40%"}
 
 In de horizontale layout plaatsen we twee `button`s:
 
 <div id="fig:layout-buttons"></div>
-![twee knoppen in de horizontale layout](figures/layout-schematic_p4.svg)
+![twee knoppen in de horizontale layout](figures/layout-schematic_p4.svg){: style="width:40%"}
 
 Het stuk programma om bovenstaande layout op te bouwen geven we hieronder weer. We bespreken straks de code regel voor regel.
 <div id="code:layout"></div>
@@ -113,15 +113,15 @@ class UserInterface(QtWidgets.QMainWindow):
 
         clear_button = QtWidgets.QPushButton("Clear")
         hbox.addWidget(clear_button)
-        add_button = QtWidgets.QPushButton("Add text")
-        hbox.addWidget(add_button)
+        add_text_button = QtWidgets.QPushButton("Add text")
+        hbox.addWidget(add_text_button)
 
         # Slots and signals
         clear_button.clicked.connect(self.textedit.clear)
-        add_button.clicked.connect(self.add_button_clicked)
+        add_text_button.clicked.connect(self.add_text_button_clicked)
 
     @Slot()
-    def add_button_clicked(self):
+    def add_text_button_clicked(self):
         self.textedit.append("You clicked me.")
 ```
 Allereerst definiëren we een `__init__()`. Helaas gaat dat niet zomaar. We schrijven namelijk _niet_ helemaal zelf een nieuwe class (`#!py class UserInterface`), maar breiden de `#!py QMainWindow`-class uit (`#!py class UserInterface(QtWidgets.QMainWindow)`). Door dat te doen zijn er heel veel methods al voor ons gedefinieerd. Daar hoeven we verder niet over na te denken, onze interface <q>werkt gewoon</q>. Het gaat mis als wij zelf nieuwe methods gaan schrijven die dezelfde naam hebben. Stel dat de _parent class_ `#!py QMainWindow` een method `#!py click_this_button()` heeft. Als onze class _ook_ een method `#!py click_this_button()` heeft, dan zal _die_ worden aangeroepen in plaats van de method uit de parent class. Dat is handig als je de parent method wilt vervangen maar niet zo handig als je de parent method wilt _aanvullen_, zoals nodig is bij `__init__()`. Immers, we willen onze eigen class initialiseren, maar we willen ook dat de parent class volledig wordt geïnitialiseerd.

@@ -68,7 +68,7 @@ In de praktijk zul je altijd metingen doen aan zonnepanelen, waarbij zonnecellen
 Het is daarom zinvol om, voordat je aan een experiment begint, het gedrag van een zonnepaneel te onderzoeken. In eerste instantie doe je dit door te kijken naar de $I,U$-karakteristiek van het zonnepaneel. Zo'n karakteristiek is weergegeven in onderstaand figuur:
 
 <div id="fig:I,U-zonnecel"></div>
-![I,U-zonnecel](figures/I,U-zonnecel.svg)
+![I,U-zonnecel](figures/I,U-zonnecel.svg){: style="width:75%"}
 
 Als je naar de $I,U$-karakteristiek kijkt, zie je dat het zonnepaneel zich bij lage spanningen gedraagt als een niet-ideale stroombron. Als je rond de maximale spanning kijkt, zie je dat het zonnepaneel zich daar vrijwel gedraagt als een niet-ideale spanningsbron.
 
@@ -80,7 +80,7 @@ De stroom die geleverd kan worden door een zonnecel uitgezet tegen de spanning $
 Het is bij zonnepanelen natuurlijk interessant om naar het elektrisch vermogen te kijken dat een zonnepaneel kan leveren. Het geleverd vermogen door een zonnepaneel hangt af van de materiaaleigenschappen van het paneel. Om een zo hoog mogelijk vermogen te kunnen leveren moet het zonnepaneel een zo hoog mogelijke stroom en spanning leveren. Belangrijk ook is dat het vermogen afhangt van de belasting door het circuit. Met andere woorden: bij verschillende weerstandswaardes wordt een ander vermogen geleverd. Ook is er een optimale weerstand waarbij het vermogen maximaal is:
 
 <div id="fig:P,R-zonnecel"></div>
-![P,R-zonnecel](figures/P,R-zonnecel.svg)
+![P,R-zonnecel](figures/P,R-zonnecel.svg){: style="width:75%"}
 
 Het vermogen dat geleverd kan worden door een zonnecel uitgezet tegen de belasting (weerstand) van het circuit. Er is duidelijk een maximum in het vermogen bij een optimale weerstand.
 
