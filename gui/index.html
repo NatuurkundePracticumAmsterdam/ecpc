@@ -1302,6 +1302,8 @@ Je kunt uiteraard spelen met de instellingen zoals <code class="language-py high
     Het is natuurlijk niet zo mooi wanneer je de verkeerde poort kiest en het programma crasht. Vang de exception af en geef een melding (gebruik bijvoorbeeld `#!py QDialog`) dat het device geen Arduino VISA device is. De gebruiker kan daarna een andere poort proberen. -->
 
 <h2 id="meerdere-dingen-tegelijkertijd-threads">Meerdere dingen tegelijkertijd: threads<a class="headerlink" href="#meerdere-dingen-tegelijkertijd-threads" title="Permanent link">&para;</a></h2>
+<details class="meer-leren">
+<summary>meer-leren</summary>
 <p>Afhankelijk van de instellingen die we gekozen hebben kan een meting best lang duren. In ieder geval moeten we even wachten tot de meting afgelopen is en pas daarna krijgen we de resultaten te zien in een plot. Als een meting langer duurt dan een paar seconden kan het besturingssysteem zelfs aangeven dat onze applicatie niet meer reageert. En inderdaad, als we ondertussen op knoppen proberen te drukken dan reageert hij nergens op. Onze applicatie kan helaas niet twee dingen tegelijk. Kon hij dat wel, dan zouden we zien hoe de grafiek langzaam opbouwt tot het eindresultaat.</p>
 <p>De manier waarop besturingssystemen meerdere dingen tegelijk doen is gebaseerd op <em>processes</em> en <em>threads</em>. Een <em>process</em> is, eenvoudig gezegd, een programma. Als je meerdere applicaties opstart zijn dat allemaal processen. Besturingssystemen regelen dat ieder proces een stuk geheugen krijgt en tijd van de processor krijgt toegewezen om zijn werk te doen. Processen zijn mooi gescheiden en kunnen dus eenvoudig naast elkaar draaien. Het wordt iets lastiger als een <em>proces</em> meerdere dingen tegelijk wil doen. Dat kan wel, met <em>threads</em>. Het besturingssysteem zorgt dat meerdere threads naast elkaar draaien.<sup id="fnref:threads-parallel"><a class="footnote-ref" href="#fn:threads-parallel">8</a></sup></p>
 <p>Threads geven vaak problemen omdat ze in zekere zin onvoorspelbaar zijn. Je weet niet precies hoe <q>snel</q> een thread draait, dus je weet niet zeker wat er in welke volgorde gebeurt. Dit kan leiden tot problemen waarvan de oorzaak maar lastig te vinden is. Google maar eens op <code>thread problems in programming</code>. We moeten dus voorzichtig zijn! Ook is het ombouwen van code zonder threads naar code met threads een klus waar makkelijk iets fout gaat. Het is dus belangrijk dat je <em>in kleine stapjes</em> je code aanpast en <em>vaak test</em> of het nog werkt.</p>
@@ -1429,7 +1431,7 @@ Je kunt uiteraard spelen met de instellingen zoals <code class="language-py high
 </div>
 <p>In regels 15--24 bouwen we een kleine user interface op met een plot widget en een startknop. We koppelen die knop aan de <code class="language-py highlight"><span class="n">plot</span><span class="p">()</span></code>-method. In regel 27 maken we ons experiment (het model) aan en bewaren die. In regels 30--34 maken we de plot schoon, voeren we een scan uit en plotten het resultaat. <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>model.py</code> vormt ons experiment. Eerst wordt een rij $x$-waardes klaargezet en dan, in een loop, wordt punt voor punt de sinus uitgerekend en toegevoegd aan een lijst met $y$-waardes. De <code class="language-py highlight"><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">.1</span><span class="p">)</span></code> wacht steeds 0.1 s en zorgt hiermee voor de simulatie van <em>trage</em> metingen. En inderdaad, als we deze code draaien dan moeten we zo'n vijf seconden wachten voordat de plot verschijnt.</p>
 <p>In de volgende opdrachten gaan we de code stap voor stap ombouwen naar threads. Als we daarmee klaar zijn worden de metingen gedaan binnen de <code class="language-py highlight"><span class="n">scan</span><span class="p">()</span></code>-method van de <code class="language-py highlight"><span class="n">Experiment</span><span class="p">()</span></code>-class en verversen we ondertussen af en toe de plot. De <code class="language-py highlight"><span class="n">plot</span><span class="p">()</span></code>-method van onze user interface wordt regelmatig aangeroepen terwijl de meting nog loopt en moet dus de hele tijd de huidige metingen uit kunnen lezen. Dat kan, als de metingen worden bewaard in <em>instance attributes</em>.<sup id="fnref:instance-attributes"><a class="footnote-ref" href="#fn:instance-attributes">9</a></sup></p>
-<div class="admonition opdracht-basis">
+<div class="admonition opdracht-meer">
 <p class="admonition-title">Threads 0</p>
 <p>Neem <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>view.py</code> en <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>model.py</code> over en test de applicatie.</p>
 </div>
@@ -1481,7 +1483,7 @@ Je kunt uiteraard spelen met de instellingen zoals <code class="language-py high
 </div>
 </div>
 <p>We laten <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="p">[]</span></code> (en idem voor <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">y</span></code>) <em>ook</em> staan in de <code class="language-py highlight"><span class="n">scan</span><span class="p">()</span></code>-methode zodat bij iedere nieuwe scan de oude meetgegevens worden leeggemaakt.</p>
-<div class="admonition opdracht-basis">
+<div class="admonition opdracht-meer">
 <p class="admonition-title">Threads I</p>
 <p>Pas de code aan zodat de meetgegevens altijd beschikbaar zijn. <em>Test je code,</em> de applicatie moet nog steeds werken.</p>
 </div>
@@ -1516,7 +1518,7 @@ Je kunt uiteraard spelen met de instellingen zoals <code class="language-py high
 </div>
 </div>
 <p>De code wordt hier niet sneller van &mdash; hij maakt nog steeds pas een grafiek als de meting helemaal is afgelopen &mdash; maar we bereiden de code wel voor op het gebruik van de instance attributes.</p>
-<div class="admonition opdracht-basis">
+<div class="admonition opdracht-meer">
 <p class="admonition-title">Threads II</p>
 <p>Pas de code aan zodat je instance attributes gebruikt voor het plotten. <em>Test je code,</em> het moet nog steeds werken als vanouds.</p>
 </div>
@@ -1599,7 +1601,7 @@ Je kunt uiteraard spelen met de instellingen zoals <code class="language-py high
 </div>
 </div>
 </div>
-<div class="admonition opdracht-basis">
+<div class="admonition opdracht-meer">
 <p class="admonition-title">Threads III</p>
 <ul>
 <li>Pas de code aan zodat je een thread opstart om de scan op de achtergrond uit te voeren. Roep in je plotfunctie de goede method aan en wacht tot de thread klaar is. <em>Test je code.</em> Wederom moet het werken als vanouds. </li>
@@ -1673,11 +1675,11 @@ Je kunt uiteraard spelen met de instellingen zoals <code class="language-py high
 </div>
 </div>
 <p>Hiermee zijn we klaar met de implementatie van threads. De gebruiker hoeft niet langer in spanning te wachten maar krijgt onmiddelijke feedback.</p>
-<div class="admonition opdracht-basis">
+<div class="admonition opdracht-meer">
 <p class="admonition-title">Threads IV</p>
 <p>Pas de code op dezelfde manier aan zodat de metingen op de achergrond worden uitgevoerd terwijl je de plot ziet opbouwen. De code werkt nu <em>niet</em> als vanouds, en <em>voelt</em> veel sneller!</p>
 </div>
-<div class="admonition opdracht-inlever">
+<div class="admonition opdracht-meer">
 <p class="admonition-title">Pythondaq: threads in je eigen code</p>
 <p>Doorloop nu opnieuw stappen 1 t/m 4 maar dan voor je eigen <code>pythondaq</code>-applicatie.</p>
 </div>
@@ -1691,6 +1693,7 @@ Je kunt uiteraard spelen met de instellingen zoals <code class="language-py high
 <p class="admonition-title">Vergrendelen<p>Pas je code aan zodat je niet meerdere metingen tegelijk kunt starten. Zorg er ook voor dat de grafiek alleen geplot wordt tijdens de metingen (of tot kort daarna), maar niet de hele tijd.</p>
 </p>
 </div>
+</details>
 </details>
 <div class="footnote">
 <hr />
