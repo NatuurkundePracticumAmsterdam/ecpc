@@ -16,7 +16,42 @@ Hoe _krijg_ je eigenlijk je code bij iemand anders? Liefst als één bestand, of
 
 En daar is _Poetry_.
 
-Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. Poetry is heel populair geworden. Het richt zich op het officiële ecosysteem: standaard Python packages, ofwel PyPI en `pip`; niet `conda`. Jammer, maar dit zorgt er wel voor dat iedereen mét of zónder Anaconda je package kan installeren. Dat is dan wel weer fijn. Wij gaan Anaconda gebruiken om een virtual environment met _alleen_ Python te maken. Vervolgens installeren we alles dat we nodig hebben met `pip`. Dat werkt prima, want we mengen verder geen `conda` met `pip` packages. Het maken van conda packages valt daarmee buiten het bestek van deze cursus, al is dat een relatief kleine stap als je je standaard Python package af hebt.
+Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. Poetry is heel populair geworden. Het richt zich op het officiële ecosysteem: standaard Python packages, ofwel PyPI en `pip`; niet `conda` (zie meer hierover in [paragraaf _pip vs conda_](software-tools.md#pip-vs-conda)). Jammer, maar dit zorgt er wel voor dat iedereen mét of zónder Anaconda je package kan installeren. Dat is dan wel weer fijn. Wij gaan Anaconda gebruiken om een virtual environment met _alleen_ Python te maken. Vervolgens installeren we alles dat we nodig hebben met `pip`. Dat werkt prima, want we mengen verder geen `conda` met `pip` packages. Het maken van conda packages valt daarmee buiten het bestek van deze cursus, al is dat een relatief kleine stap als je je standaard Python package af hebt.
+
+!!! opdracht-inlever "Poetry installeren"
+    Om Poetry te installeren gaan we gebruik maken van `pipx`, zie voor meer informatie [paragraaf _pipx_](software-tools.md#pipx).
+    Eerst moeten we `pipx` installeren
+
+    1. Selecteer de base environment in Visual Studio Code.
+    1. Open een terminal (command prompt).
+    1. Installeer pipx via pip
+        ```ps1 title="Terminal"
+        python -m pip install --user pipx
+        ```
+    1. Zorg ervoor dat de map waarin pipx apps opslaat, is opgenomen in je PATH omgevingsvariabele.
+        ```ps1 title="Terminal"
+        python -m pipx ensurepath
+        ```
+    1. Sluit visual Studio Code helemaal af (Voor MAC gebruikers: met het kruisje rechtsboven)
+    1. Test of pipx nu werkt met:
+        ```ps1 title="Terminal"
+        pipx
+        ```
+    Werkt dit niet, log dan op de computer uit. Log weer in. En test het opnieuw.
+
+    Nu kunnen we `Poetry` installeren met `pipx`.
+
+    1. Open Visual Studio Code.
+    1. Open een **_nieuwe_** terminal.
+    1. Installeer Poetry met behulp van pipx. 
+        ```ps1 title="Terminal"
+        pipx install poetry
+        ```
+    1. Test of poetry nu werkt met:
+        ```ps1 title="Terminal"
+        poetry
+        ```
+
 
 We gaan Poetry bedienen door commando's te geven in de terminal van Visual Studio Code. We laten de terminal weten welk programma wij willen gaan besturen, door `poetry` in te typen. En daarachter wat we willen dat Poetry gaat doen. We kunnen informatie over Poetry opvragen met het commando `about`.
 
