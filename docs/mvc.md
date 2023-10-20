@@ -189,9 +189,9 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
     proton.flip()
     proton.is_up_or_down()
     # 'down'
-    proton.spin
+    print(proton.spin)
     # -0.5
-    proton.name
+    print(proton.name)
     # 'mooi proton'
     ```
 
