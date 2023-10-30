@@ -660,7 +660,7 @@ Wanneer je een python script runt is de speciale variabele `#!py __name__` gelij
 ```ps1con title="Terminal"
 PS> python square.py
 The square of 4 is 16
-PS> python just_count.py
+PS> python count_count.py
 The square of 5 is 25
 ```
 
