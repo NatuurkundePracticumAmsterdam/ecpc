@@ -57,7 +57,7 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
 
 <div id="opd:condaenv"></div>
 !!! opdracht-basis "Environment aanmaken"
-    Maak de environment en installeer de juiste packages door een terminal te openen[^terminal] en in te typen:
+    Open een `Anaconda Prompt` die je kunt vinden via de zoekbalk van Windows. Maak de environment en installeer de juiste packages door een terminal te openen[^terminal] en in te typen:
 
     ``` ps1 title="Terminal"
     conda create -n pythondaq -c conda-forge python pyvisa-py
