@@ -94,7 +94,9 @@ Om verbinding te maken met onze Arduino gebruik je eerst `list` om te kijken wel
 ``` consolecode
 (visa) list
 ( 0) ASRL3::INSTR
-(visa) open 0
+( 1) ASRL5::INSTR
+( 2) ASRL28::INSTR
+(visa) open 2
 ASRL3::INSTR has been opened.
 You can talk to the device using "write", "read" or "query".
 The default end of message is added to each message.
