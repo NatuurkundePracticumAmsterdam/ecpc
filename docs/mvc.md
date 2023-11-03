@@ -228,7 +228,7 @@ Het opsplitsen van het programma in MVC gaan we stapsgewijs doen. We gaan een cl
 
 <div id="opd:meting-class"></div>
 !!! opdracht-inlever "Pythondaq: controller bouwen"
-    Pak je script van [opdracht _Pythondaq: CSV_](communicatie.md#opd:quickndirty-csv) erbij en schrijf bovenaan &mdash; maar _onder_ de `#!py import`-statements &mdash; een class `#!py ArduinoVISADevice`.
+    Pak je script van [opdracht _Pythondaq: CSV_](basisscript.md#opd:quickndirty-csv) erbij en schrijf bovenaan &mdash; maar _onder_ de `#!py import`-statements &mdash; een class `#!py ArduinoVISADevice`.
     We gaan de class stap voor stap opbouwen. Je kunt de class testen met de python-code onder elke opdracht. 
     
     1. Maak een `#!py __init__()` method die het device opent. 
