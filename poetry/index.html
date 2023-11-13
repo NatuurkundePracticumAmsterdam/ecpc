@@ -686,30 +686,30 @@
 <p>Om Poetry te installeren gaan we gebruik maken van <code>pipx</code>, zie voor meer informatie <a href="../software-tools/#pipx">paragraaf <em>pipx</em></a>.
 Eerst moeten we <code>pipx</code> installeren</p>
 <ol>
-<li>Selecteer de base environment in Visual Studio Code.</li>
-<li>Open een terminal (command prompt).</li>
-<li>Installeer pipx via pip
-    <div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">python</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="p">-</span><span class="n">-user</span> <span class="n">pipx</span>
+<li>Open een Anaconda Prompt.</li>
+<li>Maak een nieuwe environment en installeer pipx via pip
+    <div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">conda</span> <span class="n">create</span> <span class="n">-n</span> <span class="n">pipx</span> <span class="n">python</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">conda</span> <span class="n">activate</span> <span class="n">pipx</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">python</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="p">-</span><span class="n">-user</span> <span class="n">pipx</span>
 </span></code></pre></div></li>
 <li>Zorg ervoor dat de map waarin pipx apps opslaat, is opgenomen in je PATH omgevingsvariabele.
     <div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">python</span> <span class="n">-m</span> <span class="n">pipx</span> <span class="n">ensurepath</span>
 </span></code></pre></div></li>
-<li>Sluit visual Studio Code helemaal af (Voor MAC gebruikers: met het kruisje rechtsboven)</li>
+<li><strong>Sluit de Anaconda Prompt en open een nieuwe.</strong></li>
 <li>Test of pipx nu werkt met:
-    <div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">pipx</span>
-</span></code></pre></div>
-Werkt dit niet, log dan op de computer uit. Log weer in. En test het opnieuw.</li>
+    <div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">conda</span> <span class="n">activate</span> <span class="n">pipx</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">pipx</span>
+</span></code></pre></div></li>
 </ol>
 <p>Nu kunnen we <code>Poetry</code> installeren met <code>pipx</code>.</p>
 <ol>
-<li>Open Visual Studio Code.</li>
-<li>Open een <strong><em>nieuwe</em></strong> terminal.</li>
 <li>Installeer Poetry met behulp van pipx. 
     <div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">pipx</span> <span class="n">install</span> <span class="n">poetry</span>
 </span></code></pre></div></li>
 <li>Test of poetry nu werkt met:
     <div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">poetry</span>
 </span></code></pre></div></li>
+<li>Activeer een <em>andere</em> environment en test of Poetry ook daar werkt.</li>
 </ol>
 </div>
 <p>We gaan Poetry bedienen door commando's te geven in de terminal van Visual Studio Code. We laten de terminal weten welk programma wij willen gaan besturen, door <code>poetry</code> in te typen. En daarachter wat we willen dat Poetry gaat doen. We kunnen informatie over Poetry opvragen met het commando <code>about</code>.</p>
