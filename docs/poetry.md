@@ -22,27 +22,26 @@ Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. Poetry is 
     Om Poetry te installeren gaan we gebruik maken van `pipx`, zie voor meer informatie [paragraaf _pipx_](software-tools.md#pipx).
     Eerst moeten we `pipx` installeren
 
-    1. Selecteer de base environment in Visual Studio Code.
-    1. Open een terminal (command prompt).
-    1. Installeer pipx via pip
+    1. Open een Anaconda Prompt.
+    1. Maak een nieuwe environment en installeer pipx via pip
         ```ps1 title="Terminal"
+        conda create -n pipx python
+        conda activate pipx
         python -m pip install --user pipx
         ```
     1. Zorg ervoor dat de map waarin pipx apps opslaat, is opgenomen in je PATH omgevingsvariabele.
         ```ps1 title="Terminal"
         python -m pipx ensurepath
         ```
-    1. Sluit visual Studio Code helemaal af (Voor MAC gebruikers: met het kruisje rechtsboven)
+    1. __Sluit de Anaconda Prompt en open een nieuwe.__
     1. Test of pipx nu werkt met:
         ```ps1 title="Terminal"
+        conda activate pipx
         pipx
         ```
-    Werkt dit niet, log dan op de computer uit. Log weer in. En test het opnieuw.
 
     Nu kunnen we `Poetry` installeren met `pipx`.
 
-    1. Open Visual Studio Code.
-    1. Open een **_nieuwe_** terminal.
     1. Installeer Poetry met behulp van pipx. 
         ```ps1 title="Terminal"
         pipx install poetry
@@ -51,6 +50,7 @@ Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. Poetry is 
         ```ps1 title="Terminal"
         poetry
         ```
+    1. Activeer een _andere_ environment en test of Poetry ook daar werkt.
 
 
 We gaan Poetry bedienen door commando's te geven in de terminal van Visual Studio Code. We laten de terminal weten welk programma wij willen gaan besturen, door `poetry` in te typen. En daarachter wat we willen dat Poetry gaat doen. We kunnen informatie over Poetry opvragen met het commando `about`.
