@@ -390,24 +390,14 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
                         view.py
                 README.md
             
-    1. Test je {{file}}`view.py` script.
-
-
-
-??? opdracht-meer "Model, view, controller packages"
-    In grotere projecten is het gebruikelijk om model, view, controller niet alleen uit te splitsen in verschillende scripts, maar ook in aparte packages te zetten.
-
-    1. Maak 3 extra packages in de {{folder}}`pythondaq` package. {{folder}}`models`, {{folder}}`views` en {{folder}}`controllers`.
-    1. Zet de modules in de juiste packages.
-    1. Ga door naar opdracht Pythondaq: poetry.
-    
+    1. Test je {{file}}`view.py` script.    
 
 
 !!! opdracht-inlever "Pythondaq: poetry"
     Gebruik Poetry om `pythondaq` als package te installeren, als volgt:
 
     1. Ga in Visual Studio Code naar {{github}}`pythondaq`. Open een terminal.
-    1. Overschrijf je conda environment zodat hij weer leeg is (met alleen `python=3.10`).
+    1. **Overschrijf je conda environment zodat hij weer leeg is (met alleen `python=3.10`).**
     1. Initialiseer Poetry, zodat een {{file}}`pyproject.toml` wordt aangemaakt.
     1. Installeer je package.
     1. Test je {{file}}`view.py` script, terwijl je dependencies toevoegt die je in je scripts nodig hebt.
@@ -429,6 +419,14 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
             en run het script. Overleg met elkaar hoe je de import-errors op moet lossen zodat alles werkt. Als dat gelukt is dan werkt je package ook als je het aanroept van buiten de map met broncode.
     
     Je {{github}}`pythondaq`-repository is nu een volledig project dat je met andere gebruikers van Python kunt delen, bijvoorbeeld via een _wheel_. We gaan pythondaq in de komende hoofdstukken steeds verder uitbouwen.
+
+
+??? opdracht-meer "Model, view, controller packages"
+    In grotere projecten is het gebruikelijk om model, view, controller niet alleen uit te splitsen in verschillende scripts, maar ook in aparte packages te zetten.
+
+    1. Maak 3 extra packages in de {{folder}}`pythondaq` package. {{folder}}`models`, {{folder}}`views` en {{folder}}`controllers`.
+    1. Zet de modules in de juiste packages.
+    1. Test je code zodat alle imports weer werken.
 
 
 ## Van script naar applicatie
