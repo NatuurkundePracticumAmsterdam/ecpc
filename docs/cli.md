@@ -332,7 +332,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 !!! opdracht-inlever "smallangle"
     Het project {{github}}`smallangle` wordt met Poetry beheerd. Je gaat click aan de module {{file}}`smallangle.py` toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.
 
-    1. Ga naar GitHub en open {{github}}`AnneliesVlaar / smallangle` in GitHub Desktop en Visual Studio Code.
+    1. Ga naar GitHub naar {{github}}`AnneliesVlaar/smallangle` en [open de repository in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/smallangle) in GitHub Desktop en Visual Studio Code.
     1. Installeer de package in een nieuw environment.
     1. Run het script {{file}}`smallangle.py` en los de errors op totdat het werkt.
     1. Voeg click toe zodat je de subcommando's `sin` en `tan` hebt. Het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) moet gekozen kunnen worden met een optie (geef een standaardwaarde mee, zodat de gebruiker de optie kan weglaten).
