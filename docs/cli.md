@@ -555,7 +555,7 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
     1. Geef ook de mogelijkheid de metingen op te slaan als CSV-bestand. Gebruik daarvoor een optie `--output FILENAME`. Wanneer met die optie een bestandsnaam wordt meegegeven sla je de metingen op en anders niet.
 
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
-    Als het goed is geeft je programma al een onzekerheid op de metingen terug. Bouw een optie in waarmee het aantal herhaalmetingen gekozen kan worden. Bereken op basis van de herhaalmetingen de beste schatting van de stoomsterkte en de onzekerheid daarop, en ook voor de spanning over de LED.
+    Als het goed is geeft je programma al een onzekerheid op de metingen terug op basis van herhaalmetingen. Bouw een optie in waarmee het aantal herhaalmetingen gekozen kan worden. Waarschijnlijk doe je dat al, maar bereken op basis van de herhaalmetingen de beste schatting van de stoomsterkte en de onzekerheid daarop, en ook voor de spanning over de LED.
 
 
 ### Het meetinstrument kiezen
