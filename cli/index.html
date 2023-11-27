@@ -841,7 +841,7 @@ Uitgesplitst in <em>argumenten</em> en <strong>opties</strong>, met vierkante ha
 <p class="admonition-title">Warning</p>
 <p>Let er op dat je bij <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">argument</span></code> de naam meegeeft die overeen komt met de namen van de parameters van je functie. In ons geval hebben we een argument <code class="language-py highlight"><span class="s2">&quot;name&quot;</span></code>. Dit moet overeenkomen met de functiedefinitie <code class="language-py highlight"><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></code>.</p>
 </div>
-<p>Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij <em>opties</em> is dat anders. Je geeft met mintekens aan dat je een optie meegeeft. Veel opties hebben een lange naam en een afkorting (bijvoorbeeld <code>--count</code> en <code>-c</code>). Opties kunnen zelf weer een argument hebben (bijvoorbeeld <code>--count 3</code>). Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.<sup id="fnref:flag"><a class="footnote-ref" href="#fn:flag">2</a></sup> Het is handig om een standaardwaarde te definiëren. In dat geval mag de gebruiker de optie weglaten. We voegen een for-loop<sup id="fnref:weggooivariabele"><a class="footnote-ref" href="#fn:weggooivariabele">3</a></sup> toe om de begroeting te herhalen.</p>
+<p>Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij <em>opties</em> is dat anders. Je geeft met mintekens aan dat je een optie meegeeft. Veel opties hebben een lange naam en een afkorting (bijvoorbeeld <code>--count</code> en <code>-c</code>). Opties kunnen zelf weer een argument hebben (bijvoorbeeld <code>--count 3</code>). Het is handig om een standaardwaarde te definiëren. In dat geval mag de gebruiker de optie weglaten. We voegen een for-loop<sup id="fnref:weggooivariabele"><a class="footnote-ref" href="#fn:weggooivariabele">2</a></sup> toe om de begroeting te herhalen.</p>
 <div class="language-py highlight"><span class="filename">hello.py</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span> <span class="nn">click</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
@@ -914,9 +914,10 @@ Uitgesplitst in <em>argumenten</em> en <strong>opties</strong>, met vierkante ha
 <p class="admonition-title">Pauze optie</p>
 <p>Breid het bovenstaande script <code>hello.py</code> uit met een optie om een korte pauze in te lassen na het printen van ieder <code class="language-py highlight"><span class="nb">print</span><span class="p">()</span></code>-statement. Een pauze kun je inlassen met <code class="language-py highlight"><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span></code>. Zorg er voor dat er zonder die optie géén pauze is en dat je met de optie kunt kiezen hoe lang er gewacht moet worden.</p>
 </div>
+<p>Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.<sup id="fnref:flag"><a class="footnote-ref" href="#fn:flag">3</a></sup></p>
 <details class="opdracht-meer">
 <summary>Vlag</summary>
-<p>Gebruik een optie als vlag om de gebruiker te laten kiezen tussen <q>hello</q> of <q>goodbye</q>. Zorg dat er standaard <q>hello</q> wordt geprint.</p>
+<p>Gebruik een optie als vlag om de gebruiker te laten kiezen tussen het wel (<q>tea</q>) of niet (<q>no tea</q>) aanbieden van een kopje thee. Zorg dat er standaard <q>tea</q> wordt aangeboden.</p>
 </details>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Argumenten en opties</p>
@@ -1319,11 +1320,11 @@ De lijst met instrumenten kan er op Windows heel anders uitzien. Sterker nog, op
 <li id="fn:argv">
 <p>argv staat voor: <em>argument vector</em>, een lijst met argumenten&#160;<a class="footnote-backref" href="#fnref:argv" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
-<li id="fn:flag">
-<p>Gebruik forward slash om een vlaggetje te maken: <code class="language-py highlight"><span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;-f&quot;</span><span class="p">,</span> <span class="s2">&quot;--flag/--no-flag</span></code>&#160;<a class="footnote-backref" href="#fnref:flag" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
 <li id="fn:weggooivariabele">
-<p>Merk op in de code hieronder: <code class="language-py highlight"><span class="n">_</span></code> is de weggooivariabele in Python. Het gaat ons erom dat de loop een aantal keer doorlopen wordt en we hoeven niets te doen met de loop index.&#160;<a class="footnote-backref" href="#fnref:weggooivariabele" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>Merk op in de code hieronder: <code class="language-py highlight"><span class="n">_</span></code> is de weggooivariabele in Python. Het gaat ons erom dat de loop een aantal keer doorlopen wordt en we hoeven niets te doen met de loop index.&#160;<a class="footnote-backref" href="#fnref:weggooivariabele" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:flag">
+<p>Zie voor meer informatie over flags de <a href="https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags">Click documentatie</a>.&#160;<a class="footnote-backref" href="#fnref:flag" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:arg-type">
 <p>Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieerd. Gebruik <code class="language-py highlight"><span class="nb">type</span><span class="o">=</span><span class="nb">int</span></code>, <code class="language-py highlight"><span class="nb">type</span><span class="o">=</span><span class="nb">float</span></code> enzovoorts om aan te geven wat voor type object het argument moet worden&#160;<a class="footnote-backref" href="#fnref:arg-type" title="Jump back to footnote 4 in the text">&#8617;</a></p>
