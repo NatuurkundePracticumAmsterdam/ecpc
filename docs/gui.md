@@ -346,11 +346,6 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
 !!! info
     Je mag zelf kiezen of je de grafische interface gaat ontwerpen met Designer of dat je hem volledig programmeert.
 
-    Zorg dat je in je `pythondaq` conda environment zit of maak een nieuwe. Voeg de dependencies PySide6 en PyQtGraph toe met:
-    ``` ps1 title="Terminal"
-    poetry add pyside6 pyqtgraph
-    ```
-
 !!! info
     Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met Poetry taken aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. Doe dit als volgt:
 
