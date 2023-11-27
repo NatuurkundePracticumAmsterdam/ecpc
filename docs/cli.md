@@ -129,9 +129,8 @@ python hello.py --help
 !!! warning
     Let er op dat je bij `#!py @click.argument` de naam meegeeft die overeen komt met de namen van de parameters van je functie. In ons geval hebben we een argument `#!py "name"`. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name)`.
 
-Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij _opties_ is dat anders. Je geeft met mintekens aan dat je een optie meegeeft. Veel opties hebben een lange naam en een afkorting (bijvoorbeeld `--count` en `-c`). Opties kunnen zelf weer een argument hebben (bijvoorbeeld `--count 3`). Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag] Het is handig om een standaardwaarde te definiëren. In dat geval mag de gebruiker de optie weglaten. We voegen een for-loop[^weggooivariabele] toe om de begroeting te herhalen.
+Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij _opties_ is dat anders. Je geeft met mintekens aan dat je een optie meegeeft. Veel opties hebben een lange naam en een afkorting (bijvoorbeeld `--count` en `-c`). Opties kunnen zelf weer een argument hebben (bijvoorbeeld `--count 3`). Het is handig om een standaardwaarde te definiëren. In dat geval mag de gebruiker de optie weglaten. We voegen een for-loop[^weggooivariabele] toe om de begroeting te herhalen.
 
-[^flag]: Gebruik forward slash om een vlaggetje te maken: `#!py @click.option("-f", "--flag/--no-flag`
 [^weggooivariabele]: Merk op in de code hieronder: `#!py _` is de weggooivariabele in Python. Het gaat ons erom dat de loop een aantal keer doorlopen wordt en we hoeven niets te doen met de loop index.
 
 ``` py title="hello.py" hl_lines="5-9 11"
@@ -212,9 +211,11 @@ Hello Alice!
 !!! opdracht-basis "Pauze optie"
     Breid het bovenstaande script `hello.py` uit met een optie om een korte pauze in te lassen na het printen van ieder `#!py print()`-statement. Een pauze kun je inlassen met `#!py time.sleep()`. Zorg er voor dat er zonder die optie géén pauze is en dat je met de optie kunt kiezen hoe lang er gewacht moet worden.
 
+Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
+[^flag]: Zie voor meer informatie over flags de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
 
 ??? opdracht-meer "Vlag"
-    Gebruik een optie als vlag om de gebruiker te laten kiezen tussen <q>hello</q> of <q>goodbye</q>. Zorg dat er standaard <q>hello</q> wordt geprint.
+    Gebruik een optie als vlag om de gebruiker te laten kiezen tussen het wel (<q>tea</q>) of niet (<q>no tea</q>) aanbieden van een kopje thee. Zorg dat er standaard <q>tea</q> wordt aangeboden.
 
 
 !!! opdracht-basis "Argumenten en opties"
