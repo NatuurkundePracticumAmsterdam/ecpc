@@ -72,14 +72,13 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
 !!! opdracht-basis "Poetry project aanmaken"
     Maak een nieuw Poetry project met de naam `easystat`, als volgt:
 
-    1. Open in Visual Studio Code een geschikte map[^geschikte map] en open een terminal.
+    1. Open in Visual Studio Code een geschikte map, bijvoorbeeld {{folder}}`Documents/NSP2/ExperimentControlwithPythonCourse`, en open een terminal.
     1. Dan maken we met Poetry als volgt een nieuw project.[^src-layout] We maken het daarmee _expres_ iets moeilijker om vanuit een script je package te importeren. Je kunt dat dan alleen nog maar doen door het package zelf ook te _installeren_ (zoals andere gebruikers ook moeten doen) en daardoor loop je zelf tegen eventuele problemen aan. Werkt het uiteindelijk bij jou? Dan werkt het _ook_ bij andere mensen.} `easystat` aan:
     ``` ps1con title="Terminal"
     PS> poetry new --src easystat
     Created package easystat in easystat
     ```
-    
-    [^geschikte map]: Bijvoorbeeld {{folder}}`Documents/NSP2/Experimentautomatisering`
+     
     [^src-layout]: We gaan het package opbouwen in de zogenaamde src-layout[@srclayout]
 
 
