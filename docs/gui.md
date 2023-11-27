@@ -9,8 +9,9 @@ Als je een grafische applicatie schrijft roep je functies aan van het besturings
 !!! info
     Maak voor de oefeningen een nieuw conda environment `test-qt` met:
     ``` ps1 title="Terminal"
-    conda create -n test-qt -c conda-forge python pyside6 pyqtgraph
+    conda create -n test-qt python=3.10
     conda activate test-qt
+    pip install pyside6 pyqtgraph
     ```
     Selecteer het nieuwe `test-qt` conda environment in Visual Studio Code en sluit alle <q>oude</q> terminals met het {{trash}} -icoon.[^kill-terminals]
 
