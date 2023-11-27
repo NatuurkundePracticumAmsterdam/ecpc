@@ -9,9 +9,8 @@ Als je een grafische applicatie schrijft roep je functies aan van het besturings
 !!! info
     Maak voor de oefeningen een nieuw conda environment `test-qt` met:
     ``` ps1 title="Terminal"
-    conda create -n test-qt python
+    conda create -n test-qt -c conda-forge python pyside6 pyqtgraph
     conda activate test-qt
-    pip install pyside6 pyqtgraph
     ```
     Selecteer het nieuwe `test-qt` conda environment in Visual Studio Code en sluit alle <q>oude</q> terminals met het {{trash}} -icoon.[^kill-terminals]
 
@@ -196,7 +195,7 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 ### De interface ontwerpen met Qt Designer
 
 !!! info
-    Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op met de zoekfunctie: links onderin bij Windows (vergrootglas of tekstveld). Type `designer` in, wacht heel even en kies de applicatie. Als hij hem niet kan vinden open dan een terminal, activeer je `test-qt` conda environment en type `pyside6-designer`.
+    Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op vanuit een terminal. Activeer je `test-qt` conda environment als dat nog nodig is en type `pyside6-designer`.
 
 Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Je bewaart dat als een `.ui`-bestand. Vervolgens vertaal je het `.ui`-bestand naar een Pythonbestand dat je importeert in je eigen programma. De volledige class van het [vorige voorbeeld](#code:layout) kan dan vervangen worden door:
 <div id="code:designer"></div>
