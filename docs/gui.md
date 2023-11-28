@@ -689,7 +689,7 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
 
     === "view.py"
 
-        ``` py linenums="1" hl_lines="1 9 13-17 19-20 24"
+        ``` py linenums="1" hl_lines="1 9 13-17 19-20 26"
         from PySide6 import QtWidgets, QtCore
 
         class UserInterface(QtWidgets.QMainWindow):
@@ -715,7 +715,7 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
             def plot(self):
                 """ Clear the plot widget and display experimental data. """
                 self.plot_widget.clear()
-                # Deze twee regels code vind je terug in de prullenbak
+                # Twee regels code zijn verwijderd
                 self.plot_widget.plot(
                     self.experiment.x, self.experiment.y, symbol="o", symbolSize=5, pen=None
                 )
