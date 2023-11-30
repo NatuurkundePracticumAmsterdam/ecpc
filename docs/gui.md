@@ -361,6 +361,7 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
         shell = """
         pyside6-uic src/pythondaq/mainwindow.ui -o src/pythondaq/ui_mainwindow.py
         """
+        interpreter = ["posix", "powershell"]
         ```
         Je kunt binnen de driedubbele aanhalingstekens meerdere regels toevoegen als je meerdere `.ui`-bestanden hebt &mdash; voor ieder bestand een regel.
     1. In bovenstaande regels is de naam _na_ `tool.poe.tasks` de naam van de taak &mdash; in dit geval dus `compile`. Je kunt die naam zelf kiezen en vervolgens gebruiken om de taak uit te voeren in de terminal:
