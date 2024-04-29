@@ -7,6 +7,7 @@ theme:
   features:
     - content.code.copy
     - toc.integrate
+    - navigation.top
 
 plugins:
   - search
