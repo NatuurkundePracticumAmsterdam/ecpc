@@ -344,11 +344,11 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
     Je overschrijft dus je huidige environment met een nieuwe, lege. Je kunt daarna met `poetry add` packages toevoegen net zo lang tot je geen `#!py ImportError` meer krijgt.
 
 !!! opdracht-basis "Poetry knipperlicht"
-    We gaan nu poetry gebruiken om van het script met de knipperende lichtjes uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) een package te maken én om ons environment te beheren. Voer de volgende stappen uit:
+    We gaan nu poetry gebruiken om van het script met de knipperende lichtjes uit [opdracht _KnipperLED_](communicatie.md#opd:flashingLED) een package te maken én om ons environment te beheren. Voer de volgende stappen uit:
     
     1. Maak in GitHub Desktop een _nieuwe_ repository {{github}}`flasher`.
     1. Maak een map {{folder}}`src` met daarin een map {{folder}}`flasher`.
-    1. Kopieer uit de {{github}}`Oefenopdrachten` die je bij [opdracht _Repository toevoegen_](github.md#opd:add_repository) hebt aangemaakt het scriptje uit [opdracht _KnipperLED_](communicatie.md#opd:knipperled) naar {{folder}}`src/flasher`.
+    1. Kopieer uit de {{github}}`Oefenopdrachten` die je bij [opdracht _Repository toevoegen_](github.md#opd:add_repository) hebt aangemaakt het scriptje uit [opdracht _KnipperLED_](communicatie.md#opd:flashingLED) naar {{folder}}`src/flasher`.
     1. Open {{github}}`flasher` in Visual Studio Code.
     1. Commit alles dat je tot nu toe gedaan hebt.
     1. Open een terminal. Maak een nieuwe conda environment met alleen python 3.10:

@@ -222,11 +222,13 @@ Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een 
     Schrijf een script dat de spanning over de LED laat oplopen van nul tot de maximale waarde. Wat gebeurt er als je de spanning laat oplopen tot twee keer die maximale waarde?
 
 
-<div id="opd:knipperled"></div>
-!!! opdracht-basis "KnipperLED"
-    Je kunt de LED ook andere dingen laten doen. Maak een bestand {{file}}`knipperLED.py` en maak een van de onderstaande opdrachten:
+<div id="opd:flashingLED"></div>
+!!! opdracht-basis "flashingLED"
+    Maak een bestand {{file}}`flashingLED.py` en laat de LED in een regelmatig tempo knipperen.
 
-    * Laat de LED in een regelmatig tempo knipperen.
+!!! opdracht-meer "KnipperLED"
+    Breid het bestand {{file}}`flashingLED.py` uit met meer knipperritmes, bijvoorbeeld:
+    * Maak een _SOS light_ &mdash; een lamp die in morsecode het signaal SOS uitzendt.
     * Maak een _breathing light_ &mdash; een lamp die langzaam aan en uit gaat gevolgd door een pauze in het tempo dat iemand in- en uitademt.
     * Maak een _heartbeat light_ &mdash; een lamp die twee keer kort na elkaar flitst gevolgd door een pauze in het tempo van een hartslag.
     * Bedenk je eigen knipperritme.
