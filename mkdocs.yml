@@ -6,6 +6,7 @@ theme:
   favicon: figures/ECPC_logo_simple.svg
   features:
     - content.code.copy
+    - toc.integrate
 
 plugins:
   - search
