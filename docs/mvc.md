@@ -176,7 +176,7 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
 
 !!! opdracht-basis "Opbouw van een class"
     Beschouw de volgende code:
-    <iframe src="Class.html" scrolling="no" height="700"width="2139" style="border:none;"></iframe>
+    <iframe src="https://h5plti.avwebs.nl/h5p/79/embed" width="975" height="943" frameborder="0" allowfullscreen="allowfullscreen" lang="en"></iframe><script src="https://h5plti.avwebs.nl/modules/contrib/h5p/vendor/h5p/h5p-core/js/h5p-resizer.js" charset="UTF-8"></script>
     Bespreek met elkaar wat de code precies doet en verplaast de onderdelen naar de juiste plek in de code.
 
 
