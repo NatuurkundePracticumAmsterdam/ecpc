@@ -45,10 +45,13 @@ Python is niet C (of iedere willekeurige andere programmeertaal). Er zit een ged
 Je kunt het lezen middels een _easter egg_ in Python zelf: `#!py import this`.
 
 !!! opdracht-basis "zen"
-    Open een Python terminal en type in:
-    ``` ps1 title="Terminal"
+    1. Open Visual Studio Code.
+    1. Open de map {{folder}} ECPC.
+    1. Maak een bestand {{file}} zen-of-python.py met daarin de onderstaande code:
+    ``` py
     import this
     ```
+    1. Run het script en lees de output. 
 
 Deze tekst kan nog behoorlijk cryptisch overkomen, maar een paar dingen worden snel duidelijk: code moet _mooi_ zijn (regel 1) en duidelijk (regels 2, 3 en 6). Er bestaan prachtige programmeertrucs in één of twee regels, maar onleesbaar is het wel. Een voorbeeld [@contemplating_zenofpython]:
 ``` py
