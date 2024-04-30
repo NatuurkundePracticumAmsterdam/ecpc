@@ -47,7 +47,7 @@ Je kunt het lezen middels een _easter egg_ in Python zelf: `#!py import this`.
 !!! opdracht-basis "zen"
     1. Open Visual Studio Code.
     1. Open de map {{folder}} ECPC.
-    1. Maak een bestand {{file}} zen-of-python.py met daarin de onderstaande code:
+    1. Maak een bestand {{file}}`zen-of-python.py` met daarin de onderstaande code:
     ``` py
     import this
     ```
@@ -130,11 +130,21 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
       1. Maak een `#!py list` van de wortels van de getallen 1 tot en met 10. Dus de rij $\left(\sqrt{1}, \sqrt{2}, \sqrt{3}, \ldots, \sqrt{10}\right)$.
       1. Print die rij onder elkaar (één getal per regel, met drie decimalen).
       1. Geef weer of het getal 3 voorkomt in die rij en geef weer of het getal 4 voorkomt in die rij.
+      
+    ??? uitwerkingen
+        ```py
+        --8<-- "uitwerkingen-on/list-square-on.py"
+        ```
     
 
 
 !!! opdracht-basis "np.array"
     Doe hetzelfde als de vorige opdracht, maar nu met NumPy arrays.
+
+    ??? uitwerkingen
+        ```py
+        --8<-- "uitwerkingen-on/numpy-array-on.py"
+        ```
 
 
 !!! opdracht-basis "f-strings"
@@ -149,6 +159,10 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
         % (name, length_name, name[0])
     )
     ```
+    ??? uitwerkingen
+        ```py
+        --8<-- "uitwerkingen-on/f-strings-data-on.py"
+        ```
 
 ### dictionaries, tuples, * args, ** kwargs and sets
 
@@ -164,6 +178,11 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
         1. Bereken de zwaartekracht $F_\text{z} = mg$ voor een voorwerp met een massa van 14 kg door gebruik te maken van de waarde van $g$ uit de dictionary.
         1. Maak een dictionary `measurement` die de resultaten van een meting bevat: een spanning van 1.5 V bij een stroomsterkte van 75 mA.
         1. Bereken de weerstand van de schakeling op basis van de voorgaande meting en bewaar het resultaat in dezelfde dictionary.
+
+        ??? uitwerkingen
+            ```py
+            --8<-- "uitwerkingen-on/dictionaries-on.py"
+            ```
         
 
 
@@ -220,8 +239,15 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
     ```
 
     !!! opdracht-meer "odds"
-        Gegeven de lijst `#!py odds = [1, 3, 5, 7, 9]`, print de waardes uit deze lijst op één regel. Je mag er niet vanuit gaan dat de lijst altijd 5 elementen bevat.
-
+        Gegeven de lijst `#!py odds = [1, 3, 5, 7, 9]`, print de waardes uit deze lijst op één regel, zoals hieronder weergegeven:
+        ``` ps1 title="Terminal"
+        1 3 5 7 9
+        ```
+        Je mag er niet vanuit gaan dat de lijst altijd 5 elementen bevat.
+        ??? uitwerkingen
+            ```py
+            --8<-- "uitwerkingen-on/odds-on.py"
+            ```
 
     Als laatste willen we nog de aandacht vestigen op `#!py set`'s: een unieke verzameling van objecten. Ieder element komt maar één keer voor in een set:
     ``` py
@@ -307,6 +333,11 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     1. Maak nogmaals een lijst van de derdemachtswortel van de getallen maar gebruik nu list comprehension.
     1. Gebruik tot slot arrays om de lijst met derdemachtswortels van de getallen te maken. 
 
+    ??? uitwerkingen
+        ``` py
+        --8<-- "uitwerkingen-on/comprehension-on.py"
+        ```
+
 
 ## Lambda functions
 
@@ -370,6 +401,11 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         # 13
         ```
         Maak een grafiek van de sinusfunctie op het domein $[0,\, 2\pi]$ met parameters $a=1$, $b=2$, $c=2$ en $d=\frac{\pi}{2}$.
+        
+        ??? uitwerkingen
+            ``` py
+            --8<-- "uitwerkingen-on/lambda-on.py"
+            ```
 
 
 
@@ -431,7 +467,11 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
 
     !!! opdracht-meer "generators"
         Schrijf een generator function die het _vermoeden van Collatz_ illustreert. Dat wil zeggen: beginnend bij een getal $n$, genereer het volgende getal als volgt: is het getal _even_, deel het dan door twee; is het getal _oneven_, vermenigvuldig het met 3 en tel er 1 bij op. Enzovoorts. Sluit de generator af als de uitkomst gelijk is aan 1. Dat is het vermoeden van Collatz: ongeacht met welk geheel getal je begint, je komt altijd op 1 uit. Als voorbeeld, beginnend bij het getal 3 krijg je de reeks 3, 10, 5, 16, 8, 4, 2, 1.
-
+        
+        ??? uitwerkingen
+            ``` py
+            --8<-- "uitwerkingen-on/generators-on.py"
+            ```
 
 
 ### Dunder methods
@@ -506,6 +546,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         pass
     ```
     Het keyword `#!py pass` doet niets overigens. Met alleen dit statement heeft de class `#!py Cow` precies alle functionaliteit van de class `#!py Animal`. Je kunt daarna zelf nog extra methods en attributes definiëren.
+
 
 
 ## Decorators
@@ -612,6 +653,10 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     !!! opdracht-meer "decorators"
         Schrijf en test een decorator die werkt als een soort logboek. Als je een functie aanroept die gedecoreerd is print dan een regel op het scherm met het tijdstip van de aanroep, de parameters die meegegeven werden én de return value van de functie.
 
+        ??? uitwerkingen
+            ``` py
+            --8<-- "uitwerkingen-on/decorators-on.py"
+            ```
 
 ## Modules
 
@@ -645,6 +690,8 @@ Zoals verwacht! Maar nu willen we in een nieuw script, {{file}}count\_count.py, 
 ```
 !!! opdracht-basis "square.square"
     Waarom staat er in bovenstaande code nu opeens `#!py square.square()` in plaats van gewoon `#!py square()`?
+    ??? uitwerkingen
+        Omdat je uit de _module_ {{file}}square.py de _functie_ `#!py square()` gebruikt.
 
 Maar nu is er een probleem met de uitvoer van dit script:
 ``` ps1 title="Terminal"
@@ -673,8 +720,12 @@ The square of 5 is 25
 Het `#!py if __name__ == '__main__'`-statement wordt heel veel gebruikt in Python modules.
 
 !!! opdracht-basis "modules"
-    * Maak zelf de bestanden {{file}}square.py en {{file}}just\_count.py aan en probeer het importeren uit, met en zonder het `#!py if __name__ == '__main__'`-statement.
-    * Voeg `#!py print(f"{__name__ = }")` toe bovenaan {{file}}square.py. Run {{file}}square.py en daarna {{file}}just\_count.py. Zie hoe de speciale variabele `#!py __name__` veranderd. 
+    1. Maak zelf de bestanden {{file}}square.py en {{file}}just\_count.py aan.
+    1. Run {{file}}just\_count.py zonder het `#!py if __name__ == '__main__'`-statement.
+    1. Run {{file}}just\_count.py met het `#!py if __name__ == '__main__'`-statement.
+    1. Voeg `#!py print(f"{__name__ = }")` toe bovenaan {{file}}square.py. 
+    1. Run {{file}}square.py en kijk wat `#!py __name__` is.
+    1. Run dan nu {{file}}just\_count.py. Zie hoe de speciale variabele `#!py __name__` veranderd. 
 
 
 ## Packages
@@ -747,20 +798,40 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 !!! opdracht-basis "Packages"
     In deze opdracht ga je oefenen met het aanmaken van packages, modules en het importeren en aanroepen daarvan.
     
-    1. Maak een package `#!py models` met twee modules: `#!py polynomials` en `#!py tests`.
+    1. Maak een package {{folder}}`models` met twee modules: {{file}}`polynomials` en {{file}}`tests`.
     1. In de `#!py polynomials`-module maak je een functie `#!py line(x, a, b)` die de de vergelijking voor een lijn voor ons berekent: $y = ax + b$.
     1. In de `#!py tests`-module maak je een functie `#!py test_line()` die het volgende doet:
             
         1. gebruik de `#!py line()`-functie uit de `#!py polynomials`-module om de $y$-waarde uit te rekenen voor een bepaald punt bij een gegeven $a$ en $b$.
-        1. Vergelijk die berekende waarde met de waarde die het volgens jij moet zijn (met de hand nagerekend).
+        1. Vergelijk die berekende waarde met de waarde die het volgens jou moet zijn (met de hand nagerekend).
         1. Print `TEST PASSED` als het klopt, en `TEST FAILED` als het niet klopt.
             
-    1. Maak een script die:
+    1. Maak een bestand {{file}}`practice-packages.py` die:
             
         1. Een grafiek maakt van jouw lijn. Bepaal zelf het domein en de waardes voor $a$ en $b$.
         1. De test uitvoert door de `#!py test_line()`-functie aan te roepen.
         1. Pas je `#!py line()`-functie eventjes aan om te kijken of je test ook echt werkt. Bijvoorbeeld: bij $y = ax$ zou je `TEST FAILED` moeten zien.
-            
+
+    ??? uitwerkingen
+        De mappen structuur ziet er als volgt uit:
+
+        - {{folder}} ECPC
+            - {{file}} practice-packages.py
+            - {{folder}} models
+                - {{file}} \_\_init\_\_.py
+                - {{file}} polynomials.py
+                - {{file}} tests.py
+
+        ``` py title="polynomials.py"
+        --8<-- "uitwerkingen-on/polynomials-on.py"
+        ```
+        ``` py title="tests.py"
+        --8<-- "uitwerkingen-on/tests-on.py"
+        ```
+        ``` py title="practice-packages.py"
+        --8<-- "uitwerkingen-on/packages-on.py"
+        ```
+
     
 
 
@@ -847,25 +918,24 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
     ```
     In plaats van een `#!py ZeroDivisionError` krijg je nu een `#!py NoCurrentError`. Je programma crasht nog steeds (wellicht niet handig) maar de foutmelding is nu wel specifiek voor het probleem en kan in de rest van je programma wellicht beter afgevangen en opgelost worden. Misschien beter dan niet crashen en een mogelijk foute waarde doorgeven. Die afweging zul je zelf moeten maken.
 
-    === "Opdracht"
-        !!! opdracht-meer "exceptions"
-            De volgende code berekent een gemiddelde van een lijst getallen:
-            ``` py
-            def average(values):
-                return sum(values) / len(values)    
-            ```
-            Er is alleen geen foutafhandeling en dat kan leiden tot exceptions. De volgende aanroepen zorgen voor een crash (probeer ze allemaal uit!):
-            ``` py
-            average([])
-            average(4)
-            average("12345")
-            ```
-            Pas de functie `#!py average()` zodanig aan dat bij bovenstaande aanroepen slechts een waarschuwing wordt geprint. Vang daartoe de exceptions netjes af en geef de waarde `#!py None` terug wanneer een gemiddelde niet berekend kan worden. Dus bovenstaande drie aanroepen krijgen `#!py None` terug terwijl er een waarschuwing wordt geprint.
-
-    === "uitwerkingen"
+    !!! opdracht-meer "exceptions"
+        De volgende code berekent een gemiddelde van een lijst getallen:
         ``` py
-        --8<-- "uitwerkingen-on/exceptions-on.py"
+        def average(values):
+            return sum(values) / len(values)    
         ```
+        Er is alleen geen foutafhandeling en dat kan leiden tot exceptions. De volgende aanroepen zorgen voor een crash (probeer ze allemaal uit!):
+        ``` py
+        average([])
+        average(4)
+        average("12345")
+        ```
+        Pas de functie `#!py average()` zodanig aan dat bij bovenstaande aanroepen slechts een waarschuwing wordt geprint. Vang daartoe de exceptions netjes af en geef de waarde `#!py None` terug wanneer een gemiddelde niet berekend kan worden. Dus bovenstaande drie aanroepen krijgen `#!py None` terug terwijl er een waarschuwing wordt geprint.
+
+        ??? uitwerkingen
+            ``` py
+            --8<-- "uitwerkingen-on/exceptions-on.py"
+            ```
 
 ## Inleiding programmeren; terugblik
 
