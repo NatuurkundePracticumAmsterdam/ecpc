@@ -875,7 +875,14 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
     1. Schrijf een python script waarin je de gebruiker vraagt wat de diameter van de bal is. 
     1. Bereken de radius van de bal.
     1. Print de diameter en radius in een zin en maak gebruik van f-string. Bijvoorbeeld: "A ball with a diameter of 2.8 m has a radius of 1.4 m."
-    1. Test je script met het getal 2.8. 
+    1. Test je script met het getal 2.8.
+    
+    ??? uitwerkingen
+        ``` py
+        --8<-- "uitwerkingen-on/f-strings-on.py"
+        ```
+
+
 
 
 !!! opdracht-basis "if-statement en operatoren"
@@ -890,8 +897,12 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
         * kleiner dan of gelijk aan
     1. Vul op de `#!py ...` de juiste condities in door gebruik te maken van `#!py and`, `#!py not` en `#!py or`.
     ``` py
-    rain = False
-    umbrella = False
+    import random
+
+    rain = random.choice([True, False])
+    umbrella = random.choice([True, False])
+
+    print(f"{rain=}, {umbrella=}")
 
     if ... :
         print("Lucky you have your umbrella with you since it's raining.")
@@ -905,6 +916,11 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
     if ... :
         print("Without an umbrella there is no problem since it's not raining.")
     ```
+    ??? uitwerkingen
+        ``` py 
+        --8<-- "uitwerkingen-on/if-statements-on.py"
+        ```
+
 
 !!! opdracht-basis "For-loop, while-loop en break"
     1. Beschouw de volgende code:
@@ -920,6 +936,16 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
     1. Gebruik `#!py print` om het voltage te printen in the while-loop, doe dit handig met f-strings zodat je weet wat je je print bijvoorbeeld: "The voltage is set to 0 mV."
     1. Gebruik dan `#!py break` om de loop maar een keer te laten lopen. 
     1. Schrijf de code om waarbij je gebruikt maakt van een `#!py for`-loop. 
+
+    ??? uitwerkingen
+        ``` py title="print and break"
+        --8<-- "uitwerkingen-on/break-on.py"
+        ```
+        ``` py title="for-loop"
+        --8<-- "uitwerkingen-on/for-loop-on.py"
+        ```
+        
+    
 
 
 !!! opdracht-basis "functies"
@@ -938,18 +964,32 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
     ```
 
     1. In deze opdracht zijn 4 variabele `#!py solution`, `#!py number_1`, `#!py number_2` en `#!py answer`. Welk van deze variabele zijn globaal en welke zijn lokaal?
-    1. Leg uit wat daarvan de consequentie is voor het gebruiken van deze variabelen. 
+    1. Leg uit wat daarvan de consequentie is voor het gebruiken van deze variabelen.
+    ??? uitwerkingen
+        1. 
+        ``` py
+        --8<-- "uitwerkingen-on/function-on.py"
+        ```
+        
+        2. De globale variabelen zijn `#!py number_1`, `#!py number_2` en `#!py answer` en de lokale variabele is `#!py solution`.
+        
+        3. Het gevolg is dat `#!py number_1`, `#!py number_2` en `#!py answer` wel binnen de functie `#!py exponentiation()` gebruikt kunnen worden, maar `#!py solution` niet buiten de functie `#!py exponentiation()` gebruikt kan worden. 
 
 !!! opdracht-basis "lijsten"
     1. Schrijf een python script waarin je een lijst definieerd met de namen van de maanden.
     1. Print de negende maand.
     1. Voeg een dertiende maand toe aan de lijst.
+    ??? uitwerkingen
+        ``` py
+        --8<-- "uitwerkingen-on/lists-on.py"
+        ```
 
 Bij inleiding programmeren heb je ook geleerd hoe je code netjes opschrijft zodat het leesbaar en begrijpelijk is. Hieronder vind je een samenvatting, die een beetje aangevuld is met ECPC stijl.
-- Je schrijft je code in het Engels.
+
+- Schrijf code in het Engels.
 - `#!py def functie_namen_met_doel():` Namen van functies mogen lang zijn, maar geven duidelijk weer wat de functie doet.
 - `#!py korte_variabele = 28` de namen van variabele houd je kort en duidelijk. Gebruik alleen afkortingen waarneer deze door veel mensen gekend zijn.
-- Je hoeft de code niet af te drukken dus gebruik liever meer regels dan een hele lange regel waar meer dan 1 ding gebeurd.
+- Je hoeft de code niet met de hand over te schrijven dus gebruik liever meer regels dan een hele lange regel waar meer dan 1 ding gebeurd.
 - Gebruik `#!py #commentaar-kopjes` om een stukje code samen te vatten, een waarschuwing te geven, uitleg van complexe algoritmen te doen, voor bronvermelding, uitleg van een variabele te geven en zet dit altijd boven het stukje code waar het omgaat. 
 - Spring in waar nodig, gebruik witregels, zet spaties rondom operatoren.
 
@@ -961,6 +1001,11 @@ Ook heb je geleerd om functies uit andere (python) modules te importeren, meer h
     time = [0, 0.5, 1, 1.5, 2, 2.5, 3] #seconds
     distance = [0, 15, 50, 100, 200, 300, 400] #meters
     ```
+    ??? uitwerkingen
+        ``` py
+        --8<-- "uitwerkingen-on/plot-on.py"
+        ```
+
 
 !!! opdracht-basis "txt-bestanden lezen"
     Hieronder vind je een verhaal, kopieer de inhoud naar een .txt-bestand en sla deze op een handige plek op.
@@ -977,3 +1022,7 @@ Ook heb je geleerd om functies uit andere (python) modules te importeren, meer h
     ```
 
     Schrijf een script om het .txt-bestand te lezen en regel voor regel te printen.
+    ??? uitwerkingen
+        ``` py
+        --8<-- "uitwerkingen-on/read-txt-on.py"
+        ```

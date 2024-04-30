@@ -1,5 +1,9 @@
-rain = False
-umbrella = False
+import random
+
+rain = random.choice([True, False])
+umbrella = random.choice([True, False])
+
+print(f"{rain=}, {umbrella=}")
 
 if rain and umbrella:
     print("Lucky you have your umbrella with you since it's raining.")
