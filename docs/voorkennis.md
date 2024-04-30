@@ -87,7 +87,7 @@ while i < len(names):
     print("Hi,", names[i])
     i = i + 1
 ```
-of:
+en ook niet:
 ``` py
 for i in range(len(names)):
     print("Hi,", names[i])
@@ -97,7 +97,10 @@ waarbij je loopt over een index `#!py i`. Gebruik liever het feit dat een lijst 
 for name in names:
     print("Hi,", name)
 ```
-Deze code is bovendien veel korter en gebruikt minder variabelen. Soms is het nodig om de index te hebben, bijvoorbeeld wanneer je een namenlijstje wilt nummeren:
+Deze code is bovendien veel korter en gebruikt minder variabelen.
+
+### Enumerate
+Soms is het nodig om de index te hebben, bijvoorbeeld wanneer je een namenlijstje wilt nummeren:
 ``` ps1 title="Terminal"
 1. Alice
 2. Bob
@@ -109,7 +112,7 @@ Dit kan dan in Python-code het makkelijkst als volgt:
 for idx, name in enumerate(names, 1):
     print(f"{idx}. {name}")
 ```
-Hier maken we gebruik van de `#!py enumerate(iterable, start=0)`-functie en de (relatief recent geïntroduceerde) f-strings. Er zijn dus veel manieren om programmeerproblemen op te lossen, maar het helpt om het op de `Pythonmanier' te doen. Andere programmeurs zijn dan veel minder tijd en energie kwijt om jouw code te begrijpen -- én andersom wanneer jij zelf op internet zoekt naar antwoorden op problemen. Immers, je herkent dan veel makkelijker en sneller hoe andermans code werkt.
+Hier maken we gebruik van de `#!py enumerate(iterable, start=0)`-functie en f-strings. Er zijn dus veel manieren om programmeerproblemen op te lossen, maar het helpt om het op de `Pythonmanier' te doen. Andere programmeurs zijn dan veel minder tijd en energie kwijt om jouw code te begrijpen -- én andersom wanneer jij zelf op internet zoekt naar antwoorden op problemen. Immers, je herkent dan veel makkelijker en sneller hoe andermans code werkt.
 
   
 ## Datatypes
