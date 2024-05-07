@@ -2,6 +2,14 @@
 
 Bij de cursus inleiding programmeren heb je de basis van het programmeren in Python geleerd. Bij inleiding programmeren mocht je kiezen om je code in het Nederlands of Engels te schrijven. Omdat wij jullie voorbereiden om in een onderzoeksgroep je bachelor project te gaan doen waar je hoogstwaarschijnlijk internationale collega's gaat treffen vragen we jou om bij ECPC alles in het Engels te schrijven. In deze paragraaf nemen we de hoofdlijnen van inleiding programmeren met je door in een aantal opdrachten. 
 
+## Visual Studio Code
+!!! opdracht-basis "Open VSCode en maak de map ECPC"
+    1. Open Visual Studio Code.
+    1. Ga naar **File > Open folder**.
+    1. Navigeer naar een geschikte map, bijvoorbeeld OneDrive.
+    1. Klik op **Nieuwe map** en noem de map ECPC.
+    1. Klik op **Map selecteren**.
+
 ## F-strings, variabelen en input()
 
 !!! opdracht-basis "f-strings, variabelen en input"
