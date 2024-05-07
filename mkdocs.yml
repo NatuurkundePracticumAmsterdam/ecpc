@@ -53,6 +53,8 @@ extra_css:
 
 nav:
   - index.md
+  - Voorkennis:
+    - basis-python.md
   - communicatie.md
   - github.md
   - basisscript.md
