@@ -55,6 +55,7 @@ nav:
   - index.md
   - Voorkennis:
     - basis-python.md
+    - vervolg-python.md
   - communicatie.md
   - github.md
   - basisscript.md
@@ -69,7 +70,6 @@ nav:
       - kleurcodes.md
       - diodes.md
       - zonnecel.md
-      - voorkennis.md
   - faq.md
 
 extra:

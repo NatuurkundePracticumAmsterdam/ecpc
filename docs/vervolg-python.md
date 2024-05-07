@@ -1,18 +1,17 @@
-# Python voorkennis; Batteries (not yet) included
+# Uitgebreidere Python kennis
 
 Python is een _batteries included_ taal. Dat betekent dat als je 'kaal' Python installeert er al heel veel functionaliteit standaard meegeleverd wordt. Allereerst omdat de taal zelf al behoorlijk krachtig is, maar ook omdat de _standaardbibliotheek_ zeer uitgebreid is. Met een eenvoudig `#!py import`-statement haal je extra functionaliteit binnen, onder andere op het gebied van datatypes, wiskunde, toegang tot bestanden, een database, datacompressie, cryptografie, netwerktoegang, e-mail, multimedia, etc. Nog veel meer bibliotheken zijn beschikbaar via de _Python Package Index_[@pypi].
 
-In dit hoofdstuk behandelen we de kennis die nuttig kan zijn voor de rest van deze cursus. We gaan ervan uit dat iedereen bekend is met recente versies van Python en we gaan niet in op de -- soms ingrijpende -- veranderingen die de taal heeft ondergaan.[^python3] Een deel van wat we hier behandelen kan al bekend zijn uit eerdere cursussen. Een ander deel is nieuw.[^zelf programmeren]
+In dit hoofdstuk behandelen we de kennis die nuttig kan zijn voor de rest van deze cursus[^python3]. Een deel van wat we hier behandelen kan al bekend zijn uit eerdere cursussen. Een ander deel is nieuw.[^zelf_programmeren]
 
-[^python3]: Python 2 is dood. Leve Python 3!
-[^zelf programmeren]:Tenzij je al veel zelf hebt geprogrammeerd in Python, buiten de cursussen om.
-
+[^python3]: We gaan ervan uit dat iedereen bekend is met recente versies van Python en we gaan niet in op de -- soms ingrijpende -- veranderingen die de taal heeft ondergaan. Python 2 is dood. Leve Python 3!
+[^zelf_programmeren]:Tenzij je al veel zelf hebt geprogrammeerd in Python, buiten de cursussen om.
 
 In de cursus gaan we bibliotheken (_modules, packages_) en een applicatie ontwikkelen. Dat betekent dat we verder gaan dan het schrijven van _scripts_ en dat we dus meer gaan doen dan functies schrijven. Uiteindelijk moet het mogelijk zijn de software te verspreiden op een wat meer professionele manier. Dus niet alleen via een zipje met wat Pythonbestanden waar uiteindelijk verschillende versies van rondslingeren en die lastig zijn te updaten. Wat er nodig is voor een goede distributie van software en om het mogelijk te maken met meerdere mensen software te (blijven) ontwikkelen zal in deze cursus aan bod komen.
 
 Een punt wat vaak onderschoven blijft is _documentatie_. Als je software schrijft die gebruikt (en doorontwikkeld) wordt in een onderzoeksgroep, dan is het heel belangrijk dat iedereen kan begrijpen wat je software doet en hoe die uitgebreid kan worden. Het is zonder hulp vaak heel moeilijk om de code van een iemand anders te begrijpen. En in de praktijk blijkt heel vaak dat als je code schrijft en daar een paar weken of maanden later op terugkijkt, jij zélf die ander bent. Wat toen blijkbaar heel logisch leek, is dat later toch niet meer. Dus documentatie schrijf je heel vaak ook gewoon voor jezelf.
 
-Als je niet zo heel veel in Python geprogrammeerd hebt kan het helpen om de [paragraaf over de cursus _inleiding programmeren_](voorkennis.md#inleiding-programmeren-terugblik)[@inl_prog] door te nemen. Een boek dat zeker bij natuurkundigen in de smaak kan vallen is _Effective Computation in Physics_[@eff_comp_physics], maar deze is niet gratis verkrijgbaar. Een boek dat zowel op papier te bestellen is als in de vorm van een pdf of webpagina is te lezen is _Think Python_.[@think_python]
+Als je niet zo heel veel in Python geprogrammeerd hebt kan het helpen om de [paragraaf _Basiskennis Python_](basis-python.md#Basiskennis-Python)[@inl_prog] door te nemen. Een boek dat zeker bij natuurkundigen in de smaak kan vallen is _Effective Computation in Physics_[@eff_comp_physics], maar deze is niet gratis verkrijgbaar. Een boek dat zowel op papier te bestellen is als in de vorm van een pdf of webpagina is te lezen is _Think Python_.[@think_python]
 
 
 ## Zen of Python
