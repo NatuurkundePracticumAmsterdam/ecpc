@@ -274,7 +274,7 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
     Je kunt elementen toevoegen aan een set met `#!py .add()` en sets gebruiken om verzamelingen met elkaar te vergelijken. Komen er elementen wel of niet voor in een set? Is de ene set een subset van de andere set? Enzovoorts. Zie daarvoor verder de documentatie.
 
 
-## Arrays en comprehensions
+## NumPy arrays
 
 NumPy arrays zijn vaak handiger dan lists. Als je een array hebt van 20 $x$-waardes in het domein $[0, \pi]$ kun je in één keer alle waardes van $\sin x$ uitrekenen. Bijvoorbeeld:
 ``` py
@@ -307,17 +307,18 @@ x = np.linspace(0, pi, 100)
 y = np.sin(x)
 ```
 
-### comprehensions
+## Comprehension
 
 Door gebruik te maken van een _list comprehension_ kun je de for-loop in één regel opschrijven:
 ``` py
-# x = [list of x-values]
+from math import sin
+x = [0.00, 1.05, 2.09, 3.14, 4.19, 5.24, 6.28]
 y = [sin(u) for u in x]
 ```
 Er is in veel gevallen tegenwoordig geen groot verschil met een for-loop qua snelheid. In andere gevallen is de list comprehension net wat sneller. Als je lijsten niet te lang zijn is het makkelijker (en sneller) om een list comprehension te gebruiken in plaats van je lijst éérst naar een array te veranderen en er dan mee verder te rekenen. Als je lijst wél lang is of je weet al dat je meerdere berekeningen wilt uitvoeren kan dat wel:
 ``` py
-# from numpy import sin, array
-# x = [list of x-values]
+from numpy import sin, array
+x = [0.00, 1.05, 2.09, 3.14, 4.19, 5.24, 6.28]
 x = array(x)
 y = sin(x)
 ```
@@ -326,6 +327,7 @@ Kortom: _berekeningen_ met arrays zijn sneller, maar for-loops (en list comprehe
 ``` py
 filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
 pdfs = [name for name in filenames if name.endswith(".pdf")]
+
 # pdfs=['text.pdf', 'manual.pdf']
 ```
 In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_[^{}] en _dict comprehensions_.
