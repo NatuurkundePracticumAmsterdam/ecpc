@@ -165,9 +165,11 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
         --8<-- "uitwerkingen-on/numpy-array-on.py"
         ```
 
-### dictionaries, tuples, * args, ** kwargs and sets
 
-??? meer-leren "Meer leren"
+
+??? meer-leren "Dictionaries"
+
+    ### Dictionaries
 
     Dictionaries zijn een bijzonder handige manier om informatie op te slaan. Een dictionary bestaat uit een of meerder key-value tweetallen. Met een handige gekozen naam voor de key kan je betekenis geven aan een value. 
 
@@ -184,8 +186,10 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
             ```py
             --8<-- "uitwerkingen-on/dictionaries-on.py"
             ```
-        
 
+??? meer-leren "Tuples, * args, ** kwargs"
+
+    ### Tuples, * args, ** kwargs
 
     In Python zijn `#!py tuple`'s een soort <q>alleen-lezen</q> `#!py list`'s. Een tuple is een _immutable[^immutable] object_. Daarom worden ze vaak gebruikt wanneer lijstachtige objecten altijd dezelfde vorm moeten hebben. Bijvoorbeeld een lijst van $(x, y)$-coördinaten zou je zo kunnen definiëren:
     [^immutable]: Letterlijk: onveranderbaar.
@@ -239,7 +243,7 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
     power(**kwargs)
     ```
 
-    !!! opdracht-meer "odds"
+    !!! opdracht-meer "*args*"
         Gegeven de lijst `#!py odds = [1, 3, 5, 7, 9]`, print de waardes uit deze lijst op één regel, zoals hieronder weergegeven:
         ``` ps1 title="Terminal"
         1 3 5 7 9
@@ -249,6 +253,9 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
             ```py
             --8<-- "uitwerkingen-on/odds-on.py"
             ```
+??? meer-leren "Set"
+
+    ### Set
 
     Als laatste willen we nog de aandacht vestigen op `#!py set`'s: een unieke verzameling van objecten. Ieder element komt maar één keer voor in een set:
     ``` py
