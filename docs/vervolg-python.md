@@ -108,9 +108,7 @@ Deze code is bovendien veel korter en gebruikt minder variabelen.
     1. Print voor elk item in de lijst de waarde in mV. Bijvoorbeeld: "The voltage is set to 0 mV."
 
     ```py
-    import numpy as np
-
-    voltages = np.arange(0, 500, 5) #mV
+    voltages = [0, 50, 100, 150, 200, 250, 300] #mV
     ```
 
     ??? uitwerkingen
