@@ -324,12 +324,17 @@ y = sin(x)
 ```
 
 Kortom: _berekeningen_ met arrays zijn sneller, maar for-loops (en list comprehensions) zijn veelzijdiger. Het is zelfs mogelijk om een `#!py if`-statement op te nemen in je list comprehension. Bijvoorbeeld:
-``` py
-filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
-pdfs = [name for name in filenames if name.endswith(".pdf")]
 
-# pdfs=['text.pdf', 'manual.pdf']
-```
+=== "pdf.py"
+    ``` py
+    filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
+    pdfs = [name for name in filenames if name.endswith(".pdf")]
+    ```
+=== "output"
+    ``` ps1con
+    pdfs=['text.pdf', 'manual.pdf']
+    ```
+
 In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_[^{}] en _dict comprehensions_.
 
 [^{}]: Notatie hetzelfde, maar gebruik nu `#!py {`}-haakjes.
