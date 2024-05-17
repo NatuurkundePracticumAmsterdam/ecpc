@@ -755,7 +755,7 @@ Iedere package bestaat uit een directory met een {{file}}\_\_init\_\_.py-bestand
 
 [^init]: Dat bestand is vaak leeg, maar kan code bevatten die gerunt wordt zodra het package wordt geïmporteerd.
 
-De verschillende modules uit [figuur packagetree](voorkennis.md#fig:packagetree) kun je als volgt importeren en gebruiken (we gaan er even vanuit dat iedere module een functie `#!py some_func()` bevat):
+De verschillende modules uit [figuur packagetree](vervolg-python.md#fig:packagetree) kun je als volgt importeren en gebruiken (we gaan er even vanuit dat iedere module een functie `#!py some_func()` bevat):
 ``` py
 # module direct importeren
 import my_pkg.pkg1.module1

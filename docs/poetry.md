@@ -65,7 +65,7 @@ poetry about
 
 ## Nieuw Poetry project
 !!! info
-    We gaan werken met modules en packages. Ben je daar nog niet zo bekend mee, zorg dan dat je [paragraaf _Modules_](voorkennis.md#modules) en [paragraaf _packages_](voorkennis.md#packages) gemaakt hebt.
+    We gaan werken met modules en packages. Ben je daar nog niet zo bekend mee, zorg dan dat je [paragraaf _Modules_](vervolg-python.md#modules) en [paragraaf _packages_](vervolg-python.md#packages) gemaakt hebt.
 
 Stel je wilt een package schrijven met wat handige functies om veelgebruikte statistische berekeningen makkelijk uit te voeren. Je noemt het `easystat`. Het doel is eerst om het in al je eigen analyses makkelijk te kunnen gebruiken (`#!py import easystat`) maar je wilt het ook op GitHub zetten en wie weet vinden anderen het ook handig! Je wilt het dus ook _netjes_ doen. En niet later van anderen horen: <q>leuk, maar bij mij werkt het niet!</q>
 
@@ -100,7 +100,7 @@ Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaa
 
 [^README]: Wanneer de repository op GitHub wordt geplaatst wordt deze README automatisch op de hoofdpagina van de repository getoond, onder de code.
 
-Daarna is er een map {{folder}}`tests`. Goede software wordt getest. In deze map komen bestanden te staan die delen van de code runnen en resultaten vergelijken met verwachte resultaten &mdash; zoals je kunt doen in [opdracht _Packages_](voorkennis.md#opd:test_package).[^unittest]
+Daarna is er een map {{folder}}`tests`. Goede software wordt getest. In deze map komen bestanden te staan die delen van de code runnen en resultaten vergelijken met verwachte resultaten &mdash; zoals je kunt doen in [opdracht _Packages_](vervolg-python.md#opd:test_package).[^unittest]
 
 [^unittest]: Python heeft een ingebouwde module `#!py unittest` die deze tests kan vinden, kan runnen en daarna een handige weergave geeft van welke tests geslaagd zijn en welke faalden. Ook het package `#!py pytest` is erg bekend. Op deze manier weet je altijd zeker dat wanneer je aanpassingen doet in je code, dat de rest van de code nog steeds is blijven werken &mdash; zónder dat je zelf uitvoerig alles hebt hoeven uitproberen. Je draait gewoon even snel alle tests. Helaas, helaas &mdash; in deze cursus is te weinig tijd om het schrijven van tests te behandelen.
 
@@ -400,7 +400,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
     1. Initialiseer Poetry, zodat een {{file}}`pyproject.toml` wordt aangemaakt.
     1. Installeer je package.
     1. Test je {{file}}`view.py` script, terwijl je dependencies toevoegt die je in je scripts nodig hebt.
-    1. Vergelijkbaar met [opdracht _Packages_](voorkennis.md#opd:test_package) is het verstandig om het importeren van onderdelen van het package te testen voordat we het verder gaan uitbouwen. Maak een {{folder}}`tests`-map met {{file}}`__init__.py` aan in hoofdmap van de repository zodat je onderstaande structuur krijgt:
+    1. Vergelijkbaar met [opdracht _Packages_](vervolg-python.md#opd:test_package) is het verstandig om het importeren van onderdelen van het package te testen voordat we het verder gaan uitbouwen. Maak een {{folder}}`tests`-map met {{file}}`__init__.py` aan in hoofdmap van de repository zodat je onderstaande structuur krijgt:
 
             pythondaq/
                 src/
@@ -435,7 +435,7 @@ python script.py
 ```
 Je moet dan wel de juiste map geopend hebben zodat python het bestand kan vinden. En als je de `run`-knop gebruikt moet wel het bestandje open hebben staan dat je wilt runnen. Kortom, best een beetje gedoe. Maar als we programma's zoals Poetry, Conda of Python willen gebruiken hoeven we helemaal niet het juiste bestandje op te zoeken en te runnen. We hoeven alleen maar een commando in de terminal te geven &mdash; bijvoorbeeld `python` of `conda` &mdash; en de computer start automatisch het juiste programma op.
 
-Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan een commando toevoegen om de module uit te voeren waarvan je de code in [paragraaf _Modules_](voorkennis.md#modules) kunt vinden. De twee bestanden {{file}}`square.py` en {{file}}`count_count.py` hebben we voor jullie netjes in een package geplaats in de repository {{github}}`AnneliesVlaar/just_count` met de volgende structuur:
+Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan een commando toevoegen om de module uit te voeren waarvan je de code in [paragraaf _Modules_](vervolg-python.md#modules) kunt vinden. De twee bestanden {{file}}`square.py` en {{file}}`count_count.py` hebben we voor jullie netjes in een package geplaats in de repository {{github}}`AnneliesVlaar/just_count` met de volgende structuur:
 
     just_count/
         src/
@@ -448,7 +448,7 @@ Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we
         pyproject.toml
         README.md
 
-De bestanden {{file}}`square.py` en {{file}}`count_count.py` zien er hetzelfde uit als in [paragraaf _Modules_](voorkennis.md#modules):
+De bestanden {{file}}`square.py` en {{file}}`count_count.py` zien er hetzelfde uit als in [paragraaf _Modules_](vervolg-python.md#modules):
 === "square.py"
 
     ``` py

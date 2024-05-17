@@ -140,7 +140,7 @@ Bij inleiding programmeren heb je ook geleerd hoe je code netjes opschrijft zoda
 
 ## Modules
 
-Ook heb je geleerd om functies uit andere (python) modules te importeren, meer hierover vind je in de [paragraaf _Modules_](voorkennis.md#modules). 
+Ook heb je geleerd om functies uit andere (python) modules te importeren, meer hierover vind je in de [paragraaf _Modules_](vervolg-python.md#modules). 
 
 ## Plotten
 
