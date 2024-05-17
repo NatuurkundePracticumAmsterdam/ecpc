@@ -81,6 +81,7 @@ Moraal van dit verhaal: we worden gelukkiger van code die leesbaar en begrijpeli
 
 Als je samenwerkt aan software kan het andere Pythonprogrammeurs erg helpen om dingen 'op de Python-manier te doen'. Een C-programmeur herken je vaak aan het typische gebruik van lijsten of arrays in `#!py for`-loops. Als je een lijst hebt: `#!py names = ['Alice', 'Bob', 'Carol']`, doe dan niet:
 ``` py
+names = ['Alice', 'Bob', 'Carol']
 i = 0
 while i < len(names):
     print("Hi,", names[i])
@@ -88,15 +89,34 @@ while i < len(names):
 ```
 en ook niet:
 ``` py
+names = ['Alice', 'Bob', 'Carol']
 for i in range(len(names)):
     print("Hi,", names[i])
 ```
 waarbij je loopt over een index `#!py i`. Gebruik liever het feit dat een lijst al een _iterator_ is:
 ``` py
+names = ['Alice', 'Bob', 'Carol']
 for name in names:
     print("Hi,", name)
 ```
 Deze code is bovendien veel korter en gebruikt minder variabelen.
+
+!!! opdracht-basis "Itereren op de python-manier"
+
+    1. Neem het onderstaande script over.
+    1. Itereer over de lijst `#!py voltages` op de python-manier.
+    1. Print voor elk item in de lijst de waarde in mV. Bijvoorbeeld: "The voltage is set to 0 mV."
+
+    ```py
+    import numpy as np
+
+    voltages = np.arange(0, 500, 5) #mV
+    ```
+
+    ??? uitwerkingen
+        ```py
+        --8<-- "uitwerkingen-on/iterator-on.py"
+        ```
 
 ### Enumerate
 Soms is het nodig om de index te hebben, bijvoorbeeld wanneer je een namenlijstje wilt nummeren:
