@@ -278,7 +278,7 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
 
 NumPy arrays zijn vaak handiger dan lists. Als je een array hebt van 20 $x$-waardes in het domein $[0, \pi]$ kun je in één keer alle waardes van $\sin x$ uitrekenen. Bijvoorbeeld:
 ``` py
-# from numpy import pi, linspace, sin
+from numpy import pi, linspace, sin
 x = linspace(0, pi, 20)
 y = sin(x)
 ```
@@ -287,7 +287,8 @@ NumPy voert de berekeningen uit binnen een C-bibliotheek[^C] en is daarmee veel 
 [^C]: De programmertaal C ligt dichter bij machinetaal dan Python en is daarmee veel sneller maar ook veel minder geavanceerd.
 
 ``` py
-# x = [list of x-values]
+from math import sin
+x = [0.00, 1.05, 2.09, 3.14, 4.19, 5.24, 6.28]
 y = []
 for u in x:
     y.append(sin(u))
