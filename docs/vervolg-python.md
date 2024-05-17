@@ -165,24 +165,6 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
         --8<-- "uitwerkingen-on/numpy-array-on.py"
         ```
 
-
-!!! opdracht-basis "f-strings"
-    Herschrijf het volgende script door f-strings te gebruiken:
-    ``` py
-    print("Enter your name and press return:")
-    name = input()
-    length_name = len(name)
-    
-    print(
-        "Hi %s, your name has %d letters and the first letter is a %c."
-        % (name, length_name, name[0])
-    )
-    ```
-    ??? uitwerkingen
-        ```py
-        --8<-- "uitwerkingen-on/f-strings-data-on.py"
-        ```
-
 ### dictionaries, tuples, * args, ** kwargs and sets
 
 ??? meer-leren "Meer leren"
