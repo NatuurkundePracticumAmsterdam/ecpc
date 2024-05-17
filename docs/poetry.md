@@ -244,7 +244,7 @@ Package operations: 1 install, 0 updates, 0 removals
 !!! opdracht-basis "Dependencies toevoegen"
     We voegen de dependency toe en runnen opnieuw de test, als volgt:
 
-    1. Voeg numpy als dependency toe met `poetry add numpy`.
+    1. Voeg NumPy als dependency toe met `poetry add numpy`.
     1. Draai {{file}}`tests/try_shortcuts.py` en bekijk de uitkomst.
     
 
@@ -255,7 +255,7 @@ stdev_of_mean([1, 2, 2, 2, 3])=0.282842712474619
 ```
 Fijn! Als je nu de {{file}}`pyproject.toml` nog eens bekijkt zie je dat NumPy daar als dependency is toegevoegd. Het verwijderen van dependency `PACKAGE` gaat met `poetry remove PACKAGE`. Poetry heeft Numpy nu toegevoegd aan de environment `easystat`.[^conda-list] Gewone package managers als Pip en Conda zullen geen packages toevoegen aan je Poetry project als je `pip/conda install package` aanroept. Gebruik daarom altijd `poetry add package` als je met Poetry aan een package werkt.
 
-[^conda-list]: De lijst met packages in de active Conda enviornment vraag je in de terminal op met het `conda list`, kijk maar of numpy daar tussen staat.
+[^conda-list]: De lijst met packages in de active Conda enviornment vraag je in de terminal op met het `conda list`, kijk maar of NumPy daar tussen staat.
 
 !!! info
     Als we de code in ons package aanpassen dan hoeven we het niet opnieuw te installeren met Poetry, maar als we met de hand iets wijzigen in de {{file}}`pyproject.toml` dan moet dat _wel_. Als je een `#!py ImportError` krijgt voor je eigen package &mdash; bijvoorbeeld als je nieuwe mappen of bestanden hebt aangemaakt &mdash; probeer dan _eerst_ voor de zekerheid `poetry install`.
