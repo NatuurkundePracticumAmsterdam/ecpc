@@ -353,10 +353,10 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         --8<-- "uitwerkingen-on/comprehension-on.py"
         ```
 
+??? meer-leren "Lambda functions"
+    
+    ## Lambda functions
 
-## Lambda functions
-
-??? meer-leren "meer leren"
     In Python zijn functies ook objecten. Je kunt ze bewaren in een lijst of dictionary, of je kunt ze meegeven als parameter aan een andere functie. Dat kan heel handig zijn! Stel je hebt een lijst met verschillende soorten fruit die je wilt sorteren op alfabet:
     ``` py
     a = ["kiwi", "banana", "apple"]
@@ -424,9 +424,12 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
 
 
 
-## Generators
 
-??? meer-leren "meer leren"
+
+??? meer-leren "Generators"
+
+    ## Generators
+
     Als een functie een serie metingen verricht kan het lang duren voordat de functie de resultaten teruggeeft. Laten we die functie even `#!py perform_measurements()` noemen. Het is soms lastig als de rest van het programma daarop moet wachten voordat een analyse kan worden gedaan, of een melding aan de gebruiker kan worden gegeven. Het kan dan gebeuren dat je je programma draait en je dan afvraagt: <q>doet hij het, of doet hij het niet?</q> Je kunt dit oplossen door `#!py print()`-statements in je programma op te nemen, maar dit is niet zo netjes. Als je `#!py perform_measurements()` inbouwt in een tekstinterface die ook <q>stil</q> moet kunnen zijn? Of als je de functie gaat gebruiken vanuit een grafisch programma waarin je geen tekst wilt printen, maar een grafiek wilt opbouwen? Je moet dan steeds `#!py perform_measurements()` gaan aanpassen. Een ander probleem kan optreden wanneer je langdurige metingen doet die ook veel geheugen innemen. Wachten op de hele meetserie betekent dat het geheugen vol kan lopen. Lastig op te lossen!
 
     Of&hellip; je maakt gebruik van een _generator function_: een functie die tussendoor resultaten teruggeeft. Dat kan door gebruik te maken van `#!py yield` in plaats van `#!py return`. De rest gaat automatisch. Maar: je moet wel even weten hoe je omgaat met de generator. Stel, we willen de kwadraten berekenen van een reeks getallen tot een bepaald maximum:
@@ -489,9 +492,12 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
             ```
 
 
-### Dunder methods
 
-??? meer-leren "meer leren"
+
+??? meer-leren "Dunder methods"
+
+    ## Dunder methods
+
     Hoe _weet_ Python eigenlijk wat de lengte is van een string? Of hoe je getallen optelt? Voor operatoren als `#!py + - * / **` wordt eigenlijk een _method_ aangeroepen. bijvoorbeeld `#!py __add__()` voor `#!py +`, en `#!py __mul__()` voor `#!py *`. Een ingebouwde functie als `#!py len()` roept stiekem de _method_ `#!py __len__()` aan en `#!py print()` print de uitvoer van `#!py __str__()`. Zulke methodes worden _dunder methods_[^dunder] of _magic methods_ genoemd. We kunnen zelf bijvoorbeeld een vector introduceren waarbij we de operatoren voor onze eigen doeleinden gebruiken [@operator_overloading]. We definiëren het optellen van vectoren en de absolute waarde (norm) van de vector:
 
     [^dunder]: Dunder staat voor _double underscore_, de twee lage streepjes die om de naam heen staan.
@@ -564,9 +570,12 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
 
 
 
-## Decorators
 
-??? meer-leren "meer leren"
+
+??? meer-leren "Decorators"
+
+    ## Decorators
+    
     Functies zijn ook objecten in Python. Je kunt ze, zoals we eerder gezien hebben, meegeven als argument of bewaren in een dictionary. Ook kun je functies in functies definiëren en functies definiëren die functies teruggeven. Vaag[^Calmcode]. Ik moet hier altijd weer even over nadenken en daarom mag je dit stukje overslaan. Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_.
 
     [^Calmcode]: Calmcode doet een goeie poging om dit rustig uit te leggen, kijk daarvoor op [https://calmcode.io/decorators/functions.html](https://calmcode.io/decorators/functions.html)
