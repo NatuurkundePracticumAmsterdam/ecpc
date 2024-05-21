@@ -83,3 +83,4 @@ extra:
     arrow_rotate: ':fontawesome-solid-arrow-rotate-right:'
     copy: ':material-content-copy:'
     feesttoeter: ':material-party-popper:'
+    run: ':fontawesome-solid-play:'
