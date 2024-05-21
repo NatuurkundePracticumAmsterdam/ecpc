@@ -221,7 +221,13 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
     # I=[0.05, 0.075]
     ```
 
-
+??? meer-leren "Subclass"
+    Je kunt behalve een class ook een _subclass_ aanmaken. Stel dat je een class `#!py Animal` hebt aangemaakt met handige methods en attributes maar je wilt een nieuwe, iets specifiekere class maken (bijvoorbeeld `#!py Cow`). Het is duidelijk dat een koe een dier is, maar een dier nog geen koe. Je kunt een subclass maken:
+    ``` py
+    class Cow(Animal):
+        pass
+    ```
+    Het keyword `#!py pass` doet niets overigens. Met alleen dit statement heeft de class `#!py Cow` precies alle functionaliteit van de class `#!py Animal`. Je kunt daarna zelf nog extra methods en attributes definiëren.
 
 ## Implementeren van MVC
 Het opsplitsen van het programma in MVC gaan we stapsgewijs doen. We gaan een class maken voor de aansturing van de Arduino, deze class valt in de categorie _controller_.

@@ -561,17 +561,6 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
 
     Vaak hebben classes geen dunder methods nodig (behalve `#!py __repr__` en `#!py __str__`).
 
-    Je kunt behalve een class ook een _subclass_ aanmaken. Stel dat je een class `#!py Animal` hebt aangemaakt met handige methods en attributes maar je wilt een nieuwe, iets specifiekere class maken (bijvoorbeeld `#!py Cow`). Het is duidelijk dat een koe een dier is, maar een dier nog geen koe. Je kunt een subclass maken:
-    ``` py
-    class Cow(Animal):
-        pass
-    ```
-    Het keyword `#!py pass` doet niets overigens. Met alleen dit statement heeft de class `#!py Cow` precies alle functionaliteit van de class `#!py Animal`. Je kunt daarna zelf nog extra methods en attributes definiëren.
-
-
-
-
-
 ??? meer-leren "Decorators"
 
     ## Decorators
