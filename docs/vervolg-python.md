@@ -879,23 +879,52 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
         1. Ga naar [pypi.org](pypi.org) en zoek naar het project *gammaspotter*.
 
 
-
 ## Exceptions
 
-??? meer-leren "meer leren"
-    Exceptions zijn de foutmeldingen van Python. Je krijgt ze als je bijvoorbeeld probeert te delen door nul of wanneer je een typefout maakt in de naam van een method of attribute:
-    ``` ps1 title="Terminal"
-    >>> 1 / 0
-    Traceback (most recent call last):
-    File "<stdin>", line 1, in <module>
-    ZeroDivisionError: division by zero
-    >>> s = "particle"
-    >>> s.upler()
-    Traceback (most recent call last):
-    File "<stdin>", line 1, in <module>
-    AttributeError: 'str' object has no attribute 'upler'
+Exceptions zijn de foutmeldingen van Python. Je krijgt ze als je bijvoorbeeld probeert te delen door nul of wanneer je een typefout maakt in de naam van een method of attribute:
+``` py
+print(1 / 0)
+```
+``` ps1 title="Terminal"
+Traceback (most recent call last):
+File "devide.py", line 1, in <module>
+print(1/0)
+      ~^~
+ZeroDivisionError: division by zero
+```
+``` py
+s = "particle"
+s.upler()
+```
+``` ps1 title="Terminal"
+Traceback (most recent call last):
+File "particle.py", line 2, in <module>
+s.upler()
+^^^^^^^
+AttributeError: 'str' object has no attribute 'upler'. Did you mean: 'upper'?
+```
+Merk op dat je een exception met traceback meestal van onder naar boven leest. Onderaan staat de foutmelding (exception) en daar boven een _traceback_: een kruimelpad van wáár in de code het probleem optrad; onderaan de regel waarin het echt fout ging, en naar boven toe alle tussenliggende functies en bibliotheken met bovenaan het hoofdprogramma.
+
+!!! opdracht-basis "Exception"
+
+    ``` py title="number_input.py"
+    number_input = input("Give a number: ")
+    number_multiply = 2.8
+    print(number_input * number_multiply)
     ```
-    Merk op dat je een exception met traceback meestal van onder naar boven leest. Onderaan staat de foutmelding (exception) en daar boven een _traceback_: een kruimelpad van wáár in de code het probleem optrad; onderaan de regel waarin het echt fout ging, en naar boven toe alle tussenliggende functies en bibliotheken met bovenaan het hoofdprogramma.
+
+    1. Neem het script hierboven over en voer het uit.
+    1. Wat voor soort error geeft Python terug?
+    1. In welke regel van het script zit volgens de Traceback het probleem?
+    1. Leg in eigen woorden uit wat het probleem is. 
+
+    ??? uitwerkingen
+        * Python geeft een TypeError terug.
+        * Het probleem zit in regel 3: `#!py print(number_input * number_multiply)`
+        * De functie `#!py input()` geeft een string terug. Daardoor is `#!py number_input` ook een string. Een string behoort tot het type *sequences*. Het is een reeks van elementen, '28' is een reeks van '2' en '8', 'abc' is een reeks van 'a', 'b' en 'c' en ook [0,1,2] is reeks van '0', '1', '2'. Zelfs als je in dit script het getal 8 zou invoeren dan is number_input een sequence met maar een element: '8'. Een sequence kan je vermenigvuldigen, maar niet met en float, alleen met een interger. Kijk maar eens wat er gebeurd als je `#!py number_multiply = 3` neerzet. Wat gebeurd er als je 'abc' met 3 vermenigvuldigd? En kun je ook 3 * [0,1,2] printen? 
+
+
+??? meer-leren "Exceptions afvangen"
 
     Een exception kan vervelend zijn. Het is een beetje jammer als je bijvoorbeeld tijdens een langdurige meting telkens een weerstand aan het uitrekenen bent ($R = \frac{U}{I}$) en de stroomsterkte $I$ wordt na anderhalf uur heel eventjes nul. Je programma crasht en je metingen zijn weg. Zoek de fout (niet altijd makkelijk!) en probeer het nog eens.
 
@@ -908,11 +937,11 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
             R = "Inf"
         return R
     ```
-    ``` ps1 title="Terminal"
-    >>> R(10, 2)
-    5.0
-    >>> R(10, 0)
-    'Inf'
+    ``` py
+    print(R(10, 2))
+    # 5.0
+    print(R(10, 0))
+    # Inf
     ```
 
     Ook kun je zelf exceptions maken. Stel je schrijft een programma om een oscilloscoop uit te lezen dat twee kanalen heeft om de spanning te meten. Kanaal 0 en kanaal 1. Het programma moet gebruikt kunnen worden door andere studenten in de onderzoeksgroep dus het kan nu eenmaal gebeuren dat iemand niet op zit te letten -- niet jij, jij let altijd goed op. Een andere student die een programma schrijft en jouw code gebruikt wil een spanning meten op kanaal 2, het was immers een tweekanaals oscilloscoop. Maar kanaal 2 bestaat niet. Sommige oscilloscopen klagen dan niet maar geven een random getal terug. Dit kan leiden tot heel vervelende en lastig te achterhalen fouten in het experiment. Met dat idee in je achterhoofd kun je code schrijven die controleert op het kanaalnummer en een exception geeft:
@@ -928,14 +957,20 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
         return voltage
     ```
     Met deze uitvoer in het geval dat er iets mis gaat:
+    ``` py
+    voltage = get_voltage(1)
+    print(voltage)
+    # 1.0
+    ```
+    ``` py
+    voltage = get_voltage(2)
+    print(voltage)
+    ```
     ``` ps1 title="Terminal"
-    >>> get_voltage(1)
-    1.0
-    >>> get_voltage(2)
     Traceback (most recent call last):
-    File "<stdin>", line 1, in <module>
+    File "get_voltage.py", line 1, in <module>
         get_voltage(2)
-    File "exc_channel.py", line 6, in get_voltage
+    File "exception_channel.py", line 6, in get_voltage
         raise InvalidChannelException(f"Use channel 0 or 1, not {channel}")
     InvalidChannelException: Use channel 0 or 1, not 2
     ```
