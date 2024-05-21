@@ -27,7 +27,12 @@ collatz_generator = Collatz(3)
 print(next(collatz_generator))
 print(next(collatz_generator))
 print(next(collatz_generator))
-print()
+print(next(collatz_generator))
+print(next(collatz_generator))
+print(next(collatz_generator))
+print(next(collatz_generator))
+print(next(collatz_generator))
+# print(next(collatz_generator)) # gives StopIteration exception
 
 print("print values of generator without next:")
 for number in Collatz(28):
