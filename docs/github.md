@@ -103,7 +103,7 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
 
 
 
-??? opdracht-meer "Clone repository"
+???+ opdracht-meer "Clone repository"
     Clone de LMfit-py repository op GitHub:
 
     1. Zoek de repository op GitHub op (`lmfit/lmfit-py`)
@@ -119,7 +119,7 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
 
     Aangezien je geen schrijfrechten hebt voor LMfit kun je niet kiezen voor `Push origin` &mdash; de knop die rechtsboven verschijnt. Met die knop <q>duw</q> je je wijzigingen naar GitHub zodat iedereen ze kan zien. Dat is mooi, maar je mag niet zomaar de repository van iemand anders wijzigen.
 
-??? opdracht-meer "Push en pull"
+???+ opdracht-meer "Push en pull"
     In eerdere opdrachten heb je repositories op de computer aangemaakt. Vanuit GitHub Desktop kan je een repository publiceren op GitHub. Commits kun je vervolgens pullen en pushen van en naar Github.
 
     1. Publiceer een repository op Github &mdash; bijvoorbeeld je oefenopdrachten of je `pythondaq`-repository. Verander iets in je code, commit en kijk hoe je dat naar GitHub kunt Pushen.
@@ -127,7 +127,7 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
     
 
 
-??? opdracht-meer "Git in de terminal"
+???+ opdracht-meer "Git in de terminal"
     Tot nu toe heb je Visual Studio Code of GitHub Desktop gebruikt om te committen. Maar je kan Git ook bedienen via de terminal. De mogelijkheden van Git zijn in de terminal ook veel groter dan in de grafische applicaties die we gebruikt hebben.
 
     1. Open een repository in Visual Studio Code
@@ -137,8 +137,10 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
 
 
 
-## Branches
-??? meer-leren "Meer leren"
+???+ meer-leren "Branches"
+
+    ## Branches
+
     Soms wil je je code flink onder handen nemen of iets heel nieuws eraan toevoegen. Terwijl je bezig bent ga je natuurlijk eerst van alles stuk maken voordat je het weer werkend hebt gekregen. Maar ondertussen kan je oude functionaliteit van je code niet gebruiken. Of je bent samen met een vriend aan een package bezig en om de haverklap werkt jouw stukje code niet meer omdat ergens anders de code verbouwd wordt. Dan is het handig dat je vanaf het punt dat je code werkt een zijweg kan inslaan. Daarom zijn branches uitgevonden. Je kunt vanuit Github Desktop, vanuit Visual Studio Code en natuurlijk via de terminal een branch aanmaken.
     !!! opdracht-meer "Branches"
 

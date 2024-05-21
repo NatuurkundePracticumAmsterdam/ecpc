@@ -221,7 +221,7 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
     # I=[0.05, 0.075]
     ```
 
-??? meer-leren "Subclass"
+???+ meer-leren "Subclass"
     Je kunt behalve een class ook een _subclass_ aanmaken. Stel dat je een class `#!py Animal` hebt aangemaakt met handige methods en attributes maar je wilt een nieuwe, iets specifiekere class maken (bijvoorbeeld `#!py Cow`). Het is duidelijk dat een koe een dier is, maar een dier nog geen koe. Je kunt een subclass maken:
     ``` py
     class Cow(Animal):

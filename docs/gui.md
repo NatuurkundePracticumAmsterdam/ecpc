@@ -181,7 +181,7 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
     
 Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst in de [Qt for Python-documentatie](https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes). Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk naar Python. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies `CamelCase` namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we `snake_case` gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
 
-??? opdracht-meer "Volgorde layout aanpassen"
+???+ opdracht-meer "Volgorde layout aanpassen"
     De volgorde waarin je layout en widgets toevoegt bepaalt het uiterlijk van de grafische interface. Verander de code om de layout aan te passen (zet bijvoorbeeld de knoppen boven de textbox of zet de knoppen onder elkaar en naast de textbox).
 
 
@@ -320,15 +320,15 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
     Voeg knoppen toe om het domein aan te passen. Maak bijvoorbeeld een `start`, een `stop` en een `numpoints` om het aantal punten te kiezen. Kies daarvoor ook een handige standaardwaarde. Zorg ervoor dat als je de waardes aanpast dat de functie automatisch opnieuw wordt geplot.
 
 
-??? opdracht-meer "Functieplotter: functie kiezen drop-down menu"
+???+ opdracht-meer "Functieplotter: functie kiezen drop-down menu"
     Gebruik een `#!py QComboBox` om de functie te kunnen kiezen. Je moet hem _leeg_ toevoegen aan je interface en vult hem vanuit je programma. Zoek de widget op in de documentatie om uit te zoeken welke functie je moet gebruiken om keuzemogelijkheden toe te voegen en welk signaal je moet koppelen om te zorgen dat de plot opnieuw wordt uitgevoerd als je de functie aanpast. Geef de gebruiker de keuzes $\sin(x)$, $\cos(x)$, $\tan(x)$ en $\exp(x)$.
 
 
-??? opdracht-meer "Functieplotter: meer functies"
+???+ opdracht-meer "Functieplotter: meer functies"
     Voeg aan de functiekiezer de functies $x$, $x^2$, $x^3$, en $\frac{1}{x}$ toe. Je kunt daarvoor _lambda functions_ gebruiken, maar dat is niet per se nodig.
 
 
-??? opdracht-meer "Functieplotter: functies typen"
+???+ opdracht-meer "Functieplotter: functies typen"
     Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals `x ** 2`, `sin(x)` of `1 / sqrt(x + 1)`. Gebruik daarvoor het `asteval` package.[@asteval] Documentatie vind je op [https://newville.github.io/asteval/](https://newville.github.io/asteval/).
 
     !!! waarschuwing 
@@ -446,8 +446,9 @@ Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder
     Voeg een `Save`-knop toe aan je interface om je metingen op te slaan als CSV-bestand. Controleer dat de gegevens ook inderdaad bewaard zijn.
 
 
-### Menu's, taak- en statusbalken
-??? meer-leren "Meer leren"
+???+ meer-leren "Menu's, taak- en statusbalken"
+    
+    ### Menu's, taak- en statusbalken
 
     Je kunt je grafische applicatie volledig optuigen met menu's of taakbalken. Ook kun je onderin je applicatie met een statusbalk weergeven wat de status is: gereed, aan het meten, foutcode, etc. Dat valt buiten het bestek van deze cursus, maar een mooie referentie is _PySide6 Toolbars & Menus — QAction_.[@qtmenus] Als je vaker grafische applicaties wilt gaan maken dan moet je dat zeker eens doornemen!
 
@@ -469,13 +470,15 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
     Maak een keuzemenu (`#!py QComboBox`) zodat je de Arduino kunt selecteren. Je zult in de `__init__()` eerst een lijst van devices moeten maken en die toe moeten voegen aan de widget. Zie ook de [_lijst met handige widgets_](#info:widgets) en de documentatie. Het kan daarbij handig zijn om de device pas te _openen_ als je een scan uitvoert en hem te sluiten (schrijf een soort `#!py device.close()`) als de scan is afgelopen. In de controller werk je met een `#!py pyvisa` device en die heeft al een `#!py close()`-method.
 
 <!-- 
-??? opdracht-meer "Pythondaq: Exceptions"
+???+ opdracht-meer "Pythondaq: Exceptions"
     Het is natuurlijk niet zo mooi wanneer je de verkeerde poort kiest en het programma crasht. Vang de exception af en geef een melding (gebruik bijvoorbeeld `#!py QDialog`) dat het device geen Arduino VISA device is. De gebruiker kan daarna een andere poort proberen. -->
 
 
-## Meerdere dingen tegelijkertijd: threads
 
-??? meer-leren "meer-leren"
+???+ meer-leren "Threads"
+
+    ## Meerdere dingen tegelijkertijd: threads
+
     Afhankelijk van de instellingen die we gekozen hebben kan een meting best lang duren. In ieder geval moeten we even wachten tot de meting afgelopen is en pas daarna krijgen we de resultaten te zien in een plot. Als een meting langer duurt dan een paar seconden kan het besturingssysteem zelfs aangeven dat onze applicatie niet meer reageert. En inderdaad, als we ondertussen op knoppen proberen te drukken dan reageert hij nergens op. Onze applicatie kan helaas niet twee dingen tegelijk. Kon hij dat wel, dan zouden we zien hoe de grafiek langzaam opbouwt tot het eindresultaat.
 
     De manier waarop besturingssystemen meerdere dingen tegelijk doen is gebaseerd op _processes_ en _threads_. Een _process_ is, eenvoudig gezegd, een programma. Als je meerdere applicaties opstart zijn dat allemaal processen. Besturingssystemen regelen dat ieder proces een stuk geheugen krijgt en tijd van de processor krijgt toegewezen om zijn werk te doen. Processen zijn mooi gescheiden en kunnen dus eenvoudig naast elkaar draaien. Het wordt iets lastiger als een _proces_ meerdere dingen tegelijk wil doen. Dat kan wel, met _threads_. Het besturingssysteem zorgt dat meerdere threads naast elkaar draaien.[^threads-parallel]
@@ -732,8 +735,9 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
 
 
 
-    ### Stap 5: puntjes op de <q>i</q>: _events_
-    ??? meer-leren "Meer leren"
+    ???+ meer-leren "Events"
+    
+        ### Stap 5: puntjes op de <q>i</q>: _events_
 
         Wanneer je op de startknop drukt, even wacht en dan wéér op de startknop drukt, dan kun je zien dat er _twee_ metingen tegelijk worden uitgevoerd op de achtergrond. Dat wil je voorkomen. Ook is het wel aardig om metingen tussentijds te kunnen stoppen. Dat is vooral handig als je merkt dat een meting veel te lang gaat duren. Verder is het ook nog zo dat we er nu met onze timer voor gezorgd hebben dat de plotfunctie meerdere keren per seconde wordt uitgevoerd &mdash; of er nu een meting loopt of niet.
 

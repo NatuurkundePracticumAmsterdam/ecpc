@@ -31,8 +31,10 @@ De digitale metingen die je programma krijgt van de ADC is hierboven weergegeven
     1. Bereken welke spanning hoort bij een ruwe waarde van 700.
     1. Bereken welke waarde we naar de Arduino moeten sturen als we een spanning willen instellen van 2.0 V. En een spanning van 2.28 V?
 
-### Binair Talstelsel
-??? meer-leren "Meer leren"
+???+ meer-leren "Binair Talstelsel"
+
+    ### Binair Talstelsel
+
     Wij schrijven onze getallen op in een _decimaal_ (tientallig) talstelsel. We hebben tien verschillende cijfers (0 t/m 9) en plakken bij grotere getallen de tientallen, honderdtallen, etc. aan elkaar. Computers werken met _binaire_ getallen &mdash; een tweetallig talstelsel. Dat betekent dat computers het getal 0 en 1 zonder problemen kunnen opslaan, maar bij het getal 2 wordt het al lastig. Zij moeten dan al met <q>tientallen</q> werken en schrijven het getal 2 op als 10. Het getal 3 is dan 11. Voor 4 zijn de cijfers alweer op en moeten we overschakelen naar <q>honderdtallen</q>, dus 4 is 100, 5 is 101, enz. Zie onderstaande tabel voor nog een paar voorbeelden. De cijfers noem je _bits_ en het getal 5 (101 binair) bestaat dus uit 3 bits. Als je maar 3 bits tot je beschikking hebt kun je $2^3 = 8$ verschillende getallen opslaan, dus 0 t/m 7. Een groepje van 8 bits (256 mogelijkheden) bleek een handige hoeveelheid en kun je op computers individueel opslaan. Zo'n groepje noem je een _byte_. Bestanden bestaan uit bytes, kilobytes (duizend bytes), megabytes (miljoen bytes) of gigabytes (miljard bytes). Wanneer je een signaal nauwkeurig wilt verwerken met een computer dan is het belangrijk om zoveel mogelijk bits tot je beschikking te hebben. Hoe meer bits, hoe meer verschillende waardes je kunt opslaan en hoe nauwkeuriger je signaal wordt bewaard.
 
     Voorbeelden van het binair talstelsel:
@@ -143,7 +145,7 @@ Het viel je misschien op dat in bovenstaand CSV-bestand iedere regel een $t$-waa
 
 Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de lengte van de lijst op te zoeken en krijg je meteen de losse elementen zonder dat je ze zelf uit de lijst moet plukken met indexnotatie.
 
-??? opdracht-meer "oefenen met zip"
+???+ opdracht-meer "oefenen met zip"
     Gegeven de spanningen $U$ gelijk aan 1.2 V; 1.8 V; 2.4 V; 2.7 V; 3.1 V en de bijbehorende stroomsterktes $I$ gelijk aan 0.3 A; 0.4 A; 0.6 A; 0.8 A; 1.0 A, loop over de lijsten met `#!py zip()` en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
 
 
@@ -180,13 +182,15 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
     Breid je script uit zodat de data niet alleen maar weergegeven wordt in een grafiek maar ook wordt weggeschreven als CSV-bestand. Gebruik de `#!py zip()`-functie en de `#!py csv`-module.
 
 
-??? opdracht-meer "CSV bestandsnaam"
+???+ opdracht-meer "CSV bestandsnaam"
     Pas de code zodanig aan dat een CSV-bestand nooit wordt overschreven. Je kunt bijvoorbeeld controleren of het bestand al bestaat en aan de bestandsnaam een oplopend getal toevoegen (`data-001.csv`, `data-002.csv`, etc.) totdat je uitkomt bij een bestandsnaam die nog niet bestaat. Controleer dat je programma ook echt geen data overschrijft.
 
 
 
-### HDF5, PyTables
-??? meer-leren "Meer leren"
+???+ meer-leren "HDF5, PyTables"
+    
+    ### HDF5, PyTables
+
     Een populair binair formaat in de wetenschappelijke wereld is HDF5.[^HDF5] [@hdf5] Je kunt hiermee verschillende datasets bewaren in één bestand. Je kunt een soort boomstructuur aanbrengen en zo verschillende datasets groeperen en er ook nog extra informatie (metadata) aanhangen zoals datum van de meting, beschrijving van de condities, etc. Je kunt een meetserie opslaan als reeks die in één keer in en uit het bestand wordt geladen maar ook als tabel. Die laatste biedt de mogelijkheid om &mdash; net als in een database &mdash; data te selecteren en alleen die data in te laden uit het bestand. Op die manier is het mogelijk om met datasets te werken die groter zijn dan het geheugen van je computer.[^HDF-blog] Meer informatie lees je in de [tutorial](http://www.pytables.org/usersguide/tutorials.html) van PyTables[@pytables].
 
     [^HDF5]: Hierarchical Data Format Version 5, in gebruik bij bijvoorbeeld de LOFAR radiotelescoop, het IceCube neutrino-observatorium en de LIGO zwaartekrachtsgolvendetector.

@@ -260,9 +260,10 @@ Fijn! Als je nu de {{file}}`pyproject.toml` nog eens bekijkt zie je dat NumPy da
 !!! info
     Als we de code in ons package aanpassen dan hoeven we het niet opnieuw te installeren met Poetry, maar als we met de hand iets wijzigen in de {{file}}`pyproject.toml` dan moet dat _wel_. Als je een `#!py ImportError` krijgt voor je eigen package &mdash; bijvoorbeeld als je nieuwe mappen of bestanden hebt aangemaakt &mdash; probeer dan _eerst_ voor de zekerheid `poetry install`.
 
-### Poetry.lock
+???+ meer-leren "Poetry.lock"
 
-??? meer-leren "Meer leren"
+    ### Poetry.lock
+
     Na het toevoegen van Numpy is er ook een bestand {{file_lines}}`poetry.lock` bijgekomen. Hierin staan de exacte versies van alle geïnstalleerde packages. Vaak wordt dit bestand gecommit zodat collega-ontwikkelaars exact dezelfde versies installeren zodra ze `poetry install` aanroepen. Om dat te proberen maken we even een schone conda environment:
 
     !!! opdracht-meer "Schone environment"
@@ -282,9 +283,10 @@ Fijn! Als je nu de {{file}}`pyproject.toml` nog eens bekijkt zie je dat NumPy da
         1. Draai {{file}}`tests/try_shortcuts.py` en bekijk de uitkomst.
 
 
-### Wheels
+???+ meer-leren "Wheels"
 
-??? meer-leren "Meer leren"
+    ### Wheels
+
     Wanneer we klaar zijn om ons package te delen met andere gebruikers gebruiken we het commando `build` om wheels te bouwen.
 
     !!! opdracht-meer "Bouw een wheel"
@@ -420,7 +422,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
     Je {{github}}`pythondaq`-repository is nu een volledig project dat je met andere gebruikers van Python kunt delen, bijvoorbeeld via een _wheel_. We gaan pythondaq in de komende hoofdstukken steeds verder uitbouwen.
 
 
-??? opdracht-meer "Model, view, controller packages"
+???+ opdracht-meer "Model, view, controller packages"
     In grotere projecten is het gebruikelijk om model, view, controller niet alleen uit te splitsen in verschillende scripts, maar ook in aparte packages te zetten.
 
     1. Maak 3 extra packages in de {{folder}}`pythondaq` package. {{folder}}`models`, {{folder}}`views` en {{folder}}`controllers`.
@@ -514,7 +516,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
     Het maakt nu dus niet meer uit waar je bent, als je de juiste conda environment hebt geactiveerd kun je altijd je applicatie starten!
     
 
-??? opdracht-meer "Error analysis"
+???+ opdracht-meer "Error analysis"
     Als extra oefening gaan we met Poetry een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script {{file}}`data_analysis.py` te laten runnen.
 
     1. Ga naar GitHub en open {{github}}[`AnneliesVlaar/erroranalysis`](https://github.com/AnneliesVlaar/erroranalysis) in GitHub Desktop en Visual Studio Code.

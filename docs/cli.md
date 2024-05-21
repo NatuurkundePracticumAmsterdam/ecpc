@@ -214,7 +214,7 @@ Hello Alice!
 Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
 [^flag]: Zie voor meer informatie over flags de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
 
-??? opdracht-meer "Vlag"
+???+ opdracht-meer "Vlag"
     Gebruik een optie als vlag om de gebruiker te laten kiezen tussen het wel (<q>tea</q>) of niet (<q>no tea</q>) aanbieden van een kopje thee. Zorg dat er standaard <q>tea</q> wordt aangeboden.
 
 
@@ -226,7 +226,7 @@ Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
     1. Test de applicatie.
     1. Maak de applicatie compleet met helpteksten en default waardes.
     
-    ??? opdracht-meer "Meer functies"
+    ???+ opdracht-meer "Meer functies"
         1. Pas de applicatie aan zodat je kan kiezen tussen het kwadraat of de wortel van het getal. 
 
     
@@ -360,7 +360,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
     1. Zorg dat smallangle een applicatie wordt die je aan kunt roepen met bijvoorbeeld `smallangle sin -n 9`.
     
 
-??? opdracht-meer "Smallangle (uitdaging)"
+???+ opdracht-meer "Smallangle (uitdaging)"
     Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\lvert x - \sin(x) \rvert \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over .000, .001 en .002, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
     ``` ps1con title="Terminal"
     PS> smallangle approx .1
@@ -514,8 +514,10 @@ Options:
     1. Ga naar je _model_ en houd je muis bij `#!py set_output_voltage()` en zie daar verschijnt jouw fantastische omschrijving van de method die in de _controller_ staat!
 
 
-### Documentatie met _Material for MkDocs_
-??? meer-leren "Meer leren"
+???+ meer-leren "Material for MkDocs"
+
+    ### Documentatie met _Material for MkDocs_
+
     Een bijkomend voordeel van docstrings is dat ze gebruikt kunnen worden om automatisch documentatie te genereren voor een heel project met behulp van bijvoorbeeld MkDocs of Sphinx.[^sphinx] _MkDocs_ is een documentatie generator en _Material for MkDocs_ is daar de meestgebruikte uitbreiding op. Het wordt veel gebruikt om documentatie te schrijven voor software projecten. Een paar voorbeelden zijn bijvoorbeeld de website van de _Accelerators and Beam Physics Computing_ groep op CERN[@abp-computing] of de nieuwe _Textual_ bibliotheek[@textual] om zogenaamde _terminal user interfaces_ te maken, een tegenhanger van grafische interfaces. Behalve dat je vrij eenvoudig uitgebreide documentatie kunt schrijven kan MkDocs alle docstrings gebruiken om een referentie op te bouwen. De website voor de [ECPC cursus](https://natuurkundepracticumamsterdam.github.io/ecpc/) is ook gebouwd met Material for MkDocs.
 
     Het voert tijdens deze cursus te ver om veel aandacht te besteden aan MkDocs. Maar aangezien documentatie zo belangrijk is wilden we het toch noemen! Voor een uitgebreide tutorial, zie _Build Your Python Project Documentation With MkDocs_.[@mkdocs-tutorial]
@@ -585,7 +587,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
     Breid je `scan` opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `--graph` om een grafiek te tekenen en `--no-graph` om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
 
 
-??? opdracht-meer "Pythondaq: `list --search`"
+???+ opdracht-meer "Pythondaq: `list --search`"
     Breid het commando `list` uit met een optie `--search` waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
     ``` ps1con title="Terminal"
     PS> diode list
@@ -612,8 +614,9 @@ Op dit punt hebben we de functionaliteit van ons snelle script van het vorige ho
     Kijk nog eens terug naar het lijstje subcommando's die je in [opdracht _Subcommando's bedenken_](cli.md#opd:subcommandos) hebt opgeschreven. Heb je alles geïmplementeerd? Wat zou je willen dat je nog meer kan instellen? Als er tijd over is, kijk dan of dit lukt.
 
 
-## Een interface met stijl
-??? meer-leren "Meer leren"
+???+ meer-leren "Rich"
+
+    ## Een interface met stijl
 
     Ook command-line interfaces gaan met hun tijd mee. Vroeger waren ze per definitie zwart/wit en statisch, maar tegenwoordig worden interfaces vaak opgeleukt met kleur, emoji's en bewegende progressbars. _Rich_[@rich] is een project dat in recordtijd heel populair is geworden. Het bestaat pas sinds november 2019 en heeft precies twee jaar later meer dan 31000{{star}} verzameld. Dat is _veel_ &mdash; en de populariteit is sindsdien nog verder toegenomen.
 
@@ -623,8 +626,9 @@ Op dit punt hebben we de functionaliteit van ons snelle script van het vorige ho
         Verrijk je interface met Rich. Doe dit naar eigen wens en inzicht.
 
 
-## Data-analyse
-??? meer-leren "Meer leren"
+???+ meer-leren "Data-analyse"
+
+    ## Data-analyse
 
     Door de $I,U$-karakteristiek van de (lichtgevende) diode te analyseren is het mogelijk om de constante van Boltzmann te bepalen. De stoomsterkte door een diode wordt gegeven door de [_Shockley diodevergelijking_](diodes.md#eq:Shockley). Zie ook [hoofdstuk _diode_](diodes.md).
 

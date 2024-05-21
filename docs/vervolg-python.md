@@ -165,7 +165,7 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
         --8<-- "uitwerkingen-on/numpy-array-on.py"
         ```
 
-??? meer-leren "NumPy arrays"
+???+ meer-leren "NumPy arrays"
 
     NumPy arrays zijn vaak handiger dan lists. Als je een array hebt van 20 $x$-waardes in het domein $[0, \pi]$ kun je in één keer alle waardes van $\sin x$ uitrekenen. Bijvoorbeeld:
     ``` py
@@ -200,7 +200,7 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
 
 
 
-??? meer-leren "Dictionaries"
+???+ meer-leren "Dictionaries"
 
     ### Dictionaries
 
@@ -220,7 +220,7 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
             --8<-- "uitwerkingen-on/dictionaries-on.py"
             ```
 
-??? meer-leren "Tuples, * args, ** kwargs"
+???+ meer-leren "Tuples, * args, ** kwargs"
 
     ### Tuples, * args, ** kwargs
 
@@ -286,7 +286,7 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
             ```py
             --8<-- "uitwerkingen-on/odds-on.py"
             ```
-??? meer-leren "Set"
+???+ meer-leren "Set"
 
     ### Set
 
@@ -363,7 +363,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         --8<-- "uitwerkingen-on/comprehension-on.py"
         ```
 
-??? meer-leren "Lambda functions"
+???+ meer-leren "Lambda functions"
     
     ## Lambda functions
 
@@ -436,7 +436,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
 
 
 
-??? meer-leren "Generators"
+???+ meer-leren "Generators"
 
     ## Generators
 
@@ -504,7 +504,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
 
 
 
-??? meer-leren "Dunder methods"
+???+ meer-leren "Dunder methods"
 
     ## Dunder methods
 
@@ -571,7 +571,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
 
     Vaak hebben classes geen dunder methods nodig (behalve `#!py __repr__` en `#!py __str__`).
 
-??? meer-leren "Decorators"
+???+ meer-leren "Decorators"
 
     ## Decorators
     
@@ -858,7 +858,7 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 
 
 
-??? meer-leren "De Standard Library en de Python Package Index"
+???+ meer-leren "De Standard Library en de Python Package Index"
     
     ## De Standard Library en de Python Package Index
     
@@ -924,7 +924,7 @@ Merk op dat je een exception met traceback meestal van onder naar boven leest. O
         * De functie `#!py input()` geeft een string terug. Daardoor is `#!py number_input` ook een string. Een string behoort tot het type *sequences*. Het is een reeks van elementen, '28' is een reeks van '2' en '8', 'abc' is een reeks van 'a', 'b' en 'c' en ook [0,1,2] is reeks van '0', '1', '2'. Zelfs als je in dit script het getal 8 zou invoeren dan is number_input een sequence met maar een element: '8'. Een sequence kan je vermenigvuldigen, maar niet met en float, alleen met een interger. Kijk maar eens wat er gebeurd als je `#!py number_multiply = 3` neerzet. Wat gebeurd er als je 'abc' met 3 vermenigvuldigd? En kun je ook 3 * [0,1,2] printen? 
 
 
-??? meer-leren "Exceptions afvangen"
+???+ meer-leren "Exceptions afvangen"
 
     Een exception kan vervelend zijn. Het is een beetje jammer als je bijvoorbeeld tijdens een langdurige meting telkens een weerstand aan het uitrekenen bent ($R = \frac{U}{I}$) en de stroomsterkte $I$ wordt na anderhalf uur heel eventjes nul. Je programma crasht en je metingen zijn weg. Zoek de fout (niet altijd makkelijk!) en probeer het nog eens.
 
