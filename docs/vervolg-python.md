@@ -857,10 +857,19 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 
 
 
-## De Standard Library en de Python Package Index
 
-??? meer-leren "meer leren"
+??? meer-leren "De Standard Library en de Python Package Index"
+    
+    ## De Standard Library en de Python Package Index
+    
     Voor Python zijn ontzettend veel bibliotheken beschikbaar die het leven een stuk aangenamer maken. Voor een gedeelte daarvan geldt dat ze altijd aanwezig zijn als je Python geïnstalleerd hebt. Deze set vormt de _standard library_ [@python-standard-library]. Om te voorkomen dat je zelf het wiel uitvindt is het goed om af en toe door de lijst te bladeren zodat je een idee krijgt wat er allemaal beschikbaar is. Ziet het er bruikbaar uit? Lees dan vooral de documentatie! Tip: vergeet de _built-in functions_ niet.
+
+    !!! opdracht-basis "Standard Library"
+
+        1. Zoek de The Python Standard Library lijst op in bijvoorbeeld de Python documentatie. 
+        1. Welke bibliotheken heb je al eerder gebruik van gemaakt?
+        1. Kies een bibliotheek uit die jouw aandacht trekt en neus door de documentatie.
+        1. Ga terug naar de lijst en bekijk de Built-in functions, welke functie kende je nog niet maar lijkt je wel heel handig?
 
     Verder zijn er nog eindeloos veel packages beschikbaar gesteld door programmeurs, van hobbyist tot multinational. Deze kunnen centraal gepubliceerd worden in de _Python Package Index_ [@pypi]. Je kunt daar vaak ook zien hoe populair een package is. Dit is een belangrijke indicatie voor de kwaliteit en bruikbaarheid van een package.
 
