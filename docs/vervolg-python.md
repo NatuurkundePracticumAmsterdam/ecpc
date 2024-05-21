@@ -675,15 +675,16 @@ Als je een nieuw script begint te schrijven staat alle code in één bestand. Da
 [^DRY]: _DRY_ staat voor _Don't Repeat Yourself_, een belangrijk principe in software engineering.
 
 Eenvoudig gezegd is een module een stuk Python code dat je kunt importeren en gebruiken. Meestal worden er in een module handige functies en classs gedefinieerd:
-``` ps1 title="Terminal"
->>> import math
->>> math.sqrt(2)
-1.4142135623730951
->>> math.pi
-3.141592653589793
->>> math.sin(.5 * math.pi)
-1.0
+```py
+import math
+print(math.sqrt(2))
+# 1.4142135623730951
+print(math.pi)
+# 3.141592653589793
+print(math.sin(.5 * math.pi))
+# 1.0
 ```
+
 Door de `#!py math` module te importeren hebben we opeens de beschikking over het getal $\pi$ en de sinus- en wortelfunties.
 
 Je kunt je eigen code ook importeren, maar hier moet je wel even opletten. Stel, we hebben een bestand {{file}}square.py:
