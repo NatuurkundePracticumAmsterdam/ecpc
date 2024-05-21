@@ -638,30 +638,27 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
 
     Als je meer wilt weten over hoe decorators werken en hoe je je eigen decorators kunt maken, dan vind je een uitgebreide uitleg in _Primer on Python Decorators_ [@decorators]. Deze tutorial heb je niet per se nodig voor de volgende opdracht.
 
-    <!-- % \begin{todo}
-    %   Deze opdracht vond ik best lastig, vooral omdat ik er volgens mij nog geen drol van begreep. Misschien is het goed om hier een opzetje te maken. Dus een scriptje met een functie die argumenten nodig heeft een een waarde teruggeeft.
-    %   ``` py
-    %     import datetime
+    <!-- Deze opdracht vond ik best lastig, vooral omdat ik er volgens mij nog geen drol van begreep. Misschien is het goed om hier een opzetje te maken. Dus een scriptje met een functie die argumenten nodig heeft een een waarde teruggeeft.
+    ``` py
+    import datetime
 
 
-    %     def log(func):
-    %         def inner():
+    def log(func):
+        def inner():
 
-    %             return func(a,b)
+            return func(a,b)
 
-    %         return inner
-
-
-    %     @log
-    %     def f(a, b):
-    %         return a * b
+        return inner
 
 
-    %     print(f(3, 4))
-    %     print(f(3, b=4))
-    %     ```
-    %   En dan in een paar stappen. Zorg eerst dat de logfunctie het zonder poespas gaat doen (oftewel run die handel en los de error op) en dan functionaliteit toevoegen dat de datum enzo wordt geprint.
-    % \end{todo} -->
+    @log
+    def f(a, b):
+        return a * 
+    print(f(3, 4))
+    print(f(3, b=4))
+    ```
+    En dan in een paar stappen. Zorg eerst dat de logfunctie het zonder poespas gaat doen (oftewel run die handel en los de error op) en dan functionaliteit toevoegen dat de datum zo wordt geprint. -->
+
 
     !!! opdracht-meer "decorators"
         Schrijf en test een decorator die werkt als een soort logboek. Als je een functie aanroept die gedecoreerd is print dan een regel op het scherm met het tijdstip van de aanroep, de parameters die meegegeven werden én de return value van de functie.
