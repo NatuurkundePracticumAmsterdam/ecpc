@@ -318,10 +318,10 @@ y = [sin(u) for u in x]
 ```
 Er is in veel gevallen tegenwoordig geen groot verschil met een for-loop qua snelheid. In andere gevallen is de list comprehension net wat sneller. Als je lijsten niet te lang zijn is het makkelijker (en sneller) om een list comprehension te gebruiken in plaats van je lijst éérst naar een array te veranderen en er dan mee verder te rekenen. Als je lijst wél lang is of je weet al dat je meerdere berekeningen wilt uitvoeren kan dat wel:
 ``` py
-from numpy import sin, array
+import numpy as np
 x = [0.00, 1.05, 2.09, 3.14, 4.19, 5.24, 6.28]
-x = array(x)
-y = sin(x)
+x = np.array(x)
+y = np.sin(x)
 ```
 
 Kortom: _berekeningen_ met arrays zijn sneller, maar for-loops (en list comprehensions) zijn veelzijdiger. Het is zelfs mogelijk om een `#!py if`-statement op te nemen in je list comprehension. Bijvoorbeeld:
