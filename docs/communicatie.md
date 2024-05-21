@@ -228,8 +228,20 @@ Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een 
 !!! opdracht-basis "flashingLED"
     Maak een bestand {{file}}`flashingLED.py` en laat de LED in een regelmatig tempo knipperen.
 
-!!! opdracht-meer "KnipperLED"
+    !!! info
+        Je kan hiervoor gebruik maken van de module _time_ die standaard met Python meekomt[^standard-library]. Met de functie `#! sleep()` kun je de executie van de volgende regel in het script met een aantal seconden uitstellen.
+
+        ``` py
+        import time
+        # wait 28 second
+        time.sleep(28)
+        ```
+
+        [^standard-library]: Zie ook: [The Python Standard Library](vervolg-python.md#de-standard-library-en-de-python-package-index)
+
+!!! opdracht-meer "Meer knipperritmes"
     Breid het bestand {{file}}`flashingLED.py` uit met meer knipperritmes, bijvoorbeeld:
+
     * Maak een _SOS light_ &mdash; een lamp die in morsecode het signaal SOS uitzendt.
     * Maak een _breathing light_ &mdash; een lamp die langzaam aan en uit gaat gevolgd door een pauze in het tempo dat iemand in- en uitademt.
     * Maak een _heartbeat light_ &mdash; een lamp die twee keer kort na elkaar flitst gevolgd door een pauze in het tempo van een hartslag.
