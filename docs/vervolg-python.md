@@ -871,7 +871,13 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
         1. Kies een bibliotheek uit die jouw aandacht trekt en neus door de documentatie.
         1. Ga terug naar de lijst en bekijk de Built-in functions, welke functie kende je nog niet maar lijkt je wel heel handig?
 
-    Verder zijn er nog eindeloos veel packages beschikbaar gesteld door programmeurs, van hobbyist tot multinational. Deze kunnen centraal gepubliceerd worden in de _Python Package Index_ [@pypi]. Je kunt daar vaak ook zien hoe populair een package is. Dit is een belangrijke indicatie voor de kwaliteit en bruikbaarheid van een package.
+    Verder zijn er nog eindeloos veel packages beschikbaar gesteld door programmeurs, van hobbyist tot multinational. Deze kunnen centraal gepubliceerd worden in de _Python Package Index_ [@pypi]. Je kunt daar vaak ook zien hoe populair een package is. Dit is een belangrijke indicatie voor de kwaliteit en bruikbaarheid van een package. 
+
+    !!! opdracht-basis "PyPI"
+        Later in de cursus leren jullie werken met [Poetry](poetry.md) daarmee is het gemakkelijk om je eigen project op PyPI te zetten. Andere studenten gingen jullie al voor:
+
+        1. Ga naar [pypi.org](pypi.org) en zoek naar het project *gammaspotter*.
+
 
 
 ## Exceptions
