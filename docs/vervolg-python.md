@@ -396,9 +396,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     # ['banana', 'kiwi', 'apple']
     ```
 
-    Lambdafuncties kom je ook tegen als je wilt fitten aan een bepaald model. Je definiëert je model dan in één regel met een lambdafunctie:[^lmfit]
-
-    [^lmfit]: Het is hierbij wel belangrijk dat `#!py lmfit` er vanuit gaat dat de eerste variabele in de functiedefinitie de onafhankelijke variabele ($x$-as) is. Dit is verder geen Pythonlimitatie.
+    Lambdafuncties kun je ook gebruiken om te fitten aan een bepaald model. Je definiëert je model dan in één regel met een lambdafunctie:
 
     ``` py
     # from lmfit import models
@@ -406,6 +404,8 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     model = models.Model(f)
     fit = model.fit(y, x=x)
     ```
+    Het is hierbij wel belangrijk dat `#!py lmfit` er vanuit gaat dat de eerste variabele in de functiedefinitie de onafhankelijke variabele ($x$-as) is. Dit is verder geen Pythonlimitatie.
+
     Je kunt de functies ook bewaren in een dictionary voor later gebruik.
 
     !!! opdracht-meer "lambda"
@@ -516,7 +516,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         def __abs__(self):
             return (self.x ** 2 + self.y ** 2) ** .5
     ```
-    De speciale `#!py __init__()` methode zorgt voor de initialisatie van de klasse en de eerste parameter die alle methodes meekrijgen verwijst naar zichzelf en wordt dus gewoonlijk `#!py self` genoemd.[^niet_doen] Met de regel `#!py self.x = x` wordt de parameter `#!py x` bewaard voor later gebruik. Je kunt de klasse gebruiken op de volgende manier:
+    De speciale `#!py __init__()` methode zorgt voor de initialisatie van de class en de eerste parameter die alle methodes meekrijgen verwijst naar zichzelf en wordt dus gewoonlijk `#!py self` genoemd.[^niet_doen] Met de regel `#!py self.x = x` wordt de parameter `#!py x` bewaard voor later gebruik. Je kunt de class gebruiken op de volgende manier:
 
     [^niet_doen]: Maar dat is niet verplicht, je mag in principe zelf een naam kiezen. Doe dat echter niet.
 
@@ -684,11 +684,11 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
 
 ## Modules
 
-Als je een nieuw script begint te schrijven staat alle code in één bestand. Dat is lekker compact, maar heeft ook nadelen. Als je je experiment of programma gaat uitbreiden kan het erg onoverzichtelijk worden. Ook zul je al je wijzigingen steeds in dit bestand moeten doen terwijl je je code van eerdere experimenten misschien wel wilt bewaren. Mogelijk kopieer je steeds je script naar een nieuw bestand, maar dat is niet erg _DRY_.[^DRY] Als je dan bijvoorbeeld een functie of klasse wilt aanpassen, moet dat nog steeds op heel veel plekken. Daarom is het handig om gebruik te maken van _modules_.
+Als je een nieuw script begint te schrijven staat alle code in één bestand. Dat is lekker compact, maar heeft ook nadelen. Als je je experiment of programma gaat uitbreiden kan het erg onoverzichtelijk worden. Ook zul je al je wijzigingen steeds in dit bestand moeten doen terwijl je je code van eerdere experimenten misschien wel wilt bewaren. Mogelijk kopieer je steeds je script naar een nieuw bestand, maar dat is niet erg _DRY_.[^DRY] Als je dan bijvoorbeeld een functie of class wilt aanpassen, moet dat nog steeds op heel veel plekken. Daarom is het handig om gebruik te maken van _modules_.
 
 [^DRY]: _DRY_ staat voor _Don't Repeat Yourself_, een belangrijk principe in software engineering.
 
-Eenvoudig gezegd is een module een stuk Python code dat je kunt importeren en gebruiken. Meestal worden er in een module handige functies en klasses gedefinieerd:
+Eenvoudig gezegd is een module een stuk Python code dat je kunt importeren en gebruiken. Meestal worden er in een module handige functies en classs gedefinieerd:
 ``` ps1 title="Terminal"
 >>> import math
 >>> math.sqrt(2)
