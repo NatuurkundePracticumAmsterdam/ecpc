@@ -386,13 +386,13 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     squared(4)
     # 16
 
-    second_letter = lambda x: x[1]
+    second_letter = lambda value: value[1]
     sorted(a, key=second_letter)
     # ['banana', 'kiwi', 'apple']
     ```
     Aangezien de definitie van een lambdafunctie zelf ook een expression is kun je het sorteren op de tweede letter zelfs in één regel doen:
     ``` py
-    sorted(a, key=lambda x: x[1])
+    sorted(a, key=lambda value: value[1])
     # ['banana', 'kiwi', 'apple']
     ```
 
