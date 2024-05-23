@@ -175,9 +175,12 @@ Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een cl
 
 
 !!! opdracht-basis "Opbouw van een class"
-    Beschouw de volgende code:
-    <iframe src="https://h5plti.avwebs.nl/h5p/79/embed" width="975" height="943" frameborder="0" allowfullscreen="allowfullscreen" lang="en"></iframe><script src="https://h5plti.avwebs.nl/modules/contrib/h5p/vendor/h5p/h5p-core/js/h5p-resizer.js" charset="UTF-8"></script>
-    Bespreek met elkaar wat de code precies doet en verplaast de onderdelen naar de juiste plek in de code.
+
+    1. Beschouw de onderstaande code
+    1. Bespreek met elkaar wat de code precies doet en verplaast de onderdelen naar de juiste plek in de code.
+
+    <iframe src="https://h5plti.avwebs.nl/h5p/82/embed" width="740" height="830" frameborder="0" allowfullscreen="allowfullscreen" lang="en" scrolling="no"></iframe>
+    
 
 
 !!! opdracht-basis "Class Particle"
