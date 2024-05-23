@@ -45,7 +45,7 @@ Je kunt het lezen middels een _easter egg_ in Python zelf: `#!py import this`.
 
 !!! opdracht-basis "zen"
     1. Open Visual Studio Code.
-    1. Open de map {{folder}} ECPC.
+    1. Open de map {{folder}} ECPC (en/of maak deze aan).
     1. Maak een bestand {{file}}`zen-of-python.py` met daarin de onderstaande code:
     ``` py
     import this
@@ -159,6 +159,13 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
 
 !!! opdracht-basis "np.array"
     Doe hetzelfde als de vorige opdracht, maar nu met NumPy arrays.
+
+    !!! info "NumPy arrays"
+        Je kunt op verschillende manieren een NumPy array maken:
+
+        * Door een Python lijst te converteren: `#!py numpy.array([0, 0.5, 1, 1.5, 2])`.
+        * Door een array aan te maken met een stapgroote: `#!py numpy.arange(0, 3, 0.5) # start, stop, step`
+        * Door een array aan te maken met getallen gelijkmatig verdeeld over een interval: `#!py numpy.linspace(0, 2.5, 6) #start, stop, number`
 
     ??? uitwerkingen
         ```py
