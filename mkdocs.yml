@@ -86,4 +86,4 @@ extra:
     run: ':fontawesome-solid-play:'
     L: '└──'
     T: '├──'
-    indent: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+    tab: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'

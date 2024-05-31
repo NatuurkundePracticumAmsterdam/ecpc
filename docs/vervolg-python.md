@@ -769,16 +769,16 @@ Wij gaan in deze cursus onze code ook in packages stoppen. Op die manier kun je 
 
 <div id="fig:packagetree"></div>
 {{L}} {{github}} my\_project\_folder  
-{{indent}} {{L}} {{folder}} my\_pkg  
-{{indent}} {{indent}} {{T}} {{file}} \_\_init\_\_.py  
-{{indent}} {{indent}} {{L}} {{folder}} pkg1  
-{{indent}} {{indent}} {{indent}} {{T}} {{file}} \_\_init\_\_.py  
-{{indent}} {{indent}} {{indent}} {{T}} {{file}} module1.py  
-{{indent}} {{indent}} {{indent}} {{L}} {{file}} module2.py  
-{{indent}} {{indent}} {{L}} {{folder}} pkg2  
-{{indent}} {{indent}} {{indent}} {{T}} {{file}}\_\_init\_\_.py  
-{{indent}} {{indent}} {{indent}} {{L}} {{file}}module3.py  
-{{indent}} {{indent}} {{L}} {{file}}module4.py  
+{{tab}} {{L}} {{folder}} my\_pkg  
+{{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
+{{tab}} {{tab}} {{L}} {{folder}} pkg1  
+{{tab}} {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
+{{tab}} {{tab}} {{tab}} {{T}} {{file}} module1.py  
+{{tab}} {{tab}} {{tab}} {{L}} {{file}} module2.py  
+{{tab}} {{tab}} {{L}} {{folder}} pkg2  
+{{tab}} {{tab}} {{tab}} {{T}} {{file}}\_\_init\_\_.py  
+{{tab}} {{tab}} {{tab}} {{L}} {{file}}module3.py  
+{{tab}} {{tab}} {{L}} {{file}}module4.py  
 
 Iedere package bestaat uit een directory met een {{file}}\_\_init\_\_.py-bestand.[^init]
 
