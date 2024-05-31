@@ -784,7 +784,7 @@ Iedere package bestaat uit een directory met een {{file}}\_\_init\_\_.py-bestand
 
 [^init]: Dat bestand is vaak leeg, maar kan code bevatten die gerunt wordt zodra het package wordt geïmporteerd.
 
-De verschillende modules uit [figuur packagetree](vervolg-python.md#fig:packagetree) kun je als volgt importeren en gebruiken (we gaan er even vanuit dat iedere module een functie `#!py some_func()` bevat):
+De verschillende modules uit het [figuur](vervolg-python.md#fig:packagetree) hierboven kun je als volgt importeren en gebruiken (we gaan er even vanuit dat iedere module een functie `#!py some_func()` bevat):
 ``` py
 # module direct importeren
 import my_pkg.pkg1.module1
@@ -843,12 +843,13 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
     ??? uitwerkingen
         De mappen structuur ziet er als volgt uit:
 
-        - {{folder}} ECPC
-            - {{file}} practice-packages.py
-            - {{folder}} models
-                - {{file}} \_\_init\_\_.py
-                - {{file}} polynomials.py
-                - {{file}} tests.py
+        {{L}} {{folder}} ECPC  
+        {{tab}} {{T}} &bull;&bull;&bull;  
+        {{tab}} {{T}} {{file}} practice-packages.py  
+        {{tab}} {{L}} {{folder}} models  
+        {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
+        {{tab}} {{tab}} {{T}} {{file}} polynomials.py  
+        {{tab}} {{tab}} {{L}} {{file}} tests.py
 
         ``` py title="polynomials.py"
         --8<-- "uitwerkingen-on/polynomials-on.py"
