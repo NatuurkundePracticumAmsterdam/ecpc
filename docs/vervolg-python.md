@@ -768,17 +768,17 @@ In bovenstaande code zijn `#!py numpy` en `#!py scipy` afzonderlijke namespaces.
 Wij gaan in deze cursus onze code ook in packages stoppen. Op die manier kun je een softwarebibliotheek opbouwen voor je experiment en die code makkelijker delen met andere onderzoekers. Een pakket is opgebouwd zoals hieronder weergegeven:
 
 <div id="fig:packagetree"></div>
-- {{github}} my\_project\_folder
-    - {{folder}} my\_pkg
-        - {{file}} \_\_init\_\_.py
-        - {{folder}} pkg1
-            - {{file}} \_\_init\_\_.py
-            - {{file}} module1.py
-            - {{file}} module2.py
-        - {{folder}} pkg2
-            - {{file}}\_\_init\_\_.py
-            - {{file}}module3.py
-        - {{file}}module4.py
+{{L}} {{github}} my\_project\_folder  
+{{indent}} {{L}} {{folder}} my\_pkg  
+{{indent}} {{indent}} {{T}} {{file}} \_\_init\_\_.py  
+{{indent}} {{indent}} {{L}} {{folder}} pkg1  
+{{indent}} {{indent}} {{indent}} {{T}} {{file}} \_\_init\_\_.py  
+{{indent}} {{indent}} {{indent}} {{T}} {{file}} module1.py  
+{{indent}} {{indent}} {{indent}} {{L}} {{file}} module2.py  
+{{indent}} {{indent}} {{L}} {{folder}} pkg2  
+{{indent}} {{indent}} {{indent}} {{T}} {{file}}\_\_init\_\_.py  
+{{indent}} {{indent}} {{indent}} {{L}} {{file}}module3.py  
+{{indent}} {{indent}} {{L}} {{file}}module4.py  
 
 Iedere package bestaat uit een directory met een {{file}}\_\_init\_\_.py-bestand.[^init]
 

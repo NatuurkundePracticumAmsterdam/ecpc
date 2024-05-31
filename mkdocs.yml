@@ -84,3 +84,6 @@ extra:
     copy: ':material-content-copy:'
     feesttoeter: ':material-party-popper:'
     run: ':fontawesome-solid-play:'
+    L: '└──'
+    T: '├──'
+    indent: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
