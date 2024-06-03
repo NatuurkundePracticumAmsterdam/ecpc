@@ -806,21 +806,6 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 
 [^fout]: En wat mij betreft: een fout dat zoiets überhaupt kan in Python. Zen of Python: _explicit is better than implicit._
 
-<!-- % \begin{info}
-%   Als je in een module een andere module wilt importeren dan zijn daarvoor twee opties: relatieve en absolute imports. Relatief wil zeggen: importeer module1 uit _dezelfde_ directory, of ten opzichte van deze directory (`..` betekent een directory hoger bijvoorbeeld). Bij een absolute import moet je de volledige locatie binnen het package opgeven. Als voorbeeld, stel dat `module1` uit \figref{fig:packagetree} de modules `module2` en `module3` wil importeren:
-%   ``` py
-%     # module1.py
-
-%     # relative imports
-%     from . import module2
-%     from ..pkg2 import module 3
-
-%     # absolute imports
-%     from my_pkg.pkg1 import module2
-%     from my_pkg.pkg2 import module3
-%   ```
-%   Absolute imports zijn wat meer werk, maar je maakt wel heel duidelijk welke module je wilt importeren. Relative imports zorgen in de praktijk regelmatig voor -- soms lastig te vinden -- bugs. Als je tegen problemen aanloopt: gebruik dan absolute imports.
-% \end{info} -->
 
 <div id="opd:test_package"></div>
 !!! opdracht-basis "Packages"
@@ -860,6 +845,22 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
         ``` py title="practice-packages.py"
         --8<-- "uitwerkingen-on/packages-on.py"
         ```
+
+???+ meer-leren "Relatieve en absolute imports"
+    Als je in een module een andere module wilt importeren dan zijn daarvoor twee opties: relatieve en absolute imports. Relatief wil zeggen: importeer module1 uit _dezelfde_ directory, of ten opzichte van deze directory (`..` betekent een directory hoger bijvoorbeeld). Bij een absolute import moet je de volledige locatie binnen het package opgeven. Als voorbeeld, stel dat `module1` uit het [figuur](vervolg-python.md#fig:packagetree) hierboven de modules `module2` en `module3` wil importeren:
+    
+    ``` py
+    # module1.py
+
+    # relative imports
+    from . import module2
+    from ..pkg2 import module3
+
+    # absolute imports
+    from my_pkg.pkg1 import module2
+    from my_pkg.pkg2 import module3
+    ```
+    Absolute imports zijn wat meer werk, maar je maakt wel heel duidelijk welke module je wilt importeren. Relative imports zorgen in de praktijk regelmatig voor -- soms lastig te vinden -- bugs. Als je tegen problemen aanloopt: gebruik dan absolute imports.
 
     
 
