@@ -891,7 +891,7 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 
 ## Exceptions
 
-Exceptions zijn de foutmeldingen van Python. Je krijgt ze als je bijvoorbeeld probeert te delen door nul of wanneer je een typefout maakt in de naam van een method of attribute:
+Exceptions zijn de foutmeldingen van Python. Je krijgt ze als je bijvoorbeeld probeert te delen door nul 
 ``` py
 print(1 / 0)
 ```
@@ -902,6 +902,9 @@ print(1/0)
       ~^~
 ZeroDivisionError: division by zero
 ```
+
+of wanneer je een typefout maakt:
+
 ``` py
 s = "particle"
 s.upler()
