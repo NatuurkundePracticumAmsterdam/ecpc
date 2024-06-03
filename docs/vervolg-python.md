@@ -769,13 +769,14 @@ Wij gaan in deze cursus onze code ook in packages stoppen. Op die manier kun je 
 
 <div id="fig:packagetree"></div>
 {{L}} {{github}} my\_project\_folder  
-{{tab}} {{L}} {{folder}} my\_pkg  
+{{tab}} {{T}} {{file}} script.py  
+{{tab}} {{L}} {{folder}} my\_package  
 {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
-{{tab}} {{tab}} {{L}} {{folder}} pkg1  
+{{tab}} {{tab}} {{L}} {{folder}} package1  
 {{tab}} {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
 {{tab}} {{tab}} {{tab}} {{T}} {{file}} module1.py  
 {{tab}} {{tab}} {{tab}} {{L}} {{file}} module2.py  
-{{tab}} {{tab}} {{L}} {{folder}} pkg2  
+{{tab}} {{tab}} {{L}} {{folder}} package2  
 {{tab}} {{tab}} {{tab}} {{T}} {{file}}\_\_init\_\_.py  
 {{tab}} {{tab}} {{tab}} {{L}} {{file}}module3.py  
 {{tab}} {{tab}} {{L}} {{file}}module4.py  
@@ -784,19 +785,19 @@ Iedere package bestaat uit een directory met een {{file}}\_\_init\_\_.py-bestand
 
 [^init]: Dat bestand is vaak leeg, maar kan code bevatten die gerunt wordt zodra het package wordt geïmporteerd.
 
-De verschillende modules uit het [figuur](vervolg-python.md#fig:packagetree) hierboven kun je als volgt importeren en gebruiken (we gaan er even vanuit dat iedere module een functie `#!py some_func()` bevat):
-``` py
+De verschillende modules uit het [figuur](vervolg-python.md#fig:packagetree) hierboven kun je als volgt importeren en gebruiken in het bestand {{file}}``script.py`` (we gaan er even vanuit dat iedere module een functie `#!py some_function()` bevat):
+``` py title="script.py"
 # module direct importeren
-import my_pkg.pkg1.module1
-my_pkg.pkg1.module1.some_func()
+import my_package.package1.module1
+my_package.package1.module1.some_function()
 
 # losse module vanuit een package importeren
-from my_pkg.pkg1 import module2
-module2.some_func()
+from my_package.package1 import module2
+module2.some_function()
 
 # module importeren onder een andere naam
-import my_pkg.module4 as m4
-m4.some_func()
+import my_package.module4 as m4
+m4.some_function()
 ```
 
 In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script dus alleen maar in een map te stoppen en in diezelfde map een lege {{file}}\_\_init\_\_.py aan te maken.
@@ -811,7 +812,7 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 !!! opdracht-basis "Packages"
     In deze opdracht ga je oefenen met het aanmaken van packages, modules en het importeren en aanroepen daarvan.
     
-    1. Maak een package {{folder}}`models` met twee modules: {{file}}`polynomials` en {{file}}`tests`.
+    1. Maak in de map {{folder}}`ECPC` een package {{folder}}`models` met twee modules: {{file}}`polynomials` en {{file}}`tests`.
     1. In de `#!py polynomials`-module maak je een functie `#!py line(x, a, b)` die de de vergelijking voor een lijn voor ons berekent: $y = ax + b$.
     1. In de `#!py tests`-module maak je een functie `#!py test_line()` die het volgende doet:
             
@@ -854,11 +855,11 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 
     # relative imports
     from . import module2
-    from ..pkg2 import module3
+    from ..package2 import module3
 
     # absolute imports
-    from my_pkg.pkg1 import module2
-    from my_pkg.pkg2 import module3
+    from my_package.package1 import module2
+    from my_package.package2 import module3
     ```
     Absolute imports zijn wat meer werk, maar je maakt wel heel duidelijk welke module je wilt importeren. Relative imports zorgen in de praktijk regelmatig voor -- soms lastig te vinden -- bugs. Als je tegen problemen aanloopt: gebruik dan absolute imports.
 
