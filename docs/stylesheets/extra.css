@@ -136,3 +136,7 @@
     -webkit-mask-image: var(--md-admonition-icon--waarschuwing);
     mask-image: var(--md-admonition-icon--waarschuwing);
 }
+
+code {
+    white-space : pre-wrap !important;
+  }
