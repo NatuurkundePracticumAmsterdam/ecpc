@@ -40,8 +40,7 @@ Een class is eigenlijk een groep functies die je bij elkaar pakt en die met elka
     ```
 
 ## Aanmaken van een class
-
-Hieronder staat een versimpelde weergave van de class `Turtle`. Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van fucnties &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md## Dunder methods) ), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
+Een class is een verzameling functies. Hieronder staat een versimpelde weergave van de class `Turtle`. Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van fucnties &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods) ), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
 
 [^ClassTitle]: Wanneer je de Google Style Guide[@google_style_guide] volgt schrijf je de naam van de class in CapWords of CamelCase. 
 
@@ -58,7 +57,7 @@ class Turtle:
         # by angle in degrees
 ```
 
-De eerste parameter van `#!py __init__()`-method, en alle andere methods, is `#!py self`, daarna komen &mdash;indien nodig&mdash; andere parameters die in de method nodig zijn. Later meer over de speciale parameter `#!py self`, eerst gaan we kijken hoe je een class gebruikt. 
+De eerste parameter van de `#!py __init__()`-method en van alle andere methods, is `#!py self`, daarna komen &mdash;indien nodig&mdash; andere parameters die in de method nodig zijn. Later meer over [de speciale parameter self](classes.md#de-speciale-parameter-self), eerst gaan we kijken hoe je een class gebruikt. 
 
 ## Aanroepen van een class
 
@@ -74,6 +73,18 @@ Master_Oogway = Turtle("turtle")
 ```
 
 In de parameter `Master_Oogway` gaat de 'uitkomst' van de class, dat is in dit geval een collectie van methods (en variabelen). De parameter `Master_Oogway` noemen we een _instance_ van de class `Turtle`. Net zoals je een functie vaker kunt aanroepen, kan je ook meerdere instances van een class aanmaken. Na de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan de  `#!py __init__()`-method (`#!py self` niet meegerekend), de parameter `#!py shape` krijgt dus de variabele `#!py "turtle"` toegewezen.
+
+???+ meer-leren "Meerdere instances"
+    Je kunt meerdere instances hebben van dezelfde class, bijvoorbeeld wanneer meerdere klanten in de webshop tegelijkertijd winkelmandjes vullen:
+    ``` py
+    class Cart:
+        ...
+
+    cart_alice = Cart()
+    ...
+    cart_bob = Cart()
+    ...
+    ```
 
 !!! opdracht-basis "`#!py __init__(self)`"
     Stel dat de init-method geen extra parameters mee krijgt, zoals in het volgende geval:
@@ -154,6 +165,15 @@ print(Master_Oogway.quote)
 # "Yesterday is history, Tomorrow is a mystery, but Today is a gift. That is why it is called the present"
 ```
 
+!!! opdracht-basis "Opbouw van een class"
+
+    1. Beschouw de onderstaande code
+    1. Bespreek met elkaar wat de code precies doet en verplaast de onderdelen naar de juiste plek in de code. 
+    Twijfel je of je nog weet wat een module is kijk dan voor meer informatie in de [paragraaf modules](vervolg-python.md#modules).
+
+    <iframe src="https://h5plti.avwebs.nl/h5p/82/embed" width="740" height="830" frameborder="0" allowfullscreen="allowfullscreen" lang="en" scrolling="no"></iframe>
+    
+
 ???+ meer-leren "Het nut van `#!py self`"
     Een groot voordeel van functies is natuurlijk ook dat we ze vaker aan kunnen roepen. Ook helpt het de overzichtelijkheid als je goede namen geeft aan je functies. Soms kan het gebruiken van functies ook wat onhandig zijn &mdash; vooral als je gegevens wilt bewaren. Stel dat we voor een webshop code gaan schrijven die een <q>winkelmandje</q> inbouwt. We gaan de functionaliteit handmatig testen en uitbouwen. We beginnen als volgt:
     ``` py
@@ -209,7 +229,10 @@ print(Master_Oogway.quote)
     # The Hunger Games by Suzanne Collins    
     ```
 
-    De code werkt nog op dezelfde manier, fijn! Het is alleen wel lastig dat je de hele tijd een variabele `#!py cart` moet meegeven aan de functies. Je bedenkt nog veel meer functies om de levertijd te controleren, om de bestelling op te splitsen in verschillende bezorgmomenten, om de bestelling af te rekenen, etc. Elke keer moet je dezelfde variabele blijven meegeven. Een oplossing is het gebruiken van een class. Je begint met een regel `#!py class Cart:` en daaronder plaats je de functies die je geschreven hebt &mdash; de zogeheten _methods_ van de class. Iedere method krijgt automatisch een parameter `#!py self` mee die verwijst naar de gedeelde geheugenopslag. Zo kun je een list `#!py self.contents` definiëren waarin we de producten in de bestelling bewaren. Opstarttaken kun je onderbrengen in de speciale method `#!py __init__()`. Als volgt:
+    De code werkt nog op dezelfde manier, fijn! Het is alleen wel lastig dat je de hele tijd een variabele `#!py cart` moet meegeven aan de functies. Je bedenkt nog veel meer functies om de levertijd te controleren, om de bestelling op te splitsen in verschillende bezorgmomenten, om de bestelling af te rekenen, etc. Elke keer moet je dezelfde variabele blijven meegeven. 
+    
+    Door geen functies te gebruiken maar methods, kan je in elke method de lijst met items gebruiken:
+    
     ``` py
     class Cart:
         def __init__(self):
@@ -224,7 +247,8 @@ print(Master_Oogway.quote)
             self.contents.remove(item)
     ```
 
-    Wanneer we deze class gaan gebruiken hoeven we de parameter `#!py self` _niet_ mee te geven, dat gaat automatisch. Wel moeten we de class eerst <q>klaarzetten</q> voor gebruik door hem aan te roepen:
+    Bij het gebruiken van de class hoeven we er niet meer om te denken om steeds de lijst met items mee te geven, deze is onderdeel van de instance (`#!py cart`) en wordt automatisch meegegeven bij het aanroepen van de methods. 
+    
     ``` py
     cart = Cart()
     cart.add_to_cart("Dune by Frank Herbert")
@@ -237,21 +261,10 @@ print(Master_Oogway.quote)
     # Dune by Frank Herbert
     # The Hunger Games by Suzanne Collins
     ```
-    In bovenstaande code hebben we de _class_ `#!py Cart` en de _class instance_ `#!py cart`. 
 
-???+ meer-leren "Meerdere instances en classes importeren"
-    Je kunt meerdere instances hebben van dezelfde class, bijvoorbeeld wanneer meerdere klanten in de webshop tegelijkertijd winkelmandjes vullen:
-    ``` py
-    class Cart:
-        ...
+???+ meer-leren "Classes importeren"
 
-    cart_alice = Cart()
-    ...
-    cart_bob = Cart()
-    ...
-    ```
-
-    Je kunt je afvragen wat we hier precies nu mee gewonnen hebben. De code is wat veranderd, maar in plaats van
+    Wat is nu het praktisch nut van classes en methods gebruiken in plaats van functies? Want in plaat van
     ``` py
     add_to_cart(cart, "Eon by Greg Bear")
     ```
@@ -270,13 +283,6 @@ print(Master_Oogway.quote)
 
 
 
-!!! opdracht-basis "Opbouw van een class"
-
-    1. Beschouw de onderstaande code
-    1. Bespreek met elkaar wat de code precies doet en verplaast de onderdelen naar de juiste plek in de code.
-
-    <iframe src="https://h5plti.avwebs.nl/h5p/82/embed" width="740" height="830" frameborder="0" allowfullscreen="allowfullscreen" lang="en" scrolling="no"></iframe>
-    
 
 
 !!! opdracht-basis "Class Particle"
