@@ -39,9 +39,122 @@ Een class is eigenlijk een groep functies die je bij elkaar pakt en die met elka
     # last_name='Sagan'
     ```
 
+## Aanmaken van een class
 
+Hieronder staat een versimpelde weergave van de class `Turtle`. Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van fucnties &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md## Dunder methods) ), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
 
-???+ meer-leren "Het nut van `#!py Self`"
+[^ClassTitle]: Wanneer je de Google Style Guide[@google_style_guide] volgt schrijf je de naam van de class in CapWords of CamelCase. 
+
+``` py
+class Turtle:
+    def __init__(self, shape):
+        # transform turtle into shape
+
+    def forward(self, distance):
+        # move turtle by distance
+
+    def left(self, angle):
+        # turn turtle counterclockwise
+        # by angle in degrees
+```
+
+De eerste parameter van `#!py __init__()`-method, en alle andere methods, is `#!py self`, daarna komen &mdash;indien nodig&mdash; andere parameters die in de method nodig zijn. Later meer over de speciale parameter `#!py self`, eerst gaan we kijken hoe je een class gebruikt. 
+
+## Aanroepen van een class
+
+Het aanroepen van een class lijkt veel op het aanroepen van een functie. Stel we hebben de functie
+``` py
+def power(a, b):
+    return a ** b
+```
+Dan roep je die aan met `#!py result = power(2, 3)`. Hierbij is `power` de naam van de functie en `result` de parameter waar de uitkomst heen gaat. Bij het aanroepen van een class doe je iets soortgelijks. 
+
+``` py
+Master_Oogway = Turtle("turtle")
+```
+
+In de parameter `Master_Oogway` gaat de 'uitkomst' van de class, dat is in dit geval een collectie van methods (en variabelen). De parameter `Master_Oogway` noemen we een _instance_ van de class `Turtle`. Net zoals je een functie vaker kunt aanroepen, kan je ook meerdere instances van een class aanmaken. Na de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan de  `#!py __init__()`-method (`#!py self` niet meegerekend), de parameter `#!py shape` krijgt dus de variabele `#!py "turtle"` toegewezen.
+
+!!! opdracht-basis "`#!py __init__(self)`"
+    Stel dat de init-method geen extra parameters mee krijgt, zoals in het volgende geval:
+    ```py
+    class Turtle:
+        def __init__(self):
+            # initialiseer class
+    ```
+    hoe maak je dan een instance aan van de class?
+    ??? uitwerkingen
+        ```py
+        Master_Oogway = Turtle()
+        ```
+
+Omdat de instance `Master_Oogway` alle methods bevat kunnen we deze methods aanroepen:
+```py
+Master_Oogway = Turtle("turtle")
+
+Master_Oogway.forward(50)
+Master_Oogway.left(30)
+Master_Oogway.forward(50)
+```
+    
+!!! opdracht-basis "turtle"
+    1. Maak een bestand aan met de naam {{file}}turtle.py.
+    1. Importeer de Turtle class met `#!py from turtle import Turtle`
+    1. Maak een instance van de class Turtle aan met `#!py Master_Oogway = Turtle("turtle")`
+    1. Laat de schildpad lopen en draaien door de methods `#!py forward()` en `#!py left()` aan te roepen.
+
+    !!! info "Schildpad verdwijnt"
+        Na het uitvoeren van het script sluit Python het scherm van de schildpad. Voeg de regel `#!py Master_Oogway.screen.mainloop()` toe om het scherm te laten staan en handmatig af te sluiten. 
+
+## De speciale parameter `#!py self`
+Een class method is vrijwel gelijk aan een normale functie, behalve dat een class method als eerste de parameter `#!py self` verwacht. Aan deze parameter wordt de eigen instance van de class meegegeven wanneer je de method aanroept. Gelukkig hoef je dit niet zelf te doen want wanneer je een method aanroept wordt impliciet de instance als eerste parameter meegegeven. 
+
+Maar waarom zou je dit doen? De instance bevat alle methods en variabele, door de instance aan elke method mee te geven kan je de informatie die daarin is opgeslagen in elke method gebruiken. 
+
+Stel we maken een nieuwe method `#!py do_kungfu_move` waarin we `#!py forward()` en `#!py left()` willen gebruiken:
+
+``` py
+class Turtle:
+    def __init__(self, shape):
+        # transform turtle into shape
+
+    def forward(self, distance):
+        # move turtle by distance
+
+    def left(self, angle):
+        # turn turtle counterclockwise
+        # by angle in degrees
+
+    def do_kungfu_move(self):
+        # Do kungfu move
+        self.forward(130)
+        self.left(350)
+        self.forward(60)
+```
+
+Als we de method `#!py do_kungfu_move` aanroepen met `#!py Master_Oogway.do_kungfu_move()` geeft python automatisch de instance `#!py Master_Oogway` mee aan de method. De parameter `#!py self` is dus nu gelijk aan de instance `#!py Master_Oogway`, daarmee is `#!py self.forward(130)` ook gelijk aan `#!py Master_Oogway.forward(130)`. 
+
+### Instance attribute
+De instance van een class bevat niet alleen alle methods, maar kan ook variabele hebben. In het voorbeeld hieronder voegen we de variabele `#!py quote` toe in de init-method aan de instance, daarmee wordt het een _intance attribute_.
+
+``` py
+class Turtle:
+    def __init__(self, shape):
+        # transform turtle into shape
+        self.quote = "Yesterday is history, Tomorrow is a mystery, but Today is a gift. That is why it is called the present"
+
+    ...
+```
+De instance attribute `#!py quote` is nu onderdeel van de instance. We kunnen die oproepen binnen elke method met `#!py self.quote` maar ook buiten de class:
+
+```py
+Master_Oogway = Turtle("turtle")
+
+print(Master_Oogway.quote)
+# "Yesterday is history, Tomorrow is a mystery, but Today is a gift. That is why it is called the present"
+```
+
+???+ meer-leren "Het nut van `#!py self`"
     Een groot voordeel van functies is natuurlijk ook dat we ze vaker aan kunnen roepen. Ook helpt het de overzichtelijkheid als je goede namen geeft aan je functies. Soms kan het gebruiken van functies ook wat onhandig zijn &mdash; vooral als je gegevens wilt bewaren. Stel dat we voor een webshop code gaan schrijven die een <q>winkelmandje</q> inbouwt. We gaan de functionaliteit handmatig testen en uitbouwen. We beginnen als volgt:
     ``` py
     cart = []
