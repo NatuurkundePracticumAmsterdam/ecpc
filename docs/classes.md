@@ -69,10 +69,10 @@ def power(a, b):
 Dan roep je die aan met `#!py result = power(2, 3)`. Hierbij is `power` de naam van de functie en `result` de parameter waar de uitkomst heen gaat. Bij het aanroepen van een class doe je iets soortgelijks. 
 
 ``` py
-Master_Oogway = Turtle("turtle")
+master_oogway = Turtle("turtle")
 ```
 
-In de parameter `Master_Oogway` gaat de 'uitkomst' van de class, dat is in dit geval een collectie van methods (en variabelen). De parameter `Master_Oogway` noemen we een _instance_ van de class `Turtle`. Net zoals je een functie vaker kunt aanroepen, kan je ook meerdere instances van een class aanmaken. Na de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan de  `#!py __init__()`-method (`#!py self` niet meegerekend), de parameter `#!py shape` krijgt dus de variabele `#!py "turtle"` toegewezen.
+In de parameter `master_oogway` gaat de 'uitkomst' van de class, dat is in dit geval een collectie van methods (en variabelen). De parameter `master_oogway` noemen we een _instance_ van de class `Turtle`. Net zoals je een functie vaker kunt aanroepen, kan je ook meerdere instances van een class aanmaken. Na de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan de  `#!py __init__()`-method (`#!py self` niet meegerekend), de parameter `#!py shape` krijgt dus de variabele `#!py "turtle"` toegewezen.
 
 ???+ meer-leren "Meerdere instances"
     Je kunt meerdere instances hebben van dezelfde class, bijvoorbeeld wanneer meerdere klanten in de webshop tegelijkertijd winkelmandjes vullen:
@@ -96,26 +96,26 @@ In de parameter `Master_Oogway` gaat de 'uitkomst' van de class, dat is in dit g
     hoe maak je dan een instance aan van de class?
     ??? uitwerkingen
         ```py
-        Master_Oogway = Turtle()
+        master_oogway = Turtle()
         ```
 
-Omdat de instance `Master_Oogway` alle methods bevat kunnen we deze methods aanroepen:
+Omdat de instance `master_oogway` alle methods bevat kunnen we deze methods aanroepen:
 ```py
-Master_Oogway = Turtle("turtle")
+master_oogway = Turtle("turtle")
 
-Master_Oogway.forward(50)
-Master_Oogway.left(30)
-Master_Oogway.forward(50)
+master_oogway.forward(50)
+master_oogway.left(30)
+master_oogway.forward(50)
 ```
     
 !!! opdracht-basis "turtle"
     1. Maak een bestand aan met de naam {{file}}turtle.py.
     1. Importeer de Turtle class met `#!py from turtle import Turtle`
-    1. Maak een instance van de class Turtle aan met `#!py Master_Oogway = Turtle("turtle")`
+    1. Maak een instance van de class Turtle aan met `#!py master_oogway = Turtle("turtle")`
     1. Laat de schildpad lopen en draaien door de methods `#!py forward()` en `#!py left()` aan te roepen.
 
     !!! info "Schildpad verdwijnt"
-        Na het uitvoeren van het script sluit Python het scherm van de schildpad. Voeg de regel `#!py Master_Oogway.screen.mainloop()` toe om het scherm te laten staan en handmatig af te sluiten. 
+        Na het uitvoeren van het script sluit Python het scherm van de schildpad. Voeg de regel `#!py master_oogway.screen.mainloop()` toe om het scherm te laten staan en handmatig af te sluiten. 
 
 ## De speciale parameter `#!py self`
 Een class method is vrijwel gelijk aan een normale functie, behalve dat een class method als eerste de parameter `#!py self` verwacht. Aan deze parameter wordt de eigen instance van de class meegegeven wanneer je de method aanroept. Gelukkig hoef je dit niet zelf te doen want wanneer je een method aanroept wordt impliciet de instance als eerste parameter meegegeven. 
@@ -143,7 +143,7 @@ class Turtle:
         self.forward(60)
 ```
 
-Als we de method `#!py do_kungfu_move` aanroepen met `#!py Master_Oogway.do_kungfu_move()` geeft python automatisch de instance `#!py Master_Oogway` mee aan de method. De parameter `#!py self` is dus nu gelijk aan de instance `#!py Master_Oogway`, daarmee is `#!py self.forward(130)` ook gelijk aan `#!py Master_Oogway.forward(130)`. 
+Als we de method `#!py do_kungfu_move` aanroepen met `#!py master_oogway.do_kungfu_move()` geeft python automatisch de instance `#!py master_oogway` mee aan de method. De parameter `#!py self` is dus nu gelijk aan de instance `#!py master_oogway`, daarmee is `#!py self.forward(130)` ook gelijk aan `#!py master_oogway.forward(130)`. 
 
 ### Instance attribute
 De instance van een class bevat niet alleen alle methods, maar kan ook variabele hebben. In het voorbeeld hieronder voegen we de variabele `#!py quote` toe in de init-method aan de instance, daarmee wordt het een _intance attribute_.
@@ -159,9 +159,9 @@ class Turtle:
 De instance attribute `#!py quote` is nu onderdeel van de instance. We kunnen die oproepen binnen elke method met `#!py self.quote` maar ook buiten de class:
 
 ```py
-Master_Oogway = Turtle("turtle")
+master_oogway = Turtle("turtle")
 
-print(Master_Oogway.quote)
+print(master_oogway.quote)
 # "Yesterday is history, Tomorrow is a mystery, but Today is a gift. That is why it is called the present"
 ```
 
