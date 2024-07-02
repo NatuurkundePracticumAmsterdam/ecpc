@@ -327,9 +327,44 @@ print(Master_Oogway.quote)
     ```
 
 ???+ meer-leren "Subclass"
-    Je kunt behalve een class ook een _subclass_ aanmaken. Stel dat je een class `#!py Animal` hebt aangemaakt met handige methods en attributes maar je wilt een nieuwe, iets specifiekere class maken (bijvoorbeeld `#!py Cow`). Het is duidelijk dat een koe een dier is, maar een dier nog geen koe. Je kunt een subclass maken:
-    ``` py
-    class Cow(Animal):
-        pass
+    ## Subclasses
+
+    Je kunt behalve een class ook een _subclass_ aanmaken. De class `#!py Turtle` heeft hele handige methods maar je kunt een specifiekere class `#!py GiantTortoise` maken.
+
+    ```py
+    class GiantTortoise(Turtle):
+    def __init__(self):
+        super().__init__()
+        self.shape("turtle")
+        self.color("dark green")
+        self.turtlesize(5)
+        self.speed(1)
+
+    def move(self, distance):
+        steps = range(0, distance, 5)
+        i = 1
+        for step in steps:
+            self.tiltangle(i * 5)
+            self.forward(step)
+            time.sleep(1)
+            i = i * -1
     ```
-    Het keyword `#!py pass` doet niets overigens. Met alleen dit statement heeft de class `#!py Cow` precies alle functionaliteit van de class `#!py Animal`. Je kunt daarna zelf nog extra methods en attributes definiëren.
+    
+    Door de parentclass `#!py Turtle` tussen ronde haakjes mee te geven aan de nieuwe subclass `#!py GiantTortoise` krijgt de subclass alle functionaliteit mee van de parentclass, waaronder alle methods zoals `#!py forward()`. Als je in de init-method van de subclass methods of attributes wilt gebruiken van de parentclass, moet je ervoor zorgen dat de parentclass is geïnitialiseerd . Dit doe je met `#!py super().__init__()` hierbij verwijst `#!py super()` naar de parentclass en met `#!py __init__()` voer je de init-method van de parentclass uit. 
+
+    !!! opdracht-meer "`#!py super().__init__()`"
+        1. Maak een bestand aan waarin je de subclass `GiantTortoise` aanmaakt.
+        1. Zorg dat de volgende voorbeeldcode werkt:
+        ```py
+        t = GiantTortoise()
+        t.move(50)
+        ```
+        1. Wat gebeurd er als je `#!py super().__init__()` weglaat?
+    
+    Nadat we in de init-method van de subclass de eigenschappen van de Reuzenschildpad hebben gedefinieerd, kunnen we extra functionaliteit gaan toevoegen bijvoorbeeld de manier van bewegen `#!py move()`. 
+
+    !!! opdracht-meer "Hawksbill turtle"
+        1. Maak een subclass aan voor de Hawksbill turtle.
+        1. De Hawksbill turtle is een zeeschildpad. Maak de omgeving van de schildpad standaard blauw met `#!py self.screen.bgcolor("cyan")`.
+        1. Schrijf een method `#!py swim()` die de schildpad over het scherm laat bewegen. 
+    
