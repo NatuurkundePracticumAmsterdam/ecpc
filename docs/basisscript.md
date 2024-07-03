@@ -185,6 +185,15 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
 !!! opdracht-inlever "Pythondaq: CSV"
     Breid je script uit zodat de data niet alleen maar weergegeven wordt in een grafiek maar ook wordt weggeschreven als CSV-bestand. Gebruik de `#!py zip()`-functie en de `#!py csv`-module.
 
+???+ opdracht-meer "Git ignore"
+    Het kan wenselijk zijn om niet alle bestanden mee te nemen voor versiebeheer in je repository. Soms wil je een bestand uitsluiten, of bepaalde bestand-types.  Om GitHub te laten weten welke bestanden niet gecommit hoeven te worden is er een bestand {{file_lines}}.gitignore . Let op de punt voor de bestandsnaam, dit betekend dat het een verborgen bestand is en mogelijk zie je het niet in je repository staan.
+    
+    Stel je wilt alle csv-bestanden uitsluiten van versiebeheer, dat kan als volgt:
+
+    1. Ga naar GitHub Desktop.
+    1. Ga naar het tabblad Changes. 
+    1. Rechtermuisklik op het bestand wat je wilt negeren
+    1. Maak een keuze tussen *Ignore file*, *Ignore folder* of *Ignore all .csv files* 
 
 ???+ opdracht-meer "CSV bestandsnaam"
     Pas de code zodanig aan dat een CSV-bestand nooit wordt overschreven. Je kunt bijvoorbeeld controleren of het bestand al bestaat en aan de bestandsnaam een oplopend getal toevoegen (`data-001.csv`, `data-002.csv`, etc.) totdat je uitkomt bij een bestandsnaam die nog niet bestaat. Controleer dat je programma ook echt geen data overschrijft.
