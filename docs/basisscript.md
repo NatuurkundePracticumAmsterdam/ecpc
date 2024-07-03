@@ -132,13 +132,13 @@ Het CSV-bestand heeft kolommen $t$ en $s$. De getallen hebben een punt als decim
 
 Het viel je misschien op dat in bovenstaand CSV-bestand iedere regel een $t$-waarde en een $s$-waarde heeft. Als je een lijst met $t$'s en een lijst met $s$'en hebt dan bevat de eerste regel het eerste element uit beide lijsten, de tweede regel het tweede element, etc. Je kunt dan een for-loop schrijven die Python's indexnotatie gebruikt: `#!py t[i]`, `#!py s[i]`, etc. Het kan óók, makkelijker, met de `#!py zip()`-functie. Beide methodes kun je als volgt gebruiken in het geval van twee[^meer-dan-twee] lijsten A en B:
 
-=== "with_indexing.py"
-    ``` py hl_lines="4 5"
-    --8<-- "scripts/with_indexing.py"
-    ```
 === "with_zip.py"
     ``` py hl_lines="4 5"
     --8<-- "scripts/with_zip.py"
+    ```
+=== "with_indexing.py"
+    ``` py hl_lines="4 5"
+    --8<-- "scripts/with_indexing.py"
     ```
 
 [^meer-dan-twee]: Je kunt net zoveel lijsten in `#!py zip()` gooien als je wilt: `#!py for a, b, c, d, e in zip(A, B, C, D, E)` is geen probleem.
