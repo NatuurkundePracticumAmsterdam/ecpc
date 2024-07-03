@@ -886,7 +886,8 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
     !!! opdracht-basis "PyPI"
         Later in de cursus leren jullie werken met [Poetry](poetry.md) daarmee is het gemakkelijk om je eigen project op PyPI te zetten. Andere studenten gingen jullie al voor:
 
-        1. Ga naar [pypi.org](pypi.org) en zoek naar het project *gammaspotter*.
+        1. Ga naar <a href="https://pypi.org/" target="_blank">pypi.org</a> en zoek naar het project *gammaspotter*.
+
 
 
 ## Exceptions
