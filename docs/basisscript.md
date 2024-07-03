@@ -76,8 +76,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
 
     1. Schrijf een script waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Kijk wat er gebeurt met de LED.
     1. Commit.
-    1. Overleg met elkaar welke spanningen je precies meet met de verschillende kanalen (_channels_) die op de Arduino zijn aangesloten. Kijk nog eens goed naar de [figuur van de schakeling](communicatie.md#fig:LED-schakeling).
-    1. Commit.
+    1. Hoe bepaal je de spanning over de weerstand? Overleg met elkaar welke spanningen je precies meet met de verschillende kanalen (_channels_) die op de Arduino zijn aangesloten. Kijk nog eens goed naar de [figuur van de schakeling](communicatie.md#fig:LED-schakeling).
     1. Lees &mdash; tijdens het laten oplopen van de spanning over de LED &mdash; de spanning over de _weerstand_ uit. Je zult daarvoor het antwoord van de Arduino (een _string_) om moeten zetten naar een _integer_ en print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand. Voorbeeld van uitvoer:
     ``` consolecode
     On LED:  750 (2.4 V)    Over resistor:  189 (0.6 V)
