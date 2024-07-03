@@ -11,7 +11,7 @@ In de cursus gaan we bibliotheken (_modules, packages_) en een applicatie ontwik
 
 Een punt wat vaak onderschoven blijft is _documentatie_. Als je software schrijft die gebruikt (en doorontwikkeld) wordt in een onderzoeksgroep, dan is het heel belangrijk dat iedereen kan begrijpen wat je software doet en hoe die uitgebreid kan worden. Het is zonder hulp vaak heel moeilijk om de code van een iemand anders te begrijpen. En in de praktijk blijkt heel vaak dat als je code schrijft en daar een paar weken of maanden later op terugkijkt, jij zélf die ander bent. Wat toen blijkbaar heel logisch leek, is dat later toch niet meer. Dus documentatie schrijf je heel vaak ook gewoon voor jezelf.
 
-Als je niet zo heel veel in Python geprogrammeerd hebt kan het helpen om de [paragraaf _Basiskennis Python_](basis-python.md#Basiskennis-Python)[@inl_prog] door te nemen. Een boek dat zeker bij natuurkundigen in de smaak kan vallen is _Effective Computation in Physics_[@eff_comp_physics], maar deze is niet gratis verkrijgbaar. Een boek dat zowel op papier te bestellen is als in de vorm van een pdf of webpagina is te lezen is _Think Python_.[@think_python]
+Als je niet zo heel veel in Python geprogrammeerd hebt kan het helpen om de [paragraaf _Basiskennis Python_](basis-python.md#basiskennis-python)[@inl_prog] door te nemen. Een boek dat zeker bij natuurkundigen in de smaak kan vallen is _Effective Computation in Physics_[@eff_comp_physics], maar deze is niet gratis verkrijgbaar. Een boek dat zowel op papier te bestellen is als in de vorm van een pdf of webpagina is te lezen is _Think Python_.[@think_python]
 
 
 ## Zen of Python
