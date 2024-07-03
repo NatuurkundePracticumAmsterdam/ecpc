@@ -45,7 +45,7 @@ Je kunt het lezen middels een _easter egg_ in Python zelf: `#!py import this`.
 
 !!! opdracht-basis "zen"
     1. Open Visual Studio Code.
-    1. Open de map {{folder}} ECPC (en/of maak deze aan).
+    1. Open de map {{folder}}`ECPC` (en/of maak deze aan).
     1. Maak een bestand {{file}}`zen-of-python.py` met daarin de onderstaande code:
     ``` py
     import this
@@ -736,7 +736,7 @@ print(math.sin(.5 * math.pi))
 
 Door de `#!py math` module te importeren hebben we opeens de beschikking over het getal $\pi$ en de sinus- en wortelfunties.
 
-Je kunt je eigen code ook importeren, maar hier moet je wel even opletten. Stel, we hebben een bestand {{file}}square.py:
+Je kunt je eigen code ook importeren, maar hier moet je wel even opletten. Stel, we hebben een bestand {{file}}`square.py`:
 ``` py title="square.py"
 --8<-- "scripts/square-1.py"
 ```
@@ -744,26 +744,26 @@ Als je deze code runt is de uitvoer:
 ``` ps1 title="Terminal"
 The square of 4 is 16
 ```
-Zoals verwacht! Maar nu willen we in een nieuw script, {{file}}count\_count.py, de functie importeren en gebruiken:
+Zoals verwacht! Maar nu willen we in een nieuw script, {{file}}`count_count.py`, de functie importeren en gebruiken:
 ``` py title="count_count.py"
 --8<-- "scripts/count_count.py"
 ```
 !!! opdracht-basis "square.square"
     Waarom staat er in bovenstaande code nu opeens `#!py square.square()` in plaats van gewoon `#!py square()`?
     ??? uitwerkingen
-        Omdat je uit de _module_ {{file}}square.py de _functie_ `#!py square()` gebruikt.
+        Omdat je uit de _module_ {{file}}`square.py` de _functie_ `#!py square()` gebruikt.
 
 Maar nu is er een probleem met de uitvoer van dit script:
 ``` ps1 title="Terminal"
 The square of 4 is 16
 The square of 5 is 25
 ```
-Tijdens het importeren wordt alle code die aanwezig is in {{file}}square.py ook daadwerkelijk gerunt. Er zijn twee manieren om dit op te lossen:
+Tijdens het importeren wordt alle code die aanwezig is in {{file}}`square.py` ook daadwerkelijk gerunt. Er zijn twee manieren om dit op te lossen:
 
-  1. Alle `extra' code verwijderen uit de module ({{file}}square.py)
+  1. Alle `extra' code verwijderen uit de module ({{file}}`square.py`)
   1. De code in de module _alleen_ laten runnen als de module als script wordt aangeroepen, maar _niet_ wanneer de module wordt geïmporteerd
 
-De eerste oplossing is lang niet altijd wenselijk. Voor de tweede oplossing pas je {{file}}square.py als volgt aan:
+De eerste oplossing is lang niet altijd wenselijk. Voor de tweede oplossing pas je {{file}}`square.py` als volgt aan:
 ``` py title="square.py"
 --8<-- "scripts/square.py"
 ```
@@ -780,12 +780,12 @@ The square of 5 is 25
 Het `#!py if __name__ == '__main__'`-statement wordt heel veel gebruikt in Python modules.
 
 !!! opdracht-basis "modules"
-    1. Maak zelf de bestanden {{file}}square.py en {{file}}just\_count.py aan.
-    1. Run {{file}}just\_count.py zonder het `#!py if __name__ == '__main__'`-statement.
-    1. Run {{file}}just\_count.py met het `#!py if __name__ == '__main__'`-statement.
-    1. Voeg `#!py print(f"{__name__ = }")` toe bovenaan {{file}}square.py. 
-    1. Run {{file}}square.py en kijk wat `#!py __name__` is.
-    1. Run dan nu {{file}}just\_count.py. Zie hoe de speciale variabele `#!py __name__` veranderd. 
+    1. Maak zelf de bestanden {{file}}`square.py` en {{file}}`just_count.py` aan.
+    1. Run {{file}}`just_count.py` zonder het `#!py if __name__ == '__main__'`-statement.
+    1. Run {{file}}`just_count.py` met het `#!py if __name__ == '__main__'`-statement.
+    1. Voeg `#!py print(f"{__name__ = }")` toe bovenaan {{file}}`square.py`. 
+    1. Run {{file}}`square.py` en kijk wat `#!py __name__` is.
+    1. Run dan nu {{file}}`just\_count.py`. Zie hoe de speciale variabele `#!py __name__` veranderd. 
 
 
 ## Packages
@@ -813,11 +813,11 @@ Wij gaan in deze cursus onze code ook in packages stoppen. Op die manier kun je 
 {{tab}} {{tab}} {{tab}} {{L}} {{file}}module3.py  
 {{tab}} {{tab}} {{L}} {{file}}module4.py  
 
-Iedere package bestaat uit een directory met een {{file}}\_\_init\_\_.py-bestand.[^init]
+Iedere package bestaat uit een directory met een {{file}}`__init__.py`-bestand.[^init]
 
 [^init]: Dat bestand is vaak leeg, maar kan code bevatten die gerunt wordt zodra het package wordt geïmporteerd.
 
-De verschillende modules uit het [figuur](vervolg-python.md#fig:packagetree) hierboven kun je als volgt importeren en gebruiken in het bestand {{file}}``script.py`` (we gaan er even vanuit dat iedere module een functie `#!py some_function()` bevat):
+De verschillende modules uit het [figuur](vervolg-python.md#fig:packagetree) hierboven kun je als volgt importeren en gebruiken in het bestand {{file}}`script.py` (we gaan er even vanuit dat iedere module een functie `#!py some_function()` bevat):
 ``` py title="script.py"
 # module direct importeren
 import my_package.package1.module1
@@ -832,10 +832,10 @@ import my_package.module4 as m4
 m4.some_function()
 ```
 
-In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script dus alleen maar in een map te stoppen en in diezelfde map een lege {{file}}\_\_init\_\_.py aan te maken.
+In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script dus alleen maar in een map te stoppen en in diezelfde map een lege {{file}}`__init__.py` aan te maken.
 
 !!! waarschuwing
-    Let op: als je de {{file}}\_\_init\_\_.py vergeet dan lijkt alles het alsnog te doen. Maar je maakt nu een _implicit namespace package_ waarbij bepaalde directories toch weer op een grote hoop gegooid worden. Geloof me, echt niet handig.[^fout] Namespace packages kunnen handig zijn voor grote projecten, maar dat is het dan ook wel. Wij gaan hier niet verder op in. Kortom: let op en gebruik _altijd_ een {{file}}\_\_init\_\_.py.
+    Let op: als je de {{file}}`__init__.py` vergeet dan lijkt alles het alsnog te doen. Maar je maakt nu een _implicit namespace package_ waarbij bepaalde directories toch weer op een grote hoop gegooid worden. Geloof me, echt niet handig.[^fout] Namespace packages kunnen handig zijn voor grote projecten, maar dat is het dan ook wel. Wij gaan hier niet verder op in. Kortom: let op en gebruik _altijd_ een {{file}}`__init__.py`.
 
 [^fout]: En wat mij betreft: een fout dat zoiets überhaupt kan in Python. Zen of Python: _explicit is better than implicit._
 

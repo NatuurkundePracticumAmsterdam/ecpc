@@ -44,7 +44,7 @@ Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een d
 !!! opdracht-basis "Repository toevoegen"
     Maak op de volgende manier een repository voor je Pythonscripts:
 
-    1. Maak &mdash; bijvoorbeeld vanuit Visual Studio Code &mdash; in de map {{folder}} ECPC een map {{folder}}`Oefenopdrachten` en zet daarin alle python-bestandjes die je hebt gemaakt om te oefenen zoals de opdrachten [_Pyvisa in pythonscript_](communicatie.md#opd:test_arduino) en [_KnipperLED_](communicatie.md#opd:flashingLED). De mappenstructuur ziet er dan als volgt uit:  
+    1. Maak &mdash; bijvoorbeeld vanuit Visual Studio Code &mdash; in de map {{folder}}`ECPC` een map {{folder}}`Oefenopdrachten` en zet daarin alle python-bestandjes die je hebt gemaakt om te oefenen zoals de opdrachten [_Pyvisa in pythonscript_](communicatie.md#opd:test_arduino) en [_KnipperLED_](communicatie.md#opd:flashingLED). De mappenstructuur ziet er dan als volgt uit:  
     {{L}} {{folder}} ECPC  
     {{tab}} {{T}} {{folder}} oefenopdrachten  
     {{tab}} {{tab}} {{T}} {{file}} test_arduino.py  
@@ -61,8 +61,8 @@ Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een d
 
     [^gitignore]: De Git Ignore zorgt ervoor dat allerlei hulpbestanden van Python niet bewaard worden als commit. Alleen je eigen code wordt dan bewaard
 
-    Nu de map {{folder}} oefenopdrachten een repository is geworden duiden we het voortaan aan met het {{github}}-symbool. De mappenstructuur is nu dus:  
-    
+    Nu de map {{folder}}`oefenopdrachten` een repository is geworden duiden we het voortaan aan met het {{github}}-symbool. De mappenstructuur is nu dus:  
+
     {{L}} {{folder}} ECPC  
     {{tab}} {{T}} {{github}} oefenopdrachten  
     {{tab}} {{tab}} {{T}} {{file}} test_arduino.py  
@@ -140,7 +140,7 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
     1. Kies **Code > Open with GitHub Desktop**
     1. Kies zelf een map op je harde schijf om de repository te bewaren.
     1. Open Visual Studio Code en open de repository met **File > Open Folder**.[^open folder] Als GitHub Desktop de geïnstalleerde VS Code herkent kan dat direct vanuit GitHub Desktop met **Repository > Open in Visual Studio Code**.
-    1. Open {{folder}}examples{{file_lines}}README.txt. Verander in de eerste paragraaf `Below are examples` in `Below are different examples` en sla het bestand op.
+    1. Open {{folder}}`examples` {{file_lines}}`README.txt`. Verander in de eerste paragraaf `Below are examples` in `Below are different examples` en sla het bestand op.
     1. Schakel naar de GitHub Desktop applicatie en bekijk de wijziging.
     1. Linksonder kun je een korte beschrijving van je wijziging intypen en druk dan op de blauwe `Commit`-knop.
     1. Schakel, rechtsboven, naar `History`. Bovenaan staat jouw wijziging. Daaronder kun je alle wijzigingen van anderen bekijken.
