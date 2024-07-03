@@ -15,8 +15,8 @@ We zullen in deze handleiding vaak Engelse termen gebruiken, ook als Nederlandse
 
 In deze handleiding kom je twee verschillende dingen tegen. Pythoncode en systeemopdrachten. Voor pythoncode geldt dat je in Visual Studio Code een nieuw bestand moet aanmaken met de extensie `.py` en dat je daarin de code kunt typen. Vervolgens kun je het script runnen en geeft Visual Studio Code de uitvoer terug. In deze handleiding zal dat als volgt worden weergegeven:
 ``` py
-# Ik ben een script. Ik sta in een gekleurd blok 
-# en de Pythoncode heeft gekleurde syntax.
+# I am a script. I am in a colored block
+# and the Python code has colored syntax.
 
 def my_func(x):
     return x ** 2
@@ -43,7 +43,7 @@ Merk op dat de commando's dan iets donkerder gekleurd zijn dan de prompt en de u
 
 ## Opgaves
 
-In de handleiding staan verschillende opgaves. De meeste zijn bedoeld als oefening, maar sommige moet je inleveren voor feedback en een beoordeling.
+In de handleiding staan verschillende opgaves. De meeste zijn bedoeld als oefening, maar sommige moet je inleveren voor feedback en een beoordeling. Schrijf je code in het Engels, zo ben je voorbereid op het werken in een internationale onderzoeksgroep.
 
 !!! info
     In sommige programmeercursussen is het de bedoeling dat je een bepaald algoritme _zelf_ schrijft. Je moet bijvoorbeeld een loop schrijven om een reeks berekeningen uit te voeren en mag dan niet gebruik maken van de NumPy-bibliotheek om dat in één regel te doen. Je kunt je voorstellen dat als je straks in een lab werkt dat je _juist_ gebruik wilt maken van bibliotheken die het leven een stuk gemakkerlijker maken. Trek dus alles uit de kast. Kijk eens in de _Python Standard Library_,[@python-standard-library] de _Python Package Index_[@pypi] of _Awesome Python_[@awesome-python].
