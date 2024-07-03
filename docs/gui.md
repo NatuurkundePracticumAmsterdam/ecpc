@@ -306,7 +306,7 @@ class UserInterface(QtWidgets.QMainWindow):
 
     def plot(self):
         x = np.linspace(-pi, pi, 100)
-        self.plot_widget.plot(x, np.sin(x), symbol=None, pen={"color": "k", "width": 5})
+        self.plot_widget.plot(x, np.sin(x), symbol=None, pen={"color": "m", "width": 5})
         self.plot_widget.setLabel("left", "sin(x)")
         self.plot_widget.setLabel("bottom", "x [radians]")
 ```
