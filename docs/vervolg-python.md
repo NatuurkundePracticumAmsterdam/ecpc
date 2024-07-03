@@ -339,6 +339,14 @@ Kortom: _berekeningen_ met arrays zijn sneller, maar for-loops (en list comprehe
     pdfs = [name for name in filenames if name.endswith(".pdf")]
     print(f"{pdfs=}")
     ```
+
+    <pre>
+    <code style="color: black; background-color: black;" >
+    (ecpc) python.exe pdf.py
+    pdfs=['text.pdf', 'manual.pdf']
+    </code>
+    </pre>
+
 === "  {{run}} run"
     ``` py
     filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
@@ -352,6 +360,30 @@ Kortom: _berekeningen_ met arrays zijn sneller, maar for-loops (en list comprehe
     pdfs=['text.pdf', 'manual.pdf']
     </code>
     </pre>
+
+Of
+
+=== "pdf.py"
+    ``` py
+    filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
+    pdfs = [name for name in filenames if name.endswith(".pdf")]
+    print(f"{pdfs=}")
+    ```
+    ``` ps1con title="Terminal"
+    (ecpc) >
+    .
+    ```
+
+=== "  {{run}} run"
+    ``` py
+    filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
+    pdfs = [name for name in filenames if name.endswith(".pdf")]
+    print(f"{pdfs=}")
+    ```
+    ``` ps1con title="Terminal"
+    (ecpc) > python.exe pdf.py
+    pdfs=['text.pdf', 'manual.pdf']
+    ```
 
 In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_[^{}] en _dict comprehensions_.
 
