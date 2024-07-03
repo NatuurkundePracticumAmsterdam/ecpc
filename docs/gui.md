@@ -90,7 +90,7 @@ In de horizontale layout plaatsen we twee `button`s:
 Het stuk programma om bovenstaande layout op te bouwen geven we hieronder weer. We bespreken straks de code regel voor regel.
 <div id="code:layout"></div>
 
-``` py linenums="1"
+``` py linenums="1" hl_lines="1"
 from PySide6.QtCore import Slot
 
 
