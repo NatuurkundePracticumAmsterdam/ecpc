@@ -206,22 +206,12 @@ Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een 
 
 [^tip-aansluiten]: Tip: als je de Arduino loshaalt en weer aansluit is het de nieuwe regel in het lijstje.
 
-!!! info
-    In het vervolg gaan we commando's naar de Arduino sturen waar een variabele spanning in staat. Je kunt dit het makkelijkst doen met f-strings, zoals
-    ``` py
-    naam = "Alice"
-    print(f"Hoi {naam}!")
-    ```
-    en minder makkelijk met
-    ``` py
-    naam = "Alice"
-    print("Hoi %s!" % naam)
-    ```
-    Als je (nog) geen idee hebt wat dat inhoudt, lees dan de tutorial _Python 3's f-strings: an improved string formatting syntax_ op Real Python.[@f-strings]
-
 
 !!! opdracht-basis "LED laten branden"
     Schrijf een script dat de spanning over de LED laat oplopen van nul tot de maximale waarde. Wat gebeurt er als je de spanning laat oplopen tot twee keer die maximale waarde?
+
+    !!! info "f-strings"
+        Het sturen van commando's naar de Arduino waar een variabele spanning in staat gaat gemakkelijk met f-strings. Voor meer informatie zie de [paragraaf f-strings](basis-python.md#f-strings-variabelen-en-input).
 
 
 <div id="opd:flashingLED"></div>
