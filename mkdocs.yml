@@ -88,3 +88,5 @@ extra:
     L: '└──'
     T: '├──'
     tab: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+    blank_line: '⠀'
+    terminal_cursor: '█'

@@ -370,8 +370,8 @@ Of
     print(f"{pdfs=}")
     ```
     ``` ps1con title="Terminal"
-    (ecpc) >
-    .
+    (ecpc) > python.exe pdf.py{{ terminal_cursor }}
+    {{ blank_line }}
     ```
 
 === "  {{run}} run"
