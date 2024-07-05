@@ -341,9 +341,8 @@ Kortom: _berekeningen_ met arrays zijn sneller, maar for-loops (en list comprehe
     ```
 
     <pre>
-    <code style="color: black; background-color: black;" >
-    (ecpc) python.exe pdf.py
-    pdfs=['text.pdf', 'manual.pdf']
+    <code style="color: white; background-color: black;" >(ecpc) python.exe pdf.py{{ terminal_cursor }}
+    {{ blank_line }}
     </code>
     </pre>
 
@@ -355,8 +354,7 @@ Kortom: _berekeningen_ met arrays zijn sneller, maar for-loops (en list comprehe
     ```
 
     <pre>
-    <code style="color: white; background-color: black;">
-    (ecpc) python.exe pdf.py
+    <code style="color: white; background-color: black;">(ecpc) python.exe pdf.py 
     pdfs=['text.pdf', 'manual.pdf']
     </code>
     </pre>
