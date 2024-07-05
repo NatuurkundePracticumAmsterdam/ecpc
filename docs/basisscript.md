@@ -6,7 +6,7 @@ Het experiment wat we gaan uitvoeren is het bepalen van de $I,U$-karakteristiek 
 
 <span class="range_labels">0</span> <input type="range" min="0" max="100" value="50" class="slider" step="0.01" id="continuous_slider" oninput="syncSliders('continuous_slider')"> <span class="range_labels">3.3</span>
 
-<span class="range_labels">0</span> <input type="range" min="0" max="15" value="8" class="slider" step="1" id="discrete_slider" oninput="syncSliders('discrete_slider')"> <input type="text" class="range_labels" value="15" id="max_discrete" oninput="updateMax()" size="6">
+<span class="range_labels">0</span> <input type="range" min="0" max="15" value="8" class="slider" step="1" id="discrete_slider" oninput="syncSliders('discrete_slider')"> <input type="text" class="range_labels" value="15" id="max_discrete" oninput="updateMax()" size="5">
 
 We hebben tot nu toe gewerkt met getallen van 0-1023 sturen en ontvangen. Wat is precies de betekenis van deze getallen? Daarvoor moeten we dieper ingaan op hoe de Arduino &mdash; en computers in het algemeen &mdash; getallen omzet in een spanning en hoe spanningen door de Arduino worden gemeten.
 
