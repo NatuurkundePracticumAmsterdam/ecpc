@@ -386,12 +386,12 @@ Of
 Of
 
 === "pdf.py"
-    <button type="button" onclick="runScript('run_test')">{{ run }}</button>
     ``` py
     filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
     pdfs = [name for name in filenames if name.endswith(".pdf")]
     print(f"{pdfs=}")
     ```
+    <button type="button" onclick="runScript('run_test')">{{ run }}</button>
     <div name="run_test">
     ``` ps1con title="Terminal"
     (ecpc) > python.exe pdf.py{{ terminal_cursor }}
