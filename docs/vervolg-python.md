@@ -391,14 +391,15 @@ Of
     pdfs = [name for name in filenames if name.endswith(".pdf")]
     print(f"{pdfs=}")
     ```
-    <button type="button" onclick="runScript('run_test')">{{ run }}</button>
     <div name="run_test">
+    <button type="button" onclick="runScript('run_test')" class = "run">{{ run }}</button>
     ``` ps1con title="Terminal"
     (ecpc) > python.exe pdf.py{{ terminal_cursor }}
     {{ blank_line }}
     ```
     </div>
     <div name="run_test" class="hidden">
+    <button type="button" onclick="runScript('run_test')" class = "reload">{{ arrow_rotate }}</button>
     ``` ps1con title="Terminal"
     (ecpc) > python.exe pdf.py
     pdfs=['text.pdf', 'manual.pdf']
