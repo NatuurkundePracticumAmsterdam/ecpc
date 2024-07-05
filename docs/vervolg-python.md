@@ -383,6 +383,28 @@ Of
     pdfs=['text.pdf', 'manual.pdf']
     ```
 
+Of
+
+=== "pdf.py"
+    <button type="button" onclick="runScript('run_test')">{{ run }}</button>
+    ``` py
+    filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
+    pdfs = [name for name in filenames if name.endswith(".pdf")]
+    print(f"{pdfs=}")
+    ```
+    <div name="run_test">
+    ``` ps1con title="Terminal"
+    (ecpc) > python.exe pdf.py{{ terminal_cursor }}
+    {{ blank_line }}
+    ```
+    </div>
+    <div name="run_test" class="hidden">
+    ``` ps1con title="Terminal"
+    (ecpc) > python.exe pdf.py
+    pdfs=['text.pdf', 'manual.pdf']
+    ```
+    </div>
+
 In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_[^{}] en _dict comprehensions_.
 
 [^{}]: Notatie hetzelfde, maar gebruik nu `#!py {`}-haakjes.
