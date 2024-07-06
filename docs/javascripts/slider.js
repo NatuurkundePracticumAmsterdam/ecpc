@@ -73,3 +73,9 @@ function setBubble(range, bubble) {
       bubble.style.top = -2*range.offsetHeight + 'px';
     }
   }
+
+document.addEventListener('DOMContentLoaded', function() {
+    updateMaxLabels();
+    updateMaxBox();
+    updateMax();
+}, false);
