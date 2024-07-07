@@ -406,6 +406,22 @@ Of
     ```
     </div>
 
+Of
+
+=== "pdf.py"
+    ``` py
+    filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
+    pdfs = [name for name in filenames if name.endswith(".pdf")]
+    print(f"{pdfs=}")
+    ```
+    <button type="button" name = 'run_invisible' onclick="runInvisible('run_invisible')" class = "run">{{ run }}</button>
+    <button type="button" name = 'run_invisible' onclick="runInvisible('run_invisible')" class = "reload invisible">{{ arrow_rotate }}</button>
+    <pre>
+    <code style="color: white; background-color: black;" >(ecpc) python.exe pdf.py<span name='run_invisible'>{{ terminal_cursor }}</span>
+    <span class = "invisible" name='run_invisible'>pdfs=['text.pdf', 'manual.pdf']</span>
+    </code>
+    </pre>
+
 In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_[^{}] en _dict comprehensions_.
 
 [^{}]: Notatie hetzelfde, maar gebruik nu `#!py {`}-haakjes.
