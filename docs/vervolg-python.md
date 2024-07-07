@@ -410,9 +410,7 @@ Of
 
 === "pdf.py"
     ``` py
-    filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
-    pdfs = [name for name in filenames if name.endswith(".pdf")]
-    print(f"{pdfs=}")
+    --8<-- "scripts/pdf.py"
     ```
     <button type="button" name = 'run_invisible' onclick="runInvisible('run_invisible')" class = "run">{{ run }}</button>
     <button type="button" name = 'run_invisible' onclick="runInvisible('run_invisible')" class = "reload invisible">{{ arrow_rotate }}</button>
@@ -421,6 +419,21 @@ Of
     <span class = "invisible" name='run_invisible'>pdfs=['text.pdf', 'manual.pdf']</span>
     </code>
     </pre>
+
+Of
+
+=== "pdf.py"
+    ``` py
+    --8<-- 'scripts/pdf.py'
+    ```
+    <button type="button" name = "test_snippet" onclick="runInvisible('test_snippet')" class = "run">{{ run }}</button>
+    <button type="button" name = "test_snippet" onclick="runInvisible('test_snippet')" class = "reload invisible">{{ arrow_rotate }}</button>
+    <pre>
+    <code style="color: white; background-color: black;" >(ecpc) python.exe pdf.py<span name='test_snippet'>{{ terminal_cursor }}</span>
+    <span class = "invisible" name="test_snippet">snippet</span>
+    </code>
+    </pre>
+    
 
 In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_[^{}] en _dict comprehensions_.
 
