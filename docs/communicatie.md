@@ -178,6 +178,7 @@ device.query("*IDN?")
 ```
 Het volledige script &mdash; met een paar `#!py print`-statements &mdash; ziet er dan als volgt uit:
 
+<button type="button" name = "test_arduino" onclick="runScript('test_arduino')" class = "run">{{ run }}</button><button type="button" name = "test_arduino" onclick="runScript('test_arduino')" class = "reload invisible">{{ arrow_rotate }}</button> <b>test_arduino.py</b>
 ``` py
 import pyvisa
 
@@ -190,17 +191,18 @@ device = rm.open_resource(
 )
 print(device.query("*IDN?"))
 ```
+Draaien we het script, dan zien we, afhankelijk van het systeem en het aantal apparaten dat verbonden is:
+<pre>
+<code>(ecpc) > python.exe test_arduino.py
+<span class = "invisible" name="test_arduino">('ASRL3::INSTR',)
+Arduino VISA firmware v1.0.0</span>
+</code>
+</pre>
+
 
 <div id="opd:test_arduino"></div>
 !!! opdracht-basis "Pyvisa in pythonscript"
     Maak in een geschikte map een bestand {{file}}`test_arduino.py` en kopieer daarin bovenstaande code. Selecteer vervolgens in Visual Studio Code je conda environment zodat je het script ook daadwerkelijk kunt runnen. Hoe je dat doet lees je aan het eind van de [paragraaf _Conda environments_](software-tools.md#conda-environments). Sluit alle terminals.
-
-
-Draaien we het script, dan zien we, afhankelijk van het systeem en het aantal apparaten dat verbonden is:
-``` consolecode
-('ASRL3::INSTR',)
-Arduino VISA firmware v1.0.0
-```
 
 Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een `#!py PermissionError`? Dan heb je vast nog een terminal openstaan waarin `pyvisa-shell` actief is. Een andere reden kan zijn dat het script probeert een poort te openen die bij jullie een andere naam heeft. Probeer met het lijstje instrumenten te raden welke de Arduino is en pas het script aan totdat het werkt.[^tip-aansluiten]
 
