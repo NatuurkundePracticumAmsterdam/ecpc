@@ -333,149 +333,17 @@ y = np.sin(x)
 
 Kortom: _berekeningen_ met arrays zijn sneller, maar for-loops (en list comprehensions) zijn veelzijdiger. Het is zelfs mogelijk om een `#!py if`-statement op te nemen in je list comprehension. Bijvoorbeeld:
 
-=== "pdf.py"
-    ``` py
-    filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
-    pdfs = [name for name in filenames if name.endswith(".pdf")]
-    print(f"{pdfs=}")
-    ```
-
-    <pre>
-    <code style="color: white; background-color: black;" >(ecpc) python.exe pdf.py{{ terminal_cursor }}
-    {{ blank_line }}
-    </code>
-    </pre>
-
-=== "  {{run}} run"
-    ``` py
-    filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
-    pdfs = [name for name in filenames if name.endswith(".pdf")]
-    print(f"{pdfs=}")
-    ```
-
-    <pre>
-    <code style="color: white; background-color: black;">(ecpc) python.exe pdf.py 
-    pdfs=['text.pdf', 'manual.pdf']
-    </code>
-    </pre>
-
-Of
-
-=== "pdf.py"
-    ``` py
-    filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
-    pdfs = [name for name in filenames if name.endswith(".pdf")]
-    print(f"{pdfs=}")
-    ```
-    ``` ps1con title="Terminal"
-    (ecpc) > python.exe pdf.py{{ terminal_cursor }}
-    {{ blank_line }}
-    ```
-
-=== "  {{run}} run"
-    ``` py
-    filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
-    pdfs = [name for name in filenames if name.endswith(".pdf")]
-    print(f"{pdfs=}")
-    ```
-    ``` ps1con title="Terminal"
-    (ecpc) > python.exe pdf.py
-    pdfs=['text.pdf', 'manual.pdf']
-    ```
-
-Of
-
-=== "pdf.py"
-    ``` py
-    filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
-    pdfs = [name for name in filenames if name.endswith(".pdf")]
-    print(f"{pdfs=}")
-    ```
-    <div name="run_test">
-    <button type="button" onclick="runScript('run_test')" class = "run">{{ run }}</button>
-    ``` ps1con title="Terminal"
-    (ecpc) > python.exe pdf.py{{ terminal_cursor }}
-    {{ blank_line }}
-    ```
-    </div>
-    <div name="run_test" class="hidden">
-    <button type="button" onclick="runScript('run_test')" class = "reload">{{ arrow_rotate }}</button>
-    ``` ps1con title="Terminal"
-    (ecpc) > python.exe pdf.py
-    pdfs=['text.pdf', 'manual.pdf']
-    ```
-    </div>
-
-Of
-
-=== "pdf.py"
-    ``` py
-    filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
-    pdfs = [name for name in filenames if name.endswith(".pdf")]
-    print(f"{pdfs=}")
-    ```
-    <button type="button" name = 'run_invisible' onclick="runInvisible('run_invisible')" class = "run">{{ run }}</button>
-    <button type="button" name = 'run_invisible' onclick="runInvisible('run_invisible')" class = "reload invisible">{{ arrow_rotate }}</button>
-    <pre>
-    <code style="color: white; background-color: black;" >(ecpc) python.exe pdf.py<span name='run_invisible'>{{ terminal_cursor }}</span>
-    <span class = "invisible" name='run_invisible'>pdfs=['text.pdf', 'manual.pdf']</span>
-    </code>
-    </pre>
-
-Of
-
-=== "pdf.py"
-    ``` py
-    filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
-    pdfs = [name for name in filenames if name.endswith(".pdf")]
-    print(f"{pdfs=}")
-    ```
-    <button type="button" name = "test_snippet" onclick="runInvisible('test_snippet')" class = "run">{{ run }}</button>
-    <button type="button" name = "test_snippet" onclick="runInvisible('test_snippet')" class = "reload invisible">{{ arrow_rotate }}</button>
-    <pre>
-    <code style="color: white; background-color: black;" >(ecpc) python.exe pdf.py<span name='test_snippet'>{{ terminal_cursor }}</span>
-    <span class = "invisible" name="test_snippet">snippet</span>
-    </code>
-    </pre>
-
-Of
-
-<b>pdf.py</b> <span style="float:right;"><button type="button" name = "pdf_test" onclick="runInvisible('pdf_test')" class = "run">{{ run }}</button><button type="button" name = "pdf_test" onclick="runInvisible('pdf_test')" class = "reload invisible">{{ arrow_rotate }}</button></span>
+<button type="button" name = "pdf" onclick="runScript('pdf')" class = "run">{{ run }}</button><button type="button" name = "pdf" onclick="runScript('pdf')" class = "reload invisible">{{ arrow_rotate }}</button> <b>pdf.py</b>
 ``` py
 filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
 pdfs = [name for name in filenames if name.endswith(".pdf")]
 print(f"{pdfs=}")
-```
-<pre>
-<code>(ecpc) > python.exe pdf.py<span name='pdf_test'>{{ terminal_cursor }}</span>
-<span class = "invisible" name="pdf_test">Hello world</span>
-</code>
-</pre>
-
-<button type="button" name = "pdf_test_2" onclick="runInvisible('pdf_test_2')" class = "run">{{ run }}</button><button type="button" name = "pdf_test_2" onclick="runInvisible('pdf_test_2')" class = "reload invisible">{{ arrow_rotate }}</button> <b>pdf.py</b>
-``` py
-filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
-pdfs = [name for name in filenames if name.endswith(".pdf")]
-print(f"{pdfs=}")
-```
-<pre>
-<code>(ecpc) > python.exe pdf.py<span name='pdf_test_2'>{{ terminal_cursor }}</span>
-<span class = "invisible" name="pdf_test_2">Hello world</span>
-</code>
-</pre>
-
-
-<button type="button" name = "pdf_snippet_test" onclick="runInvisible('pdf_snippet_test')" class = "run">{{ run }}</button><button type="button" name = "pdf_snippet_test" onclick="runInvisible('pdf_snippet_test')" class = "reload invisible">{{ arrow_rotate }}</button> <b>pdf.py</b>
-``` py
-test
 ```
 <pre>
 <code>(ecpc) > python.exe pdf.py
-<span class = "invisible" name="pdf_snippet_test">test</span>
+<span class = "invisible" name="pdf">pdfs=['text.pdf', 'manual.pdf']</span>
 </code>
 </pre>
-
-
 
 In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_[^{}] en _dict comprehensions_.
 

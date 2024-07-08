@@ -1,4 +1,9 @@
-div.hidden {
+span.invisible {
+    visibility: hidden;
+}
+
+
+button.invisible {
     display: none;
 }
 
@@ -16,13 +21,4 @@ button.reload {
 
 button.reload:hover {
     color: rgb(138, 137, 137);
-}
-
-
-span.invisible {
-    visibility: hidden;
-}
-
-button.invisible {
-    display: none;
 }
