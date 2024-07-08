@@ -15,7 +15,7 @@ button.reload {
 }
 
 button.reload:hover {
-    color: red;
+    color: rgb(138, 137, 137);
 }
 
 
