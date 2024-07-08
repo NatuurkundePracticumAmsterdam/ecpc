@@ -440,16 +440,27 @@ Of
 
 Of
 
-<button type="button" name = "pdf_test" onclick="runInvisible('pdf_test')" class = "run">{{ run }}</button>
-``` py title="pdf.py"
+<b>pdf.py</b> <span style="float:right;"><button type="button" name = "pdf_test" onclick="runInvisible('pdf_test')" class = "run">{{ run }}</button><button type="button" name = "pdf_test" onclick="runInvisible('pdf_test')" class = "reload invisible">{{ arrow_rotate }}</button></span>
+``` py
 filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
 pdfs = [name for name in filenames if name.endswith(".pdf")]
 print(f"{pdfs=}")
 ```
-<button type="button" name = "pdf_test" onclick="runInvisible('pdf_test')" class = "reload invisible">{{ arrow_rotate }}</button>
 <pre>
-<code style="color: white; background-color: black;" >(ecpc) python.exe pdf.py<span name='pdf_test'>{{ terminal_cursor }}</span>
+<code>(ecpc) > python.exe pdf.py<span name='pdf_test'>{{ terminal_cursor }}</span>
 <span class = "invisible" name="pdf_test">Hello world</span>
+</code>
+</pre>
+
+<button type="button" name = "pdf_test_2" onclick="runInvisible('pdf_test_2')" class = "run">{{ run }}</button><button type="button" name = "pdf_test_2" onclick="runInvisible('pdf_test_2')" class = "reload invisible">{{ arrow_rotate }}</button> <b>pdf.py</b>
+``` py
+filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
+pdfs = [name for name in filenames if name.endswith(".pdf")]
+print(f"{pdfs=}")
+```
+<pre>
+<code>(ecpc) > python.exe pdf.py<span name='pdf_test_2'>{{ terminal_cursor }}</span>
+<span class = "invisible" name="pdf_test_2">Hello world</span>
 </code>
 </pre>
 
