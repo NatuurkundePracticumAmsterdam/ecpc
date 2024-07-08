@@ -26,7 +26,11 @@ Of
 
 <div class="range-wrap" style="width:100%"><span class="range_labels">0</span><input type="range" min="0" max="100" value="50" class="range" step="0.01" id="continuous_slider_labels" oninput="syncSlidersLabels('continuous_slider_labels')"><output class="bubble"></output><span class="range_labels">3.3</span></div>
 
-<div class="range-wrap" style="width:100%"><span class="range_labels">0</span><input type="range" min="0" max="15" value="8" class="range" step="1" id="discrete_slider_labels" oninput="syncSlidersLabels('discrete_slider_labels')"><output class="bubble bubble_below"></output><input type="text" class="range_labels" value="15" id="max_discrete_labels" oninput="updateMaxLabels()" size="5"></div>
+<div class="range-wrap" style="width:100%"><span class="range_labels">0</span><input type="range" min="0" max="15" value="8" class="range" step="1" id="discrete_slider_labels" oninput="syncSlidersLabels('discrete_slider_labels')"><output class="bubble bubble_below"></output><select id="max_discrete_labels" oninput="updateMaxLabels()" class="range_labels">
+  <option value=15>15</option>
+  <option value=63>63</option>
+  <option value=1023>1023</option>
+</select></div>
 
 We hebben tot nu toe gewerkt met getallen van 0-1023 sturen en ontvangen. Wat is precies de betekenis van deze getallen? Daarvoor moeten we dieper ingaan op hoe de Arduino &mdash; en computers in het algemeen &mdash; getallen omzet in een spanning en hoe spanningen door de Arduino worden gemeten.
 
