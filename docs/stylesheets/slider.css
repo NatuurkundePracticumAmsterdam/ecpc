@@ -31,7 +31,7 @@
 
 .range_labels {
   font-size: 25px;
-  min-width: 10%;
+  min-width: 5%;
 }
 
 input.range_labels {
@@ -40,6 +40,10 @@ input.range_labels {
 
 
 .range-wrap {
+  position: relative;
+  margin: 0 auto 0rem;
+}
+.range-wrap-combined {
   position: relative;
   margin: 0 auto 0rem;
 }
@@ -98,4 +102,24 @@ input.range_labels {
   background: #4051b5;
   top: -2px;
   left: 50%;
+}
+
+.bubble_combined {
+  background: #4051b5;
+  color: white;
+  padding: 4px 12px;
+  position: absolute;
+  border-radius: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none; 
+}
+.bubble_combined::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #4051b5;
+  left: 50%;
+  top: 0px;
 }
