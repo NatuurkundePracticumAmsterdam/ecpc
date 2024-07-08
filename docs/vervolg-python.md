@@ -464,17 +464,17 @@ print(f"{pdfs=}")
 </code>
 </pre>
 
-<button type="button" name = "pdf_snippet" onclick="runInvisible('pdf_snippet')" class = "run">{{ run }}</button><button type="button" name = "pdf_snippet" onclick="runInvisible('pdf_snippet')" class = "reload invisible">{{ arrow_rotate }}</button> <b>pdf.py</b>
+
+<button type="button" name = "pdf_snippet_test" onclick="runInvisible('pdf_snippet_test')" class = "run">{{ run }}</button><button type="button" name = "pdf_snippet_test" onclick="runInvisible('pdf_snippet_test')" class = "reload invisible">{{ arrow_rotate }}</button> <b>pdf.py</b>
 ``` py
-filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
-pdfs = [name for name in filenames if name.endswith(".pdf")]
-print(f"{pdfs=}")
+test
 ```
 <pre>
-<code style="color: white; background-color: black;" >(ecpc) python.exe pdf.py<span name='pdf_snippet'>{{ terminal_cursor }}</span>
-<span class = "invisible" name="pdf_snippet">pdfs=['text.pdf', 'manual.pdf']</span>
+<code>(ecpc) > python.exe pdf.py
+<span class = "invisible" name="pdf_snippet_test">test</span>
 </code>
 </pre>
+
 
 
 In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_[^{}] en _dict comprehensions_.
