@@ -46,12 +46,12 @@ extra_javascript:
   - javascripts/katex.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
-  - javascripts/run.js
+  - assets/run_button/run_button.js
 
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
   - stylesheets/extra.css
-  - stylesheets/run_button.css
+  - assets/run_button/run_button.css
 
 nav:
   - index.md
@@ -90,5 +90,3 @@ extra:
     L: '└──'
     T: '├──'
     tab: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
-    blank_line: '⠀'
-    terminal_cursor: '█'
