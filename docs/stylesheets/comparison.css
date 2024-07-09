@@ -1,10 +1,7 @@
-.container {
-    position: relative;
+span.comparison {
+    transition: 0.3s;
 }
 
-.hover {
-    top: -18px;
-    left: 0px;
-    position: absolute;
-    opacity: 0.5;
+span.highlight {
+    background-color: yellow;
 }
