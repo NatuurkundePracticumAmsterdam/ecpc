@@ -4,16 +4,6 @@ Het experiment wat we gaan uitvoeren is het bepalen van de $I,U$-karakteristiek 
 
 ## Analoog-digitaalconversie (ADC)
 
-<div class="range-wrap" style="width:100%"><span class="range_labels">0</span>&emsp;<input type="range" min="0" max="100" value="50" class="range" step="0.01" id="continuous_slider" oninput="syncSliders('continuous_slider')"><output class="bubble"></output>&emsp;<span class="range_labels">3.3 V</span></div>
-
-<div class="range-wrap" style="width:100%"><span class="range_labels">0</span>&emsp;<input type="range" min="0" max="15" value="8" class="range" step="1" id="discrete_slider" oninput="syncSliders('discrete_slider')"><output class="bubble bubble_below"></output>&emsp;<select id="max_discrete_slider" oninput="updateMax()" class="range_labels">
-  <option value=15>15</option>
-  <option value=63>63</option>
-  <option value=1023>1023</option>
-</select></div>
-
-<iframe src="../assets/ADC_slider/ADC_slider.html" width="100%" height="100%" frameborder="0" allowfullscreen="allowfullscreen" lang="en"></iframe>
-
 We hebben tot nu toe gewerkt met getallen van 0-1023 sturen en ontvangen. Wat is precies de betekenis van deze getallen? Daarvoor moeten we dieper ingaan op hoe de Arduino &mdash; en computers in het algemeen &mdash; getallen omzet in een spanning en hoe spanningen door de Arduino worden gemeten.
 
 Een _analoog_ signaal is continu in zowel de tijd als de waardes die het signaal aan kan nemen. Een _digitaal_ signaal is echter discreet: op vaste tijdstippen is er een waarde bekend en het signaal kan maar een beperkt aantal verschillende waardes aannemen. Een vallende bal is een continu proces. De bal heeft op elk willekeurig moment een positie. Je zou de positie kunnen meten op het tijdstip $t$ = 2.0 s, maar ook op $t$ = 2.1, 2.01, 2.001 of 2.0001 s. Ook kun je de positie net zo nauwkeurig bepalen als je wilt.[^nauwkeurigheid] De natuur is analoog,[^analoog] maar moderne computers zijn digitaal en dus discreet. Als je een foto op je computer te ver inzoomt zie je blokjes. Je kunt verder inzoomen, maar je gaat niet meer detail zien. De hoeveelheid informatie is beperkt.
@@ -33,6 +23,17 @@ De omzetting van een analoog signaal naar een digitaal signaal gebeurt als volgt
 
 De digitale metingen die je programma krijgt van de ADC is hierboven weergegeven. De onzekerheid is gelijk aan de halve afstand tot het volgende niveau. In lichtgrijs zie je het oorspronkelijke analoge signaal. De meting benadert het signaal dus maar gedeeltelijk. De Arduino die we gebruiken heeft een bereik van 0 V tot 3.3 V en &mdash; in tegenstelling tot het voorbeeld hierboven &mdash; een resolutie van 10 bits, dus $2^{10} = 1024$ stapjes. Als je een experiment ontwerpt is het dus van belang te weten dat je nooit kunt meten met een nauwkeurigheid kleiner dan de stapgrootte. Voor ons is deze resolutie prima.
 
+!!! opdracht-basis "ADC resolutie"
+    De resolutie bepaalt hoe nauwkeurig het analoge signaal kan worden benaderd door de Arduino. Zie met de demo hieronder hoe het analoge signaal (de bovenste slider) wordt benaderd met een 4-bit (16 stapjes), 6-bit (64 stapjes) en 10-bit resolutie (1024 stapjes) door de onderste slider.
+<br>
+<div class="range-wrap" style="width:100%"><span class="range_labels">0</span>&emsp;<input type="range" min="0" max="100" value="50" class="range" step="0.01" id="continuous_slider" oninput="syncSliders('continuous_slider')"><output class="bubble"></output>&emsp;<span class="range_labels">3.3 V</span></div>
+
+<div class="range-wrap" style="width:100%"><span class="range_labels">0</span>&emsp;<input type="range" min="0" max="15" value="8" class="range" step="1" id="discrete_slider" oninput="syncSliders('discrete_slider')"><output class="bubble bubble_below"></output>&emsp;<select id="max_discrete_slider" oninput="updateMax()" class="range_labels">
+  <option value=15>15</option>
+  <option value=63>63</option>
+  <option value=1023>1023</option>
+</select></div>
+<br>
 !!! opdracht-basis "Volt naar ADC"
     We kunnen alleen maar de getallen 0 t/m 1023 naar de Arduino sturen. Ook krijgen we alleen maar dat bereik terug.
 
