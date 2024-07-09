@@ -150,35 +150,18 @@ Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het ein
 
 ## Een eenvoudig script
 
-<div class="container">
-    <div>
-        ``` py
-        import pyvisa
+<pre>
+<code><span style="color: var(--md-code-hl-keyword-color);">import</span> <span style="color: var(--md-code-hl-function-color);">pyvisa</span>
 
-        rm = pyvisa.ResourceManager("@py")
-        ports = rm.list_resources()
-        print(ports)
-
-        device = rm.open_resource(
-            "ASRL3::INSTR", read_termination="\r\n", write_termination="\n"
-        )
-        print(device.query("*IDN?"))
-        ```
-    </div>
-    <div class="hover">
-    <pre><code><span onmouseover="hoverFunction('test')">import pyvisa</span>
-    
-rm = pyvisa.ResourceManager("@py")
+rm = pyvisa.ResourceManager(<span style="color: var(--md-code-hl-string-color);">"@py"</span>)
 ports = rm.list_resources()
-print(ports)
+<span style="color: var(--md-code-hl-constant-color);">print</span>(ports)
 
 device = rm.open_resource(
-    "ASRL3::INSTR", read_termination="\r\n", write_termination="\n"
+    <span style="color: var(--md-code-hl-string-color);">"ASRL3::INSTR"</span>, read_termination=<span style="color: var(--md-code-hl-string-color);">"<span style="color: var(--md-code-hl-special-color);">\r\n</span>"</span>, write_termination=<span style="color: var(--md-code-hl-string-color);">"<span style="color: var(--md-code-hl-special-color);">\n</span>"</span>
 )
-print(device.query("*IDN?"))</code>
-    </pre>
-    </div>
-</div>
+<span style="color: var(--md-code-hl-constant-color);">print</span>(device.query(<span style="color: var(--md-code-hl-string-color);">"*IDN?"</span>))</code>
+</pre>
 
 ```consolecode
 PS> pyvisa-shell -b py
