@@ -5,42 +5,15 @@ function syncSliders(slider_id) {
     } else {
         document.getElementById('continuous_slider').value = value * 100/document.getElementById('discrete_slider').max;
     }
+    document.getElementById('discrete_slider').dispatchEvent(new Event('update_bubble', { bubbles: true }));
+    document.getElementById('continuous_slider').dispatchEvent(new Event('update_bubble', { bubbles: true }));
 }
 
 function updateMax() {
-    document.getElementById('discrete_slider').max = document.getElementById('max_discrete').value;
+    document.getElementById('discrete_slider').max = document.getElementById('max_discrete_slider').value;
     syncSliders('continuous_slider');
 }
 
-function syncSlidersBox(slider_id) {
-    let value = document.getElementById(slider_id).value;
-    if (slider_id == "continuous_slider_box") {
-        document.getElementById('discrete_slider_box').value = value * document.getElementById('discrete_slider_box').max/100;
-    } else {
-        document.getElementById('continuous_slider_box').value = value * 100/document.getElementById('discrete_slider_box').max;
-    }
-}
-
-function updateMaxBox() {
-    document.getElementById('discrete_slider_box').max = document.getElementById('max_discrete_box').value;
-    syncSlidersBox('continuous_slider_box');
-}
-
-function syncSlidersLabels(slider_id) {
-    let value = document.getElementById(slider_id).value;
-    if (slider_id == "continuous_slider_labels") {
-        document.getElementById('discrete_slider_labels').value = value * document.getElementById('discrete_slider_labels').max/100;
-    } else {
-        document.getElementById('continuous_slider_labels').value = value * 100/document.getElementById('discrete_slider_labels').max;
-    }
-    document.getElementById('discrete_slider_labels').dispatchEvent(new Event('update_bubble', { bubbles: true }));
-    document.getElementById('continuous_slider_labels').dispatchEvent(new Event('update_bubble', { bubbles: true }));
-}
-
-function updateMaxLabels() {
-    document.getElementById('discrete_slider_labels').max = document.getElementById('max_discrete_labels').value;
-    syncSlidersLabels('continuous_slider_labels');
-}
 
 const allRanges = document.querySelectorAll(".range-wrap");
 allRanges.forEach(wrap => {
@@ -51,17 +24,6 @@ allRanges.forEach(wrap => {
     setBubble(range, bubble);
   });
   setBubble(range, bubble);
-});
-
-const allRangesCombined = document.querySelectorAll(".range-wrap-combined");
-allRangesCombined.forEach(wrap => {
-  const range = wrap.querySelector(".range");
-  const bubble = wrap.querySelector(".bubble");
-
-  range.addEventListener("update_bubble", () => {
-    setBubbleCombined(range, bubble);
-  });
-  setBubbleCombined(range, bubble);
 });
 
 function setBubble(range, bubble) {
@@ -86,39 +48,5 @@ function setBubble(range, bubble) {
   }
 
 document.addEventListener('DOMContentLoaded', function() {
-    updateMaxLabels();
-    updateMaxBox();
     updateMax();
-    updateMaxLabelsCombined();
 }, false);
-
-function syncSlidersLabelsCombined(slider_id) {
-  let value = document.getElementById(slider_id).value;
-  if (slider_id == "continuous_slider_combined") {
-      document.getElementById('discrete_slider_combined').value = value * document.getElementById('discrete_slider_combined').max/100;
-  } else {
-      document.getElementById('continuous_slider_combined').value = value * 100/document.getElementById('discrete_slider_combined').max;
-  }
-  document.getElementById('discrete_slider_combined').dispatchEvent(new Event('update_bubble', { bubbles: true }));
-  document.getElementById('continuous_slider_combined').dispatchEvent(new Event('update_bubble', { bubbles: true }));
-}
-
-function updateMaxLabelsCombined() {
-  document.getElementById('discrete_slider_combined').max = document.getElementById('max_discrete_combined').value;
-  syncSlidersLabelsCombined('continuous_slider_combined');
-}
-
-function setBubbleCombined(range, bubble) {
-  const val = range.value;
-  const min = range.min ? range.min : 0;
-  const max = range.max ? range.max : 100;
-  const newVal = Number(((val - min) * 100) / (max - min));
-
-  if(bubble.classList.contains('bubble_below')) {
-    bubble.innerHTML = val;
-  } else {
-    bubble.innerHTML = parseFloat(String(val * 3.3 / 100)).toFixed(2);
-  }
-
-  bubble.style.left = `calc(${newVal * 0.85}% + (${14.5 - newVal * 0.27 + 33}px)`;
-}

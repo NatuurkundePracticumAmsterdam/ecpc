@@ -4,9 +4,9 @@ Het experiment wat we gaan uitvoeren is het bepalen van de $I,U$-karakteristiek 
 
 ## Analoog-digitaalconversie (ADC)
 
-<div class="range-wrap" style="width:100%"><span class="range_labels">0</span>&emsp;<input type="range" min="0" max="100" value="50" class="range" step="0.01" id="continuous_slider_labels" oninput="syncSlidersLabels('continuous_slider_labels')"><output class="bubble"></output>&emsp;<span class="range_labels">3.3 V</span></div>
+<div class="range-wrap" style="width:100%"><span class="range_labels">0</span>&emsp;<input type="range" min="0" max="100" value="50" class="range" step="0.01" id="continuous_slider" oninput="syncSliders('continuous_slider')"><output class="bubble"></output>&emsp;<span class="range_labels">3.3 V</span></div>
 
-<div class="range-wrap" style="width:100%"><span class="range_labels">0</span>&emsp;<input type="range" min="0" max="15" value="8" class="range" step="1" id="discrete_slider_labels" oninput="syncSlidersLabels('discrete_slider_labels')"><output class="bubble bubble_below"></output>&emsp;<select id="max_discrete_labels" oninput="updateMaxLabels()" class="range_labels">
+<div class="range-wrap" style="width:100%"><span class="range_labels">0</span>&emsp;<input type="range" min="0" max="15" value="8" class="range" step="1" id="discrete_slider" oninput="syncSliders('discrete_slider')"><output class="bubble bubble_below"></output>&emsp;<select id="max_discrete_slider" oninput="updateMax()" class="range_labels">
   <option value=15>15</option>
   <option value=63>63</option>
   <option value=1023>1023</option>
