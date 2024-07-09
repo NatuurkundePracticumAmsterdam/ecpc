@@ -1,0 +1,10 @@
+.container {
+    position: relative;
+}
+
+.hover {
+    top: -18px;
+    left: 0px;
+    position: absolute;
+    opacity: 0.5;
+}

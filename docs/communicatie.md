@@ -150,6 +150,55 @@ Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het ein
 
 ## Een eenvoudig script
 
+<div class="container">
+    <div>
+        ``` py
+        import pyvisa
+
+        rm = pyvisa.ResourceManager("@py")
+        ports = rm.list_resources()
+        print(ports)
+
+        device = rm.open_resource(
+            "ASRL3::INSTR", read_termination="\r\n", write_termination="\n"
+        )
+        print(device.query("*IDN?"))
+        ```
+    </div>
+    <div class="hover">
+    <pre><code><span onmouseover="hoverFunction('test')">import pyvisa</span>
+    
+rm = pyvisa.ResourceManager("@py")
+ports = rm.list_resources()
+print(ports)
+
+device = rm.open_resource(
+    "ASRL3::INSTR", read_termination="\r\n", write_termination="\n"
+)
+print(device.query("*IDN?"))</code>
+    </pre>
+    </div>
+</div>
+
+```consolecode
+PS> pyvisa-shell -b py
+
+Welcome to the VISA shell. Type help or ? to list commands.
+
+(visa) list
+( 0) ASRL3::INSTR
+( 1) ASRL5::INSTR
+( 2) ASRL28::INSTR
+(visa) open 0
+ASRL3::INSTR has been opened.
+You can talk to the device using "write", "read" or "query".
+The default end of message is added to each message.
+(open) termchar CRLF LF
+(open) query *IDN?
+Response: Arduino VISA firmware v1.0.0
+Done
+```
+
 We hebben via de shell contact gelegd met de hardware. Nu wordt het tijd om, met de documentatie[@pyvisa] in de aanslag, hetzelfde vanuit Python te doen. Als je met een nieuw project begint is het helemaal geen gek idee om een kort script te schrijven waarin je wat dingen uitprobeert. Als alles lijkt te werken kun je het netjes gaan maken en gaan uitbreiden. We beginnen hier met een eenvoudig script en zullen dat daarna gaan verfijnen.
 
 We lopen het voorbeeldscript eerst regel voor regel door en geven het volledige script aan het eind. Allereerst importeren we de `pyvisa`-bibliotheek met
