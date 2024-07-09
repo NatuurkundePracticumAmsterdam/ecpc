@@ -191,13 +191,13 @@ device = rm.open_resource(
 )
 print(device.query("*IDN?"))
 ```
-Draaien we het script, dan zien we, afhankelijk van het systeem en het aantal apparaten dat verbonden is:
 <pre>
 <code>(ecpc) > python.exe test_arduino.py
 <span class = "invisible" name="test_arduino">('ASRL3::INSTR',)
 Arduino VISA firmware v1.0.0</span>
 </code>
-</pre>
+</pre> 
+De output van het script is afhankelijk van het systeem en het aantal apparaten dat verbonden is.
 
 
 <div id="opd:test_arduino"></div>
