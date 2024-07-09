@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateMaxLabels();
     updateMaxBox();
     updateMax();
+    updateMaxLabelsCombined();
 }, false);
 
 function syncSlidersLabelsCombined(slider_id) {
