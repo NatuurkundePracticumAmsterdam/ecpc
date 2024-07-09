@@ -65,3 +65,10 @@
   top: -2px;
   left: 50%;
 }
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.6;
+}
