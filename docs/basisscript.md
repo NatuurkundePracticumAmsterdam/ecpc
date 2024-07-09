@@ -4,26 +4,6 @@ Het experiment wat we gaan uitvoeren is het bepalen van de $I,U$-karakteristiek 
 
 ## Analoog-digitaalconversie (ADC)
 
-<span class="range_labels">0</span> <input type="range" min="0" max="100" value="50" class="slider" step="0.01" id="continuous_slider" oninput="syncSliders('continuous_slider')"> <span class="range_labels">3.3</span>
-
-<span class="range_labels">0</span> <input type="range" min="0" max="15" value="8" class="slider" step="1" id="discrete_slider" oninput="syncSliders('discrete_slider')"> <input type="text" class="range_labels" value="15" id="max_discrete" oninput="updateMax()" size="5">
-
-Of
-
-<span class="range_labels">0</span> <input type="range" min="0" max="100" value="50" class="slider" step="0.01" id="continuous_slider_box" oninput="syncSlidersBox('continuous_slider_box')"> <span class="range_labels">3.3</span>
-
-<span class="range_labels">0</span> <input type="range" min="0" max="15" value="8" class="slider" step="1" id="discrete_slider_box" oninput="syncSlidersBox('discrete_slider_box')"> <select id="max_discrete_box" oninput="updateMaxBox()" class="range_labels">
-  <option value=15>15</option>
-  <option value=31>31</option>
-  <option value=63>63</option>
-  <option value=127>127</option>
-  <option value=255>255</option>
-  <option value=511>511</option>
-  <option value=1027>1027</option>
-</select>
-
-Of
-
 <div class="range-wrap" style="width:100%"><span class="range_labels">0</span>&emsp;<input type="range" min="0" max="100" value="50" class="range" step="0.01" id="continuous_slider_labels" oninput="syncSlidersLabels('continuous_slider_labels')"><output class="bubble"></output>&emsp;<span class="range_labels">3.3 V</span></div>
 
 <div class="range-wrap" style="width:100%"><span class="range_labels">0</span>&emsp;<input type="range" min="0" max="15" value="8" class="range" step="1" id="discrete_slider_labels" oninput="syncSlidersLabels('discrete_slider_labels')"><output class="bubble bubble_below"></output>&emsp;<select id="max_discrete_labels" oninput="updateMaxLabels()" class="range_labels">
@@ -31,20 +11,6 @@ Of
   <option value=63>63</option>
   <option value=1023>1023</option>
 </select></div>
-
-Of
-
-<div class="range-wrap-combined" style="width:100%"><span class="range_labels">0</span>&emsp;<input type="range" min="0" max="100" value="50" class="range" step="0.01" id="continuous_slider_combined" oninput="syncSlidersLabelsCombined('continuous_slider_combined')"><output class="bubble bubble_combined unclickable"></output>&emsp;<span class="range_labels">3.3</span></div>
-
-
-<div class="range-wrap-combined" style="width:100%"><span class="range_labels">0</span>&emsp;<input type="range" min="0" max="15" value="8" class="range" step="1" id="discrete_slider_combined" oninput="syncSlidersLabelsCombined('discrete_slider_combined')"><output class="bubble bubble_combined bubble_below unclickable"></output>&emsp;<select id="max_discrete_combined" oninput="updateMaxLabelsCombined()" class="range_labels">
-  <option value=15>15</option>
-  <option value=63>63</option>
-  <option value=1023>1023</option>
-</select></div>
-
-<div w3-include-html="html-snippets/ADC_slider.html"></div>
---8<-- html-snippets/ADC_slider.html
 
 We hebben tot nu toe gewerkt met getallen van 0-1023 sturen en ontvangen. Wat is precies de betekenis van deze getallen? Daarvoor moeten we dieper ingaan op hoe de Arduino &mdash; en computers in het algemeen &mdash; getallen omzet in een spanning en hoe spanningen door de Arduino worden gemeten.
 
