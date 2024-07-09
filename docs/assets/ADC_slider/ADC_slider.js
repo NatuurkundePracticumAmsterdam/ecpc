@@ -77,11 +77,11 @@ function setBubble(range, bubble) {
     }
   
     // Sorta magic numbers based on size of the native UI thumb
-    bubble.style.left = `calc(${newVal * 0.85}% + (${14.5 - newVal * 0.27 + 14}px)`;
+    bubble.style.left = `calc(${newVal * 0.85}% + (${14.5 - newVal * 0.27 + 31.25}px)`;
     if(bubble.classList.contains('bubble_below')) {
       bubble.style.top = 2.3*range.offsetHeight + 'px';
     } else {
-      bubble.style.top = -2*range.offsetHeight + 'px';
+      bubble.style.top = -2.1*range.offsetHeight + 'px';
     }
   }
 
