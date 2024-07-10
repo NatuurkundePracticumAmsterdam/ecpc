@@ -46,6 +46,8 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <model-viewer id="model" style="width: 100%; height: 700px;" alt="Schakelschema LED" src="../assets/circuit/Breadboard3_LED_knipper.glb" ar shadow-intensity="1" camera-controls touch-action="pan-y" poster="../figures/I,U-curve-LED_bb.svg" camera-orbit="0rad 0.39269908169872414rad 4.718948223475571m"></model-viewer>
 
+    Door linkermuisknop ingedrukt te houden en te slepen kan je de schakeling draaien, met rechtermuisknop kan je hem verplaatsen en in- en uitzoomen kan door te scrollen.
+
     <!-- <button onclick="printOrbit()" type="button">print orbit</button> -->
 
 In de figuur hierboven is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld met een LED en een weerstand van 220 &Omega;. In een breadboard zijn in iedere rij alle kolommen A t/m E met elkaar verbonden (zo ook kolommen F t/m J). Draadjes die naast elkaar zijn geprikt zijn dus met elkaar verbonden. Zo zie je in de figuur &mdash; als je inzoomt &mdash; dat het rode draadje een verbinding maakt tussen pin A0 van de Arduino en de bovenste pin van de LED. De onderste pin van de LED is verbonden met de weerstand. De kleurcodes voor weerstanden vind je in de [appendix](kleurcodes.md). De kleur van de draden is niet belangrijk. Kies altijd draden met een handige lengte. De platte zijde in de ring van de LED wordt richting aarde geschakeld. De Arduino kan met deze schakeling een variabele spanning aanbrengen over de LED met weerstand, en de spanning meten over alleen de weerstand. 
