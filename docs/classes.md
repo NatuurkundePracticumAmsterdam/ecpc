@@ -75,8 +75,8 @@ master_oogway = Turtle("turtle")
 In de parameter `master_oogway` gaat de 'uitkomst' van de class, dat is in dit geval een collectie van methods (en variabelen). De parameter `master_oogway` noemen we een _instance_ van de class `Turtle`. Net zoals je een functie vaker kunt aanroepen, kan je ook meerdere instances van een class aanmaken. Na de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan de  `#!py __init__()`-method (`#!py self` niet meegerekend), de parameter `#!py shape` krijgt dus de variabele `#!py "turtle"` toegewezen.
 
 <pre>
-<code><span style="color: var(--md-code-hl-keyword-color);">class</span> <span style="color: var(--md-code-hl-function-color);">Turtle</span>:
-    <span style="color: var(--md-code-hl-keyword-color);">def</span> __init__(<span style="color: var(--md-code-hl-constant-color);">self</span>, shape):
+<code><span onmouseover="hoverFunction('class_keyword')" onmouseout="hoverFunction('class_keyword')"><span class="comparison" id="class_keyword"><span style="color: var(--md-code-hl-keyword-color);">class</span></span></span> <span onmouseover="hoverFunction('class_name')" onmouseout="hoverFunction('class_name')"><span class="comparison" id="class_name"><span style="color: var(--md-code-hl-function-color);">Turtle</span></span></span>:
+    <span style="color: var(--md-code-hl-keyword-color);">def</span> __init__(<span style="color: var(--md-code-hl-constant-color);">self</span>, <span onmouseover="hoverFunction('class_args')" onmouseout="hoverFunction('class_args')"><span class="comparison" id="class_args">shape</span></span>):
         <span style="color: var(--md-code-hl-comment-color);"># transform turtle into shape</span>
 
     <span style="color: var(--md-code-hl-keyword-color);">def</span> <span style="color: var(--md-code-hl-function-color);">forward</span>(<span style="color: var(--md-code-hl-constant-color);">self</span>, distance):
@@ -86,13 +86,13 @@ In de parameter `master_oogway` gaat de 'uitkomst' van de class, dat is in dit g
         <span style="color: var(--md-code-hl-comment-color);"># turn turtle counterclockwise
         # by angle in degrees</span>
 
-master_oogway = Turtle(<span style="color: var(--md-code-hl-string-color);">"turtle"</span>) 
+<span onmouseover="hoverFunction('class_instance')" onmouseout="hoverFunction('class_instance')"><span class="comparison" id="class_instance">master_oogway</span></span> = <span onmouseover="hoverFunction('class_call')" onmouseout="hoverFunction('class_call')"><span class="comparison" id="class_call">Turtle</span></span>(<span onmouseover="hoverFunction('class_input')" onmouseout="hoverFunction('class_input')"><span class="comparison" id="class_input"><span style="color: var(--md-code-hl-string-color);">"turtle"</span></span></span>) 
 </code></pre>
 <pre>
-<code><span style="color: var(--md-code-hl-keyword-color);">def</span> <span style="color: var(--md-code-hl-function-color);">power</span>(a, b):
+<code><span onmouseover="hoverFunction('function_keyword')" onmouseout="hoverFunction('function_keyword')"><span class="comparison" id="function_keyword"><span style="color: var(--md-code-hl-keyword-color);">def</span></span></span> <span onmouseover="hoverFunction('function_name')" onmouseout="hoverFunction('function_name')"><span class="comparison" id="function_name"><span style="color: var(--md-code-hl-function-color);">power</span></span></span>(<span onmouseover="hoverFunction('function_args')" onmouseout="hoverFunction('function_args')"><span class="comparison" id="function_args">a, b</span></span>):
     <span style="color: var(--md-code-hl-keyword-color);">return</span> a ** b
 
-result = power(<span style="color: var(--md-code-hl-number-color);">2</span>,<span style="color: var(--md-code-hl-number-color);">3</span>)
+<span onmouseover="hoverFunction('function_instance')" onmouseout="hoverFunction('function_instance')"><span class="comparison" id="function_instance">result</span></span> = <span onmouseover="hoverFunction('function_call')" onmouseout="hoverFunction('function_call')"><span class="comparison" id="function_call">power</span></span>(<span onmouseover="hoverFunction('function_input')" onmouseout="hoverFunction('function_input')"><span class="comparison" id="function_input"><span style="color: var(--md-code-hl-number-color);">2</span>,<span style="color: var(--md-code-hl-number-color);">3</span></span></span>)
 </code></pre>
 
 ???+ meer-leren "Meerdere instances"
