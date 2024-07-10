@@ -44,7 +44,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
     Als je geen kant-en-klare schakeling bij je werkplek hebt liggen, druk de Arduino in het breadboard en bouw een schakeling met een LED op de manier die is weergegeven in de figuur hieronder. De weerstand heeft een waarde van 220 &Omega;. De LED heeft aan één zijde een platte kant in de dikkere ring onderaan de plastic behuizing (goed kijken!); schakel die aan de kant van de aarde (de zwarte draad), dus aan de kant van de weerstand en _niet_ aan de kant van de rode draad naar de Arduino. Als de pootjes van de LED niet afgeknipt zijn, dan zit het korte pootje aan de platte zijde van de LED. Het heeft geen zin om naar het plaatje te kijken hoe het er ín de LED uitziet &mdash; dat verschilt per type LED.
 
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
-    <model-viewer style="width: 100%; height: 700px;" alt="Schakelschema LED" src="../assets/circuit/Breadboard3_LED_knipper.glb" ar shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+    <model-viewer style="width: 100%; height: 700px;" alt="Schakelschema LED" src="../assets/circuit/Breadboard3_LED_knipper.glb" ar shadow-intensity="1" camera-controls touch-action="pan-y" poster="../figures/I,U-curve-LED_bb.svg"></model-viewer>
 
     <button>
 
