@@ -74,6 +74,27 @@ master_oogway = Turtle("turtle")
 
 In de parameter `master_oogway` gaat de 'uitkomst' van de class, dat is in dit geval een collectie van methods (en variabelen). De parameter `master_oogway` noemen we een _instance_ van de class `Turtle`. Net zoals je een functie vaker kunt aanroepen, kan je ook meerdere instances van een class aanmaken. Na de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan de  `#!py __init__()`-method (`#!py self` niet meegerekend), de parameter `#!py shape` krijgt dus de variabele `#!py "turtle"` toegewezen.
 
+<pre>
+<code><span style="color: var(--md-code-hl-keyword-color);">class</span> <span style="color: var(--md-code-hl-function-color);">Turtle</span>:
+    <span style="color: var(--md-code-hl-keyword-color);">def</span> __init__(<span style="color: var(--md-code-hl-constant-color);">self</span>, shape):
+        <span style="color: var(--md-code-hl-comment-color);"># transform turtle into shape</span>
+
+    <span style="color: var(--md-code-hl-keyword-color);">def</span> <span style="color: var(--md-code-hl-function-color);">forward</span>(<span style="color: var(--md-code-hl-constant-color);">self</span>, distance):
+        <span style="color: var(--md-code-hl-comment-color);"># move turtle by distance</span>
+
+    <span style="color: var(--md-code-hl-keyword-color);">def</span> <span style="color: var(--md-code-hl-function-color);">left</span>(<span style="color: var(--md-code-hl-constant-color);">self</span>, angle):
+        <span style="color: var(--md-code-hl-comment-color);"># turn turtle counterclockwise
+        # by angle in degrees</span>
+
+master_oogway = Turtle(<span style="color: var(--md-code-hl-string-color);">"turtle"</span>) 
+</code></pre>
+<pre>
+<code><span style="color: var(--md-code-hl-keyword-color);">def</span> <span style="color: var(--md-code-hl-function-color);">power</span>(a, b):
+    <span style="color: var(--md-code-hl-keyword-color);">return</span> a ** b
+
+result = power(<span style="color: var(--md-code-hl-number-color);">2</span>,<span style="color: var(--md-code-hl-number-color);">3</span>)
+</code></pre>
+
 ???+ meer-leren "Meerdere instances"
     Je kunt meerdere instances hebben van dezelfde class, bijvoorbeeld wanneer meerdere klanten in de webshop tegelijkertijd winkelmandjes vullen:
     ``` py
