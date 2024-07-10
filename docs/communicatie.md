@@ -46,7 +46,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <model-viewer id="model" style="width: 100%; height: 700px;" alt="Schakelschema LED" src="../assets/circuit/Breadboard3_LED_knipper.glb" ar shadow-intensity="1" camera-controls touch-action="pan-y" poster="../figures/I,U-curve-LED_bb.svg" camera-orbit="0rad 0.39269908169872414rad 4.718948223475571m" autoplay></model-viewer>
 
-    Door linkermuisknop ingedrukt te houden en te slepen kan je de schakeling draaien, met rechtermuisknop kan je hem verplaatsen en in- en uitzoomen kan door te scrollen.
+    Door linkermuisknop ingedrukt te houden en te slepen kan je de schakeling draaien, met rechtermuisknop kan je hem verplaatsen en door te scrollen kan je in- en uitzoomen.
 
     <!-- <button onclick="printOrbit()" type="button">print orbit</button> -->
 
