@@ -9,8 +9,7 @@
 			"<pre>",
 			"<code>(ecpc) > python.exe $1.py",
 			"<span class = \"invisible\" name=\"$1_$4\">${3:output}</span>",
-			"</code>",
-			"</pre>",
+			"</code></pre>",
 			"$0"
 		],
 		"description": "Create terminal output with run button for python script"

@@ -195,8 +195,7 @@ print(device.query("*IDN?"))
 <code>(ecpc) > python.exe test_arduino.py
 <span class = "invisible" name="test_arduino">('ASRL3::INSTR',)
 Arduino VISA firmware v1.0.0</span>
-</code>
-</pre> 
+</code></pre> 
 De output van het script is afhankelijk van het systeem en het aantal apparaten dat verbonden is.
 
 
