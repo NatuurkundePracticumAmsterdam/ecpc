@@ -23,7 +23,7 @@ function setBubble(range, bubble) {
     if(bubble.classList.contains('bubble_below')) {
       bubble.innerHTML = val;
     } else {
-      bubble.innerHTML = parseFloat(String(val * 3.3 / 100)).toFixed(2);
+      bubble.innerHTML = parseFloat(String(val * 3.3 / 100)).toFixed(3);
     }
   
     // Sorta magic numbers based on size of the native UI thumb
