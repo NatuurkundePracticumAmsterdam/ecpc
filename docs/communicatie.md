@@ -154,8 +154,8 @@ Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het ein
 <code><span><span id="python_pyvisa" class="comparison"><span onmouseover="hoverFunction('python_pyvisa')" onmouseout="hoverFunction('python_pyvisa')"><span style="color: var(--md-code-hl-keyword-color);">import</span> <span style="color: var(--md-code-hl-function-color);">pyvisa</span>
 
 rm = pyvisa.ResourceManager(</span><span onmouseover="hoverFunction('python_backend')" onmouseout="hoverFunction('python_backend')"><span id="python_backend" class="comparison"><span style="color: var(--md-code-hl-string-color);">"@py"</span></span></span><span onmouseover="hoverFunction('python_pyvisa')" onmouseout="hoverFunction('python_pyvisa')">)</span></span>
-<span onmouseover="hoverFunction('python_list')" onmouseout="hoverFunction('python_list')"><span class="comparison" id="python_list">ports = rm.list_resources()
-<span style="color: var(--md-code-hl-constant-color);">print</span>(ports)</span></span></span>
+<span onmouseover="hoverFunction('python_list')" onmouseout="hoverFunction('python_list')"><span class="comparison" id="python_list">ports = rm.list_resources()</span></span>
+<span onmouseover="hoverFunction('python_printlist')" onmouseout="hoverFunction('python_printlist')"><span class="comparison" id="python_printlist"><span style="color: var(--md-code-hl-constant-color);">print</span>(ports)</span></span></span>
 
 <span onmouseover="hoverFunction('python_open')" onmouseout="hoverFunction('python_open')"><span class="comparison" id="python_open">device = rm.open_resource(
     <span style="color: var(--md-code-hl-string-color);">"ASRL3::INSTR"</span>,</span></span> <span><span class="comparison" id="python_termchar"><span onmouseover="hoverFunction('python_termchar')" onmouseout="hoverFunction('python_termchar')">read_termination=</span><span onmouseover="hoverFunction('python_CRLF')" onmouseout="hoverFunction('python_CRLF')"><span class="comparison" id="python_CRLF"><span style="color: var(--md-code-hl-string-color);">"<span style="color: var(--md-code-hl-special-color);">\r\n</span>"</span></span></span><span onmouseover="hoverFunction('python_termchar')" onmouseout="hoverFunction('python_termchar')">, write_termination=</span><span onmouseover="hoverFunction('python_LF')" onmouseout="hoverFunction('python_LF')"><span class="comparison" id="python_LF"><span style="color: var(--md-code-hl-string-color);">"<span style="color: var(--md-code-hl-special-color);">\n</span>"</span></span></span></span></span>
@@ -168,8 +168,8 @@ rm = pyvisa.ResourceManager(</span><span onmouseover="hoverFunction('python_back
 
 Welcome to the VISA shell. Type help or ? to list commands.</span></span></span>
 
-<span onmouseover="hoverFunction('shell_list')" onmouseout="hoverFunction('shell_list')"><span id="shell_list" class="comparison">(visa) list
-( 0) ASRL3::INSTR
+<span onmouseover="hoverFunction('shell_list')" onmouseout="hoverFunction('shell_list')"><span id="shell_list" class="comparison">(visa) list</span></span>
+<span onmouseover="hoverFunction('shell_printlist')" onmouseout="hoverFunction('shell_printlist')"><span class="comparison" id="shell_printlist">( 0) ASRL3::INSTR
 ( 1) ASRL5::INSTR
 ( 2) ASRL28::INSTR</span></span>
 <span onmouseover="hoverFunction('shell_open')" onmouseout="hoverFunction('shell_open')"><span class="comparison" id="shell_open">(visa) open 0
