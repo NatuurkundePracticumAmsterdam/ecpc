@@ -1,0 +1,23 @@
+span.invisible {
+    visibility: hidden;
+}
+
+button.invisible {
+    display: none;
+}
+
+button.run {
+    transition: 0.3s;
+}
+
+button.run:hover {
+    color: green;
+}
+
+button.reload {
+    transition: 0.3s;
+}
+
+button.reload:hover {
+    color: rgb(138, 137, 137);
+}
