@@ -160,8 +160,8 @@ rm = pyvisa.ResourceManager(</span><span onmouseover="hoverFunction('python_back
 <span onmouseover="hoverFunction('python_open')" onmouseout="hoverFunction('python_open')"><span class="comparison" id="python_open">device = rm.open_resource(
     <span style="color: var(--md-code-hl-string-color);">"ASRL3::INSTR"</span>,</span></span> <span><span class="comparison" id="python_termchar"><span onmouseover="hoverFunction('python_termchar')" onmouseout="hoverFunction('python_termchar')">read_termination=</span><span onmouseover="hoverFunction('python_CRLF')" onmouseout="hoverFunction('python_CRLF')"><span class="comparison" id="python_CRLF"><span style="color: var(--md-code-hl-string-color);">"<span style="color: var(--md-code-hl-special-color);">\r\n</span>"</span></span></span><span onmouseover="hoverFunction('python_termchar')" onmouseout="hoverFunction('python_termchar')">, write_termination=</span><span onmouseover="hoverFunction('python_LF')" onmouseout="hoverFunction('python_LF')"><span class="comparison" id="python_LF"><span style="color: var(--md-code-hl-string-color);">"<span style="color: var(--md-code-hl-special-color);">\n</span>"</span></span></span></span></span>
 )
-<span onmouseover="hoverFunction('python_idn')" onmouseout="hoverFunction('python_idn')"><span class="comparison" id="python_idn"><span style="color: var(--md-code-hl-constant-color);">print</span>(device.query(<span style="color: var(--md-code-hl-string-color);">"*IDN?"</span>))</span></span></code>
-</pre>
+<span onmouseover="hoverFunction('python_idn')" onmouseout="hoverFunction('python_idn')"><span class="comparison" id="python_idn">identification = device.query(<span style="color: var(--md-code-hl-string-color);">"*IDN?"</span>)</span></span>
+<span onmouseover="hoverFunction('python_printidn')" onmouseout="hoverFunction('python_printidn')"><span class="comparison" id="python_printidn"><span style="color: var(--md-code-hl-constant-color);">print</span>(identification)</span></span></code></pre>
 
 <pre>
 <code><span><span id="shell_pyvisa" class="comparison"><span onmouseover="hoverFunction('shell_pyvisa')" onmouseout="hoverFunction('shell_pyvisa')">PS> pyvisa-shell </span><span onmouseover="hoverFunction('shell_backend')" onmouseout="hoverFunction('shell_backend')"><span id="shell_backend" class="comparison">-b py</span></span><span onmouseover="hoverFunction('shell_pyvisa')" onmouseout="hoverFunction('shell_pyvisa')">
@@ -178,10 +178,9 @@ You can talk to the device using "write", "read" or "query".
 The default end of message is added to each message.</span></span>
 <span><span class="comparison" id="shell_termchar"><span onmouseover="hoverFunction('shell_termchar')" onmouseout="hoverFunction('shell_termchar')">(open) termchar</span> <span onmouseover="hoverFunction('shell_CRLF')" onmouseout="hoverFunction('shell_CRLF')"><span class="comparison" id="shell_CRLF">CRLF</span></span> <span onmouseover="hoverFunction('shell_LF')" onmouseout="hoverFunction('shell_LF')"><span class="comparison" id="shell_LF">LF</span></span>
 <span onmouseover="hoverFunction('shell_termchar')" onmouseout="hoverFunction('shell_termchar')">Done</span></span></span>
-<span onmouseover="hoverFunction('shell_idn')" onmouseout="hoverFunction('shell_idn')"><span class="comparison" id="shell_idn">(open) query *IDN?
-Response: Arduino VISA firmware v1.0.0
-</span></span></code>
-</pre>
+<span onmouseover="hoverFunction('shell_idn')" onmouseout="hoverFunction('shell_idn')"><span class="comparison" id="shell_idn">(open) query *IDN?</span></span>
+<span onmouseover="hoverFunction('shell_printidn')" onmouseout="hoverFunction('shell_printidn')"><span class="comparison" id="shell_printidn">Response: Arduino VISA firmware v1.0.0</span></span>
+</code></pre>
 
 We hebben via de shell contact gelegd met de hardware. Nu wordt het tijd om, met de documentatie[@pyvisa] in de aanslag, hetzelfde vanuit Python te doen. Als je met een nieuw project begint is het helemaal geen gek idee om een kort script te schrijven waarin je wat dingen uitprobeert. Als alles lijkt te werken kun je het netjes gaan maken en gaan uitbreiden. We beginnen hier met een eenvoudig script en zullen dat daarna gaan verfijnen.
 
