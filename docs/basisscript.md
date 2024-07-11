@@ -84,6 +84,29 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
     Je hebt nu feitelijk je eerste metingen verricht!
     1. Commit! {{feesttoeter}}
 
+!!! opdracht-inlever "Pythondaq: start script"
+    === "opdracht"
+        Je runt de code waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de spanning over de weerstand uit. Je print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand.
+    === "pseudo-code"
+        ``` py
+        # connect to Arduino
+
+        # set input voltage from 0 to max
+            # read voltage resistor
+            # print On LED: raw_voltage_LED (voltage_LED V) Over resistor: raw_voltage_resistor (voltage_resistor V)
+        ```
+    === "check"
+        **Projecttraject:**
+
+        - [x] Pythondaq: start script
+        - [ ] Pythondaq: Quick 'n dirty meting
+
+        **Actiepunten:**
+
+        - [ ] Spanning over LED loopt van nul tot maximale waarde
+        - [ ] jlkejkl
+
+
 
 Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma of Python notebook o.i.d. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment hebben we ook alleen nog maar _ruwe_ metingen. We gaan hier voorbij aan het feit dat we graag de stroomsterkte door de LED $I$ zouden willen uitzetten tegen de spanning over de LED $U_\mathrm{LED}$.
 
@@ -97,6 +120,31 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
 !!! opdracht-inlever "Pythondaq: Quick 'n dirty meting"
     Bereken in je script de spanning _over_ en de stroomsterkte _door_ de LED en bewaar deze metingen in een lijst met spanningen en een lijst met stroomsterktes. Sluit je meting netjes af (zorg dat de LED niet blijft branden) en maak dan een grafiek van je metingen. Bekijk elkaars resultaten &mdash; ook van andere groepjes &mdash; en denk na of je meting fysisch helemaal correct is.
 
+!!! opdracht-inlever "Pythondaq: Quick 'n dirty meting"
+    === "opdracht"
+        Je runt de code waarin de spanning _over_ en de stroomsterkte _door_ de LED wordt berekent. Je bewaart de waardes in een lijst met spanningen en een lijst met stroomsterktes. 
+        Je sluit de meting netjes af en zorgt dat de LED niet blijft branden. Je maakt een grafiek van je metingen.
+    === "pseudo-code"
+        ``` py
+        # connect to Arduino
+
+        # set input voltage from 0 to max
+            # calculate LED voltage
+            # calculate LED current
+        
+        # plot current vs voltage
+        ```
+    === "check"
+        Bouwt voort op:
+
+        - [x] Pythondaq: start script
+            * [ ] Bereken spanning over LED
+            * [ ] Bereken stroomsterkte door LED
+            * [ ] Lijst met spanningen
+            * [ ] Lijst met stroomsterkte
+            * [ ] Plot stroomsterke tegen spanning
+        - [ ] Bekijk resultaat van iemand anders
+        - [ ] Meting is fysisch correct
 
 
 ## Bewaren van meetgegevens

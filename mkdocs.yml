@@ -37,6 +37,9 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
   - def_list
   - tables
   - toc:
