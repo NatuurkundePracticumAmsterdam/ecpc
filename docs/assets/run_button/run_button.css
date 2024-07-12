@@ -28,6 +28,7 @@ svg.enter {
     rotate: 90deg; 
     vertical-align: middle;
     transition: 0.3s;
+    shape-rendering: crispEdges;
 }
 
 svg.enter:hover {
