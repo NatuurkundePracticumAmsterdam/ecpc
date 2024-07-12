@@ -26,5 +26,11 @@ svg.enter {
     width: 15px;
     height: 15px; 
     rotate: 90deg; 
-    vertical-align: bottom;
+    vertical-align: middle;
+}
+
+svg.reload {
+    width: 15px;
+    height: 15px; 
+    vertical-align: middle;
 }

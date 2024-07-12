@@ -55,7 +55,7 @@ Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. Poetry is 
 
 We gaan Poetry bedienen door commando's te geven in de terminal van Visual Studio Code. We laten de terminal weten welk programma wij willen gaan besturen, door `poetry` in te typen. En daarachter wat we willen dat Poetry gaat doen. We kunnen informatie over Poetry opvragen met het commando `about`.
 
-<pre><code>PS> poetry about <button type="button" name="filename_suffix" onclick="runScript('filename_suffix')" class="run">{{ enter }}</button><button type="button" name="filename_suffix" onclick="runScript('filename_suffix')" class="reload invisible">{{ arrow_rotate }}</button>
+<pre><code>PS> poetry about <button type="button" name="filename_suffix" onclick="runScript('filename_suffix')" class="run">{{ enter }}</button><button type="button" name="filename_suffix" onclick="runScript('filename_suffix')" class="reload invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
 <span class="invisible" name="filename_suffix"><span style="color: var(--md-code-hl-keyword-color);">Poetry - Package Management for Python
 
 Version: 1.7.0
