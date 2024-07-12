@@ -55,7 +55,7 @@ Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. Poetry is 
 
 We gaan Poetry bedienen door commando's te geven in de terminal van Visual Studio Code. We laten de terminal weten welk programma wij willen gaan besturen, door `poetry` in te typen. En daarachter wat we willen dat Poetry gaat doen. We kunnen informatie over Poetry opvragen met het commando `about`.
 
-<pre><code>PS> poetry about <button type="button" name="filename_suffix" onclick="runScript('filename_suffix')" class="run">{{ enter }}</button><button type="button" name="filename_suffix" onclick="runScript('filename_suffix')" class="reload invisible">{{ reload }}</button>
+<pre><code>(ecpc) > poetry about <button type="button" name="filename_suffix" onclick="runScript('filename_suffix')" class="run">{{ enter }}</button><button type="button" name="filename_suffix" onclick="runScript('filename_suffix')" class="reload invisible">{{ reload }}</button>
 <span class="invisible" name="filename_suffix"><span style="color: var(--md-code-hl-keyword-color);">Poetry - Package Management for Python
 
 Version: 1.7.0
