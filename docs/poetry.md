@@ -94,6 +94,16 @@ Er is nu de volgende structuur aangemaakt:
         pyproject.toml
         README.md
 
+{{L}} {{folder}} easystat  
+{{tab}} {{T}} {{folder}} src  
+{{tab}} {{tab}} {{T}} {{folder}} easystat  
+{{tab}} {{tab}} {{tab}} {{L}} {{file}} \_\_init\_\_.py  
+{{tab}} {{T}} {{folder}} tests  
+{{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
+{{tab}} {{tab}} {{L}} {{file}} test_easystat.py  
+{{tab}} {{T}} {{file_lines}} pyproject.toml  
+{{tab}} {{L}} {{file_lines}} readme.md    
+
 Allereerst is er een projectmap `easystat` aangemaakt. Je kunt nu in GitHub Desktop deze map toevoegen als nieuwe repository, zoals we gedaan hebben in [opdracht _Repository toevoegen_](github.md#opd:add_repository).
 
 Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaakt. We zien een {{file_lines}}`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van ons project.[^README]
