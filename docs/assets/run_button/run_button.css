@@ -27,10 +27,20 @@ svg.enter {
     height: 15px; 
     rotate: 90deg; 
     vertical-align: middle;
+    transition: 0.3s;
+}
+
+svg.enter:hover {
+    fill: green;
 }
 
 svg.reload {
     width: 15px;
     height: 15px; 
     vertical-align: middle;
+    transition: 0.3s;
+}
+
+svg.reload:hover {
+    fill: rgb(138, 137, 137);
 }
