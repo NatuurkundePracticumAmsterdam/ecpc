@@ -2,13 +2,13 @@
 	"Run terminal": {
 		"prefix": "run",
 		"body": [
-			"<button type=\"button\" name = \"${1:filename}_${4:suffix}\" onclick=\"runInvisible('$1_$4')\" class = \"run\">{{ run }}</button><button type=\"button\" name = \"$1_$4\" onclick=\"runInvisible('$1_$4')\" class = \"reload invisible\">{{ arrow_rotate }}</button> <b>$1.py</b>",
+			"<button type=\"button\" name=\"${1:filename}_${4:suffix}\" onclick=\"runInvisible('$1_$4')\" class=\"run\">{{ run }}</button><button type=\"button\" name=\"$1_$4\" onclick=\"runInvisible('$1_$4')\" class=\"reload invisible\">{{ arrow_rotate }}</button> <b>$1.py</b>",
 			"``` py",
 			"${2:python code}",
 			"```",
 			"<pre>",
 			"<code>(ecpc) > python.exe $1.py",
-			"<span class = \"invisible\" name=\"$1_$4\">${3:output}</span>",
+			"<span class=\"invisible\" name=\"$1_$4\">${3:output}</span>",
 			"</code></pre>",
 			"$0"
 		],
