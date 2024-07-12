@@ -99,10 +99,18 @@ Er is nu de volgende structuur aangemaakt:
 {{tab}} {{tab}} {{T}} {{folder}} easystat  
 {{tab}} {{tab}} {{tab}} {{L}} {{file}} \_\_init\_\_.py  
 {{tab}} {{T}} {{folder}} tests  
-{{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
-{{tab}} {{tab}} {{L}} {{file}} test_easystat.py  
+{{tab}} {{tab}} {{L}} {{file}} \_\_init\_\_.py  
 {{tab}} {{T}} {{file_lines}} pyproject.toml  
 {{tab}} {{L}} {{file_lines}} readme.md    
+
+{{L}} {{new_folder}} easystat  
+{{tab}} {{T}} {{new_folder}} src  
+{{tab}} {{tab}} {{T}} {{new_folder}} easystat  
+{{tab}} {{tab}} {{tab}} {{L}} {{new_file}} \_\_init\_\_.py  
+{{tab}} {{T}} {{new_folder}} tests  
+{{tab}} {{tab}} {{L}} {{new_file}} \_\_init\_\_.py  
+{{tab}} {{T}} {{new_file_lines}} pyproject.toml  
+{{tab}} {{L}} {{new_file_lines}} readme.md    
 
 Allereerst is er een projectmap `easystat` aangemaakt. Je kunt nu in GitHub Desktop deze map toevoegen als nieuwe repository, zoals we gedaan hebben in [opdracht _Repository toevoegen_](github.md#opd:add_repository).
 
