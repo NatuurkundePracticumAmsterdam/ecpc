@@ -65,18 +65,6 @@ Poetry-Core Version: 1.8.1</span>
 See</span> <span style="color: var(--md-code-hl-keyword-color);">https://github.com/python-poetry/poetry</span> <span style="color: var(--md-code-hl-string-color);">for more information.</span></span>
 </code></pre>
 
-<pre><code>(ecpc) > poetry about <button type="button" name="poetry about" onclick="runScript('poetry about')">{{ enter }}</button><button type="button" name="poetry about" onclick="runScript('poetry about')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="poetry about"><span style="color: var(--md-code-hl-keyword-color);">Poetry - Package Management for Python
-
-Version: 1.7.0
-Poetry-Core Version: 1.8.1</span>
-
-<span style="color: var(--md-code-hl-string-color);">Poetry is a dependency manager tracking local dependencies of your projects and libraries.
-See</span> <span style="color: var(--md-code-hl-keyword-color);">https://github.com/python-poetry/poetry</span> <span style="color: var(--md-code-hl-string-color);">for more information.</span></span>
-</code></pre>
-
-
-
 !!! opdracht-basis "Poetry about"
     Open een terminal en vraag informatie over Poetry op met het commando `poetry about`. Lees de tekst die Poetry aan je teruggeeft, waar kan je meer informatie vinden?
 
