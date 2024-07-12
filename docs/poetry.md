@@ -213,6 +213,57 @@ ModuleNotFoundError: No module named 'easystat'
 ```
 Dit konden we verwachten. We hebben ons package immers nog niet geïnstalleerd. Als we ons package gaan delen met andere mensen verwachten wij dat zij ons package ook gaan installeren, door dezelfde stappen te doorlopen als andere gebruikers komen we erachter of alles wel goed werkt.
 
+### Maken van de easystat-package rewrite
+We starten met onze package. Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige <q>shortcut</q> in {{file}}`shortcuts.py`. Nu willen we deze shortcut ook in een ander script gebruiken. Dit kunnen we doen door package `easystat` te importeren in dit nieuwe script zodat we de functie `stdev_of_mean` daar ook kunnen gebruiken. We maken een script {{file}}`try_shortcuts.py` om dit te testen.[^tests]
+!!! opdracht-basis "Shortcuts.py en test script aanmaken"
+    {{L}} {{folder}} easystat  
+    {{tab}} {{T}} {{folder}} src  
+    {{tab}} {{tab}} {{T}} {{folder}} easystat  
+    {{tab}} {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
+    {{tab}} {{tab}} {{tab}} {{L}} {{new_file}} shortcuts.py  
+    {{tab}} {{T}} {{folder}} tests  
+    {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
+    {{tab}} {{tab}} {{L}} {{new_file}} try_shortcuts.py  
+    {{tab}} {{T}} {{file_lines}} pyproject.toml  
+    {{tab}} {{L}} {{file_lines}} readme.md    
+
+    Maak zoals hierboven aangegeven de bestanden {{new_file}}`shortcuts.py` en {{new_file}}`try_shortcuts.py` aan:
+
+    === "shortcuts.py[^missende import]"
+        ``` py
+        import numpy as np
+        
+        
+        def stdev_of_mean(values):
+            # Calculate the standard deviation of the mean
+            return np.std(values) / np.sqrt(len(values))    
+        ```
+
+    === "try_shortcuts.py"
+        ``` py
+        from easystat.shortcuts import stdev_of_mean
+
+        print(f"{stdev_of_mean([1, 2, 2, 2, 3])=}")
+        ```
+
+[^missende import]: Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee en dat gaan we *straks* ook doen.
+
+[^tests]: Niet formeel. Dus hoewel we een script gaan plaatsen in de {{folder}}`tests`-folder is het hier niet een test die automatisch gerunt kan worden.
+
+In de eerste regel van {{file}}`test_shortcuts.py` importeren we de functie uit het nieuwe package om uit te proberen. In de laatste regel gebruiken we een handige functie van f-strings.[^f-string-=]
+
+[^f-string-=]: In f-strings kunnen tussen de accolades variabelen of functieaanroepen staan. Voeg daar het `=`-teken aan toe en je krijgt niet alleen de _waarde_, maar ook de variabele of aanroep zelf te zien. Bijvoorbeeld: als je definieert `#!py name = "Alice"`, dan geeft `#!py print(f"{name}")` als uitkomst `#!py Alice`. Maar voeg je het `=`-teken toe zoals in `#!py print(f"{name=")}` wordt de uitvoer `#!py name='Alice'`. Je ziet dan dus ook meteen de naam van de variabele en dat kan handig zijn.
+
+!!! opdracht-basis "Script testen"
+    Run {{file}}`tests/try_shortcuts.py` en kijk of het script het doet.
+
+Als we het script runnen, krijgen we een foutmelding:
+<pre><code>(ecpc) > python.exe try_shortcuts.py <button type="button" name="python.exe try_shortcuts.py" onclick="runScript('python.exe try_shortcuts.py')">{{ enter }}</button><button type="button" name="python.exe try_shortcuts.py" onclick="runScript('python.exe try_shortcuts.py')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python.exe try_shortcuts.py">ModuleNotFoundError: No module named 'easystat'</span>
+</code></pre>
+
+Dit konden we verwachten. We hebben onze package immers nog niet geïnstalleerd. Als we onze package gaan delen met andere mensen verwachten wij dat zij onze package ook gaan installeren, door dezelfde stappen te doorlopen als andere gebruikers komen we erachter of alles wel goed werkt.
+
 ### Installeren van een package
 Het installeren van de package kan makkelijk met Poetry:
 ``` ps1con title="Terminal"
