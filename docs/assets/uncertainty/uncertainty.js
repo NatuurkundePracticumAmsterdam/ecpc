@@ -10,6 +10,6 @@ function addPoint(e) {
 
     click_box.appendChild(datapoint);
 
-    datapoint.style.left = x + 'px';
-    datapoint.style.top = y + 'px';
+    datapoint.style.left = x - 6 + 'px';
+    datapoint.style.top = y - 6 + 'px';
 }
