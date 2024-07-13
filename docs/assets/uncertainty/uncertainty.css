@@ -1,19 +1,17 @@
 #click_box {
-    width: 400px;
-    height: 400px;
+    width: 100%;
     border: 1px solid black;
     cursor: pointer;
     position: relative;
 }
 
 #display_box {
-    width: 400px;
-    height: 400px;
+    width: 45%;
     border: 1px solid black;
     cursor: pointer;
     position: relative;
     float: left;
-    margin-left: 100px;
+    margin-left: 10%;
 }
 
 .datapoint {
@@ -27,8 +25,11 @@
 
 .border_zone {
     outline: 10px solid white;
-    width: 400px;
-    height: 400px;
+    width: 45%;
     position: relative;
     float: left;
+}
+
+.dummy {
+    margin-top: 100%;
 }

@@ -107,10 +107,11 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
     1. Overleg met je groepje en maak een plan hoe jullie de code gaan aanpassen om onzekerheid in te bouwen. Schrijf nog geen code op je computer maar schrijf de stappen uit met papier en pen. Het is dan veel makkelijker om te overleggen en na te denken. Welke delen van het programma moeten worden aangepast?
     1. Gebruik het plan om je eigen code aan te passen en test dat het werkt.
     
-<div class="container" style="overflow:hidden">
+<div style="overflow:hidden" width="100%">
 <div class="border_zone">
-    <div id="click_box" onclick="addPoint(event)"></div>
+    <div id="click_box" onclick="addPoint(event)"><div class="dummy"></div></div>
+    <div class="dummy"></div>
 </div>
 
-<div id="display_box"></div>
+<div id="display_box"><div class="dummy"></div></div>
 </div>
