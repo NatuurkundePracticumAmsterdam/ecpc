@@ -12,4 +12,6 @@ function addPoint(e) {
 
     datapoint.style.left = x - 6 + 'px';
     datapoint.style.top = y - 6 + 'px';
+
+    datapoint.style.zIndex = -1;
 }

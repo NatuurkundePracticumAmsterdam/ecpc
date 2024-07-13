@@ -14,3 +14,10 @@
     display: inline-block;
     position: absolute;
 }
+
+.border_zone {
+    outline: 10px solid white;
+    width: 500px;
+    height: 500px;
+    position: relative;
+}
