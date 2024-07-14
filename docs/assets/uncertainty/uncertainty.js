@@ -53,10 +53,18 @@ function updateCentre() {
     var dx = Math.pow(x_square_sum, 0.5) / xs.length
     var dy = Math.pow(y_square_sum, 0.5) / ys.length
 
-    const xbar = document.getElementById("bar");
-    const click_box = document.getElementById("click_box");
-    var rect = click_box.getBoundingClientRect();
-    xbar.x1.baseVal.value = dx;
+    const xbar = document.getElementById("xbar");
+    const ybar = document.getElementById("ybar");
+
+    xbar.x1.baseVal.value = x - dx;
+    xbar.x2.baseVal.value = x + dx;
+    xbar.y1.baseVal.value = y;
+    xbar.y2.baseVal.value = y;
+
+    ybar.x1.baseVal.value = x;
+    ybar.x2.baseVal.value = x;
+    ybar.y1.baseVal.value = y - dy;
+    ybar.y2.baseVal.value = y + dy;
 
     const meanpoint = document.getElementById("mean_point");
     meanpoint.style.left = x + "%";

@@ -118,7 +118,8 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
 <div class="border_zone" id="right_box">
     <div id="display_box">
         <svg width="100%" preserveAspectRatio="none" style="display: block;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <line id="bar" x1="0" y1="0" x2="100" y2="50" stroke="black" /></svg>
+            <line id="xbar" x1="0" y1="0" x2="0" y2="0" stroke="black" />
+            <line id="ybar" x1="0" y1="0" x2="0" y2="0" stroke="black" /></svg>
     </div>
 </div>
 
