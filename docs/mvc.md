@@ -113,5 +113,8 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
     <div class="dummy"></div>
 </div>
 
-<div id="display_box"><div class="dummy"></div></div>
+<div class="border_zone" id="right_box">
+    <div id="display_box"></div>
+    <!-- <div class="dummy"></div> -->
+</div>
 </div>
