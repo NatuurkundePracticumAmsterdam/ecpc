@@ -42,9 +42,20 @@ function updateCentre() {
         y += ys[i]/ys.length;
     }
 
+    var x_square_sum = 0;
+    var y_square_sum = 0;
+
+    for (var i = 0; i < xs.length; i++) {
+        x_square_sum += Math.pow((xs[i] - x), 2);
+        y_square_sum += Math.pow((ys[i] - y), 2);
+    }
+
+    var dx = Math.pow(x_square_sum, 0.5) / xs.length
+    var dy = Math.pow(y_square_sum, 0.5) / ys.length
+
     const meanpoint = document.getElementById("mean_point");
     meanpoint.style.left = x + "%";
     meanpoint.style.top = y + "%";
 
-    console.log(y);
+    console.log(dx, dy);
 }
