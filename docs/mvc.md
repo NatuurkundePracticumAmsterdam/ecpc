@@ -110,11 +110,9 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
 <div style="overflow:hidden" width="100%">
 <div class="border_zone">
     <div id="click_box" onclick="addPoint(event)"><div class="dummy"></div></div>
-    <div class="dummy"></div>
 </div>
 
 <div class="border_zone" id="right_box">
-    <div id="display_box"></div>
-    <!-- <div class="dummy"></div> -->
+    <div id="display_box"><div class="dummy"></div></div>
 </div>
 </div>

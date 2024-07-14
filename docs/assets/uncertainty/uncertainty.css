@@ -7,11 +7,9 @@
 
 #display_box {
     width: 100%;
-    height: 469px;
     border: 1px solid black;
     cursor: pointer;
     position: relative;
-    float: left;
 }
 
 #right_box {
