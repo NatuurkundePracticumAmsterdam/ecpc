@@ -108,11 +108,18 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
     1. Gebruik het plan om je eigen code aan te passen en test dat het werkt.
     
 <div style="overflow:hidden" width="100%">
+
 <div class="border_zone">
-    <div id="click_box" onclick="addPoint(event)"><div class="dummy"></div></div>
+    <div id="click_box" onclick="addPoint(event)">
+        <div class="dummy"></div>
+    </div>
 </div>
 
 <div class="border_zone" id="right_box">
-    <div id="display_box"><div class="dummy"></div></div>
+    <div id="display_box">
+        <svg width="100%" preserveAspectRatio="none" style="display: block;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <line id="bar" x1="0" y1="0" x2="100" y2="50" stroke="black" /></svg>
+    </div>
 </div>
+
 </div>
