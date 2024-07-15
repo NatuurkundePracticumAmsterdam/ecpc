@@ -55,9 +55,15 @@ Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. Poetry is 
 
 We gaan Poetry bedienen door commando's te geven in de terminal van Visual Studio Code. We laten de terminal weten welk programma wij willen gaan besturen, door `poetry` in te typen. En daarachter wat we willen dat Poetry gaat doen. We kunnen informatie over Poetry opvragen met het commando `about`.
 
-``` ps1 title="Terminal"
-poetry about
-```
+<pre><code>(ecpc) > poetry about <button type="button" name="filename_suffix" onclick="runScript('filename_suffix')">{{ enter }}</button><button type="button" name="filename_suffix" onclick="runScript('filename_suffix')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="filename_suffix">Poetry - Package Management for Python
+
+Version: 1.7.0
+Poetry-Core Version: 1.8.1
+
+Poetry is a dependency manager tracking local dependencies of your projects and libraries.
+See https://github.com/python-poetry/poetry for more information.</span>
+</code></pre>
 
 !!! opdracht-basis "Poetry about"
     Open een terminal en vraag informatie over Poetry op met het commando `poetry about`. Lees de tekst die Poetry aan je teruggeeft, waar kan je meer informatie vinden?
