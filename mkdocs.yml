@@ -8,6 +8,7 @@ theme:
     - content.code.copy
     - toc.integrate
     - navigation.top
+    - content.code.annotate 
 
 plugins:
   - search

@@ -229,15 +229,17 @@ We starten met onze package. Stel, we berekenen vaak de standaarddeviatie van he
 
     Maak zoals hierboven aangegeven de bestanden {{new_file}}`shortcuts.py` en {{new_file}}`try_shortcuts.py` aan:
 
-    === "shortcuts.py[^missende import]"
+    === "shortcuts.py"
         ``` py
-        import numpy as np
+        import numpy as np #(1)!
         
         
         def stdev_of_mean(values):
             # Calculate the standard deviation of the mean
             return np.std(values) / np.sqrt(len(values))    
         ```
+        
+        1.  Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee en dat gaan we *straks* ook doen.
 
     === "try_shortcuts.py"
         ``` py
@@ -245,8 +247,6 @@ We starten met onze package. Stel, we berekenen vaak de standaarddeviatie van he
 
         print(f"{stdev_of_mean([1, 2, 2, 2, 3])=}")
         ```
-
-[^missende import]: Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee en dat gaan we *straks* ook doen.
 
 [^tests]: Niet formeel. Dus hoewel we een script gaan plaatsen in de {{folder}}`tests`-folder is het hier niet een test die automatisch gerunt kan worden.
 
