@@ -94,15 +94,7 @@ Er is nu de volgende structuur aangemaakt:
         pyproject.toml
         README.md
 
-{{L}} {{folder}} easystat  
-{{tab}} {{T}} {{folder}} src  
-{{tab}} {{tab}} {{T}} {{folder}} easystat  
-{{tab}} {{tab}} {{tab}} {{L}} {{file}} \_\_init\_\_.py  
-{{tab}} {{T}} {{folder}} tests  
-{{tab}} {{tab}} {{L}} {{file}} \_\_init\_\_.py  
-{{tab}} {{T}} {{file_lines}} pyproject.toml  
-{{tab}} {{L}} {{file_lines}} readme.md    
-
+{{folder}} ECPC  
 {{L}} {{new_folder}} easystat  
 {{tab}} {{T}} {{new_folder}} src  
 {{tab}} {{tab}} {{T}} {{new_folder}} easystat  
