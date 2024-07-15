@@ -1,0 +1,10 @@
+.dropdown_box {
+    display: flex;
+    float: right;
+    width: 1.2rem;
+}
+
+.dropdown_container {
+    margin: .2rem;
+    padding: .4rem;
+}
