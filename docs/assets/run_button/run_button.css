@@ -25,10 +25,8 @@ button.reload:hover {
 svg.enter {
     width: 15px;
     height: 15px; 
-    rotate: 90deg; 
     vertical-align: middle;
     transition: 0.3s;
-    shape-rendering: crispEdges;
 }
 
 svg.enter:hover {
