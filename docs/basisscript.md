@@ -123,8 +123,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
 
 !!! opdracht-inlever "Pythondaq: Quick 'n dirty meting"
     === "opdracht"
-        Je runt de code waarin de spanning _over_ en de stroomsterkte _door_ de LED wordt berekent. Je bewaart de waardes in een lijst met spanningen en een lijst met stroomsterktes. 
-        Je sluit de meting netjes af en zorgt dat de LED niet blijft branden. Je maakt een grafiek van je metingen.
+        Je code berekent de spanning _over_ en de stroomsterkte _door_ de LED terwijl de spanning over het cirquit oploopt van nul tot de maximale waarde. De resultaten worden in een grafiek weergegeven.  
     === "pseudo-code"
         ``` py
         # connect to Arduino
