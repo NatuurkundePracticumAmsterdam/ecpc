@@ -41,14 +41,14 @@ master_oogway = Turtle("turtle")
 In de parameter `master_oogway` gaat de 'uitkomst' van de class, dat is in dit geval een collectie van methods (en variabelen). De parameter `master_oogway` noemen we een _instance_ van de class `Turtle`. Net zoals je een functie vaker kunt aanroepen, kan je ook meerdere instances van een class aanmaken. Na de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan de  `#!py __init__()`-method (`#!py self` niet meegerekend), de parameter `#!py shape` krijgt dus de variabele `#!py "turtle"` toegewezen.
 
 ???+ meer-leren "Meerdere instances"
-    Je kunt meerdere instances hebben van dezelfde class, bijvoorbeeld wanneer meerdere klanten in de webshop tegelijkertijd winkelmandjes vullen:
+    Je kunt meerdere instances hebben van dezelfde class, bijvoorbeeld voor verschillende schildpadden:
     ``` py
-    class Cart:
+    class Turtle:
         ...
 
-    cart_alice = Cart()
+    turtle_1247 = Turtle()
     ...
-    cart_bob = Cart()
+    turtle_1428 = Turtle()
     ...
     ```
 
