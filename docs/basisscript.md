@@ -135,16 +135,21 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
         # plot current vs voltage
         ```
     === "check"
-        Bouwt voort op:
+        **Checkpunten:**
+
+        - [ ] Bereken spanning over LED
+        - [ ] Bereken stroomsterkte door LED
+        - [ ] Lijst met spanningen
+        - [ ] Lijst met stroomsterkte
+        - [ ] Plot stroomsterke tegen spanning
+        - [ ] Vergelijk met resultaat van iemand anders
+        - [ ] Meting is fysisch correct
+
+        **Projecttraject:**
 
         - [x] Pythondaq: start script
-            * [ ] Bereken spanning over LED
-            * [ ] Bereken stroomsterkte door LED
-            * [ ] Lijst met spanningen
-            * [ ] Lijst met stroomsterkte
-            * [ ] Plot stroomsterke tegen spanning
-        - [ ] Bekijk resultaat van iemand anders
-        - [ ] Meting is fysisch correct
+        - [x] Pythondaq: Quick 'n dirty meting
+        - [ ] Pythondaq: CSV
 
 
 ## Bewaren van meetgegevens
