@@ -149,22 +149,22 @@ print(master_oogway.quote)
 
 ???+ meer-leren "Classes importeren"
 
-    Wat is nu het praktisch nut van classes en methods gebruiken in plaats van functies? Want in plaat van
+    Wat is nu het praktisch nut van classes en methods gebruiken in plaats van functies? Want in plaats van
     ``` py
-    add_to_cart(cart, "Eon by Greg Bear")
+    forward(master_oogway, distance=50)
     ```
     hebben we nu
     ``` py
-    cart.add_to_cart("Eon by Greg Bear")
+    master_oogway.forward(distance=50)
     ```
-    en dat is even lang. Het grote voordeel ontstaat pas wanneer de class ingewikkelder wordt en meer data gaat bewaren. Ook kun je de class in een ander pythonbestand (bijvoorbeeld {{file}}`my_webshop_backend.py` zetten en alle functionaliteit in één keer importeren met:
+    en dat is even lang. Het grote voordeel ontstaat pas wanneer de class ingewikkelder wordt en meer data gaat bewaren. Ook kun je de class in een ander pythonbestand (bijvoorbeeld {{file}}`animals.py`) zetten en alle functionaliteit in één keer importeren met:
     ``` py
-    from my_webshop_backend import Cart
+    from animals import Turtle
 
-    cart = Cart()
+    master_oogway = Turtle()
     ...
     ```
-    Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je typt `#!py cart.add` hoef je alleen maar op ++tab++ te drukken en VS Code vult de rest aan.
+    Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je typt `#!py master_oogway.f` hoef je alleen maar op ++tab++ te drukken en VS Code vult de rest aan.
 
 
 
