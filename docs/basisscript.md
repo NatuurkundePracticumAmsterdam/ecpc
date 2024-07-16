@@ -97,18 +97,17 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
             # print On LED: raw_voltage_LED (voltage_LED V) Over resistor: raw_voltage_resistor (voltage_resistor V)
         ```
     === "check"
-        **Projecttraject:**
-
-        - [x] Pythondaq: start script
-        - [ ] Pythondaq: Quick 'n dirty meting
-
-        **Actiepunten:**
+        **Checkpunten:**
 
         - [ ] Spanning over LED loopt van nul tot maximale waarde
         - [ ] LED lampje brandt steeds feller
         - [ ] Ruwe waardes en voltages zijn zoals verwacht
 
+        **Projecttraject:**
 
+        - [x] Pythondaq: start script
+        - [ ] Pythondaq: Quick 'n dirty meting
+        - [ ] Pythondaq: CSV
 
 Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma of Python notebook o.i.d. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment hebben we ook alleen nog maar _ruwe_ metingen. We gaan hier voorbij aan het feit dat we graag de stroomsterkte door de LED $I$ zouden willen uitzetten tegen de spanning over de LED $U_\mathrm{LED}$.
 
