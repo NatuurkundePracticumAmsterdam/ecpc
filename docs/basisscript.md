@@ -238,6 +238,32 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
 !!! opdracht-inlever "Pythondaq: CSV"
     Breid je script uit zodat de data niet alleen maar weergegeven wordt in een grafiek maar ook wordt weggeschreven als CSV-bestand. Gebruik de `#!py zip()`-functie en de `#!py csv`-module.
 
+!!! opdracht-inlever "Pythondaq: CSV"
+        === "opdracht"
+        Je code schrijft de metingen ook weg als csv-bestand door gebruik te maken van de `#!py zip()`-functie en de `#!py csv`-module.
+    === "pseudo-code"
+        ``` py
+        # connect to Arduino
+
+        # set input voltage from 0 to max
+            # calculate LED voltage
+            # calculate LED current
+        
+        # plot current vs voltage
+        # create csv-file
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] CSV-bestand bevat alle metingen
+        - [ ] waardes in CSV-bestand komen overeen met verwachting
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: start script
+        - [x] Pythondaq: Quick 'n dirty meting
+        - [x] Pythondaq: CSV
+
 ???+ opdracht-meer "Git ignore"
     Het kan wenselijk zijn om niet alle bestanden mee te nemen voor versiebeheer in je repository. Soms wil je een bestand uitsluiten, of bepaalde bestand-types.  Om GitHub te laten weten welke bestanden niet gecommit hoeven te worden is er een bestand {{file_lines}}`.gitignore` . Let op de punt voor de bestandsnaam, dit betekend dat het een verborgen bestand is en mogelijk zie je het niet in je repository staan.
     
