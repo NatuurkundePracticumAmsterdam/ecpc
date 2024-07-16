@@ -58,6 +58,13 @@ In de parameter `master_oogway` gaat de 'uitkomst' van de class, dat is in dit g
     class Turtle:
         def __init__(self):
             # initialiseer class
+        
+        def forward(self, distance):
+            # move turtle by distance
+
+        def left(self, angle):
+            # turn turtle counterclockwise
+            # by angle in degrees
     ```
     hoe maak je dan een instance aan van de class?
     ??? uitwerkingen
