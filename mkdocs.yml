@@ -93,6 +93,7 @@ extra:
     L: '└──'
     T: '├──'
     tab: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+    dots: '&bull;&bull;&bull;'
     new_file: '<span style="color: green;">:fontawesome-regular-file-code:</span>'
     new_file_lines: '<span style="color: green;">:fontawesome-regular-file-lines:</span>'
     new_folder: '<span style="color: green;">:fontawesome-regular-folder:</span>'
