@@ -1,5 +1,5 @@
 {
-	"Run terminal": {
+	"Run python in terminal": {
 		"prefix": "run",
 		"body": [
 			"<button type=\"button\" name=\"${1:filename}_${4:suffix}\" onclick=\"runScript('$1_$4')\" class=\"run\">{{ run }}</button><button type=\"button\" name=\"$1_$4\" onclick=\"runScript('$1_$4')\" class=\"reload invisible\">{{ arrow_rotate }}</button> <b>$1.py</b>",
@@ -13,5 +13,15 @@
 			"$0"
 		],
 		"description": "Create terminal output with run button for python script"
+	},
+	"Run terminal": {
+		"prefix": "terminal",
+		"body": [
+			"<pre><code>(ecpc) > ${1:command} <button type=\"button\" name=\"$1_${3:suffix}\" onclick=\"runScript('$1_$3')\">{{ enter }}</button><button type=\"button\" name=\"$1_$3\" onclick=\"runScript('$1_$3')\" class=\"invisible\">{{ reload }}</button>",
+			"<span class=\"invisible\" name=\"$1_$3\">${2:output}</span>",
+			"</code></pre>",
+			"$0"
+		],
+		"description": "Create terminal command with output"
 	}
 }
