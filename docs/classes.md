@@ -91,7 +91,7 @@ master_oogway.forward(50)
         Na het uitvoeren van het script sluit Python het scherm van de schildpad. Voeg de regel `#!py master_oogway.screen.mainloop()` toe om het scherm te laten staan en handmatig af te sluiten. 
 
 ## De speciale parameter `#!py self`
-Een class method is vrijwel gelijk aan een normale functie, behalve dat een class method als eerste de parameter `#!py self` verwacht. Aan deze parameter wordt de eigen instance van de class meegegeven wanneer je de method aanroept. Gelukkig hoef je dit niet zelf te doen want wanneer je een method aanroept wordt impliciet de instance als eerste parameter meegegeven. 
+Een _class method_ is vrijwel gelijk aan een normale functie, behalve dat een class method als eerste de parameter `#!py self` verwacht. Aan deze parameter wordt de eigen instance van de class meegegeven wanneer je de method aanroept. Gelukkig hoef je dit niet zelf te doen want wanneer je een method aanroept wordt impliciet de instance als eerste parameter meegegeven. 
 
 Maar waarom zou je dit doen? De instance bevat alle methods en variabele, door de instance aan elke method mee te geven kan je de informatie die daarin is opgeslagen in elke method gebruiken. 
 
