@@ -153,54 +153,10 @@ Bij het schrijven van een nieuw package is het zéker belangrijk om een environm
 
 
 ### Maken van de easystat-package
-
-We starten met ons package. Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige <q>shortcut</q>.
-!!! opdracht-basis "Shortcuts.py aanmaken"
-    Maak het bestand {{file}}`src/easystat/shortcuts.py`:[^missende import]
-    ``` py
-    # src/easystat/shortcuts.py
-    import numpy as np
-    
-    
-    def stdev_of_mean(values):
-        # Calculate the standard deviation of the mean
-        return np.std(values) / np.sqrt(len(values))    
-    ```
-
-    [^missende import]: Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee en dat gaan we *straks* ook doen.
-
-
-Nu willen we de package `easystat` importeren in een ander script zodat we de functie `stdev_of_mean` daar kunnen gebruiken. We maken een script om onze nieuwe code te testen.[^tests]
-
-[^tests]: Niet formeel. Dus hoewel we een script gaan plaatsen in de {{folder}}`tests`-folder is het hier niet een test die automatisch gerunt kan worden.
-
-!!! opdracht-basis "Test script aanmaken"
-    Maak het bestand {{file}}`tests/try_shortcuts.py`:
-    ``` py
-    # tests/try_shortcuts.py
-    from easystat.shortcuts import stdev_of_mean
-
-    print(f"{stdev_of_mean([1, 2, 2, 2, 3])=}")    
-    ```
-
-
-In de eerste regel importeren we de functie uit het nieuwe package om uit te proberen. In de laatste regel gebruiken we een handige functie van f-strings.[^f-string-=]
-
-[^f-string-=]: In f-strings kunnen tussen de accolades variabelen of functieaanroepen staan. Voeg daar het `=`-teken aan toe en je krijgt niet alleen de _waarde_, maar ook de variabele of aanroep zelf te zien. Bijvoorbeeld: als je definieert `#!py name = "Alice"`, dan geeft `#!py print(f"{name}")` als uitkomst `#!py Alice`. Maar voeg je het `=`-teken toe zoals in `#!py print(f"{name=")}` wordt de uitvoer `#!py name='Alice'`. Je ziet dan dus ook meteen de naam van de variabele en dat kan handig zijn.
-
-!!! opdracht-basis "Script testen"
-    Run {{file}}`tests/try_shortcuts.py` en kijk of het script het doet.
-
-
-We krijgen de foutmelding:
-``` py
-ModuleNotFoundError: No module named 'easystat'
-```
-Dit konden we verwachten. We hebben ons package immers nog niet geïnstalleerd. Als we ons package gaan delen met andere mensen verwachten wij dat zij ons package ook gaan installeren, door dezelfde stappen te doorlopen als andere gebruikers komen we erachter of alles wel goed werkt.
-
-### Maken van de easystat-package rewrite
 We starten met onze package. Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige <q>shortcut</q> in {{file}}`shortcuts.py`. Nu willen we deze shortcut ook in een ander script gebruiken. Dit kunnen we doen door package `easystat` te importeren in dit nieuwe script zodat we de functie `stdev_of_mean` daar ook kunnen gebruiken. We maken een script {{file}}`try_shortcuts.py` om dit te testen.[^tests]
 !!! opdracht-basis "Shortcuts.py en test script aanmaken"
+    Maak zoals hieronder aangegeven de bestanden {{new_file}}`shortcuts.py` en {{new_file}}`try_shortcuts.py` aan:
+
     {{L}} {{folder}} easystat  
     {{tab}} {{T}} {{folder}} src  
     {{tab}} {{tab}} {{T}} {{folder}} easystat  
@@ -212,8 +168,6 @@ We starten met onze package. Stel, we berekenen vaak de standaarddeviatie van he
     {{tab}} {{T}} {{file_lines}} pyproject.toml  
     {{tab}} {{L}} {{file_lines}} readme.md    
 
-    Maak zoals hierboven aangegeven de bestanden {{new_file}}`shortcuts.py` en {{new_file}}`try_shortcuts.py` aan:
-
     === "shortcuts.py"
         ``` py
         import numpy as np 
@@ -223,6 +177,7 @@ We starten met onze package. Stel, we berekenen vaak de standaarddeviatie van he
             # Calculate the standard deviation of the mean
             return np.std(values) / np.sqrt(len(values))    
         ```
+        Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee en dat gaan we *straks* ook doen.
 
     === "try_shortcuts.py"
         ``` py
@@ -231,7 +186,6 @@ We starten met onze package. Stel, we berekenen vaak de standaarddeviatie van he
         print(f"{stdev_of_mean([1, 2, 2, 2, 3])=}")
         ```
 
-    Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee en dat gaan we *straks* ook doen.
 
 [^tests]: Niet formeel. Dus hoewel we een script gaan plaatsen in de {{folder}}`tests`-folder is het hier niet een test die automatisch gerunt kan worden.
 
@@ -240,7 +194,7 @@ In de eerste regel van {{file}}`test_shortcuts.py` importeren we de functie uit 
 [^f-string-=]: In f-strings kunnen tussen de accolades variabelen of functieaanroepen staan. Voeg daar het `=`-teken aan toe en je krijgt niet alleen de _waarde_, maar ook de variabele of aanroep zelf te zien. Bijvoorbeeld: als je definieert `#!py name = "Alice"`, dan geeft `#!py print(f"{name}")` als uitkomst `#!py Alice`. Maar voeg je het `=`-teken toe zoals in `#!py print(f"{name=")}` wordt de uitvoer `#!py name='Alice'`. Je ziet dan dus ook meteen de naam van de variabele en dat kan handig zijn.
 
 !!! opdracht-basis "Script testen"
-    Run {{file}}`tests/try_shortcuts.py` en kijk of het script het doet.
+    Run {{file}}`tests/try_shortcuts.py` en kijk of het script het doet (dat zal wel niet).
 
 Als we het script runnen, krijgen we een foutmelding:
 <pre><code>(ecpc) > python.exe try_shortcuts.py <button type="button" name="python.exe try_shortcuts.py" onclick="runScript('python.exe try_shortcuts.py')">{{ enter }}</button><button type="button" name="python.exe try_shortcuts.py" onclick="runScript('python.exe try_shortcuts.py')" class="invisible">{{ reload }}</button>
