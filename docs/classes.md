@@ -236,6 +236,7 @@ print(master_oogway.quote)
     ```
     
     Door de parentclass `#!py Turtle` tussen ronde haakjes mee te geven aan de nieuwe subclass `#!py GiantTortoise` krijgt de subclass alle functionaliteit mee van de parentclass, waaronder alle methods zoals `#!py forward()`. Als je in de init-method van de subclass methods of attributes wilt gebruiken van de parentclass, moet je ervoor zorgen dat de parentclass is geïnitialiseerd . Dit doe je met `#!py super().__init__()` hierbij verwijst `#!py super()` naar de parentclass en met `#!py __init__()` voer je de init-method van de parentclass uit. 
+    Nadat we in de init-method van de subclass de eigenschappen van de Reuzenschildpad hebben gedefinieerd, kunnen we extra functionaliteit gaan toevoegen bijvoorbeeld de manier van bewegen met de method `#!py move()`. 
 
     !!! opdracht-meer "`#!py super().__init__()`"
         1. Maak een bestand aan waarin je de subclass `GiantTortoise` aanmaakt.
@@ -246,7 +247,6 @@ print(master_oogway.quote)
         ```
         1. Wat gebeurd er als je `#!py super().__init__()` weglaat?
     
-    Nadat we in de init-method van de subclass de eigenschappen van de Reuzenschildpad hebben gedefinieerd, kunnen we extra functionaliteit gaan toevoegen bijvoorbeeld de manier van bewegen `#!py move()`. 
 
     !!! opdracht-meer "Hawksbill turtle"
         1. Maak een subclass aan voor de Hawksbill turtle.
