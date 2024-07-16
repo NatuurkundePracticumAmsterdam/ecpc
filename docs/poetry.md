@@ -55,9 +55,15 @@ Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. Poetry is 
 
 We gaan Poetry bedienen door commando's te geven in de terminal van Visual Studio Code. We laten de terminal weten welk programma wij willen gaan besturen, door `poetry` in te typen. En daarachter wat we willen dat Poetry gaat doen. We kunnen informatie over Poetry opvragen met het commando `about`.
 
-``` ps1 title="Terminal"
-poetry about
-```
+<pre><code>(ecpc) > poetry about <button type="button" name="filename_suffix" onclick="runScript('filename_suffix')">{{ enter }}</button><button type="button" name="filename_suffix" onclick="runScript('filename_suffix')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="filename_suffix">Poetry - Package Management for Python
+
+Version: 1.7.0
+Poetry-Core Version: 1.8.1
+
+Poetry is a dependency manager tracking local dependencies of your projects and libraries.
+See https://github.com/python-poetry/poetry for more information.</span>
+</code></pre>
 
 !!! opdracht-basis "Poetry about"
     Open een terminal en vraag informatie over Poetry op met het commando `poetry about`. Lees de tekst die Poetry aan je teruggeeft, waar kan je meer informatie vinden?
@@ -72,7 +78,7 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
 !!! opdracht-basis "Poetry project aanmaken"
     Maak een nieuw Poetry project met de naam `easystat`, als volgt:
 
-    1. Open in Visual Studio Code een geschikte map, bijvoorbeeld {{folder}}`Documents/NSP2/ExperimentControlwithPythonCourse`, en open een terminal.
+    1. Open in Visual Studio Code {{folder}} ECPC, en open een terminal.
     1. Dan maken we met Poetry als volgt een nieuw project.[^src-layout] We maken het daarmee _expres_ iets moeilijker om vanuit een script je package te importeren. Je kunt dat dan alleen nog maar doen door het package zelf ook te _installeren_ (zoals andere gebruikers ook moeten doen) en daardoor loop je zelf tegen eventuele problemen aan. Werkt het uiteindelijk bij jou? Dan werkt het _ook_ bij andere mensen.} `easystat` aan:
     ``` ps1con title="Terminal"
     PS> poetry new --src easystat
@@ -84,15 +90,18 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
 
 Er is nu de volgende structuur aangemaakt:
 
-    easystat/
-        src/
-            easystat/
-                __init__.py
-        tests/
-            __init__.py
-            test_easystat.py
-        pyproject.toml
-        README.md
+{{folder}} ECPC  
+{{T}} {{github}} oefenopdrachten  
+{{T}} {{github}} pythondaq  
+{{T}} {{new_folder}} easystat  
+{{tab}} {{T}} {{new_folder}} src  
+{{tab}} {{tab}} {{L}} {{new_folder}} easystat  
+{{tab}} {{tab}} {{tab}} {{L}} {{new_file}} \_\_init\_\_.py  
+{{tab}} {{T}} {{new_folder}} tests  
+{{tab}} {{tab}} {{L}} {{new_file}} \_\_init\_\_.py  
+{{tab}} {{T}} {{new_file_lines}} pyproject.toml  
+{{tab}} {{L}} {{new_file_lines}} readme.md  
+{{L}} {{folder}} {{dots}}  
 
 Allereerst is er een projectmap `easystat` aangemaakt. Je kunt nu in GitHub Desktop deze map toevoegen als nieuwe repository, zoals we gedaan hebben in [opdracht _Repository toevoegen_](github.md#opd:add_repository).
 
@@ -150,50 +159,55 @@ Bij het schrijven van een nieuw package is het zéker belangrijk om een environm
 
 
 ### Maken van de easystat-package
+We starten met onze package. Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige <q>shortcut</q> in {{file}}`shortcuts.py`. Nu willen we deze shortcut ook in een ander script gebruiken. Dit kunnen we doen door package `easystat` te importeren in dit nieuwe script zodat we de functie `stdev_of_mean` daar ook kunnen gebruiken. We maken een script {{file}}`try_shortcuts.py` om dit te testen.[^tests]
+!!! opdracht-basis "Shortcuts.py en test script aanmaken"
+    Maak zoals hieronder aangegeven de bestanden {{new_file}}`shortcuts.py` en {{new_file}}`try_shortcuts.py` aan:
 
-We starten met ons package. Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige <q>shortcut</q>.
-!!! opdracht-basis "Shortcuts.py aanmaken"
-    Maak het bestand {{file}}`src/easystat/shortcuts.py`:[^missende import]
-    ``` py
-    # src/easystat/shortcuts.py
-    import numpy as np
-    
-    
-    def stdev_of_mean(values):
-        # Calculate the standard deviation of the mean
-        return np.std(values) / np.sqrt(len(values))    
-    ```
+    {{L}} {{folder}} easystat  
+    {{tab}} {{T}} {{folder}} src  
+    {{tab}} {{tab}} {{T}} {{folder}} easystat  
+    {{tab}} {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
+    {{tab}} {{tab}} {{tab}} {{L}} {{new_file}} shortcuts.py  
+    {{tab}} {{T}} {{folder}} tests  
+    {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
+    {{tab}} {{tab}} {{L}} {{new_file}} try_shortcuts.py  
+    {{tab}} {{T}} {{file_lines}} pyproject.toml  
+    {{tab}} {{L}} {{file_lines}} readme.md    
 
-    [^missende import]: Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee en dat gaan we *straks* ook doen.
+    === "shortcuts.py"
+        ``` py
+        import numpy as np 
+        
+        
+        def stdev_of_mean(values):
+            # Calculate the standard deviation of the mean
+            return np.std(values) / np.sqrt(len(values))    
+        ```
+        Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee en dat gaan we *straks* ook doen.
 
+    === "try_shortcuts.py"
+        ``` py
+        from easystat.shortcuts import stdev_of_mean
 
-Nu willen we de package `easystat` importeren in een ander script zodat we de functie `stdev_of_mean` daar kunnen gebruiken. We maken een script om onze nieuwe code te testen.[^tests]
+        print(f"{stdev_of_mean([1, 2, 2, 2, 3])=}")
+        ```
+
 
 [^tests]: Niet formeel. Dus hoewel we een script gaan plaatsen in de {{folder}}`tests`-folder is het hier niet een test die automatisch gerunt kan worden.
 
-!!! opdracht-basis "Test script aanmaken"
-    Maak het bestand {{file}}`tests/try_shortcuts.py`:
-    ``` py
-    # tests/try_shortcuts.py
-    from easystat.shortcuts import stdev_of_mean
-
-    print(f"{stdev_of_mean([1, 2, 2, 2, 3])=}")    
-    ```
-
-
-In de eerste regel importeren we de functie uit het nieuwe package om uit te proberen. In de laatste regel gebruiken we een handige functie van f-strings.[^f-string-=]
+In de eerste regel van {{file}}`test_shortcuts.py` importeren we de functie uit het nieuwe package om uit te proberen. In de laatste regel gebruiken we een handige functie van f-strings.[^f-string-=]
 
 [^f-string-=]: In f-strings kunnen tussen de accolades variabelen of functieaanroepen staan. Voeg daar het `=`-teken aan toe en je krijgt niet alleen de _waarde_, maar ook de variabele of aanroep zelf te zien. Bijvoorbeeld: als je definieert `#!py name = "Alice"`, dan geeft `#!py print(f"{name}")` als uitkomst `#!py Alice`. Maar voeg je het `=`-teken toe zoals in `#!py print(f"{name=")}` wordt de uitvoer `#!py name='Alice'`. Je ziet dan dus ook meteen de naam van de variabele en dat kan handig zijn.
 
 !!! opdracht-basis "Script testen"
-    Run {{file}}`tests/try_shortcuts.py` en kijk of het script het doet.
+    Run {{file}}`tests/try_shortcuts.py` en kijk of het script het doet (dat zal wel niet).
 
+Als we het script runnen, krijgen we een foutmelding:
+<pre><code>(ecpc) > python.exe try_shortcuts.py <button type="button" name="python.exe try_shortcuts.py" onclick="runScript('python.exe try_shortcuts.py')">{{ enter }}</button><button type="button" name="python.exe try_shortcuts.py" onclick="runScript('python.exe try_shortcuts.py')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python.exe try_shortcuts.py">ModuleNotFoundError: No module named 'easystat'</span>
+</code></pre>
 
-We krijgen de foutmelding:
-``` py
-ModuleNotFoundError: No module named 'easystat'
-```
-Dit konden we verwachten. We hebben ons package immers nog niet geïnstalleerd. Als we ons package gaan delen met andere mensen verwachten wij dat zij ons package ook gaan installeren, door dezelfde stappen te doorlopen als andere gebruikers komen we erachter of alles wel goed werkt.
+Dit konden we verwachten. We hebben onze package immers nog niet geïnstalleerd. Als we onze package gaan delen met andere mensen verwachten wij dat zij onze package ook gaan installeren, door dezelfde stappen te doorlopen als andere gebruikers komen we erachter of alles wel goed werkt.
 
 ### Installeren van een package
 Het installeren van de package kan makkelijk met Poetry:
