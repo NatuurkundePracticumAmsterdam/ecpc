@@ -92,7 +92,8 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         # connect to Arduino
 
         # set input voltage from 0 to max
-            # read voltage resistor
+            # get voltage LED 
+            # get voltage resistor
             # print On LED: raw_voltage_LED (voltage_LED V) Over resistor: raw_voltage_resistor (voltage_resistor V)
         ```
     === "check"
