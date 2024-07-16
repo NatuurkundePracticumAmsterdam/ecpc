@@ -85,14 +85,17 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
 Er is nu de volgende structuur aangemaakt:
 
 {{folder}} ECPC  
-{{L}} {{new_folder}} easystat  
+{{T}} {{github}} oefenopdrachten  
+{{T}} {{github}} pythondaq  
+{{T}} {{new_folder}} easystat  
 {{tab}} {{T}} {{new_folder}} src  
-{{tab}} {{tab}} {{T}} {{new_folder}} easystat  
+{{tab}} {{tab}} {{L}} {{new_folder}} easystat  
 {{tab}} {{tab}} {{tab}} {{L}} {{new_file}} \_\_init\_\_.py  
 {{tab}} {{T}} {{new_folder}} tests  
 {{tab}} {{tab}} {{L}} {{new_file}} \_\_init\_\_.py  
 {{tab}} {{T}} {{new_file_lines}} pyproject.toml  
-{{tab}} {{L}} {{new_file_lines}} readme.md    
+{{tab}} {{L}} {{new_file_lines}} readme.md  
+{{L}} {{folder}} {{dots}}  
 
 Allereerst is er een projectmap `easystat` aangemaakt. Je kunt nu in GitHub Desktop deze map toevoegen als nieuwe repository, zoals we gedaan hebben in [opdracht _Repository toevoegen_](github.md#opd:add_repository).
 
