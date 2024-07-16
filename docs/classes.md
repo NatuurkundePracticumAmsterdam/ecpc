@@ -4,40 +4,6 @@ Voor een snelle meting is het script dat je geschreven hebt bij [opdracht _quick
 
 Een class is eigenlijk een groep functies die je bij elkaar pakt en die met elkaar gegevens kunnen delen. Zodra een programma wat complexer wordt merk je dat het fijn kan zijn om variabelen op te sluiten in geïsoleerde omgevingen. 
 
-???+ meer-leren "Variabele per ongeluk overschrijven."
-    Wanneer je bijvoorbeeld de volgende code schrijft gaat er mogelijk iets mis:
-    ``` py
-    # find first student in alphabetical sorted list
-    names = ["Bob", "Alice", "Charlie"]
-    first_name = sorted(names)[0]
-    # first_name='Alice'
-    ...
-    # split first and last name based on space character
-    first_name, last_name = "Carl Sagan".split(" ")
-    # first_name='Carl'
-    ```
-    In bovenstaand voorbeeld waren we eerst op zoek naar de eerste naam in een alfabetisch gesorteerde lijst. Later in het programma splitsten we een naam op in een voornaam en een achternaam. Daarmee hebben we een variabele overschreven&hellip; Hoe langer het programma wordt, hoe makkelijker dat gebeurt.
-
-
-    Lange programma's worden vaak opgedeeld in functies en dat maakt het al een stuk makkelijker omdat functies hun eigen ruimte voor variabelen hebben. In het volgende geval wordt de variabele `#!py first_name` _niet_ overschreven:
-
-    ``` py
-    def sort_and_find_first_name(names):
-        return sorted(names)[0]
-
-
-    def find_last_name(name):
-        first_name, last_name = name.split(" ")
-        return last_name
-
-
-    first_name = sort_and_find_first_name(["Bob", "Alice", "Charlie"])
-    # first_name='Alice'
-    ...
-    last_name = find_last_name("Carl Sagan")
-    # first_name='Alice'
-    # last_name='Sagan'
-    ```
 
 ## Aanmaken van een class
 Een class is een verzameling functies. Hieronder staat een versimpelde weergave van de class `Turtle`. Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van fucnties &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods) ), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
