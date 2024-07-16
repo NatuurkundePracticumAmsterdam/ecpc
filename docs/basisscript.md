@@ -105,7 +105,8 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         **Actiepunten:**
 
         - [ ] Spanning over LED loopt van nul tot maximale waarde
-        - [ ] jlkejkl
+        - [ ] LED lampje brandt steeds feller
+        - [ ] Ruwe waardes en voltages zijn zoals verwacht
 
 
 
