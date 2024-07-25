@@ -224,7 +224,9 @@ Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een 
 
 <div id="opd:flashingLED"></div>
 !!! opdracht-basis "flashingLED"
-    Maak een bestand {{file}}`flashingLED.py` en laat de LED in een regelmatig tempo knipperen.
+    <iframe src="https://vu.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=8d7b4743-eaa5-4221-a135-b1b600f1cf3f&autoplay=true&offerviewer=false&showtitle=false&showbrand=false&captions=false&interactivity=none" height="281" width="500" style="margin-left: 1em; "frameBorder="0" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="Blinking LED" align="right"></iframe>
+    
+    Maak een bestand {{file}}`flashingLED.py` en laat de LED in een regelmatig tempo knipperen. 
 
     !!! info
         Je kan hiervoor gebruik maken van de module _time_ die standaard met Python meekomt[^standard-library]. Met de functie `#! sleep()` kun je de executie van de volgende regel in het script met een aantal seconden uitstellen.
