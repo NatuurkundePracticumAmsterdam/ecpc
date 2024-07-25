@@ -117,8 +117,8 @@ Response: ERROR: UNKNOWN COMMAND *IDN?
 Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de [documentatie van de firmware](firmware.md) dan zie je dat er bepaalde _terminator characters_ nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een <q>enter</q> aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een _carriage return_ (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een _line feed_ (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van _carriage return + line feed_ (CRLF). 
 
 !!! info "Carriage Return Line Feed: Typewriter Demonstration"
-    <div style="display: flex; justify-content: center;"> 
-    <iframe src="https://vu.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=746ea616-4958-4b9c-9bea-b17300e6b754&autoplay=false&offerviewer=false&showtitle=true&showbrand=false&captions=false&interactivity=none" height="304" width="540" style="border: none;" allowfullscreen allow="autoplay" aria-label="Panopto ingesloten videospeler" aria-description="Carriage Return Line Feed: Typewriter Demonstration" ></iframe>
+    <div style="display: flex; justify-content: left;"> 
+    <iframe src="https://vu.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=746ea616-4958-4b9c-9bea-b17300e6b754&autoplay=true&offerviewer=false&showtitle=true&showbrand=false&captions=false&interactivity=none" height="304" width="540" style="border: none;" allowfullscreen allow="autoplay" aria-label="Panopto ingesloten videospeler" aria-description="Carriage Return Line Feed: Typewriter Demonstration" ></iframe>
     </div>
 
 Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer heb je nodig? Af en toe is dat lastig, vooral wanneer er elektronica in het spel is want dan willen de regeleindes voor schrijven en lezen nog wel eens verschillend zijn.[^regeleindes] We gaan nu het gebruik van de karakters instellen:
@@ -224,7 +224,9 @@ Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een 
 
 <div id="opd:flashingLED"></div>
 !!! opdracht-basis "flashingLED"
-    Maak een bestand {{file}}`flashingLED.py` en laat de LED in een regelmatig tempo knipperen.
+    <iframe src="https://vu.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=8d7b4743-eaa5-4221-a135-b1b600f1cf3f&autoplay=true&offerviewer=false&showtitle=false&showbrand=false&captions=false&interactivity=none" height="281" width="500" style="margin-left: 1em; "frameBorder="0" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="Blinking LED" align="right"></iframe>
+    
+    Maak een bestand {{file}}`flashingLED.py` en laat de LED in een regelmatig tempo knipperen. 
 
     !!! info
         Je kan hiervoor gebruik maken van de module _time_ die standaard met Python meekomt[^standard-library]. Met de functie `#! sleep()` kun je de executie van de volgende regel in het script met een aantal seconden uitstellen.
