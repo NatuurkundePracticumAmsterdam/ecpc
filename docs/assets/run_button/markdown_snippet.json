@@ -2,14 +2,14 @@
 	"Run python in terminal": {
 		"prefix": "run",
 		"body": [
-			"<button type=\"button\" name=\"${1:filename}_${4:suffix}\" onclick=\"runScript('$1_$4')\" class=\"run\">{{ run }}</button><button type=\"button\" name=\"$1_$4\" onclick=\"runScript('$1_$4')\" class=\"reload invisible\">{{ arrow_rotate }}</button> <b>$1.py</b>",
+			"<div class=\"code-box\"><button type=\"button\" name=\"${1:filename}_${4:suffix}\" onclick=\"runScript('$1_$4')\" class=\"run\">{{ run }}</button><button type=\"button\" name=\"$1_$4\" onclick=\"runScript('$1_$4')\" class=\"reload invisible\">{{ reload }}</button> <b>$1.py</b>",
 			"``` py",
 			"${2:python code}",
 			"```",
 			"<pre>",
 			"<code>(ecpc) > python.exe $1.py",
 			"<span class=\"invisible\" name=\"$1_$4\">${3:output}</span>",
-			"</code></pre>",
+			"</code></pre></div>",
 			"$0"
 		],
 		"description": "Create terminal output with run button for python script"

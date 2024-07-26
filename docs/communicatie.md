@@ -203,6 +203,26 @@ print(device.query("*IDN?"))
 <span class = "invisible" name="test_arduino">('ASRL3::INSTR',)
 Arduino VISA firmware v1.0.0</span>
 </code></pre> 
+
+<div class="code-box"><button type="button" name="test_arduino" onclick="runScript('test_arduino')" class="run">{{ run }}</button><button type="button" name="test_arduino" onclick="runScript('test_arduino')" class="reload invisible">{{ reload }}</button> <b>test.py</b>
+``` py
+import pyvisa
+
+rm = pyvisa.ResourceManager("@py")
+ports = rm.list_resources()
+print(ports)
+
+device = rm.open_resource(
+    "ASRL3::INSTR", read_termination="\r\n", write_termination="\n"
+)
+print(device.query("*IDN?"))
+```
+<pre>
+<code>(ecpc) > python.exe test.py
+<span class="invisible" name="test_arduino">('ASRL3::INSTR',)
+Arduino VISA firmware v1.0.0</span>
+</code></pre></div>
+
 De output van het script is afhankelijk van het systeem en het aantal apparaten dat verbonden is.
 
 
