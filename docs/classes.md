@@ -4,40 +4,6 @@ Voor een snelle meting is het script dat je geschreven hebt bij [opdracht _quick
 
 Een class is eigenlijk een groep functies die je bij elkaar pakt en die met elkaar gegevens kunnen delen. Zodra een programma wat complexer wordt merk je dat het fijn kan zijn om variabelen op te sluiten in geïsoleerde omgevingen. 
 
-???+ meer-leren "Variabele per ongeluk overschrijven."
-    Wanneer je bijvoorbeeld de volgende code schrijft gaat er mogelijk iets mis:
-    ``` py
-    # find first student in alphabetical sorted list
-    names = ["Bob", "Alice", "Charlie"]
-    first_name = sorted(names)[0]
-    # first_name='Alice'
-    ...
-    # split first and last name based on space character
-    first_name, last_name = "Carl Sagan".split(" ")
-    # first_name='Carl'
-    ```
-    In bovenstaand voorbeeld waren we eerst op zoek naar de eerste naam in een alfabetisch gesorteerde lijst. Later in het programma splitsten we een naam op in een voornaam en een achternaam. Daarmee hebben we een variabele overschreven&hellip; Hoe langer het programma wordt, hoe makkelijker dat gebeurt.
-
-
-    Lange programma's worden vaak opgedeeld in functies en dat maakt het al een stuk makkelijker omdat functies hun eigen ruimte voor variabelen hebben. In het volgende geval wordt de variabele `#!py first_name` _niet_ overschreven:
-
-    ``` py
-    def sort_and_find_first_name(names):
-        return sorted(names)[0]
-
-
-    def find_last_name(name):
-        first_name, last_name = name.split(" ")
-        return last_name
-
-
-    first_name = sort_and_find_first_name(["Bob", "Alice", "Charlie"])
-    # first_name='Alice'
-    ...
-    last_name = find_last_name("Carl Sagan")
-    # first_name='Alice'
-    # last_name='Sagan'
-    ```
 
 ## Aanmaken van een class
 Een class is een verzameling functies. Hieronder staat een versimpelde weergave van de class `Turtle`. Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van fucnties &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods) ), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
@@ -75,14 +41,14 @@ master_oogway = Turtle("turtle")
 In de parameter `master_oogway` gaat de 'uitkomst' van de class, dat is in dit geval een collectie van methods (en variabelen). De parameter `master_oogway` noemen we een _instance_ van de class `Turtle`. Net zoals je een functie vaker kunt aanroepen, kan je ook meerdere instances van een class aanmaken. Na de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan de  `#!py __init__()`-method (`#!py self` niet meegerekend), de parameter `#!py shape` krijgt dus de variabele `#!py "turtle"` toegewezen.
 
 ???+ meer-leren "Meerdere instances"
-    Je kunt meerdere instances hebben van dezelfde class, bijvoorbeeld wanneer meerdere klanten in de webshop tegelijkertijd winkelmandjes vullen:
+    Je kunt meerdere instances hebben van dezelfde class, bijvoorbeeld voor verschillende schildpadden:
     ``` py
-    class Cart:
+    class Turtle:
         ...
 
-    cart_alice = Cart()
+    turtle_1247 = Turtle()
     ...
-    cart_bob = Cart()
+    turtle_1428 = Turtle()
     ...
     ```
 
@@ -92,6 +58,13 @@ In de parameter `master_oogway` gaat de 'uitkomst' van de class, dat is in dit g
     class Turtle:
         def __init__(self):
             # initialiseer class
+        
+        def forward(self, distance):
+            # move turtle by distance
+
+        def left(self, angle):
+            # turn turtle counterclockwise
+            # by angle in degrees
     ```
     hoe maak je dan een instance aan van de class?
     ??? uitwerkingen
@@ -118,7 +91,7 @@ master_oogway.forward(50)
         Na het uitvoeren van het script sluit Python het scherm van de schildpad. Voeg de regel `#!py master_oogway.screen.mainloop()` toe om het scherm te laten staan en handmatig af te sluiten. 
 
 ## De speciale parameter `#!py self`
-Een class method is vrijwel gelijk aan een normale functie, behalve dat een class method als eerste de parameter `#!py self` verwacht. Aan deze parameter wordt de eigen instance van de class meegegeven wanneer je de method aanroept. Gelukkig hoef je dit niet zelf te doen want wanneer je een method aanroept wordt impliciet de instance als eerste parameter meegegeven. 
+Een _class method_ is vrijwel gelijk aan een normale functie, behalve dat een class method als eerste de parameter `#!py self` verwacht. Aan deze parameter wordt de eigen instance van de class meegegeven wanneer je de method aanroept. Gelukkig hoef je dit niet zelf te doen want wanneer je een method aanroept wordt impliciet de instance als eerste parameter meegegeven. 
 
 Maar waarom zou je dit doen? De instance bevat alle methods en variabele, door de instance aan elke method mee te geven kan je de informatie die daarin is opgeslagen in elke method gebruiken. 
 
@@ -146,7 +119,7 @@ class Turtle:
 Als we de method `#!py do_kungfu_move` aanroepen met `#!py master_oogway.do_kungfu_move()` geeft python automatisch de instance `#!py master_oogway` mee aan de method. De parameter `#!py self` is dus nu gelijk aan de instance `#!py master_oogway`, daarmee is `#!py self.forward(130)` ook gelijk aan `#!py master_oogway.forward(130)`. 
 
 ### Instance attribute
-De instance van een class bevat niet alleen alle methods, maar kan ook variabele hebben. In het voorbeeld hieronder voegen we de variabele `#!py quote` toe in de init-method aan de instance, daarmee wordt het een _intance attribute_.
+De instance van een class bevat niet alleen alle methods, maar kan ook variabele hebben. In het voorbeeld hieronder voegen we de variabele `#!py quote` toe in de init-method aan de instance, daarmee wordt het een _instance attribute_.
 
 ``` py
 class Turtle:
@@ -174,112 +147,24 @@ print(master_oogway.quote)
     <iframe src="https://h5plti.avwebs.nl/h5p/82/embed" width="740" height="830" frameborder="0" allowfullscreen="allowfullscreen" lang="en" scrolling="no"></iframe>
     
 
-???+ meer-leren "Het nut van `#!py self`"
-    Een groot voordeel van functies is natuurlijk ook dat we ze vaker aan kunnen roepen. Ook helpt het de overzichtelijkheid als je goede namen geeft aan je functies. Soms kan het gebruiken van functies ook wat onhandig zijn &mdash; vooral als je gegevens wilt bewaren. Stel dat we voor een webshop code gaan schrijven die een <q>winkelmandje</q> inbouwt. We gaan de functionaliteit handmatig testen en uitbouwen. We beginnen als volgt:
-    ``` py
-    cart = []
-
-    item = "Dune by Frank Herbert"
-    # ... some code to check that item is still available
-    # add item to cart
-    cart.append(item)
-
-    item = "Eon by Greg Bear"
-    # ... some code to check that item is still available
-    # add item to cart
-    cart.append(item)
-
-    item = "The Hunger Games by Suzanne Collins"
-    # ... some code to check that item is still available
-    # add item to cart
-    cart.append(item)
-
-    # removing an item
-    item = "Eon by Greg Bear"
-    # ... some code to check that item is actually in cart
-    cart.remove(item)
-
-    for item in cart:
-        print(item)
-    # Dune by Frank Herbert
-    # The Hunger Games by Suzanne Collins
-    ```
-
-    Vooral het implementeren van de controles dat producten nog leverbaar zijn is een hoop werk. Je besluit functies te gaan gebruiken zodat je die code maar op één plek hoeft te gebruiken:
-    ``` py
-    def add_to_cart(cart, item):
-        # ... some code to check that item is still available
-        cart.append(item)
-
-
-    def remove_from_cart(cart, item):
-        # ... some code to check that item is actually in cart
-        cart.remove(item)
-
-
-    cart = []
-    add_to_cart(cart, "Dune by Frank Herbert")
-    add_to_cart(cart, "Eon by Greg Bear")
-    add_to_cart(cart, "The Hunger Games by Suzanne Collins")
-    remove_from_cart(cart, "Eon by Greg Bear")
-
-    for item in cart:
-        print(item)
-    # Dune by Frank Herbert
-    # The Hunger Games by Suzanne Collins    
-    ```
-
-    De code werkt nog op dezelfde manier, fijn! Het is alleen wel lastig dat je de hele tijd een variabele `#!py cart` moet meegeven aan de functies. Je bedenkt nog veel meer functies om de levertijd te controleren, om de bestelling op te splitsen in verschillende bezorgmomenten, om de bestelling af te rekenen, etc. Elke keer moet je dezelfde variabele blijven meegeven. 
-    
-    Door geen functies te gebruiken maar methods, kan je in elke method de lijst met items gebruiken:
-    
-    ``` py
-    class Cart:
-        def __init__(self):
-            self.contents = []
-
-        def add_to_cart(self, item):
-            # ... some code to check that item is still available
-            self.contents.append(item)
-
-        def remove_from_cart(self, item):
-            # ... some code to check that item is actually in cart
-            self.contents.remove(item)
-    ```
-
-    Bij het gebruiken van de class hoeven we er niet meer om te denken om steeds de lijst met items mee te geven, deze is onderdeel van de instance (`#!py cart`) en wordt automatisch meegegeven bij het aanroepen van de methods. 
-    
-    ``` py
-    cart = Cart()
-    cart.add_to_cart("Dune by Frank Herbert")
-    cart.add_to_cart("Eon by Greg Bear")
-    cart.add_to_cart("The Hunger Games by Suzanne Collins")
-    cart.remove_from_cart("Eon by Greg Bear")
-
-    for item in cart.contents:
-        print(item)
-    # Dune by Frank Herbert
-    # The Hunger Games by Suzanne Collins
-    ```
-
 ???+ meer-leren "Classes importeren"
 
-    Wat is nu het praktisch nut van classes en methods gebruiken in plaats van functies? Want in plaat van
+    Wat is nu het praktisch nut van classes en methods gebruiken in plaats van functies? Want in plaats van
     ``` py
-    add_to_cart(cart, "Eon by Greg Bear")
+    forward(master_oogway, distance=50)
     ```
     hebben we nu
     ``` py
-    cart.add_to_cart("Eon by Greg Bear")
+    master_oogway.forward(distance=50)
     ```
-    en dat is even lang. Het grote voordeel ontstaat pas wanneer de class ingewikkelder wordt en meer data gaat bewaren. Ook kun je de class in een ander pythonbestand (bijvoorbeeld {{file}}`my_webshop_backend.py` zetten en alle functionaliteit in één keer importeren met:
+    en dat is even lang. Het grote voordeel ontstaat pas wanneer de class ingewikkelder wordt en meer data gaat bewaren. Ook kun je de class in een ander pythonbestand (bijvoorbeeld {{file}}`animals.py`) zetten en alle functionaliteit in één keer importeren met:
     ``` py
-    from my_webshop_backend import Cart
+    from animals import Turtle
 
-    cart = Cart()
+    master_oogway = Turtle()
     ...
     ```
-    Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je typt `#!py cart.add` hoef je alleen maar op ++tab++ te drukken en VS Code vult de rest aan.
+    Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je typt `#!py master_oogway.f` hoef je alleen maar op ++tab++ te drukken en VS Code vult de rest aan.
 
 
 
@@ -351,6 +236,7 @@ print(master_oogway.quote)
     ```
     
     Door de parentclass `#!py Turtle` tussen ronde haakjes mee te geven aan de nieuwe subclass `#!py GiantTortoise` krijgt de subclass alle functionaliteit mee van de parentclass, waaronder alle methods zoals `#!py forward()`. Als je in de init-method van de subclass methods of attributes wilt gebruiken van de parentclass, moet je ervoor zorgen dat de parentclass is geïnitialiseerd . Dit doe je met `#!py super().__init__()` hierbij verwijst `#!py super()` naar de parentclass en met `#!py __init__()` voer je de init-method van de parentclass uit. 
+    Nadat we in de init-method van de subclass de eigenschappen van de Reuzenschildpad hebben gedefinieerd, kunnen we extra functionaliteit gaan toevoegen bijvoorbeeld de manier van bewegen met de method `#!py move()`. 
 
     !!! opdracht-meer "`#!py super().__init__()`"
         1. Maak een bestand aan waarin je de subclass `GiantTortoise` aanmaakt.
@@ -361,7 +247,6 @@ print(master_oogway.quote)
         ```
         1. Wat gebeurd er als je `#!py super().__init__()` weglaat?
     
-    Nadat we in de init-method van de subclass de eigenschappen van de Reuzenschildpad hebben gedefinieerd, kunnen we extra functionaliteit gaan toevoegen bijvoorbeeld de manier van bewegen `#!py move()`. 
 
     !!! opdracht-meer "Hawksbill turtle"
         1. Maak een subclass aan voor de Hawksbill turtle.
