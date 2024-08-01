@@ -822,7 +822,7 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
         De mappen structuur ziet er als volgt uit:
 
         {{L}} {{folder}} ECPC  
-        {{tab}} {{T}} &bull;&bull;&bull;  
+        {{tab}} {{T}} {{dots}}  
         {{tab}} {{T}} {{file}} practice-packages.py  
         {{tab}} {{L}} {{folder}} models  
         {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
