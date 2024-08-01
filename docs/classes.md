@@ -191,9 +191,16 @@ print(master_oogway.quote)
     === "pseudo-code"
         ``` py
         # Class Particle:
-            # __init__
-            # is_up_or_down
-            # flip
+            # def __init__(self, name, spin):
+                ...
+            # def is_up_or_down
+                # print up when spin is positive
+                # print down when spin is negative
+                ...
+            # def flip
+                # Make spin positive if spin is negative
+                # Make spin negative if spin is positive
+                ...
 
         ```
     === "check"
@@ -216,8 +223,8 @@ print(master_oogway.quote)
         ```
         <pre>
         <code>(ecpc) > python.exe particle.py
-        <span class="invisible" name="particle">down
-        up
+        <span class="invisible" name="particle">up
+        down
         -0.5
         mooi proton</span>
         </code></pre></div>
@@ -260,7 +267,7 @@ print(master_oogway.quote)
         ``` py
         # class ProjectileMotion
             ...
-            # init
+            # __init__
                 ...
             # add_measurement
                 ...
