@@ -1,0 +1,45 @@
+span.invisible {
+    visibility: hidden;
+}
+
+button.invisible {
+    display: none;
+}
+
+button.run {
+    transition: 0.3s;
+}
+
+button.run:hover {
+    color: green;
+}
+
+button.reload {
+    transition: 0.3s;
+}
+
+button.reload:hover {
+    color: rgb(138, 137, 137);
+}
+
+svg.enter {
+    width: 15px;
+    height: 15px; 
+    vertical-align: middle;
+    transition: 0.3s;
+}
+
+svg.enter:hover {
+    fill: green;
+}
+
+svg.reload {
+    width: 15px;
+    height: 15px; 
+    vertical-align: middle;
+    transition: 0.3s;
+}
+
+svg.reload:hover {
+    fill: rgb(138, 137, 137);
+}
