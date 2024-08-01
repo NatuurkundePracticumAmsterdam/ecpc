@@ -253,6 +253,72 @@ print(master_oogway.quote)
     # I=[0.05, 0.075]
     ```
 
+!!! opdracht-inlever "Class ProjectileMotion"
+    === "opdracht"
+        Je gaat een waterraket een aantal keer wegschieten met steeds een andere beginsnelheid en lanceerhoek. Je hebt een instance aangemaakt van de class `#!py ProjectileMotion`. De metingen bewaar je steeds met de method `#!py add_measurement()`. Om in een keer alle beginsnelheden op te vragen gebruik je de method `#!py get_initial_velocities()`. Om alle lanceerhoeken op te vragen gebruik je de method `#!py get_launch_angles()`. Op basis van de gegevens (en door de luchtweerstand te verwaarlozen) bepaal je de vluchtduur en het bereik van de raket. Je kunt de vluchtduur van alle vluchten opvragen met de method `#!py get_time_of_flights` en het bereik van alle vluchten met `#!py get_flight_ranges`.
+    === "pseudo-code"
+        ``` py
+        # class ProjectileMotion
+            ...
+            # init
+                ...
+            # add_measurement
+                ...
+            # get_initial_velocities
+                ...
+            # get_launch_angles
+                ...
+            # get_time_of_flights
+                ...
+            # get_flight_ranges
+                ...
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De method `#!py add_measurment` verwacht een beginsnelheid in meter per seconde en een lanceerhoek in graden
+        - [ ] De method `#!py get_initial_velocities` geeft een lijst terug met beginsnelheden van alle ingevoerde metingen.
+        - [ ] De method `#!py get_launch_angles` geeft een lijst terug met alle lanceerhoeken van de ingevoerde metingen.
+        - [ ] De time-of-flight wordt berekent met 2 * v_y / g
+        - [ ] De beginsnelheid in de y-richting: v_y = v * sin(lanceerhoek)
+        - [ ] Het bereik wordt berekent met time_of_flight * v_x
+        - [ ] De beginsnelheid in de x-richting: v_x = v * cos(lanceerhoek)
+        - [ ] De lanceerhoek wordt in radialen meegegeven aan de trigonomische functies
+        - [ ] De method `#!py get_time_of_flights` geeft een lijst terug met de vluchtduur in seconden corresponderend met de ingevoerde metingen. 
+        - [ ] De method `#!py get_flight_ranges` geeft een lijst terug met het bereik in meters die correspondeerd met de ingevoerde metingen.
+
+        **Testcode:**
+        <div class="code-box"><button type="button" name="rocket" onclick="runScript('rocket')" class="run">{{ run }}</button><button type="button" name="rocket" onclick="runScript('rocket')" class="reload invisible">{{ reload }}</button> <b>rocket.py</b>
+        ``` py
+        speedy = ProjectileMotion()
+        speedy.add_measurement(v=28, angle=68)
+        speedy.add_measurement(v=11, angle=15)
+
+        v = speedy.get_initial_velocities()
+        angles = speedy.get_launch_angles()
+        x = speedy.get_flight_ranges()
+        t = speedy.get_time_of_flights()
+
+        print(f"{v=}")
+        print(f"{angles=}")
+        print(f"{x=}")
+        print(f"{t=}")
+
+        ```
+        <pre>
+        <code>(ecpc) > python.exe rocket.py
+        <span class="invisible" name="rocket">v=[28, 11]
+        angles=[68, 15]
+        x=[55.51602063607072, 6.167176350662587]
+        t=[5.292792645845066, 0.5804300705663054]</span>
+        </code></pre></div>
+        
+        
+
+        **Projecttraject:**
+
+        - [x] Class ProjectileMotion
+
 ???+ meer-leren "Subclass"
     ## Subclasses
 
