@@ -288,7 +288,7 @@ print(master_oogway.quote)
         - [ ] De method `#!py get_flight_ranges` geeft een lijst terug met het bereik in meters die correspondeerd met de ingevoerde metingen.
 
         **Testcode:**
-        <div class="code-box"><button type="button" name="rocket" onclick="runScript('rocket')" class="run">{{ run }}</button><button type="button" name="rocket" onclick="runScript('rocket')" class="reload invisible">{{ reload }}</button> <b>rocket.py</b>
+        <div class="code-box"><button type="button" name="water_rocket" onclick="runScript('water_rocket')" class="run">{{ run }}</button><button type="button" name="water_rocket" onclick="runScript('water_rocket')" class="reload invisible">{{ reload }}</button> <b>water_rocket.py</b>
         ``` py
         speedy = ProjectileMotion()
         speedy.add_measurement(v=28, angle=68)
@@ -306,8 +306,8 @@ print(master_oogway.quote)
 
         ```
         <pre>
-        <code>(ecpc) > python.exe rocket.py
-        <span class="invisible" name="rocket">v=[28, 11]
+        <code>(ecpc) > python.exe water_rocket.py
+        <span class="invisible" name="water_rocket">v=[28, 11]
         angles=[68, 15]
         x=[55.51602063607072, 6.167176350662587]
         t=[5.292792645845066, 0.5804300705663054]</span>
