@@ -185,7 +185,7 @@ device.query("*IDN?")
 ```
 Het volledige script &mdash; met een paar `#!py print`-statements &mdash; ziet er dan als volgt uit:
 
-<button type="button" name = "test_arduino" onclick="runScript('test_arduino')" class = "run">{{ run }}</button><button type="button" name = "test_arduino" onclick="runScript('test_arduino')" class = "reload invisible">{{ arrow_rotate }}</button> <b>test_arduino.py</b>
+<button type="button" name = "test_arduino_no_box" onclick="runScript('test_arduino_no_box')" class = "run">{{ run }}</button><button type="button" name = "test_arduino_no_box" onclick="runScript('test_arduino_no_box')" class = "reload invisible">{{ reload }}</button> <b>test_arduino.py</b>
 ``` py
 import pyvisa
 
@@ -200,7 +200,7 @@ print(device.query("*IDN?"))
 ```
 <pre>
 <code>(ecpc) > python.exe test_arduino.py
-<span class = "invisible" name="test_arduino">('ASRL3::INSTR',)
+<span class = "invisible" name="test_arduino_no_box">('ASRL3::INSTR',)
 Arduino VISA firmware v1.0.0</span>
 </code></pre> 
 
