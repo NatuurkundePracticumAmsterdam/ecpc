@@ -4,7 +4,19 @@
 
 .dropdown_container {
     display: flex;
-    float: right;
+    /* float: right; */
     margin: .2rem;
     padding: .4rem;
 }
+
+.dropdown_wrapper {
+    display: grid;
+    place-items: center;
+    width: 21.2rem;
+    float: right;
+    left: -5rem;
+}
+
+/* .cheatsheet {
+    
+} */
