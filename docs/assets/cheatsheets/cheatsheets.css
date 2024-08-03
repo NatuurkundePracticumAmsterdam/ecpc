@@ -1,5 +1,10 @@
 .dropdown_box {
     height: 1.2rem;
+    transition: 0.3s;
+}
+
+svg.dropdown_box:hover {
+    fill: yellow;
 }
 
 .dropdown_container {
@@ -17,6 +22,10 @@
     left: -5rem;
 }
 
-/* .cheatsheet {
-    
-} */
+div.invisible {
+    opacity: 0;
+}
+
+.cheatsheet {
+    transition: 0.3s;
+}
