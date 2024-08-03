@@ -51,6 +51,7 @@ extra_javascript:
   - assets/comparison/comparison.js
   - assets/ADC_slider/ADC_slider.js
   - assets/run_button/run_button.js
+  - assets/uncertainty/uncertainty.js
 
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
@@ -58,6 +59,7 @@ extra_css:
   - assets/comparison/comparison.css
   - assets/ADC_slider/ADC_slider.css
   - assets/run_button/run_button.css
+  - assets/uncertainty/uncertainty.css
 
 nav:
   - index.md
