@@ -5,3 +5,7 @@ span.comparison {
 span.highlight {
     background-color: yellow;
 }
+
+span.text_colour {
+    color: yellow;
+}

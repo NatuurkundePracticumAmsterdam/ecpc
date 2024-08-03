@@ -13,7 +13,11 @@ function hoverFunction(id) {
         target_id = "int_" + id.split("_")[1];
     }
     let elem = document.getElementById(id);
-    elem.classList.toggle('highlight');
+    if (id.includes("1a")) {
+        elem.classList.toggle('text_colour');
+    } else {
+        elem.classList.toggle('highlight');
+    }
     let target_elem = document.getElementById(target_id);
     target_elem.classList.toggle('highlight');
 }
