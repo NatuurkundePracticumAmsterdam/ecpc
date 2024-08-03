@@ -9,3 +9,7 @@ span.highlight {
 span.text_colour {
     color: yellow;
 }
+
+span.highlight_hover {
+    background-color: orange;
+}

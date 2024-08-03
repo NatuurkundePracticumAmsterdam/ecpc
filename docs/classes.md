@@ -153,6 +153,10 @@ Of, omdat de vergelijking van body en instance niet heel duidelijk is
 
 --8<-- "docs/assets/comparison/compare_function_class_mockup_1a.html"
 
+Of, omdat het veranderen van de tekstkleur er niet zo goed uitziet
+
+--8<-- "docs/assets/comparison/compare_function_class_mockup_1b.html"
+
 ### Instance attribute
 De instance van een class bevat niet alleen alle methods, maar kan ook variabele hebben. In het voorbeeld hieronder voegen we de variabele `#!py quote` toe in de init-method aan de instance, daarmee wordt het een _intance attribute_.
 

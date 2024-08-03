@@ -15,6 +15,8 @@ function hoverFunction(id) {
     let elem = document.getElementById(id);
     if (id.includes("1a")) {
         elem.classList.toggle('text_colour');
+    } else if (id.includes("1b")) {
+        elem.classList.toggle('highlight_hover');
     } else {
         elem.classList.toggle('highlight');
     }
