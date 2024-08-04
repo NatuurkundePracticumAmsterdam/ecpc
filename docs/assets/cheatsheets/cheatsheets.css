@@ -24,6 +24,8 @@ svg.dropdown_box:hover {
 
 div.invisible {
     opacity: 0;
+    height: 0;
+    visibility: hidden;
 }
 
 .cheatsheet {
