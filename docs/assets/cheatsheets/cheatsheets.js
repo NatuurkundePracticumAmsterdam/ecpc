@@ -17,8 +17,8 @@ cheatsheet_div.id = "cheatsheet_div";
 
 const img = document.createElement("img");
 img.src = "../assets/cheatsheets/placeholder.png";
-img.style.width = "40rem";
-img.style.left = "-20rem";
+img.style.width = "100%";
+// img.style.left = "-60rem";
 cheatsheet_div.appendChild(img);
 
 wrapper_div.appendChild(cheatsheet_div);

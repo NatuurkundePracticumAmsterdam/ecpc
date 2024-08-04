@@ -16,8 +16,8 @@ svg.dropdown_box:hover {
 
 .dropdown_wrapper {
     display: grid;
-    place-items: center;
-    width: 21.2rem;
+    place-items: end;
+    /* width: 21.2rem; */
     float: right;
 }
 
@@ -29,4 +29,6 @@ div.invisible {
 
 .cheatsheet {
     transition: 0.3s;
+    /* width: 36rem; */
+    box-sizing: inherit;
 }
