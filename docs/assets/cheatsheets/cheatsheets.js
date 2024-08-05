@@ -15,11 +15,13 @@ cheatsheet_div.classList.add("cheatsheet");
 cheatsheet_div.classList.add("invisible");
 cheatsheet_div.id = "cheatsheet_div";
 
-const img = document.createElement("img");
-img.src = "../assets/cheatsheets/placeholder.png";
-img.style.width = "100%";
-// img.style.left = "-60rem";
-cheatsheet_div.appendChild(img);
+// const img = document.createElement("img");
+// img.src = "../assets/cheatsheets/placeholder.png";
+// img.style.width = "100%";
+// // img.style.left = "-60rem";
+// cheatsheet_div.appendChild(img);
+
+cheatsheet_div.innerHTML = '<iframe width="100%" height="100%" id="myHtml" src="http://127.0.0.1:8000/cheatsheets/"></iframe>'
 
 wrapper_div.appendChild(cheatsheet_div);
 

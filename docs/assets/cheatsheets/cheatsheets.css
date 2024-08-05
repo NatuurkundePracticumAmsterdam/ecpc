@@ -19,6 +19,7 @@ svg.dropdown_box:hover {
     place-items: end;
     /* width: 21.2rem; */
     float: right;
+    width: 100%;
 }
 
 div.invisible {
@@ -29,6 +30,8 @@ div.invisible {
 
 .cheatsheet {
     transition: 0.3s;
-    /* width: 36rem; */
-    box-sizing: inherit;
+    width: 100%;
+    height: 20rem;
+    /* box-sizing: inherit; */
+    /* overflow-y: scroll; */
 }
