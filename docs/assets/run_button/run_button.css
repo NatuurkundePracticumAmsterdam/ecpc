@@ -17,6 +17,7 @@ svg.run {
     height: 15px; 
     vertical-align: middle;
     transition: 0.3s;
+    fill: black;
 }
 
 svg.run:hover {

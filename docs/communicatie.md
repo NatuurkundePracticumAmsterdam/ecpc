@@ -204,7 +204,7 @@ print(device.query("*IDN?"))
 Arduino VISA firmware v1.0.0</span>
 </code></pre> 
 
-<div class="code-box"><button type="button" name="test_arduino" onclick="runScript('test_arduino')" class="run">{{ run }}</button><button type="button" name="test_arduino" onclick="runScript('test_arduino')" class="reload invisible">{{ reload }}</button> <b>test.py</b>
+<div class="code-box"><button type="button" name="test_arduino" onclick="runScript('test_arduino')" class="run">{{ play }}</button><button type="button" name="test_arduino" onclick="runScript('test_arduino')" class="reload invisible">{{ reload }}</button> test.py
 ``` py
 import pyvisa
 
