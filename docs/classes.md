@@ -147,7 +147,7 @@ class Turtle:
 
 Als we de method `#!py do_kungfu_move` aanroepen met `#!py master_oogway.do_kungfu_move()` geeft python automatisch de instance `#!py master_oogway` mee aan de method. De parameter `#!py self` is dus nu gelijk aan de instance `#!py master_oogway`, daarmee is `#!py self.forward(130)` ook gelijk aan `#!py master_oogway.forward(130)`. 
 
---8<-- "docs/assets/comparison/compare_function_class_body_comparison.html"
+--8<-- "docs/assets/comparison/compare_function_class_body.html"
 
 ### Instance attribute
 De instance van een class bevat niet alleen alle methods, maar kan ook variabele hebben. In het voorbeeld hieronder voegen we de variabele `#!py quote` toe in de init-method aan de instance, daarmee wordt het een _intance attribute_.

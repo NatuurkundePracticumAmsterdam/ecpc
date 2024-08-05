@@ -1,8 +1,13 @@
-let end, start;
+var end, start;
 
 start = new Date();
 hoverbool = false;
-targetbool = false;
+var targetindex = 0;
+
+const target_list_function_class = ["function_keyword","function_name","function_args","function_instance","function_call","function_input"];
+const target_list_function_class_body = ["ext_instancemu4","ext_outputmu4"];
+
+const currentUrl = window.location.href;
 
 function hoverFunction(id) {
     if (id.includes("python")) {
@@ -35,14 +40,16 @@ function comparisonIdleAnimation() {
     }
     end = new Date();
     if (end.getTime() - start.getTime() >= 3000) {
-        if (targetbool) {
-            hoverFunction('ext_instancemu4');
-            setTimeout(hoverFunction, 1000, 'ext_instancemu4');
-            targetbool = !targetbool;
-        } else {
-            hoverFunction('ext_outputmu4');
-            setTimeout(hoverFunction, 1000, 'ext_outputmu4');
-            targetbool = !targetbool;
+        if (currentUrl.includes('classes')) {
+            hover_target = target_list_function_class[targetindex % 6];
+            hoverFunction(hover_target);
+            setTimeout(hoverFunction, 1000, hover_target);
+            
+            hover_target = target_list_function_class_body[targetindex % 2];
+            hoverFunction(hover_target);
+            setTimeout(hoverFunction, 1000, hover_target);
+
+            targetindex += 1;
         }
     }
 }
