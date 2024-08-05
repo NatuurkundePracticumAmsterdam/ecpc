@@ -13,7 +13,7 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
 ## F-strings, variabelen en input()
 
 !!! opdracht-basis "f-strings, variabelen en input"
-    1. Maak een bestand {{file}}`diameter.py` in de map {{folder}}`ECPC`.
+    1. Maak een bestand {{new_file}}`diameter.py` in de map {{folder}}`ECPC`.
     1. Schrijf een stuk code waarin je de gebruiker vraagt wat de diameter van de bal is. 
     1. Bereken de radius van de bal.
     1. Print de diameter en radius in een zin en maak gebruik van f-string. Bijvoorbeeld: "A ball with a diameter of 2.8 m has a radius of 1.4 m."

@@ -1,0 +1,40 @@
+<div class="container" style="overflow:hidden">
+<div style="width: 55%; float: left;">
+<pre>
+<code><span><span id="shell_pyvisa" class="comparison"><span onmouseover="hoverFunction('shell_pyvisa')" onmouseout="hoverFunction('shell_pyvisa')">PS> pyvisa-shell </span><span onmouseover="hoverFunction('shell_backend')" onmouseout="hoverFunction('shell_backend')"><span id="shell_backend" class="comparison">-b py</span></span><span onmouseover="hoverFunction('shell_pyvisa')" onmouseout="hoverFunction('shell_pyvisa')">
+
+Welcome to the VISA shell. Type help or ? to list commands.</span></span></span>
+
+<span onmouseover="hoverFunction('shell_list')" onmouseout="hoverFunction('shell_list')"><span id="shell_list" class="comparison">(visa) list</span></span>
+<span onmouseover="hoverFunction('shell_printlist')" onmouseout="hoverFunction('shell_printlist')"><span class="comparison" id="shell_printlist">( 0) ASRL3::INSTR
+( 1) ASRL5::INSTR
+( 2) ASRL28::INSTR</span></span>
+<span><span class="comparison" id="shell_open"><span class="comparison" id="shell_onlyopen"><span onmouseover="hoverFunction('shell_onlyopen')" onmouseout="hoverFunction('shell_onlyopen')">(visa) </span><span onmouseover="hoverFunction('shell_opencommand')" onmouseout="hoverFunction('shell_opencommand')"><span id="shell_opencommand" class="comparison">open</span></span> <span onmouseover="hoverFunction('shell_openname')" onmouseout="hoverFunction('shell_openname')"><span id="shell_openname" class="comparison">0</span></span>
+<span onmouseover="hoverFunction('shell_onlyopen')" onmouseout="hoverFunction('shell_onlyopen')">ASRL3::INSTR has been opened.
+You can talk to the device using "write", "read" or "query".
+The default end of message is added to each message.</span></span>
+<span><span class="comparison" id="shell_termchar"><span onmouseover="hoverFunction('shell_termchar')" onmouseout="hoverFunction('shell_termchar')">(open) termchar</span> <span onmouseover="hoverFunction('shell_CRLF')" onmouseout="hoverFunction('shell_CRLF')"><span class="comparison" id="shell_CRLF">CRLF</span></span> <span onmouseover="hoverFunction('shell_LF')" onmouseout="hoverFunction('shell_LF')"><span class="comparison" id="shell_LF">LF</span></span>
+<span onmouseover="hoverFunction('shell_termchar')" onmouseout="hoverFunction('shell_termchar')">Done</span></span></span></span></span>
+<span><span class="comparison" id="shell_idn"><span onmouseover="hoverFunction('shell_idn')" onmouseout="hoverFunction('shell_idn')">(open) </span><span onmouseover="hoverFunction('shell_query')" onmouseout="hoverFunction('shell_query')"><span id="shell_query" class="comparison">query</span></span> <span onmouseover="hoverFunction('shell_*IDN?')" onmouseout="hoverFunction('shell_*IDN?')"><span id="shell_*IDN?" class="comparison">*IDN?</span></span></span></span></span>
+<span onmouseover="hoverFunction('shell_printidn')" onmouseout="hoverFunction('shell_printidn')"><span class="comparison" id="shell_printidn">Response: Arduino VISA firmware v1.0.0</span></span>
+</code></pre>
+</div>
+
+<div style="width: 40%; float: right;">
+<pre>
+<code><span><span id="python_pyvisa" class="comparison"><span onmouseover="hoverFunction('python_pyvisa')" onmouseout="hoverFunction('python_pyvisa')"><span style="color: var(--md-code-hl-keyword-color);">import</span> <span style="color: var(--md-code-hl-function-color);">pyvisa</span>
+
+rm = pyvisa.ResourceManager(</span><span onmouseover="hoverFunction('python_backend')" onmouseout="hoverFunction('python_backend')"><span id="python_backend" class="comparison"><span style="color: var(--md-code-hl-string-color);">"@py"</span></span></span><span onmouseover="hoverFunction('python_pyvisa')" onmouseout="hoverFunction('python_pyvisa')">)</span></span>
+<span onmouseover="hoverFunction('python_list')" onmouseout="hoverFunction('python_list')"><span class="comparison" id="python_list">ports = rm.list_resources()</span></span>
+<span onmouseover="hoverFunction('python_printlist')" onmouseout="hoverFunction('python_printlist')"><span class="comparison" id="python_printlist"><span style="color: var(--md-code-hl-constant-color);">print</span>(ports)</span></span></span>
+
+<span><span class="comparison" id="python_open"><span onmouseover="hoverFunction('python_open')" onmouseout="hoverFunction('python_open')">device = </span><span><span id="python_onlyopen" class="comparison"><span onmouseover="hoverFunction('python_opencommand')" onmouseout="hoverFunction('python_opencommand')"><span id="python_opencommand" class="comparison">rm.open_resource</span></span>(
+    <span onmouseover="hoverFunction('python_openname')" onmouseout="hoverFunction('python_openname')"><span id="python_openname" class="comparison"><span style="color: var(--md-code-hl-string-color);">"ASRL3::INSTR"</span></span></span></span></span>, 
+    <span><span class="comparison" id="python_termchar"><span onmouseover="hoverFunction('python_termchar')" onmouseout="hoverFunction('python_termchar')">read_termination=</span><span onmouseover="hoverFunction('python_CRLF')" onmouseout="hoverFunction('python_CRLF')"><span class="comparison" id="python_CRLF"><span style="color: var(--md-code-hl-string-color);">"<span style="color: var(--md-code-hl-special-color);">\r\n</span>"</span></span></span><span onmouseover="hoverFunction('python_termchar')" onmouseout="hoverFunction('python_termchar')">, 
+    write_termination=</span><span onmouseover="hoverFunction('python_LF')" onmouseout="hoverFunction('python_LF')"><span class="comparison" id="python_LF"><span style="color: var(--md-code-hl-string-color);">"<span style="color: var(--md-code-hl-special-color);">\n</span>"</span></span></span></span></span>
+)</span></span>
+<span><span class="comparison" id="python_idn"><span onmouseover="hoverFunction('python_idn')" onmouseout="hoverFunction('python_idn')">identification = device.</span><span onmouseover="hoverFunction('python_query')" onmouseout="hoverFunction('python_query')"><span id="python_query" class="comparison">query</span></span>(<span onmouseover="hoverFunction('python_*IDN?')" onmouseout="hoverFunction('python_*IDN?')"><span id="python_*IDN?" class="comparison"><span style="color: var(--md-code-hl-string-color);">"*IDN?"</span></span></span><span onmouseover="hoverFunction('python_idn')" onmouseout="hoverFunction('python_idn')">)</span></span></span></span>
+<span onmouseover="hoverFunction('python_printidn')" onmouseout="hoverFunction('python_printidn')"><span class="comparison" id="python_printidn"><span style="color: var(--md-code-hl-constant-color);">print</span>(identification)</span></span></code></pre>
+</div>
+
+</div>
