@@ -77,7 +77,7 @@ nav:
       - kleurcodes.md
       - diodes.md
       - zonnecel.md
-      - cheatsheets.md
+      - cheatsheets/cheatsheets.md
   - faq.md
 
 extra:
