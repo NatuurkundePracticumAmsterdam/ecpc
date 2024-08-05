@@ -7,9 +7,9 @@
     {{folder}}`[projectnaam]`    
     {{T}} {{new_folder}}`src`    
     {{tab}} {{L}} {{new_folder}}`[projectnaam]`      
-    {{tab}} {{tab}} {{L}} {{new_file}}`\_\_init\_\_.py`      
+    {{tab}} {{tab}} {{L}} {{new_file}}`__init__.py`      
     {{T}} {{new_folder}}`tests`      
-    {{tab}} {{L}} {{new_file}}`\_\_init\_\_.py`      
+    {{tab}} {{L}} {{new_file}}`__init__.py`      
     {{L}} {{file_lines}}`pyproject.toml`    
 1. Installeer je poetry project met `poetry install`.
 1. Voeg je dependencies toe met `poetry add [dependency]`.
