@@ -18,14 +18,10 @@ function hoverFunction(id) {
     } else if (id.includes("ext")) {
         target_id = "int_" + id.split("_")[1];
     }
+
     let elem = document.getElementById(id);
-    if (id.includes("1a")) {
-        elem.classList.toggle('text_colour');
-    } else if (id.includes("1b") || id.includes("4")) {
-        elem.classList.toggle('highlight_hover');
-    } else {
-        elem.classList.toggle('highlight');
-    }
+    elem.classList.toggle('highlight_hover');
+    
     let target_elem = document.getElementById(target_id);
     target_elem.classList.toggle('highlight');
     
