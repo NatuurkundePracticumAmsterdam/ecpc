@@ -1,9 +1,10 @@
-.dropdown_box {
+.dropdown_icon {
     height: 1.2rem;
     transition: 0.3s;
+    fill: white;
 }
 
-svg.dropdown_box:hover {
+svg.dropdown_icon:hover {
     fill: yellow;
 }
 
