@@ -340,6 +340,7 @@ print(master_oogway.quote)
     === "check"
         **Checkpunten:**
 
+        - [ ] De code bevindt zich in een GitHub-repository.
         - [ ] De method `#!py add_measurment` verwacht een beginsnelheid in meter per seconde en een lanceerhoek in graden
         - [ ] De method `#!py get_initial_velocities` geeft een lijst terug met beginsnelheden van alle ingevoerde metingen.
         - [ ] De method `#!py get_launch_angles` geeft een lijst terug met alle lanceerhoeken van de ingevoerde metingen.
@@ -436,6 +437,7 @@ print(master_oogway.quote)
     === "check"
         **Checkpunten:**
 
+        - [ ] De code bevindt zich in een GitHub-repository.
         - [ ] De method `#!py add_measurment` verwacht een beginsnelheid in meter per seconde en een lanceerhoek in graden
         - [ ] De method `#!py get_initial_velocities` geeft een lijst terug met beginsnelheden van alle ingevoerde metingen.
         - [ ] De method `#!py get_launch_angles` geeft een lijst terug met alle lanceerhoeken van de ingevoerde metingen.
