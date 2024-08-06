@@ -13,7 +13,7 @@ const target_list_shell_script = ["shell_pyvisa","shell_backend","shell_list","s
 const currentUrl = window.location.href; // get url
 
 // compare two elements by highlighting them
-function hoverFunction(id) {
+function hoverFunction(id, trigger_bool=true) {
     // find target element from hovered element
     if (id.includes("python")) {
         target_id = "shell_" + id.split("_")[1];
@@ -38,7 +38,9 @@ function hoverFunction(id) {
     
     // reset idle animation timeout and disable animation on interaction
     start = new Date();
-    hoverbool = !hoverbool;
+    if (trigger_bool) {
+        hoverbool = !hoverbool;
+    }
 }
 
 function comparisonIdleAnimation() {
@@ -49,7 +51,7 @@ function comparisonIdleAnimation() {
 
     // check if 2 s have passed since previous highlight to start new animation
     end = new Date();
-    if (end.getTime() - start.getTime() >= 2000) {
+    if (end.getTime() - start.getTime() >= 1000) {
         if (currentUrl.includes('classes')) {
             // highlight next compared elements in list for 2 s
             hover_target = target_list_function_class[targetindex % 6];
@@ -57,8 +59,8 @@ function comparisonIdleAnimation() {
             setTimeout(hoverFunction, 2000, hover_target);
             
             hover_target = target_list_function_class_body[targetindex % 2];
-            hoverFunction(hover_target);
-            setTimeout(hoverFunction, 2000, hover_target);
+            hoverFunction(hover_target, false);
+            setTimeout(hoverFunction, 2000, hover_target, false);
 
             targetindex += 1;
         } else if (currentUrl.includes('communicatie')) {
