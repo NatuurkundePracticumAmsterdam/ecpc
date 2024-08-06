@@ -154,7 +154,6 @@ python hello.py --help
         - [ ] Test hello
         - [ ] Helptekst toevoegen
         - [ ] Pauze optie
-        - [ ] Argumenten en opties
 
 
 !!! warning
@@ -219,7 +218,6 @@ if __name__ == "__main__":
         - [x] Test hello
         - [ ] Helptekst toevoegen
         - [ ] Pauze optie
-        - [ ] Argumenten en opties
 
 
 
@@ -315,7 +313,6 @@ Hello Alice!
         - [x] Test hello
         - [x] Helptekst toevoegen
         - [x] Pauze optie
-        - [ ] Argumenten en opties
 
 
 Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
