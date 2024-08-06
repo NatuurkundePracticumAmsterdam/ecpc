@@ -125,6 +125,37 @@ python hello.py --help
     1. Draai {{file}}`hello.py` nu met een argument: `python hello.py Alice`.
     
 
+!!! opdracht-basis "Argument toevoegen"
+    === "opdracht"
+        We passen {{file}}`hello.py` aan zodat we een naam als argument mee kunnen geven.
+    === "code"
+        In de code hieronder geven we met de regel `#!py @click.argument("name")` aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie `hello`:
+        ``` py title="hello.py" hl_lines="4 6"
+        import click
+        
+        @click.command()
+        @click.argument("name")
+        def hello(name):
+            print(f"Hello {name}!")
+        
+        if __name__ == "__main__":
+            hello()
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Het draaien van {{file}}`hello.py` zonder een argument `python hello.py` geeft een foutmelding.
+        - [ ] Het draaien van {{file}}`hello.py` met een argument `python hello.py Alice` werkt zoals verwacht.
+
+        **Projecttraject:**
+
+        - [x] Help functie
+        - [x] Argumenten toevoegen
+        - [ ] Test hello
+        - [ ] Helptekst toevoegen
+        - [ ] Pauze optie
+        - [ ] Argumenten en opties
+
 
 !!! warning
     Let er op dat je bij `#!py @click.argument` de naam meegeeft die overeen komt met de namen van de parameters van je functie. In ons geval hebben we een argument `#!py "name"`. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name)`.
