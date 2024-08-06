@@ -163,6 +163,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
         - [ ] Plot stroomsterke tegen spanning
         - [ ] Vergelijk met resultaat van iemand anders
         - [ ] Meting is fysisch correct
+        - [ ] LED wordt uitgezet na de meting
 
         **Projecttraject:**
 
@@ -275,7 +276,7 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
         **Checkpunten:**
 
         - [ ] CSV-bestand bevat alle metingen
-        - [ ] waardes in CSV-bestand komen overeen met verwachting
+        - [ ] Waardes in CSV-bestand komen overeen met verwachting
 
         **Projecttraject:**
 
