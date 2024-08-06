@@ -334,6 +334,34 @@ Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
         1. Pas de applicatie aan zodat je kan kiezen tussen het kwadraat of de wortel van het getal. 
 
     
+!!! opdracht-basis "Argumenten en opties"
+    === "opdracht"
+        Bij [opdracht _Commando testen_](poetry.md#opd:Poetry_commando) heb je een applicatie gemaakt om het kwadraat van een getal te printen. In deze opdracht gaan we het script uitbreiden om het getal als argument of optie mee te geven op de command line. Voer de volgende stappen uit:
+
+        1. Maak een schone environment aan en installeer de applicatie (doet alles het nog?)
+        1. Voeg click toe en pas het script aan zodat je het getal zelf kan kiezen.[^arg-type] Wanneer kies je in het script voor een optie en wanneer voor een argument?
+        1. Test de applicatie.
+        1. Maak de applicatie compleet met helpteksten en default waardes.
+
+        ???+ opdracht-meer "Meer functies"
+            1. Pas de applicatie aan zodat je kan kiezen tussen het kwadraat of de wortel van het getal. 
+    === "code"
+        ``` py title="count_count.py" hl_lines="3"
+        import square
+
+        # click code
+        def main():
+            print(f"The square of 5 is {square.square(5)}")
+
+        if __name__ == '__main__':
+            main()
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Je kan zelf het getal kiezen met het commando en krijgt het verwachte antwoord terug
+        - [ ] Bij het aanroepen van `count --help` krijg je duidelijke helpteksten en default waardes te zien waarmee je het programma kan begrijpen
+
     
 [^arg-type]: Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieerd. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden
 
