@@ -333,17 +333,15 @@ y = np.sin(x)
 
 Kortom: _berekeningen_ met arrays zijn sneller, maar for-loops (en list comprehensions) zijn veelzijdiger. Het is zelfs mogelijk om een `#!py if`-statement op te nemen in je list comprehension. Bijvoorbeeld:
 
-<button type="button" name = "pdf" onclick="runScript('pdf')" class = "run">{{ run }}</button><button type="button" name = "pdf" onclick="runScript('pdf')" class = "reload invisible">{{ arrow_rotate }}</button> <b>pdf.py</b>
+<div class="code-box"><button type="button" name = "pdf" onclick="runScript('pdf')" class = "run">{{ run }}</button><button type="button" name = "pdf" onclick="runScript('pdf')" class = "reload invisible">{{ reload }}</button> pdf.py
 ``` py
 filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
 pdfs = [name for name in filenames if name.endswith(".pdf")]
 print(f"{pdfs=}")
 ```
-<pre>
-<code>(ecpc) > python.exe pdf.py
+<pre><code>(ecpc) > python.exe pdf.py
 <span class = "invisible" name="pdf">pdfs=['text.pdf', 'manual.pdf']</span>
-</code>
-</pre>
+</code></pre></div>
 
 In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_[^{}] en _dict comprehensions_.
 
