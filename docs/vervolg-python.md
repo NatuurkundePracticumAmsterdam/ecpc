@@ -339,7 +339,7 @@ filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
 pdfs = [name for name in filenames if name.endswith(".pdf")]
 print(f"{pdfs=}")
 ```
-<pre><code>(ecpc) > python.exe pdf.py
+<pre><code>(ecpc) > python pdf.py
 <span class = "invisible" name="pdf">pdfs=['text.pdf', 'manual.pdf']</span>
 </code></pre></div>
 

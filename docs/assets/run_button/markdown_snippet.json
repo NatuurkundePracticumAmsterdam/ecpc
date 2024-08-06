@@ -7,7 +7,7 @@
 			"${2:python code}",
 			"```",
 			"<pre>",
-			"<code>(ecpc) > python.exe $1.py",
+			"<code>(ecpc) > python $1.py",
 			"<span class=\"invisible\" name=\"$1_$4\">${3:output}</span>",
 			"</code></pre></div>",
 			"$0"
