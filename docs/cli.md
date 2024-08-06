@@ -186,6 +186,43 @@ if __name__ == "__main__":
     Neem bovenstaande pythoncode over en test {{file}}`hello.py`. Kun je 5 keer een begroeting printen met de naam van je assistent?
 
 
+!!! opdracht-basis "Test hello"
+    === "opdracht"
+        We passen {{file}}`hello.py` aan zodat we de begroeting meerdere malen kunnen printen.
+    === "code"
+        ``` py title="hello.py" hl_lines="5-9 11"
+        import click
+
+        @click.command()
+        @click.argument("name")
+        @click.option(
+            "-c",
+            "--count",
+            default=1,
+        )
+        def hello(name, count):
+            for _ in range(count):
+                print(f"Hello {name}!")
+
+        if __name__ == "__main__":
+            hello()
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Je kan de naam van je assistent 5 keer printen met één commando
+
+        **Projecttraject:**
+
+        - [x] Help functie
+        - [x] Argumenten toevoegen
+        - [x] Test hello
+        - [ ] Helptekst toevoegen
+        - [ ] Pauze optie
+        - [ ] Argumenten en opties
+
+
+
 !!! warning
     Let er op dat je bij `#!py @click.option` de afkorting met 1 minteken meegeeft en de lange naam met 2 mintekens. De lange naam moet overeenkomen met de paramater van je functie. In ons geval hebben we een optie `#!py "--count"` &mdash; de lange naam telt. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name, count)`.
 
