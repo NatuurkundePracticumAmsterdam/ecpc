@@ -3,5 +3,9 @@ span.comparison {
 }
 
 span.highlight {
+    background-color: orange;
+}
+
+span.highlight_hover {
     background-color: yellow;
 }
