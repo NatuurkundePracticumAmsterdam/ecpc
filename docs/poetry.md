@@ -180,7 +180,7 @@ We starten met onze package. Stel, we berekenen vaak de standaarddeviatie van he
         
         
         def stdev_of_mean(values):
-            # Calculate the standard deviation of the mean
+            """Calculate the standard deviation of the mean"""
             return np.std(values) / np.sqrt(len(values))    
         ```
         Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee en dat gaan we *straks* ook doen.
