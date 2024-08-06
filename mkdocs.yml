@@ -71,6 +71,7 @@ nav:
   - basisscript.md
   - classes.md
   - mvc.md
+  - docstrings.md
   - poetry.md
   - cli.md
   - gui.md
