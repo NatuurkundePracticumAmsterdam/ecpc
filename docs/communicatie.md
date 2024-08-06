@@ -199,7 +199,7 @@ device = rm.open_resource(
 print(device.query("*IDN?"))
 ```
 <pre>
-<code>(ecpc) > python.exe test.py
+<code>(ecpc) > python test.py
 <span class="invisible" name="test_arduino">('ASRL3::INSTR',)
 Arduino VISA firmware v1.0.0</span>
 </code></pre></div>

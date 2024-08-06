@@ -203,8 +203,8 @@ In de eerste regel van {{file}}`test_shortcuts.py` importeren we de functie uit 
     Run {{file}}`tests/try_shortcuts.py` en kijk of het script het doet (dat zal wel niet).
 
 Als we het script runnen, krijgen we een foutmelding:
-<pre><code>(ecpc) > python.exe try_shortcuts.py <button type="button" name="python.exe try_shortcuts.py" onclick="runScript('python.exe try_shortcuts.py')">{{ enter }}</button><button type="button" name="python.exe try_shortcuts.py" onclick="runScript('python.exe try_shortcuts.py')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="python.exe try_shortcuts.py">ModuleNotFoundError: No module named 'easystat'</span>
+<pre><code>(ecpc) > python try_shortcuts.py <button type="button" name="python try_shortcuts.py" onclick="runScript('python try_shortcuts.py')">{{ enter }}</button><button type="button" name="python try_shortcuts.py" onclick="runScript('python try_shortcuts.py')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python try_shortcuts.py">ModuleNotFoundError: No module named 'easystat'</span>
 </code></pre>
 
 Dit konden we verwachten. We hebben onze package immers nog niet geïnstalleerd. Als we onze package gaan delen met andere mensen verwachten wij dat zij onze package ook gaan installeren, door dezelfde stappen te doorlopen als andere gebruikers komen we erachter of alles wel goed werkt.
