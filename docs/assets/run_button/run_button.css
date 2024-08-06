@@ -1,5 +1,5 @@
 .code-box {
-    border: 1px solid #f2f2f2;
+    border: 1px solid #efefef;
     padding: 10px 10px 0px 10px;
     border-radius: 5px;
 }
@@ -17,11 +17,10 @@ svg.run {
     height: 15px; 
     vertical-align: middle;
     transition: 0.3s;
-    fill: black;
 }
 
 svg.run:hover {
-    fill: green;
+    stroke: green;
 }
 
 svg.enter {
