@@ -48,16 +48,16 @@ function comparisonIdleAnimation() {
 
     // check if 3 s have passed since previous highlight to start new animation
     end = new Date();
-    if (end.getTime() - start.getTime() >= 3000) {
+    if (end.getTime() - start.getTime() >= 2000) {
         if (currentUrl.includes('classes')) {
             // highlight next compared elements in list for 1 s
             hover_target = target_list_function_class[targetindex % 6];
             hoverFunction(hover_target);
-            setTimeout(hoverFunction, 1000, hover_target);
+            setTimeout(hoverFunction, 2000, hover_target);
             
             hover_target = target_list_function_class_body[targetindex % 2];
             hoverFunction(hover_target);
-            setTimeout(hoverFunction, 1000, hover_target);
+            setTimeout(hoverFunction, 2000, hover_target);
 
             targetindex += 1;
         }
