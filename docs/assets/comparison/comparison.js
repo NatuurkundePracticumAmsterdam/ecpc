@@ -9,7 +9,7 @@ var targetindex = 0; // index for idle animation
 const target_list_function_class = ["function_keyword","function_name","function_args","function_instance","function_call","function_input"];
 const target_list_function_class_body = ["ext_instancemu4","ext_outputmu4"];
 
-const currentUrl = window.location.href; // get url
+var currentUrl = window.location.href; // get url
 
 // compare two elements by highlighting them
 function hoverFunction(id) {

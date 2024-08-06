@@ -4,7 +4,7 @@ function showCheatsheet() {
     elem.classList.toggle("invisible");
 }
 
-const currentUrl = window.location.href; // get url
+var currentUrl = window.location.href; // get url
 
 if (currentUrl.includes("cheatsheets")) {
     // remove header if cheatsheet page is viewed
