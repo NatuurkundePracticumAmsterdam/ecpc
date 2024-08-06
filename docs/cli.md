@@ -279,6 +279,45 @@ Hello Alice!
 !!! opdracht-basis "Pauze optie"
     Breid het bovenstaande script `hello.py` uit met een optie om een korte pauze in te lassen na het printen van ieder `#!py print()`-statement. Een pauze kun je inlassen met `#!py time.sleep()`. Zorg er voor dat er zonder die optie géén pauze is en dat je met de optie kunt kiezen hoe lang er gewacht moet worden.
 
+!!! opdracht-basis "Pauze optie"
+    === "opdracht"
+        Breid het bovenstaande script `hello.py` uit met een optie om een korte pauze in te lassen na het printen van ieder `#!py print()`-statement. Een pauze kun je inlassen met `#!py time.sleep()`.
+    === "code"
+        ``` py title="hello.py" hl_lines="10 14"
+        import click
+
+        @click.command()
+        @click.argument("name")
+        @click.option(
+            "-c",
+            "--count",
+            default=1,
+        )
+        # optie om pauze toe te voegen
+        def hello(name, count):
+            for _ in range(count):
+                print(f"Hello {name}!")
+                # pauze inlassen
+
+        if __name__ == "__main__":
+            hello()
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Als de pauze optie niet wordt meegegeven, dan wordt er géén pauze ingelast
+        - [ ] Bij het meegeven van de pauze optie, wacht het programma zo lang als verwacht
+
+        **Projecttraject:**
+
+        - [x] Help functie
+        - [x] Argumenten toevoegen
+        - [x] Test hello
+        - [x] Helptekst toevoegen
+        - [x] Pauze optie
+        - [ ] Argumenten en opties
+
+
 Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
 [^flag]: Zie voor meer informatie over flags de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
 
