@@ -8,6 +8,7 @@ var targetindex = 0; // index for idle animation
 // targets for idle animation
 const target_list_function_class = ["function_keyword","function_name","function_args","function_instance","function_call","function_input"];
 const target_list_function_class_body = ["ext_instancemu4","ext_outputmu4"];
+const target_list_shell_script = ["shell_pyvisa","shell_backend","shell_list","shell_printlist","shell_open","shell_onlyopen","shell_opencommand","shell_openname","shell_termchar","shell_CRLF","shell_LF","shell_idn","shell_query","shell_*IDN?","shell_printidn"];
 
 const currentUrl = window.location.href; // get url
 
@@ -46,16 +47,23 @@ function comparisonIdleAnimation() {
         start = new Date(); 
     }
 
-    // check if 3 s have passed since previous highlight to start new animation
+    // check if 2 s have passed since previous highlight to start new animation
     end = new Date();
     if (end.getTime() - start.getTime() >= 2000) {
         if (currentUrl.includes('classes')) {
-            // highlight next compared elements in list for 1 s
+            // highlight next compared elements in list for 2 s
             hover_target = target_list_function_class[targetindex % 6];
             hoverFunction(hover_target);
             setTimeout(hoverFunction, 2000, hover_target);
             
             hover_target = target_list_function_class_body[targetindex % 2];
+            hoverFunction(hover_target);
+            setTimeout(hoverFunction, 2000, hover_target);
+
+            targetindex += 1;
+        } else if (currentUrl.includes('communicatie')) {
+            // highlight next compared elements in list for 2 s
+            hover_target = target_list_shell_script[targetindex % 15];
             hoverFunction(hover_target);
             setTimeout(hoverFunction, 2000, hover_target);
 
