@@ -2,7 +2,7 @@
 	"Run python in terminal": {
 		"prefix": "run",
 		"body": [
-			"<div class=\"code-box\"><button type=\"button\" name=\"${1:filename}_${4:suffix}\" onclick=\"runScript('$1_$4')\" class=\"run\">{{ run }}</button><button type=\"button\" name=\"$1_$4\" onclick=\"runScript('$1_$4')\" class=\"reload invisible\">{{ reload }}</button> <b>$1.py</b>",
+			"<div class=\"code-box\"><button type=\"button\" name=\"${1:filename}_${4:suffix}\" onclick=\"runScript('$1_$4')\" class=\"run\">{{ run }}</button><button type=\"button\" name=\"$1_$4\" onclick=\"runScript('$1_$4')\" class=\"reload invisible\">{{ reload }}</button> $1.py",
 			"``` py",
 			"${2:python code}",
 			"```",
