@@ -565,3 +565,6 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
 
 
 Wat een feest! Je hebt nu een applicatie geschreven die een Arduino aanstuurt om een ledje te laten branden. En je kunt je applicatie gewoon vanuit de terminal aanroepen!
+
+<!-- <iframe width="100%" height="100%" src="../../docs/assets/flashcard_highlighter/66b3496f4cd132a61cdf8222.html"></iframe> -->
+<iframe src="poetry_flashcards.html" width="50%" height="400px" frameborder="0" allowfullscreen="allowfullscreen" lang="en" scrolling="no"></iframe>
