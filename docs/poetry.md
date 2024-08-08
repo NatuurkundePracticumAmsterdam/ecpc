@@ -568,3 +568,20 @@ Wat een feest! Je hebt nu een applicatie geschreven die een Arduino aanstuurt om
 
 <!-- <iframe width="100%" height="100%" src="../../docs/assets/flashcard_highlighter/66b3496f4cd132a61cdf8222.html"></iframe> -->
 <iframe src="poetry_flashcards.html" width="50%" height="400px" frameborder="0" allowfullscreen="allowfullscreen" lang="en" scrolling="no"></iframe>
+
+<iframe src="http://localhost/h5p/embed.php?url=http%3A%2F%2Flocalhost%2Fpluginfile.php%2F17%2Fmod_h5pactivity%2Fpackage%2F0%2Fhighlighterlumi.h5p&amp;component=mod_h5pactivity" width="50%" height="400px" frameborder="0" allowfullscreen="allowfullscreen" lang="en" scrolling="no"></iframe>
+
+<!-- <div class="d-flex justify-content-end mb-3">
+</div>
+
+<iframe
+    src="http://localhost/h5p/embed.php?url=http%3A%2F%2Flocalhost%2Fpluginfile.php%2F17%2Fmod_h5pactivity%2Fpackage%2F0%2Fhighlighterlumi.h5p&amp;component=mod_h5pactivity"
+    name="h5player"
+    width="1776"
+    height="275"
+    allowfullscreen="allowfullscreen"
+    class="h5p-player w-100 border-0"
+    style="height: 0px;"
+    id="66b4ca0fb584766b4ca0fb58481-h5player"
+></iframe><script src="http://localhost/h5p/h5plib/v126/joubel/core/js/h5p-resizer.js"></script> -->
+<!-- <script src="http://localhost/h5p/h5plib/v126/joubel/core/js/h5p-resizer.js"></script> -->
