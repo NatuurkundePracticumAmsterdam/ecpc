@@ -1,7 +1,6 @@
 .flashcards_container {
     overflow: hidden;
     position: relative;
-    height: 375px;
 }
 
 .flashcard_element {
