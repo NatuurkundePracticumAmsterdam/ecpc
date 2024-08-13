@@ -1,0 +1,10 @@
+.flashcards_container {
+    overflow: hidden;
+    position: relative;
+    height: 500px;
+}
+
+.flashcard_element {
+    float:right;
+    padding-top: 16px;
+}

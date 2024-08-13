@@ -60,6 +60,7 @@ extra_css:
   - assets/ADC_slider/ADC_slider.css
   - assets/run_button/run_button.css
   - assets/cheatsheets/cheatsheets.css
+  - assets/flashcards/flashcards.css
 
 nav:
   - index.md
