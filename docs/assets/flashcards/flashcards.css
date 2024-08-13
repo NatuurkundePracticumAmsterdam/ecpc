@@ -1,10 +1,15 @@
 .flashcards_container {
     overflow: hidden;
     position: relative;
-    height: 500px;
+    height: 375px;
 }
 
 .flashcard_element {
-    float:right;
     padding-top: 16px;
+}
+
+.texteditor_container {
+    overflow-y: scroll; 
+    height: 375px; 
+    padding-left: 5%;
 }

@@ -570,7 +570,7 @@ Wat een feest! Je hebt nu een applicatie geschreven die een Arduino aanstuurt om
 <div class="flashcards_container">
 <iframe src="poetry_flashcards.html" width="47.5%" height="375px" frameborder="0" allowfullscreen="allowfullscreen" lang="en" scrolling="no" style="float:left;"></iframe>
 
-<iframe src="http://localhost/h5p/embed.php?url=http%3A%2F%2Flocalhost%2Fpluginfile.php%2F17%2Fmod_h5pactivity%2Fpackage%2F0%2Fhighlighterlumi.h5p&amp;component=mod_h5pactivity" width="47.5%" height="500px" frameborder="0" allowfullscreen="allowfullscreen" lang="en" scrolling="no" style="float:right" class="flashcard_element"></iframe>
+<div class="texteditor_container"><iframe src="http://localhost/h5p/embed.php?url=http%3A%2F%2Flocalhost%2Fpluginfile.php%2F17%2Fmod_h5pactivity%2Fpackage%2F0%2Fhighlighterlumi.h5p&amp;component=mod_h5pactivity" height="500px" width="100%" frameborder="0" allowfullscreen="allowfullscreen" lang="en" scrolling="no" class="flashcard_element"></iframe></div>
 </div>
 
 <!-- <div class="d-flex justify-content-end mb-3">
