@@ -77,6 +77,8 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
         **Projecttraject:**
 
         - [x] Schakeling bouwen
+        - [ ] Pyvisa in terminal
+        - [ ] Pyvisa `list` en `open`
 
 In de figuur hierboven is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld met een LED en een weerstand van 220 &Omega;. In een breadboard zijn in iedere rij alle kolommen A t/m E met elkaar verbonden (zo ook kolommen F t/m J). Draadjes die naast elkaar zijn geprikt zijn dus met elkaar verbonden. Zo zie je in de figuur &mdash; als je inzoomt &mdash; dat het rode draadje een verbinding maakt tussen pin A0 van de Arduino en de bovenste pin van de LED. De onderste pin van de LED is verbonden met de weerstand. De kleurcodes voor weerstanden vind je in de [appendix](kleurcodes.md). De kleur van de draden is niet belangrijk. Kies altijd draden met een handige lengte. De platte zijde in de ring van de LED wordt richting aarde geschakeld. De Arduino kan met deze schakeling een variabele spanning aanbrengen over de LED met weerstand, en de spanning meten over alleen de weerstand. 
 
@@ -129,15 +131,101 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
         
     Sluit de shell af met een van de commando's. Vraag de helptekst op van de commando's om erachter te komen welke commando de visa shell afsluit. 
     
+!!! opdracht-basis "Pyvisa in terminal"
+    === "opdracht"
+        Je sluit de Arduino met een USB-kabel aan op de computer. In een `Anaconda Prompt` open je het goede conda environment en open je een `pyvisa-shell` met een python _backend_. Om erachter te komen hoe de `pyvisa-shell` werkt type je het commando `help`. Je ziet een reeks aan commando's en bekijkt de helptekst van de commando's waarmee je denkt de `pyvisa-shell` te kunnen afsluiten. Wanneer je het afsluit commando hebt gevonden sluit je daarmee de `pyvisa-shell` af. 
+    === "code"
+        **Pseudo-code**
+        ``` ps1 title="Terminal"
+        # open pyvisa-shell
+        # pyvisa-hell help
+        # commando help
+        # close pyvis-shell
 
+        ```
+        **Testcode**
+        <pre><code>(ecpc) > pyvisa-shell -b py <button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')">{{ enter }}</button><button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="pyvisa-shell">
+        Welcome to the VISA shell. Type help or ? to list commands.    
+        (visa)
+        </span>
+        </code></pre>
+
+        <pre><code>(visa) > help <button type="button" name="help" onclick="runScript('help')">{{ enter }}</button><button type="button" name="help" onclick="runScript('help')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="help">
+        Documented commands (type help `<topic>`):
+        ========================================
+        EOF  attr  close  exit  help  list  open  query  read  termchar  timeout  write
+        </span>
+        </code></pre>
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Na het openen van een `pyvisa-shell` staat er (visa) tussen haakjes.
+        - [ ] Als je `help` intypt verschijnt een heel rijtje met commando's.
+        - [ ] Als je `help EOF` intypt krijg je de hulpvaardige tekst (ahum): `Handle an EOF.`
+        - [ ] Als je de pyvisa-shell met een commando afsluit staat de naam van het conda environment weer tussen haakjes (en niet visa).
+       
+
+        **Projecttraject:**
+
+        - [x] Schakeling bouwen
+        - [ ] Pyvisa in terminal
+        - [ ] Pyvisa `list` en `open`
 
 !!! info
     We maken hier gebruik van de optie `-b py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er, naast `pyvisa-py`, ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. Maar de verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle types apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
 
 
-!!! opdracht-basis "Pyvisa `list`, `open` en `query`"
+!!! opdracht-basis "Pyvisa `list` en `open`"
 
     Om verbinding te maken met onze Arduino gebruik je eerst `list` om te kijken welke apparaten aangesloten zijn en vervolgens `open` om de verbinding te openen. Je kunt makkelijk zien welk apparaat de Arduino is door éérst `list` te gebruiken zónder de Arduino aangesloten en vervolgens nog een keer mét de Arduino aangesloten &mdash; het kan een paar seconden duren voor de Arduino wordt herkend. Het laatst bijgekomen apparaat is dan de Arduino. 
+
+!!! opdracht-basis "Pyvisa `list` en `open`"
+    === "opdracht"
+        Je bekijkt het lijstje met aangesloten aparaten door in de `pyvisa-shell` het commando `list` te typen. Je haalt de USB-kabel waarmee de Arduino aan de computer is aangesloten uit de computer en vraagt nogmaals de lijt met aangesloten aparaten op. Nu weet je welke poort de Arduino is. Je bekijkt de help tekst van het commando `open`, daarna open je de communicatie met de Arduino.
+
+
+    === "code"
+        **Pseudo-code**
+        ``` ps1 title="Terminal"
+        # open pyvisa-shell
+        # list
+        # help open
+        # open Arduino
+
+        ```
+        **Testcode**
+        <pre><code>(visa) > list <button type="button" name="list" onclick="runScript('list')">{{ enter }}</button><button type="button" name="list" onclick="runScript('list')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="list">( 0) ASRL3::INSTR
+        ( 1) ASRL5::INSTR
+        ( 2) ASRL28::INSTR</span>
+        </code></pre>
+
+        <pre><code>(visa) > help open <button type="button" name="help open" onclick="runScript('help open')">{{ enter }}</button><button type="button" name="help open" onclick="runScript('help open')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="help open">Open resource by number, resource name or alias: open 3</span>
+        </code></pre>
+        
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Na het commando `list` verschijnt er een lijst met een of meerdere apparaten.
+        - [ ] Als de Arduino niet op de computer is aangesloten is er een apparaat uit het lijstje verdwenen. 
+        - [ ] Als je de Arduino opent verschijnt de tekst: 
+        
+        ``` consolecode
+        ASRL?::INSTR has been opened.
+        You can talk to the device using "write", "read" or "query".
+        The default end of message is added to each message.
+        ```
+       
+
+        **Projecttraject:**
+
+        - [x] Schakeling bouwen
+        - [x] Pyvisa in terminal
+        - [x] Pyvisa `list` en `open`
 
 
 
@@ -150,7 +238,6 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
 ASRL28::INSTR has been opened.
 You can talk to the device using "write", "read" or "query".
 The default end of message is added to each message.
-
 ```
 
 !!! opdracht-basis "Pyvisa `query`"
