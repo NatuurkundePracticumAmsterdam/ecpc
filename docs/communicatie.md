@@ -109,7 +109,10 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
 
 !!! opdracht-basis "Pyvisa `list`, `open` en `query`"
 
-    Om verbinding te maken met onze Arduino gebruik je eerst `list` om te kijken welke apparaten aangesloten zijn en vervolgens `open` om de verbinding te openen. Je kunt makkelijk zien welk apparaat de Arduino is door éérst `list` te gebruiken zónder de Arduino aangesloten en vervolgens nog een keer mét de Arduino aangesloten &mdash; het kan een paar seconden duren voor de Arduino wordt herkend. Het laatst bijgekomen apparaat is dan de Arduino. Een commando sturen en wachten op een antwoord doe je met `query`. Als we de identificatiestring willen uitlezen wordt dit bijvoorbeeld:
+    Om verbinding te maken met onze Arduino gebruik je eerst `list` om te kijken welke apparaten aangesloten zijn en vervolgens `open` om de verbinding te openen. Je kunt makkelijk zien welk apparaat de Arduino is door éérst `list` te gebruiken zónder de Arduino aangesloten en vervolgens nog een keer mét de Arduino aangesloten &mdash; het kan een paar seconden duren voor de Arduino wordt herkend. Het laatst bijgekomen apparaat is dan de Arduino. 
+
+
+
 ``` consolecode
 (visa) list
 ( 0) ASRL3::INSTR
@@ -119,14 +122,18 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
 ASRL28::INSTR has been opened.
 You can talk to the device using "write", "read" or "query".
 The default end of message is added to each message.
-(open) query *IDN?
-Response: ERROR: UNKNOWN COMMAND *IDN?
 
-(open) exit
 ```
 
-!!! opdracht-basis "Pyvisa error"
-    Probeer zelf ook de commando's `list`, `open`, en de `query` uit. Krijg je hetzelfde resultaat?
+!!! opdracht-basis "Pyvisa `query`"
+    Een commando sturen en wachten op een antwoord doe je met `query`. Kijk in de [documentatie van de firmware](firmware.md) met welk commando je de identificatiestring kunt uitlezen. Welke error krijg je als je dit commando naar de Arduino stuurt?
+
+    ```
+    (open) query *IDN?
+    Response: ERROR: UNKNOWN COMMAND *IDN?
+
+    (open) exit
+    ```
 
 Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de [documentatie van de firmware](firmware.md) dan zie je dat er bepaalde _terminator characters_ nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een <q>enter</q> aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een _carriage return_ (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een _line feed_ (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van _carriage return + line feed_ (CRLF). 
 
@@ -139,28 +146,29 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
 
 [^regeleindes]: De regeleindes voor de Arduinofirmware zijn verschillend voor lezen en schrijven. Dit heeft een oninteressante reden: bij het ontvangen van commando's is het makkelijk om alles te lezen totdat je één bepaald karakter (LF) tegenkomt. Bij het schrijven gebruikt de standaard `println`-functie een Windows-stijl regeleinde (CRLF).
 
-``` consolecode
-(open) termchar
-Termchar read: None write: CRLF
-(open) termchar CRLF LF
-Done
-(open) termchar
-Termchar read: CRLF write: LF
-(open) query *IDN?
-Response: Arduino VISA firmware v1.0.0
-```
-Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het eind van de <q>zin</q>) krijgen we antwoord! Dat antwoord heeft dan juist weer een CRLF aan het eind dus `pyvisa-shell` weet wanneer het kan stoppen met luisteren en print het antwoord op het scherm. De karakters CRLF en LF _zelf_ blijven onzichtbaar voor ons.
 
 !!! opdracht-basis "Pyvisa regeleindes"
-    Stel zelf ook de regeleindes goed in en probeer of je antwoord krijgt van de Arduino. Heeft jouw Arduino de nieuwste firmware?
-    Speel eens met de commando's en kijk of je de LED kunt laten branden of een spanning kunt meten. Bijvoorbeeld:
-    ``` consolecode
-    (open) query OUT:CH0 768
-    Response: 768
-    (open) query MEAS:CH2?
-    Response: 209
-    ```
+    Om de _terminator characters_ in te stellen maken we gebruik van het commando `termchar`. Open de Arduino. Gebruik `help termchar` om uit te zoeken hoe je de terminator character instellingen kunt opvragen en kunt aanpassen. Zet dan read op CRLF en de write op LF. 
 
+    ??? uitwerkingen
+        ``` consolecode
+        (open) termchar
+        Termchar read: None write: CRLF
+        (open) termchar CRLF LF
+        Done
+        (open) termchar
+        Termchar read: CRLF write: LF
+        (open) query *IDN?
+        Response: Arduino VISA firmware v1.0.0
+        ```
+
+
+
+!!! info "Onzichtbare regeleindes"
+    Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het eind van de <q>zin</q>) krijgen we antwoord! Dat antwoord heeft dan juist weer een CRLF aan het eind dus `pyvisa-shell` weet wanneer het kan stoppen met luisteren en print het antwoord op het scherm. De karakters CRLF en LF _zelf_ blijven onzichtbaar voor ons.
+
+!!! opdracht-basis "Pyvisa LED laten branden"
+    Kijk in de [documentatie van de firmware](firmware.md) hoe je een spanning op het uitvoerkanaal kan zetten en zet de spanning hoog genoeg zodat het LED gaat branden. 
     * Wat is de _minimale waarde_ waarbij de LED _net_ licht geeft? 
     * Laat de spanning steeds verder oplopen; op een gegeven moment gebeurt er iets raars. 
     * Wat is de _maximale waarde_ waarbij de LED zonder problemen kan branden?
