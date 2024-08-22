@@ -62,7 +62,7 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
 
 <div id="opd:condaenv"></div>
 !!! opdracht-basis "Environment aanmaken"
-    Open een `Anaconda Prompt` die je kunt vinden via de zoekbalk van Windows. Maak de environment en installeer de juiste packages door een terminal te openen[^terminal] en in te typen:
+    Open een `Anaconda Prompt` die je kunt vinden via de zoekbalk van Windows. Maak de environment en installeer de juiste packages door in te typen:
 
     ``` ps1 title="Terminal"
     conda create -n pythondaq -c conda-forge python pyvisa-py
@@ -72,30 +72,47 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
     conda activate pythondaq
     ```
 
-[^terminal]: Start de applicatie `Anaconda Powershell Prompt` of start een terminal binnen Visual Studio Code met het menu **Terminal > New Terminal**.
-
 !!! opdracht-basis "Pyvisa in terminal"
-    Sluit de Arduino met de USB-kabel aan op de computer. Om de communicatie met de Arduino te testen maken we gebruik van `pyvisa-shell`. Open een terminal, zorg dat het goede conda environment actief is en type `help`:
-    ``` ps1con title="Terminal"
-    PS> pyvisa-shell -b py
+    Sluit de Arduino met de USB-kabel aan op de computer. Om de communicatie met de Arduino te testen maken we gebruik van `pyvisa-shell`. Open een `Anaconda Prompt`, zorg dat het goede conda environment actief is en open een `pyvisa-shell` met een python backend:
+    <pre><code>(ecpc) > pyvisa-shell -b py <button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')">{{ enter }}</button><button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="pyvisa-shell">
+    Welcome to the VISA shell. Type help or ? to list commands.    
+    (visa)
+    </span>
+    </code></pre>
+    
+    Je bent nu in de `visa shell`, dat je herkent doordat er (visa) tussen haakjes staat. Als je niet weet wat je nu kan doen dan type je `help`:
 
-    Welcome to the VISA shell. Type help or ? to list commands.
-
-    (visa) help
-
-    Documented commands (type help <topic>):
+    <pre><code>(visa) > help <button type="button" name="help" onclick="runScript('help')">{{ enter }}</button><button type="button" name="help" onclick="runScript('help')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="help">
+    Documented commands (type help `<topic>`):
     ========================================
     EOF  attr  close  exit  help  list  open  query  read  termchar  timeout  write
+    </span>
+    </code></pre>
+    
 
-    (visa) help list
-    List all connected resources.
-    (visa) exit
-    ```
+    Hoe kun je de specifieke help tekst opvragen van een van de commando's?
+    ??? uitwerkingen
+        `(type help <topic>)` dus:
+        <pre><code>(visa) > Help EOF <button type="button" name="Help EOF" onclick="runScript('Help EOF')">{{ enter }}</button><button type="button" name="Help EOF" onclick="runScript('Help EOF')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="Help EOF">Handle an EOF.</span>
+        </code></pre>
+        
+    Sluit de shell af met een van de commando's. Vraag de helptekst op van de commando's om erachter te komen welke commando de visa shell afsluit. 
+    
+
 
 !!! info
     We maken hier gebruik van de optie `-b py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er, naast `pyvisa-py`, ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. Maar de verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle types apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
 
-Om verbinding te maken met onze Arduino gebruik je eerst `list` om te kijken welke apparaten aangesloten zijn en vervolgens `open` om de verbinding te openen. Je kunt makkelijk zien welk apparaat de Arduino is door éérst `list` te gebruiken zónder de Arduino aangesloten en vervolgens nog een keer mét de Arduino aangesloten &mdash; het kan een paar seconden duren voor de Arduino wordt herkend. Het laatst bijgekomen apparaat is dan de Arduino. Een commando sturen en wachten op een antwoord doe je met `query`. Als we de identificatiestring willen uitlezen wordt dit bijvoorbeeld:
+
+!!! opdracht-basis "Pyvisa `list`, `open` en `query`"
+
+    Om verbinding te maken met onze Arduino gebruik je eerst `list` om te kijken welke apparaten aangesloten zijn en vervolgens `open` om de verbinding te openen. Je kunt makkelijk zien welk apparaat de Arduino is door éérst `list` te gebruiken zónder de Arduino aangesloten en vervolgens nog een keer mét de Arduino aangesloten &mdash; het kan een paar seconden duren voor de Arduino wordt herkend. Het laatst bijgekomen apparaat is dan de Arduino. 
+
+
+
 ``` consolecode
 (visa) list
 ( 0) ASRL3::INSTR
@@ -105,14 +122,18 @@ Om verbinding te maken met onze Arduino gebruik je eerst `list` om te kijken wel
 ASRL28::INSTR has been opened.
 You can talk to the device using "write", "read" or "query".
 The default end of message is added to each message.
-(open) query *IDN?
-Response: ERROR: UNKNOWN COMMAND *IDN?
 
-(open) exit
 ```
 
-!!! opdracht-basis "Pyvisa error"
-    Probeer zelf ook de commando's `list`, `open`, en de `query` uit. Krijg je hetzelfde resultaat?
+!!! opdracht-basis "Pyvisa `query`"
+    Een commando sturen en wachten op een antwoord doe je met `query`. Kijk in de [documentatie van de firmware](firmware.md) met welk commando je de identificatiestring kunt uitlezen. Welke error krijg je als je dit commando naar de Arduino stuurt?
+
+    ```
+    (open) query *IDN?
+    Response: ERROR: UNKNOWN COMMAND *IDN?
+
+    (open) exit
+    ```
 
 Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de [documentatie van de firmware](firmware.md) dan zie je dat er bepaalde _terminator characters_ nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een <q>enter</q> aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een _carriage return_ (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een _line feed_ (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van _carriage return + line feed_ (CRLF). 
 
@@ -125,28 +146,29 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
 
 [^regeleindes]: De regeleindes voor de Arduinofirmware zijn verschillend voor lezen en schrijven. Dit heeft een oninteressante reden: bij het ontvangen van commando's is het makkelijk om alles te lezen totdat je één bepaald karakter (LF) tegenkomt. Bij het schrijven gebruikt de standaard `println`-functie een Windows-stijl regeleinde (CRLF).
 
-``` consolecode
-(open) termchar
-Termchar read: None write: CRLF
-(open) termchar CRLF LF
-Done
-(open) termchar
-Termchar read: CRLF write: LF
-(open) query *IDN?
-Response: Arduino VISA firmware v1.0.0
-```
-Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het eind van de <q>zin</q>) krijgen we antwoord! Dat antwoord heeft dan juist weer een CRLF aan het eind dus `pyvisa-shell` weet wanneer het kan stoppen met luisteren en print het antwoord op het scherm. De karakters CRLF en LF _zelf_ blijven onzichtbaar voor ons.
 
 !!! opdracht-basis "Pyvisa regeleindes"
-    Stel zelf ook de regeleindes goed in en probeer of je antwoord krijgt van de Arduino. Heeft jouw Arduino de nieuwste firmware?
-    Speel eens met de commando's en kijk of je de LED kunt laten branden of een spanning kunt meten. Bijvoorbeeld:
-    ``` consolecode
-    (open) query OUT:CH0 768
-    Response: 768
-    (open) query MEAS:CH2?
-    Response: 209
-    ```
+    Om de _terminator characters_ in te stellen maken we gebruik van het commando `termchar`. Open de Arduino. Gebruik `help termchar` om uit te zoeken hoe je de terminator character instellingen kunt opvragen en kunt aanpassen. Zet dan read op CRLF en de write op LF. 
 
+    ??? uitwerkingen
+        ``` consolecode
+        (open) termchar
+        Termchar read: None write: CRLF
+        (open) termchar CRLF LF
+        Done
+        (open) termchar
+        Termchar read: CRLF write: LF
+        (open) query *IDN?
+        Response: Arduino VISA firmware v1.0.0
+        ```
+
+
+
+!!! info "Onzichtbare regeleindes"
+    Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het eind van de <q>zin</q>) krijgen we antwoord! Dat antwoord heeft dan juist weer een CRLF aan het eind dus `pyvisa-shell` weet wanneer het kan stoppen met luisteren en print het antwoord op het scherm. De karakters CRLF en LF _zelf_ blijven onzichtbaar voor ons.
+
+!!! opdracht-basis "Pyvisa LED laten branden"
+    Kijk in de [documentatie van de firmware](firmware.md) hoe je een spanning op het uitvoerkanaal kan zetten en zet de spanning hoog genoeg zodat het LED gaat branden. 
     * Wat is de _minimale waarde_ waarbij de LED _net_ licht geeft? 
     * Laat de spanning steeds verder oplopen; op een gegeven moment gebeurt er iets raars. 
     * Wat is de _maximale waarde_ waarbij de LED zonder problemen kan branden?
@@ -155,7 +177,6 @@ Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het ein
 
 ## Een eenvoudig script
 
---8<-- "docs/assets/comparison/compare_shell_script.html"
 
 We hebben via de shell contact gelegd met de hardware. Nu wordt het tijd om, met de documentatie[@pyvisa] in de aanslag, hetzelfde vanuit Python te doen. Als je met een nieuw project begint is het helemaal geen gek idee om een kort script te schrijven waarin je wat dingen uitprobeert. Als alles lijkt te werken kun je het netjes gaan maken en gaan uitbreiden. We beginnen hier met een eenvoudig script en zullen dat daarna gaan verfijnen.
 
@@ -185,7 +206,7 @@ device.query("*IDN?")
 ```
 Het volledige script &mdash; met een paar `#!py print`-statements &mdash; ziet er dan als volgt uit:
 
-<div class="code-box"><button type="button" name="test_arduino" onclick="runScript('test_arduino')" class="run">{{ run }}</button><button type="button" name="test_arduino" onclick="runScript('test_arduino')" class="reload invisible">{{ reload }}</button> test.py
+<div class="code-box"><button type="button" name="test_arduino" onclick="runScript('test_arduino')" class="run">{{ run }}</button><button type="button" name="test_arduino" onclick="runScript('test_arduino')" class="reload invisible">{{ reload }}</button> test_arduino.py
 ``` py
 import pyvisa
 
@@ -196,20 +217,24 @@ print(ports)
 device = rm.open_resource(
     "ASRL3::INSTR", read_termination="\r\n", write_termination="\n"
 )
-print(device.query("*IDN?"))
+identification = device.query("*IDN?")
+print(identification)
 ```
 <pre>
-<code>(ecpc) > python test.py
+<code>(ecpc) > python test_arduino.py
 <span class="invisible" name="test_arduino">('ASRL3::INSTR',)
 Arduino VISA firmware v1.0.0</span>
 </code></pre></div>
 
 De output van het script is afhankelijk van het systeem en het aantal apparaten dat verbonden is.
 
+Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder kun je de verschillende stappen met elkaar vergelijken door met de muis over de tekst heen te gaan. 
+
+--8<-- "docs/assets/comparison/compare_shell_script.html"
 
 <div id="opd:test_arduino"></div>
 !!! opdracht-basis "Pyvisa in pythonscript"
-    Maak in een geschikte map een bestand {{file}}`test_arduino.py` en kopieer daarin bovenstaande code. Selecteer vervolgens in Visual Studio Code je conda environment zodat je het script ook daadwerkelijk kunt runnen. Hoe je dat doet lees je aan het eind van de [paragraaf _Conda environments_](software-tools.md#conda-environments). Sluit alle terminals.
+    Maak in een geschikte map een bestand {{file}}`test_arduino.py` en kopieer daarin de Python code. Selecteer vervolgens in Visual Studio Code je conda environment zodat je het script ook daadwerkelijk kunt runnen. Hoe je dat doet lees je aan het eind van de [paragraaf _Conda environments_](software-tools.md#conda-environments). Sluit alle terminals.
 
 Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een `#!py PermissionError`? Dan heb je vast nog een terminal openstaan waarin `pyvisa-shell` actief is. Een andere reden kan zijn dat het script probeert een poort te openen die bij jullie een andere naam heeft. Probeer met het lijstje instrumenten te raden welke de Arduino is en pas het script aan totdat het werkt.[^tip-aansluiten]
 
