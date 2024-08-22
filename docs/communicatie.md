@@ -73,22 +73,38 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
     ```
 
 !!! opdracht-basis "Pyvisa in terminal"
-    Sluit de Arduino met de USB-kabel aan op de computer. Om de communicatie met de Arduino te testen maken we gebruik van `pyvisa-shell`. Open een terminal, zorg dat het goede conda environment actief is en type `help`:
-    ``` ps1con title="Terminal"
-    PS> pyvisa-shell -b py
+    Sluit de Arduino met de USB-kabel aan op de computer. Om de communicatie met de Arduino te testen maken we gebruik van `pyvisa-shell`. Open een `Anaconda Prompt`, zorg dat het goede conda environment actief is en open een `pyvisa-shell` met een python backend:
+    <pre><code>(ecpc) > pyvisa-shell -b py <button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')">{{ enter }}</button><button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="pyvisa-shell">
+    Welcome to the VISA shell. Type help or ? to list commands.    
+    (visa)
+    </span>
+    </code></pre>
+    
+    type `help`:
 
-    Welcome to the VISA shell. Type help or ? to list commands.
-
-    (visa) help
-
+    <pre><code>(visa) > help <button type="button" name="help" onclick="runScript('help')">{{ enter }}</button><button type="button" name="help" onclick="runScript('help')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="help">
     Documented commands (type help <topic>):
     ========================================
     EOF  attr  close  exit  help  list  open  query  read  termchar  timeout  write
+    </span>
+    </code></pre>
+    
 
-    (visa) help list
-    List all connected resources.
-    (visa) exit
-    ```
+    vraag de helptekst op van het commando `list`:
+
+    <pre><code>(visa) > help list <button type="button" name="help list" onclick="runScript('help list')">{{ enter }}</button><button type="button" name="help list" onclick="runScript('help list')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="help list">List all connected resources.</span>
+    </code></pre>
+    
+    sluit de visa-shell af met `exit`:
+
+    <pre><code>(visa) > exit <button type="button" name="exit" onclick="runScript('exit')">{{ enter }}</button><button type="button" name="exit" onclick="runScript('exit')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="exit">
+    (ecpc) > </span>
+    </code></pre>
+
 
 !!! info
     We maken hier gebruik van de optie `-b py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er, naast `pyvisa-py`, ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. Maar de verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle types apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
