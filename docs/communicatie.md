@@ -177,7 +177,6 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
 
 ## Een eenvoudig script
 
---8<-- "docs/assets/comparison/compare_shell_script.html"
 
 We hebben via de shell contact gelegd met de hardware. Nu wordt het tijd om, met de documentatie[@pyvisa] in de aanslag, hetzelfde vanuit Python te doen. Als je met een nieuw project begint is het helemaal geen gek idee om een kort script te schrijven waarin je wat dingen uitprobeert. Als alles lijkt te werken kun je het netjes gaan maken en gaan uitbreiden. We beginnen hier met een eenvoudig script en zullen dat daarna gaan verfijnen.
 
@@ -228,6 +227,9 @@ Arduino VISA firmware v1.0.0</span>
 
 De output van het script is afhankelijk van het systeem en het aantal apparaten dat verbonden is.
 
+Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder kun je de verschillende stappen met elkaar vergelijken door met de muis over de tekst heen te gaan. 
+
+--8<-- "docs/assets/comparison/compare_shell_script.html"
 
 <div id="opd:test_arduino"></div>
 !!! opdracht-basis "Pyvisa in pythonscript"
