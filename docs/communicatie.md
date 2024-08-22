@@ -172,6 +172,7 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
         - [x] Schakeling bouwen
         - [ ] Pyvisa in terminal
         - [ ] Pyvisa `list` en `open`
+        - [ ] Pyvisa `query`
 
 !!! info
     We maken hier gebruik van de optie `-b py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er, naast `pyvisa-py`, ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. Maar de verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle types apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
@@ -226,6 +227,7 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
         - [x] Schakeling bouwen
         - [x] Pyvisa in terminal
         - [x] Pyvisa `list` en `open`
+        - [ ] Pyvisa `query`
 
 
 !!! opdracht-basis "Pyvisa `query`"
@@ -237,6 +239,41 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
 
     (open) exit
     ```
+
+!!! opdracht-basis "Pyvisa `query`"
+    === "opdracht"
+        Je stuurt een commando naar de Arduino met `query`. In de [documentatie van de firmware](firmware.md) heb je het commando opgezocht om de identificatiestring uit te lezen. Nadat je dit commando naar de Arduino stuurt krijg je een error. Je leest de handleiding rustig verder om erachter te komen hoe je dit moet oplossen.
+
+
+    === "code"
+        **Pseudo-code**
+        ``` ps1 title="Terminal"
+        # query identificationstring
+
+        ```
+        **Testcode**
+        <pre><code>(open) > query gappie <button type="button" name="query gappie" onclick="runScript('query gappie')">{{ enter }}</button><button type="button" name="query gappie" onclick="runScript('query gappie')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="query gappie">Response: ERROR: UNKNOWN COMMAND gappie</span>
+        </code></pre>
+        
+        
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Je hebt het woord `query` goed geschreven en met kleine letters.
+        - [ ] Na het commando `query` volgt een spatie.
+        - [ ] Na de spatie staat het commando om de identificatiestring uit te lezen, met hoofdletters (en dat `*` en dat `?` horen er ook bij!).
+        - [ ] Als je het commando verstuurt hebt verschijnt er een error `Response: ERROR: UNKNOWN COMMAND .....`
+
+
+        **Projecttraject:**
+
+        - [x] Schakeling bouwen
+        - [x] Pyvisa in terminal
+        - [x] Pyvisa `list` en `open`
+        - [x] Pyvisa `query`
+
 
 Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de [documentatie van de firmware](firmware.md) dan zie je dat er bepaalde _terminator characters_ nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een <q>enter</q> aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een _carriage return_ (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een _line feed_ (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van _carriage return + line feed_ (CRLF). 
 
