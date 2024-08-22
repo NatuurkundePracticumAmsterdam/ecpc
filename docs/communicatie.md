@@ -206,7 +206,7 @@ device.query("*IDN?")
 ```
 Het volledige script &mdash; met een paar `#!py print`-statements &mdash; ziet er dan als volgt uit:
 
-<div class="code-box"><button type="button" name="test_arduino" onclick="runScript('test_arduino')" class="run">{{ run }}</button><button type="button" name="test_arduino" onclick="runScript('test_arduino')" class="reload invisible">{{ reload }}</button> test.py
+<div class="code-box"><button type="button" name="test_arduino" onclick="runScript('test_arduino')" class="run">{{ run }}</button><button type="button" name="test_arduino" onclick="runScript('test_arduino')" class="reload invisible">{{ reload }}</button> test_arduino.py
 ``` py
 import pyvisa
 
@@ -217,10 +217,11 @@ print(ports)
 device = rm.open_resource(
     "ASRL3::INSTR", read_termination="\r\n", write_termination="\n"
 )
-print(device.query("*IDN?"))
+identification = device.query("*IDN?")
+print(identification)
 ```
 <pre>
-<code>(ecpc) > python test.py
+<code>(ecpc) > python test_arduino.py
 <span class="invisible" name="test_arduino">('ASRL3::INSTR',)
 Arduino VISA firmware v1.0.0</span>
 </code></pre></div>
@@ -233,7 +234,7 @@ Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder 
 
 <div id="opd:test_arduino"></div>
 !!! opdracht-basis "Pyvisa in pythonscript"
-    Maak in een geschikte map een bestand {{file}}`test_arduino.py` en kopieer daarin bovenstaande code. Selecteer vervolgens in Visual Studio Code je conda environment zodat je het script ook daadwerkelijk kunt runnen. Hoe je dat doet lees je aan het eind van de [paragraaf _Conda environments_](software-tools.md#conda-environments). Sluit alle terminals.
+    Maak in een geschikte map een bestand {{file}}`test_arduino.py` en kopieer daarin de Python code. Selecteer vervolgens in Visual Studio Code je conda environment zodat je het script ook daadwerkelijk kunt runnen. Hoe je dat doet lees je aan het eind van de [paragraaf _Conda environments_](software-tools.md#conda-environments). Sluit alle terminals.
 
 Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een `#!py PermissionError`? Dan heb je vast nog een terminal openstaan waarin `pyvisa-shell` actief is. Een andere reden kan zijn dat het script probeert een poort te openen die bij jullie een andere naam heeft. Probeer met het lijstje instrumenten te raden welke de Arduino is en pas het script aan totdat het werkt.[^tip-aansluiten]
 
