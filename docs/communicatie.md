@@ -228,18 +228,6 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
         - [x] Pyvisa `list` en `open`
 
 
-
-``` consolecode
-(visa) list
-( 0) ASRL3::INSTR
-( 1) ASRL5::INSTR
-( 2) ASRL28::INSTR
-(visa) open 2
-ASRL28::INSTR has been opened.
-You can talk to the device using "write", "read" or "query".
-The default end of message is added to each message.
-```
-
 !!! opdracht-basis "Pyvisa `query`"
     Een commando sturen en wachten op een antwoord doe je met `query`. Kijk in de [documentatie van de firmware](firmware.md) met welk commando je de identificatiestring kunt uitlezen. Welke error krijg je als je dit commando naar de Arduino stuurt?
 
