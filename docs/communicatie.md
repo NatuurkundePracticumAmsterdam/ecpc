@@ -81,35 +81,35 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
     </span>
     </code></pre>
     
-    type `help`:
+    Je bent nu in de `visa shell`, dat je herkent doordat er (visa) tussen haakjes staat. Als je niet weet wat je nu kan doen dan type je `help`:
 
     <pre><code>(visa) > help <button type="button" name="help" onclick="runScript('help')">{{ enter }}</button><button type="button" name="help" onclick="runScript('help')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="help">
-    Documented commands (type help <topic>):
+    Documented commands (type help `<topic>`):
     ========================================
     EOF  attr  close  exit  help  list  open  query  read  termchar  timeout  write
     </span>
     </code></pre>
     
 
-    vraag de helptekst op van het commando `list`:
-
-    <pre><code>(visa) > help list <button type="button" name="help list" onclick="runScript('help list')">{{ enter }}</button><button type="button" name="help list" onclick="runScript('help list')" class="invisible">{{ reload }}</button>
-    <span class="invisible" name="help list">List all connected resources.</span>
-    </code></pre>
+    Hoe kun je de specifieke help tekst opvragen van een van de commando's?
+    ??? uitwerkingen
+        `(type help <topic>)` dus:
+        <pre><code>(visa) > Help EOF <button type="button" name="Help EOF" onclick="runScript('Help EOF')">{{ enter }}</button><button type="button" name="Help EOF" onclick="runScript('Help EOF')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="Help EOF">Handle an EOF.</span>
+        </code></pre>
+        
+    Sluit de shell af met een van de commando's. Vraag de helptekst op van de commando's om erachter te komen welke commando de visa shell afsluit. 
     
-    sluit de visa-shell af met `exit`:
-
-    <pre><code>(visa) > exit <button type="button" name="exit" onclick="runScript('exit')">{{ enter }}</button><button type="button" name="exit" onclick="runScript('exit')" class="invisible">{{ reload }}</button>
-    <span class="invisible" name="exit">
-    (ecpc) > </span>
-    </code></pre>
 
 
 !!! info
     We maken hier gebruik van de optie `-b py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er, naast `pyvisa-py`, ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. Maar de verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle types apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
 
-Om verbinding te maken met onze Arduino gebruik je eerst `list` om te kijken welke apparaten aangesloten zijn en vervolgens `open` om de verbinding te openen. Je kunt makkelijk zien welk apparaat de Arduino is door éérst `list` te gebruiken zónder de Arduino aangesloten en vervolgens nog een keer mét de Arduino aangesloten &mdash; het kan een paar seconden duren voor de Arduino wordt herkend. Het laatst bijgekomen apparaat is dan de Arduino. Een commando sturen en wachten op een antwoord doe je met `query`. Als we de identificatiestring willen uitlezen wordt dit bijvoorbeeld:
+
+!!! opdracht-basis "Pyvisa `list`, `open` en `query`"
+
+    Om verbinding te maken met onze Arduino gebruik je eerst `list` om te kijken welke apparaten aangesloten zijn en vervolgens `open` om de verbinding te openen. Je kunt makkelijk zien welk apparaat de Arduino is door éérst `list` te gebruiken zónder de Arduino aangesloten en vervolgens nog een keer mét de Arduino aangesloten &mdash; het kan een paar seconden duren voor de Arduino wordt herkend. Het laatst bijgekomen apparaat is dan de Arduino. Een commando sturen en wachten op een antwoord doe je met `query`. Als we de identificatiestring willen uitlezen wordt dit bijvoorbeeld:
 ``` consolecode
 (visa) list
 ( 0) ASRL3::INSTR
