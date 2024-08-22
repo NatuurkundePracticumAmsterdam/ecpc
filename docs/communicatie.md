@@ -62,7 +62,7 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
 
 <div id="opd:condaenv"></div>
 !!! opdracht-basis "Environment aanmaken"
-    Open een `Anaconda Prompt` die je kunt vinden via de zoekbalk van Windows. Maak de environment en installeer de juiste packages door een terminal te openen[^terminal] en in te typen:
+    Open een `Anaconda Prompt` die je kunt vinden via de zoekbalk van Windows. Maak de environment en installeer de juiste packages door in te typen:
 
     ``` ps1 title="Terminal"
     conda create -n pythondaq -c conda-forge python pyvisa-py
@@ -71,8 +71,6 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
     ``` ps1 title="Terminal"
     conda activate pythondaq
     ```
-
-[^terminal]: Start de applicatie `Anaconda Powershell Prompt` of start een terminal binnen Visual Studio Code met het menu **Terminal > New Terminal**.
 
 !!! opdracht-basis "Pyvisa in terminal"
     Sluit de Arduino met de USB-kabel aan op de computer. Om de communicatie met de Arduino te testen maken we gebruik van `pyvisa-shell`. Open een terminal, zorg dat het goede conda environment actief is en type `help`:
