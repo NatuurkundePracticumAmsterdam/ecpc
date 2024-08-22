@@ -1,0 +1,38 @@
+.dropdown_icon {
+    height: 1.2rem;
+    transition: 0.3s;
+    fill: white;
+}
+
+svg.dropdown_icon:hover {
+    fill: yellow;
+}
+
+.dropdown_container {
+    display: flex;
+    /* float: right; */
+    margin: .2rem;
+    padding: .4rem;
+}
+
+.dropdown_wrapper {
+    display: grid;
+    place-items: end;
+    /* width: 21.2rem; */
+    float: right;
+    width: 100%;
+}
+
+div.invisible {
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.cheatsheet {
+    transition: 0.3s;
+    width: 100%;
+    height: 20rem;
+    /* box-sizing: inherit; */
+    /* overflow-y: scroll; */
+}

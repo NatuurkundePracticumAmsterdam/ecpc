@@ -1,3 +1,9 @@
+.code-box {
+    border: 1px solid #efefef;
+    padding: 10px 10px 0px 10px;
+    border-radius: 5px;
+}
+
 span.invisible {
     visibility: hidden;
 }
@@ -6,20 +12,15 @@ button.invisible {
     display: none;
 }
 
-button.run {
+svg.run {
+    width: 15px;
+    height: 15px; 
+    vertical-align: middle;
     transition: 0.3s;
 }
 
-button.run:hover {
-    color: green;
-}
-
-button.reload {
-    transition: 0.3s;
-}
-
-button.reload:hover {
-    color: rgb(138, 137, 137);
+svg.run:hover {
+    stroke: green;
 }
 
 svg.enter {
