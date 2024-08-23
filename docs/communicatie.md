@@ -79,6 +79,9 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
         - [x] Schakeling bouwen
         - [ ] Pyvisa in terminal
         - [ ] Pyvisa `list` en `open`
+        - [ ] Pyvisa `query`
+        - [ ] Pyvisa regeleindes
+        - [ ] Pyvisa LED laten branden
 
 In de figuur hierboven is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld met een LED en een weerstand van 220 &Omega;. In een breadboard zijn in iedere rij alle kolommen A t/m E met elkaar verbonden (zo ook kolommen F t/m J). Draadjes die naast elkaar zijn geprikt zijn dus met elkaar verbonden. Zo zie je in de figuur &mdash; als je inzoomt &mdash; dat het rode draadje een verbinding maakt tussen pin A0 van de Arduino en de bovenste pin van de LED. De onderste pin van de LED is verbonden met de weerstand. De kleurcodes voor weerstanden vind je in de [appendix](kleurcodes.md). De kleur van de draden is niet belangrijk. Kies altijd draden met een handige lengte. De platte zijde in de ring van de LED wordt richting aarde geschakeld. De Arduino kan met deze schakeling een variabele spanning aanbrengen over de LED met weerstand, en de spanning meten over alleen de weerstand. 
 
@@ -170,10 +173,11 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
         **Projecttraject:**
 
         - [x] Schakeling bouwen
-        - [ ] Pyvisa in terminal
+        - [x] Pyvisa in terminal
         - [ ] Pyvisa `list` en `open`
         - [ ] Pyvisa `query`
         - [ ] Pyvisa regeleindes
+        - [ ] Pyvisa LED laten branden
 
 !!! info
     We maken hier gebruik van de optie `-b py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er, naast `pyvisa-py`, ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. Maar de verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle types apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
@@ -230,6 +234,7 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
         - [x] Pyvisa `list` en `open`
         - [ ] Pyvisa `query`
         - [ ] Pyvisa regeleindes
+        - [ ] Pyvisa LED laten branden
 
 !!! opdracht-basis "Pyvisa `query`"
     Een commando sturen en wachten op een antwoord doe je met `query`. Kijk in de [documentatie van de firmware](firmware.md) met welk commando je de identificatiestring kunt uitlezen. Welke error krijg je als je dit commando naar de Arduino stuurt?
@@ -240,7 +245,7 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
 
     (open) exit
     ```
-
+<div id="opd:pyvisa_query"></div>
 !!! opdracht-basis "Pyvisa `query`"
     === "opdracht"
         Je stuurt een commando naar de Arduino met `query`. In de [documentatie van de firmware](firmware.md) heb je het commando opgezocht om de identificatiestring uit te lezen. Nadat je dit commando naar de Arduino stuurt krijg je een error. Je leest de handleiding rustig verder om erachter te komen hoe je dit moet oplossen.
@@ -275,7 +280,7 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
         - [x] Pyvisa `list` en `open`
         - [x] Pyvisa `query`
         - [ ] Pyvisa regeleindes
-
+        - [ ] Pyvisa LED laten branden
 
 Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de [documentatie van de firmware](firmware.md) dan zie je dat er bepaalde _terminator characters_ nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een <q>enter</q> aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een _carriage return_ (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een _line feed_ (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van _carriage return + line feed_ (CRLF). 
 
@@ -306,7 +311,7 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
 
 !!! opdracht-basis "Pyvisa regeleindes"
     === "opdracht"
-        Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je dit moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige regeleinde instellingen op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Tot slot bekijk je nog een keer de regeleinde instellingen om te controlleren of ze nu wel goed staan.  
+        Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je dit moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige regeleinde instellingen op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Je bekijkt nog een keer de regeleinde instellingen om te controlleren of ze nu wel goed staan. Je gaat terug naar de [opdracht Pyvisa    `query`](#opd:pyvisa_query) en krijgt een response in plaats van een error. 
 
     === "code"
         **Pseudo-code**
@@ -315,6 +320,7 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
         # termchar settings?
         # read = CRLF and write = LF
         # termchar settings?
+        # query identificationstring
 
         ```
         **Testcode**
@@ -343,6 +349,11 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
         use CR, LF, CRLF, NUL or None to set termchar
         ```
 
+        - [ ] Als je met behulp van `query` het commando om de identificatiestring uit te lezen naar de Arduino verstuurt verschijnt de tekst:
+
+        ``` consolecode
+        Response: Arduino VISA firmware v1.0.0
+        ```
 
         **Projecttraject:**
 
@@ -351,7 +362,7 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
         - [x] Pyvisa `list` en `open`
         - [x] Pyvisa `query`
         - [x] Pyvisa regeleindes
-
+        - [ ] Pyvisa LED laten branden
 
 !!! info "Onzichtbare regeleindes"
     Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het eind van de <q>zin</q>) krijgen we antwoord! Dat antwoord heeft dan juist weer een CRLF aan het eind dus `pyvisa-shell` weet wanneer het kan stoppen met luisteren en print het antwoord op het scherm. De karakters CRLF en LF _zelf_ blijven onzichtbaar voor ons.
@@ -361,6 +372,41 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
     * Wat is de _minimale waarde_ waarbij de LED _net_ licht geeft? 
     * Laat de spanning steeds verder oplopen; op een gegeven moment gebeurt er iets raars. 
     * Wat is de _maximale waarde_ waarbij de LED zonder problemen kan branden?
+
+!!! opdracht-basis "Pyvisa LED laten branden"
+    === "opdracht"
+        Je zoekt in de [documentatie van de firmware](firmware.md) op hoe je een spanning op het uitvoerkanaal zet. Je leest dat er een maximale waarde is voor de spanning en zet deze waarde op het uitvoerkanaal. Je ziet dat het LEDje brandt en er verschijnt een glimlach op je gezicht. Je bent benieuwd naar wat er gebeurt als je over de maximale spanning heen gaat en zet de maximale waarde + 1 op het uitvoerkanaal. Je denkt na over een verklaring voor wat je ziet gebeuren. Je weet dat een LED een drempelspanning nodig heeft om te branden, je vult een paar waardes in tussen de minimale en maximale waarde om erachter te komen wat deze drempelspanning is. 
+
+    === "code"
+        **Pseudo-code**
+        ``` ps1 title="Terminal"
+        # set max voltage
+        # set max voltage + 1
+        # set threshold voltage
+        ```
+        **Testcode**      
+        Zie [documentatie van de firmware](firmware.md).  
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Je stuurt een commando naar 
+
+        ``` consolecode
+        Termchar read: CRLF write: LF
+        use CR, LF, CRLF, NUL or None to set termchar
+        ```
+
+
+        **Projecttraject:**
+
+        - [x] Schakeling bouwen
+        - [x] Pyvisa in terminal
+        - [x] Pyvisa `list` en `open`
+        - [x] Pyvisa `query`
+        - [x] Pyvisa regeleindes
+        - [x] Pyvisa LED laten branden
+
 
 
 
