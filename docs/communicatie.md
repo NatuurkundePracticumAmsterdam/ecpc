@@ -399,12 +399,12 @@ Die kunnen we bijvoorbeeld gebruiken om een lijst van alle beschikbare poorten t
 ``` py
 ports = rm.list_resources()
 
-# Bijvoorbeeld: ("ASRL3::INSTR",)
+# Bijvoorbeeld: ("ASRL28::INSTR",)
 ```
 Om nu daadwerkelijk verbinding te gaan maken met de Arduino moeten we die _openen_. Daarvoor geven we de poortnaam op en vertellen we meteen wat de instellingen moeten zijn voor de regeleindes bij het lezen (CRLF, `#!py "\r\n"`) en het schrijven (LF, `#!py "\n"`):
 ``` py
 device = rm.open_resource(
-    "ASRL3::INSTR", read_termination="\r\n", write_termination="\n"
+    "ASRL28::INSTR", read_termination="\r\n", write_termination="\n"
 )
 ```
 Ten slotte sturen we een query naar de Arduino:
@@ -422,14 +422,14 @@ ports = rm.list_resources()
 print(ports)
 
 device = rm.open_resource(
-    "ASRL3::INSTR", read_termination="\r\n", write_termination="\n"
+    "ASRL28::INSTR", read_termination="\r\n", write_termination="\n"
 )
 identification = device.query("*IDN?")
 print(identification)
 ```
 <pre>
 <code>(ecpc) > python test_arduino.py
-<span class="invisible" name="test_arduino">('ASRL3::INSTR',)
+<span class="invisible" name="test_arduino">('ASRL28::INSTR',)
 Arduino VISA firmware v1.0.0</span>
 </code></pre></div>
 
