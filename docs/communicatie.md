@@ -40,7 +40,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 !!! waarschuwing
     Let op dat je de weerstand van 220 Ω gebruikt! Een te grote weerstand zorgt ervoor dat je nauwelijks iets kunt meten, maar een te kleine weerstand zorgt ervoor dat de stroomsterkte door de Arduino te groot wordt. In dat geval zul je de Arduino onherstelbaar beschadigen. De kleurcodes voor weerstanden vind je in de [appendix](kleurcodes.md).
 
-!!! opdracht-basis "Schakeling bouwen"
+<!-- !!! opdracht-basis "Schakeling bouwen"
     Als je geen kant-en-klare schakeling bij je werkplek hebt liggen, druk de Arduino in het breadboard en bouw een schakeling met een LED op de manier die is weergegeven in de figuur hieronder. De weerstand heeft een waarde van 220 &Omega;. De LED heeft aan één zijde een platte kant in de dikkere ring onderaan de plastic behuizing (goed kijken!); schakel die aan de kant van de aarde (de zwarte draad), dus aan de kant van de weerstand en _niet_ aan de kant van de rode draad naar de Arduino. Als de pootjes van de LED niet afgeknipt zijn, dan zit het korte pootje aan de platte zijde van de LED. Het heeft geen zin om naar het plaatje te kijken hoe het er ín de LED uitziet &mdash; dat verschilt per type LED.
 
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
@@ -48,7 +48,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 
     Door linkermuisknop ingedrukt te houden en te slepen kan je de schakeling draaien, met rechtermuisknop kan je hem verplaatsen en door te scrollen kan je in- en uitzoomen.
 
-    <!-- <button onclick="printOrbit()" type="button">print orbit</button> -->
+    <button onclick="printOrbit()" type="button">print orbit</button> -->
 
 
 !!! opdracht-basis "Schakeling bouwen"
@@ -57,10 +57,16 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 
     === "bouwtekening"
         **Theoretische schakeling**
+
+        Het circuit zoals je dat zou bouwen met twee losse voltmeters is hieronder weergegeven. De cijfers 0, 1 en 2 bij $U_0$, $U_1$ en $U_2$ zijn de _kanalen_ waarmee de Arduino spanningen kan sturen of uitlezen. Dat wordt zometeen belangrijk.
+
         <div id="fig:LED-schakeling"></div>
         ![LED schakelschema](figures/LED-schakeling.svg){: style="width:75%"}
 
-        **Practische schakeling**
+        **Praktische schakeling**
+
+        In het model hieronder is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld met een LED en een weerstand van 220 &Omega;. In een breadboard zijn in iedere rij alle kolommen A t/m E met elkaar verbonden (zo ook kolommen F t/m J). Draadjes die naast elkaar zijn geprikt zijn dus met elkaar verbonden. Zo zie je in de figuur &mdash; als je inzoomt &mdash; dat het rode draadje een verbinding maakt tussen pin A0 van de Arduino en de bovenste pin van de LED. De onderste pin van de LED is verbonden met de weerstand. De kleurcodes voor weerstanden vind je in de [appendix](kleurcodes.md). De kleur van de draden is niet belangrijk. Kies altijd draden met een handige lengte. De platte zijde in de ring van de LED wordt richting aarde geschakeld. De Arduino kan met deze schakeling een variabele spanning aanbrengen over de LED met weerstand, en de spanning meten over alleen de weerstand. 
+
         <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
         <model-viewer id="model" style="width: 100%; height: 700px;" alt="Schakelschema LED" src="../assets/circuit/Breadboard_LED.glb" ar shadow-intensity="1" camera-controls touch-action="pan-y" poster="../assets/circuit/breadboard_led_top_view.png" camera-orbit="0rad 0.39269908169872414rad 4.718948223475571m" autoplay exposure="0.6"></model-viewer>
 
@@ -83,12 +89,12 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
         - [ ] Pyvisa regeleindes
         - [ ] Pyvisa LED laten branden
 
-In de figuur hierboven is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld met een LED en een weerstand van 220 &Omega;. In een breadboard zijn in iedere rij alle kolommen A t/m E met elkaar verbonden (zo ook kolommen F t/m J). Draadjes die naast elkaar zijn geprikt zijn dus met elkaar verbonden. Zo zie je in de figuur &mdash; als je inzoomt &mdash; dat het rode draadje een verbinding maakt tussen pin A0 van de Arduino en de bovenste pin van de LED. De onderste pin van de LED is verbonden met de weerstand. De kleurcodes voor weerstanden vind je in de [appendix](kleurcodes.md). De kleur van de draden is niet belangrijk. Kies altijd draden met een handige lengte. De platte zijde in de ring van de LED wordt richting aarde geschakeld. De Arduino kan met deze schakeling een variabele spanning aanbrengen over de LED met weerstand, en de spanning meten over alleen de weerstand. 
 
-Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hieronder weergegeven. De cijfers 0, 1 en 2 bij $U_0$, $U_1$ en $U_2$ zijn de _kanalen_ waarmee de Arduino spanningen kan sturen of uitlezen. Dat wordt zometeen belangrijk.
 
-<div id="fig:LED-schakeling"></div>
-![LED schakelschema](figures/LED-schakeling.svg){: style="width:75%"}
+
+
+<!-- <div id="fig:LED-schakeling"></div>
+![LED schakelschema](figures/LED-schakeling.svg){: style="width:75%"} -->
 
 !!! info
     Om met Python via het VISA-protocol te kunnen communiceren met apparaten hebben we specifieke packages nodig. Die gaan we installeren in een _conda environment_. Voor meer informatie over conda environments zie [paragraaf _Conda environments_](software-tools.md#conda-environments).
@@ -105,35 +111,6 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
     conda activate pythondaq
     ```
 
-!!! opdracht-basis "Pyvisa in terminal"
-    Sluit de Arduino met de USB-kabel aan op de computer. Om de communicatie met de Arduino te testen maken we gebruik van `pyvisa-shell`. Open een `Anaconda Prompt`, zorg dat het goede conda environment actief is en open een `pyvisa-shell` met een python backend:
-    <pre><code>(ecpc) > pyvisa-shell -b py <button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')">{{ enter }}</button><button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')" class="invisible">{{ reload }}</button>
-    <span class="invisible" name="pyvisa-shell">
-    Welcome to the VISA shell. Type help or ? to list commands.    
-    (visa)
-    </span>
-    </code></pre>
-    
-    Je bent nu in de `visa shell`, dat je herkent doordat er (visa) tussen haakjes staat. Als je niet weet wat je nu kan doen dan type je `help`:
-
-    <pre><code>(visa) > help <button type="button" name="help" onclick="runScript('help')">{{ enter }}</button><button type="button" name="help" onclick="runScript('help')" class="invisible">{{ reload }}</button>
-    <span class="invisible" name="help">
-    Documented commands (type help `<topic>`):
-    ========================================
-    EOF  attr  close  exit  help  list  open  query  read  termchar  timeout  write
-    </span>
-    </code></pre>
-    
-
-    Hoe kun je de specifieke help tekst opvragen van een van de commando's?
-    ??? uitwerkingen
-        `(type help <topic>)` dus:
-        <pre><code>(visa) > Help EOF <button type="button" name="Help EOF" onclick="runScript('Help EOF')">{{ enter }}</button><button type="button" name="Help EOF" onclick="runScript('Help EOF')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="Help EOF">Handle an EOF.</span>
-        </code></pre>
-        
-    Sluit de shell af met een van de commando's. Vraag de helptekst op van de commando's om erachter te komen welke commando de visa shell afsluit. 
-    
 !!! opdracht-basis "Pyvisa in terminal"
     === "opdracht"
         Je sluit de Arduino met een USB-kabel aan op de computer. In een `Anaconda Prompt` open je het goede conda environment en open je een `pyvisa-shell` met een python _backend_. Om erachter te komen hoe de `pyvisa-shell` werkt type je het commando `help`. Je ziet een reeks aan commando's en bekijkt de helptekst van de commando's waarmee je denkt de `pyvisa-shell` te kunnen afsluiten. Wanneer je het afsluit commando hebt gevonden sluit je daarmee de `pyvisa-shell` af. 
@@ -183,9 +160,10 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
     We maken hier gebruik van de optie `-b py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er, naast `pyvisa-py`, ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. Maar de verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle types apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
 
 
-!!! opdracht-basis "Pyvisa `list` en `open`"
+<!-- !!! opdracht-basis "Pyvisa `list` en `open`"
 
-    Om verbinding te maken met onze Arduino gebruik je eerst `list` om te kijken welke apparaten aangesloten zijn en vervolgens `open` om de verbinding te openen. Je kunt makkelijk zien welk apparaat de Arduino is door éérst `list` te gebruiken zónder de Arduino aangesloten en vervolgens nog een keer mét de Arduino aangesloten &mdash; het kan een paar seconden duren voor de Arduino wordt herkend. Het laatst bijgekomen apparaat is dan de Arduino. 
+    Om verbinding te maken met onze Arduino gebruik je eerst `list` om te kijken welke apparaten aangesloten zijn en vervolgens `open` om de verbinding te openen. Je kunt makkelijk zien welk apparaat de Arduino is door éérst `list` te gebruiken zónder de Arduino aangesloten en vervolgens nog een keer mét de Arduino aangesloten &mdash; het kan een paar seconden duren voor de Arduino wordt herkend. Het laatst bijgekomen apparaat is dan de Arduino
+ -->
 
 !!! opdracht-basis "Pyvisa `list` en `open`"
     === "opdracht"
@@ -236,7 +214,7 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
         - [ ] Pyvisa regeleindes
         - [ ] Pyvisa LED laten branden
 
-!!! opdracht-basis "Pyvisa `query`"
+<!-- !!! opdracht-basis "Pyvisa `query`"
     Een commando sturen en wachten op een antwoord doe je met `query`. Kijk in de [documentatie van de firmware](firmware.md) met welk commando je de identificatiestring kunt uitlezen. Welke error krijg je als je dit commando naar de Arduino stuurt?
 
     ```
@@ -244,7 +222,7 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
     Response: ERROR: UNKNOWN COMMAND *IDN?
 
     (open) exit
-    ```
+    ``` -->
 <div id="opd:pyvisa_query"></div>
 !!! opdracht-basis "Pyvisa `query`"
     === "opdracht"
@@ -294,7 +272,7 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
 [^regeleindes]: De regeleindes voor de Arduinofirmware zijn verschillend voor lezen en schrijven. Dit heeft een oninteressante reden: bij het ontvangen van commando's is het makkelijk om alles te lezen totdat je één bepaald karakter (LF) tegenkomt. Bij het schrijven gebruikt de standaard `println`-functie een Windows-stijl regeleinde (CRLF).
 
 
-!!! opdracht-basis "Pyvisa regeleindes"
+<!-- !!! opdracht-basis "Pyvisa regeleindes"
     Om de _terminator characters_ in te stellen maken we gebruik van het commando `termchar`. Open de Arduino. Gebruik `help termchar` om uit te zoeken hoe je de terminator character instellingen kunt opvragen en kunt aanpassen. Zet dan read op CRLF en de write op LF. 
 
     ??? uitwerkingen
@@ -307,7 +285,7 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
         Termchar read: CRLF write: LF
         (open) query *IDN?
         Response: Arduino VISA firmware v1.0.0
-        ```
+        ``` -->
 
 !!! opdracht-basis "Pyvisa regeleindes"
     === "opdracht"
@@ -332,10 +310,7 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
             termchar
         Set termination character read or read+write:
             termchar `<termchar>` [`<termchar>`]</span>
-        </code></pre>
-        
-        
-        
+        </code></pre>        
         
     === "check"
         **Checkpunten:**
@@ -367,11 +342,11 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
 !!! info "Onzichtbare regeleindes"
     Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het eind van de <q>zin</q>) krijgen we antwoord! Dat antwoord heeft dan juist weer een CRLF aan het eind dus `pyvisa-shell` weet wanneer het kan stoppen met luisteren en print het antwoord op het scherm. De karakters CRLF en LF _zelf_ blijven onzichtbaar voor ons.
 
-!!! opdracht-basis "Pyvisa LED laten branden"
+<!-- !!! opdracht-basis "Pyvisa LED laten branden"
     Kijk in de [documentatie van de firmware](firmware.md) hoe je een spanning op het uitvoerkanaal kan zetten en zet de spanning hoog genoeg zodat het LED gaat branden. 
     * Wat is de _minimale waarde_ waarbij de LED _net_ licht geeft? 
     * Laat de spanning steeds verder oplopen; op een gegeven moment gebeurt er iets raars. 
-    * Wat is de _maximale waarde_ waarbij de LED zonder problemen kan branden?
+    * Wat is de _maximale waarde_ waarbij de LED zonder problemen kan branden? -->
 
 !!! opdracht-basis "Pyvisa LED laten branden"
     === "opdracht"
@@ -406,9 +381,6 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
         - [x] Pyvisa `query`
         - [x] Pyvisa regeleindes
         - [x] Pyvisa LED laten branden
-
-
-
 
 ## Een eenvoudig script
 
