@@ -186,7 +186,7 @@ print(master_oogway.quote)
     print(proton.name)
     # 'mooi proton'
     ```
-<img src="../assets/particle-spin-flip/spin-flip.gif" alt="spin flip" style="width:320px;height:180px;">
+
 # Class Particle opdracht nieuwe stijl 1
 
 !!! opdracht-basis "Class Particle"
@@ -242,6 +242,8 @@ print(master_oogway.quote)
 
 !!! opdracht-basis "Class Particle"
     === "opdracht"
+        ![spin flip](../assets/particle-spin-flip/spin-flip.gif){style="width:128px;height:72px;" align=right}
+        
         Je maakt een instance van de class `#!py Particle` aan voor een proton, naast de naam geeft je ook mee dat de spin 0.5 is. Je gebruikt de method `#!py is_up_or_down()` om terug op te vragen wat de spin van het deeltje op dat moment is (spin omhoog/positief of spin omlaag/negatief). Met de method `#!py flip()` keer je de spin van het deeltje om. 
     === "code"
         **Pseudo-code**
@@ -282,9 +284,6 @@ print(master_oogway.quote)
         - [ ] Naam en spin toestand worden aan instance meegegeven.
         - [ ] Method `#!py is_up_or_down()` print 'up' als de spin positief is en 'down' als het negatief is.
         - [ ] Method `#!py flip()` maakt de spin positief als de spin negatief is, en negatief als de spin positief is.
-
-
-        
 
         **Projecttraject:**
 
