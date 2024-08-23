@@ -365,7 +365,8 @@ Arduino VISA firmware v1.0.0</span>
 
 De output van het script is afhankelijk van het systeem en het aantal apparaten dat verbonden is.
 
-Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder kun je de verschillende stappen met elkaar vergelijken door met de muis over de tekst heen te gaan. 
+!!! opdracht-basis "Vergelijk pyvisa-shell met Python code"
+    Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Vergelijk de verschillende stappen hieronder met elkaar door met de muis over de tekst heen te gaan.
 
 --8<-- "docs/assets/comparison/compare_shell_script.html"
 
