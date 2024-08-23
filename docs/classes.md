@@ -186,7 +186,7 @@ print(master_oogway.quote)
     print(proton.name)
     # 'mooi proton'
     ```
-
+<img src="../assets/particle-spin-flip/spin-flip.gif" alt="spin flip" style="width:320px;height:180px;">
 
 !!! opdracht-inlever "Class ElectronicLoadMeasurements"
     Schrijf een class `#!py ElectronicLoadMeasurements` waarmee je spanningsmetingen aan een weerstand (_load_) kunt bewaren. De class moet voldoen aan deze eisen:
