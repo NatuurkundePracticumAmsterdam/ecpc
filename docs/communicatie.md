@@ -492,13 +492,13 @@ Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder 
 
         - [x] Pyvisa in pythonscript
         - [ ] LED laten branden
+        - [ ] flashingLED
 
 
-
-
+<!-- 
 !!! opdracht-basis "LED laten branden"
     Schrijf een script dat de spanning over de LED laat oplopen van nul tot de maximale waarde. Wat gebeurt er als je de spanning laat oplopen tot twee keer die maximale waarde?
-
+ -->
 
 
 !!! opdracht-basis "LED laten branden"
@@ -548,10 +548,11 @@ Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder 
 
         - [x] Pyvisa in pythonscript
         - [x] LED laten branden
+        - [ ] flashingLED
 
 
 <div id="opd:flashingLED"></div>
-!!! opdracht-basis "flashingLED"
+<!-- !!! opdracht-basis "flashingLED"
     <iframe src="https://vu.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=8d7b4743-eaa5-4221-a135-b1b600f1cf3f&autoplay=true&offerviewer=false&showtitle=false&showbrand=false&captions=false&interactivity=none" height="281" width="500" style="margin-left: 1em; "frameBorder="0" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="Blinking LED" align="right"></iframe>
     
     Maak een bestand {{file}}`flashingLED.py` en laat de LED in een regelmatig tempo knipperen. 
@@ -565,7 +566,55 @@ Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder 
         time.sleep(28)
         ```
 
-        [^standard-library]: Zie ook: [The Python Standard Library](vervolg-python.md#de-standard-library-en-de-python-package-index)
+        [^standard-library]: Zie ook: [The Python Standard Library](vervolg-python.md#de-standard-library-en-de-python-package-index) -->
+
+!!! opdracht-basis "flashingLED"
+    === "opdracht"
+
+        Om bekend te raken met de code maak je een nieuw bestand {{new_file}}`flashingLED.py` aan in de map {{folder}}`ECPC` waarin je code schrijft die de LED in een regelmatig tempo laat knipperen. 
+        
+        !!! info
+            Je kan hiervoor gebruik maken van de module _time_ die standaard met Python meekomt[^standard-library]. Met de functie `#! sleep()` kun je de executie van de volgende regel in het script met een aantal seconden uitstellen.
+
+            ``` py
+            import time
+            # wait 28 second
+            time.sleep(28)
+            ```
+
+            [^standard-library]: Zie ook: [The Python Standard Library](vervolg-python.md#de-standard-library-en-de-python-package-index)
+
+    === "code"
+        **Pseudo-code**
+        ``` py
+        # import pyvisa package
+        # create resourcemanager
+        # get list resources
+        # open device
+        #
+        # repeat:
+        #   send query set output channel to max
+        #   wait
+        #   send query set output channel to min
+        #   wait
+        ```
+        **Testvoorbeeld**
+
+        <iframe src="https://vu.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=8d7b4743-eaa5-4221-a135-b1b600f1cf3f&autoplay=true&offerviewer=false&showtitle=false&showbrand=false&captions=false&interactivity=none" height="281" width="500" style="margin-left: 1em; "frameBorder="0" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="Blinking LED" align="left"></iframe>
+        
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De LED staat een tijd aan en een tijd uit.
+        - [ ] Het aan en uitgaan van de LED herhaald zich enkele keren.
+
+
+        **Projecttraject:**
+
+        - [x] Pyvisa in pythonscript
+        - [x] LED laten branden
+        - [x] flashingLED
 
 !!! opdracht-meer "Meer knipperritmes"
     Breid het bestand {{file}}`flashingLED.py` uit met meer knipperritmes, bijvoorbeeld:
