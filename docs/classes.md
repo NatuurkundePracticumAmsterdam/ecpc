@@ -186,7 +186,7 @@ print(master_oogway.quote)
     print(proton.name)
     # 'mooi proton'
     ```
-
+<img src="../assets/particle-spin-flip/spin-flip.gif" alt="spin flip" style="width:320px;height:180px;">
 # Class Particle opdracht nieuwe stijl 1
 
 !!! opdracht-basis "Class Particle"

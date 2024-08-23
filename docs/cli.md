@@ -38,6 +38,13 @@ Uitgesplitst in _argumenten_ en __opties__, met vierkante haken [] om aan te gev
     1. Naast `conda create` heb je ook met andere argumenten gewerkt zoals `activate` en `install`. Welke argumenten ken je al van de applicatie `poetry`?
     1. Vraag de lijst met argumenten (commando's) op van Poetry met `poetry list`, hoeveel kende je nog niet?
     
+!!! opdracht-basis "Conda opties en argumenten"
+    1. Open een `Anaconda Prompt`
+    1. Maak gebruik van de optie __-h__ om de helpfunctie van conda op te vragen. (`conda -h`)
+    1. Zoek de optie op om de conda versie weer te geven (`conda -V`)
+    1. Maak gebruik van de optie __-h__ om de helpfunctie van het commando _activate_ op te vragen (`conda activate -h`)
+    1. Welke argumenten moet je meegeven (positional arguments?) en welke opties mag je meegeven (optional arguments?) (argument: env_name_or_prefix, opties: --help, --stack, --no-stack)
+
 
 ### Click
 Als we gebruik willen maken van commando's in onze eigen applicatie moeten we weten wat de gebruiker in de terminal typt. Dit is mogelijk met `sys.argv`.[^argv]
