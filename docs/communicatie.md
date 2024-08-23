@@ -40,17 +40,6 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 !!! waarschuwing
     Let op dat je de weerstand van 220 Ω gebruikt! Een te grote weerstand zorgt ervoor dat je nauwelijks iets kunt meten, maar een te kleine weerstand zorgt ervoor dat de stroomsterkte door de Arduino te groot wordt. In dat geval zul je de Arduino onherstelbaar beschadigen. De kleurcodes voor weerstanden vind je in de [appendix](kleurcodes.md).
 
-<!-- !!! opdracht-basis "Schakeling bouwen"
-    Als je geen kant-en-klare schakeling bij je werkplek hebt liggen, druk de Arduino in het breadboard en bouw een schakeling met een LED op de manier die is weergegeven in de figuur hieronder. De weerstand heeft een waarde van 220 &Omega;. De LED heeft aan één zijde een platte kant in de dikkere ring onderaan de plastic behuizing (goed kijken!); schakel die aan de kant van de aarde (de zwarte draad), dus aan de kant van de weerstand en _niet_ aan de kant van de rode draad naar de Arduino. Als de pootjes van de LED niet afgeknipt zijn, dan zit het korte pootje aan de platte zijde van de LED. Het heeft geen zin om naar het plaatje te kijken hoe het er ín de LED uitziet &mdash; dat verschilt per type LED.
-
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
-    <model-viewer id="model" style="width: 100%; height: 700px;" alt="Schakelschema LED" src="../assets/circuit/Breadboard_LED.glb" ar shadow-intensity="1" camera-controls touch-action="pan-y" poster="../assets/circuit/breadboard_led_top_view.png" camera-orbit="0rad 0.39269908169872414rad 4.718948223475571m" autoplay exposure="0.6"></model-viewer>
-
-    Door linkermuisknop ingedrukt te houden en te slepen kan je de schakeling draaien, met rechtermuisknop kan je hem verplaatsen en door te scrollen kan je in- en uitzoomen.
-
-    <button onclick="printOrbit()" type="button">print orbit</button> -->
-
-
 !!! opdracht-basis "Schakeling bouwen"
     === "opdracht"
         Je maakt een schakeling om de spanning over en de stroom door een LED te meten. Hiervoor maak je gebruik van een Arduino en een breadboard. Om de stroomsterkte te beperken zet je de LED in serie met een weerstand van 220 Ω. Je sluit twee spanningsmeters aan, spanningsmeter 1 staat over de LED en de weerstand samen. Spanningsmeter 2 staat over de weerstand.
@@ -89,12 +78,6 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
         - [ ] Pyvisa regeleindes
         - [ ] Pyvisa LED laten branden
 
-
-
-
-
-<!-- <div id="fig:LED-schakeling"></div>
-![LED schakelschema](figures/LED-schakeling.svg){: style="width:75%"} -->
 
 !!! info
     Om met Python via het VISA-protocol te kunnen communiceren met apparaten hebben we specifieke packages nodig. Die gaan we installeren in een _conda environment_. Voor meer informatie over conda environments zie [paragraaf _Conda environments_](software-tools.md#conda-environments).
@@ -137,7 +120,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
         ========================================
         EOF  attr  close  exit  help  list  open  query  read  termchar  timeout  write
         </span>
-        </code></pre>
+        </code></pre>   
     === "check"
         **Checkpunten:**
 
@@ -146,7 +129,6 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
         - [ ] Als je `help EOF` intypt krijg je de hulpvaardige tekst (ahum): `Handle an EOF.`
         - [ ] Als je de pyvisa-shell met een commando afsluit staat de naam van het conda environment weer tussen haakjes (en niet visa).
        
-
         **Projecttraject:**
 
         - [x] Schakeling bouwen
@@ -160,16 +142,9 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
     We maken hier gebruik van de optie `-b py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er, naast `pyvisa-py`, ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. Maar de verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle types apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
 
 
-<!-- !!! opdracht-basis "Pyvisa `list` en `open`"
-
-    Om verbinding te maken met onze Arduino gebruik je eerst `list` om te kijken welke apparaten aangesloten zijn en vervolgens `open` om de verbinding te openen. Je kunt makkelijk zien welk apparaat de Arduino is door éérst `list` te gebruiken zónder de Arduino aangesloten en vervolgens nog een keer mét de Arduino aangesloten &mdash; het kan een paar seconden duren voor de Arduino wordt herkend. Het laatst bijgekomen apparaat is dan de Arduino
- -->
-
 !!! opdracht-basis "Pyvisa `list` en `open`"
     === "opdracht"
         Je bekijkt het lijstje met aangesloten aparaten door in de `pyvisa-shell` het commando `list` te typen. Je haalt de USB-kabel waarmee de Arduino aan de computer is aangesloten uit de computer en vraagt nogmaals de lijt met aangesloten aparaten op. Nu weet je welke poort de Arduino is. Je bekijkt de help tekst van het commando `open`, daarna open je de communicatie met de Arduino.
-
-
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
@@ -188,9 +163,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 
         <pre><code>(visa) > help open <button type="button" name="help open" onclick="runScript('help open')">{{ enter }}</button><button type="button" name="help open" onclick="runScript('help open')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="help open">Open resource by number, resource name or alias: open 3</span>
-        </code></pre>
-        
-        
+        </code></pre>    
     === "check"
         **Checkpunten:**
 
@@ -203,7 +176,6 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
         You can talk to the device using "write", "read" or "query".
         The default end of message is added to each message.
         ```
-       
 
         **Projecttraject:**
 
@@ -214,34 +186,19 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
         - [ ] Pyvisa regeleindes
         - [ ] Pyvisa LED laten branden
 
-<!-- !!! opdracht-basis "Pyvisa `query`"
-    Een commando sturen en wachten op een antwoord doe je met `query`. Kijk in de [documentatie van de firmware](firmware.md) met welk commando je de identificatiestring kunt uitlezen. Welke error krijg je als je dit commando naar de Arduino stuurt?
-
-    ```
-    (open) query *IDN?
-    Response: ERROR: UNKNOWN COMMAND *IDN?
-
-    (open) exit
-    ``` -->
 <div id="opd:pyvisa_query"></div>
 !!! opdracht-basis "Pyvisa `query`"
     === "opdracht"
         Je stuurt een commando naar de Arduino met `query`. In de [documentatie van de firmware](firmware.md) heb je het commando opgezocht om de identificatiestring uit te lezen. Nadat je dit commando naar de Arduino stuurt krijg je een error. Je leest de handleiding rustig verder om erachter te komen hoe je dit moet oplossen.
-
-
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
         # query identificationstring
-
         ```
         **Testcode**
         <pre><code>(open) > query gappie <button type="button" name="query gappie" onclick="runScript('query gappie')">{{ enter }}</button><button type="button" name="query gappie" onclick="runScript('query gappie')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="query gappie">Response: ERROR: UNKNOWN COMMAND gappie</span>
-        </code></pre>
-        
-        
-        
+        </code></pre>        
     === "check"
         **Checkpunten:**
 
@@ -249,7 +206,6 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
         - [ ] Na het commando `query` volgt een spatie.
         - [ ] Na de spatie staat het commando om de identificatiestring uit te lezen, met hoofdletters (en dat `*` en dat `?` horen er ook bij!).
         - [ ] Als je het commando verstuurt hebt verschijnt er een error `Response: ERROR: UNKNOWN COMMAND .....`
-
 
         **Projecttraject:**
 
@@ -271,26 +227,9 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
 
 [^regeleindes]: De regeleindes voor de Arduinofirmware zijn verschillend voor lezen en schrijven. Dit heeft een oninteressante reden: bij het ontvangen van commando's is het makkelijk om alles te lezen totdat je één bepaald karakter (LF) tegenkomt. Bij het schrijven gebruikt de standaard `println`-functie een Windows-stijl regeleinde (CRLF).
 
-
-<!-- !!! opdracht-basis "Pyvisa regeleindes"
-    Om de _terminator characters_ in te stellen maken we gebruik van het commando `termchar`. Open de Arduino. Gebruik `help termchar` om uit te zoeken hoe je de terminator character instellingen kunt opvragen en kunt aanpassen. Zet dan read op CRLF en de write op LF. 
-
-    ??? uitwerkingen
-        ``` consolecode
-        (open) termchar
-        Termchar read: None write: CRLF
-        (open) termchar CRLF LF
-        Done
-        (open) termchar
-        Termchar read: CRLF write: LF
-        (open) query *IDN?
-        Response: Arduino VISA firmware v1.0.0
-        ``` -->
-
 !!! opdracht-basis "Pyvisa regeleindes"
     === "opdracht"
         Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je dit moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige regeleinde instellingen op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Je bekijkt nog een keer de regeleinde instellingen om te controlleren of ze nu wel goed staan. Je gaat terug naar de [opdracht Pyvisa    `query`](#opd:pyvisa_query) en krijgt een response in plaats van een error. 
-
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
@@ -299,7 +238,6 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
         # read = CRLF and write = LF
         # termchar settings?
         # query identificationstring
-
         ```
         **Testcode**
         <pre><code>(open) > help termchar <button type="button" name="help termchar" onclick="runScript('help termchar')">{{ enter }}</button><button type="button" name="help termchar" onclick="runScript('help termchar')" class="invisible">{{ reload }}</button>
@@ -310,8 +248,7 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
             termchar
         Set termination character read or read+write:
             termchar `<termchar>` [`<termchar>`]</span>
-        </code></pre>        
-        
+        </code></pre>
     === "check"
         **Checkpunten:**
 
@@ -342,16 +279,9 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
 !!! info "Onzichtbare regeleindes"
     Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het eind van de <q>zin</q>) krijgen we antwoord! Dat antwoord heeft dan juist weer een CRLF aan het eind dus `pyvisa-shell` weet wanneer het kan stoppen met luisteren en print het antwoord op het scherm. De karakters CRLF en LF _zelf_ blijven onzichtbaar voor ons.
 
-<!-- !!! opdracht-basis "Pyvisa LED laten branden"
-    Kijk in de [documentatie van de firmware](firmware.md) hoe je een spanning op het uitvoerkanaal kan zetten en zet de spanning hoog genoeg zodat het LED gaat branden. 
-    * Wat is de _minimale waarde_ waarbij de LED _net_ licht geeft? 
-    * Laat de spanning steeds verder oplopen; op een gegeven moment gebeurt er iets raars. 
-    * Wat is de _maximale waarde_ waarbij de LED zonder problemen kan branden? -->
-
 !!! opdracht-basis "Pyvisa LED laten branden"
     === "opdracht"
         Je zoekt in de [documentatie van de firmware](firmware.md) op hoe je een spanning op het uitvoerkanaal zet. Je leest dat er een maximale waarde is voor de spanning en zet deze waarde op het uitvoerkanaal. Je ziet dat het LEDje brandt en er verschijnt een glimlach op je gezicht. Je bent benieuwd naar wat er gebeurt als je over de maximale spanning heen gaat en zet de maximale waarde + 1 op het uitvoerkanaal. Je denkt na over een verklaring voor wat je ziet gebeuren. Je weet dat een LED een drempelspanning nodig heeft om te branden, je vult een paar waardes in tussen de minimale en maximale waarde om erachter te komen wat deze drempelspanning is. 
-
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
@@ -382,8 +312,8 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
         - [x] Pyvisa regeleindes
         - [x] Pyvisa LED laten branden
 
-## Een eenvoudig script
 
+## Een eenvoudig script
 
 We hebben via de shell contact gelegd met de hardware. Nu wordt het tijd om, met de documentatie[@pyvisa] in de aanslag, hetzelfde vanuit Python te doen. Als je met een nieuw project begint is het helemaal geen gek idee om een kort script te schrijven waarin je wat dingen uitprobeert. Als alles lijkt te werken kun je het netjes gaan maken en gaan uitbreiden. We beginnen hier met een eenvoudig script en zullen dat daarna gaan verfijnen.
 
@@ -440,23 +370,17 @@ Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder 
 --8<-- "docs/assets/comparison/compare_shell_script.html"
 
 <div id="opd:test_arduino"></div>
-<!-- !!! opdracht-basis "Pyvisa in pythonscript"
-    Maak in een geschikte map een bestand {{file}}`test_arduino.py` en kopieer daarin de Python code. Selecteer vervolgens in Visual Studio Code je conda environment zodat je het script ook daadwerkelijk kunt runnen. Hoe je dat doet lees je aan het eind van de [paragraaf _Conda environments_](software-tools.md#conda-environments). Sluit alle terminals. -->
-
 !!! opdracht-basis "Pyvisa in pythonscript"
     === "opdracht"
-
         Je gaat de gegeven Python code testen daarom open je in Visual Studio Code de map {{folder}}`ECPC` en maakt een bestand {{new_file}}`test_arduino.py` aan. Je kopieert de Python code in het bestand. Je ziet dat de code gebruikt maakt van de package `pyvisa` daarom selecteer je de environment die je bij [opdracht Environment aanmaken](#opd:condaenv) hebt gemaakt. Je slaat het bestand op en runt het bestand. 
 
         !!! info "could not open port 'COM28': FileNotFoundError"
-            Het kan zijn dat het script een poort probeert te openen die bij jou een andere naam heeft. Probeer met het lijstje instrumenten te raden welke de Arduino is en pas het script aan totdat het werkt.[^tip-aansluiten]
+            Krijg je een `#!py FileNotFoundError`? Dan kan het zijn dat het script een poort probeert te openen die bij jou een andere naam heeft. Probeer met het lijstje instrumenten te raden welke de Arduino is en pas het script aan totdat het werkt.[^tip-aansluiten]
 
         [^tip-aansluiten]: Tip: als je de Arduino loshaalt en weer aansluit is het de nieuwe regel in het lijstje.
 
         !!! info "could not open port 'COM3': PermissionError"
             Krijg je een `#!py PermissionError`? Dan heb je vast nog een terminal openstaan waarin `pyvisa-shell` actief is. 
-
-
     === "code"
         **Pseudo-code**
         ``` py
@@ -479,7 +403,6 @@ Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder 
         <span class="invisible" name="test_arduino_test_code">('ASRL28::INSTR',)
         Arduino VISA firmware v1.0.0</span>
         </code></pre></div>
-        
     === "check"
         **Checkpunten:**
 
@@ -487,19 +410,11 @@ Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder 
         - [ ] Je hebt het de juiste naam van de Arduino in het script aangepast (als jouw Arduino niet 'ASRL28::INSTR' heet).
         - [ ] Je hebt alle terminals (ook Anaconda Prompt) gesloten waarin communicatie met de Arduino open stond. 
 
-
         **Projecttraject:**
 
         - [x] Pyvisa in pythonscript
         - [ ] LED laten branden
         - [ ] flashingLED
-
-
-<!-- 
-!!! opdracht-basis "LED laten branden"
-    Schrijf een script dat de spanning over de LED laat oplopen van nul tot de maximale waarde. Wat gebeurt er als je de spanning laat oplopen tot twee keer die maximale waarde?
- -->
-
 
 !!! opdracht-basis "LED laten branden"
     === "opdracht"
@@ -508,7 +423,6 @@ Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder 
 
         !!! info "f-strings"
             Het sturen van commando's naar de Arduino waar een variabele spanning in staat gaat gemakkelijk met f-strings. Voor meer informatie zie de [paragraaf f-strings](basis-python.md#f-strings-variabelen-en-input).
-
     === "code"
         **Pseudo-code**
         ``` py
@@ -530,9 +444,7 @@ Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder 
         <pre>
         <code>(ecpc) > python.exe test_LED.py
         <span class="invisible" name="test_LED">1023</span>
-        </code></pre></div>
-        
-        
+        </code></pre></div>        
     === "check"
         **Checkpunten:**
 
@@ -543,7 +455,6 @@ Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder 
         - [ ] Als je goed kijkt zie je de LED vertraagd oplichten.
         - [ ] Als je de waarde op kanaal 0 opvraagd aan het eind van de reeks met `OUT:CH0?` krijg je `1023` terug.
 
-
         **Projecttraject:**
 
         - [x] Pyvisa in pythonscript
@@ -552,22 +463,6 @@ Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder 
 
 
 <div id="opd:flashingLED"></div>
-<!-- !!! opdracht-basis "flashingLED"
-    <iframe src="https://vu.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=8d7b4743-eaa5-4221-a135-b1b600f1cf3f&autoplay=true&offerviewer=false&showtitle=false&showbrand=false&captions=false&interactivity=none" height="281" width="500" style="margin-left: 1em; "frameBorder="0" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="Blinking LED" align="right"></iframe>
-    
-    Maak een bestand {{file}}`flashingLED.py` en laat de LED in een regelmatig tempo knipperen. 
-
-    !!! info
-        Je kan hiervoor gebruik maken van de module _time_ die standaard met Python meekomt[^standard-library]. Met de functie `#! sleep()` kun je de executie van de volgende regel in het script met een aantal seconden uitstellen.
-
-        ``` py
-        import time
-        # wait 28 second
-        time.sleep(28)
-        ```
-
-        [^standard-library]: Zie ook: [The Python Standard Library](vervolg-python.md#de-standard-library-en-de-python-package-index) -->
-
 !!! opdracht-basis "flashingLED"
     === "opdracht"
 
@@ -583,7 +478,6 @@ Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder 
             ```
 
             [^standard-library]: Zie ook: [The Python Standard Library](vervolg-python.md#de-standard-library-en-de-python-package-index)
-
     === "code"
         **Pseudo-code**
         ``` py
@@ -601,14 +495,11 @@ Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder 
         **Testvoorbeeld**
 
         <iframe src="https://vu.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=8d7b4743-eaa5-4221-a135-b1b600f1cf3f&autoplay=true&offerviewer=false&showtitle=false&showbrand=false&captions=false&interactivity=none" height="281" width="500" style="margin-left: 1em; "frameBorder="0" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="Blinking LED" align="left"></iframe>
-        
-        
     === "check"
         **Checkpunten:**
 
         - [ ] De LED staat een tijd aan en een tijd uit.
         - [ ] Het aan en uitgaan van de LED herhaald zich enkele keren.
-
 
         **Projecttraject:**
 
