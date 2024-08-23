@@ -491,6 +491,7 @@ Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder 
         **Projecttraject:**
 
         - [x] Pyvisa in pythonscript
+        - [ ] LED laten branden
 
 
 
@@ -498,8 +499,55 @@ Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder 
 !!! opdracht-basis "LED laten branden"
     Schrijf een script dat de spanning over de LED laat oplopen van nul tot de maximale waarde. Wat gebeurt er als je de spanning laat oplopen tot twee keer die maximale waarde?
 
-    !!! info "f-strings"
-        Het sturen van commando's naar de Arduino waar een variabele spanning in staat gaat gemakkelijk met f-strings. Voor meer informatie zie de [paragraaf f-strings](basis-python.md#f-strings-variabelen-en-input).
+
+
+!!! opdracht-basis "LED laten branden"
+    === "opdracht"
+
+        Omdat je straks de IU-karakteristiek van de LED wilt gaan bepalen ga je een reeks aan spanningen naar de LED sturen waardoor de LED gaat branden. Je maakt daarvoor een bestand {{new_file}}`test_LED.py` aan in de map {{folder}}ECPC. Je schrijft eerst een regel code waarmee je een commando naar de Arduino stuurt waardoor de LED gaat branden. Daarna schrijf je de code om zodat de spanning oploopt van de minimale waarde tot aan de maximale waarde. 
+
+        !!! info "f-strings"
+            Het sturen van commando's naar de Arduino waar een variabele spanning in staat gaat gemakkelijk met f-strings. Voor meer informatie zie de [paragraaf f-strings](basis-python.md#f-strings-variabelen-en-input).
+
+    === "code"
+        **Pseudo-code**
+        ``` py
+        # import pyvisa package
+        # create resourcemanager
+        # get list resources
+        # open device
+        #
+        # for value in min to max
+        #   send query set output channel to value
+        ```
+        **Testcode**      
+        <div class="code-box"><button type="button" name="test_LED" onclick="runScript('test_LED')" class="run">{{ run }}</button><button type="button" name="test_LED" onclick="runScript('test_LED')" class="reload invisible">{{ reload }}</button> test_LED.py
+        ``` py
+        ...
+        final_value = device.query("OUT:CH0?")
+        print(final_value)
+        ```
+        <pre>
+        <code>(ecpc) > python.exe test_LED.py
+        <span class="invisible" name="test_LED">1023</span>
+        </code></pre></div>
+        
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Je hebt het juiste conda environment geselecteerd (zie ook [paragraaf _Conda environments_](software-tools.md#conda-environments)).
+        - [ ] Je hebt het de juiste naam van de Arduino in het script aangepast (als jouw Arduino niet 'ASRL28::INSTR' heet).
+        - [ ] Je hebt alle terminals (ook Anaconda Prompt) gesloten waarin communicatie met de Arduino open stond. 
+        - [ ] Je laat de spanning oplopen van de minimale tot de maximale waarde. 
+        - [ ] Als je goed kijkt zie je de LED vertraagd oplichten.
+        - [ ] Als je de waarde op kanaal 0 opvraagd aan het eind van de reeks met `OUT:CH0?` krijg je `1023` terug.
+
+
+        **Projecttraject:**
+
+        - [x] Pyvisa in pythonscript
+        - [x] LED laten branden
 
 
 <div id="opd:flashingLED"></div>
