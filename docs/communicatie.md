@@ -440,12 +440,59 @@ Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Hieronder 
 --8<-- "docs/assets/comparison/compare_shell_script.html"
 
 <div id="opd:test_arduino"></div>
+<!-- !!! opdracht-basis "Pyvisa in pythonscript"
+    Maak in een geschikte map een bestand {{file}}`test_arduino.py` en kopieer daarin de Python code. Selecteer vervolgens in Visual Studio Code je conda environment zodat je het script ook daadwerkelijk kunt runnen. Hoe je dat doet lees je aan het eind van de [paragraaf _Conda environments_](software-tools.md#conda-environments). Sluit alle terminals. -->
+
 !!! opdracht-basis "Pyvisa in pythonscript"
-    Maak in een geschikte map een bestand {{file}}`test_arduino.py` en kopieer daarin de Python code. Selecteer vervolgens in Visual Studio Code je conda environment zodat je het script ook daadwerkelijk kunt runnen. Hoe je dat doet lees je aan het eind van de [paragraaf _Conda environments_](software-tools.md#conda-environments). Sluit alle terminals.
+    === "opdracht"
 
-Het kan zijn dat het script bij jullie crasht met een foutmelding. Krijg je een `#!py PermissionError`? Dan heb je vast nog een terminal openstaan waarin `pyvisa-shell` actief is. Een andere reden kan zijn dat het script probeert een poort te openen die bij jullie een andere naam heeft. Probeer met het lijstje instrumenten te raden welke de Arduino is en pas het script aan totdat het werkt.[^tip-aansluiten]
+        Je gaat de gegeven Python code testen daarom open je in Visual Studio Code de map {{folder}}`ECPC` en maakt een bestand {{new_file}}`test_arduino.py` aan. Je kopieert de Python code in het bestand. Je ziet dat de code gebruikt maakt van de package `pyvisa` daarom selecteer je de environment die je bij [opdracht Environment aanmaken](#opd:condaenv) hebt gemaakt. Je slaat het bestand op en runt het bestand. 
 
-[^tip-aansluiten]: Tip: als je de Arduino loshaalt en weer aansluit is het de nieuwe regel in het lijstje.
+        !!! info "could not open port 'COM28': FileNotFoundError"
+            Het kan zijn dat het script een poort probeert te openen die bij jou een andere naam heeft. Probeer met het lijstje instrumenten te raden welke de Arduino is en pas het script aan totdat het werkt.[^tip-aansluiten]
+
+        [^tip-aansluiten]: Tip: als je de Arduino loshaalt en weer aansluit is het de nieuwe regel in het lijstje.
+
+        !!! info "could not open port 'COM3': PermissionError"
+            Krijg je een `#!py PermissionError`? Dan heb je vast nog een terminal openstaan waarin `pyvisa-shell` actief is. 
+
+
+    === "code"
+        **Pseudo-code**
+        ``` py
+        # import pyvisa package
+        # create resourcemanager
+        # get list resources
+        # open device
+        # send query
+        ```
+        **Testcode**      
+        <div class="code-box"><button type="button" name="test_arduino_test_code" onclick="runScript('test_arduino_test_code')" class="run">{{ run }}</button><button type="button" name="test_arduino_test_code" onclick="runScript('test_arduino_test_code')" class="reload invisible">{{ reload }}</button> test_arduino.py
+        ``` py
+        ...
+
+        print(ports)
+        print(identification)
+        ```
+        <pre>
+        <code>(ecpc) > python test_arduino.py
+        <span class="invisible" name="test_arduino_test_code">('ASRL28::INSTR',)
+        Arduino VISA firmware v1.0.0</span>
+        </code></pre></div>
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Je hebt het juiste conda environment geselecteerd (zie ook [paragraaf _Conda environments_](software-tools.md#conda-environments)).
+        - [ ] Je hebt het de juiste naam van de Arduino in het script aangepast (als jouw Arduino niet 'ASRL28::INSTR' heet).
+        - [ ] Je hebt alle terminals (ook Anaconda Prompt) gesloten waarin communicatie met de Arduino open stond. 
+
+
+        **Projecttraject:**
+
+        - [x] Pyvisa in pythonscript
+
+
 
 
 !!! opdracht-basis "LED laten branden"
