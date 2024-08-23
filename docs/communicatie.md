@@ -173,6 +173,7 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
         - [ ] Pyvisa in terminal
         - [ ] Pyvisa `list` en `open`
         - [ ] Pyvisa `query`
+        - [ ] Pyvisa regeleindes
 
 !!! info
     We maken hier gebruik van de optie `-b py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er, naast `pyvisa-py`, ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. Maar de verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle types apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
@@ -228,7 +229,7 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
         - [x] Pyvisa in terminal
         - [x] Pyvisa `list` en `open`
         - [ ] Pyvisa `query`
-
+        - [ ] Pyvisa regeleindes
 
 !!! opdracht-basis "Pyvisa `query`"
     Een commando sturen en wachten op een antwoord doe je met `query`. Kijk in de [documentatie van de firmware](firmware.md) met welk commando je de identificatiestring kunt uitlezen. Welke error krijg je als je dit commando naar de Arduino stuurt?
@@ -273,6 +274,7 @@ Het equivalente circuit zoals je dat zou bouwen met twee losse voltmeters is hie
         - [x] Pyvisa in terminal
         - [x] Pyvisa `list` en `open`
         - [x] Pyvisa `query`
+        - [ ] Pyvisa regeleindes
 
 
 Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de [documentatie van de firmware](firmware.md) dan zie je dat er bepaalde _terminator characters_ nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een <q>enter</q> aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een _carriage return_ (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een _line feed_ (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van _carriage return + line feed_ (CRLF). 
@@ -302,6 +304,53 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
         Response: Arduino VISA firmware v1.0.0
         ```
 
+!!! opdracht-basis "Pyvisa regeleindes"
+    === "opdracht"
+        Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je dit moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige regeleinde instellingen op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Tot slot bekijk je nog een keer de regeleinde instellingen om te controlleren of ze nu wel goed staan.  
+
+    === "code"
+        **Pseudo-code**
+        ``` ps1 title="Terminal"
+        # help termchar
+        # termchar settings?
+        # read = CRLF and write = LF
+        # termchar settings?
+
+        ```
+        **Testcode**
+        <pre><code>(open) > help termchar <button type="button" name="help termchar" onclick="runScript('help termchar')">{{ enter }}</button><button type="button" name="help termchar" onclick="runScript('help termchar')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="help termchar">Get or set termination character for resource in use.
+        `<termchar>` can be one of: CR, LF, CRLF, NUL or None.
+        None is used to disable termination character
+        Get termination character:
+            termchar
+        Set termination character read or read+write:
+            termchar `<termchar>` [`<termchar>`]</span>
+        </code></pre>
+        
+        
+        
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De _read_ regeleindes staan ingesteld op CRLF.
+        - [ ] De _write_ regeleinds staan ingesteld op LF.
+        - [ ] Als je met het commando `termchar` de instellingen van de regeleindes opvraag staat er:
+
+        ``` consolecode
+        Termchar read: CRLF write: LF
+        use CR, LF, CRLF, NUL or None to set termchar
+        ```
+
+
+        **Projecttraject:**
+
+        - [x] Schakeling bouwen
+        - [x] Pyvisa in terminal
+        - [x] Pyvisa `list` en `open`
+        - [x] Pyvisa `query`
+        - [x] Pyvisa regeleindes
 
 
 !!! info "Onzichtbare regeleindes"
