@@ -365,13 +365,13 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
     === "check"
         **Checkpunten:**
 
-        - [ ] Je stuurt een commando naar 
-
-        ``` consolecode
-        Termchar read: CRLF write: LF
-        use CR, LF, CRLF, NUL or None to set termchar
-        ```
-
+        - [ ] Je stuurt een commando naar de Arduino met behulp van `query`.
+        - [ ] Je hebt `query` goed geschreven en met kleine letters.
+        - [ ] Je hebt het commando om een spanning op het uitvoerkanaal te zetten geschreven met hoofdletters.
+        - [ ] Je zet een spanning op het uitvoerkanaal `0`.
+        - [ ] Achter het kanaalnummer staat een spatie.
+        - [ ] Na de spatie staat een geheel getal tussen de 0 en de 1023.
+        - [ ] Als je de waarde 828 naar het uitvoerkanaal 0 stuurt gaat de LED branden.
 
         **Projecttraject:**
 
