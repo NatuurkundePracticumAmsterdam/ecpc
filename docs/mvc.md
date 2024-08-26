@@ -215,16 +215,6 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         - [ ] De lijst wordt _niet_ geprint wanneer {{file}}`basisscript.py` wordt gerunt.
 
 !!! opdracht-inlever "Pythondaq: Model afsplitsen"
-    We gaan nu met ongeveer dezelfde stappen het model afsplitsen van de rest van de code.
-
-    1. Bespreek met elkaar en met de assistent welk deel van het script het model is. Kijk daarvoor nog eens goed naar [figuur MVC-model](#fig:mvc-model).
-    1. Maak een class met (bijvoorbeeld) de naam `#!py DiodeExperiment` en een method `#!py scan()` die de meting met de for-loop uitvoert. Controleer dat het werkt.
-    1. Volgens het schema praat alleen het model met de controller. De class `#!py DiodeExperiment` &mdash; het model &mdash; is dus degene die de class `#!py ArduinoVISADevice` &mdash; de controller &mdash; moet aanroepen en bewaren. Hoe doe je dat netjes? Overleg met elkaar.
-    1. Het kan (later) handig zijn om niet altijd te scannen tussen 0 en 1023 maar een ander bereik te kiezen. Pas de `#!py scan()` method aan zodat deze `start`- en `stop`-parameters accepteert.
-    1. Knip de class eruit en plaats die in het bestand `#!py diode_experiment.py` en gebruik weer een import-statement. Haal import-statements die je niet meer nodig hebt weg.
-    1. Hernoem het overgebleven script naar {{file}}`view.py`.
-
-!!! opdracht-inlever "Pythondaq: Model afsplitsen"
     === "opdracht"
         Omdat de uitbreidingen om het basisscript gebruiksvriendelijker te maken vooral de view zullen uitbreiden zet je het model en de view ook in aparte bestanden. Wanneer je het bestand {{file}}`view.py` runt roept deze in het model de method `#!py scan()` aan welke een meting start. Om gegevens van het naar de Arduino te sturen maakt het model gebruik van de controller. De gegevens die het model terugkrijgt van de Arduino worden volgens de fysische relaties verwerkt tot de benodigde gegevens en doorgestuurd naar de view. De view presenteerd de gegevens in een grafiek. Wanneer je in een ander bereik wilt meten pas je in de view het bereik aan, het model gebruikt dit bereik bij het doen van de meting. 
     === "code"
