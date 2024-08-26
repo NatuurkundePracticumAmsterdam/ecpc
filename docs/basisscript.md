@@ -127,9 +127,6 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
 
 <div id="opd:quickndirty-meting"></div>
 !!! opdracht-inlever "Pythondaq: Quick 'n dirty meting"
-    Bereken in je script de spanning _over_ en de stroomsterkte _door_ de LED en bewaar deze metingen in een lijst met spanningen en een lijst met stroomsterktes. Sluit je meting netjes af (zorg dat de LED niet blijft branden) en maak dan een grafiek van je metingen. Bekijk elkaars resultaten &mdash; ook van andere groepjes &mdash; en denk na of je meting fysisch helemaal correct is.
-
-!!! opdracht-inlever "Pythondaq: Quick 'n dirty meting"
     === "opdracht"
         Je code berekent de spanning _over_ en de stroomsterkte _door_ de LED terwijl de spanning over het cirquit oploopt van nul tot de maximale waarde. De resultaten worden in een grafiek weergegeven.  
     === "pseudo-code"
