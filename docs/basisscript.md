@@ -65,8 +65,10 @@ De digitale metingen die je programma krijgt van de ADC is hierboven weergegeven
     === "check"
         **Checkpunten:**
 
-        - [ ] Ruwe waarde 0 geeft voltage 0 en vice versa 
-        - [ ] Ruwe waarde 1023 geeft voltage 3.3 en vice versa
+        - [ ] Ruwe waarde 0 geeft spanning 0 en vice versa 
+        - [ ] Ruwe waarde 1023 geeft spanning 3.3 en vice versa
+        - [ ] Ruwe waarde 700 is ongeveer 2/3 van 1023 dus geeft een spanning in de buurt van 2.2 V
+        - [ ] Spanning van 2.28 V is ongeveer 2/3 van 3.3 dus geeft een ruwe waarde in de buur van 680
 
         **Projecttraject:**
 
