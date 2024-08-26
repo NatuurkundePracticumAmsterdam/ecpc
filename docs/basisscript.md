@@ -222,14 +222,6 @@ Het viel je misschien op dat in bovenstaand CSV-bestand iedere regel een $t$-waa
 Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de lengte van de lijst op te zoeken en krijg je meteen de losse elementen zonder dat je ze zelf uit de lijst moet plukken met indexnotatie.
 
 !!! opdracht-basis "oefenen met zip"
-    Gegeven de spanningen $U$ en de bijbehorende stroomsterktes $I$: 
-    ```py
-    U = [1.2, 1.8, 2.4, 2.7, 3.1] # V
-    I = [0.3, 0.4, 0.6, 0.8, 1.0] # A
-    ```
-    loop over de lijsten met `#!py zip()` en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
-
-!!! opdracht-basis "oefenen met zip"
     === "opdracht"
         Je hebt een lijst met spanningen en een lijst met stroomsterktes. Je loopt over de lijsten en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
     === "code"
