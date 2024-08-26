@@ -229,6 +229,29 @@ Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de len
     ```
     loop over de lijsten met `#!py zip()` en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
 
+!!! opdracht-basis "oefenen met zip"
+    === "opdracht"
+        Je hebt een lijst met spanningen en een lijst met stroomsterktes. Je loopt over de lijsten en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
+    === "code"
+        **Pseudo-code**
+        ``` py
+        U = [1.2, 1.8, 2.4, 2.7, 3.1] # V
+        I = [0.3, 0.4, 0.6, 0.8, 1.0] # A 
+
+        # repeat
+        #   print U , I, R
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De for-loop gebruikt `#!py zip()` om de elementen uit de lijst op te vragen
+        - [ ] De variabele hebben logische namen zoals `u` en `i`
+        - [ ] De weerstandswaarde is fysisch correct
+
+        **Projecttraject:**
+
+        - [x] oefenen met zip
+
 
 #### Het gebruik van de `#!py csv`-module
 
