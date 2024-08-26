@@ -89,11 +89,15 @@ Het opsplitsen van het programma in MVC gaan we stapsgewijs doen. We gaan een cl
 
         **Projecttraject:**
 
-        - [x] Pythondaq: repository
-        - [x] Pythondaq: start script
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
         - [x] Pythondaq: Quick 'n dirty meting
         - [x] Pythondaq: CSV
-        - [x] Pythondaq: controller bouwen
+        - [x] Pythondaq: Controller bouwen
+        - [ ] Pythondaq: Controller implementeren
+        - [ ] Pythondaq: Controller afsplitsen
+        - [ ] Pythondaq: Model afsplitsen
+        - [ ] Pythondaq: Onzekerheid
 
 
 Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experiment. 
@@ -132,6 +136,9 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
         - [x] Pythondaq: CSV
         - [x] Pythondaq: Controller bouwen
         - [x] Pythondaq: Controller implementeren
+        - [ ] Pythondaq: Controller afsplitsen
+        - [ ] Pythondaq: Model afsplitsen
+        - [ ] Pythondaq: Onzekerheid
 
 Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de precieze commando's zijn die je naar de hardware moet sturen. Als je de Arduino in de opstelling vervangt voor een ander meetinstrument moet je de class aanpassen, maar kan alle code die met het experiment zelf te maken heeft hetzelfde blijven.
 
@@ -178,6 +185,8 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         - [x] Pythondaq: Controller bouwen
         - [x] Pythondaq: Controller implementeren
         - [x] Pythondaq: Controller afsplitsen
+        - [ ] Pythondaq: Model afsplitsen
+        - [ ] Pythondaq: Onzekerheid
 
 ???+ opdracht-meer "`#!py if __name__ == '__main__'`"
     === "opdracht"
@@ -264,6 +273,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         - [x] Pythondaq: Controller implementeren
         - [x] Pythondaq: Controller afsplitsen
         - [x] Pythondaq: Model afsplitsen
+        - [ ] Pythondaq: Onzekerheid
     
 
 

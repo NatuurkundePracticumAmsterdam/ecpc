@@ -108,10 +108,10 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
 
 !!! opdracht-inlever "Pythondaq: start script"
     === "opdracht"
-        Je runt de code waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de spanning over de weerstand uit. Je print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand.
+        Je runt het bestand {{file}}`basisscript.py` waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de spanning over de weerstand uit. Je print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand.
     === "code"
         **Pseudo-code**
-        ``` py
+        ``` py title="basisscript.py"
         # connect to Arduino
 
         # set input voltage from 0 to max
@@ -130,9 +130,15 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
 
         **Projecttraject:**
 
-        - [x] Pythondaq: start script
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
         - [ ] Pythondaq: Quick 'n dirty meting
         - [ ] Pythondaq: CSV
+        - [ ] Pythondaq: Controller bouwen
+        - [ ] Pythondaq: Controller implementeren
+        - [ ] Pythondaq: Controller afsplitsen
+        - [ ] Pythondaq: Model afsplitsen
+        - [ ] Pythondaq: Onzekerheid
 
 Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma of Python notebook o.i.d. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment hebben we ook alleen nog maar _ruwe_ metingen. We gaan hier voorbij aan het feit dat we graag de stroomsterkte door de LED $I$ zouden willen uitzetten tegen de spanning over de LED $U_\mathrm{LED}$.
 
@@ -147,7 +153,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
     === "opdracht"
         Je code berekent de spanning _over_ en de stroomsterkte _door_ de LED terwijl de spanning over het cirquit oploopt van nul tot de maximale waarde. De resultaten worden in een grafiek weergegeven.  
     === "code"
-        **Pseudo-code**
+        **Pseudo-code** title="basisscript.py"
         ``` py
         # connect to Arduino
 
@@ -171,9 +177,15 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
 
         **Projecttraject:**
 
-        - [x] Pythondaq: start script
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
         - [x] Pythondaq: Quick 'n dirty meting
         - [ ] Pythondaq: CSV
+        - [ ] Pythondaq: Controller bouwen
+        - [ ] Pythondaq: Controller implementeren
+        - [ ] Pythondaq: Controller afsplitsen
+        - [ ] Pythondaq: Model afsplitsen
+        - [ ] Pythondaq: Onzekerheid
 
 
 ## Bewaren van meetgegevens
@@ -279,7 +291,7 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
         Je code schrijft de metingen ook weg als csv-bestand door gebruik te maken van de `#!py zip()`-functie en de `#!py csv`-module.
     === "code"
         **Pseudo-code**
-        ``` py
+        ``` py title="basisscript.py"
         # connect to Arduino
 
         # set input voltage from 0 to max
@@ -297,9 +309,15 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
 
         **Projecttraject:**
 
-        - [x] Pythondaq: start script
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
         - [x] Pythondaq: Quick 'n dirty meting
         - [x] Pythondaq: CSV
+        - [ ] Pythondaq: Controller bouwen
+        - [ ] Pythondaq: Controller implementeren
+        - [ ] Pythondaq: Controller afsplitsen
+        - [ ] Pythondaq: Model afsplitsen
+        - [ ] Pythondaq: Onzekerheid
 
 ???+ opdracht-meer "Git ignore"
     Het kan wenselijk zijn om niet alle bestanden mee te nemen voor versiebeheer in je repository. Soms wil je een bestand uitsluiten, of bepaalde bestand-types.  Om GitHub te laten weten welke bestanden niet gecommit hoeven te worden is er een bestand {{file_lines}}`.gitignore` . Let op de punt voor de bestandsnaam, dit betekend dat het een verborgen bestand is en mogelijk zie je het niet in je repository staan.
