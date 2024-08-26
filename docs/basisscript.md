@@ -43,14 +43,6 @@ De omzetting van een analoog signaal naar een digitaal signaal gebeurt als volgt
 De digitale metingen die je programma krijgt van de ADC is hierboven weergegeven. De onzekerheid is gelijk aan de halve afstand tot het volgende niveau. In lichtgrijs zie je het oorspronkelijke analoge signaal. De meting benadert het signaal dus maar gedeeltelijk. De Arduino die we gebruiken heeft een bereik van 0 V tot 3.3 V en &mdash; in tegenstelling tot het voorbeeld hierboven &mdash; een resolutie van 10 bits, dus $2^{10} = 1024$ stapjes. Als je een experiment ontwerpt is het dus van belang te weten dat je nooit kunt meten met een nauwkeurigheid kleiner dan de stapgrootte. Voor ons is deze resolutie prima.
 
 !!! opdracht-basis "Volt naar ADC"
-    We kunnen alleen maar de getallen 0 t/m 1023 naar de Arduino sturen. Ook krijgen we alleen maar dat bereik terug.
-
-    1. Schrijf de formule op waarmee je een spanning in V omrekent naar een ruwe ADC waarde, én omgekeerd.
-    1. Wat is precies het kleinste spanningsverschil dat we nog kunnen meten in V? Een meting kan dus nooit nauwkeuriger gedaan worden dan deze waarde.
-    1. Bereken welke spanning hoort bij een ruwe waarde van 700.
-    1. Bereken welke waarde we naar de Arduino moeten sturen als we een spanning willen instellen van 2.0 V. En een spanning van 2.28 V?
-
-!!! opdracht-basis "Volt naar ADC"
     === "opdracht"
         Je hebt gezien dat de Arduino werkt met getallen van 0 t/m 1023 en dat de Arduino een bereik heeft van 0 V tot 3.3 V. Je schrijft de formule op om de ruwe ADC waarde naar een spanning in Volt om te rekenen en omgekeerd. Je controleerd of je formules logische antwoorden geven door de spanning te berekenen die bij een ruwe waarde van 700 hoort en de ruwe waarde die hoort bij 2.28 V. 
     === "code"
