@@ -275,4 +275,54 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
     1. Overleg met je groepje en maak een plan hoe jullie de code gaan aanpassen om onzekerheid in te bouwen. Schrijf nog geen code op je computer maar schrijf de stappen uit met papier en pen. Het is dan veel makkelijker om te overleggen en na te denken. Welke delen van het programma moeten worden aangepast?
     1. Gebruik het plan om je eigen code aan te passen en test dat het werkt.
     
+!!! opdracht-inlever "Pythondaq: Onzekerheid"
+    === "opdracht"
+        Omdat je never nooit je conclusies gaat baseren op een enkele meetserie ga je de meting herhalen en foutenvlaggen toevoegen. Je moet weer even hard nadenken over hoe je dat bepaald en hoe je dat in je code gaat verwerken. Daarom pak je pen en papier, stoot je je buurmens aan en samen gaan jullie nadenken over hoe jullie in dit experiment de onzekerheid kunnen bepalen. Daarna kijken jullie naar de opbouw van de code en maken jullie aantekeningen over wat er waar en hoe in de code aangepast moet worden. Je kijkt naar je repository en ziet dat je de nu-nog-werkende-code hebt gecommit vervolgens ga je stap voor stap (commit voor commit) aan de slag om de aanpassingen te maken. Als het klaar is run je {{file}}`view.py` met het aantal herhaalmetingen op 3 en ziet in de grafiek foutenvlaggen op de metingen voor stroom en spanningen staan. Je kijkt op het beeldscherm van je buurmens en ziet daar ook foutenvlaggen verschijnen. Met een grijns kijken jullie elkaar aan en geven een high five {{feesttoeter}}.
 
+    === "code"
+        **Pseudo-code**
+        ``` py title="arduino_device.py"
+        # def list_devices
+        #   ...
+
+        # class ArduinoVisaDevice
+            ...
+        ```
+        ``` py title="diode_experiment.py"
+        from arduino_device import ArduinoVISADevice, list_devices
+        
+        # class DiodeExperiment
+            ...
+            def scan # with start, stop and number of measurments
+                # set input voltage from start to stop
+                    # calculate LED voltage
+                    # calculate LED current
+                # return LED voltage, LED current and errors
+        ```      
+        ``` py title="view.py"
+        from diode_experiment import DiodeExperiment
+        
+        # get current and voltage with errors from scan(start, stop, measurements)
+
+        # plot current vs voltage with errorbars
+        ```      
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Het aantal herhaalmetingen kan worden aangepast in de view.
+        - [ ] De onzekerheid wordt in het model op de correcte manier bepaald.
+        - [ ] De onzekerheid wordt vanuit het model doorgegeven aan de view.
+        - [ ] In de view wordt de onzekerheid geplot behorende bij de juiste grootheid.
+
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
+        - [x] Pythondaq: Quick 'n dirty meting
+        - [x] Pythondaq: CSV
+        - [x] Pythondaq: Controller bouwen
+        - [x] Pythondaq: Controller implementeren
+        - [x] Pythondaq: Controller afsplitsen
+        - [x] Pythondaq: Model afsplitsen
+        - [x] Pythondaq: Onzekerheid
