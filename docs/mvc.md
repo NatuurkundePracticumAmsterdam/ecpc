@@ -99,8 +99,39 @@ Het opsplitsen van het programma in MVC gaan we stapsgewijs doen. We gaan een cl
 Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experiment. 
 
 !!! opdracht-inlever "Pythondaq: Controller implementeren"
-    Pas je script &mdash; en vooral ook de class! &mdash;aan zodat in je <q>experiment</q>-code alleen maar aanroepen naar de class zitten.
-    Controleer dat het schript precies hetzelfde doet als bij [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting).
+    === "opdracht"
+        Je hebt een Python script die hetzelfde doet als in de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting), maar de code is aangepast zodat er gebruik wordt gemaakt van de class `#!py ArduinoVisaDevice` en de bijbehorende methods. 
+    === "code"
+        **Pseudo-code**
+        ``` py
+        # def list_devices
+        #   ...
+
+        # class ArduinoVisaDevice
+            ...
+        
+        # set input voltage from 0 to max
+            # calculate LED voltage
+            # calculate LED current
+
+        # plot current vs voltage
+        ```        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] In een script staan `#!py list_devices()`, `#!py ArduinoVisaDevice()` en de code om de LED te laten branden, metingen te doen en het resultaat te laten zien.
+        - [ ] Wanneer de class `#!py ArduinoVisaDevice()` uit het script wordt geknipt, werkt de <q>quick 'n dirty</q> niet meer.
+        - [ ] Het script voldoet nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting).
+
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
+        - [x] Pythondaq: Quick 'n dirty meting
+        - [x] Pythondaq: CSV
+        - [x] Pythondaq: Controller bouwen
+        - [x] Pythondaq: Controller implementeren
 
 Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de precieze commando's zijn die je naar de hardware moet sturen. Als je de Arduino in de opstelling vervangt voor een ander meetinstrument moet je de class aanpassen, maar kan alle code die met het experiment zelf te maken heeft hetzelfde blijven.
 
