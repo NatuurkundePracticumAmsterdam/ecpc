@@ -31,7 +31,7 @@ _Bemonsteren_ of _sampling_ is het proces waarbij een analoog signaal wordt <q>u
     1. Zet het digitale signaal op een resolutie van 4-bit (16 stapjes). Stel je meet een waarde van 6, wat zijn dan de mogelijke voltages die daarbij horen? Wat is dan de nauwkeurigheid?
     1. Zet het digitale signaal op een resolutie van 6-bit (64 stapjes). Stel je meet een waarde van 28, wat zijn dan de mogelijke voltages die daarbij horen? Wat is dan de nauwkeurigheid?
     1. Zet het digitale signaal op een resolutie van 10-bit resolutie (1024 stapjes). Stel je meet een waarde van 768, wat zijn dan de mogelijke voltages die daarbij horen? Wat is dan de nauwkeurigheid?
-    
+
 De conversie van een analoog signaal naar een digitaal signaal (en andersom!) is de reden dat de spanningen die we kiezen en de metingen die we doen niet alle mogelijke waardes kunnen aannemen, maar <q>stapjes</q> maken.
 
 ![Omzetting van analoog naar digitaal signaal](figures/adc-process.svg){: style="width:75%"}
@@ -49,6 +49,28 @@ De digitale metingen die je programma krijgt van de ADC is hierboven weergegeven
     1. Wat is precies het kleinste spanningsverschil dat we nog kunnen meten in V? Een meting kan dus nooit nauwkeuriger gedaan worden dan deze waarde.
     1. Bereken welke spanning hoort bij een ruwe waarde van 700.
     1. Bereken welke waarde we naar de Arduino moeten sturen als we een spanning willen instellen van 2.0 V. En een spanning van 2.28 V?
+
+!!! opdracht-basis "Volt naar ADC"
+    === "opdracht"
+        Je hebt gezien dat de Arduino werkt met getallen van 0 t/m 1023 en dat de Arduino een bereik heeft van 0 V tot 3.3 V. Je schrijft de formule op om de ruwe ADC waarde naar een spanning in Volt om te rekenen en omgekeerd. Je controleerd of je formules logische antwoorden geven door de spanning te berekenen die bij een ruwe waarde van 700 hoort en de ruwe waarde die hoort bij 2.28 V. 
+    === "code"
+        **Pseudo-code**
+        ``` py
+        # raw_value to voltage
+        # voltage = something with raw_value
+
+        # voltage to raw_value
+        # raw_value = something with voltage
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Ruwe waarde 0 geeft voltage 0 en vice versa 
+        - [ ] Ruwe waarde 1023 geeft voltage 3.3 en vice versa
+
+        **Projecttraject:**
+
+        - [x] Volt naar ADC
 
 ???+ meer-leren "Binair Talstelsel"
 
