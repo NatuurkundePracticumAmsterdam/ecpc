@@ -91,19 +91,6 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
     1. Ga naar **Repository > Open in Visual Studio Code** en ga aan de slag. Vergeet niet regelmatig te committen!
 
 !!! opdracht-inlever "Pythondaq: start script"
-    Voer de volgende opdrachten uit:
-
-    1. Schrijf een script waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Kijk wat er gebeurt met de LED.
-    1. Commit.
-    1. Hoe bepaal je de spanning over de weerstand? Overleg met elkaar welke spanningen je precies meet met de verschillende kanalen (_channels_) die op de Arduino zijn aangesloten. Kijk nog eens goed naar de [figuur van de schakeling](communicatie.md#fig:LED-schakeling).
-    1. Lees &mdash; tijdens het laten oplopen van de spanning over de LED &mdash; de spanning over de _weerstand_ uit. Je zult daarvoor het antwoord van de Arduino (een _string_) om moeten zetten naar een _integer_ en print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand. Voorbeeld van uitvoer:
-    ``` consolecode
-    On LED:  750 (2.4 V)    Over resistor:  189 (0.6 V)
-    ```
-    Je hebt nu feitelijk je eerste metingen verricht!
-    1. Commit! {{feesttoeter}}
-
-!!! opdracht-inlever "Pythondaq: start script"
     === "opdracht"
         Je runt de code waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de spanning over de weerstand uit. Je print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand.
     === "pseudo-code"
@@ -121,6 +108,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         - [ ] Spanning over LED loopt van nul tot maximale waarde
         - [ ] LED lampje brandt steeds feller
         - [ ] Ruwe waardes en voltages zijn zoals verwacht
+        - [ ] Er zijn commits gemaakt {{feesttoeter}}
 
         **Projecttraject:**
 
