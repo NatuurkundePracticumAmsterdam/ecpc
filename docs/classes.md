@@ -81,8 +81,35 @@ master_oogway.forward(50)
     1. Maak een instance van de class Turtle aan met `#!py master_oogway = Turtle("turtle")`
     1. Laat de schildpad lopen en draaien door de methods `#!py forward()` en `#!py left()` aan te roepen.
 
-    !!! info "Schildpad verdwijnt"
-        Na het uitvoeren van het script sluit Python het scherm van de schildpad. Voeg de regel `#!py master_oogway.screen.mainloop()` toe om het scherm te laten staan en handmatig af te sluiten. 
+
+!!! opdracht-basis "turtle"
+    === "opdracht"
+        Je bent inmiddels nieuwschierig geworden naar de schildpad en schrijft een script die een schildpad met de instancenaam `master_oogway` laat lopen en draaien.
+
+        !!! info "Schildpad verdwijnt"
+            Na het uitvoeren van het script sluit Python het scherm van de schildpad. Voeg de regel `#!py master_oogway.screen.mainloop()` toe om het scherm te laten staan en handmatig af te sluiten. 
+    === "code"
+        **Pseudo-code**
+        ``` py
+        from turtle import Turtle
+
+        # create instance of class Turtle
+        master_oogway = Turtle("turtle")
+
+        # move turtle forward with 50 steps
+        ...
+        # turn turtle left with 30 degrees
+        ...
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De instance is van de class `Turtle` met hoofdletter T
+        - [ ] Om de schildpad te laten bewegen roep je de method `#!py forward()` of `#!py lef()` van de instance aan
+
+        **Projecttraject:**
+
+        - [x] turtle
 
 ## De speciale parameter `#!py self`
 Een class method is vrijwel gelijk aan een normale functie, behalve dat een class method als eerste de parameter `#!py self` verwacht. Aan deze parameter wordt de eigen instance van de class meegegeven wanneer je de method aanroept. 
