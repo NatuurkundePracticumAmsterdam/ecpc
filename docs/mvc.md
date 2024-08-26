@@ -69,6 +69,74 @@ Het opsplitsen van het programma in MVC gaan we stapsgewijs doen. We gaan een cl
         print(list_devices())  
         ```
 
+!!! opdracht-inlever "Pythondaq: controller bouwen"
+    === "opdracht"
+        Je vraagt een lijst met beschikbare poorten op met de functie `#!py list_devices()`. Wanneer je weet welke poort de Arduino is gebruik je deze poortnaam om een instance aan te maken van de class `ArduinoVisaDevice`. Met deze class kan je met de Arduino te communiceren. Met de method `#!py get_identification()` vraag je de identificatiestring op om te controlleren dat je met het juiste apparaat communiceert. Je gebruikt de method `#!py set_output_value()` om een waarde van 828 op het uitvoerkanaal 0 te zetten, omdat de LED gaat branden weet je dat het werkt. Je test de spanningsmeters door met de method `#!py get_input_value()` eerst van kanaal 1 en daarna van kanaal 2 de waarde op te vragen. Je ziet waardes die overeenkomen met je verwachting. Je rekent de waardes om naar spanningen in volt en controlleert daarna de method `#!py get_input_voltage()` om te zien of deze dezelfde waardes terug geeft voor kanaal 1 en 2. Om te controlleren of de waarde die je op het uitvoerkanaal gezet hebt nog steeds gelijk is aan wat je hebt ingesteld vraag je deze waarde op met `#!py get_output_value()`. 
+    === "code"
+        **Pseudo-code**
+        ``` py
+        # class ArduinoVisaDevice
+            ...
+        ```
+        **Testcode:**
+        <div class="code-box"><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="run">{{ run }}</button><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="reload invisible">{{ reload }}</button> basisscript.py
+        ``` py
+        class ArduinoVisaDevice:
+        ...
+
+        # get available ports
+        print(list_devices())
+
+        # Create an instance for the Arduino on port "ASRL28::INSTR"
+        device = ArduinoVISADevice(port="ASRL28::INSTR")
+
+        # print identification string
+        identification = device.get_identification()
+        print(identification)
+
+        # set OUTPUT voltage on channel 0, using ADC values (0 - 1023)
+        device.set_output_value(value=828)
+
+        # measure the voltage on INPUT channel 2 in ADC values (0 - 1023)
+        ch2_value = device.get_input_value(channel=2)
+        print(f"{ch2_value=}")
+
+        # measure the voltage on INPUT channel 2 in volts (0 - 3.3 V)
+        ch2_voltage = device.get_input_voltage(channel=2)
+        print(f"{ch2_voltage=}")
+
+        # get the previously set OUTPUT voltage in ADC values (0 - 1023)
+        ch0_value = device.get_output_value()
+        print(f"{ch0_value=}")
+        ```
+        <pre>
+        <code>(ecpc) > python.exe basisscript.py
+        <span class="invisible" name="basisscript_controller">('ASRL28::INSTR', ) 
+        Arduino VISA firmware v1.0.0
+        ch2_value=224
+        ch2_voltage=0.7774193548387097
+        ch0_value=828</span>
+        </code></pre></div>
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] `#!py list_devices()` is een functie die buiten de class staat.
+        - [ ] De `#!py __init__()` method verlangt een poortnaam en opent de communicatie met deze poort.
+        - [ ] Er is een method `#!py get_identification()` die de identificatiestring teruggeeft.
+        - [ ] De `set_output_value()` en `get_output_value()` communiceren standaard met kanaal 0.
+        - [ ] Bij `get_input_value` en `get_input_voltage` moet een kanaal opgegeven worden.
+
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: repository
+        - [x] Pythondaq: start script
+        - [x] Pythondaq: Quick 'n dirty meting
+        - [x] Pythondaq: CSV
+        - [x] Pythondaq: controller bouwen
+
+
 Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experiment. 
 
 !!! opdracht-inlever "Pythondaq: Controller implementeren"
