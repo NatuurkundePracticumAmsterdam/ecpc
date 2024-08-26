@@ -144,6 +144,48 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
     ```
     Controleer dat je code nog steeds hetzelfde werkt &mdash; dat het een meting uitvoert en de resultaten in een grafiek weergeeft. Waarschijnlijk moet je daarvoor nog wat bugs aanpakken (een vergeten import bijvoorbeeld).
 
+!!! opdracht-inlever "Pythondaq: Controller afsplitsen"
+    === "opdracht"
+        Omdat je het basisscript later gaat uitbreiden om het gebruiksvriendelijker te maken ga je alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten. Het bestand {{file}}`#!py arduino_device.py` bevat de class `#!py ArduinoVisaDevice` en de functie `#!py list_devices()`. In {{file}}`basisscript.py` importeer je de class en de functie uit de module {{file}}`arduino_device.py` zodat je ze daar kunt gebruiken.
+
+        !!! info "error"
+            Waarschijnlijk krijg je nog een of meerdere errors als je {{file}}`basisscript.py` runt. Lees het error bericht goed door, om welk bestand gaat het {{file}}`arduino_device.py` of {{file}}`basisscript.py`? Wat is er volgens het error bericht niet goed?
+    === "code"
+        **Pseudo-code**
+        ``` py title="arduino_device.py"
+        # def list_devices
+        #   ...
+
+        # class ArduinoVisaDevice
+            ...
+        ```
+        ``` py title="basisscript.py"
+        from arduino_device import ArduinoVISADevice, list_devices
+        
+        # set input voltage from 0 to max
+            # calculate LED voltage
+            # calculate LED current
+
+        # plot current vs voltage
+        ```        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Alle directe communicatie met de Arduino, firmwarecommando's en pyvisacommando's, staan in de controller
+        - [ ] Runnen van {{file}}`basisscript.py` zorgt ervoor dat een meting start
+        - [ ] Het {{file}}`basisscript` voldoet nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting).
+
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
+        - [x] Pythondaq: Quick 'n dirty meting
+        - [x] Pythondaq: CSV
+        - [x] Pythondaq: Controller bouwen
+        - [x] Pythondaq: Controller implementeren
+        - [x] Pythondaq: Controller afsplitsen
+
 
 !!! opdracht-inlever "Pythondaq: Model afsplitsen"
     We gaan nu met ongeveer dezelfde stappen het model afsplitsen van de rest van de code.
