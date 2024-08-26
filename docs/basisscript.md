@@ -107,8 +107,9 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
 
         - [ ] Spanning over LED loopt van nul tot maximale waarde
         - [ ] LED lampje brandt steeds feller
+        - [ ] Commit {{feesttoeter}}
         - [ ] Ruwe waardes en voltages zijn zoals verwacht
-        - [ ] Er zijn commits gemaakt {{feesttoeter}}
+        - [ ] Commit {{feesttoeter}}
 
         **Projecttraject:**
 
