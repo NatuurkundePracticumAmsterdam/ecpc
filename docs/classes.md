@@ -161,7 +161,6 @@ print(master_oogway.quote)
 ```
 
 !!! opdracht-basis "Opbouw van een class"
-
     1. Beschouw de onderstaande code
     1. Bespreek met elkaar wat de code precies doet en verplaast de onderdelen naar de juiste plek in de code. 
     Twijfel je of je nog weet wat een module is kijk dan voor meer informatie in de [paragraaf modules](vervolg-python.md#modules).
@@ -188,77 +187,6 @@ print(master_oogway.quote)
     ```
     Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je typt `#!py master_oogway.f` hoef je alleen maar op ++tab++ te drukken en VS Code vult de rest aan.
 
-
-
-# Class Particle opdracht oud
-
-!!! opdracht-basis "Class Particle"
-    Maak een class `#!py Particle` die de naam van het deeltje en de spin van het deeltje bewaard. Een method `#!py is_up_or_down()` vertelt je of het deeltje spin omhoog (positief) of spin omlaag (negatief) heeft. Maak nog een method `#!py flip()` die de spin van het deeltje omkeert. De volgende code zou moeten werken:
-    ``` py
-    proton = Particle('mooi proton', 0.5)
-    proton.is_up_or_down()
-    # 'up'
-    proton.flip()
-    proton.is_up_or_down()
-    # 'down'
-    print(proton.spin)
-    # -0.5
-    print(proton.name)
-    # 'mooi proton'
-    ```
-
-# Class Particle opdracht nieuwe stijl 1
-
-!!! opdracht-basis "Class Particle"
-    === "opdracht"
-        Je maakt een instance van de class `#!py Particle` aan voor een proton, naast de naam geeft je ook mee dat de spin 0.5 is. Je gebruikt de method `#!py is_up_or_down()` om terug op te vragen wat de spin van het deeltje op dat moment is (spin omhoog/positief of spin omlaag/negatief). Met de method `#!py flip()` keer je de spin van het deeltje om. 
-    === "pseudo-code"
-        ``` py
-        # Class Particle:
-            # def __init__(self, name, spin):
-                ...
-            # def is_up_or_down
-                # print up when spin is positive
-                # print down when spin is negative
-                ...
-            # def flip
-                # Make spin positive if spin is negative
-                # Make spin negative if spin is positive
-                ...
-
-        ```
-    === "check"
-        **Checkpunten:**
-
-        - [ ] Naam en spin toestand worden aan instance meegegeven.
-        - [ ] Method `#!py is_up_or_down()` print 'up' als de spin positief is en 'down' als het negatief is.
-        - [ ] Method `#!py flip()` maakt de spin positief als de spin negatief is, en negatief als de spin positief is.
-
-
-        **Testcode:**
-        <div class="code-box"><button type="button" name="particle" onclick="runScript('particle')" class="run">{{ run }}</button><button type="button" name="particle" onclick="runScript('particle')" class="reload invisible">{{ reload }}</button> <b>particle.py</b>
-        ``` py
-        proton = Particle('mooi proton', 0.5)
-        proton.is_up_or_down()
-        proton.flip()
-        proton.is_up_or_down()
-        print(proton.spin)
-        print(proton.name)
-        ```
-        <pre>
-        <code>(ecpc) > python.exe particle.py
-        <span class="invisible" name="particle">up
-        down
-        -0.5
-        mooi proton</span>
-        </code></pre></div>
-        
-
-        **Projecttraject:**
-
-        - [x] Class Particle
-
-# Class Particle opdracht nieuwe stijl 2
 
 !!! opdracht-basis "Class Particle"
     === "opdracht"
