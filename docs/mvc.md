@@ -179,6 +179,40 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         - [x] Pythondaq: Controller implementeren
         - [x] Pythondaq: Controller afsplitsen
 
+???+ opdracht-meer "`#!py if __name__ == '__main__'`"
+    === "opdracht"
+        Later wil je de functie `#!py list_devices()` netjes in het hele model-view-controller systeem vlechten zodat je als gebruiker de lijst kunt opvragen, maar voor nu wil je af en toe even zien aan welke poort de Arduino hangt. Wanneer je het script {{file}}`Arduino_device.py` runt wordt er een lijst geprint met poorten. Dit gebeurt niet wanneer het bestand {{file}}`basisscript.py` wordt gerunt. 
+
+        !!! info "modules"
+            Nog niet bekend met `#!py if __name__ == '__main__'`? kijk dan voor meer informatie in de [paragraaf modules](vervolg-python.md#modules).
+
+    === "code"
+        **Pseudo-code**
+        ``` py title="arduino_device.py"
+        # def list_devices
+        #   ...
+
+        # class ArduinoVisaDevice
+            ...
+        
+        # print list ports if arduino_device.py is the main script 
+        # print list ports not if arduino_device.py is imported as a module in another script
+
+        ```
+        ``` py title="basisscript.py"
+        from arduino_device import ArduinoVISADevice, list_devices
+        
+        # set input voltage from 0 to max
+            # calculate LED voltage
+            # calculate LED current
+
+        # plot current vs voltage
+        ```     
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Er wordt een lijst met poorten geprint wanneer {{file}}`arduino_device.py` wordt gerunt.
+        - [ ] De lijst wordt _niet_ geprint wanneer {{file}}`basisscript.py` wordt gerunt.
 
 !!! opdracht-inlever "Pythondaq: Model afsplitsen"
     We gaan nu met ongeveer dezelfde stappen het model afsplitsen van de rest van de code.
