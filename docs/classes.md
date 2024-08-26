@@ -242,7 +242,7 @@ print(master_oogway.quote)
 
 !!! opdracht-basis "Class Particle"
     === "opdracht"
-        ![spin flip](../assets/particle-spin-flip/spin-flip.gif){style="width:128px;height:72px;" align=right}
+        ![spin flip](assets/particle-spin-flip/spin-flip.gif){style="width:128px;height:72px;" align=right}
         
         Je maakt een instance van de class `#!py Particle` aan voor een proton, naast de naam geeft je ook mee dat de spin 0.5 is. Je gebruikt de method `#!py is_up_or_down()` om terug op te vragen wat de spin van het deeltje op dat moment is (spin omhoog/positief of spin omlaag/negatief). Met de method `#!py flip()` keer je de spin van het deeltje om. 
     === "code"
