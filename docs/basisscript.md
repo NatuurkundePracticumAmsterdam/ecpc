@@ -244,9 +244,6 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
 
 <div id="opd:quickndirty-csv"></div>
 !!! opdracht-inlever "Pythondaq: CSV"
-    Breid je script uit zodat de data niet alleen maar weergegeven wordt in een grafiek maar ook wordt weggeschreven als CSV-bestand. Gebruik de `#!py zip()`-functie en de `#!py csv`-module.
-
-!!! opdracht-inlever "Pythondaq: CSV"
     === "opdracht"
         Je code schrijft de metingen ook weg als csv-bestand door gebruik te maken van de `#!py zip()`-functie en de `#!py csv`-module.
     === "code"
