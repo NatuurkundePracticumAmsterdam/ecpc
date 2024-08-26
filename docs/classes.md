@@ -74,14 +74,7 @@ master_oogway.forward(50)
 master_oogway.left(30)
 master_oogway.forward(50)
 ```
-    
-!!! opdracht-basis "turtle"
-    1. Maak een bestand aan met de naam {{file}}`turtle.py`.
-    1. Importeer de Turtle class met `#!py from turtle import Turtle`
-    1. Maak een instance van de class Turtle aan met `#!py master_oogway = Turtle("turtle")`
-    1. Laat de schildpad lopen en draaien door de methods `#!py forward()` en `#!py left()` aan te roepen.
-
-
+   
 !!! opdracht-basis "turtle"
     === "opdracht"
         Je bent inmiddels nieuwschierig geworden naar de schildpad en schrijft een script die een schildpad met de instancenaam `master_oogway` laat lopen en draaien.
