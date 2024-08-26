@@ -29,47 +29,6 @@ Het opsplitsen van het programma in MVC gaan we stapsgewijs doen. We gaan een cl
 
 <div id="opd:meting-class"></div>
 !!! opdracht-inlever "Pythondaq: controller bouwen"
-    Pak je script van [opdracht _Pythondaq: CSV_](basisscript.md#opd:quickndirty-csv) erbij en schrijf bovenaan &mdash; maar _onder_ de `#!py import`-statements &mdash; een class `#!py ArduinoVISADevice`.
-    We gaan de class stap voor stap opbouwen. Je kunt de class testen met de python-code onder elke opdracht. 
-    
-    1. Maak een `#!py __init__()` method die het device opent. 
-        ``` py
-        # de poort moet je mogelijk zelf aanpassen
-        port = "ASRL3::INSTR"
-        
-        # maak een instance van je class aan
-        device = ArduinoVISADevice(port=port)
-        ```
-    1. Schrijf een method die de identificatiestring terug geeft. 
-        ``` py
-        # print identification string
-        print(device.get_identification())
-        ```
-    
-    1. Met de controller class willen we de arduino gaan aansturen en uitlezen. Maak een aantal methods zodat alle firmwarecommando's ondergebracht zijn in de class.
-        ``` py
-        # set OUTPUT voltage on channel 0, using ADC values (0 - 1023)
-        device.set_output_value(value=512)
-
-        # get the previously set OUTPUT voltage in ADC values (0 - 1023)
-        ch0_value = device.get_output_value()
-
-        # measure the voltage on INPUT channel 2 in ADC values (0 - 1023)
-        ch2_value = device.get_input_value(channel=2)
-
-        # measure the voltage on INPUT channel 2 in volts (0 - 3.3 V)
-        ch2_voltage = device.get_input_voltage(channel=2)
-        ```
-    
-    1. Wat is het verschil tussen `#!py set_output_value()` en `#!py get_output_value()`?
-
-    1. Als je een instance van ArduinoVISADevice wilt maken, dan moet je nu de poort meegeven. Daarom is het handig om _buiten_ de klas een functie te hebben waarmee je een lijst krijgt van alle beschikbare poorten. 
-        ``` py
-        # get available ports
-        print(list_devices())  
-        ```
-
-!!! opdracht-inlever "Pythondaq: controller bouwen"
     === "opdracht"
         Je vraagt een lijst met beschikbare poorten op met de functie `#!py list_devices()`. Wanneer je weet welke poort de Arduino is gebruik je deze poortnaam om een instance aan te maken van de class `ArduinoVisaDevice`. Met deze class kan je met de Arduino te communiceren. Met de method `#!py get_identification()` vraag je de identificatiestring op om te controlleren dat je met het juiste apparaat communiceert. Je gebruikt de method `#!py set_output_value()` om een waarde van 828 op het uitvoerkanaal 0 te zetten, omdat de LED gaat branden weet je dat het werkt. Je test de spanningsmeters door met de method `#!py get_input_value()` eerst van kanaal 1 en daarna van kanaal 2 de waarde op te vragen. Je ziet waardes die overeenkomen met je verwachting. Je rekent de waardes om naar spanningen in volt en controlleert daarna de method `#!py get_input_voltage()` om te zien of deze dezelfde waardes terug geeft voor kanaal 1 en 2. Om te controlleren of de waarde die je op het uitvoerkanaal gezet hebt nog steeds gelijk is aan wat je hebt ingesteld vraag je deze waarde op met `#!py get_output_value()`. 
     === "code"
