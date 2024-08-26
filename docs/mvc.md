@@ -223,6 +223,57 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
     1. Het kan (later) handig zijn om niet altijd te scannen tussen 0 en 1023 maar een ander bereik te kiezen. Pas de `#!py scan()` method aan zodat deze `start`- en `stop`-parameters accepteert.
     1. Knip de class eruit en plaats die in het bestand `#!py diode_experiment.py` en gebruik weer een import-statement. Haal import-statements die je niet meer nodig hebt weg.
     1. Hernoem het overgebleven script naar {{file}}`view.py`.
+
+!!! opdracht-inlever "Pythondaq: Model afsplitsen"
+    === "opdracht"
+        Omdat de uitbreidingen om het basisscript gebruiksvriendelijker te maken vooral de view zullen uitbreiden zet je het model en de view ook in aparte bestanden. Wanneer je het bestand {{file}}`view.py` runt roept deze in het model de method `#!py scan()` aan welke een meting start. Om gegevens van het naar de Arduino te sturen maakt het model gebruik van de controller. De gegevens die het model terugkrijgt van de Arduino worden volgens de fysische relaties verwerkt tot de benodigde gegevens en doorgestuurd naar de view. De view presenteerd de gegevens in een grafiek. Wanneer je in een ander bereik wilt meten pas je in de view het bereik aan, het model gebruikt dit bereik bij het doen van de meting. 
+    === "code"
+        **Pseudo-code**
+        ``` py title="arduino_device.py"
+        # def list_devices
+        #   ...
+
+        # class ArduinoVisaDevice
+            ...
+        ```
+        ``` py title="diode_experiment.py"
+        from arduino_device import ArduinoVISADevice, list_devices
+        
+        # class DiodeExperiment
+            ...
+            def scan # with start and stop
+                # set input voltage from start to stop
+                    # calculate LED voltage
+                    # calculate LED current
+        ```      
+        ``` py title="view.py"
+        from diode_experiment import DiodeExperiment
+        
+        # get current and voltage from scan(start, stop)
+
+        # plot current vs voltage
+        ```      
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Alle directe communicatie met de Arduino, firmwarecommando's en pyvisacommando's, staan in de controller
+        - [ ] Alle communicatie met de controller staan in het model
+        - [ ] De view communiceert alleen met het model. 
+        - [ ] Runnen van {{file}}`view.py` zorgt ervoor dat een meting start
+        - [ ] De bestanden {{file}}`diode_experiment.py` en {{file}}`view.py` voldoen samen nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting).
+        - [ ] De bestanden bevatten alle code die nodig is en niet meer dan dat. 
+
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
+        - [x] Pythondaq: Quick 'n dirty meting
+        - [x] Pythondaq: CSV
+        - [x] Pythondaq: Controller bouwen
+        - [x] Pythondaq: Controller implementeren
+        - [x] Pythondaq: Controller afsplitsen
+        - [x] Pythondaq: Model afsplitsen
     
 
 
