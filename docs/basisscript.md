@@ -93,7 +93,8 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
 !!! opdracht-inlever "Pythondaq: start script"
     === "opdracht"
         Je runt de code waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de spanning over de weerstand uit. Je print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand.
-    === "pseudo-code"
+    === "code"
+        **Pseudo-code**
         ``` py
         # connect to Arduino
 
@@ -129,7 +130,8 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
 !!! opdracht-inlever "Pythondaq: Quick 'n dirty meting"
     === "opdracht"
         Je code berekent de spanning _over_ en de stroomsterkte _door_ de LED terwijl de spanning over het cirquit oploopt van nul tot de maximale waarde. De resultaten worden in een grafiek weergegeven.  
-    === "pseudo-code"
+    === "code"
+        **Pseudo-code**
         ``` py
         # connect to Arduino
 
@@ -247,7 +249,8 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
 !!! opdracht-inlever "Pythondaq: CSV"
     === "opdracht"
         Je code schrijft de metingen ook weg als csv-bestand door gebruik te maken van de `#!py zip()`-functie en de `#!py csv`-module.
-    === "pseudo-code"
+    === "code"
+        **Pseudo-code**
         ``` py
         # connect to Arduino
 
