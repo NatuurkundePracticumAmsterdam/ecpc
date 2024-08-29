@@ -81,12 +81,28 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
     1. Schrijf de code om waarbij je gebruikt maakt van een `#!py for`-loop. 
 
     ??? uitwerkingen
-        ``` py title="print and break"
+        <div class="code-box"><button type="button" name="print_and_break.py" onclick="runScript('print_and_break.py')" class="run">{{ run }}</button><button type="button" name="print_and_break.py" onclick="runScript('print_and_break.py')" class="reload invisible">{{ reload }}</button> print_and_break.py
+        ``` py
         --8<-- "uitwerkingen-on/break-on.py"
         ```
-        ``` py title="for-loop"
+        <pre>
+        <code>(ecpc) > python print_and_break.py
+        <span class="invisible" name="print_and_break.py">The voltage is set to 50 mV.</span>
+        </code></pre></div>
+
+        <div class="code-box"><button type="button" name="for_loop.py" onclick="runScript('for_loop.py')" class="run">{{ run }}</button><button type="button" name="for_loop.py" onclick="runScript('for_loop.py')" class="reload invisible">{{ reload }}</button> for_loop.py
+        ``` py
         --8<-- "uitwerkingen-on/for-loop-on.py"
         ```
+        <pre>
+        <code>(ecpc) > python for_loop.py
+        <span class="invisible" name="for_loop.py">The voltage is set to 0 mV.
+        The voltage is set to 50 mV.
+        The voltage is set to 100 mV.
+        The voltage is set to 150 mV.
+        ...</span>
+        </code></pre></div>
+        
         
 ## Functie
 
@@ -124,9 +140,15 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
     1. Print de negende maand.
     1. Voeg een dertiende maand toe aan de lijst.
     ??? uitwerkingen
+        <div class="code-box"><button type="button" name="lijsten.py" onclick="runScript('lijsten.py')" class="run">{{ run }}</button><button type="button" name="lijsten.py" onclick="runScript('lijsten.py')" class="reload invisible">{{ reload }}</button> lijsten.py
         ``` py
         --8<-- "uitwerkingen-on/lists-on.py"
         ```
+        <pre>
+        <code>(ecpc) > python lijsten.py
+        <span class="invisible" name="lijsten.py">The ninth month is called September.
+        ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'trēdecimber']</span>
+        </code></pre></div>
 
 ## Stijl
 
@@ -174,6 +196,19 @@ Ook heb je geleerd om functies uit andere (python) modules te importeren, meer h
 
     Schrijf een script om het .txt-bestand te lezen en regel voor regel te printen.
     ??? uitwerkingen
+        <div class="code-box"><button type="button" name="txt_bestanden_lezen.py" onclick="runScript('txt_bestanden_lezen.py')" class="run">{{ run }}</button><button type="button" name="txt_bestanden_lezen.py" onclick="runScript('txt_bestanden_lezen.py')" class="reload invisible">{{ reload }}</button> txt_bestanden_lezen.py
         ``` py
         --8<-- "uitwerkingen-on/read-txt-on.py"
         ```
+        <pre>
+        <code>(ecpc) > python txt_bestanden_lezen.py
+        <span class="invisible" name="txt_bestanden_lezen.py">"Do you have a favourite
+        saying?" asked the boy.
+        "Yes" said the mole
+        "What is it?"
+        "If at first you don't 
+        succeed have some cake."
+        "I see, does it work?"
+        "Every time."
+        From: The Boy, the mole, the fox and the Horse - Charlie Mackesy</span>
+        </code></pre></div>
