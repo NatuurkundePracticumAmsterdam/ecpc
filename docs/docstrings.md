@@ -24,9 +24,9 @@ def integers_up_to(number):
 help(integers_up_to)
 ```
 De eerste regel geeft een korte samenvatting weer, na de witregel komt een langere samenvatting. Met `Args:` worden alle argumenten opgesomd die aan de functie worden meegegeven en `Returns:` geeft aan wat de functie teruggeeft. We kunnen de documentatie van deze functie opvragen met: `#!py help(integers_up_to)`. Dat geeft het volgende resultaat:
-``` ps1con title="Terminal"
-PS> python integers_up_to.py 
-    Help on function integers_up_to in module __main__:
+
+<pre><code>(ecpc) > python integers_up_to.py <button type="button" name="python integers_up_to.py" onclick="runScript('python integers_up_to.py')">{{ enter }}</button><button type="button" name="python integers_up_to.py" onclick="runScript('python integers_up_to.py')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python integers_up_to.py">    Help on function integers_up_to in module __main__:
     
     integers_up_to(number)
         List integers up to a given number.
@@ -35,8 +35,9 @@ PS> python integers_up_to.py
             number (int): list integers up to this number
     
         Returns:
-            list: containing the integers
-```
+            list: containing the integers</span>
+</code></pre>
+
 Je zult niet altijd de `#!py help()` functie gebruiken misschien, maar gebruik zoveel mogelijk docstrings &mdash; ze helpen ook enorm als je de code leest. Het is extra werk maar het verdient zich dubbel en dwars terug. Je hoeft geen proza te schrijven, maar wees duidelijk. Lees voor meer voorbeelden bijvoorbeeld de _Google Python Style Guide_.[@google_style_guide]
 
 
