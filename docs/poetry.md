@@ -511,7 +511,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
     1. Open {{file}}`pyproject.toml` en voeg het kopje `[tool.poetry.scripts]` toe.
     1. Als naam voor het commando kiezen we `count`.
     1. Voor het gemak vullen we de rechterkant van het =-teken van rechts naar links in. Achter de dubbele punt komt de naam van de functie die uitgevoerd moet worden, dat is in ons geval `main`.
-    1. <iframe src="https://h5plti.avwebs.nl/h5p/83/embed" width="992" height="167" frameborder="0" allowfullscreen="allowfullscreen" lang="en"></iframe><script src="https://h5plti.avwebs.nl/modules/contrib/h5p/vendor/h5p/h5p-core/js/h5p-resizer.js" charset="UTF-8"></script>
+    1. <iframe src="test_fill_in_the_blanks.html" width="992" height="167" frameborder="0" allowfullscreen="allowfullscreen" lang="en"></iframe><script src="https://h5plti.avwebs.nl/modules/contrib/h5p/vendor/h5p/h5p-core/js/h5p-resizer.js" charset="UTF-8"></script>
     1. De functie `main` staat in module {{file}}`count_count.py`. De module hebben we ondergebracht in de package {{folder}}`just_count`.
             ``` toml
             [tool.poetry.scripts]
