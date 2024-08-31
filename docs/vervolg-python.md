@@ -74,8 +74,10 @@ for num_bytes in [1, 2, 4, 8]:
 <span class="invisible" name="zen.py">1 bytes = 8 bits which has 256 possible values.
 2 bytes = 16 bits which has 65536 possible values.
 4 bytes = 32 bits which has 4294967296 possible values.
-8 bytes = 64 bits which has 18446744073709551616 possible values.
-```
+8 bytes = 64 bits which has 18446744073709551616 possible values.</span>
+</code></pre></div>
+
+De code is langer, met duidelijkere namen van variabelen en zonder bitshifts of joins.
 
 Moraal van dit verhaal: we worden gelukkiger van code die leesbaar en begrijpelijk is, dan van code die wel heel slim in elkaar zit maar waar bijna niet uit te komen is. Overigens komt het regelmatig voor dat de programmeur zélf een paar weken later al niet zo goed meer weet hoe de code nou precies in elkaar zat.
 
