@@ -60,6 +60,7 @@ print('\n'.join("%i bytes = %i bits which has %i possible values." %
 
 Kun je zien wat de uitvoer van dit programma moet zijn? Misschien als we het op deze manier uitschrijven:
 
+<div class="code-box"><button type="button" name="zen.py" onclick="runScript('zen.py')" class="run">{{ run }}</button><button type="button" name="zen.py" onclick="runScript('zen.py')" class="reload invisible">{{ reload }}</button> zen.py
 ``` py
 for num_bytes in [1, 2, 4, 8]:
     num_bits = 8 * num_bytes
@@ -68,10 +69,9 @@ for num_bytes in [1, 2, 4, 8]:
         f"{num_bytes} bytes = {num_bits} bits which has {num_possible_values} possible values."
     )
 ```
-De code is langer, met duidelijkere namen van variabelen en zonder bitshifts of joins. De uitvoer zie je hieronder.
-
-``` ps1 title="Terminal"
-1 bytes = 8 bits which has 256 possible values.
+<pre>
+<code>(ecpc) > python zen.py
+<span class="invisible" name="zen.py">1 bytes = 8 bits which has 256 possible values.
 2 bytes = 16 bits which has 65536 possible values.
 4 bytes = 32 bits which has 4294967296 possible values.
 8 bytes = 64 bits which has 18446744073709551616 possible values.
@@ -112,9 +112,20 @@ Deze code is bovendien veel korter en gebruikt minder variabelen.
     ```
 
     ??? uitwerkingen
-        ```py
+        <div class="code-box"><button type="button" name="iterator.py" onclick="runScript('iterator.py')" class="run">{{ run }}</button><button type="button" name="iterator.py" onclick="runScript('iterator.py')" class="reload invisible">{{ reload }}</button> iterator.py
+        ``` py
         --8<-- "uitwerkingen-on/iterator-on.py"
         ```
+        <pre>
+        <code>(ecpc) > python iterator.py
+        <span class="invisible" name="iterator.py">The voltage is set to 0 mV.
+        The voltage is set to 50 mV.
+        The voltage is set to 100 mV.
+        The voltage is set to 150 mV.
+        The voltage is set to 200 mV.
+        The voltage is set to 250 mV.
+        The voltage is set to 300 mV.</span>
+        </code></pre></div>
 
 ### Enumerate
 Soms is het nodig om de index te hebben, bijvoorbeeld wanneer je een namenlijstje wilt nummeren:
@@ -151,9 +162,26 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
       1. Geef weer of het getal 3 voorkomt in die rij en geef weer of het getal 4 voorkomt in die rij.
       
     ??? uitwerkingen
-        ```py
+        <div class="code-box"><button type="button" name="list.py" onclick="runScript('list.py')" class="run">{{ run }}</button><button type="button" name="list.py" onclick="runScript('list.py')" class="reload invisible">{{ reload }}</button> list.py
+        ``` py
         --8<-- "uitwerkingen-on/list-square-on.py"
         ```
+        <pre>
+        <code>(ecpc) > python list.py
+        <span class="invisible" name="list.py">Square of range 1 to 10 with three decimal places: 
+        1.000
+        1.414
+        1.732
+        2.000
+        2.236
+        2.449
+        2.646
+        2.828
+        3.000
+        3.162
+        does number 3 appears in the list of squares? True
+        does number 4 appears in the list of squares? False</span>
+        </code></pre></div>
     
 ### NumPy array
 
@@ -168,9 +196,25 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
         * Door een array aan te maken met getallen gelijkmatig verdeeld over een interval: `#!py numpy.linspace(0, 2.5, 6) #start, stop, number`
 
     ??? uitwerkingen
-        ```py
+        <div class="code-box"><button type="button" name="np_array.py" onclick="runScript('np_array.py')" class="run">{{ run }}</button><button type="button" name="np_array.py" onclick="runScript('np_array.py')" class="reload invisible">{{ reload }}</button> np_array.py
+        ``` py
         --8<-- "uitwerkingen-on/numpy-array-on.py"
         ```
+        <pre>
+        <code>(ecpc) > python np_array.py
+        <span class="invisible" name="np_array.py">1.000
+        1.414
+        1.732
+        2.000
+        2.236
+        2.449
+        2.646
+        2.828
+        3.000
+        3.162
+        does number 3 appears in the list of squares? True
+        does number 4 appears in the list of squares? False</span>
+        </code></pre></div>
 
 ???+ meer-leren "NumPy arrays"
 
@@ -223,9 +267,16 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
         1. Bereken de weerstand van de schakeling op basis van de voorgaande meting en bewaar het resultaat in dezelfde dictionary.
 
         ??? uitwerkingen
-            ```py
+            <div class="code-box"><button type="button" name="dictionaries.py_suffix" onclick="runScript('dictionaries.py_suffix')" class="run">{{ run }}</button><button type="button" name="dictionaries.py_suffix" onclick="runScript('dictionaries.py_suffix')" class="reload invisible">{{ reload }}</button> dictionaries.py.py
+            ``` pyd
             --8<-- "uitwerkingen-on/dictionaries-on.py"
             ```
+            <pre>
+            <code>(ecpc) > python dictionaries.py.py
+            <span class="invisible" name="dictionaries.py_suffix">dict_keys(['pi','g', 'c', 'e'])
+            Gravity of an object with 14kg is: 137.34 N
+            The resistance was: 20.00 &#937;</span>
+            </code></pre></div>
 
 ???+ meer-leren "Tuples, * args, ** kwargs"
 
@@ -356,9 +407,16 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     1. Gebruik tot slot arrays om de lijst met derdemachtswortels van de getallen te maken. 
 
     ??? uitwerkingen
+        <div class="code-box"><button type="button" name="for_loop.py" onclick="runScript('for_loop.py')" class="run">{{ run }}</button><button type="button" name="for_loop.py" onclick="runScript('for_loop.py')" class="reload invisible">{{ reload }}</button> for_loop.py
         ``` py
         --8<-- "uitwerkingen-on/comprehension-on.py"
         ```
+        <pre>
+        <code>(ecpc) > python for_loop.py
+        <span class="invisible" name="for_loop.py">[1.0, 1.2599210498948732, 1.4422495703074083, 1.5874010519681994, 1.7099759466766968, 1.8171205928321397, 1.912931182772389, 2.0, 2.0800838230515904, 2.154434690031884]
+        [1.0, 1.2599210498948732, 1.4422495703074083, 1.5874010519681994, 1.7099759466766968, 1.8171205928321397, 1.912931182772389, 2.0, 2.0800838230515904, 2.154434690031884]
+        [1.         1.25992105 1.44224957 1.58740105 1.70997595 1.81712059 1.91293118 2.        2.08008382 2.15443469]</span>
+        </code></pre></div>
 
 ???+ meer-leren "Lambda functions"
     
