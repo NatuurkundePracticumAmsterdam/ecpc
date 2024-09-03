@@ -670,6 +670,33 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
         PS> diode list
         List, dit moet ik later nog afmaken.
         ```
+
+!!! opdracht-inlever "Pythondaq: commando's"
+    === "opdracht"
+        1. Maak een nieuw bestand {{new_file}}`src/pythondaq/cli.py`.
+        1. Maak een `#!py @click.group()` aan en voeg de subcommando's `list` en `scan` daaraan toe. Laat de commando's voorlopig alleen een willekeurige korte tekst printen; ze hoeven nu nog niet echt iets te doen. Merk op dat `#!py list()` een Pythonfunctie is, dus daar moet je misschien nog iets mee.[^cmd_name]
+        
+    === "code"
+        <pre><code>(ecpc) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode list">List, dit moet ik later nog afmaken.</span>
+        </code></pre>
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De applicatie is aan te roepen met `diode`.
+        - [ ] De subcommando's `list` en `scan` verwijzen naar de juiste functies.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [ ] Pythondaq: `scan`
+        - [ ] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: `list`
+        - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: Grafiek
     
 [^cmd_name]: Zie ook de waarschuwing op [warn:cmd_name](#warn:cmd_name)
 
