@@ -497,7 +497,83 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
             Pas je script aan zodat `#!py if __name__ == "__main__":` naar de juiste functie verwijst en Click aanroept; niet `#!py sin(10)`.
 
     1. Zorg dat smallangle een applicatie wordt die je aan kunt roepen met bijvoorbeeld `smallangle sin -n 9`.
+
+!!! opdracht-inlever "smallangle installeren"
+    === "opdracht"
+        Het project {{github}}`smallangle` wordt met Poetry beheerd. Ga naar GitHub naar {{github}}`AnneliesVlaar/smallangle` en [open de repository in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/smallangle) in GitHub Desktop en Visual Studio Code. Installeer de package in een nieuw environment.
+    === "code"
+        <pre><code>(ecpc) > python smallangle.py <button type="button" name="python smallangle.py" onclick="runScript('python smallangle.py')">{{ enter }}</button><button type="button" name="python smallangle.py" onclick="runScript('python smallangle.py')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="python smallangle.py">          x       sin (x)
+        0  0.000000  0.000000e+00
+        1  0.698132  6.427876e-01
+        2  1.396263  9.848078e-01
+        3  2.094395  8.660254e-01
+        4  2.792527  3.420201e-01
+        5  3.490659 -3.420201e-01
+        6  4.188790 -8.660254e-01
+        7  4.886922 -9.848078e-01
+        8  5.585054 -6.427876e-01
+        9  6.283185 -2.449294e-16</span>
+        </code></pre>
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Na het installeren van het pakket geeft de code de verwachte output.
+
+        **Projecttraject:**
+
+        - [x] smallangle installeren
+        - [ ] smallangle aanpassen
     
+!!! opdracht-inlever "smallangle aanpassen"
+    === "opdracht"
+        We willen nu met behulp van click dit programma met commando's en subcommando's kunnen aansturen. Met de subcommando's `sin` en `tan` moet de gebruiker tussen deze functies kunnen kiezen. Als laatste moet het ook mogelijk zijn om het aantal stappen te kunnen kiezen met een optie.
+
+        ??? info "TypeError: 'int' object is not iterable"
+
+            Probeer je de code te draaien maar krijg je een foutmelding zoals deze:
+            ``` ps1 title="Terminal"
+            Traceback (most recent call last):
+            File "c:\smallangle\src\smallangle\smallangle.py", line 28, in <module>
+                sin(10)
+            File "C:\click\core.py", line 1157, in __call__     
+                return self.main(*args, **kwargs)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+            File "C:\click\core.py", line 1067, in main
+                args = list(args)
+                    ^^^^^^^^^^
+            TypeError: 'int' object is not iterable
+            ```
+
+            Dan komt dat doordat je `#!py sin(10)` probeert uit te voeren, terwijl de functie al verClickt is. De functie verwacht een argument vanuit de terminal en geen integer vanuit het pythonscript.
+            Pas je script aan zodat `#!py if __name__ == "__main__":` naar de juiste functie verwijst en Click aanroept; niet `#!py sin(10)`.
+    === "code"
+        <pre><code>(ecpc) > smallangle sin -n 9 <button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')">{{ enter }}</button><button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="smallangle sin -n 9">          x       sin (x)
+        0  0.000000  0.000000e+00
+        1  0.785398  7.071068e-01
+        2  1.570796  1.000000e+00
+        3  2.356194  7.071068e-01
+        4  3.141593  1.224647e-16
+        5  3.926991 -7.071068e-01
+        6  4.712389 -1.000000e+00
+        7  5.497787 -7.071068e-01
+        8  6.283185 -2.449294e-16</span>
+        </code></pre>
+        
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De gebruiker kan met subcommando's kiezen tussen `sin` en `tan`.
+        - [ ] De gebruiker kan het aantal stappen kiezen met een optie.
+        - [ ] De gebruiker kan de optie ook weglaten.
+
+        **Projecttraject:**
+
+        - [x] smallangle installeren
+        - [x] smallangle aanpassen
 
 ???+ opdracht-meer "Smallangle (uitdaging)"
     Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\lvert x - \sin(x) \rvert \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over .000, .001 en .002, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
