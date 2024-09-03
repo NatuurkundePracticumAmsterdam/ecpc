@@ -830,6 +830,33 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
     [^identificatie]: De identificatiestring van onze Arduino was `Arduino VISA firmware v1.0.0`. Je moet natuurlijk niet letterlijk deze string copy/pasten, maar de identificatie opvragen van het instrument. Welk firmwarecommando moest je daarvoor ook alweer gebruiken?
 
+!!! opdracht-inlever "Pythondaq: `info`"
+    === "opdracht"
+        We willen nu de identificatiestring[^identificatie] van een opgegeven instrument op kunnen vragen en weergeven.
+        
+    === "code"
+        Bijvoorbeeld:
+        <pre><code>(ecpc) > diode info ASRL3::INSTR <button type="button" name="diode info ASRL3::INSTR" onclick="runScript('diode info ASRL3::INSTR')">{{ enter }}</button><button type="button" name="diode info ASRL3::INSTR" onclick="runScript('diode info ASRL3::INSTR')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode info ASRL3::INSTR">Arduino VISA firmware v1.0.0</span>
+        </code></pre>
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De identificatiestring is met `diode info ...` op te vragen.
+        - [ ] De string is niet direct gecopypaste, maar wordt daadwerkelijk opgevraagd.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: `list`
+        - [x] Pythondaq: choose device
+        - [x] Pythondaq: `info`
+        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: Grafiek
+
 
 !!! opdracht-inlever "Pythondaq: Helpteksten"
     Loop al je commando's nog eens na en zorg ervoor dat er duidelijke helpteksten aanwezig zijn. Een nieuwe gebruiker moet met deze informatie met jouw command-line interface uit de voeten kunnen.
