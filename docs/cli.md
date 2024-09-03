@@ -861,6 +861,26 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 !!! opdracht-inlever "Pythondaq: Helpteksten"
     Loop al je commando's nog eens na en zorg ervoor dat er duidelijke helpteksten aanwezig zijn. Een nieuwe gebruiker moet met deze informatie met jouw command-line interface uit de voeten kunnen.
 
+!!! opdracht-inlever "Pythondaq: Helpteksten"
+    === "opdracht"
+        Een nieuwe gebruiker moet ook jouw command-line interface kunnen gebruiken, dus voeg duidelijke helpteksten toe aan je applicatie.
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] `diode --help` vertelt duidelijk welke subcommando's aanwezig zijn en wat ze doen.
+        - [ ] Bij de subcommando's, bijvoorbeeld `diode list --help`, is het duidelijk welke opties en argumenten er zijn, wat de standaardwaarden zijn en wat ze doen.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: `list`
+        - [x] Pythondaq: choose device
+        - [x] Pythondaq: `info`
+        - [x] Pythondaq: Helpteksten
+        - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: Grafiek"
     Breid je `scan` opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `--graph` om een grafiek te tekenen en `--no-graph` om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
