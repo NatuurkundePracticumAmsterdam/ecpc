@@ -803,6 +803,27 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 !!! opdracht-inlever "Pythondaq: choose device"
     Pas het commando `scan` aan zodat je de poortnaam van een device kunt meegeven. Zorg dat het gekozen device ook daadwerkelijk wordt gebruikt in het model en de controller. Als je géén poortnaam opgeeft, geef dan een foutmelding.
 
+!!! opdracht-inlever "Pythondaq: choose device"
+    === "opdracht"
+        De gebruiker wil nu bij het aanroepen van `scan` ook een poortnaam van een device mee kunnen geven.
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De gebruiker kan een poortnaam meegeven.
+        - [ ] De gekozen device wordt ook daadwerkelijk gebruikt in het model en de controller.
+        - [ ] Als géén poortnaam wordt opgegeven, krijgt de gebruiker een foutmelding.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: `list`
+        - [x] Pythondaq: choose device
+        - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: `info`"
     Maak een commando `info` waarmee je de identificatiestring[^identificatie] van een opgegeven instrument opvraagt en weergeeft. Je kunt het instrument met een optie of argument meegeven.
