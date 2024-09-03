@@ -427,41 +427,59 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     In Python zijn functies ook objecten. Je kunt ze bewaren in een lijst of dictionary, of je kunt ze meegeven als parameter aan een andere functie. Dat kan heel handig zijn! Stel je hebt een lijst met verschillende soorten fruit die je wilt sorteren op alfabet:
     ``` py
     a = ["kiwi", "banana", "apple"]
-    sorted(a)
-    # ['apple', 'banana', 'kiwi']
+    print(sorted(a))
     ```
+    <pre><code>(ecpc) > python sort.py <button type="button" name="python sort.py" onclick="runScript('python sort.py')">{{ enter }}</button><button type="button" name="python sort.py" onclick="runScript('python sort.py')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="python sort.py">['apple', 'banana', 'kiwi']</span>
+    </code></pre>
     Dat gaat heel makkelijk met de ingebouwde `#!py sorted()`-functie. Je kunt aan deze functie ook een `key`-parameter meegeven; een ándere functie die gebruikt wordt om te bepalen waarop gesorteerd moet worden. Zo kun je sorteren op de _lengte_ van de fruitnamen door simpelweg de `#!py len()`-functie als parameter mee te geven:
     ``` py
-    len("apple")
-    # 5
-    sorted(a, key=len)
-    # ['kiwi', 'apple', 'banana']
+    a = ["kiwi", "banana", "apple"]
+
+    print(len("apple"))
+    print(sorted(a, key=len))
     ```
+    <pre><code>(ecpc) > python length.py <button type="button" name="python length.py" onclick="runScript('python length.py')">{{ enter }}</button><button type="button" name="python length.py" onclick="runScript('python length.py')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="python length.py">5
+    ['kiwi', 'apple', 'banana']</span>
+    </code></pre>
     Als je wilt sorteren op de tweede letter van de naam -- waarom niet? -- dan kun je zelf een functie definiëren en gebruiken:
     ``` py
+    a = ["kiwi", "banana", "apple"]
+
     def second_letter(value):
         return value[1]
 
-    second_letter("lemon")
-    # e
-    sorted(a, key=second_letter)
-    # ['banana', 'kiwi', 'apple']
+    print(second_letter("lemon"))
+    print(sorted(a, key=second_letter))
     ```
+    <pre><code>(ecpc) > python second_letter.py <button type="button" name="python second_letter.py" onclick="runScript('python second_letter.py')">{{ enter }}</button><button type="button" name="python second_letter.py" onclick="runScript('python second_letter.py')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="python second_letter.py">e
+    ['banana', 'kiwi', 'apple']</span>
+    </code></pre>
     Lambdafuncties zijn bedacht om je een hoop typewerk te besparen. Je kunt korte functies in één regel opschrijven en gebruiken, zolang het maar een geldige _expression_ is. Géén if-then-else, maar de meeste andere dingen mogen wel. Bijvoorbeeld:
     ``` py
+    a = ["kiwi", "banana", "apple"]
+
     squared = lambda x: x ** 2
-    squared(4)
-    # 16
+    print(squared(4))
 
     second_letter = lambda value: value[1]
-    sorted(a, key=second_letter)
-    # ['banana', 'kiwi', 'apple']
+    print(sorted(a, key=second_letter))
     ```
+    <pre><code>(ecpc) > python lamda.py <button type="button" name="python lamda.py" onclick="runScript('python lamda.py')">{{ enter }}</button><button type="button" name="python lamda.py" onclick="runScript('python lamda.py')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="python lamda.py">16
+    ['banana', 'kiwi', 'apple']</span>
+    </code></pre>
     Aangezien de definitie van een lambdafunctie zelf ook een expression is kun je het sorteren op de tweede letter zelfs in één regel doen:
     ``` py
-    sorted(a, key=lambda value: value[1])
-    # ['banana', 'kiwi', 'apple']
+    a = ["kiwi", "banana", "apple"]
+
+    print(sorted(a, key=lambda value: value[1]))
     ```
+    <pre><code>(ecpc) > python one_line.py <button type="button" name="python one_line.py" onclick="runScript('python one_line.py')">{{ enter }}</button><button type="button" name="python one_line.py" onclick="runScript('python one_line.py')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="python one_line.py">['banana', 'kiwi', 'apple']</span>
+    </code></pre>
 
     Lambdafuncties kun je ook gebruiken om te fitten aan een bepaald model. Je definiëert je model dan in één regel met een lambdafunctie:
 
@@ -508,9 +526,12 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
             squares.append(number ** 2)
         return squares
 
-    calculate_squares_up_to(5)
-    # [0, 1, 4, 9, 16]
+    print(calculate_squares_up_to(5))
     ```
+    <pre><code>(ecpc) > python squares.py <button type="button" name="python squares.py" onclick="runScript('python squares.py')">{{ enter }}</button><button type="button" name="python squares.py" onclick="runScript('python squares.py')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="python squares.py">[0, 1, 4, 9, 16]</span>
+    </code></pre>
+
     De functie berekent eerst alle kwadraten, voegt ze toe aan een lijst en geeft vervolgens de lijst met uitkomsten terug. Een generator definieer je als volgt:
     ``` py
     def calculate_squares_up_to(max_number):
