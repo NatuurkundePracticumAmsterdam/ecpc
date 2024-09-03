@@ -775,6 +775,30 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 !!! opdracht-inlever "Pythondaq: `list`"
     Schrijf het commando `list` zodat het een lijst geeft van de aangesloten instrumenten &mdash; zoals we in het vorige hoofdstuk al eens gedaan hebben.
 
+!!! opdracht-inlever "Pythondaq: `list`"
+    === "opdracht"
+        De gebruiker wil nu ook makkelijk de lijst met aangesloten instrumenten op kunnen vragen met het subcommando `list` &mdash; zoals we in het vorige hoofdstuk al eens gedaan hebben.
+        
+    === "code"
+        <pre><code>(ecpc) > diode list <button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')">{{ enter }}</button><button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode list_filled_in">[lijst met devices]</span>
+        </code></pre>
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De gebruiker kan met `diode list` de lijst met aangesloten devices opvragen.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: `list`
+        - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: choose device"
     Pas het commando `scan` aan zodat je de poortnaam van een device kunt meegeven. Zorg dat het gekozen device ook daadwerkelijk wordt gebruikt in het model en de controller. Als je géén poortnaam opgeeft, geef dan een foutmelding.
