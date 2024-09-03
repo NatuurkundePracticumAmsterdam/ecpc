@@ -747,6 +747,26 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
     Als het goed is geeft je programma al een onzekerheid op de metingen terug op basis van herhaalmetingen. Bouw een optie in waarmee het aantal herhaalmetingen gekozen kan worden. Waarschijnlijk doe je dat al, maar bereken op basis van de herhaalmetingen de beste schatting van de stoomsterkte en de onzekerheid daarop, en ook voor de spanning over de LED.
 
+!!! opdracht-inlever "Pythondaq: herhaalmetingen"
+    === "opdracht"
+        Als het goed is geeft je programma al een onzekerheid op de metingen terug op basis van herhaalmetingen. De gebruiker wil nu het aantal herhaalmetingen kunnen kiezen met een optie.
+ 
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De gebruiker kan het aantal herhaalmetingen met een optie kiezen.
+        - [ ] De herhaalmetingen worden gebruikt om de beste schatting en onzekerheid te berekenen van de stroomsterkte en de spanning.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: `list`
+        - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: Grafiek
 
 ### Het meetinstrument kiezen
 
