@@ -715,6 +715,35 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
     1. De gebruiker moet het spanningsbereik (in volt) zelf kunnen opgeven met argumenten of opties.
     1. Geef ook de mogelijkheid de metingen op te slaan als CSV-bestand. Gebruik daarvoor een optie `--output FILENAME`. Wanneer met die optie een bestandsnaam wordt meegegeven sla je de metingen op en anders niet.
 
+!!! opdracht-inlever "Pythondaq: `scan`"
+    === "opdracht"
+        Met het commando `scan` wil je een meetserie uitvoeren over een spanningsbereik. Als een meting lang duurt is het niet erg als de resultaten pas ná de meting worden weergegeven.
+        
+    === "code"
+        <pre><code>(ecpc) > diode scan --output FILENAME <button type="button" name="diode scan --output FILENAME" onclick="runScript('diode scan --output FILENAME')">{{ enter }}</button><button type="button" name="diode scan --output FILENAME" onclick="runScript('diode scan --output FILENAME')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode scan --output FILENAME">...</span>
+        </code></pre>
+        
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Het programma print een lijst van metingen van de stroomsterkte dóór en de spanning óver de LED.
+        - [ ] De gebruiker moet het spanningsbereik (in volt) zelf kunnen opgeven met argumenten of opties.
+        - [ ] De gebruiker kan de metingen opslaan in een CSV-bestand met een optie `--output FILENAME`.
+        - [ ] De meting wordt alleen opgeslagen als de optie wordt meegegeven.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [ ] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: `list`
+        - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: Grafiek
+
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
     Als het goed is geeft je programma al een onzekerheid op de metingen terug op basis van herhaalmetingen. Bouw een optie in waarmee het aantal herhaalmetingen gekozen kan worden. Waarschijnlijk doe je dat al, maar bereken op basis van de herhaalmetingen de beste schatting van de stoomsterkte en de onzekerheid daarop, en ook voor de spanning over de LED.
 
