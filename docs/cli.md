@@ -885,6 +885,26 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 !!! opdracht-inlever "Pythondaq: Grafiek"
     Breid je `scan` opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `--graph` om een grafiek te tekenen en `--no-graph` om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
 
+!!! opdracht-inlever "Pythondaq: Grafiek"
+    === "opdracht"
+        Als laatste willen we een grafiek kunnen maken van onze metingen. De gebruiker moet dit aan kunnen geven met een optie. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `--graph` om een grafiek te tekenen en `--no-graph` om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De grafiek wordt alleen gemaakt wanneer `--graph` wordt meegegeven.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: `list`
+        - [x] Pythondaq: choose device
+        - [x] Pythondaq: `info`
+        - [x] Pythondaq: Helpteksten
+        - [x] Pythondaq: Grafiek
+
 
 ???+ opdracht-meer "Pythondaq: `list --search`"
     Breid het commando `list` uit met een optie `--search` waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
