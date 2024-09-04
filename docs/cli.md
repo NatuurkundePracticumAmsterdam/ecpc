@@ -497,7 +497,83 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
             Pas je script aan zodat `#!py if __name__ == "__main__":` naar de juiste functie verwijst en Click aanroept; niet `#!py sin(10)`.
 
     1. Zorg dat smallangle een applicatie wordt die je aan kunt roepen met bijvoorbeeld `smallangle sin -n 9`.
+
+!!! opdracht-inlever "smallangle installeren"
+    === "opdracht"
+        Het project {{github}}`smallangle` wordt met Poetry beheerd. Ga naar GitHub naar {{github}}`AnneliesVlaar/smallangle` en [open de repository in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/smallangle) in GitHub Desktop en Visual Studio Code. Installeer de package in een nieuw environment.
+    === "code"
+        <pre><code>(ecpc) > python smallangle.py <button type="button" name="python smallangle.py" onclick="runScript('python smallangle.py')">{{ enter }}</button><button type="button" name="python smallangle.py" onclick="runScript('python smallangle.py')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="python smallangle.py">          x       sin (x)
+        0  0.000000  0.000000e+00
+        1  0.698132  6.427876e-01
+        2  1.396263  9.848078e-01
+        3  2.094395  8.660254e-01
+        4  2.792527  3.420201e-01
+        5  3.490659 -3.420201e-01
+        6  4.188790 -8.660254e-01
+        7  4.886922 -9.848078e-01
+        8  5.585054 -6.427876e-01
+        9  6.283185 -2.449294e-16</span>
+        </code></pre>
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Na het installeren van het pakket geeft de code de verwachte output.
+
+        **Projecttraject:**
+
+        - [x] smallangle installeren
+        - [ ] smallangle aanpassen
     
+!!! opdracht-inlever "smallangle aanpassen"
+    === "opdracht"
+        We willen nu met behulp van click dit programma met commando's en subcommando's kunnen aansturen. Met de subcommando's `sin` en `tan` moet de gebruiker tussen deze functies kunnen kiezen. Als laatste moet het ook mogelijk zijn om het aantal stappen te kunnen kiezen met een optie.
+
+        ??? info "TypeError: 'int' object is not iterable"
+
+            Probeer je de code te draaien maar krijg je een foutmelding zoals deze:
+            ``` ps1 title="Terminal"
+            Traceback (most recent call last):
+            File "c:\smallangle\src\smallangle\smallangle.py", line 28, in <module>
+                sin(10)
+            File "C:\click\core.py", line 1157, in __call__     
+                return self.main(*args, **kwargs)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+            File "C:\click\core.py", line 1067, in main
+                args = list(args)
+                    ^^^^^^^^^^
+            TypeError: 'int' object is not iterable
+            ```
+
+            Dan komt dat doordat je `#!py sin(10)` probeert uit te voeren, terwijl de functie al verClickt is. De functie verwacht een argument vanuit de terminal en geen integer vanuit het pythonscript.
+            Pas je script aan zodat `#!py if __name__ == "__main__":` naar de juiste functie verwijst en Click aanroept; niet `#!py sin(10)`.
+    === "code"
+        <pre><code>(ecpc) > smallangle sin -n 9 <button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')">{{ enter }}</button><button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="smallangle sin -n 9">          x       sin (x)
+        0  0.000000  0.000000e+00
+        1  0.785398  7.071068e-01
+        2  1.570796  1.000000e+00
+        3  2.356194  7.071068e-01
+        4  3.141593  1.224647e-16
+        5  3.926991 -7.071068e-01
+        6  4.712389 -1.000000e+00
+        7  5.497787 -7.071068e-01
+        8  6.283185 -2.449294e-16</span>
+        </code></pre>
+        
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De gebruiker kan met subcommando's kiezen tussen `sin` en `tan`.
+        - [ ] De gebruiker kan het aantal stappen kiezen met een optie.
+        - [ ] De gebruiker kan de optie ook weglaten.
+
+        **Projecttraject:**
+
+        - [x] smallangle installeren
+        - [x] smallangle aanpassen
 
 ???+ opdracht-meer "Smallangle (uitdaging)"
     Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\lvert x - \sin(x) \rvert \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over .000, .001 en .002, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
@@ -594,6 +670,33 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
         PS> diode list
         List, dit moet ik later nog afmaken.
         ```
+
+!!! opdracht-inlever "Pythondaq: commando's"
+    === "opdracht"
+        1. Maak een nieuw bestand {{new_file}}`src/pythondaq/cli.py`.
+        1. Maak een `#!py @click.group()` aan en voeg de subcommando's `list` en `scan` daaraan toe. Laat de commando's voorlopig alleen een willekeurige korte tekst printen; ze hoeven nu nog niet echt iets te doen. Merk op dat `#!py list()` een Pythonfunctie is, dus daar moet je misschien nog iets mee.[^cmd_name]
+        
+    === "code"
+        <pre><code>(ecpc) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode list">List, dit moet ik later nog afmaken.</span>
+        </code></pre>
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De applicatie is aan te roepen met `diode`.
+        - [ ] De subcommando's `list` en `scan` verwijzen naar de juiste functies.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [ ] Pythondaq: `scan`
+        - [ ] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: `list`
+        - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: Grafiek
     
 [^cmd_name]: Zie ook de waarschuwing op [warn:cmd_name](#warn:cmd_name)
 
@@ -612,9 +715,58 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
     1. De gebruiker moet het spanningsbereik (in volt) zelf kunnen opgeven met argumenten of opties.
     1. Geef ook de mogelijkheid de metingen op te slaan als CSV-bestand. Gebruik daarvoor een optie `--output FILENAME`. Wanneer met die optie een bestandsnaam wordt meegegeven sla je de metingen op en anders niet.
 
+!!! opdracht-inlever "Pythondaq: `scan`"
+    === "opdracht"
+        Met het commando `scan` wil je een meetserie uitvoeren over een spanningsbereik. Als een meting lang duurt is het niet erg als de resultaten pas ná de meting worden weergegeven.
+        
+    === "code"
+        <pre><code>(ecpc) > diode scan --output FILENAME <button type="button" name="diode scan --output FILENAME" onclick="runScript('diode scan --output FILENAME')">{{ enter }}</button><button type="button" name="diode scan --output FILENAME" onclick="runScript('diode scan --output FILENAME')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode scan --output FILENAME">...</span>
+        </code></pre>
+        
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Het programma print een lijst van metingen van de stroomsterkte dóór en de spanning óver de LED.
+        - [ ] De gebruiker moet het spanningsbereik (in volt) zelf kunnen opgeven met argumenten of opties.
+        - [ ] De gebruiker kan de metingen opslaan in een CSV-bestand met een optie `--output FILENAME`.
+        - [ ] De meting wordt alleen opgeslagen als de optie wordt meegegeven.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [ ] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: `list`
+        - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: Grafiek
+
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
     Als het goed is geeft je programma al een onzekerheid op de metingen terug op basis van herhaalmetingen. Bouw een optie in waarmee het aantal herhaalmetingen gekozen kan worden. Waarschijnlijk doe je dat al, maar bereken op basis van de herhaalmetingen de beste schatting van de stoomsterkte en de onzekerheid daarop, en ook voor de spanning over de LED.
 
+!!! opdracht-inlever "Pythondaq: herhaalmetingen"
+    === "opdracht"
+        Als het goed is geeft je programma al een onzekerheid op de metingen terug op basis van herhaalmetingen. De gebruiker wil nu het aantal herhaalmetingen kunnen kiezen met een optie.
+ 
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De gebruiker kan het aantal herhaalmetingen met een optie kiezen.
+        - [ ] De herhaalmetingen worden gebruikt om de beste schatting en onzekerheid te berekenen van de stroomsterkte en de spanning.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: `list`
+        - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: Grafiek
 
 ### Het meetinstrument kiezen
 
@@ -623,23 +775,135 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 !!! opdracht-inlever "Pythondaq: `list`"
     Schrijf het commando `list` zodat het een lijst geeft van de aangesloten instrumenten &mdash; zoals we in het vorige hoofdstuk al eens gedaan hebben.
 
+!!! opdracht-inlever "Pythondaq: `list`"
+    === "opdracht"
+        De gebruiker wil nu ook makkelijk de lijst met aangesloten instrumenten op kunnen vragen met het subcommando `list` &mdash; zoals we in het vorige hoofdstuk al eens gedaan hebben.
+        
+    === "code"
+        <pre><code>(ecpc) > diode list <button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')">{{ enter }}</button><button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode list_filled_in">[lijst met devices]</span>
+        </code></pre>
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De gebruiker kan met `diode list` de lijst met aangesloten devices opvragen.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: `list`
+        - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: choose device"
     Pas het commando `scan` aan zodat je de poortnaam van een device kunt meegeven. Zorg dat het gekozen device ook daadwerkelijk wordt gebruikt in het model en de controller. Als je géén poortnaam opgeeft, geef dan een foutmelding.
 
+!!! opdracht-inlever "Pythondaq: choose device"
+    === "opdracht"
+        De gebruiker wil nu bij het aanroepen van `scan` ook een poortnaam van een device mee kunnen geven.
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De gebruiker kan een poortnaam meegeven.
+        - [ ] De gekozen device wordt ook daadwerkelijk gebruikt in het model en de controller.
+        - [ ] Als géén poortnaam wordt opgegeven, krijgt de gebruiker een foutmelding.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: `list`
+        - [x] Pythondaq: choose device
+        - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: `info`"
     Maak een commando `info` waarmee je de identificatiestring[^identificatie] van een opgegeven instrument opvraagt en weergeeft. Je kunt het instrument met een optie of argument meegeven.
 
     [^identificatie]: De identificatiestring van onze Arduino was `Arduino VISA firmware v1.0.0`. Je moet natuurlijk niet letterlijk deze string copy/pasten, maar de identificatie opvragen van het instrument. Welk firmwarecommando moest je daarvoor ook alweer gebruiken?
 
+!!! opdracht-inlever "Pythondaq: `info`"
+    === "opdracht"
+        We willen nu de identificatiestring[^identificatie] van een opgegeven instrument op kunnen vragen en weergeven.
+        
+    === "code"
+        Bijvoorbeeld:
+        <pre><code>(ecpc) > diode info ASRL3::INSTR <button type="button" name="diode info ASRL3::INSTR" onclick="runScript('diode info ASRL3::INSTR')">{{ enter }}</button><button type="button" name="diode info ASRL3::INSTR" onclick="runScript('diode info ASRL3::INSTR')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode info ASRL3::INSTR">Arduino VISA firmware v1.0.0</span>
+        </code></pre>
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De identificatiestring is met `diode info ...` op te vragen.
+        - [ ] De string is niet direct gecopypaste, maar wordt daadwerkelijk opgevraagd.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: `list`
+        - [x] Pythondaq: choose device
+        - [x] Pythondaq: `info`
+        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: Grafiek
+
 
 !!! opdracht-inlever "Pythondaq: Helpteksten"
     Loop al je commando's nog eens na en zorg ervoor dat er duidelijke helpteksten aanwezig zijn. Een nieuwe gebruiker moet met deze informatie met jouw command-line interface uit de voeten kunnen.
 
+!!! opdracht-inlever "Pythondaq: Helpteksten"
+    === "opdracht"
+        Een nieuwe gebruiker moet ook jouw command-line interface kunnen gebruiken, dus voeg duidelijke helpteksten toe aan je applicatie.
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] `diode --help` vertelt duidelijk welke subcommando's aanwezig zijn en wat ze doen.
+        - [ ] Bij de subcommando's, bijvoorbeeld `diode list --help`, is het duidelijk welke opties en argumenten er zijn, wat de standaardwaarden zijn en wat ze doen.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: `list`
+        - [x] Pythondaq: choose device
+        - [x] Pythondaq: `info`
+        - [x] Pythondaq: Helpteksten
+        - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: Grafiek"
     Breid je `scan` opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `--graph` om een grafiek te tekenen en `--no-graph` om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
+
+!!! opdracht-inlever "Pythondaq: Grafiek"
+    === "opdracht"
+        Als laatste willen we een grafiek kunnen maken van onze metingen. De gebruiker moet dit aan kunnen geven met een optie. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `--graph` om een grafiek te tekenen en `--no-graph` om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De grafiek wordt alleen gemaakt wanneer `--graph` wordt meegegeven.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: `list`
+        - [x] Pythondaq: choose device
+        - [x] Pythondaq: `info`
+        - [x] Pythondaq: Helpteksten
+        - [x] Pythondaq: Grafiek
 
 
 ???+ opdracht-meer "Pythondaq: `list --search`"
