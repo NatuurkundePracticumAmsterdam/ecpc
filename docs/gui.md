@@ -51,6 +51,38 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
 
     1. Maak een nieuw bestand {{file}}`example-gui.py`.
     1. Neem de pythoncode van de minimale Qt-applicatie over en test het in de `test-qt` conda environment.
+
+!!! opdracht-basis "Minimale GUI"
+    === "opdracht"
+        Je gaat de gegeven Python code voor een een minimale GUI testen. In de map {{folder}}`ECPC` maak je een {{new_file}}`example-gui.py` aan en zet daarin de Python code. Je activeert de `test-qt` conda environment en runt het bestand {{new_file}}`example-gui.py`. Er verschijnt een leeg venster in beeld met als venstertitel `python` en drie knoppen. Een streepje (minimize), een vierkant (maximize) en een kruis (close). Je drukt op het kruisje en het venster sluit. 
+    === "code"
+        **Pseudo-code**
+        ``` py
+        import sys
+
+        from PySide6 import QtWidgets
+
+        # create subclass of QtWidgets.QMainWindow
+
+        def main():
+            # create instance of QtWidgets.QApplication with arguments from sys.argv
+            # create instance of subclass
+            # call show method of subclass
+            # get exit code with exec method of QApplication instance and give exit code to sys.exit()
+
+        # when run this script:
+            # run main function  
+        ```        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Het juiste conda environment is geactiveerd
+        - [ ] De code is volledig overgenomen
+        - [ ] Er verschijnt een leeg venster
+
+        **Projecttraject:**
+
+        - [x] Minimale GUI
     
 
 Elke keer als je een nieuwe Qt applicatie gaat schrijven kun je bovenstaand stukje code copy/pasten. Als we dit programma draaien hebben we echter een klein leeg venster op het scherm, zonder elementen. Die elementen kunnen we op twee manieren toevoegen: door ze te programmeren of door het gebruik van een visueel ontwerp met Qt Designer. Beide zullen in de volgende secties toegelicht worden.
