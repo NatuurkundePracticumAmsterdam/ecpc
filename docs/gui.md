@@ -167,6 +167,43 @@ In de volgende opdrachten ga je zelf de hele applicatie opbouwen, zodat je preci
     1. Breid het script {{file}}`example-gui.py` van [_opdracht minimale GUI_](#opd:minimal-gui) uit met een `#!py __init__`-method. Deze hoeft verder nog niets te doen.
     1. Zorg dat de parent class volledig geïnitialiseerd wordt.
     1. Test of {{file}}`example-gui.py` nog steeds werkt.
+
+!!! opdracht-basis "Parent class initialiseren"
+    === "opdracht"
+        Je hebt geleerd hoe je widgets aan de applicatie kunt toevoegen. Omdat het veel stappen in een keer zijn ga je de instructies stap voor stap volgen en steeds tussendoor testen. Je begint met het maken van een `#!py __init__()` method voor de `#!py class UserInterface` en zorgt ervoor dat de parent class (`#!py QtWidgets.QMainWindow`) volledig wordt geïnitialiseerd. Je runt {{file}}`example-gui.py` en ziet dat er nog steeds een leeg venster wordt gestart. 
+
+    === "code"
+        **Pseudo-code**
+        ``` py
+        import sys
+
+        from PySide6 import QtWidgets
+
+        # create subclass of QtWidgets.QMainWindow
+            # def __init__()
+                # initialise the parent class Qtwidgets.QMainWindow
+
+        def main():
+            # create instance of QtWidgets.QApplication with arguments from sys.argv
+            # create instance of subclass
+            # call show method of subclass
+            # get exit code with exec method of QApplication instance and give exit code to sys.exit()
+
+        # when run this script:
+            # run main function  
+        ```        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Het juiste conda environment is geactiveerd.
+        - [ ] Er is een `#!py __init__()` method gemaakt voor de subclass `UserInterface`.
+        - [ ] In de `#!py __init__()` method wordt de parent class geïnitialiseerd.
+        - [ ] Er verschijnt een leeg venster.
+
+        **Projecttraject:**
+
+        - [x] Minimale GUI
+        - [x] Parent class initialiseren
     
 Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets zijn bijvoorbeeld een menubalk, knoppenbalk of statusbalk.
 
