@@ -261,6 +261,52 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
     1. Maak een textbox ([regel 16](#code:layout)).
     1. Voeg de textbox toe aan de verticale layout ([regel 17](#code:layout)).
     1. Test of {{file}}`example-gui.py` nog steeds werkt en of je tekst kan schrijven in de textbox.
+
+!!! opdracht-basis "textbox toevoegen"
+    === "opdracht"
+        Omdat je de textbox en de knoppen onder elkaar wilt uitlijnen voeg je een verticale layout toe. Door de `#!py central_widget` mee te geven tijdens het aanmaken van de verticale layout is de layout automatische onderdeel van de central widget en zal deze in het venster verschijnen. Je maakt een textbox aan en voegt deze toe aan de verticale layout. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen, je typt een vrolijke tekst en sluit het venster. 
+
+    === "code"
+        **Pseudo-code**
+        ``` py
+        import sys
+
+        from PySide6 import QtWidgets
+
+        # create subclass of QtWidgets.QMainWindow
+            # def __init__()
+                # initialise the parent class Qtwidgets.QMainWindow
+                # create central widget with QtWidgets.QWidget()
+                # set central widget
+
+                # create vertical layout as part of central widget
+                # create textbox
+                # add textbox to vertical layout
+
+        def main():
+            # create instance of QtWidgets.QApplication with arguments from sys.argv
+            # create instance of subclass
+            # call show method of subclass
+            # get exit code with exec method of QApplication instance and give exit code to sys.exit()
+
+        # when run this script:
+            # run main function  
+        ```        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Het juiste conda environment is geactiveerd.
+        - [ ] Er is een central widget gemaakt met ``#!py QtWidgets.QWidget()`.
+        - [ ] De widget wordt als centrale widget ingesteld met `#!py setCentralWidget()`.
+        - [ ] De method `#!py setCentralWidget()` is afkomstig van de class `#!py QtWidgets.QMainWindow` welke geïnitialiseerd is, de method wordt daarom met `#!py self.setCentralWidget()` aangeroepen.
+        - [ ] Er verschijnt een venster met textbox waar je in kan typen {{feesttoeter}}.
+
+        **Projecttraject:**
+
+        - [x] Minimale GUI
+        - [x] Parent class initialiseren
+        - [x] Central widget toevoegen    
+        - [x] textbox toevoegen
     
 De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we ook toe aan de `#!py vbox`. En we maken de layout compleet door knoppen toe te voegen aan de `#!py hbox`.
 
