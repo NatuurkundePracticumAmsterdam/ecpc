@@ -213,6 +213,46 @@ Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets 
     1. Geef aan dat dit het centrale widget gaat zijn ([regels 11-12](#code:layout)).
     1. Test of {{file}}`example-gui.py` nog steeds werkt.
 
+!!! opdracht-basis "Central widget toevoegen"
+    === "opdracht"
+        Nu de parent class wordt geïnitialiseerd kan je een widget aanmaken met `#!py QtWidgets.QWidget()`, je noemt deze widget `#!py central_widget`. En stelt deze in als centrale widget met de method `#!py setCentralWidget()` van de class `#!py QtWidgets.QMainWindow`. Je runt {{file}}`example-gui.py` en ziet dat er nog steeds een leeg venster wordt gestart. 
+
+    === "code"
+        **Pseudo-code**
+        ``` py
+        import sys
+
+        from PySide6 import QtWidgets
+
+        # create subclass of QtWidgets.QMainWindow
+            # def __init__()
+                # initialise the parent class Qtwidgets.QMainWindow
+                # create central widget with QtWidgets.QWidget()
+                # set central widget
+
+        def main():
+            # create instance of QtWidgets.QApplication with arguments from sys.argv
+            # create instance of subclass
+            # call show method of subclass
+            # get exit code with exec method of QApplication instance and give exit code to sys.exit()
+
+        # when run this script:
+            # run main function  
+        ```        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Er is een central widget gemaakt met ``#!py QtWidgets.QWidget()` ([regel 11](#__codelineno-3-11)).
+        - [ ] De widget wordt als centrale widget ingesteld met `#!py setCentralWidget()` ([regel 12](#__codelineno-3-12)).
+        - [ ] De method `#!py setCentralWidget()` is afkomstig van de class `#!py QtWidgets.QMainWindow` welke geïnitialiseerd is, de method wordt daarom met `#!py self.setCentralWidget()` aangeroepen.
+        - [ ] Er verschijnt een leeg venster.
+
+        **Projecttraject:**
+
+        - [x] Minimale GUI
+        - [x] Parent class initialiseren
+        - [x] Central widget toevoegen    
+
 Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen netjes uitgelijnd worden. We willen het tekstvenster en de knoppen onder elkaar zetten en maken dus eerst een verticale layout. Aan die layout voegen we een textbox toe.
 
 !!! opdracht-basis "Verticale layout toevoegen"
