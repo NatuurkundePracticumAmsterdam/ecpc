@@ -114,7 +114,7 @@ python hello.py --help
         Je neemt het script {{file}}`hello.py` over. Je vraagt de helpfunctie van het script op. Je ziet een helptekst verschijnen. Je vraagt je af wat er gebeurt als je `#!py @click.command()` weghaald en dan de helpfunctie opvraagt. Je krijgt gewoon de output van de functie `#!py hello()` een geen help tekst.
     === "code"
         **Pseudo-code**
-        ``` py
+        ``` py title="hello.py"
         import click
 
         # make function Click command
@@ -149,41 +149,43 @@ python hello.py --help
         - [ ] Helptekst toevoegen
         - [ ] Pauze optie
 
+Om een parameter aan de functie mee te geven, bijvoorbeeld `name`, maken we een click argument aan met `#!py @click.argument("name")`.
+
+``` py title="hello.py" hl_lines="4 6"
+import click
+
+@click.command()
+@click.argument("name")
+def hello(name):
+    print(f"Hello {name}!")
+
+if __name__ == "__main__":
+    hello()
+```
 
 !!! opdracht-basis "Argument toevoegen"
     Laten we zorgen dat we een naam als argument mee kunnen geven.
     
     1. In de code hieronder geven we met de regel `#!py @click.argument("name")` aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie `hello`:
-            ``` py title="hello.py" hl_lines="4 6"
-            import click
-            
-            @click.command()
-            @click.argument("name")
-            def hello(name):
-                print(f"Hello {name}!")
-            
-            if __name__ == "__main__":
-                hello()
-            ```
     1. Draai {{file}}`hello.py` eerst zonder een argument `python hello.py` en bekijk de foutmelding.
     1. Draai {{file}}`hello.py` nu met een argument: `python hello.py Alice`.
     
 
 !!! opdracht-basis "Argument toevoegen"
     === "opdracht"
-        We passen {{file}}`hello.py` aan zodat we een naam als argument mee kunnen geven.
+        Je runt het bestand {{file}}`hello.py` en geef achter de bestandsnaam de naam `Alice` mee. Er verschijnt `Hello Alice!` als output in de terminal.
     === "code"
         In de code hieronder geven we met de regel `#!py @click.argument("name")` aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie `hello`:
-        ``` py title="hello.py" hl_lines="4 6"
+        ``` py title="hello.py"
         import click
-        
-        @click.command()
-        @click.argument("name")
-        def hello(name):
-            print(f"Hello {name}!")
-        
-        if __name__ == "__main__":
-            hello()
+
+        # make function Click command
+        # make argument name
+        # function, parameter name
+            # print hello <name>!
+
+        # when run this script:
+            # run function
         ```
     === "check"
         **Checkpunten:**
