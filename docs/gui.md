@@ -195,9 +195,8 @@ In de volgende opdrachten ga je zelf de hele applicatie opbouwen, zodat je preci
     === "check"
         **Checkpunten:**
 
-        - [ ] Het juiste conda environment is geactiveerd.
         - [ ] Er is een `#!py __init__()` method gemaakt voor de subclass `UserInterface`.
-        - [ ] In de `#!py __init__()` method wordt de parent class geïnitialiseerd.
+        - [ ] In de `#!py __init__()` method wordt de parent class geïnitialiseerd ([regel 7](#__codelineno-3-7)).
         - [ ] Er verschijnt een leeg venster.
 
         **Projecttraject:**
