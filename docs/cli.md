@@ -112,6 +112,44 @@ python hello.py --help
 !!! opdracht-basis "Help functie"
     Neem het script {{file}}`hello.py` over en vraag de helpfunctie op. Test dit met én zonder `#!py @click.command()`.
 
+!!! opdracht-basis "Help functie"
+    === "opdracht"
+        Je neemt het script {{file}}`hello.py` over en vraagt de helpfunctie op. Je ziet een helptekst verschijnen. Je vraagt je af wat er gebeurt als je `#!py @click.command()` weghaald en dan de helpfunctie opvraagt. Je krijgt gewoon de output van de functie `#!py hello()` een geen help tekst.
+    === "code"
+        **Pseudo-code**
+        ``` py
+        import click
+
+        # make function Click command
+        # function
+            # print hello physicist!
+
+        # when run this script:
+            # run function
+        ```
+        **Testcode:**
+        <pre><code>(ecpc) > python hello.py --help <button type="button" name="python hello.py_help" onclick="runScript('python hello.py_help')">{{ enter }}</button><button type="button" name="python hello.py_help" onclick="runScript('python hello.py_help')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="python hello.py_help">Usage: hello.py [OPTIONS]        
+        Options:
+            --help  Show this message and exit.
+        </span>
+        </code></pre>
+        
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] 
+
+
+        **Projecttraject:**
+
+        - [x] Help functie
+        - [x] Argumenten toevoegen
+        - [ ] Test hello
+        - [ ] Helptekst toevoegen
+        - [ ] Pauze optie
+
 
 !!! opdracht-basis "Argument toevoegen"
     Laten we zorgen dat we een naam als argument mee kunnen geven.
