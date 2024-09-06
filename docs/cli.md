@@ -164,14 +164,6 @@ if __name__ == "__main__":
 ```
 
 !!! opdracht-basis "Argument toevoegen"
-    Laten we zorgen dat we een naam als argument mee kunnen geven.
-    
-    1. In de code hieronder geven we met de regel `#!py @click.argument("name")` aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie `hello`:
-    1. Draai {{file}}`hello.py` eerst zonder een argument `python hello.py` en bekijk de foutmelding.
-    1. Draai {{file}}`hello.py` nu met een argument: `python hello.py Alice`.
-    
-
-!!! opdracht-basis "Argument toevoegen"
     === "opdracht"
         Je runt het bestand {{file}}`hello.py` en geef achter de bestandsnaam de naam `Alice` mee. Er verschijnt `Hello Alice!` als output in de terminal.
     === "code"
@@ -187,6 +179,13 @@ if __name__ == "__main__":
         # when run this script:
             # run function
         ```
+        <pre><code>(ecpc) > python hello.py <button type="button" name="hello.py_name" onclick="runScript('hello.py_name')">{{ enter }}</button><button type="button" name="hello.py_name" onclick="runScript('hello.py_name')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="hello.py_name">Usage: hello.py [OPTIONS] NAME
+        Try 'hello.py --help' for help.
+        Error: Missing argument 'NAME'.
+        </span>
+        </code></pre>
+        
     === "check"
         **Checkpunten:**
 
