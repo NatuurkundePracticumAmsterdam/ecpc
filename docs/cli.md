@@ -110,11 +110,8 @@ python hello.py --help
 ```
 <div id="opd:hello-help"></div>
 !!! opdracht-basis "Help functie"
-    Neem het script {{file}}`hello.py` over en vraag de helpfunctie op. Test dit met én zonder `#!py @click.command()`.
-
-!!! opdracht-basis "Help functie"
     === "opdracht"
-        Je neemt het script {{file}}`hello.py` over en vraagt de helpfunctie op. Je ziet een helptekst verschijnen. Je vraagt je af wat er gebeurt als je `#!py @click.command()` weghaald en dan de helpfunctie opvraagt. Je krijgt gewoon de output van de functie `#!py hello()` een geen help tekst.
+        Je neemt het script {{file}}`hello.py` over. Je vraagt de helpfunctie van het script op. Je ziet een helptekst verschijnen. Je vraagt je af wat er gebeurt als je `#!py @click.command()` weghaald en dan de helpfunctie opvraagt. Je krijgt gewoon de output van de functie `#!py hello()` een geen help tekst.
     === "code"
         **Pseudo-code**
         ``` py
@@ -139,13 +136,15 @@ python hello.py --help
     === "check"
         **Checkpunten:**
 
-        - [ ] 
+        - [ ] Je vraagt de helpfunctie op door `--help` achter de bestandsnaam te zetten in de terminal.
+        - [ ] Er verschijnt een standaard helptekst.
+        - [ ] Zonder `@click.command()` verschijnt er geen helptekst, maar de output van de functie.
 
 
         **Projecttraject:**
 
         - [x] Help functie
-        - [x] Argumenten toevoegen
+        - [ ] Argumenten toevoegen
         - [ ] Test hello
         - [ ] Helptekst toevoegen
         - [ ] Pauze optie
