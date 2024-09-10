@@ -149,7 +149,7 @@ python hello.py --help
         - [ ] Helptekst toevoegen
         - [ ] Pauze optie
 
-Om een parameter aan de functie mee te geven, bijvoorbeeld `name`, maken we een click argument aan met `#!py @click.argument("name")`.
+In de code hieronder geven we met de regel `#!py @click.argument("name")` aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie `hello`:
 
 ``` py title="hello.py" hl_lines="4 6"
 import click
