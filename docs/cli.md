@@ -225,10 +225,6 @@ if __name__ == "__main__":
     hello()
 ```
 
-!!! opdracht-basis "Test hello"
-    Neem bovenstaande pythoncode over en test {{file}}`hello.py`. Kun je 5 keer een begroeting printen met de naam van je assistent?
-
-
 !!! opdracht-basis "5 keer hello"
     === "opdracht"
         Je runt het bestand {{file}}`hello.py` en geef achter de bestandsnaam de naam van je assistent mee en geeft aan dat je deze 5 keer wilt printen. Er verschijnt vijf keer `Hello <assistent>!` als output in de terminal.
