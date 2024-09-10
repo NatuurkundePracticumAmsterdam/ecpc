@@ -167,7 +167,6 @@ if __name__ == "__main__":
     === "opdracht"
         Je runt het bestand {{file}}`hello.py` en geef achter de bestandsnaam de naam `Alice` mee. Er verschijnt `Hello Alice!` als output in de terminal.
     === "code"
-        In de code hieronder geven we met de regel `#!py @click.argument("name")` aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie `hello`:
         ``` py title="hello.py"
         import click
 
