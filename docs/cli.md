@@ -124,7 +124,7 @@ python hello.py --help
         # when run this script:
             # run function
         ```
-        **Testcode:**
+        **Testcode**
         <pre><code>(ecpc) > python hello.py --help <button type="button" name="python hello.py_help" onclick="runScript('python hello.py_help')">{{ enter }}</button><button type="button" name="python hello.py_help" onclick="runScript('python hello.py_help')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="python hello.py_help">Usage: hello.py [OPTIONS]        
         Options:
@@ -167,6 +167,7 @@ if __name__ == "__main__":
     === "opdracht"
         Je runt het bestand {{file}}`hello.py` en geef achter de bestandsnaam de naam `Alice` mee. Er verschijnt `Hello Alice!` als output in de terminal.
     === "code"
+        **Pseudo-code**
         ``` py title="hello.py"
         import click
 
@@ -178,6 +179,7 @@ if __name__ == "__main__":
         # when run this script:
             # run function
         ```
+        **Testcode**
         <pre><code>(ecpc) > python hello.py <button type="button" name="hello.py_name" onclick="runScript('hello.py_name')">{{ enter }}</button><button type="button" name="hello.py_name" onclick="runScript('hello.py_name')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="hello.py_name">Usage: hello.py [OPTIONS] NAME
         Try 'hello.py --help' for help.
@@ -229,6 +231,7 @@ if __name__ == "__main__":
     === "opdracht"
         Je runt het bestand {{file}}`hello.py` en geef achter de bestandsnaam de naam van je assistent mee en geeft aan dat je deze 5 keer wilt printen. Er verschijnt vijf keer `Hello <assistent>!` als output in de terminal.
     === "code"
+        **Pseudo-code**
         ``` py title="hello.py"
         import click
 
@@ -242,6 +245,7 @@ if __name__ == "__main__":
         # when run this script:
             # run function
         ```
+        **Testcode**
         <pre><code>(ecpc) > python hello.py David -c 5 <button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')">{{ enter }}</button><button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="python hello.py David -c 5">Hello David!
         Hello David!
@@ -334,7 +338,8 @@ Hello Alice!
     === "opdracht"
         Breid het bovenstaande script `hello.py` uit met een optie om een korte pauze in te lassen na het printen van ieder `#!py print()`-statement. Een pauze kun je inlassen met `#!py time.sleep()`.
     === "code"
-        ``` py title="hello.py" hl_lines="10 14"
+        **Pseudo-code**
+        ``` py title="hello.py"
         import click
 
         @click.command()
