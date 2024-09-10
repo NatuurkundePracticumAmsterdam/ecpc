@@ -336,28 +336,44 @@ Hello Alice!
 
 !!! opdracht-basis "Pauze optie"
     === "opdracht"
-        Breid het bovenstaande script `hello.py` uit met een optie om een korte pauze in te lassen na het printen van ieder `#!py print()`-statement. Een pauze kun je inlassen met `#!py time.sleep()`.
+        Je runt het bestand {{file}}`hello.py` en geef achter de bestandsnaam de naam van je assistent mee en geeft aan dat je deze 5 keer wilt printen met een pauze van 2 seconde ertussen. Het duurt 8 seconden voordat er vijf keer `Hello <assistent>!` als output in de terminal staat. Als je geen pauze-optie meegeeft wordt er ook geen pauze gehouden. 
+        
+        !!! info
+            Je kan hiervoor gebruik maken van de module _time_ die standaard met Python meekomt[^standard-library]. Met de functie `#! sleep()` kun je de executie van de volgende regel in het script met een aantal seconden uitstellen.
+
+            ``` py
+            import time
+            # wait 28 second
+            time.sleep(28)
+            ```
+
+            [^standard-library]: Zie ook: [The Python Standard Library](vervolg-python.md#de-standard-library-en-de-python-package-index)
     === "code"
         **Pseudo-code**
         ``` py title="hello.py"
         import click
 
-        @click.command()
-        @click.argument("name")
-        @click.option(
-            "-c",
-            "--count",
-            default=1,
-        )
-        # optie om pauze toe te voegen
-        def hello(name, count):
-            for _ in range(count):
-                print(f"Hello {name}!")
-                # pauze inlassen
+        # make function Click command
+        # make argument name
+        # make option count with default value 1
+        # make option pause
+        # function, parameter name and count
+            # repeat count times
+                # print hello <name>!
+                # pause
 
-        if __name__ == "__main__":
-            hello()
+        # when run this script:
+            # run function
         ```
+        **Testcode**
+        <pre><code>(ecpc) > python hello.py David -c 5 <button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')">{{ enter }}</button><button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="python hello.py David -c 5">Hello David!
+        Hello David!
+        Hello David!
+        Hello David!
+        Hello David!</span>
+        </code></pre>
+
     === "check"
         **Checkpunten:**
 
