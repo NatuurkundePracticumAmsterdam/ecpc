@@ -24,6 +24,11 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
         --8<-- "uitwerkingen-on/f-strings-on.py"
         ```
 
+De aangemaakte map ga je de hele cursus gebruiken, zorg er dus voor dat deze er zo uit ziet:
+
+{{new_folder}} ECPC  
+{{L}} {{new_file}} diameter.py
+
 ## If-statement en operatoren
 
 

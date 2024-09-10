@@ -52,6 +52,12 @@ Je kunt het lezen middels een _easter egg_ in Python zelf: `#!py import this`.
     ```
     1. Run het script en lees de output. 
 
+
+{{folder}} ECPC zou er nu zo uit moeten zien, zorg ervoor dat alles in deze map komt (uiteraard in andere mappen in {{folder}} ECPC als dat wordt gezegd):
+
+{{folder}} ECPC  
+{{L}} {{new_file}} zen-of-python.py
+
 Deze tekst kan nog behoorlijk cryptisch overkomen, maar een paar dingen worden snel duidelijk: code moet _mooi_ zijn (regel 1) en duidelijk (regels 2, 3 en 6). Er bestaan prachtige programmeertrucs in één of twee regels, maar onleesbaar is het wel. Een voorbeeld [@contemplating_zenofpython]:
 ``` py
 print('\n'.join("%i bytes = %i bits which has %i possible values." %
@@ -342,6 +348,13 @@ print(f"{pdfs=}")
 <pre><code>(ecpc) > python pdf.py
 <span class = "invisible" name="pdf">pdfs=['text.pdf', 'manual.pdf']</span>
 </code></pre></div>
+
+
+Let op! Deze terminal command werkt alleen als je de juiste mappenstructuur hebt aangehouden:
+
+{{folder}} ECPC  
+{{T}} {{new_file}} pdf.py  
+{{L}} {{dots}}
 
 In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_[^{}] en _dict comprehensions_.
 
@@ -718,7 +731,7 @@ The square of 5 is 25
 ```
 Tijdens het importeren wordt alle code die aanwezig is in {{file}}`square.py` ook daadwerkelijk gerunt. Er zijn twee manieren om dit op te lossen:
 
-  1. Alle `extra' code verwijderen uit de module ({{file}}`square.py`)
+  1. Alle 'extra' code verwijderen uit de module ({{file}}`square.py`)
   1. De code in de module _alleen_ laten runnen als de module als script wordt aangeroepen, maar _niet_ wanneer de module wordt geïmporteerd
 
 De eerste oplossing is lang niet altijd wenselijk. Voor de tweede oplossing pas je {{file}}`square.py` als volgt aan:
