@@ -258,7 +258,7 @@ print(master_oogway.quote)
             # get_flight_ranges
                 ...
         ```
-        **Testcode:**
+        **Testcode**
         <div class="code-box"><button type="button" name="water_rocket" onclick="runScript('water_rocket')" class="run">{{ run }}</button><button type="button" name="water_rocket" onclick="runScript('water_rocket')" class="reload invisible">{{ reload }}</button> <b>water_rocket.py</b>
         ``` py
         speedy = ProjectileMotion()
