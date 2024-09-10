@@ -231,29 +231,42 @@ if __name__ == "__main__":
 
 !!! opdracht-basis "Test hello"
     === "opdracht"
-        We passen {{file}}`hello.py` aan zodat we de begroeting meerdere malen kunnen printen.
+        Je runt het bestand {{file}}`hello.py` en geef achter de bestandsnaam de naam van je assistent mee en geeft aan dat je deze 5 keer wilt printen. Er verschijnt vijf keer `Hello <assistent>!` als output in de terminal.
     === "code"
-        ``` py title="hello.py" hl_lines="5-9 11"
+        ``` py title="hello.py"
         import click
 
-        @click.command()
-        @click.argument("name")
-        @click.option(
-            "-c",
-            "--count",
-            default=1,
-        )
-        def hello(name, count):
-            for _ in range(count):
-                print(f"Hello {name}!")
+        # make function Click command
+        # make argument name
+        # make option count with default value 1
+        # function, parameter name and count
+            # repeat count times
+                # print hello <name>!
 
-        if __name__ == "__main__":
-            hello()
+        # when run this script:
+            # run function
         ```
+        <pre><code>(ecpc) > python hello.py David -c 5 <button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')">{{ enter }}</button><button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="python hello.py David -c 5">Hello David!
+        Hello David!
+        Hello David!
+        Hello David!
+        Hello David!</span>
+        </code></pre>
+        
     === "check"
         **Checkpunten:**
 
         - [ ] Je kan de naam van je assistent 5 keer printen met één commando
+        - [ ] Je kan het aantal keer printen opgeven met `-c`.
+        - [ ] Je kan het aantal keer printen ook opgeven met `--count`.
+        - [ ] Wanneer de optie `count` wordt weggelaten wordt de naam 1 keer geprint.
+        - [ ] Wanneer er geen argument wordt meegegeven met `count` volgt een foutmelding:
+
+            <pre><code>(ecpc) > python hello.py David -c <button type="button" name="python hello.py David -c" onclick="runScript('python hello.py David -c')">{{ enter }}</button><button type="button" name="python hello.py David -c" onclick="runScript('python hello.py David -c')" class="invisible">{{ reload }}</button>
+            <span class="invisible" name="python hello.py David -c">Error: Option '-c' requires an argument.</span>
+            </code></pre>
+        
 
         **Projecttraject:**
 
