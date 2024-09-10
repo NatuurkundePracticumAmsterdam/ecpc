@@ -1,0 +1,14 @@
+.flashcards_container {
+    overflow: hidden;
+    position: relative;
+}
+
+.flashcard_element {
+    padding-top: 16px;
+}
+
+.texteditor_container {
+    overflow-y: scroll; 
+    height: 375px; 
+    padding-left: 5%;
+}
