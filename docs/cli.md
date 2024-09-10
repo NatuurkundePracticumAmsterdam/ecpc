@@ -188,8 +188,8 @@ if __name__ == "__main__":
     === "check"
         **Checkpunten:**
 
-        - [ ] Het draaien van {{file}}`hello.py` zonder een argument `python hello.py` geeft een foutmelding.
-        - [ ] Het draaien van {{file}}`hello.py` met een argument `python hello.py Alice` werkt zoals verwacht.
+        - [ ] Het draaien van {{file}}`hello.py` zonder een argument: `python hello.py` geeft een foutmelding.
+        - [ ] Het draaien van {{file}}`hello.py` met een argument: `python hello.py Alice` werkt zoals verwacht.
 
         **Projecttraject:**
 
