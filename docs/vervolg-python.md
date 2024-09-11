@@ -1108,7 +1108,7 @@ Merk op dat je een exception met traceback meestal van onder naar boven leest. O
     ```
     <pre><code>(ecpc) > get_voltage.py <button type="button" name="get_voltage.py" onclick="runScript('get_voltage.py')">{{ enter }}</button><button type="button" name="get_voltage.py" onclick="runScript('get_voltage.py')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="get_voltage.py">Traceback (most recent call last):
-    File "get_voltage.py", line 1, in <module>
+    File "get_voltage.py", line 1, in < module >
         get_voltage(2)
     File "exception_channel.py", line 6, in get_voltage
         raise InvalidChannelException(f"Use channel 0 or 1, not {channel}")

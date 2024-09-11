@@ -347,7 +347,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
             Probeer je de code te draaien maar krijg je een foutmelding zoals deze:
             ``` ps1 title="Terminal"
             Traceback (most recent call last):
-            File "c:\smallangle\src\smallangle\smallangle.py", line 28, in <module>
+            File "c:\smallangle\src\smallangle\smallangle.py", line 28, in < module >
                 sin(10)
             File "C:\click\core.py", line 1157, in __call__     
                 return self.main(*args, **kwargs)
