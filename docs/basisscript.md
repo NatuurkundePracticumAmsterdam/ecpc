@@ -219,15 +219,32 @@ Het CSV-bestand heeft kolommen $t$ en $s$. De getallen hebben een punt als decim
 #### De functie `#!py zip()`
 
 Het viel je misschien op dat in bovenstaand CSV-bestand iedere regel een $t$-waarde en een $s$-waarde heeft. Als je een lijst met $t$'s en een lijst met $s$'en hebt dan bevat de eerste regel het eerste element uit beide lijsten, de tweede regel het tweede element, etc. Je kunt dan een for-loop schrijven die Python's indexnotatie gebruikt: `#!py t[i]`, `#!py s[i]`, etc. Het kan óók, makkelijker, met de `#!py zip()`-functie. Beide methodes kun je als volgt gebruiken in het geval van twee[^meer-dan-twee] lijsten A en B:
+ ```
 
 === "with_zip.py"
-    ``` py hl_lines="4 5"
+    <div class="code-box"><button type="button" name="with_zip.py_suffix" onclick="runScript('with_zip.py_suffix')" class="run">{{ run }}</button><button type="button" name="with_zip.py_suffix" onclick="runScript('with_zip.py_suffix')" class="reload invisible">{{ reload }}</button> with_zip.py
+    ``` py
     --8<-- "scripts/with_zip.py"
     ```
+    <pre>
+    <code>(ecpc) > python with_zip.py
+    <span class="invisible" name="with_zip.py_suffix">1 1
+    2 4
+    3 9
+    4 16</span>
+    </code></pre></div>
 === "with_indexing.py"
-    ``` py hl_lines="4 5"
+    <div class="code-box"><button type="button" name="with_indexing.py_suffix" onclick="runScript('with_indexing.py_suffix')" class="run">{{ run }}</button><button type="button" name="with_indexing.py_suffix" onclick="runScript('with_indexing.py_suffix')" class="reload invisible">{{ reload }}</button> with_indexing.py
+    ``` py
     --8<-- "scripts/with_indexing.py"
     ```
+    <pre>
+    <code>(ecpc) > python with_indexing.py
+    <span class="invisible" name="with_indexing.py_suffix">1 1
+    2 4
+    3 9
+    4 16</span>
+    </code></pre></div>
 
 [^meer-dan-twee]: Je kunt net zoveel lijsten in `#!py zip()` gooien als je wilt: `#!py for a, b, c, d, e in zip(A, B, C, D, E)` is geen probleem.
 

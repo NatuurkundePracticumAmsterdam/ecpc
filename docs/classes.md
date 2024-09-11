@@ -153,12 +153,17 @@ class Turtle:
 ```
 De instance attribute `#!py quote` is nu onderdeel van de instance. We kunnen die oproepen binnen elke method met `#!py self.quote` maar ook buiten de class:
 
-```py
+<div class="code-box"><button type="button" name="turtle_quote" onclick="runScript('turtle_quote')" class="run">{{ run }}</button><button type="button" name="turtle_quote" onclick="runScript('turtle_quote')" class="reload invisible">{{ reload }}</button> turtle.py
+``` py
+...
 master_oogway = Turtle("turtle")
 
 print(master_oogway.quote)
-# "Yesterday is history, Tomorrow is a mystery, but Today is a gift. That is why it is called the present"
 ```
+<pre>
+<code>(ecpc) > python turtle.py
+<span class="invisible" name="turtle_quote">"Yesterday is history, Tomorrow is a mystery, but Today is a gift. That is why it is called the present"</span>
+</code></pre></div>
 
 !!! opdracht-basis "Opbouw van een class"
     1. Beschouw de onderstaande code
