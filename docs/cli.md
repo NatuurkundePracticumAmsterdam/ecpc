@@ -397,18 +397,6 @@ Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
 
 
 !!! opdracht-basis "Argumenten en opties"
-    Bij [opdracht _Commando testen_](poetry.md#opd:Poetry_commando) heb je een applicatie gemaakt om het kwadraat van een getal te printen. In deze opdracht gaan we het script uitbreiden om het getal als argument of optie mee te geven op de command line. Voer de volgende stappen uit:
-
-    1. Maak een schone environment aan en installeer de applicatie (doet alles het nog?)
-    1. Voeg click toe en pas het script aan zodat je het getal zelf kan kiezen.[^arg-type] Wanneer kies je in het script voor een optie en wanneer voor een argument?
-    1. Test de applicatie.
-    1. Maak de applicatie compleet met helpteksten en default waardes.
-    
-    ???+ opdracht-meer "Meer functies"
-        1. Pas de applicatie aan zodat je kan kiezen tussen het kwadraat of de wortel van het getal. 
-
-    
-!!! opdracht-basis "Argumenten en opties"
     === "opdracht"
         Je opent met Github Desktop de {{github}}`just_count` in Visual Studio Code. Je hebt ooit een environment voor deze repository aangemaakt maar je hebt geen idee of die in de tussentijd niet per ongeluk stuk is gegaan. Daarom maak je {{lightbulb}} een nieuwe environment `just_count` met daarin Python en gebruikt Poetry om het pakket `just_count` in de nieuwe omgeving te installeren. 
 
