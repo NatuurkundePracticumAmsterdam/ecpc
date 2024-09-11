@@ -59,6 +59,7 @@ extra_javascript:
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
   - stylesheets/extra.css
+  - assets/folder_tree/folder_tree.css
   - assets/comparison/comparison.css
   - assets/ADC_slider/ADC_slider.css
   - assets/run_button/run_button.css
