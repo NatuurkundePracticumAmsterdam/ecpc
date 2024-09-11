@@ -410,35 +410,48 @@ Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
     
 !!! opdracht-basis "Argumenten en opties"
     === "opdracht"
-        Bij [opdracht _Commando testen_](poetry.md#opd:Poetry_commando) heb je een applicatie gemaakt om het kwadraat van een getal te printen. In deze opdracht gaan we het script uitbreiden om het getal als argument of optie mee te geven op de command line. Voer de volgende stappen uit:
+        Je opent met Github Desktop de {{github}}`just_count` in Visual Studio Code. Je hebt ooit een environment voor deze repository aangemaakt maar je hebt geen idee of die in de tussentijd niet per ongeluk stuk is gegaan. Daarom maak je {{lightbulb}} een nieuwe environment `just_count` met daarin Python en gebruikt Poetry om het pakket `just_count` in de nieuwe omgeving te installeren. 
 
-        1. Maak een schone environment aan en installeer de applicatie (doet alles het nog?)
-        1. Voeg click toe en pas het script aan zodat je het getal zelf kan kiezen.[^arg-type] Wanneer kies je in het script voor een optie en wanneer voor een argument?
-        1. Test de applicatie.
-        1. Maak de applicatie compleet met helpteksten en default waardes.
+        Je activeert het juiste conda environment en met het commando `square 6` wordt het kwadraat van 6 in de terminal geprint.
+
+        !!! info argument is standaard string
+            Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieerd. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden
 
         ???+ opdracht-meer "Meer functies"
             1. Pas de applicatie aan zodat je kan kiezen tussen het kwadraat of de wortel van het getal. 
     === "code"
-        ``` py title="count_count.py" hl_lines="3"
+        **Pseudo-code**
+        ``` py title="count_count.py"
         import square
 
-        # click code
+        # Add functionality to select a number via click and print its square
         def main():
             print(f"The square of 5 is {square.square(5)}")
 
         if __name__ == '__main__':
             main()
         ```
+        **Testcode**
+        <pre><code>(ecpc) > square 6 <button type="button" name="square 6" onclick="runScript('square 6')">{{ enter }}</button><button type="button" name="square 6" onclick="runScript('square 6')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="square 6">The square of 6 is 36</span>
+        </code></pre>
+        
     === "check"
         **Checkpunten:**
 
+        - [ ] Je hebt `poetry install` in een schone environment (met alleen Python) gedaan.
+        - [ ] Je hebt de juiste omgeving geactiveerd.
         - [ ] Je kan zelf het getal kiezen met het commando en krijgt het verwachte antwoord terug
         - [ ] Bij het aanroepen van `count --help` krijg je duidelijke helpteksten en default waardes te zien waarmee je het programma kan begrijpen
 
-    
-[^arg-type]: Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieerd. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden
+        **Projecttraject**
+        
+        - [x] Main functie toevoegen
+        - [x] commando toevoegen
+        - [x] Commando testen
+        - [x] Argumenten en opties
 
+    
 ### Click subcommando's
 Tot nu toe konden we maar één functie uitvoeren in onze applicatie. Maar het is ook mogelijk om subcommando's aan te maken zodat je met één programma meerdere <q>taken</q> kunt uitvoeren. Denk bijvoorbeeld aan `conda`. Je installeert packages met `conda install`, verwijdert ze met `conda remove`, maakt een environment met `conda create` en activeert het met `conda activate`.
 

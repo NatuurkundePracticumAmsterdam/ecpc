@@ -509,12 +509,12 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
     Voor de volgende stappen uit:
 
     1. Open {{file}}`pyproject.toml` en voeg het kopje `[tool.poetry.scripts]` toe.
-    1. Als naam voor het commando kiezen we `count`.
+    1. Als naam voor het commando kiezen we `square`.
     1. Voor het gemak vullen we de rechterkant van het =-teken van rechts naar links in. Achter de dubbele punt komt de naam van de functie die uitgevoerd moet worden, dat is in ons geval `main`.
     1. De functie `main` staat in module {{file}}`count_count.py`. De module hebben we ondergebracht in de package {{folder}}`just_count`.
             ``` toml
             [tool.poetry.scripts]
-            count = "just_count.count_count:main"
+            square = "just_count.count_count:main"
             ```
     1. Omdat we handmatig de toml-file hebben aangepast installeren we de package `just_count` opnieuw met `poetry install`.
     
@@ -522,7 +522,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
 <div id="opd:Poetry_commando"></div>
 !!! opdracht-basis "Commando testen"
 
-    1. Type in de terminal het commando `count`.
+    1. Type in de terminal het commando `square`.
     1. Je krijgt nu een `ModuleNotFoundError` voor de module square. Poetry zoekt vanuit de {{folder}}`src`-map naar de packages en modules. Pas het importstatement in {{file}}`count_count.py` aan zodat het count commando werkt.   
     1. Activeer een andere conda environment en probeer meteen het commando opnieuw; waarom werkt dit niet?
     1. Navigeer naar de bovenliggende map met `cd..`. Zorg dat het conda environment waar je `just_count` hebt geïnstalleerd is geactiveerd en test het commando. 
