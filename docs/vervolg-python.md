@@ -269,12 +269,12 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
         1. Bereken de weerstand van de schakeling op basis van de voorgaande meting en bewaar het resultaat in dezelfde dictionary.
 
         ??? uitwerkingen
-            <div class="code-box"><button type="button" name="dictionaries.py_suffix" onclick="runScript('dictionaries.py_suffix')" class="run">{{ run }}</button><button type="button" name="dictionaries.py_suffix" onclick="runScript('dictionaries.py_suffix')" class="reload invisible">{{ reload }}</button> dictionaries.py.py
+            <div class="code-box"><button type="button" name="dictionaries.py_suffix" onclick="runScript('dictionaries.py_suffix')" class="run">{{ run }}</button><button type="button" name="dictionaries.py_suffix" onclick="runScript('dictionaries.py_suffix')" class="reload invisible">{{ reload }}</button> dictionaries.py
             ``` pyd
             --8<-- "uitwerkingen-on/dictionaries-on.py"
             ```
             <pre>
-            <code>(ecpc) > python dictionaries.py.py
+            <code>(ecpc) > python dictionaries.py
             <span class="invisible" name="dictionaries.py_suffix">dict_keys(['pi','g', 'c', 'e'])
             Gravity of an object with 14kg is: 137.34 N
             The resistance was: 20.00 &#937;</span>
