@@ -448,7 +448,7 @@ Tot nu toe konden we maar één functie uitvoeren in onze applicatie. Maar het i
 
 Een eenvoudig voorbeeldscript waarin de conda commando's `install` en `remove` worden nagebootst leggen we hieronder uit. Eerst de code:
 
-``` py title="fakeconda.py" linenums="1"
+``` py title="fake_conda.py" linenums="1"
 import click
 
 @click.group()
@@ -481,6 +481,33 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
         print(f"import {package}...")
     ```
     We hebben nu een commando `import` aangemaakt &mdash; _niet_ een commando `import_package`.
+
+!!! opdracht-basis "Fake conda"
+    === "opdracht"
+        Nu je hebt geleerd om met Click subcommando's te maken wil je deze uittesten in combinatie met het commando wat je met Poetry kan aanmaken om een functie uit een script uit te voeren. Je maakt in de map {{folder}}`ECPC` {{lightbulb}} een nieuw Poetry project aan voor {{folder}}`fake_conda` en zet daarin de code uit het bestand {{file}}`fake_conda.py`. Je past de {{file_lines}}`pyproject.toml` aan zodat je met het commando `fake_conda install scipy` zogenaamd `scipy` kunt installeren. 
+
+        !!! info "commando"
+            Als je een commando in Poetry toevoegt dan heeft dat de opbouw `naam_commando = "package.module:naam_functie"`, welke functie moet uitgevoerd worden als je het commando aanroept?
+    === "code"
+        **Pseudo-code**
+        ``` toml title="pyproject.toml"
+        [tool.poetry.scripts]
+        naam_commando = "package.module:naam_functie"
+        ```
+        **Testcode**
+        <pre><code>(ecpc) > fake_conda install scipy <button type="button" name="fake_conda install scipy" onclick="runScript('fake_conda install scipy')">{{ enter }}</button><button type="button" name="fake_conda install scipy" onclick="runScript('fake_conda install scipy')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="fake_conda install scipy">Installing scipy...</span>
+        </code></pre>
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] In de pyproject.toml verwijst `[tool.poetry.scripts]` naar een functie zodat `install` en `remove` subcommando's zijn.
+        - [ ] Het commando `fake_conda install scipy` print de tekst `Installing scipy...` als output in de terminal. 
+
+        **Projecttraject**
+
+        - [ ] Fake conda
 
 !!! opdracht-basis "Pyproject toml"
 
