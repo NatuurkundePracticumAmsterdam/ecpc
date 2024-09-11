@@ -80,10 +80,9 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
 
     1. Open in Visual Studio Code {{folder}} ECPC, en open een terminal.
     1. Dan maken we met Poetry als volgt een nieuw project.[^src-layout] We maken het daarmee _expres_ iets moeilijker om vanuit een script je package te importeren. Je kunt dat dan alleen nog maar doen door het package zelf ook te _installeren_ (zoals andere gebruikers ook moeten doen) en daardoor loop je zelf tegen eventuele problemen aan. Werkt het uiteindelijk bij jou? Dan werkt het _ook_ bij andere mensen.} `easystat` aan:
-    ``` ps1con title="Terminal"
-    PS> poetry new --src easystat
-    Created package easystat in easystat
-    ```
+    <pre><code>(ecpc) > poetry new --src easystat <button type="button" name="poetry new --src easystat" onclick="runScript('poetry new --src easystat')">{{ enter }}</button><button type="button" name="poetry new --src easystat" onclick="runScript('poetry new --src easystat')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="poetry new --src easystat">Created package easystat in easystat</span>
+    </code></pre>
      
     [^src-layout]: We gaan het package opbouwen in de zogenaamde src-layout[@srclayout]
 
@@ -211,15 +210,14 @@ Dit konden we verwachten. We hebben onze package immers nog niet geïnstalleerd.
 
 ### Installeren van een package
 Het installeren van de package kan makkelijk met Poetry:
-``` ps1con title="Terminal"
-PS> poetry install
-Updating dependencies
+<pre><code>(ecpc) > poetry install <button type="button" name="poetry install" onclick="runScript('poetry install')">{{ enter }}</button><button type="button" name="poetry install" onclick="runScript('poetry install')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="poetry install">Updating dependencies
 Resolving dependencies... (0.1s)
 
 Writing lock file
 
-Installing the current project: easystat (0.1.0)
-```
+Installing the current project: easystat (0.1.0)</span>
+</code></pre>
 
 Poetry is even bezig en ons package is geïnstalleerd.
 
@@ -241,9 +239,8 @@ Ons package heeft NumPy nodig en dat hebben we nog niet geïnstalleerd. Dat kunn
 ### Dependencies toevoegen
 
 Om een dependency aan te geven vertellen we Poetry dat hij deze moet toevoegen met:
-``` ps1con title="Terminal"
-PS> poetry add numpy
-Using version ^1.23.2 for numpy
+<pre><code>(ecpc) > poetry add numpy <button type="button" name="poetry add numpy" onclick="runScript('poetry add numpy')">{{ enter }}</button><button type="button" name="poetry add numpy" onclick="runScript('poetry add numpy')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="poetry add numpy">Using version ^1.23.2 for numpy
 
 Updating dependencies
 Resolving dependencies...
@@ -252,8 +249,8 @@ Writing lock file
 
 Package operations: 1 install, 0 updates, 0 removals
 
-  • Installing numpy (1.23.2)
-```
+  • Installing numpy (1.23.2)</span>
+</code></pre>
 
 !!! opdracht-basis "Dependencies toevoegen"
     We voegen de dependency toe en runnen opnieuw de test, als volgt:
@@ -309,15 +306,13 @@ Fijn! Als je nu de {{file}}`pyproject.toml` nog eens bekijkt zie je dat NumPy da
         1. Bekijk de namen van de bestanden in de nieuwe map {{folder}}`easystat/dist`, welke extensie hebben ze?
         
 
-
-    ``` ps1con title="Terminal"
-    PS> poetry build  
-    Building easystat (0.1.0)
+    <pre><code>(ecpc) > poetry build <button type="button" name="poetry build" onclick="runScript('poetry build')">{{ enter }}</button><button type="button" name="poetry build" onclick="runScript('poetry build')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="poetry build">Building easystat (0.1.0)
         - Building sdist
         - Built easystat-0.1.0.tar.gz
         - Building wheel
-        - Built easystat-0.1.0-py3-none-any.whl
-    ```
+        - Built easystat-0.1.0-py3-none-any.whl</span>
+    </code></pre>
     Een <q>sdist</q> is een _source distribution_. Een `.tar.gz`-bestand is een soort zipbestand met daarin de broncode van ons pakket. De tests worden daar niet in meegenomen. Een <q>wheel</q> is een soort bestand dat direct geïnstalleerd kan worden met `pip`. Zogenaamde _pure-python_ packages bevatten alleen Pythoncode &mdash; en geen C-code die gecompileerd moet worden voor verschillende besturingssystemen of hardwareplatforms. Je herkent ze aan `none-any` in de bestandsnaam. <q>None</q> voor <q>niet-OS-specifiek</q> en <q>any</q> voor <q>draait op elk hardwareplatform</q>. We kunnen dit bestand als download neerzetten op een website of aan anderen mailen.
 
     !!! opdracht-meer "Test wheel"
@@ -350,13 +345,12 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
 
 !!! info
     Als je al bezig bent met een project dan werk je als het goed is al in een conda environment. Daar heb je dan met `conda install` al packages geïnstalleerd die je nodig hebt. Het gebeurt dan makkelijk dat je vergeet om dat aan te geven met `poetry add`. Dat betekent alleen dat als iemand anders je package installeert dat er dependencies missen en dat jouw code dus _niet_ werkt! Dit is makkelijk op te lossen. Zodra je Poetry gaat gebruiken _wis dan je environment en maak een nieuwe aan met alleen Python._ Dat gaat het makkelijkst als volgt. Stel dat je bezig bent in het environment `pythondaq`. We maken dan een nieuw environment met dezelfde naam:
-    ``` ps1 title="Terminal"
-    conda create -n pythondaq python=3.10
-    WARNING: A conda environment already exists at '/Users/david/opt/anaconda3/envs/pythondaq'
-    Remove existing environment (y/[n])? y
-
-    ...
-    ```
+    <pre><code>(ecpc) > conda create -n pythondaq python=3.10 <button type="button" name="conda create -n pythondaq python=3.10" onclick="runScript('conda create -n pythondaq python=3.10')">{{ enter }}</button><button type="button" name="conda create -n pythondaq python=3.10" onclick="runScript('conda create -n pythondaq python=3.10')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="conda create -n pythondaq python=3.10">WARNING: A conda environment already exists at '/Users/david/opt/anaconda3/envs/pythondaq'
+    Remove existing environment (y/[n])? y                                                                                                                                      
+    ...</span>
+    </code></pre>
+    
     Je overschrijft dus je huidige environment met een nieuwe, lege. Je kunt daarna met `poetry add` packages toevoegen net zo lang tot je geen `#!py ImportError` meer krijgt.
 
 !!! opdracht-basis "Poetry knipperlicht"
@@ -547,11 +541,10 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
             ```
             pas de regel aan zodat jouw commando de functie `#!py table()` aanroept in {{file}}`src/erroranalysis/data_analysis.py`. Je mag de naam van het commando zelf kiezen.
     1. Ga naar de terminal en kijk of het werkt!
-            ``` ps1con title="Terminal"
-            PS> naam_commando
-            Area of the kitchen table is: 1.8386 ± 0.0049 m
-            ```
-
+    <pre><code>(ecpc) > naam_commando <button type="button" name="naam_commando" onclick="runScript('naam_commando')">{{ enter }}</button><button type="button" name="naam_commando" onclick="runScript('naam_commando')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="naam_commando">Area of the kitchen table is: 1.8386 ± 0.0049 m</span>
+    </code></pre>
+    
 !!! opdracht-inlever "Pythondaq: applicatie"
     We gaan nu een commando maken voor {{github}}`pythondaq`:
 
