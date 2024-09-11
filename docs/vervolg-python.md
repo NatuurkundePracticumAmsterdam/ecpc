@@ -858,7 +858,7 @@ Maar nu is er een probleem met de uitvoer van dit script: zowel het kwadraat van
 
 Tijdens het importeren wordt alle code die aanwezig is in {{file}}`square.py` ook daadwerkelijk gerunt. Er zijn twee manieren om dit op te lossen:
 
-  1. Alle `extra' code verwijderen uit de module ({{file}}`square.py`)
+  1. Alle 'extra' code verwijderen uit de module ({{file}}`square.py`)
   1. De code in de module _alleen_ laten runnen als de module als script wordt aangeroepen, maar _niet_ wanneer de module wordt geïmporteerd
 
 De eerste oplossing is lang niet altijd wenselijk. Voor de tweede oplossing pas je {{file}}`square.py` als volgt aan:
@@ -882,7 +882,7 @@ Het `#!py if __name__ == '__main__'`-statement wordt heel veel gebruikt in Pytho
     1. Run {{file}}`just_count.py` met het `#!py if __name__ == '__main__'`-statement.
     1. Voeg `#!py print(f"{__name__ = }")` toe bovenaan {{file}}`square.py`. 
     1. Run {{file}}`square.py` en kijk wat `#!py __name__` is.
-    1. Run dan nu {{file}}`just\_count.py`. Zie hoe de speciale variabele `#!py __name__` veranderd. 
+    1. Run dan nu {{file}}`just_count.py`. Zie hoe de speciale variabele `#!py __name__` veranderd. 
 
 
 ## Packages
