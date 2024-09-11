@@ -575,10 +575,33 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 
 !!! opdracht-inlever "smallangle installeren"
     === "opdracht"
-        Het project {{github}}`smallangle` wordt met Poetry beheerd. Ga naar GitHub naar {{github}}`AnneliesVlaar/smallangle` en [open de repository in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/smallangle) in GitHub Desktop en Visual Studio Code. Installeer de package in een nieuw environment.
+        Je cloned het Poetry project {{github}}`smallangle` van {{github}}`AnneliesVlaar/smallangle` door [de repository in GitHub desktop te openen](x-github-client://openRepo/https://github.com/AnneliesVlaar/smallangle). Daarna open je het project in Visual Studio Code. Na het installeren van het project in een nieuwe conda environment run je het bestand {{file}}`smallangle.py` en krijg je een lijst van 10 punten tussen 0 en 2 $\pi$ en de sinus van deze punten. 
     === "code"
-        <pre><code>(ecpc) > python smallangle.py <button type="button" name="python smallangle.py" onclick="runScript('python smallangle.py')">{{ enter }}</button><button type="button" name="python smallangle.py" onclick="runScript('python smallangle.py')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="python smallangle.py">          x       sin (x)
+        **Testcode**
+        <div class="code-box"><button type="button" name="smallangle" onclick="runScript('smallangle')" class="run">{{ run }}</button><button type="button" name="smallangle" onclick="runScript('smallangle')" class="reload invisible">{{ reload }}</button> smallangle.py
+        ``` py
+        import numpy as np
+        from numpy import pi
+        import pandas as pd
+
+        def sin(number):
+            x = np.linspace(0, 2 * pi, number)
+            df = pd.DataFrame({"x": x, "sin (x)": np.sin(x)})
+            print(df)
+            return
+
+        def tan(number):
+            x = np.linspace(0, 2 * pi, number)
+            df = pd.DataFrame({"x": x, "tan (x)": np.tan(x)})
+            print(df)
+            return
+
+        if __name__ == "__main__":
+            sin(10)
+        ```
+        <pre>
+        <code>(ecpc) > python smallangle.py
+        <span class="invisible" name="smallangle">          x       sin (x)
         0  0.000000  0.000000e+00
         1  0.698132  6.427876e-01
         2  1.396263  9.848078e-01
@@ -589,11 +612,11 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
         7  4.886922 -9.848078e-01
         8  5.585054 -6.427876e-01
         9  6.283185 -2.449294e-16</span>
-        </code></pre>
-        
+        </code></pre></div>
     === "check"
         **Checkpunten:**
 
+        - [ ] Het project is geïnstalleerd in een nieuwe conda environment.
         - [ ] Na het installeren van het pakket geeft de code de verwachte output.
 
         **Projecttraject:**
@@ -603,9 +626,9 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
     
 !!! opdracht-inlever "smallangle aanpassen"
     === "opdracht"
-        We willen nu met behulp van click dit programma met commando's en subcommando's kunnen aansturen. Met de subcommando's `sin` en `tan` moet de gebruiker tussen deze functies kunnen kiezen. Als laatste moet het ook mogelijk zijn om het aantal stappen te kunnen kiezen met een optie.
+        Je kunt met het commando `smallangle` en de subcommando's `sin` en `tan` een lijst genereren van getallen tussen de 0 en 2 $\pi$ en de bijbehorende sinus dan wel tanges van deze getallen. Met de optie `-n` kan je het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) kiezen. Als je de optie `-n` weglaat werkt de applicatie met een standaardwaarde.
 
-        ??? info "TypeError: 'int' object is not iterable"
+        !!! info "TypeError: 'int' object is not iterable"
 
             Probeer je de code te draaien maar krijg je een foutmelding zoals deze:
             ``` ps1 title="Terminal"
