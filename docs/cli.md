@@ -509,23 +509,6 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 
         - [ ] Fake conda
 
-!!! opdracht-basis "Pyproject toml"
-
-    1. Maak een nieuw poetry project aan met de naam conda. 
-    ``` ps1 title="Terminal"
-    poetry new --src conda
-    ```
-    1. Voeg het bestand {{file}}`fakeconda.py` toe (copy/paste de code hierboven).
-    
-    1. Overleg met elkaar[^poetry-script] en zorg dat de volgende uitvoer mogelijk wordt (je hoeft alleen tekst te printen):
-    ``` ps1con title="Terminal"
-    PS> fake_conda install scipy
-    Installing scipy...
-    ```
-
-    [^poetry-script]: Als je een commando in Poetry toevoegt dan heeft dat de opbouw `naam_commando = "package.module:naam_functie"`, welke functie moet uitgevoerd worden als je het commando aanroept?
-
-
 !!! opdracht-meer "Smallangle (meer leren)"
     Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt &mdash; maar jij weet precies over welk onderdeel we het hebben.
 
