@@ -137,8 +137,11 @@ De instance attribute `#!py quote` is nu onderdeel van de instance. We kunnen di
 master_oogway = Turtle("turtle")
 
 print(master_oogway.quote)
-# "Yesterday is history, Tomorrow is a mystery, but Today is a gift. That is why it is called the present"
 ```
+<pre><code>(ecpc) > turtle.py <button type="button" name="turtle.py" onclick="runScript('turtle.py')">{{ enter }}</button><button type="button" name="turtle.py" onclick="runScript('turtle.py')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="turtle.py">"Yesterday is history, Tomorrow is a mystery, but Today is a gift. That is why it is called the present"</span>
+</code></pre>
+
 
 !!! opdracht-basis "Opbouw van een class"
 
