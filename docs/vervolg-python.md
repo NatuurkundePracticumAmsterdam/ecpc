@@ -557,30 +557,63 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     for square in calculate_squares_up_to(5):
         print("Still calculating...")
         print(square)
-
-    # Still calculating...
-    # 0
-    # Still calculating...
-    # 1
-    # Still calculating...
-    # 4
-    # Still calculating...
-    # 9
-    # Still calculating...
-    # 16
     ```
+    <pre><code>(ecpc) > squares.py <button type="button" name="squares.py_2" onclick="runScript('squares.py_2')">{{ enter }}</button><button type="button" name="squares.py_2" onclick="runScript('squares.py_2')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="squares.py_2">Still calculating...
+    0
+    Still calculating...
+    1
+    Still calculating...
+    4
+    Still calculating...
+    9
+    Still calculating...
+    16</span>
+    </code></pre>
+    
+
     Dit kan ook in list comprehensions. En als je _toch_ wilt wachten op alle resultaten, dan kan dat eenvoudig met `#!py squares = list(calculate_squares_up_to(5))`.
 
     !!! opdracht-meer "generators"
         Schrijf een generator function die het _vermoeden van Collatz_ illustreert. Dat wil zeggen: beginnend bij een getal $n$, genereer het volgende getal als volgt: is het getal _even_, deel het dan door twee; is het getal _oneven_, vermenigvuldig het met 3 en tel er 1 bij op. Enzovoorts. Sluit de generator af als de uitkomst gelijk is aan 1. Dat is het vermoeden van Collatz: ongeacht met welk geheel getal je begint, je komt altijd op 1 uit. Als voorbeeld, beginnend bij het getal 3 krijg je de reeks 3, 10, 5, 16, 8, 4, 2, 1.
         
         ??? uitwerkingen
+            <div class="code-box"><button type="button" name="collatz.py" onclick="runScript('collatz.py')" class="run">{{ run }}</button><button type="button" name="collatz.py" onclick="runScript('collatz.py')" class="reload invisible">{{ reload }}</button> collatz.py
             ``` py
             --8<-- "uitwerkingen-on/generators-on.py"
             ```
-
-
-
+            <pre>
+            <code>(ecpc) > python collatz.py
+            <span class="invisible" name="collatz.py">print the values of generator with next:
+            3
+            10
+            5
+            16
+            8
+            4
+            2
+            1
+            print the values of generator without next:
+            28
+            14
+            7
+            22
+            11
+            34
+            17
+            52
+            26
+            13
+            40
+            20
+            10
+            5
+            16
+            8
+            4
+            2
+            1</span>
+            </code></pre></div>
 
 ???+ meer-leren "Dunder methods"
 
@@ -752,9 +785,25 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         Schrijf en test een decorator die werkt als een soort logboek. Als je een functie aanroept die gedecoreerd is print dan een regel op het scherm met het tijdstip van de aanroep, de parameters die meegegeven werden én de return value van de functie.
 
         ??? uitwerkingen
+            <div class="code-box"><button type="button" name="decorators.py_suffix" onclick="runScript('decorators.py_suffix')" class="run">{{ run }}</button><button type="button" name="decorators.py_suffix" onclick="runScript('decorators.py_suffix')" class="reload invisible">{{ reload }}</button> decorators.py.py
             ``` py
             --8<-- "uitwerkingen-on/decorators-on.py"
             ```
+            <pre>
+            <code>(ecpc) > python decorators.py.py
+            <span class="invisible" name="decorators.py_suffix">----------------------------------------
+            Logging function call at year-month-date hours:minutes:seconds
+            Function was called as follows:
+            Arguments: (3, 4)
+            Keyword arguments: {}
+            And the return value was 12                                                                                                 ----------------------------------------                                                                                    ----------------------------------------
+            Logging function call at year-month-date hours:minutes:seconds
+            Function was called as follows:
+            Arguments: (3,)
+            Keyword arguments: {'b': 4}
+            And the return value was 12
+            ----------------------------------------</span>
+            </code></pre></div>
 
 ## Modules
 
@@ -776,27 +825,33 @@ print(math.sin(.5 * math.pi))
 Door de `#!py math` module te importeren hebben we opeens de beschikking over het getal $\pi$ en de sinus- en wortelfunties.
 
 Je kunt je eigen code ook importeren, maar hier moet je wel even opletten. Stel, we hebben een bestand {{file}}`square.py`:
-``` py title="square.py"
+<div class="code-box"><button type="button" name="square.py_1" onclick="runScript('square.py_1')" class="run">{{ run }}</button><button type="button" name="square.py_1" onclick="runScript('square.py_1')" class="reload invisible">{{ reload }}</button> square.py
+``` py
 --8<-- "scripts/square-1.py"
 ```
-Als je deze code runt is de uitvoer:
-``` ps1 title="Terminal"
-The square of 4 is 16
-```
-Zoals verwacht! Maar nu willen we in een nieuw script, {{file}}`count_count.py`, de functie importeren en gebruiken:
-``` py title="count_count.py"
+<pre>
+<code>(ecpc) > python square.py
+<span class="invisible" name="square.py_1">The square of 4 is 16</span>
+</code></pre></div>
+
+De uitvoer is zoals verwacht. Maar nu willen we in een nieuw script, {{file}}`count_count.py`, de functie importeren en gebruiken:
+<div class="code-box"><button type="button" name="count_count.py" onclick="runScript('count_count.py')" class="run">{{ run }}</button><button type="button" name="count_count.py" onclick="runScript('count_count.py')" class="reload invisible">{{ reload }}</button> count_count.py
+``` py
 --8<-- "scripts/count_count.py"
 ```
+<pre>
+<code>(ecpc) > python count_count.py
+<span class="invisible" name="count_count.py">The square of 4 is 16
+The square of 5 is 25</span>
+</code></pre></div>
+
 !!! opdracht-basis "square.square"
     Waarom staat er in bovenstaande code nu opeens `#!py square.square()` in plaats van gewoon `#!py square()`?
     ??? uitwerkingen
         Omdat je uit de _module_ {{file}}`square.py` de _functie_ `#!py square()` gebruikt.
 
-Maar nu is er een probleem met de uitvoer van dit script:
-``` ps1 title="Terminal"
-The square of 4 is 16
-The square of 5 is 25
-```
+Maar nu is er een probleem met de uitvoer van dit script: zowel het kwadraat van 4 als van 5 wordt geprint.
+
 Tijdens het importeren wordt alle code die aanwezig is in {{file}}`square.py` ook daadwerkelijk gerunt. Er zijn twee manieren om dit op te lossen:
 
   1. Alle `extra' code verwijderen uit de module ({{file}}`square.py`)
@@ -808,13 +863,12 @@ De eerste oplossing is lang niet altijd wenselijk. Voor de tweede oplossing pas 
 ```
 Wanneer je een python script runt is de speciale variabele `#!py __name__` gelijk aan de string `__main__`. Maar als je een module importeert is
 `#!py __name__` gelijk aan de _naam_ van de module; in dit geval `#!py square`. Met bovenstaande constructie wordt de code alleen uitgevoerd wanneer de module direct gerunt wordt:
+<pre><code>(ecpc) > square.py <button type="button" name="square.py" onclick="runScript('square.py')">{{ enter }}</button><button type="button" name="square.py" onclick="runScript('square.py')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="square.py">The square of 4 is 16</span>
+(ecpc) > count_count.py <button type="button" name="count_count.py" onclick="runScript('count_count.py')">{{ enter }}</button><button type="button" name="count_count.py" onclick="runScript('count_count.py')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="count_count.py">The square of 5 is 25</span>
+</code></pre>
 
-```ps1con title="Terminal"
-PS> python square.py
-The square of 4 is 16
-PS> python count_count.py
-The square of 5 is 25
-```
 
 Het `#!py if __name__ == '__main__'`-statement wordt heel veel gebruikt in Python modules.
 
@@ -967,13 +1021,13 @@ Exceptions zijn de foutmeldingen van Python. Je krijgt ze als je bijvoorbeeld pr
 ``` py
 print(1 / 0)
 ```
-``` ps1 title="Terminal"
-Traceback (most recent call last):
+<pre><code>(ecpc) > devide.py <button type="button" name="devide.py" onclick="runScript('devide.py')">{{ enter }}</button><button type="button" name="devide.py" onclick="runScript('devide.py')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="devide.py">Traceback (most recent call last):
 File "devide.py", line 1, in <module>
 print(1/0)
       ~^~
-ZeroDivisionError: division by zero
-```
+ZeroDivisionError: division by zero</span>
+</code></pre>
 
 of wanneer je een typefout maakt:
 
@@ -981,13 +1035,14 @@ of wanneer je een typefout maakt:
 s = "particle"
 s.upler()
 ```
-``` ps1 title="Terminal"
-Traceback (most recent call last):
+<pre><code>(ecpc) > particle.py <button type="button" name="particle.py" onclick="runScript('particle.py')">{{ enter }}</button><button type="button" name="particle.py" onclick="runScript('particle.py')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="particle.py">Traceback (most recent call last):
 File "particle.py", line 2, in <module>
 s.upler()
 ^^^^^^^
-AttributeError: 'str' object has no attribute 'upler'. Did you mean: 'upper'?
-```
+AttributeError: 'str' object has no attribute 'upler'. Did you mean: 'upper'?</span>
+</code></pre>
+
 Merk op dat je een exception met traceback meestal van onder naar boven leest. Onderaan staat de foutmelding (exception) en daar boven een _traceback_: een kruimelpad van wáár in de code het probleem optrad; onderaan de regel waarin het echt fout ging, en naar boven toe alle tussenliggende functies en bibliotheken met bovenaan het hoofdprogramma.
 
 !!! opdracht-basis "Exception"
@@ -1051,14 +1106,15 @@ Merk op dat je een exception met traceback meestal van onder naar boven leest. O
     voltage = get_voltage(2)
     print(voltage)
     ```
-    ``` ps1 title="Terminal"
-    Traceback (most recent call last):
+    <pre><code>(ecpc) > get_voltage.py <button type="button" name="get_voltage.py" onclick="runScript('get_voltage.py')">{{ enter }}</button><button type="button" name="get_voltage.py" onclick="runScript('get_voltage.py')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="get_voltage.py">Traceback (most recent call last):
     File "get_voltage.py", line 1, in <module>
         get_voltage(2)
     File "exception_channel.py", line 6, in get_voltage
         raise InvalidChannelException(f"Use channel 0 or 1, not {channel}")
-    InvalidChannelException: Use channel 0 or 1, not 2
-    ```
+    InvalidChannelException: Use channel 0 or 1, not 2</span>
+    </code></pre>
+
     Je kunt op deze manier voorkomen dat iemand dagen kwijt is aan het overdoen van achteraf verkeerd gebleken metingen. Ook kun je 'vage' foutmeldingen omzetten in duidelijkere foutmeldingen:
     ``` py
     class NoCurrentError(Exception):
@@ -1089,7 +1145,14 @@ Merk op dat je een exception met traceback meestal van onder naar boven leest. O
         Pas de functie `#!py average()` zodanig aan dat bij bovenstaande aanroepen slechts een waarschuwing wordt geprint. Vang daartoe de exceptions netjes af en geef de waarde `#!py None` terug wanneer een gemiddelde niet berekend kan worden. Dus bovenstaande drie aanroepen krijgen `#!py None` terug terwijl er een waarschuwing wordt geprint.
 
         ??? uitwerkingen
+            <div class="code-box"><button type="button" name="exceptions.py" onclick="runScript('exceptions.py')" class="run">{{ run }}</button><button type="button" name="exceptions.py" onclick="runScript('exceptions.py')" class="reload invisible">{{ reload }}</button> exceptions.py
             ``` py
             --8<-- "uitwerkingen-on/exceptions-on.py"
             ```
-
+            <pre>
+            <code>(ecpc) > python exceptions.py
+            <span class="invisible" name="exceptions.py">2.0
+            Input is empty
+            Input is not the correct type
+            Input is not the correct type</span>
+            </code></pre></div>
