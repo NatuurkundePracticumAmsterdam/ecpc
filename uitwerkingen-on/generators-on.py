@@ -1,9 +1,9 @@
 def Collatz(x):
     """Illustrates Collatz's conjecture
 
-    Starts with x generates next number when x is not equal to 1. 
-    Next number is x devided by 2 if x is even and x times 3 + 1 if x is odd. 
-    Collatz suspects that you always end with number 1 despite of the starting value. 
+    Starts with x generates next number when x is not equal to 1.
+    Next number is x devided by 2 if x is even and x times 3 + 1 if x is odd.
+    Collatz suspects that you always end with number 1 despite of the starting value.
 
     Args:
         x (int): starting value
@@ -22,7 +22,7 @@ def Collatz(x):
         yield x
 
 
-print("print the values of generator with next")
+print("print the values of generator with next:")
 collatz_generator = Collatz(3)
 print(next(collatz_generator))
 print(next(collatz_generator))
