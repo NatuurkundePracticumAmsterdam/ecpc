@@ -811,16 +811,20 @@ Als je een nieuw script begint te schrijven staat alle code in één bestand. Da
 
 [^DRY]: _DRY_ staat voor _Don't Repeat Yourself_, een belangrijk principe in software engineering.
 
-Eenvoudig gezegd is een module een stuk Python code dat je kunt importeren en gebruiken. Meestal worden er in een module handige functies en classs gedefinieerd:
-```py
+Eenvoudig gezegd is een module een stuk Python code dat je kunt importeren en gebruiken. Meestal worden er in een module handige functies en classes gedefinieerd:
+<div class="code-box"><button type="button" name="math" onclick="runScript('math')" class="run">{{ run }}</button><button type="button" name="math" onclick="runScript('math')" class="reload invisible">{{ reload }}</button> math.py
+``` py
 import math
 print(math.sqrt(2))
-# 1.4142135623730951
 print(math.pi)
-# 3.141592653589793
 print(math.sin(.5 * math.pi))
-# 1.0
 ```
+<pre>
+<code>(ecpc) > python math.py
+<span class="invisible" name="math">1.4142135623730951
+3.141592653589793
+1.0</span>
+</code></pre></div>
 
 Door de `#!py math` module te importeren hebben we opeens de beschikking over het getal $\pi$ en de sinus- en wortelfunties.
 
@@ -1018,30 +1022,37 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 ## Exceptions
 
 Exceptions zijn de foutmeldingen van Python. Je krijgt ze als je bijvoorbeeld probeert te delen door nul 
+
+<div class="code-box"><button type="button" name="divide_suffix" onclick="runScript('divide_suffix')" class="run">{{ run }}</button><button type="button" name="divide_suffix" onclick="runScript('divide_suffix')" class="reload invisible">{{ reload }}</button> divide.py
 ``` py
-print(1 / 0)
-```
-<pre><code>(ecpc) > devide.py <button type="button" name="devide.py" onclick="runScript('devide.py')">{{ enter }}</button><button type="button" name="devide.py" onclick="runScript('devide.py')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="devide.py">Traceback (most recent call last):
-File "devide.py", line 1, in <module>
 print(1/0)
-      ~^~
-ZeroDivisionError: division by zero</span>
-</code></pre>
+```
+<pre>
+<code>(ecpc) > python divide.py
+<span class="invisible" name="divide_suffix">Traceback (most recent call last):
+    File "devide.py", line 1, in < module >
+        print(1/0)
+              ~^~
+ZeroDivisionError: division by zero
+</span>
+</code></pre></div>
 
 of wanneer je een typefout maakt:
 
+<div class="code-box"><button type="button" name="particle.py" onclick="runScript('particle.py')" class="run">{{ run }}</button><button type="button" name="particle.py" onclick="runScript('particle.py')" class="reload invisible">{{ reload }}</button> particle.py
 ``` py
 s = "particle"
 s.upler()
 ```
-<pre><code>(ecpc) > particle.py <button type="button" name="particle.py" onclick="runScript('particle.py')">{{ enter }}</button><button type="button" name="particle.py" onclick="runScript('particle.py')" class="invisible">{{ reload }}</button>
+<pre>
+<code>(ecpc) > python particle.py
 <span class="invisible" name="particle.py">Traceback (most recent call last):
-File "particle.py", line 2, in <module>
-s.upler()
-^^^^^^^
+    File "particle.py", line 2, in < module >
+        s.upler()
+        ^^^^^^^
 AttributeError: 'str' object has no attribute 'upler'. Did you mean: 'upper'?</span>
-</code></pre>
+</code></pre></div>
+
 
 Merk op dat je een exception met traceback meestal van onder naar boven leest. Onderaan staat de foutmelding (exception) en daar boven een _traceback_: een kruimelpad van wáár in de code het probleem optrad; onderaan de regel waarin het echt fout ging, en naar boven toe alle tussenliggende functies en bibliotheken met bovenaan het hoofdprogramma.
 
