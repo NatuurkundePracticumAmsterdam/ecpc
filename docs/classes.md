@@ -74,15 +74,35 @@ master_oogway.forward(50)
 master_oogway.left(30)
 master_oogway.forward(50)
 ```
-    
+   
 !!! opdracht-basis "turtle"
-    1. Maak een bestand aan met de naam {{file}}`turtle.py`.
-    1. Importeer de Turtle class met `#!py from turtle import Turtle`
-    1. Maak een instance van de class Turtle aan met `#!py master_oogway = Turtle("turtle")`
-    1. Laat de schildpad lopen en draaien door de methods `#!py forward()` en `#!py left()` aan te roepen.
+    === "opdracht"
+        Je bent inmiddels nieuwschierig geworden naar de schildpad en schrijft een script die een schildpad met de instancenaam `master_oogway` laat lopen en draaien.
 
-    !!! info "Schildpad verdwijnt"
-        Na het uitvoeren van het script sluit Python het scherm van de schildpad. Voeg de regel `#!py master_oogway.screen.mainloop()` toe om het scherm te laten staan en handmatig af te sluiten. 
+        !!! info "Schildpad verdwijnt"
+            Na het uitvoeren van het script sluit Python het scherm van de schildpad. Voeg de regel `#!py master_oogway.screen.mainloop()` toe om het scherm te laten staan en handmatig af te sluiten. 
+    === "code"
+        **Pseudo-code**
+        ``` py
+        from turtle import Turtle
+
+        # create instance of class Turtle
+        master_oogway = Turtle("turtle")
+
+        # move turtle forward with 50 steps
+        ...
+        # turn turtle left with 30 degrees
+        ...
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De instance is van de class `Turtle` met hoofdletter T
+        - [ ] Om de schildpad te laten bewegen roep je de method `#!py forward()` of `#!py lef()` van de instance aan
+
+        **Projecttraject:**
+
+        - [x] turtle
 
 ## De speciale parameter `#!py self`
 Een class method is vrijwel gelijk aan een normale functie, behalve dat een class method als eerste de parameter `#!py self` verwacht. Aan deze parameter wordt de eigen instance van de class meegegeven wanneer je de method aanroept. 
@@ -146,7 +166,6 @@ print(master_oogway.quote)
 </code></pre></div>
 
 !!! opdracht-basis "Opbouw van een class"
-
     1. Beschouw de onderstaande code
     1. Bespreek met elkaar wat de code precies doet en verplaast de onderdelen naar de juiste plek in de code. 
     Twijfel je of je nog weet wat een module is kijk dan voor meer informatie in de [paragraaf modules](vervolg-python.md#modules).
@@ -174,49 +193,122 @@ print(master_oogway.quote)
     Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je typt `#!py master_oogway.f` hoef je alleen maar op ++tab++ te drukken en VS Code vult de rest aan.
 
 
-
-
-
 !!! opdracht-basis "Class Particle"
-    Maak een class `#!py Particle` die de naam van het deeltje en de spin van het deeltje bewaard. Een method `#!py is_up_or_down()` vertelt je of het deeltje spin omhoog (positief) of spin omlaag (negatief) heeft. Maak nog een method `#!py flip()` die de spin van het deeltje omkeert. De volgende code zou moeten werken:
-    ``` py
-    proton = Particle('mooi proton', 0.5)
-    proton.is_up_or_down()
-    # 'up'
-    proton.flip()
-    proton.is_up_or_down()
-    # 'down'
-    print(proton.spin)
-    # -0.5
-    print(proton.name)
-    # 'mooi proton'
-    ```
-<img src="../assets/particle-spin-flip/spin-flip.gif" alt="spin flip" style="width:320px;height:180px;">
+    === "opdracht"
+        ![spin flip](assets/particle-spin-flip/spin-flip.gif){style="width:128px;height:72px;" align=right}
+        
+        Je maakt een instance van de class `#!py Particle` aan voor een proton, naast de naam geeft je ook mee dat de spin 0.5 is. Je gebruikt de method `#!py is_up_or_down()` om terug op te vragen wat de spin van het deeltje op dat moment is (spin omhoog/positief of spin omlaag/negatief). Met de method `#!py flip()` keer je de spin van het deeltje om. 
+    === "code"
+        **Pseudo-code**
+        ``` py
+        # Class Particle:
+            # def __init__(self, name, spin):
+                ...
+            # def is_up_or_down
+                # print up when spin is positive
+                # print down when spin is negative
+                ...
+            # def flip
+                # Make spin positive if spin is negative
+                # Make spin negative if spin is positive
+                ...
 
-!!! opdracht-inlever "Class ElectronicLoadMeasurements"
-    Schrijf een class `#!py ElectronicLoadMeasurements` waarmee je spanningsmetingen aan een weerstand (_load_) kunt bewaren. De class moet voldoen aan deze eisen:
-    
-    1. Een method `#!py add_measurement(R, U)` waarmee je een gekozen weerstandswaarde en een gemeten spanning kunt toevoegen aan de lijst van metingen.
-    1. Een method `#!py get_loads()` om de gekozen weerstanden in één keer terug te vragen.
-    1. Een method `#!py get_voltages()` om de gemeten spanningen in één keer terug te vragen.
-    1. Een method `#!py get_currents()` om een lijst stroomsterktes op te vragen, berekend op basis van de metingen.
-    1. Een method `#!py get_powers()` om een lijst vermogens op te vragen, berekend op basis van de metingen.
-    1. Een method `#!py clear()` waarmee je alle metingen in één keer kunt wissen.
-    
-    Test je class uitgebreid, je kunt het volgende scriptje als inspiratie gebruiken:
-    ``` py
-    measurements = ElectronicLoadMeasurements()
-    measurements.add_measurement(R=10, U=.5)
-    measurements.add_measurement(R=20, U=1.5)
-    R = measurements.get_loads()
-    # R=[10, 20]
-    U = measurements.get_voltages()
-    # U=[0.5, 1.5]
-    P = measurements.get_powers()
-    # P=[0.025, 0.1125]
-    I = measurements.get_currents()
-    # I=[0.05, 0.075]
-    ```
+        ```
+        **Testcode**
+        <div class="code-box"><button type="button" name="particle" onclick="runScript('particle')" class="run">{{ run }}</button><button type="button" name="particle" onclick="runScript('particle')" class="reload invisible">{{ reload }}</button> <b>particle.py</b>
+        ``` py
+        proton = Particle('mooi proton', 0.5)
+        proton.is_up_or_down()
+        proton.flip()
+        proton.is_up_or_down()
+        print(proton.spin)
+        print(proton.name)
+        ```
+        <pre>
+        <code>(ecpc) > python.exe particle.py
+        <span class="invisible" name="particle">up
+        down
+        -0.5
+        mooi proton</span>
+        </code></pre></div>
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Naam en spin toestand worden aan instance meegegeven.
+        - [ ] Method `#!py is_up_or_down()` print 'up' als de spin positief is en 'down' als het negatief is.
+        - [ ] Method `#!py flip()` maakt de spin positief als de spin negatief is, en negatief als de spin positief is.
+
+        **Projecttraject:**
+
+        - [x] Class Particle
+
+!!! opdracht-inlever "Class ProjectileMotion"
+    === "opdracht"
+        Je gaat een waterraket een aantal keer wegschieten met steeds een andere beginsnelheid en lanceerhoek. Je hebt een instance aangemaakt van de class `#!py ProjectileMotion`. De metingen van de beginsnelheid en de lanceerhoek bewaar je steeds met de method `#!py add_measurement()`. Om in een keer alle beginsnelheden op te vragen gebruik je de method `#!py get_initial_velocities()`. Om alle lanceerhoeken op te vragen gebruik je de method `#!py get_launch_angles()`. Op basis van de gegevens (en door de luchtweerstand te verwaarlozen) bepaal je de vluchtduur en het bereik van de raket. Je kunt de vluchtduur van alle vluchten opvragen met de method `#!py get_time_of_flights()` en het bereik van alle vluchten met `#!py get_flight_ranges()`.
+    === "code"
+        **Pseudo-code**
+        ``` py
+        # class ProjectileMotion
+            ...
+            # __init__
+                ...
+            # add_measurement
+                ...
+            # get_initial_velocities
+                ...
+            # get_launch_angles
+                ...
+            # get_time_of_flights
+                ...
+            # get_flight_ranges
+                ...
+        ```
+        **Testcode:**
+        <div class="code-box"><button type="button" name="water_rocket" onclick="runScript('water_rocket')" class="run">{{ run }}</button><button type="button" name="water_rocket" onclick="runScript('water_rocket')" class="reload invisible">{{ reload }}</button> <b>water_rocket.py</b>
+        ``` py
+        speedy = ProjectileMotion()
+        speedy.add_measurement(v=28, angle=68)
+        speedy.add_measurement(v=11, angle=15)
+
+        v = speedy.get_initial_velocities()
+        angles = speedy.get_launch_angles()
+        x = speedy.get_flight_ranges()
+        t = speedy.get_time_of_flights()
+
+        print(f"{v=}")
+        print(f"{angles=}")
+        print(f"{x=}")
+        print(f"{t=}")
+
+        ```
+        <pre>
+        <code>(ecpc) > python.exe water_rocket.py
+        <span class="invisible" name="water_rocket">v=[28, 11]
+        angles=[68, 15]
+        x=[55.51602063607072, 6.167176350662587]
+        t=[5.292792645845066, 0.5804300705663054]</span>
+        </code></pre></div>
+        
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De code bevindt zich in een GitHub-repository.
+        - [ ] De method `#!py add_measurment` verwacht een beginsnelheid in meter per seconde en een lanceerhoek in graden
+        - [ ] De method `#!py get_initial_velocities` geeft een lijst terug met beginsnelheden van alle ingevoerde metingen.
+        - [ ] De method `#!py get_launch_angles` geeft een lijst terug met alle lanceerhoeken van de ingevoerde metingen.
+        - [ ] De time-of-flight wordt berekent met 2 * v_y / g
+        - [ ] De beginsnelheid in de y-richting: v_y = v * sin(lanceerhoek)
+        - [ ] Het bereik wordt berekent met time_of_flight * v_x
+        - [ ] De beginsnelheid in de x-richting: v_x = v * cos(lanceerhoek)
+        - [ ] De lanceerhoek wordt in radialen meegegeven aan de trigonomische functies
+        - [ ] De method `#!py get_time_of_flights` geeft een lijst terug met de vluchtduur in seconden corresponderend met de ingevoerde metingen. 
+        - [ ] De method `#!py get_flight_ranges` geeft een lijst terug met het bereik in meters die correspondeerd met de ingevoerde metingen.
+
+
+        **Projecttraject:**
+
+        - [x] Class ProjectileMotion
 
 ???+ meer-leren "Subclass"
     ## Subclasses

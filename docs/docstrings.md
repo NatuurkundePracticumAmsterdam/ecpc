@@ -77,6 +77,35 @@ Zo kunnen we gemakkelijk alles gaan invullen. Zo lang je niet op ++escape++ druk
     1. Schrijf ook docstrings voor de classes die je gemaakt hebt.
     1. Ga naar je _model_ en houd je muis bij `#!py set_output_voltage()` en zie daar verschijnt jouw fantastische omschrijving van de method die in de _controller_ staat!
 
+!!! opdracht-inlever "Pythondaq: docstring"
+    === "opdracht"
+         Alle code van je `pythondaq`applicatie zijn voorzien van docstrings. Je bent aan het werk in je _model_ script en ziet dat er gebruikt wordt gemaakt van een method `#!py get_input_voltage()` die in de _controller_ staat. Je vraagt je ineens af wat deze method ook al weer doet. Voorheen ging je dan naar de controller en scrollde je naar`#!py get_input_voltage()`. Maar tegenwoordig heb je overal docstrings geschreven, je blijft in het model-script, houd je muis bij `#!py get_input_voltage()` en ziet daar je  fantastische omschrijving van de method die in de _controller_ staat! 
+
+    === "code"
+        **Pseudo-code**
+        ``` py
+        # class ArduinoVisaDevice
+        TODO: # opzet docstring volgens google styleguide
+            ...
+        ```
+        **Testcode:**
+        TODO: werkt help(class ArduinoVisaDevice)?
+        
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De controller, de model én de view zijn voorzien van docstrings.
+        - [ ] Er staan docstrings bij onder andere alle functies, methods en classes.
+        - [ ] De docstrings hebben een vaste structuur volgens de _Google Python Style Guide_.[@google_style_guide].
+        - [ ] De docstrings zijn volledig.
+        - [ ] De docstrings bevat noodzakelijke en nuttige informatie.
+
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: Docstring
+
 
 ???+ meer-leren "Material for MkDocs"
 

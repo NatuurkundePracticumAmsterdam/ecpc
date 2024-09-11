@@ -29,82 +29,304 @@ Het opsplitsen van het programma in MVC gaan we stapsgewijs doen. We gaan een cl
 
 <div id="opd:meting-class"></div>
 !!! opdracht-inlever "Pythondaq: controller bouwen"
-    Pak je script van [opdracht _Pythondaq: CSV_](basisscript.md#opd:quickndirty-csv) erbij en schrijf bovenaan &mdash; maar _onder_ de `#!py import`-statements &mdash; een class `#!py ArduinoVISADevice`.
-    We gaan de class stap voor stap opbouwen. Je kunt de class testen met de python-code onder elke opdracht. 
-    
-    1. Maak een `#!py __init__()` method die het device opent. 
+    === "opdracht"
+        Je vraagt een lijst met beschikbare poorten op met de functie `#!py list_devices()`. Wanneer je weet welke poort de Arduino is gebruik je deze poortnaam om een instance aan te maken van de class `ArduinoVisaDevice`. Met deze class kan je met de Arduino te communiceren. Met de method `#!py get_identification()` vraag je de identificatiestring op om te controlleren dat je met het juiste apparaat communiceert. Je gebruikt de method `#!py set_output_value()` om een waarde van 828 op het uitvoerkanaal 0 te zetten, omdat de LED gaat branden weet je dat het werkt. Je test de spanningsmeters door met de method `#!py get_input_value()` eerst van kanaal 1 en daarna van kanaal 2 de waarde op te vragen. Je ziet waardes die overeenkomen met je verwachting. Je rekent de waardes om naar spanningen in volt en controlleert daarna de method `#!py get_input_voltage()` om te zien of deze dezelfde waardes terug geeft voor kanaal 1 en 2. Om te controlleren of de waarde die je op het uitvoerkanaal gezet hebt nog steeds gelijk is aan wat je hebt ingesteld vraag je deze waarde op met `#!py get_output_value()`. 
+    === "code"
+        **Pseudo-code**
         ``` py
-        # de poort moet je mogelijk zelf aanpassen
-        port = "ASRL3::INSTR"
-        
-        # maak een instance van je class aan
-        device = ArduinoVISADevice(port=port)
+        # class ArduinoVisaDevice
+            ...
         ```
-    1. Schrijf een method die de identificatiestring terug geeft. 
+        **Testcode:**
+        <div class="code-box"><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="run">{{ run }}</button><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="reload invisible">{{ reload }}</button> basisscript.py
         ``` py
-        # print identification string
-        print(device.get_identification())
-        ```
-    
-    1. Met de controller class willen we de arduino gaan aansturen en uitlezen. Maak een aantal methods zodat alle firmwarecommando's ondergebracht zijn in de class.
-        ``` py
-        # set OUTPUT voltage on channel 0, using ADC values (0 - 1023)
-        device.set_output_value(value=512)
+        class ArduinoVisaDevice:
+        ...
 
-        # get the previously set OUTPUT voltage in ADC values (0 - 1023)
-        ch0_value = device.get_output_value()
+        # get available ports
+        print(list_devices())
+
+        # Create an instance for the Arduino on port "ASRL28::INSTR"
+        device = ArduinoVISADevice(port="ASRL28::INSTR")
+
+        # print identification string
+        identification = device.get_identification()
+        print(identification)
+
+        # set OUTPUT voltage on channel 0, using ADC values (0 - 1023)
+        device.set_output_value(value=828)
 
         # measure the voltage on INPUT channel 2 in ADC values (0 - 1023)
         ch2_value = device.get_input_value(channel=2)
+        print(f"{ch2_value=}")
 
         # measure the voltage on INPUT channel 2 in volts (0 - 3.3 V)
         ch2_voltage = device.get_input_voltage(channel=2)
-        ```
-    
-    1. Wat is het verschil tussen `#!py set_output_value()` en `#!py get_output_value()`?
+        print(f"{ch2_voltage=}")
 
-    1. Als je een instance van ArduinoVISADevice wilt maken, dan moet je nu de poort meegeven. Daarom is het handig om _buiten_ de klas een functie te hebben waarmee je een lijst krijgt van alle beschikbare poorten. 
-        ``` py
-        # get available ports
-        print(list_devices())  
+        # get the previously set OUTPUT voltage in ADC values (0 - 1023)
+        ch0_value = device.get_output_value()
+        print(f"{ch0_value=}")
         ```
+        <pre>
+        <code>(ecpc) > python.exe basisscript.py
+        <span class="invisible" name="basisscript_controller">('ASRL28::INSTR', ) 
+        Arduino VISA firmware v1.0.0
+        ch2_value=224
+        ch2_voltage=0.7774193548387097
+        ch0_value=828</span>
+        </code></pre></div>
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] `#!py list_devices()` is een functie die buiten de class staat.
+        - [ ] De `#!py __init__()` method verlangt een poortnaam en opent de communicatie met deze poort.
+        - [ ] Er is een method `#!py get_identification()` die de identificatiestring teruggeeft.
+        - [ ] De `set_output_value()` en `get_output_value()` communiceren standaard met kanaal 0.
+        - [ ] Bij `get_input_value` en `get_input_voltage` moet een kanaal opgegeven worden.
+
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
+        - [x] Pythondaq: Quick 'n dirty meting
+        - [x] Pythondaq: CSV
+        - [x] Pythondaq: Controller bouwen
+        - [ ] Pythondaq: Controller implementeren
+        - [ ] Pythondaq: Controller afsplitsen
+        - [ ] Pythondaq: Model afsplitsen
+        - [ ] Pythondaq: Onzekerheid
+
 
 Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experiment. 
 
 !!! opdracht-inlever "Pythondaq: Controller implementeren"
-    Pas je script &mdash; en vooral ook de class! &mdash;aan zodat in je <q>experiment</q>-code alleen maar aanroepen naar de class zitten.
-    Controleer dat het schript precies hetzelfde doet als bij [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting).
+    === "opdracht"
+        Je hebt een Python script die hetzelfde doet als in de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting), maar de code is aangepast zodat er gebruik wordt gemaakt van de class `#!py ArduinoVisaDevice` en de bijbehorende methods. 
+    === "code"
+        **Pseudo-code**
+        ``` py
+        # def list_devices
+        #   ...
+
+        # class ArduinoVisaDevice
+            ...
+        
+        # set input voltage from 0 to max
+            # calculate LED voltage
+            # calculate LED current
+
+        # plot current vs voltage
+        ```        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] In een script staan `#!py list_devices()`, `#!py ArduinoVisaDevice()` en de code om de LED te laten branden, metingen te doen en het resultaat te laten zien.
+        - [ ] Wanneer de class `#!py ArduinoVisaDevice()` uit het script wordt geknipt, werkt de <q>quick 'n dirty</q> niet meer.
+        - [ ] Het script voldoet nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting).
+
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
+        - [x] Pythondaq: Quick 'n dirty meting
+        - [x] Pythondaq: CSV
+        - [x] Pythondaq: Controller bouwen
+        - [x] Pythondaq: Controller implementeren
+        - [ ] Pythondaq: Controller afsplitsen
+        - [ ] Pythondaq: Model afsplitsen
+        - [ ] Pythondaq: Onzekerheid
 
 Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de precieze commando's zijn die je naar de hardware moet sturen. Als je de Arduino in de opstelling vervangt voor een ander meetinstrument moet je de class aanpassen, maar kan alle code die met het experiment zelf te maken heeft hetzelfde blijven.
 
 Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een stukje code over. Het laatste stuk waar de plot gemaakt kunnen we beschouwen als een _view_ en de rest van de code &mdash; waar de metingen worden uitgevoerd en de stroomsterkte $I$ wordt berekend &mdash; is een _model_. We gaan de code nog wat verder opsplitsen om dat duidelijk te maken én onderbrengen in verschillende bestanden &mdash; dat is uiteindelijk beter voor het overzicht.
 
 !!! opdracht-inlever "Pythondaq: Controller afsplitsen"
-    Pas het script aan uit [opdracht _Pythondaq: ArduinoVISADevice_](#opd:meting-class). Knip de class uit het bestand en plak die in een nieuw bestand `#!py arduino_device.py`. Knip en plak _ook_ de functie `#!py list_devices()`, zodat alle `#!py pyvisa`-code netjes in één bestand zit. Je vervangt de functie en de class in het oorspronkelijke script door dit import statement:
-    ``` py
-    from arduino_device import ArduinoVISADevice, list_devices
-    ```
-    Controleer dat je code nog steeds hetzelfde werkt &mdash; dat het een meting uitvoert en de resultaten in een grafiek weergeeft. Waarschijnlijk moet je daarvoor nog wat bugs aanpakken (een vergeten import bijvoorbeeld).
+    === "opdracht"
+        Omdat je het basisscript later gaat uitbreiden om het gebruiksvriendelijker te maken ga je alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten. Het bestand {{file}}`#!py arduino_device.py` bevat de class `#!py ArduinoVisaDevice` en de functie `#!py list_devices()`. In {{file}}`basisscript.py` importeer je de class en de functie uit de module {{file}}`arduino_device.py` zodat je ze daar kunt gebruiken.
 
+        !!! info "error"
+            Waarschijnlijk krijg je nog een of meerdere errors als je {{file}}`basisscript.py` runt. Lees het error bericht goed door, om welk bestand gaat het {{file}}`arduino_device.py` of {{file}}`basisscript.py`? Wat is er volgens het error bericht niet goed?
+    === "code"
+        **Pseudo-code**
+        ``` py title="arduino_device.py"
+        # def list_devices
+        #   ...
+
+        # class ArduinoVisaDevice
+            ...
+        ```
+        ``` py title="basisscript.py"
+        from arduino_device import ArduinoVISADevice, list_devices
+        
+        # set input voltage from 0 to max
+            # calculate LED voltage
+            # calculate LED current
+
+        # plot current vs voltage
+        ```        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Alle directe communicatie met de Arduino, firmwarecommando's en pyvisacommando's, staan in de controller
+        - [ ] Runnen van {{file}}`basisscript.py` zorgt ervoor dat een meting start
+        - [ ] Het {{file}}`basisscript` voldoet nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting).
+
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
+        - [x] Pythondaq: Quick 'n dirty meting
+        - [x] Pythondaq: CSV
+        - [x] Pythondaq: Controller bouwen
+        - [x] Pythondaq: Controller implementeren
+        - [x] Pythondaq: Controller afsplitsen
+        - [ ] Pythondaq: Model afsplitsen
+        - [ ] Pythondaq: Onzekerheid
+
+???+ opdracht-meer "`#!py if __name__ == '__main__'`"
+    === "opdracht"
+        Later wil je de functie `#!py list_devices()` netjes in het hele model-view-controller systeem vlechten zodat je als gebruiker de lijst kunt opvragen, maar voor nu wil je af en toe even zien aan welke poort de Arduino hangt. Wanneer je het script {{file}}`Arduino_device.py` runt wordt er een lijst geprint met poorten. Dit gebeurt niet wanneer het bestand {{file}}`basisscript.py` wordt gerunt. 
+
+        !!! info "modules"
+            Nog niet bekend met `#!py if __name__ == '__main__'`? kijk dan voor meer informatie in de [paragraaf modules](vervolg-python.md#modules).
+
+    === "code"
+        **Pseudo-code**
+        ``` py title="arduino_device.py"
+        # def list_devices
+        #   ...
+
+        # class ArduinoVisaDevice
+            ...
+        
+        # print list ports if arduino_device.py is the main script 
+        # print list ports not if arduino_device.py is imported as a module in another script
+
+        ```
+        ``` py title="basisscript.py"
+        from arduino_device import ArduinoVISADevice, list_devices
+        
+        # set input voltage from 0 to max
+            # calculate LED voltage
+            # calculate LED current
+
+        # plot current vs voltage
+        ```     
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Er wordt een lijst met poorten geprint wanneer {{file}}`arduino_device.py` wordt gerunt.
+        - [ ] De lijst wordt _niet_ geprint wanneer {{file}}`basisscript.py` wordt gerunt.
 
 !!! opdracht-inlever "Pythondaq: Model afsplitsen"
-    We gaan nu met ongeveer dezelfde stappen het model afsplitsen van de rest van de code.
+    === "opdracht"
+        Omdat de uitbreidingen om het basisscript gebruiksvriendelijker te maken vooral de view zullen uitbreiden zet je het model en de view ook in aparte bestanden. Wanneer je het bestand {{file}}`view.py` runt roept deze in het model de method `#!py scan()` aan welke een meting start. Om gegevens van het naar de Arduino te sturen maakt het model gebruik van de controller. De gegevens die het model terugkrijgt van de Arduino worden volgens de fysische relaties verwerkt tot de benodigde gegevens en doorgestuurd naar de view. De view presenteerd de gegevens in een grafiek. Wanneer je in een ander bereik wilt meten pas je in de view het bereik aan, het model gebruikt dit bereik bij het doen van de meting. 
+    === "code"
+        **Pseudo-code**
+        ``` py title="arduino_device.py"
+        # def list_devices
+        #   ...
 
-    1. Bespreek met elkaar en met de assistent welk deel van het script het model is. Kijk daarvoor nog eens goed naar [figuur MVC-model](#fig:mvc-model).
-    1. Maak een class met (bijvoorbeeld) de naam `#!py DiodeExperiment` en een method `#!py scan()` die de meting met de for-loop uitvoert. Controleer dat het werkt.
-    1. Volgens het schema praat alleen het model met de controller. De class `#!py DiodeExperiment` &mdash; het model &mdash; is dus degene die de class `#!py ArduinoVISADevice` &mdash; de controller &mdash; moet aanroepen en bewaren. Hoe doe je dat netjes? Overleg met elkaar.
-    1. Het kan (later) handig zijn om niet altijd te scannen tussen 0 en 1023 maar een ander bereik te kiezen. Pas de `#!py scan()` method aan zodat deze `start`- en `stop`-parameters accepteert.
-    1. Knip de class eruit en plaats die in het bestand `#!py diode_experiment.py` en gebruik weer een import-statement. Haal import-statements die je niet meer nodig hebt weg.
-    1. Hernoem het overgebleven script naar {{file}}`view.py`.
+        # class ArduinoVisaDevice
+            ...
+        ```
+        ``` py title="diode_experiment.py"
+        from arduino_device import ArduinoVISADevice, list_devices
+        
+        # class DiodeExperiment
+            ...
+            def scan # with start and stop
+                # set input voltage from start to stop
+                    # calculate LED voltage
+                    # calculate LED current
+        ```      
+        ``` py title="view.py"
+        from diode_experiment import DiodeExperiment
+        
+        # get current and voltage from scan(start, stop)
+
+        # plot current vs voltage
+        ```      
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Alle directe communicatie met de Arduino, firmwarecommando's en pyvisacommando's, staan in de controller
+        - [ ] Alle communicatie met de controller staan in het model
+        - [ ] De view communiceert alleen met het model. 
+        - [ ] Runnen van {{file}}`view.py` zorgt ervoor dat een meting start
+        - [ ] De bestanden {{file}}`diode_experiment.py` en {{file}}`view.py` voldoen samen nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting).
+        - [ ] De bestanden bevatten alle code die nodig is en niet meer dan dat. 
+
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
+        - [x] Pythondaq: Quick 'n dirty meting
+        - [x] Pythondaq: CSV
+        - [x] Pythondaq: Controller bouwen
+        - [x] Pythondaq: Controller implementeren
+        - [x] Pythondaq: Controller afsplitsen
+        - [x] Pythondaq: Model afsplitsen
+        - [ ] Pythondaq: Onzekerheid
     
 
 
 Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger geworden. Als het goed is gaat nu (vrijwel) het volledige script alleen maar over het starten van een meting en het weergeven en bewaren van de meetgegevens. In het <q>view</q> script komen verder geen berekeningen voor of details over welk kanaal van de Arduino op welke elektronische component is aangesloten. Ook staat hier niets over welke commando's de Arduino firmware begrijpt. Dit maakt het veel makkelijker om in de vervolghoofdstukken een gebruiksvriendelijke applicatie te ontwikkelen waarmee je snel en eenvoudig metingen kunt doen.
 
 !!! opdracht-inlever "Pythondaq: Onzekerheid"
-    We zijn al een eind op weg. We pakken nog één ding aan: onzekerheid. Er staan in onze grafiek nog geen foutenvlaggen. Als je de meting een paar keer herhaalt zie je dat de grafiek steeds iets anders is &mdash; er zit ruis op de metingen. We kunnen die op voorhand schatten, maar met een computergestuurde meting is het makkelijk om een meting een aantal keer te herhalen en op een nauwkeuriger resultaat uit te komen én de onzekerheid daarbij te bepalen.
-    
-    1. Overleg met je groepje en maak een plan hoe jullie de code gaan aanpassen om onzekerheid in te bouwen. Schrijf nog geen code op je computer maar schrijf de stappen uit met papier en pen. Het is dan veel makkelijker om te overleggen en na te denken. Welke delen van het programma moeten worden aangepast?
-    1. Gebruik het plan om je eigen code aan te passen en test dat het werkt.
-    
+    === "opdracht"
+        Omdat je never nooit je conclusies gaat baseren op een enkele meetserie ga je de meting herhalen en foutenvlaggen toevoegen. Je moet weer even hard nadenken over hoe je dat bepaald en hoe je dat in je code gaat verwerken. Daarom pak je pen en papier, stoot je je buurmens aan en samen gaan jullie nadenken over hoe jullie in dit experiment de onzekerheid kunnen bepalen. Daarna kijken jullie naar de opbouw van de code en maken jullie aantekeningen over wat er waar en hoe in de code aangepast moet worden. Je kijkt naar je repository en ziet dat je de nu-nog-werkende-code hebt gecommit vervolgens ga je stap voor stap (commit voor commit) aan de slag om de aanpassingen te maken. Als het klaar is run je {{file}}`view.py` met het aantal herhaalmetingen op 3 en ziet in de grafiek foutenvlaggen op de metingen voor stroom en spanningen staan. Je kijkt op het beeldscherm van je buurmens en ziet daar ook foutenvlaggen verschijnen. Met een grijns kijken jullie elkaar aan en geven een high five {{feesttoeter}}.
 
+    === "code"
+        **Pseudo-code**
+        ``` py title="arduino_device.py"
+        # def list_devices
+        #   ...
+
+        # class ArduinoVisaDevice
+            ...
+        ```
+        ``` py title="diode_experiment.py"
+        from arduino_device import ArduinoVISADevice, list_devices
+        
+        # class DiodeExperiment
+            ...
+            def scan # with start, stop and number of measurments
+                # set input voltage from start to stop
+                    # calculate LED voltage
+                    # calculate LED current
+                # return LED voltage, LED current and errors
+        ```      
+        ``` py title="view.py"
+        from diode_experiment import DiodeExperiment
+        
+        # get current and voltage with errors from scan(start, stop, measurements)
+
+        # plot current vs voltage with errorbars
+        ```      
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Het aantal herhaalmetingen kan worden aangepast in de view.
+        - [ ] De onzekerheid wordt in het model op de correcte manier bepaald.
+        - [ ] De onzekerheid wordt vanuit het model doorgegeven aan de view.
+        - [ ] In de view wordt de onzekerheid geplot behorende bij de juiste grootheid.
+
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
+        - [x] Pythondaq: Quick 'n dirty meting
+        - [x] Pythondaq: CSV
+        - [x] Pythondaq: Controller bouwen
+        - [x] Pythondaq: Controller implementeren
+        - [x] Pythondaq: Controller afsplitsen
+        - [x] Pythondaq: Model afsplitsen
+        - [x] Pythondaq: Onzekerheid

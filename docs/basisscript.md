@@ -31,7 +31,7 @@ _Bemonsteren_ of _sampling_ is het proces waarbij een analoog signaal wordt <q>u
     1. Zet het digitale signaal op een resolutie van 4-bit (16 stapjes). Stel je meet een waarde van 6, wat zijn dan de mogelijke voltages die daarbij horen? Wat is dan de nauwkeurigheid?
     1. Zet het digitale signaal op een resolutie van 6-bit (64 stapjes). Stel je meet een waarde van 28, wat zijn dan de mogelijke voltages die daarbij horen? Wat is dan de nauwkeurigheid?
     1. Zet het digitale signaal op een resolutie van 10-bit resolutie (1024 stapjes). Stel je meet een waarde van 768, wat zijn dan de mogelijke voltages die daarbij horen? Wat is dan de nauwkeurigheid?
-    
+
 De conversie van een analoog signaal naar een digitaal signaal (en andersom!) is de reden dat de spanningen die we kiezen en de metingen die we doen niet alle mogelijke waardes kunnen aannemen, maar <q>stapjes</q> maken.
 
 ![Omzetting van analoog naar digitaal signaal](figures/adc-process.svg){: style="width:75%"}
@@ -43,12 +43,28 @@ De omzetting van een analoog signaal naar een digitaal signaal gebeurt als volgt
 De digitale metingen die je programma krijgt van de ADC is hierboven weergegeven. De onzekerheid is gelijk aan de halve afstand tot het volgende niveau. In lichtgrijs zie je het oorspronkelijke analoge signaal. De meting benadert het signaal dus maar gedeeltelijk. De Arduino die we gebruiken heeft een bereik van 0 V tot 3.3 V en &mdash; in tegenstelling tot het voorbeeld hierboven &mdash; een resolutie van 10 bits, dus $2^{10} = 1024$ stapjes. Als je een experiment ontwerpt is het dus van belang te weten dat je nooit kunt meten met een nauwkeurigheid kleiner dan de stapgrootte. Voor ons is deze resolutie prima.
 
 !!! opdracht-basis "Volt naar ADC"
-    We kunnen alleen maar de getallen 0 t/m 1023 naar de Arduino sturen. Ook krijgen we alleen maar dat bereik terug.
+    === "opdracht"
+        Je hebt gezien dat de Arduino werkt met getallen van 0 t/m 1023 en dat de Arduino een bereik heeft van 0 V tot 3.3 V. Je schrijft de formule op om de ruwe ADC waarde naar een spanning in Volt om te rekenen en omgekeerd. Je controleerd of je formules logische antwoorden geven door de spanning te berekenen die bij een ruwe waarde van 700 hoort en de ruwe waarde die hoort bij 2.28 V. 
+    === "code"
+        **Pseudo-code**
+        ``` py
+        # raw_value to voltage
+        # voltage = something with raw_value
 
-    1. Schrijf de formule op waarmee je een spanning in V omrekent naar een ruwe ADC waarde, én omgekeerd.
-    1. Wat is precies het kleinste spanningsverschil dat we nog kunnen meten in V? Een meting kan dus nooit nauwkeuriger gedaan worden dan deze waarde.
-    1. Bereken welke spanning hoort bij een ruwe waarde van 700.
-    1. Bereken welke waarde we naar de Arduino moeten sturen als we een spanning willen instellen van 2.0 V. En een spanning van 2.28 V?
+        # voltage to raw_value
+        # raw_value = something with voltage
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Ruwe waarde 0 geeft spanning 0 en vice versa 
+        - [ ] Ruwe waarde 1023 geeft spanning 3.3 en vice versa
+        - [ ] Ruwe waarde 700 is ongeveer 2/3 van 1023 dus geeft een spanning in de buurt van 2.2 V
+        - [ ] Spanning van 2.28 V is ongeveer 2/3 van 3.3 dus geeft een ruwe waarde in de buur van 680
+
+        **Projecttraject:**
+
+        - [x] Volt naar ADC
 
 ???+ meer-leren "Binair Talstelsel"
 
@@ -91,18 +107,38 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
     1. Ga naar **Repository > Open in Visual Studio Code** en ga aan de slag. Vergeet niet regelmatig te committen!
 
 !!! opdracht-inlever "Pythondaq: start script"
-    Voer de volgende opdrachten uit:
+    === "opdracht"
+        Je runt het bestand {{file}}`basisscript.py` waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de spanning over de weerstand uit. Je print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand.
+    === "code"
+        **Pseudo-code**
+        ``` py title="basisscript.py"
+        # connect to Arduino
 
-    1. Schrijf een script waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Kijk wat er gebeurt met de LED.
-    1. Commit.
-    1. Hoe bepaal je de spanning over de weerstand? Overleg met elkaar welke spanningen je precies meet met de verschillende kanalen (_channels_) die op de Arduino zijn aangesloten. Kijk nog eens goed naar de [figuur van de schakeling](communicatie.md#fig:LED-schakeling).
-    1. Lees &mdash; tijdens het laten oplopen van de spanning over de LED &mdash; de spanning over de _weerstand_ uit. Je zult daarvoor het antwoord van de Arduino (een _string_) om moeten zetten naar een _integer_ en print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand. Voorbeeld van uitvoer:
-    ``` consolecode
-    On LED:  750 (2.4 V)    Over resistor:  189 (0.6 V)
-    ```
-    Je hebt nu feitelijk je eerste metingen verricht!
-    1. Commit! {{feesttoeter}}
+        # set input voltage from 0 to max
+            # get voltage LED 
+            # get voltage resistor
+            # print On LED: raw_voltage_LED (voltage_LED V) Over resistor: raw_voltage_resistor (voltage_resistor V)
+        ```
+    === "check"
+        **Checkpunten:**
 
+        - [ ] Spanning over LED loopt van nul tot maximale waarde
+        - [ ] LED lampje brandt steeds feller
+        - [ ] Commit {{feesttoeter}}
+        - [ ] Ruwe waardes en voltages zijn zoals verwacht
+        - [ ] Commit {{feesttoeter}}
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
+        - [ ] Pythondaq: Quick 'n dirty meting
+        - [ ] Pythondaq: CSV
+        - [ ] Pythondaq: Controller bouwen
+        - [ ] Pythondaq: Controller implementeren
+        - [ ] Pythondaq: Controller afsplitsen
+        - [ ] Pythondaq: Model afsplitsen
+        - [ ] Pythondaq: Onzekerheid
 
 Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma of Python notebook o.i.d. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment hebben we ook alleen nog maar _ruwe_ metingen. We gaan hier voorbij aan het feit dat we graag de stroomsterkte door de LED $I$ zouden willen uitzetten tegen de spanning over de LED $U_\mathrm{LED}$.
 
@@ -114,8 +150,42 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
 
 <div id="opd:quickndirty-meting"></div>
 !!! opdracht-inlever "Pythondaq: Quick 'n dirty meting"
-    Bereken in je script de spanning _over_ en de stroomsterkte _door_ de LED en bewaar deze metingen in een lijst met spanningen en een lijst met stroomsterktes. Sluit je meting netjes af (zorg dat de LED niet blijft branden) en maak dan een grafiek van je metingen. Bekijk elkaars resultaten &mdash; ook van andere groepjes &mdash; en denk na of je meting fysisch helemaal correct is.
+    === "opdracht"
+        Je code berekent de spanning _over_ en de stroomsterkte _door_ de LED terwijl de spanning over het cirquit oploopt van nul tot de maximale waarde. De resultaten worden in een grafiek weergegeven.  
+    === "code"
+        **Pseudo-code** title="basisscript.py"
+        ``` py
+        # connect to Arduino
 
+        # set input voltage from 0 to max
+            # calculate LED voltage
+            # calculate LED current
+        
+        # plot current vs voltage
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Bereken spanning over LED
+        - [ ] Bereken stroomsterkte door LED
+        - [ ] Lijst met spanningen
+        - [ ] Lijst met stroomsterkte
+        - [ ] Plot stroomsterke tegen spanning
+        - [ ] Vergelijk met resultaat van iemand anders
+        - [ ] Meting is fysisch correct
+        - [ ] LED wordt uitgezet na de meting
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
+        - [x] Pythondaq: Quick 'n dirty meting
+        - [ ] Pythondaq: CSV
+        - [ ] Pythondaq: Controller bouwen
+        - [ ] Pythondaq: Controller implementeren
+        - [ ] Pythondaq: Controller afsplitsen
+        - [ ] Pythondaq: Model afsplitsen
+        - [ ] Pythondaq: Onzekerheid
 
 
 ## Bewaren van meetgegevens
@@ -181,12 +251,27 @@ Het viel je misschien op dat in bovenstaand CSV-bestand iedere regel een $t$-waa
 Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de lengte van de lijst op te zoeken en krijg je meteen de losse elementen zonder dat je ze zelf uit de lijst moet plukken met indexnotatie.
 
 !!! opdracht-basis "oefenen met zip"
-    Gegeven de spanningen $U$ en de bijbehorende stroomsterktes $I$: 
-    ```py
-    U = [1.2, 1.8, 2.4, 2.7, 3.1] # V
-    I = [0.3, 0.4, 0.6, 0.8, 1.0] # A
-    ```
-    loop over de lijsten met `#!py zip()` en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
+    === "opdracht"
+        Je hebt een lijst met spanningen en een lijst met stroomsterktes. Je loopt over de lijsten en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
+    === "code"
+        **Pseudo-code**
+        ``` py
+        U = [1.2, 1.8, 2.4, 2.7, 3.1] # V
+        I = [0.3, 0.4, 0.6, 0.8, 1.0] # A 
+
+        # repeat
+        #   print U , I, R
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De for-loop gebruikt `#!py zip()` om de elementen uit de lijst op te vragen
+        - [ ] De variabele hebben logische namen zoals `u` en `i`
+        - [ ] De weerstandswaarde is fysisch correct
+
+        **Projecttraject:**
+
+        - [x] oefenen met zip
 
 
 #### Het gebruik van de `#!py csv`-module
@@ -219,7 +304,37 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
 
 <div id="opd:quickndirty-csv"></div>
 !!! opdracht-inlever "Pythondaq: CSV"
-    Breid je script uit zodat de data niet alleen maar weergegeven wordt in een grafiek maar ook wordt weggeschreven als CSV-bestand. Gebruik de `#!py zip()`-functie en de `#!py csv`-module.
+    === "opdracht"
+        Je code schrijft de metingen ook weg als csv-bestand door gebruik te maken van de `#!py zip()`-functie en de `#!py csv`-module.
+    === "code"
+        **Pseudo-code**
+        ``` py title="basisscript.py"
+        # connect to Arduino
+
+        # set input voltage from 0 to max
+            # calculate LED voltage
+            # calculate LED current
+        
+        # plot current vs voltage
+        # create csv-file
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] CSV-bestand bevat alle metingen
+        - [ ] Waardes in CSV-bestand komen overeen met verwachting
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
+        - [x] Pythondaq: Quick 'n dirty meting
+        - [x] Pythondaq: CSV
+        - [ ] Pythondaq: Controller bouwen
+        - [ ] Pythondaq: Controller implementeren
+        - [ ] Pythondaq: Controller afsplitsen
+        - [ ] Pythondaq: Model afsplitsen
+        - [ ] Pythondaq: Onzekerheid
 
 ???+ opdracht-meer "Git ignore"
     Het kan wenselijk zijn om niet alle bestanden mee te nemen voor versiebeheer in je repository. Soms wil je een bestand uitsluiten, of bepaalde bestand-types.  Om GitHub te laten weten welke bestanden niet gecommit hoeven te worden is er een bestand {{file_lines}}`.gitignore` . Let op de punt voor de bestandsnaam, dit betekend dat het een verborgen bestand is en mogelijk zie je het niet in je repository staan.
