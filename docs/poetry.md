@@ -153,11 +153,11 @@ build-backend = "poetry.core.masonry.api"
 Het bestand is in het TOML-formaat.[@TOML] Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. Overal zie je `poetry` terugkomen, want dat is de tool die wij gebruiken. In de eerste sectie staat informatie over ons project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. De tweede sectie bevat de _dependencies_. Dit zijn alle Pythonpackages die ons project nodig heeft. Op dit moment is dat alleen maar Python. Ook het versienummer van Python is belangrijk. Hier is dat 3.10 en het dakje geeft aan dat nieuwere versies 3.11, 3.12, enz. ook prima zijn, maar 3.9 (te oud) 4.0 (te nieuw) _niet_. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python &mdash; bijvoorbeeld versie 3.9 &mdash; kunnen nu het package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.10 nodig hebt kun je aangeven dat een iets oudere versie van Python ook prima is. Op dit moment &mdash; herfst 2023 &mdash; is Python 3.12 de nieuwste versie. Het is dus prima om minimaal 3.10 te vragen &mdash; die versie is inmiddels twee jaar oud.
 
 
-### Environment aanmaken
+### Conda environment aanmaken
 
-Bij het schrijven van een nieuw package is het zéker belangrijk om een environment te gebruiken. Anders loop je het risico dat je package _lijkt_ te werken maar bij iemand anders crasht. Immers, het kan best zijn dat jij NumPy gebruikt en al eerder geïnstalleerd had. Bij iemand die NumPy nog _niet_ geïnstalleerd had gaat het dan mis.
+Bij het schrijven van een nieuw package is het zéker belangrijk om een conda environment te gebruiken. Anders loop je het risico dat je package _lijkt_ te werken maar bij iemand anders crasht. Immers, het kan best zijn dat jij NumPy gebruikt en al eerder geïnstalleerd had. Bij iemand die NumPy nog _niet_ geïnstalleerd had gaat het dan mis.
 
-!!! opdracht-basis "Environment aanmaken"
+!!! opdracht-basis "Easystat conda environment aanmaken"
     We maken &mdash; speciaal voor `easystat` &mdash; een environment.
 
     1. Open in Visual Studio Code de _project_-map {{github}}`easystat`
