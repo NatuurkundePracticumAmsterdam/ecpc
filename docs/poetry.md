@@ -639,6 +639,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
         - [x] Pythondaq: src-layout
         - [x] Pythondaq: poetry    
         - [ ] Pythondaq: test imports
+        - [ ] Pythondaq: applicatie
 
 !!! opdracht-inlever "Pythondaq: test imports"
     === "opdracht"
@@ -701,6 +702,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
         - [x] Pythondaq: src-layout
         - [x] Pythondaq: poetry    
         - [x] Pythondaq: test imports
+        - [ ] Pythondaq: applicatie
 
 
 ???+ opdracht-meer "Model, view, controller packages"
@@ -857,6 +859,35 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
     </code></pre>
     
 !!! opdracht-inlever "Pythondaq: applicatie"
+    === "opdracht"
+        Je maakt een commando om het script {{file}}`view.py` uit de repository {{github}}`pythondaq` te starten. Wanneer je het commando aanroept gaat het LED-lampje branden, en verschijnt er even later een IU-plot op het scherm. Je test of het commando ook buiten Visual Studio Code werkt door een `Anaconda prompt` te openen. Je activeert het juiste conda environment en ziet dat ook dan het commando werkt. Wat een feest! {{feesttoeter}} Je hebt nu een applicatie geschreven die een Arduino aanstuurt om een ledje te laten branden. En je kunt je applicatie gewoon vanuit de terminal aanroepen! {{feesttoeter}}
+    === "code"
+        **Pseudo-code**
+        ``` py title="view.py"
+        # import statements
+
+        # def function
+            # code to start a measurement
+        ```
+        ``` toml title="pyproject.toml"
+        [tool.poetry.scripts]
+        naam_commando = "package.module:naam_functie"
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] De functie in {{file}}`view.py` bevat alle code die uitgevoerd moet worden om een meting te starten.
+        - [ ] Het commando in de {{file_lines}}`pyproject.toml` verwijst op de correcte manier naar de functie in {{file}}`view.py`.
+        - [ ] Het aanroepen van het commando zorgt ervoor dat een meting gestart wordt. 
+        - [ ] Het commando werkt ook in een `Anaconda prompt` zolang het juiste conda environment actief is.
+
+        **Projecttraject**
+    
+        - [x] Pythondaq: src-layout
+        - [x] Pythondaq: poetry    
+        - [x] Pythondaq: test imports
+        - [x] Pythondaq: applicatie
+
     We gaan nu een commando maken voor {{github}}`pythondaq`:
 
     1. Schrijf een functie in {{file}}`view.py` die je wilt uitvoeren als je het commando gaat aanroepen. Je kunt hierin de hele body van je script plaatsen.
