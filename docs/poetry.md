@@ -163,24 +163,24 @@ Bij het schrijven van een nieuw package is het zéker belangrijk om een conda en
     === "code"
         **Testcode**
         <pre><code>(easystat) > conda list <button type="button" name="conda list" onclick="runScript('conda list')">{{ enter }}</button><button type="button" name="conda list" onclick="runScript('conda list')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="conda list">    # packages in environment at C:\easystat:
-            #
-            # Name                    Version                   Build  Channel
-            bzip2                     1.0.8                h2bbff1b_6
-            ca-certificates           2024.7.2             haa95532_0
-            libffi                    3.4.4                hd77b12b_1
-            openssl                   3.0.15               h827c3e9_0
-            pip                       24.2            py310haa95532_0
-            python                    3.10.14              he1021f5_1
-            setuptools                72.1.0          py310haa95532_0
-            sqlite                    3.45.3               h2bbff1b_0
-            tk                        8.6.14               h0416ee5_0
-            tzdata                    2024a                h04d1e81_0
-            vc                        14.40                h2eaa2aa_1
-            vs2015_runtime            14.40.33807          h98bb1dd_1
-            wheel                     0.43.0          py310haa95532_0
-            xz                        5.4.6                h8cc25b3_1
-            zlib                      1.2.13               h8cc25b3_1</span>
+        <span class="invisible" name="conda list"><span># packages in environment at C:\easystat:</span>
+        <span>#</span>
+        <span># Name                    Version                   Build  Channel</span>
+        bzip2                     1.0.8                h2bbff1b_6
+        ca-certificates           2024.7.2             haa95532_0
+        libffi                    3.4.4                hd77b12b_1
+        openssl                   3.0.15               h827c3e9_0
+        pip                       24.2            py310haa95532_0
+        **python                    3.10.14              he1021f5_1**
+        setuptools                72.1.0          py310haa95532_0
+        sqlite                    3.45.3               h2bbff1b_0
+        tk                        8.6.14               h0416ee5_0
+        tzdata                    2024a                h04d1e81_0
+        vc                        14.40                h2eaa2aa_1
+        vs2015_runtime            14.40.33807          h98bb1dd_1
+        wheel                     0.43.0          py310haa95532_0
+        xz                        5.4.6                h8cc25b3_1
+        zlib                      1.2.13               h8cc25b3_1</span>
         </code></pre>
         
     === "check"
