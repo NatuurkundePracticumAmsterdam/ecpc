@@ -97,7 +97,12 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
 
         **Projecttraject**
     
-        - [ ] Easystat Poetry project aanmaken
+        - [x] Easystat Poetry project aanmaken
+        - [ ] Easystat conda environment aanmaken
+        - [ ] Easystat shortcuts.py en try_shortcuts.py aanmaken
+        - [ ] Easystat try_shortcuts.py testen
+        - [ ] Easystat Poetry install
+        - [ ] Easystat dependencies toevoegen
 
 
 Er is nu de volgende structuur aangemaakt:
@@ -193,8 +198,11 @@ Bij het schrijven van een nieuw package is het zéker belangrijk om een conda en
         **Projecttraject**
     
         - [x] Easystat Poetry project aanmaken
-        - [ ] Easystat conda environment aanmaken
+        - [x] Easystat conda environment aanmaken
         - [ ] Easystat shortcuts.py en try_shortcuts.py aanmaken
+        - [ ] Easystat try_shortcuts.py testen
+        - [ ] Easystat Poetry install
+        - [ ] Easystat dependencies toevoegen
     
 !!! meer-leren "conda-forge"
     Merk op dat we nu niet gebruik hoeven te maken van de `conda-forge` channel. Python zelf staat in _alle_ kanalen en we gaan verder geen software installeren met conda, dus ook niet uit `conda-forge`.
@@ -277,6 +285,8 @@ In de eerste regel van {{file}}`test_shortcuts.py` importeren we de functie uit 
         - [x] Easystat conda environment aanmaken
         - [x] Easystat shortcuts.py en try_shortcuts.py aanmaken
         - [x] Easystat try_shortcuts.py testen
+        - [ ] Easystat Poetry install
+        - [ ] Easystat dependencies toevoegen
 
 Dit konden we verwachten. We hebben onze package immers nog niet geïnstalleerd. Als we onze package gaan delen met andere mensen verwachten wij dat zij onze package ook gaan installeren, door dezelfde stappen te doorlopen als andere gebruikers komen we erachter of alles wel goed werkt.
 
@@ -348,6 +358,7 @@ Poetry is even bezig en ons package is geïnstalleerd.
         - [x] Easystat shortcuts.py en try_shortcuts.py aanmaken
         - [x] Easystat try_shortcuts.py testen
         - [x] Easystat Poetry install
+        - [ ] Easystat dependencies toevoegen
 
 
 Als we het testscript nu draaien krijgen we wéér een foutmelding:
