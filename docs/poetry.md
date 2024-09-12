@@ -158,15 +158,44 @@ Het bestand is in het TOML-formaat.[@TOML] Tussen de vierkante haken staan de ko
 Bij het schrijven van een nieuw package is het zéker belangrijk om een conda environment te gebruiken. Anders loop je het risico dat je package _lijkt_ te werken maar bij iemand anders crasht. Immers, het kan best zijn dat jij NumPy gebruikt en al eerder geïnstalleerd had. Bij iemand die NumPy nog _niet_ geïnstalleerd had gaat het dan mis.
 
 !!! opdracht-basis "Easystat conda environment aanmaken"
-    We maken &mdash; speciaal voor `easystat` &mdash; een environment.
-
-    1. Open in Visual Studio Code de _project_-map {{github}}`easystat`
-    1. Open een terminal en maak een easystat conda environment aan:
-            ``` ps1 title="Terminal"
-            conda create -n easystat python=3.10
-            ```
-    1. Selecteer dit nieuwe conda environment in Visual Studio Code.
+    === "opdracht"
+        Je voegt {{lightbulb}} de projectmap {{folder}}`easystat` toe als repository in GitHub. Vanuit GitHub Desktop open je de repository {{github}}`easystat` in Visual Studio Code. Je maakt {{lightbulb}} een nieuwe conda environment aan met de naam `easystat` en daarin `python=3.10`. Uiteraard selecteer je het nieuwe environment in Visual Studio Code. 
+    === "code"
+        **Testcode**
+        <pre><code>(easystat) > conda list <button type="button" name="conda list" onclick="runScript('conda list')">{{ enter }}</button><button type="button" name="conda list" onclick="runScript('conda list')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="conda list">    # packages in environment at C:\easystat:
+            #
+            # Name                    Version                   Build  Channel
+            bzip2                     1.0.8                h2bbff1b_6
+            ca-certificates           2024.7.2             haa95532_0
+            libffi                    3.4.4                hd77b12b_1
+            openssl                   3.0.15               h827c3e9_0
+            pip                       24.2            py310haa95532_0
+            python                    3.10.14              he1021f5_1
+            setuptools                72.1.0          py310haa95532_0
+            sqlite                    3.45.3               h2bbff1b_0
+            tk                        8.6.14               h0416ee5_0
+            tzdata                    2024a                h04d1e81_0
+            vc                        14.40                h2eaa2aa_1
+            vs2015_runtime            14.40.33807          h98bb1dd_1
+            wheel                     0.43.0          py310haa95532_0
+            xz                        5.4.6                h8cc25b3_1
+            zlib                      1.2.13               h8cc25b3_1</span>
+        </code></pre>
+        
+    === "check"
+        **Checkpunten:**
     
+        - [ ] De projectmap {{github}}`easystat` is geopend in Visual Studio Code.
+        - [ ] Python is geïnstalleerd in de conda environment `easystat`.
+        - [ ] In Visual Studio Code is de conda environment `easystat` geactiveerd.
+
+        **Projecttraject**
+    
+        - [x] Easystat Poetry project aanmaken
+        - [ ] Easystat conda environment aanmaken
+    
+!!! meer-leren "conda-forge"
     Merk op dat we nu niet gebruik hoeven te maken van de `conda-forge` channel. Python zelf staat in _alle_ kanalen en we gaan verder geen software installeren met conda, dus ook niet uit `conda-forge`.
 
 
