@@ -505,30 +505,6 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
     
     Je overschrijft dus je huidige environment met een nieuwe, lege. Je kunt daarna met `poetry add` packages toevoegen net zo lang tot je geen `#!py ImportError` meer krijgt.
 
-!!! opdracht-basis "Poetry knipperlicht"
-    We gaan nu poetry gebruiken om van het script met de knipperende lichtjes uit [opdracht _KnipperLED_](communicatie.md#opd:flashingLED) een package te maken én om ons environment te beheren. Voer de volgende stappen uit:
-    
-    1. Maak in GitHub Desktop een _nieuwe_ repository {{github}}`flasher`.
-    1. Maak een map {{folder}}`src` met daarin een map {{folder}}`flasher`.
-    1. Kopieer uit de {{github}}`Oefenopdrachten` die je bij [opdracht _Repository toevoegen_](github.md#opd:add_repository) hebt aangemaakt het scriptje uit [opdracht _KnipperLED_](communicatie.md#opd:flashingLED) naar {{folder}}`src/flasher`.
-    1. Open {{github}}`flasher` in Visual Studio Code.
-    1. Commit alles dat je tot nu toe gedaan hebt.
-    1. Open een terminal. Maak een nieuwe conda environment met alleen python 3.10:
-        ``` ps1 title="Terminal"
-        conda create -n flasher python=3.10
-        ```
-        en maak dat actief in Visual Studio Code.
-    1. Voer dan het volgende commando uit:
-        ``` ps1 title="Terminal"
-        poetry init --no-interaction
-        ```
-        om een {{file}}`pyproject.toml` aan te maken.
-    1. Gebruik `poetry add` om de dependencies van je script toe te voegen (welke Pythonpackages gebruik je?).[^dependencies]
-    1. Installeer je `flasher` package met `poetry install`.
-    1. Test het scriptje, werkt het allemaal nog?
-
-    [^dependencies]: In ieder geval pyvisa-py, maar wat nog meer? Waarschijnlijk krijg je een foutmelding: No module named 'serial'. Met de vraag om Pyserial te installeren. Het conda package van pyvisa gaf zelf al pyserial op als dependency om te communiceren over USB. Nu we conda niet gebruiken moeten we dat handmatig doen.
-
 !!! opdracht-basis "Poetry flashingLED"
     === "opdracht"
         <div class="grid-tree" markdown>
