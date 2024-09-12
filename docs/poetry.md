@@ -75,18 +75,6 @@ See https://github.com/python-poetry/poetry for more information.</span>
 
 Stel je wilt een package schrijven met wat handige functies om veelgebruikte statistische berekeningen makkelijk uit te voeren. Je noemt het `easystat`. Het doel is eerst om het in al je eigen analyses makkelijk te kunnen gebruiken (`#!py import easystat`) maar je wilt het ook op GitHub zetten en wie weet vinden anderen het ook handig! Je wilt het dus ook _netjes_ doen. En niet later van anderen horen: <q>leuk, maar bij mij werkt het niet!</q>
 
-!!! opdracht-basis "Poetry project aanmaken"
-    Maak een nieuw Poetry project met de naam `easystat`, als volgt:
-
-    1. Open in Visual Studio Code {{folder}} ECPC, en open een terminal.
-    1. Dan maken we met Poetry als volgt een nieuw project.[^src-layout] We maken het daarmee _expres_ iets moeilijker om vanuit een script je package te importeren. Je kunt dat dan alleen nog maar doen door het package zelf ook te _installeren_ (zoals andere gebruikers ook moeten doen) en daardoor loop je zelf tegen eventuele problemen aan. Werkt het uiteindelijk bij jou? Dan werkt het _ook_ bij andere mensen.} `easystat` aan:
-    ``` ps1con title="Terminal"
-    PS> poetry new --src easystat
-    Created package easystat in easystat
-    ```
-     
-    [^src-layout]: We gaan het package opbouwen in de zogenaamde src-layout[@srclayout]
-
 !!! opdracht-basis "Easystat Poetry project aanmaken"
     === "opdracht"
         Een project stop je altijd in een map {{folder}}, als je aan Poetry vraagt om een project te maken zal er een map worden aangemaakt.
