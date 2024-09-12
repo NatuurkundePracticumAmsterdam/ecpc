@@ -762,7 +762,36 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
     1. Voeg een `#!py if __name__ == '__main__'`-statement toe waarin je de functie `#!py main()` aanroept. 
     1. Als je het script runt, doet hij het weer.
     
+!!! opdracht-basis "Main functie toevoegen"
+    === "opdracht"
+        Je [open de repository just_count in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en daarna in Visual Studio Code. Je ziet een {{file_lines}}`pyproject.toml` in de repository staan. Dus installeer je het pakket met Poetry in een nieuwe conda environment (met alleen python=3.10). Je opent het hoofdbestand {{file}}`count_count.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Daarna pas je het bestand aan zodat de functie nog steeds wordt uitgevoerd wanneer je het bestand {{file}}`count_count.py` runt. 
+    === "code"
+        **Testcode**
+        <div class="code-box"><button type="button" name="count_count_main function" onclick="runScript('count_count_main function')" class="run">{{ run }}</button><button type="button" name="count_count_main function" onclick="runScript('count_count_main function')" class="reload invisible">{{ reload }}</button> count_count.py
+        ``` py
+        import square
 
+        def main():
+            print(f"The square of 5 is {square.square(5)}")
+
+        if __name__ == '__main__':
+            main()
+        ```
+        <pre>
+        <code>(ecpc) > python count_count.py
+        <span class="invisible" name="count_count_main function">The square of 5 is 25</span>
+        </code></pre></div>
+        
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Er is een functie `#!py main()` in het bestand {{file}}`count_count.py`
+        - [ ] Het runnen van het bestand {{file}}`count_count.py` geeft de output `The square of 5 is 25`
+
+        **Projecttraject**
+    
+        - [ ] main functie toevoegen
+    
 
 In {{file}}`pyproject.toml` kunnen we nu het commando toe gaan voegen. Met de `scripts`-tool van Poetry kunnen we aangeven met welk commando een functie uit een script wordt uitgevoerd. Om een commando toe te voegen ga je naar {{file}}`pyproject.toml` en voeg je een extra kopje toe:
 ``` toml
