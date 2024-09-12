@@ -81,12 +81,32 @@ Zo kunnen we gemakkelijk alles gaan invullen. Zo lang je niet op ++escape++ druk
         **Pseudo-code**
         ``` py
         # class ArduinoVisaDevice
-        TODO: # opzet docstring volgens google styleguide
+            """Summary of class here.
+
+            Longer class information...
+            Longer class information...
+            """
             ...
         ```
         **Testcode:**
-        TODO: werkt help(class ArduinoVisaDevice)?
-        
+        <div class="code-box"><button type="button" name="arduino_device_help" onclick="runScript('arduino_device_help')" class="run">{{ run }}</button><button type="button" name="arduino_device_help" onclick="runScript('arduino_device_help')" class="reload invisible">{{ reload }}</button> arduino_device.py
+        ``` py
+        if __name__ == "__main__":
+            help(ArduinoVisaDevice)
+        ```
+        <pre>
+        <code>(ecpc) > python arduino_device.py
+        <span class="invisible" name="arduino_device_help">Help on class ArduinoVisaDevice in module __main__:
+        class ArduinoVisaDevice(builtins.object)
+        |  Summary of class here.
+        |
+        |  Longer class information...
+        |  Longer class information...
+        |
+        |  Data descriptors defined here:
+        |
+        -- More  --</span>
+        </code></pre></div>     
         
     === "check"
         **Checkpunten:**
