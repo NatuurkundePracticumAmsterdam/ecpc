@@ -538,38 +538,8 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
         if __name__ == "__main__":
             sin(10)
         ```
-    1. Ga door naar stap 2 van de [_opdracht smallangle_](#opd:smallangle). Je mag stap 1 overslaan &mdash; dat werk heb je nu zelf al gedaan.
+    1. Ga door naar de [_opdracht smallangle aanpassen_](#opd:smallangle). Je mag de opdracht smallangle installeren overslaan &mdash; dat werk heb je nu zelf al gedaan.
     
-
-<div id="opd:smallangle"></div>
-!!! opdracht-inlever "smallangle"
-    Het project {{github}}`smallangle` wordt met Poetry beheerd. Je gaat click aan de module {{file}}`smallangle.py` toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.
-
-    1. Ga naar GitHub naar {{github}}`AnneliesVlaar/smallangle` en [open de repository in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/smallangle) in GitHub Desktop en Visual Studio Code.
-    1. Installeer de package in een nieuw environment.
-    1. Run het script {{file}}`smallangle.py` en los de errors op totdat het werkt.
-    1. Voeg click toe zodat je de subcommando's `sin` en `tan` hebt. Het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) moet gekozen kunnen worden met een optie (geef een standaardwaarde mee, zodat de gebruiker de optie kan weglaten).
-
-        ??? info "TypeError: 'int' object is not iterable"
-
-            Probeer je de code te draaien maar krijg je een foutmelding zoals deze:
-            ``` ps1 title="Terminal"
-            Traceback (most recent call last):
-            File "c:\smallangle\src\smallangle\smallangle.py", line 28, in < module >
-                sin(10)
-            File "C:\click\core.py", line 1157, in __call__     
-                return self.main(*args, **kwargs)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
-            File "C:\click\core.py", line 1067, in main
-                args = list(args)
-                    ^^^^^^^^^^
-            TypeError: 'int' object is not iterable
-            ```
-
-            Dan komt dat doordat je `#!py sin(10)` probeert uit te voeren, terwijl de functie al verClickt is. De functie verwacht een argument vanuit de terminal en geen integer vanuit het pythonscript.
-            Pas je script aan zodat `#!py if __name__ == "__main__":` naar de juiste functie verwijst en Click aanroept; niet `#!py sin(10)`.
-
-    1. Zorg dat smallangle een applicatie wordt die je aan kunt roepen met bijvoorbeeld `smallangle sin -n 9`.
 
 !!! opdracht-inlever "smallangle installeren"
     === "opdracht"
@@ -623,6 +593,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
         - [ ] smallangle aanpassen
         - [ ] smallangle docstrings
 
+<div id="opd:smallangle"></div>
 !!! opdracht-inlever "smallangle aanpassen"
     === "opdracht"
         Je kunt met het commando `smallangle` en de subcommando's `sin` en `tan` een lijst genereren van getallen tussen de 0 en 2 $\pi$ en de bijbehorende sinus dan wel tanges van deze getallen. Met de optie `-n` kan je het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) kiezen. Als je de optie `-n` weglaat werkt de applicatie met een standaardwaarde.
