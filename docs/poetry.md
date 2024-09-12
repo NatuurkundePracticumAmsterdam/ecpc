@@ -293,12 +293,58 @@ Installing the current project: easystat (0.1.0)</span>
 
 Poetry is even bezig en ons package is geïnstalleerd.
 
-!!! opdracht-basis "Poetry install"
-    We draaien opnieuw de test, als volgt:
+!!! opdracht-basis "Easystat Poetry install"
+    === "opdracht"
+        Je gaat het project `easystat` installeren in de conda environment `easystat` met het commando `poetry install`. Waarschijnlijk krijg je een error door rustig te lezen los je die op. Na het installeren van het project `easystat` draai je opnieuw {{file}}`tests/try_shortcuts.py` en zie je een nieuwe error verschijnen `ModuleNotFoundError: No module named 'numpy'`. Hoera {{feesttoeter}} de vorige error is met succes opgelost.
 
-    1. Installeer de easystat package met `poetry install`.
-    1. Draai {{file}}`tests/try_shortcuts.py` en controleer of het nu wel werkt.
+        !!! info "Current Python version is not allowed by the project"
+            Waarschijnlijk krijg je in dikke rode letters de error:
+            ``` ps1con
+            Current Python version (3.10.14) is not allowed by the project (^3.12).
+            Please change python executable via the "env use" command.
+            ```
+            In de {{file_lines}}`pyproject.toml` staat bij de Python dependency dat er minstens versie 3.12 of hoger (^3.12) nodig is voor dit project[^versie]. En de conda environment `easystat` heeft Python 3.10 geïnstalleerd. Je kunt nu twee dingen doen: 1) je bedenkt dat voor dit project een lagere versie van Python ook voldoende is en past de Python versie dependency aan in de {{file_lines}}`pyproject.toml` naar ^3.10 *of* 2) je vindt dat het project minstens versie 3.12 moet gebruiken en upgrade python in de `easystat` environment met `conda install python=3.12`.
+            
+            [^versie]: Dit is bij het aanmaken standaard ingevuld op basis van het destijds geactiveerde conda environment. Waarschijnlijk was de base environment geactiveerd en zit daarin Python 3.12. kijk maar met `conda list` in de base environment welke versie van Python daarin zit.
+    === "code"
+        **Testcode**
+        <pre><code>(easystat) > conda list <button type="button" name="conda list_poetry install" onclick="runScript('conda list_poetry install')">{{ enter }}</button><button type="button" name="conda list_poetry install" onclick="runScript('conda list_poetry install')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="conda list_poetry install"><span># packages in environment at C:\easystat:</span>
+        <span>#</span>
+        <span># Name                    Version                   Build  Channel</span>
+        bzip2                     1.0.8                h2bbff1b_6
+        ca-certificates           2024.7.2             haa95532_0
+        **easystat                  0.1.0                    pypi_0    pypi**
+        libffi                    3.4.4                hd77b12b_1
+        openssl                   3.0.15               h827c3e9_0
+        pip                       24.2            py310haa95532_0
+        python                    3.10.14              he1021f5_1
+        setuptools                72.1.0          py310haa95532_0
+        sqlite                    3.45.3               h2bbff1b_0
+        tk                        8.6.14               h0416ee5_0
+        tzdata                    2024a                h04d1e81_0
+        vc                        14.40                h2eaa2aa_1
+        vs2015_runtime            14.40.33807          h98bb1dd_1
+        wheel                     0.43.0          py310haa95532_0
+        xz                        5.4.6                h8cc25b3_1
+        zlib                      1.2.13               h8cc25b3_1</span>
+        </code></pre>
+        
+    === "check"
+        **Checkpunten:**
     
+        - [ ] Je hebt het juist conda environment geactiveerd.
+        - [ ] Nadat je `poetry install` hebt gedaan krijg je de melding `Installing the current project: easystat (0.1.0)`.
+        - [ ] Je runt het bestand {{file}}`try_shortcuts.py` uit de map {{folder}}`tests`.
+        - [ ] Je krijgt een foutmelding `#!py ModuleNotFoundError: No module named 'numpy'`
+
+        **Projecttraject**
+    
+        - [x] Easystat Poetry project aanmaken
+        - [x] Easystat conda environment aanmaken
+        - [x] Easystat shortcuts.py en try_shortcuts.py aanmaken
+        - [x] Easystat try_shortcuts.py testen
+        - [x] Easystat Poetry install
 
 
 Als we het testscript nu draaien krijgen we wéér een foutmelding:
