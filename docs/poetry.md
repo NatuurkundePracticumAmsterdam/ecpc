@@ -194,6 +194,7 @@ Bij het schrijven van een nieuw package is het zéker belangrijk om een conda en
     
         - [x] Easystat Poetry project aanmaken
         - [ ] Easystat conda environment aanmaken
+        - [ ] Easystat shortcuts.py en try_shortcuts.py aanmaken
     
 !!! meer-leren "conda-forge"
     Merk op dat we nu niet gebruik hoeven te maken van de `conda-forge` channel. Python zelf staat in _alle_ kanalen en we gaan verder geen software installeren met conda, dus ook niet uit `conda-forge`.
@@ -201,22 +202,12 @@ Bij het schrijven van een nieuw package is het zéker belangrijk om een conda en
 
 ### Maken van de easystat-package
 We starten met onze package. Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige <q>shortcut</q> in {{file}}`shortcuts.py`. Nu willen we deze shortcut ook in een ander script gebruiken. Dit kunnen we doen door package `easystat` te importeren in dit nieuwe script zodat we de functie `stdev_of_mean` daar ook kunnen gebruiken. We maken een script {{file}}`try_shortcuts.py` om dit te testen.[^tests]
-!!! opdracht-basis "Shortcuts.py en test script aanmaken"
+
+!!! opdracht-basis "Easystat shortcuts.py en try_shortcuts.py aanmaken"
     Maak zoals hieronder aangegeven de bestanden {{new_file}}`shortcuts.py` en {{new_file}}`try_shortcuts.py` aan:
-
-    {{L}} {{folder}} easystat  
-    {{tab}} {{T}} {{folder}} src  
-    {{tab}} {{tab}} {{T}} {{folder}} easystat  
-    {{tab}} {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
-    {{tab}} {{tab}} {{tab}} {{L}} {{new_file}} shortcuts.py  
-    {{tab}} {{T}} {{folder}} tests  
-    {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
-    {{tab}} {{tab}} {{L}} {{new_file}} try_shortcuts.py  
-    {{tab}} {{T}} {{file_lines}} pyproject.toml  
-    {{tab}} {{L}} {{file_lines}} readme.md    
-
-    === "shortcuts.py"
-        ``` py
+    <div class="grid-tree" markdown>
+        <div>
+        ``` py title="shortcuts.py"
         import numpy as np 
         
         
@@ -224,14 +215,28 @@ We starten met onze package. Stel, we berekenen vaak de standaarddeviatie van he
             """Calculate the standard deviation of the mean"""
             return np.std(values) / np.sqrt(len(values))    
         ```
-        Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee en dat gaan we *straks* ook doen.
-
-    === "try_shortcuts.py"
-        ``` py
+        ``` py title="try_shortcuts.py"
         from easystat.shortcuts import stdev_of_mean
 
         print(f"{stdev_of_mean([1, 2, 2, 2, 3])=}")
         ```
+        </div>
+        <div>
+        {{L}} {{github}} easystat  
+        {{tab}} {{T}} {{folder}} src  
+        {{tab}} {{tab}} {{T}} {{folder}} easystat  
+        {{tab}} {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
+        {{tab}} {{tab}} {{tab}} {{L}} {{new_file}} shortcuts.py  
+        {{tab}} {{T}} {{folder}} tests  
+        {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
+        {{tab}} {{tab}} {{L}} {{new_file}} try_shortcuts.py  
+        {{tab}} {{T}} {{file_lines}} pyproject.toml  
+        {{tab}} {{L}} {{file_lines}} readme.md  
+        </div>
+    </div>
+
+    !!! info "`Import numpy could not be resolved`"
+        Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee en dat gaan we *straks* ook doen.
 
 
 [^tests]: Niet formeel. Dus hoewel we een script gaan plaatsen in de {{folder}}`tests`-folder is het hier niet een test die automatisch gerunt kan worden.
