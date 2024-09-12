@@ -275,8 +275,8 @@ In de eerste regel van {{file}}`test_shortcuts.py` importeren we de functie uit 
     
         - [x] Easystat Poetry project aanmaken
         - [x] Easystat conda environment aanmaken
-        - [ ] Easystat shortcuts.py en try_shortcuts.py aanmaken
-        - [ ] Easystat try_shortcuts.py testen
+        - [x] Easystat shortcuts.py en try_shortcuts.py aanmaken
+        - [x] Easystat try_shortcuts.py testen
 
 Dit konden we verwachten. We hebben onze package immers nog niet geïnstalleerd. Als we onze package gaan delen met andere mensen verwachten wij dat zij onze package ook gaan installeren, door dezelfde stappen te doorlopen als andere gebruikers komen we erachter of alles wel goed werkt.
 
