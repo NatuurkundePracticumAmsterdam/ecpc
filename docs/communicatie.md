@@ -373,7 +373,16 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
 <div id="opd:test_arduino"></div>
 !!! opdracht-basis "Pyvisa in pythonscript"
     === "opdracht"
-        Je gaat de gegeven Python code testen daarom open je in Visual Studio Code de map {{folder}}`ECPC` en maakt een bestand {{new_file}}`test_arduino.py` aan. Je kopieert de Python code in het bestand. Je ziet dat de code gebruikt maakt van de package `pyvisa` daarom selecteer je de environment die je bij [opdracht Environment aanmaken](#opd:condaenv) hebt gemaakt. Je slaat het bestand op en runt het bestand. 
+        <div class="grid-tree" markdown>
+            <div>
+            Je gaat de gegeven Python code testen daarom open je in Visual Studio Code de map {{folder}}`ECPC` en maakt een bestand {{new_file}}`test_arduino.py` aan. Je kopieert de Python code in het bestand. Je ziet dat de code gebruikt maakt van de package `pyvisa` daarom selecteer je de environment die je bij [opdracht Environment aanmaken](#opd:condaenv) hebt gemaakt. Je slaat het bestand op en runt het bestand.
+            </div>
+            <div>
+            {{folder}}`ECPC`  
+            {{T}}{{new_file}}`test_arduino.py`  
+            {{L}}{{dots}}  
+            </div>
+        </div>
 
         !!! info "could not open port 'COM28': FileNotFoundError"
             Krijg je een `#!py FileNotFoundError`? Dan kan het zijn dat het script een poort probeert te openen die bij jou een andere naam heeft. Probeer met het lijstje instrumenten te raden welke de Arduino is en pas het script aan totdat het werkt.[^tip-aansluiten]
@@ -419,9 +428,18 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
 
 !!! opdracht-basis "LED laten branden"
     === "opdracht"
-
-        Omdat je straks de IU-karakteristiek van de LED wilt gaan bepalen ga je een reeks aan spanningen naar de LED sturen waardoor de LED gaat branden. Je maakt daarvoor een bestand {{new_file}}`test_LED.py` aan in de map {{folder}}ECPC. Je schrijft eerst een regel code waarmee je een commando naar de Arduino stuurt waardoor de LED gaat branden. Daarna schrijf je de code om zodat de spanning oploopt van de minimale waarde tot aan de maximale waarde. 
-
+        <div class="grid-tree" markdown>
+            <div>
+            Omdat je straks de IU-karakteristiek van de LED wilt gaan bepalen ga je een reeks aan spanningen naar de LED sturen waardoor de LED gaat branden. Je maakt daarvoor een bestand {{new_file}}`test_LED.py` aan in de map {{folder}}ECPC. Je schrijft eerst een regel code waarmee je een commando naar de Arduino stuurt waardoor de LED gaat branden. Daarna schrijf je de code om zodat de spanning oploopt van de minimale waarde tot aan de maximale waarde.
+            </div>
+            <div>
+            {{folder}}`ECPC`  
+            {{T}}{{file}}`test_arduino.py`  
+            {{T}}{{new_file}}`test_LED.py`  
+            {{L}}{{dots}}  
+            </div>
+        </div>
+ 
         !!! info "f-strings"
             Het sturen van commando's naar de Arduino waar een variabele spanning in staat gaat gemakkelijk met f-strings. Voor meer informatie zie de [paragraaf f-strings](basis-python.md#f-strings-variabelen-en-input).
     === "code"
@@ -466,8 +484,18 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
 <div id="opd:flashingLED"></div>
 !!! opdracht-basis "flashingLED"
     === "opdracht"
-
-        Om bekend te raken met de code maak je een nieuw bestand {{new_file}}`flashingLED.py` aan in de map {{folder}}`ECPC` waarin je code schrijft die de LED in een regelmatig tempo laat knipperen. 
+        <div class="grid-tree" markdown>
+            <div>
+            Om bekend te raken met de code maak je een nieuw bestand {{new_file}}`flashingLED.py` aan in de map {{folder}}`ECPC` waarin je code schrijft die de LED in een regelmatig tempo laat knipperen.
+            </div>
+            <div>
+            {{folder}}`ECPC`  
+            {{T}}{{file}}`test_arduino.py`  
+            {{T}}{{file}}`test_LED.py`  
+            {{T}}{{new_file}}`flashingLED.py`  
+            {{L}}{{dots}}  
+            </div>
+        </div>
         
         !!! info
             Je kan hiervoor gebruik maken van de module _time_ die standaard met Python meekomt[^standard-library]. Met de functie `#! sleep()` kun je de executie van de volgende regel in het script met een aantal seconden uitstellen.

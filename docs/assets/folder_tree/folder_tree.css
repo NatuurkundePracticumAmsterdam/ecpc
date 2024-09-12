@@ -1,0 +1,15 @@
+/* Flexibele grid-styling voor MkDocs */
+.md-typeset .grid-tree {
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* Eerste kolom neemt 2x zoveel ruimte in als de tweede */
+    grid-gap: 1rem; /* Houd wat ruimte tussen de grid-items */
+    margin: 1em 0;
+  }
+  
+  /* Media query voor kleinere schermen */
+  @media (max-width: 800px) {
+    .md-typeset .grid-tree {
+      grid-template-columns: 1fr; /* Zet de grid-items onder elkaar */
+    }
+  }
+  
