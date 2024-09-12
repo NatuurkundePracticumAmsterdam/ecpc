@@ -612,33 +612,6 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
     </div>
 
 !!! opdracht-inlever "Pythondaq: poetry"
-    Gebruik Poetry om `pythondaq` als package te installeren, als volgt:
-
-    1. Ga in Visual Studio Code naar {{github}}`pythondaq`. Open een terminal.
-    1. **Overschrijf je conda environment zodat hij weer leeg is (met alleen `python=3.10`).**
-    1. Initialiseer Poetry, zodat een {{file}}`pyproject.toml` wordt aangemaakt.
-    1. Installeer je package.
-    1. Test je {{file}}`view.py` script, terwijl je dependencies toevoegt die je in je scripts nodig hebt.
-    1. Vergelijkbaar met [opdracht _Packages_](vervolg-python.md#opd:test_package) is het verstandig om het importeren van onderdelen van het package te testen voordat we het verder gaan uitbouwen. Maak een {{folder}}`tests`-map met {{file}}`__init__.py` aan in hoofdmap van de repository zodat je onderstaande structuur krijgt:
-
-            pythondaq/
-                src/
-                    ...
-                tests/
-                    __init__.py
-                README.md
-                pyproject.toml
-            
-
-    1. Maak een script {{file}}`tests/test_imports.py` met de regel:
-            ``` py
-            import pythondaq.view
-            ```
-            en run het script. Overleg met elkaar hoe je de import-errors op moet lossen zodat alles werkt. Als dat gelukt is dan werkt je package ook als je het aanroept van buiten de map met broncode.
-    
-    Je {{github}}`pythondaq`-repository is nu een volledig project dat je met andere gebruikers van Python kunt delen, bijvoorbeeld via een _wheel_. We gaan pythondaq in de komende hoofdstukken steeds verder uitbouwen.
-
-!!! opdracht-inlever "Pythondaq: poetry"
     === "opdracht"
         Nu de repository {{github}}`pythondaq` in de src-layout staat voeg je Poetry toe om het project te beheren. Nadat alles gelukt is test je het project door een nieuwe conda environment aan te maken met de naam `pythondaq` met daarin alleen `python=3.10`. Daarna installeer je het Poetry project en wanneer je `view.py` runt zie je als vanouds een lampje branden en een plot verschijnen. 
     === "code"
@@ -653,7 +626,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
         - Installing xxx (1.2.3): Pending...
         - Installing xxx (1.2.3): Installing...
         - Installing xxx (1.2.3)
-
+        <span></span>
         Installing the current project: pythondaq (0.1.0)</span>
         </code></pre>
     === "check"
