@@ -282,15 +282,14 @@ Dit konden we verwachten. We hebben onze package immers nog niet geïnstalleerd.
 
 ### Installeren van een package
 Het installeren van de package kan makkelijk met Poetry:
-``` ps1con title="Terminal"
-PS> poetry install
-Updating dependencies
+<pre><code>(easystat) > poetry install <button type="button" name="poetry install_tekst" onclick="runScript('poetry install_tekst')">{{ enter }}</button><button type="button" name="poetry install_tekst" onclick="runScript('poetry install_tekst')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="poetry install_tekst">Updating dependencies
 Resolving dependencies... (0.1s)
 
 Writing lock file
 
-Installing the current project: easystat (0.1.0)
-```
+Installing the current project: easystat (0.1.0)</span>
+</code></pre>
 
 Poetry is even bezig en ons package is geïnstalleerd.
 
