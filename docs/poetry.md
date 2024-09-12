@@ -594,23 +594,6 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
 !!! info
     Vergeet niet &mdash; waar nodig &mdash; de {{file}}`__init__.py` bestanden toe te voegen aan de packages.
 
-!!! opdracht-inlever "Pythondaq: package"
-    Zet {{github}}`pythondaq` om in een src-structuur, als volgt, en vergeet niet na elke stap te committen:
-
-    1. Maak in {{github}}`pythondaq` een map {{folder}}`src` met daarin een map {{folder}}`pythondaq`.
-    1. Zet de model, view, controller scripts in de {{folder}}`pythondaq` package zodat je onderstaande structuur krijgt:
-
-            pythondaq/
-                src/
-                    pythondaq/
-                        __init__.py
-                        arduino_device.py
-                        diode_experiment.py
-                        view.py
-                README.md
-            
-    1. Test je {{file}}`view.py` script.
-
 !!! opdracht-inlever "Pythondaq: src-layout"
     <div class="grid-tree" markdown>
         <div>
