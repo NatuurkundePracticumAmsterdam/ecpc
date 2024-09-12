@@ -774,7 +774,9 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
 
         **Projecttraject**
     
-        - [ ] main functie toevoegen
+        - [x] main functie toevoegen 
+        - [ ] commando toevoegen
+        - [ ] commando testen
     
 
 In {{file}}`pyproject.toml` kunnen we nu het commando toe gaan voegen. Met de `scripts`-tool van Poetry kunnen we aangeven met welk commando een functie uit een script wordt uitgevoerd. Om een commando toe te voegen ga je naar {{file}}`pyproject.toml` en voeg je een extra kopje toe:
@@ -807,6 +809,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
     
         - [x] main functie toevoegen 
         - [x] commando toevoegen
+        - [ ] commando testen
 
     
 
@@ -820,6 +823,26 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
 
     Het maakt nu dus niet meer uit waar je bent, als je de juiste conda environment hebt geactiveerd kun je altijd je applicatie starten!
     
+!!! opdracht-basis "Commando testen"
+    === "opdracht"
+        Nu je het commando `square` hebt aangemaakt ga je deze testen in een terminal je ziet de tekst `The square of 5 is 25` verschijnen. Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `square` en ziet weer de tekst `The square of 5 is 25` verschijnen. Je concludeerd dat het commando nu overal werkt zolang het juist conda environment is geactiveerd. Dat test je uit door een ander conda environment te activeren en het commando `square` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
+    === "code"
+        **Pseudo-code**
+        <pre><code>(ecpc) > square <button type="button" name="square_test" onclick="runScript('square_test')">{{ enter }}</button><button type="button" name="square_test" onclick="runScript('square_test')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="square_test">The square of 5 is 25</span>
+        </code></pre>
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Het commando `square` werkt als het juiste conda environment is geactiveerd.
+        - [ ] Het commando `square` werkt nog steeds nadat je met het commando `cd..` naar een bovenliggende map bent gegaan.
+        - [ ] Het commando `square` werkt niet als een andere conda environment is geactiveerd.
+
+        **Projecttraject**
+    
+        - [x] main functie toevoegen 
+        - [x] commando toevoegen
+        - [x] commando testen
 
 ???+ opdracht-meer "Error analysis"
     Als extra oefening gaan we met Poetry een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script {{file}}`data_analysis.py` te laten runnen.
