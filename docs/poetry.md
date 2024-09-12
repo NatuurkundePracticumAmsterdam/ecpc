@@ -813,16 +813,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
 
     
 
-<div id="opd:Poetry_commando"></div>
-!!! opdracht-basis "Commando testen"
-
-    1. Type in de terminal het commando `square`.
-    1. Je krijgt nu een `ModuleNotFoundError` voor de module square. Poetry zoekt vanuit de {{folder}}`src`-map naar de packages en modules. Pas het importstatement in {{file}}`count_count.py` aan zodat het count commando werkt.   
-    1. Activeer een andere conda environment en probeer meteen het commando opnieuw; waarom werkt dit niet?
-    1. Navigeer naar de bovenliggende map met `cd..`. Zorg dat het conda environment waar je `just_count` hebt geïnstalleerd is geactiveerd en test het commando. 
-
-    Het maakt nu dus niet meer uit waar je bent, als je de juiste conda environment hebt geactiveerd kun je altijd je applicatie starten!
-    
+<div id="opd:Poetry_commando"></div>    
 !!! opdracht-basis "Commando testen"
     === "opdracht"
         Nu je het commando `square` hebt aangemaakt ga je deze testen in een terminal je ziet de tekst `The square of 5 is 25` verschijnen. Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `square` en ziet weer de tekst `The square of 5 is 25` verschijnen. Je concludeerd dat het commando nu overal werkt zolang het juist conda environment is geactiveerd. Dat test je uit door een ander conda environment te activeren en het commando `square` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
