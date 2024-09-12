@@ -87,6 +87,30 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
      
     [^src-layout]: We gaan het package opbouwen in de zogenaamde src-layout[@srclayout]
 
+!!! opdracht-basis "Easystat Poetry project aanmaken"
+    === "opdracht"
+        Een project stop je altijd in een map {{folder}}, als je aan Poetry vraagt om een project te maken zal er een map worden aangemaakt.
+        Je denkt na over een geschikte locatie en besluit dat het in de {{folder}}`ECPC` map moet komen te staan. Je opent Visual Studio Code en opent de map {{folder}}`ECPC`. Je opent een terminal en controlleert dat de terminal ook in de map {{folder}}`ECPC` is. 
+        Je geeft Poetry de opdracht om een nieuw project met de naam {{folder}}easystat aan te maken in de src-layout[@srclayout] met het commando `poetry new --src easystat`. Je bekijkt de nieuw gemaakte mappenstructuur en ziet dat het overeenkomt met de mappenstructuur zoals hieronder weergegeven.
+
+        !!! info "src-layout"
+            Door het project in een source layout (src-layout) te bouwen maken we het _expres_ iets moeilijker om vanuit een script je package te importeren. Je kunt dat dan alleen nog maar doen door het package zelf ook te _installeren_ (zoals andere gebruikers ook moeten doen) en daardoor loop je zelf tegen eventuele problemen aan. Werkt het uiteindelijk bij jou? Dan werkt het _ook_ bij andere mensen.
+    === "code"
+        **Testcode**
+        <pre><code>(ecpc) > poetry new --src easystat <button type="button" name="poetry new --src easystat" onclick="runScript('poetry new --src easystat')">{{ enter }}</button><button type="button" name="poetry new --src easystat" onclick="runScript('poetry new --src easystat')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="poetry new --src easystat">Created package easystat in easystat</span>
+        </code></pre>
+        
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] De projectmap {{folder}}`easystat` staat in de map {{folder}}`ECPC`.
+        - [ ] De projectmap {{folder}}`easystat` heeft een src-layout.
+
+        **Projecttraject**
+    
+        - [ ] Easystat Poetry project aanmaken
+
 
 Er is nu de volgende structuur aangemaakt:
 
