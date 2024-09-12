@@ -257,7 +257,7 @@ In de eerste regel van {{file}}`test_shortcuts.py` importeren we de functie uit 
         print(f"{stdev_of_mean([1, 2, 2, 2, 3])=}")
         ```
         <pre>
-        <code>(ecpc) > python try_shortcuts.py
+        <code>(easystat) > python try_shortcuts.py
         <span class="invisible" name="try_shortcuts_error">Traceback (most recent call last):
             File "c:\ECPC\easystat\tests\try_shortcuts.py", line 1, in < module >
                 from easystat.shortcuts import stdev_of_mean
