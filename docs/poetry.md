@@ -269,7 +269,7 @@ In de eerste regel van {{file}}`test_shortcuts.py` importeren we de functie uit 
     
         - [ ] Je hebt het juist conda environment geactiveerd.
         - [ ] Je runt het bestand {{file}}`try_shortcuts.py` uit de map {{folder}}`tests`.
-        - [ ] Je krijgt een foutmelding `ModuleNotFoundError: No module named 'easystat'`
+        - [ ] Je krijgt een foutmelding `#!py ModuleNotFoundError: No module named 'easystat'`
         
         **Projecttraject**
     
