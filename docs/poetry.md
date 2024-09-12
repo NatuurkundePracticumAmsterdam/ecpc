@@ -639,7 +639,95 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
     Je {{github}}`pythondaq`-repository is nu een volledig project dat je met andere gebruikers van Python kunt delen, bijvoorbeeld via een _wheel_. We gaan pythondaq in de komende hoofdstukken steeds verder uitbouwen.
 
 !!! opdracht-inlever "Pythondaq: poetry"
-    Nu de repository {{github}}`pythondaq` in de src-layout staat voeg je Poetry toe om het project te beheren. 
+    === "opdracht"
+        Nu de repository {{github}}`pythondaq` in de src-layout staat voeg je Poetry toe om het project te beheren. Nadat alles gelukt is test je het project door een nieuwe conda environment aan te maken met de naam `pythondaq` met daarin alleen `python=3.10`. Daarna installeer je het Poetry project en wanneer je `view.py` runt zie je als vanouds een lampje branden en een plot verschijnen. 
+    === "code"
+        **Pseudo-code**
+        <pre><code>(ecpc) > poetry install <button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')">{{ enter }}</button><button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="poetry install_pythondaq"><span>Installing dependencies from lock file</span>
+        <span></span>
+        <span>Package operations: x installs, 0 updates, 0 removals</span>
+        <span></span>
+        - Installing xxx (1.2.3)
+        - Installing xxx (1.2.3)
+        - Installing xxx (1.2.3): Pending...
+        - Installing xxx (1.2.3): Installing...
+        - Installing xxx (1.2.3)
+
+        Installing the current project: pythondaq (0.1.0)</span>
+        </code></pre>
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Wanneer met `poetry install` in een nieuwe conda environment met alleen python=3.10 het pakket wordt geïnstalleerd werkt {{file}}`view.py` daarna in die nieuwe omgeving naar behoren. 
+
+        **Projecttraject**
+    
+        - [x] Pythondaq: src-layout
+        - [x] Pythondaq: poetry    
+        - [ ] Pythondaq: test imports
+
+!!! opdracht-inlever "Pythondaq: test imports"
+    === "opdracht"
+        <div class="grid-tree" markdown>
+            <div>
+            Bij het uitbouwen van de applicatie ga je mogelijk onderdelen uit de pythonpackage importeren. Daarom is het verstandig net als met de [opdracht _Packages_](vervolg-python.md#opd:test_package) om het importeren uit de package te testen.
+            Maak daarvoor een {{folder}}`tests`-map met {{file}}`__init__.py` en {{file}}`test_imports.py` in de repository {{github}}`pythondaq`. 
+            ```py title="test_imports.py"
+            import pythondaq.view
+            ```
+            Je runt het bestand {{file}}`test_imports.py` en lost de errors op. Daarna  werkt je package ook als je het aanroept van buiten de map met broncode. Je {{github}}`pythondaq`-repository is nu een volledig project dat je met andere gebruikers van Python kunt delen, bijvoorbeeld via een _wheel_.
+            </div>
+            <div>
+            {{github}}`pythondaq`  
+            {{T}}{{folder}}`src`  
+            {{tab}}{{L}}{{folder}}`pythondaq`  
+            {{tab}}{{tab}}{{T}}{{file}}`__init__.py`  
+            {{tab}}{{tab}}{{T}}{{file}}`arduino_device.py`  
+            {{tab}}{{tab}}{{T}}{{file}}`diode_experiment.py`  
+            {{tab}}{{tab}}{{L}}{{file}}`view.py`  
+            {{T}}{{new_folder}}`tests`  
+            {{tab}}{{T}}{{new_file}}`__init__.py`  
+            {{tab}}{{L}}{{new_file}}`test_imports.py`  
+            {{T}}{{file_lines}}`pyproject.toml`  
+            {{L}}{{file_lines}}`README.md`  
+            </div>
+        </div>
+        
+    === "code"
+        **Pseudocode**
+        ```py title="view.py"
+        # define from which package the module diode_experiment should be imported
+        ...
+
+        ```
+        **Testcode**
+        <div class="code-box"><button type="button" name="test_imports_pythondaq" onclick="runScript('test_imports_pythondaq')" class="run">{{ run }}</button><button type="button" name="test_imports_pythondaq" onclick="runScript('test_imports_pythondaq')" class="reload invisible">{{ reload }}</button> test_imports.py
+        ``` py
+        import pythondaq.view
+        ```
+        <pre>
+        <code>(ecpc) > python test_imports.py
+        <span class="invisible" name="test_imports_pythondaq">Traceback (most recent call last):
+            File "c:\pythondaq\tests\test_imports.py", line 1, in < module >
+                import pythondaq.view
+            File "C:\pythondaq\src\pythondaq\view.py", line 4, in < module >
+                from diode_experiment import DiodeExperiment
+            ModuleNotFoundError: No module named 'diode_experiment'</span>
+        </code></pre></div>
+        
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Er is een map {{folder}}`tests` in de repository {{github}}`pythondaq`.
+        - [ ] Er is een bestand {{file}}`__init__.py` in de map {{folder}}`tests`.
+        - [ ] De import statements in de modules in het package {{folder}}`pythondaq` zijn aangepast zodat het bestand {{file}}`test_imports` runt zonder problemen.
+
+        **Projecttraject**
+
+        - [x] Pythondaq: src-layout
+        - [x] Pythondaq: poetry    
+        - [x] Pythondaq: test imports
 
 
 ???+ opdracht-meer "Model, view, controller packages"
