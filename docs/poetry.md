@@ -373,21 +373,41 @@ Package operations: 1 install, 0 updates, 0 removals
   • Installing numpy (1.23.2)</span>
 </code></pre>
 
-!!! opdracht-basis "Dependencies toevoegen"
-    We voegen de dependency toe en runnen opnieuw de test, als volgt:
+!!! opdracht-basis "Easystat dependencies toevoegen"
+    === "opdracht"
+        Je voegt `Numpy` als dependency toe aan het project `easystat` met het commando `poetry add numpy`. Je kijkt in de {{file_lines}}`pyproject.toml` en warempel daar staat `Numpy` nu bij de dependencies! Je vraagt je af of `Numpy` nu ook in de conda environment `easystat` is geïnstalleerd en controleert dit met `conda list` en waarachtig `Numpy` staat in de lijst {{feesttoeter}}. Weer ga je {{file}}`tests/try_shortcuts.py` draaien en ditmaal krijg je een uitkomst!
+    === "code"
+        **Testcode**
+        <div class="code-box"><button type="button" name="try_shortcuts_numpy" onclick="runScript('try_shortcuts_numpy')" class="run">{{ run }}</button><button type="button" name="try_shortcuts_numpy" onclick="runScript('try_shortcuts_numpy')" class="reload invisible">{{ reload }}</button> try_shortcuts.py
+        ``` py
+        from easystat.shortcuts import stdev_of_mean
 
-    1. Voeg NumPy als dependency toe met `poetry add numpy`.
-    1. Draai {{file}}`tests/try_shortcuts.py` en bekijk de uitkomst.
+        print(f"{stdev_of_mean([1, 2, 2, 2, 3])=}")
+        ```
+        <pre>
+        <code>(ecpc) > python try_shortcuts.py
+        <span class="invisible" name="try_shortcuts_numpy">stdev_of_mean([1, 2, 2, 2, 3])=np.float64(0.282842712474619)</span>
+        </code></pre></div>
+        
+        
+    === "check"
+        **Checkpunten:**
     
+        - [ ] Je hebt de juiste conda environment geacitveerd.
+        - [ ] Je hebt `Numpy` als dependency toegevoegd.
+        - [ ] Je krijgt een uitkomst als je het bestand {{file}}`tests/try_shortcuts.py` runt.
+
+        **Projecttraject**
+    
+        - [x] Easystat Poetry project aanmaken
+        - [x] Easystat conda environment aanmaken
+        - [x] Easystat shortcuts.py en try_shortcuts.py aanmaken
+        - [x] Easystat try_shortcuts.py testen
+        - [x] Easystat Poetry install
+        - [x] Easystat dependencies toevoegen
 
 
-Ditmaal krijgen we:
-```
-stdev_of_mean([1, 2, 2, 2, 3])=0.282842712474619
-```
-Fijn! Als je nu de {{file}}`pyproject.toml` nog eens bekijkt zie je dat NumPy daar als dependency is toegevoegd. Het verwijderen van dependency `PACKAGE` gaat met `poetry remove PACKAGE`. Poetry heeft Numpy nu toegevoegd aan de environment `easystat`.[^conda-list] Gewone package managers als Pip en Conda zullen geen packages toevoegen aan je Poetry project als je `pip/conda install package` aanroept. Gebruik daarom altijd `poetry add package` als je met Poetry aan een package werkt.
-
-[^conda-list]: De lijst met packages in de active Conda enviornment vraag je in de terminal op met het `conda list`, kijk maar of NumPy daar tussen staat.
+Fijn! Het verwijderen van dependency `PACKAGE` gaat met `poetry remove PACKAGE`. Poetry heeft Numpy nu toegevoegd aan de environment `easystat`.Gewone package managers als Pip en Conda zullen geen packages toevoegen aan je Poetry project als je `pip/conda install package` aanroept. Gebruik daarom altijd `poetry add package` als je met Poetry aan een package werkt.
 
 !!! info
     Als we de code in ons package aanpassen dan hoeven we het niet opnieuw te installeren met Poetry, maar als we met de hand iets wijzigen in de {{file}}`pyproject.toml` dan moet dat _wel_. Als je een `#!py ImportError` krijgt voor je eigen package &mdash; bijvoorbeeld als je nieuwe mappen of bestanden hebt aangemaakt &mdash; probeer dan _eerst_ voor de zekerheid `poetry install`.
