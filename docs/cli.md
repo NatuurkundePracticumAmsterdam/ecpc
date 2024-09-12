@@ -14,10 +14,10 @@ Je hebt tot nu toe al heel wat commando's in de terminal getypt. Laten we een pa
 PS> python script.py
 ```
 Als eerste vertel je welke applicatie je wilt gaan starten; in dit geval: `python`. Daarna geef je met het _argument_ `script.py` aan welk Pythonscript je wilt uitvoeren. Vaak kun je ook _opties_ meegeven zoals in:
-``` ps1con title="Terminal"
-PS> python -V
-Python 3.10.13
-```
+<pre><code>(ecpc) > python -V <button type="button" name="python -V" onclick="runScript('python -V')">{{ enter }}</button><button type="button" name="python -V" onclick="runScript('python -V')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python -V">Python 3.10.13</span>
+</code></pre>
+
 Hiermee vraag je Python om het versienummer weer te geven. Soms kunnen _opties_ zelf weer een _argument_ meekrijgen. Bijvoorbeeld:
 ``` ps1con title="Terminal"
 PS> python -m antigravity
@@ -48,20 +48,19 @@ Uitgesplitst in _argumenten_ en __opties__, met vierkante haken [] om aan te gev
 
 ### Click
 Als we gebruik willen maken van commando's in onze eigen applicatie moeten we weten wat de gebruiker in de terminal typt. Dit is mogelijk met `sys.argv`.[^argv]
+Waarbij alles wat we in de terminal typen aan input wordt meegegeven:
 
 [^argv]: argv staat voor: _argument vector_, een lijst met argumenten
-
-``` py title="cli.py"
+<div class="code-box"><button type="button" name="cli.py" onclick="runScript('cli.py')" class="run">{{ run }}</button><button type="button" name="cli.py" onclick="runScript('cli.py')" class="reload invisible">{{ reload }}</button> cli.py
+``` py
 import sys
 
 print(sys.argv)
 ```
-
-Alles wat we in de terminal typen wordt aan input meegegeven:
-``` ps1con title="Terminal"
-PS> python cli.py test 123   
-['cli.py', 'test', '123']
-```
+<pre>
+<code>(ecpc) > python cli.py test 123
+<span class="invisible" name="cli.py">['cli.py', 'test', '123']</span>
+</code></pre></div>
 
 Met if-statements kunnen we acties verbinden aan bepaalde argumenten:
 ``` py title="cli.py" hl_lines="6-9"
@@ -308,27 +307,26 @@ if __name__ == "__main__":
 
 
 Als je dit script gebruikt ziet dat er zo uit:
-
-``` ps1con title="Terminal"
-PS> python hello.py --help
-Usage: hello.py [OPTIONS] NAME
+<pre><code>(ecpc) > python hello.py --help <button type="button" name="python hello.py --help" onclick="runScript('python hello.py --help')">{{ enter }}</button><button type="button" name="python hello.py --help" onclick="runScript('python hello.py --help')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python hello.py --help">Usage: hello.py [OPTIONS] NAME
 
 Options:
   -c, --count INTEGER  Number of times to print greeting.  [default: 1]
   --help               Show this message and exit.
-  
-PS> python hello.py Alice
-Hello Alice!
-  
-PS> python hello.py Alice -c 2
-Hello Alice!
-Hello Alice!
+  </span>
 
-PS> python hello.py Alice --count 3
+(ecpc) > python hello.py Alice <button type="button" name="python hello.py Alice" onclick="runScript('python hello.py Alice')">{{ enter }}</button><button type="button" name="python hello.py Alice" onclick="runScript('python hello.py Alice')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python hello.py Alice">Hello Alice!</span>
+
+(ecpc) > python hello.py Alice -c 2 <button type="button" name="python hello.py Alice -c 2" onclick="runScript('python hello.py Alice -c 2')">{{ enter }}</button><button type="button" name="python hello.py Alice -c 2" onclick="runScript('python hello.py Alice -c 2')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python hello.py Alice -c 2">Hello Alice!
+Hello Alice!</span>
+
+(ecpc) > python hello.py Alice --count 3 <button type="button" name="python hello.py Alice --count 3" onclick="runScript('python hello.py Alice --count 3')">{{ enter }}</button><button type="button" name="python hello.py Alice --count 3" onclick="runScript('python hello.py Alice --count 3')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python hello.py Alice --count 3">Hello Alice!
 Hello Alice!
-Hello Alice!
-Hello Alice!
-```
+Hello Alice!</span>
+</code></pre>
 
 <div id="opd:hello-pauze"></div>
 !!! opdracht-basis "Pauze optie"
@@ -557,7 +555,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
             Probeer je de code te draaien maar krijg je een foutmelding zoals deze:
             ``` ps1 title="Terminal"
             Traceback (most recent call last):
-            File "c:\smallangle\src\smallangle\smallangle.py", line 28, in <module>
+            File "c:\smallangle\src\smallangle\smallangle.py", line 28, in < module >
                 sin(10)
             File "C:\click\core.py", line 1157, in __call__     
                 return self.main(*args, **kwargs)
@@ -677,12 +675,10 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 
 ???+ opdracht-meer "Smallangle (uitdaging)"
     Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\lvert x - \sin(x) \rvert \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over .000, .001 en .002, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
-    ``` ps1con title="Terminal"
-    PS> smallangle approx .1
-    For an accuracy of 0.1, the small-angle approximation holds
-    up to x = 0.854.
-    ```
-
+    <pre><code>(ecpc) > smallangle approx .1 <button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')">{{ enter }}</button><button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="smallangle approx .1">For an accuracy of 0.1, the small-angle approximation holds
+    up to x = 0.854.</span>
+    </code></pre>
 
 ## Docstrings en Click `--help`
 
@@ -1035,23 +1031,21 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: Helpteksten
         - [x] Pythondaq: Grafiek
 
-
 ???+ opdracht-meer "Pythondaq: `list --search`"
     Breid het commando `list` uit met een optie `--search` waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
-    ``` ps1con title="Terminal"
-    PS> diode list
-    The following devices are connected to your computer:
-    
+    <pre><code>(ecpc) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="diode list">The following devices are connected to your computer:                                                                             
     ASRL/dev/cu.SOC::INSTR
     ASRL/dev/cu.MALS::INSTR
     ASRL/dev/cu.AirPodsvanDavid-Wireles-1::INSTR
     ASRL/dev/cu.Bluetooth-Incoming-Port::INSTR
-    ASRL/dev/cu.usbmodem143401::INSTR
-    PS> diode list -s usbmodem
-    The following devices match your search string:
-    
-    ASRL/dev/cu.usbmodem143401::INSTR
-    ```
+    ASRL/dev/cu.usbmodem143401::INSTR 
+    </span>
+    (ecpc) > diode list -s usbmodem <button type="button" name="diode list -s usbmodem" onclick="runScript('diode list -s usbmodem')">{{ enter }}</button><button type="button" name="diode list -s usbmodem" onclick="runScript('diode list -s usbmodem')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="diode list -s usbmodem">The following devices match your search string:                                                                       
+    ASRL/dev/cu.usbmodem143401::INSTR </span>
+    </code></pre>
+
     De lijst met instrumenten kan er op Windows heel anders uitzien. Sterker nog, op Windows is de lijst meestal vrij saai. Maar leen eens heel even een Arduino van iemand anders en je ziet dat er dan _twee_ poorten in de lijst verschijnen.
     
     Pas &mdash; na het uitbreiden van `list` &mdash; de commando's `scan` en `info` aan zodat het niet nodig is om de volledige devicenaam mee te geven, maar alleen een zoekterm.
