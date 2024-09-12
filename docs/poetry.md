@@ -357,7 +357,7 @@ Ons package heeft NumPy nodig en dat hebben we nog niet geïnstalleerd. Dat kunn
 ### Dependencies toevoegen
 
 Om een dependency aan te geven vertellen we Poetry dat hij deze moet toevoegen met:
-<pre><code>(ecpc) > poetry add numpy <button type="button" name="poetry add numpy" onclick="runScript('poetry add numpy')">{{ enter }}</button><button type="button" name="poetry add numpy" onclick="runScript('poetry add numpy')" class="invisible">{{ reload }}</button>
+<pre><code>(easystat) > poetry add numpy <button type="button" name="poetry add numpy" onclick="runScript('poetry add numpy')">{{ enter }}</button><button type="button" name="poetry add numpy" onclick="runScript('poetry add numpy')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="poetry add numpy">Using version ^1.23.2 for numpy
 
 Updating dependencies
