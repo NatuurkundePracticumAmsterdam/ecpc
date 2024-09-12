@@ -245,13 +245,38 @@ In de eerste regel van {{file}}`test_shortcuts.py` importeren we de functie uit 
 
 [^f-string-=]: In f-strings kunnen tussen de accolades variabelen of functieaanroepen staan. Voeg daar het `=`-teken aan toe en je krijgt niet alleen de _waarde_, maar ook de variabele of aanroep zelf te zien. Bijvoorbeeld: als je definieert `#!py name = "Alice"`, dan geeft `#!py print(f"{name}")` als uitkomst `#!py Alice`. Maar voeg je het `=`-teken toe zoals in `#!py print(f"{name=")}` wordt de uitvoer `#!py name='Alice'`. Je ziet dan dus ook meteen de naam van de variabele en dat kan handig zijn.
 
-!!! opdracht-basis "Script testen"
-    Run {{file}}`tests/try_shortcuts.py` en kijk of het script het doet (dat zal wel niet).
+!!! opdracht-basis "Easystat try_shortcuts.py testen"
+    === "opdracht"
+        Je bent heel benieuwd of je package al werkt. Je runt het bestand {{file}}`try_shortcuts.py` en krijgt een foutmelding...
+    === "code"
+        **Testcode**
+        <div class="code-box"><button type="button" name="try_shortcuts_error" onclick="runScript('try_shortcuts_error')" class="run">{{ run }}</button><button type="button" name="try_shortcuts_error" onclick="runScript('try_shortcuts_error')" class="reload invisible">{{ reload }}</button> try_shortcuts.py
+        ``` py
+        from easystat.shortcuts import stdev_of_mean
 
-Als we het script runnen, krijgen we een foutmelding:
-<pre><code>(ecpc) > python try_shortcuts.py <button type="button" name="python try_shortcuts.py" onclick="runScript('python try_shortcuts.py')">{{ enter }}</button><button type="button" name="python try_shortcuts.py" onclick="runScript('python try_shortcuts.py')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="python try_shortcuts.py">ModuleNotFoundError: No module named 'easystat'</span>
-</code></pre>
+        print(f"{stdev_of_mean([1, 2, 2, 2, 3])=}")
+        ```
+        <pre>
+        <code>(ecpc) > python try_shortcuts.py
+        <span class="invisible" name="try_shortcuts_error">Traceback (most recent call last):
+            File "c:\ECPC\easystat\tests\try_shortcuts.py", line 1, in < module >
+                from easystat.shortcuts import stdev_of_mean
+        ModuleNotFoundError: No module named 'easystat'
+        </code></pre></div>
+        
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Je hebt het juist conda environment geactiveerd.
+        - [ ] Je runt het bestand {{file}}`try_shortcuts.py` uit de map {{folder}}`tests`.
+        - [ ] Je krijgt een foutmelding `ModuleNotFoundError: No module named 'easystat'`
+        
+        **Projecttraject**
+    
+        - [x] Easystat Poetry project aanmaken
+        - [x] Easystat conda environment aanmaken
+        - [ ] Easystat shortcuts.py en try_shortcuts.py aanmaken
+        - [ ] Easystat try_shortcuts.py testen
 
 Dit konden we verwachten. We hebben onze package immers nog niet geïnstalleerd. Als we onze package gaan delen met andere mensen verwachten wij dat zij onze package ook gaan installeren, door dezelfde stappen te doorlopen als andere gebruikers komen we erachter of alles wel goed werkt.
 
