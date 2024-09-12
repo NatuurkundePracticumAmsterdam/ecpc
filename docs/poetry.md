@@ -318,7 +318,7 @@ Poetry is even bezig en ons package is geïnstalleerd.
             1. Je bedenkt dat voor dit project een lagere versie van Python ook voldoende is en past de Python versie dependency aan in de {{file_lines}}`pyproject.toml` naar ^3.10.
             1. Je vindt dat het project minstens versie 3.12 moet gebruiken en upgrade Python in de `easystat` environment met `conda install python=3.12`.
             
-            [^versie]: Dit is bij het aanmaken standaard ingevuld op basis van het destijds geactiveerde conda environment. Waarschijnlijk was de base environment geactiveerd en zit daarin Python 3.12. kijk maar met `conda list` in de base environment welke versie van Python daarin zit.
+            [^versie]: Dit is bij het aanmaken standaard ingevuld op basis van de Python versie die in de base environment zit, kijk maar met `conda list` in de base environment welke versie van Python daarin zit.
     === "code"
         **Testcode**
         <pre><code>(easystat) > conda list <button type="button" name="conda list_poetry install" onclick="runScript('conda list_poetry install')">{{ enter }}</button><button type="button" name="conda list_poetry install" onclick="runScript('conda list_poetry install')" class="invisible">{{ reload }}</button>
@@ -637,6 +637,9 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
             en run het script. Overleg met elkaar hoe je de import-errors op moet lossen zodat alles werkt. Als dat gelukt is dan werkt je package ook als je het aanroept van buiten de map met broncode.
     
     Je {{github}}`pythondaq`-repository is nu een volledig project dat je met andere gebruikers van Python kunt delen, bijvoorbeeld via een _wheel_. We gaan pythondaq in de komende hoofdstukken steeds verder uitbouwen.
+
+!!! opdracht-inlever "Pythondaq: poetry"
+    Nu de repository {{github}}`pythondaq` in de src-layout staat voeg je Poetry toe om het project te beheren. 
 
 
 ???+ opdracht-meer "Model, view, controller packages"
