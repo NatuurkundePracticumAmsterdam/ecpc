@@ -600,14 +600,14 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
         Je project {{github}}`pythondaq` is zo tof aan het worden dat je het met Poetry gaat beheren zodat jij en andere het gemakkelijk kunnen installeren en gebruiken. Om te beginnen zet je de repository om in een src-layout zoals hiernaast:
         </div>
         <div>
-        {{github}}`pythondaq`
-        {{T}}{{folder}}`src`
-        {{tab}}{{L}}{{folder}}`pythondaq`
-        {{tab}}{{tab}}{{T}}{{new_file}}`__init__.py`
-        {{tab}}{{tab}}{{T}}{{file}}`arduino_device.py`
-        {{tab}}{{tab}}{{T}}{{file}}`diode_experiment.py`
-        {{tab}}{{tab}}{{L}}{{file}}`view.py`
-        {{L}}{{file_lines}}`README.md`
+        {{github}}`pythondaq`  
+        {{T}}{{folder}}`src`  
+        {{tab}}{{L}}{{folder}}`pythondaq`  
+        {{tab}}{{tab}}{{T}}{{new_file}}`__init__.py`  
+        {{tab}}{{tab}}{{T}}{{file}}`arduino_device.py`  
+        {{tab}}{{tab}}{{T}}{{file}}`diode_experiment.py`  
+        {{tab}}{{tab}}{{L}}{{file}}`view.py`  
+        {{L}}{{file_lines}}`README.md`  
         </div>
     </div>
 
