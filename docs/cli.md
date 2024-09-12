@@ -623,7 +623,8 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 
         - [x] smallangle installeren
         - [ ] smallangle aanpassen
-    
+        - [ ] smallangle docstrings
+
 !!! opdracht-inlever "smallangle aanpassen"
     === "opdracht"
         Je kunt met het commando `smallangle` en de subcommando's `sin` en `tan` een lijst genereren van getallen tussen de 0 en 2 $\pi$ en de bijbehorende sinus dan wel tanges van deze getallen. Met de optie `-n` kan je het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) kiezen. Als je de optie `-n` weglaat werkt de applicatie met een standaardwaarde.
@@ -672,6 +673,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 
         - [x] smallangle installeren
         - [x] smallangle aanpassen
+        - [ ] smallangle docstrings
 
 ???+ opdracht-meer "Smallangle (uitdaging)"
     Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\lvert x - \sin(x) \rvert \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over .000, .001 en .002, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
@@ -750,9 +752,39 @@ Options:
   --help  Show this message and exit.</span>
 </code></pre>
 
-!!! opdracht-inlever "Smallangle: docstring"
-    Voorzie de functies in {{file}}`smallangle.py` die je gemaakt hebt bij de [_opdracht smallangle_](#opd:smallangle) volledig van docstrings, zodat `smallangle --help` zinvolle informatie geeft.
+!!! opdracht-inlever "Smallangle docstrings"
+    === "opdracht"
+        Je gebruikt het commando `smallangle --help` en leest de helptekst van de [_opdracht smallangle_](#opd:smallangle). De helptekst bevat zinvolle informatie die je in staat stelt om te begrijpen wat je met de applicatie kan doen. Je ziet dat er twee subcommando's zijn en bekijkt de helptekst van deze commando's met `smallangle sin --help` en daarna `smallangle tan --help`. Beide helpteksten stellen je in staat op de applicatie te begrijpen en te bedienen. Tevreden test je de applicatie verder uit.
+    === "code"
+        **Pseudo-code**
+        ```
+        """Summary containing ARGUMENTs.
 
+        ARGUMENT description of the argument.
+        """
+        ```
+        **Testcode**
+        <pre><code>(ecpc) > smallangle --help <button type="button" name="smallangle --help" onclick="runScript('smallangle --help')">{{ enter }}</button><button type="button" name="smallangle --help" onclick="runScript('smallangle --help')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="smallangle --help">Usage: smallangle [OPTIONS] COMMAND [ARGS] ...
+            Options: 
+                --help Show this message and exit.
+            Commands:
+                Subcommand Summary containing ARGUMENTs.
+        </span>
+        </code></pre>
+        
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] `smallangle --help` geeft zinvolle informatie
+        - [ ] `smallangle sin --help` geeft zinvolle informatie
+        - [ ] `smallangle tan --help` geeft zinvolle informatie
+
+        **Projecttraject**
+    
+        - [x] smallangle installeren
+        - [x] smallangle aanpassen
+        - [x] smallangle docstrings
 
 ## Command-line interface voor ons experiment
 
