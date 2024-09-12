@@ -295,7 +295,7 @@ Poetry is even bezig en ons package is geïnstalleerd.
 
 !!! opdracht-basis "Easystat Poetry install"
     === "opdracht"
-        Je gaat het project `easystat` installeren in de conda environment `easystat` met het commando `poetry install`. Waarschijnlijk krijg je een error door rustig te lezen los je die op. Na het installeren van het project `easystat` draai je opnieuw {{file}}`tests/try_shortcuts.py` en zie je een nieuwe error verschijnen `ModuleNotFoundError: No module named 'numpy'`. Hoera {{feesttoeter}} de vorige error is met succes opgelost.
+        Je gaat het project `easystat` installeren in de conda environment `easystat` met het commando `poetry install`. Waarschijnlijk krijg je een error maar door rustig te lezen los je die op. Na het installeren van het project `easystat` draai je opnieuw {{file}}`tests/try_shortcuts.py` en zie je een nieuwe error verschijnen `ModuleNotFoundError: No module named 'numpy'`. Hoera {{feesttoeter}} de vorige error is met succes opgelost.
 
         !!! info "Current Python version is not allowed by the project"
             Waarschijnlijk krijg je in dikke rode letters de error:
@@ -303,7 +303,10 @@ Poetry is even bezig en ons package is geïnstalleerd.
             Current Python version (3.10.14) is not allowed by the project (^3.12).
             Please change python executable via the "env use" command.
             ```
-            In de {{file_lines}}`pyproject.toml` staat bij de Python dependency dat er minstens versie 3.12 of hoger (^3.12) nodig is voor dit project[^versie]. En de conda environment `easystat` heeft Python 3.10 geïnstalleerd. Je kunt nu twee dingen doen: 1) je bedenkt dat voor dit project een lagere versie van Python ook voldoende is en past de Python versie dependency aan in de {{file_lines}}`pyproject.toml` naar ^3.10 *of* 2) je vindt dat het project minstens versie 3.12 moet gebruiken en upgrade python in de `easystat` environment met `conda install python=3.12`.
+            In de {{file_lines}}`pyproject.toml` staat bij de Python dependency dat er minstens versie 3.12 of hoger (^3.12) nodig is voor dit project[^versie]. En de conda environment `easystat` heeft Python 3.10 geïnstalleerd. Je kunt nu twee dingen doen: 
+            
+            1. Je bedenkt dat voor dit project een lagere versie van Python ook voldoende is en past de Python versie dependency aan in de {{file_lines}}`pyproject.toml` naar ^3.10.
+            1. Je vindt dat het project minstens versie 3.12 moet gebruiken en upgrade Python in de `easystat` environment met `conda install python=3.12`.
             
             [^versie]: Dit is bij het aanmaken standaard ingevuld op basis van het destijds geactiveerde conda environment. Waarschijnlijk was de base environment geactiveerd en zit daarin Python 3.12. kijk maar met `conda list` in de base environment welke versie van Python daarin zit.
     === "code"
@@ -335,7 +338,7 @@ Poetry is even bezig en ons package is geïnstalleerd.
     
         - [ ] Je hebt het juist conda environment geactiveerd.
         - [ ] Nadat je `poetry install` hebt gedaan krijg je de melding `Installing the current project: easystat (0.1.0)`.
-        - [ ] Je runt het bestand {{file}}`try_shortcuts.py` uit de map {{folder}}`tests`.
+        - [ ] Je runt het bestand {{file}}`tests/try_shortcuts.py`.
         - [ ] Je krijgt een foutmelding `#!py ModuleNotFoundError: No module named 'numpy'`
 
         **Projecttraject**
