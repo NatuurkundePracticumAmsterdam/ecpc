@@ -745,23 +745,7 @@ De bestanden {{file}}`square.py` en {{file}}`count_count.py` zien er hetzelfde u
 
 
 We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie uit te voeren.
-
-!!! opdracht-basis "Main functie toevoegen"
-
-    1. Ga naar {{github}}`AnneliesVlaar/just_count` en [open de repository in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en daarna in Visual Studio Code.
-    1. Maak een nieuwe conda environment met python 3.10, activeer deze en installeer de `just_count` package.
-    1. Open {{file}}`src/just_count/count_count.py` en voeg een functie `#!py def main()` toe die het kwadraat van 5 print.
-    ``` py title="count_count.py"
-    import square
-
-    def main():
-        print(f"The square of 5 is {square.square(5)}")
-    ```
-    We zetten daarmee de <q>body</q> van de module in een functie. 
-    1. Als je het script nu runt doet hij niets meer, want hij roept de functie `#!py main()` niet aan. 
-    1. Voeg een `#!py if __name__ == '__main__'`-statement toe waarin je de functie `#!py main()` aanroept. 
-    1. Als je het script runt, doet hij het weer.
-    
+   
 !!! opdracht-basis "Main functie toevoegen"
     === "opdracht"
         Je [open de repository just_count in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en daarna in Visual Studio Code. Je ziet een {{file_lines}}`pyproject.toml` in de repository staan. Dus installeer je het pakket met Poetry in een nieuwe conda environment (met alleen python=3.10). Je opent het hoofdbestand {{file}}`count_count.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Daarna pas je het bestand aan zodat de functie nog steeds wordt uitgevoerd wanneer je het bestand {{file}}`count_count.py` runt. 
