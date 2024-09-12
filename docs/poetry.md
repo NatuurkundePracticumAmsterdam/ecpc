@@ -601,8 +601,8 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
         </div>
         <div>
         {{github}}`pythondaq`  
-        {{T}}{{folder}}`src`  
-        {{tab}}{{L}}{{folder}}`pythondaq`  
+        {{T}}{{new_folder}}`src`  
+        {{tab}}{{L}}{{new_folder}}`pythondaq`  
         {{tab}}{{tab}}{{T}}{{new_file}}`__init__.py`  
         {{tab}}{{tab}}{{T}}{{file}}`arduino_device.py`  
         {{tab}}{{tab}}{{T}}{{file}}`diode_experiment.py`  
