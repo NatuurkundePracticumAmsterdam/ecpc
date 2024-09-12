@@ -797,6 +797,30 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
             square = "just_count.count_count:main"
             ```
     1. Omdat we handmatig de toml-file hebben aangepast installeren we de package `just_count` opnieuw met `poetry install`.
+
+!!! opdracht-basis "commando toevoegen"
+    === "opdracht"
+        Je voegt in de {{file}}`pyproject.toml` het kopje `[tool.poetry.scripts]` toe. Je voegt vervolgens het commando `square` toe. Deze verwijst naar de functie `#!py main()` welke in de module {{file}}`count_count.py` staat die ondergebracht is in de package {{folder}}`just_count`. Omdat je handmatig het toml-bestand hebt aangepast installeer je het package opnieuw met Poetry.
+    === "code"
+        **Pseudo-code**
+        ``` toml
+        [tool.poetry.scripts]
+        square = "just_count.count_count:main"
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] De naam van het commando is `square`.
+        - [ ] De verwijzing na het = teken begint met twee aanhalingstekens gevolgd door het package {{folder}}`just_count` gevolgt door een punt.
+        - [ ] Na de punt staat de naam van de module {{file}}`count_count.py` zonder de extensie `.py` gevolgd door een dubbele punt.
+        - [ ] Na de dubbele punt staat de naam van de functie `#!py main()` zonder haakjes `()`.
+        - [ ] Achter de functie staan weer dubble aanhalingstekens om de verwijzing te sluiten. 
+
+        **Projecttraject**
+    
+        - [x] main functie toevoegen 
+        - [x] commando toevoegen
+        
     
 
 <div id="opd:Poetry_commando"></div>
