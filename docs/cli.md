@@ -747,17 +747,6 @@ Options:
 In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals {{file}}`view.py`, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand {{file}}`cli.py` aanmaken en dat langzaam opbouwen.
 
 !!! opdracht-inlever "Pythondaq: commando's"
-
-    1. Maak een nieuw bestand {{file}}`src/pythondaq/cli.py`.
-    1. Maak een `#!py @click.group()` aan en voeg de subcommando's `list` en `scan` daaraan toe. Laat de commando's voorlopig alleen een willekeurige korte tekst printen; ze hoeven nu nog niet echt iets te doen. Merk op dat `#!py list()` een Pythonfunctie is, dus daar moet je misschien nog iets mee.[^cmd_name]
-    1. Zorg dat je de command-line applicatie met de naam `diode` in de terminal kunt aanroepen, inclusief de subcommando's `list` en `scan`, dus bijvoorbeeld:
-
-        ``` ps1con title="Terminal"
-        PS> diode list
-        List, dit moet ik later nog afmaken.
-        ```
-
-!!! opdracht-inlever "Pythondaq: commando's"
     === "opdracht"
         Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand {{new_file}}`src/pythondaq/cli.py` een opzetje maken waarin je stap voor stap functionaliteit aan toevoegd. De oude {{file}}`view.py` maakte eerst een lijst van aangesloten apparaten en daarna werd een scan uitgevoerd. Daarom zet je in {{file}}`cli.py` de subcommando's `list` en `scan`. Je test de subcommando's en je ziet dat ze werken omdat ze een stukje tekst printen. 
 
