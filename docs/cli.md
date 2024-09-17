@@ -808,13 +808,6 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
     Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen 0 en 3.3 V. Je kunt dit doen door de `#!py type`-parameter in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven (bijvoorbeeld: `#!py type=int` of `#!py type=float`) en Click heeft speciale types zoals `#!py type=click.FloatRange(0, 3.3)` voor een kommagetal tussen 0 en 3.3. Bekijk alle speciale types in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types). Als je hiervan gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat voor je.
 
 !!! opdracht-inlever "Pythondaq: `scan`"
-    Met het commando `scan` wil je een meetserie uitvoeren over een spanningsbereik. Als een meting lang duurt is het niet erg als de resultaten pas ná de meting worden weergegeven. Je applicatie moet straks het volgende kunnen:
-    
-    1. Print een lijst van metingen van de stroomsterkte dóór en de spanning óver de LED.
-    1. De gebruiker moet het spanningsbereik (in volt) zelf kunnen opgeven met argumenten of opties.
-    1. Geef ook de mogelijkheid de metingen op te slaan als CSV-bestand. Gebruik daarvoor een optie `--output FILENAME`. Wanneer met die optie een bestandsnaam wordt meegegeven sla je de metingen op en anders niet.
-
-!!! opdracht-inlever "Pythondaq: `scan`"
     === "opdracht"
         Je voert het commando `diode scan` uit, met argumenten of opties is het mogelijk om het spanningsbereik (in Volt) aan te passen. Er wordt een meting gestart die binnen het spanningsbereik blijft. De stroomsterkte dóór en de spanning óver de LED worden in de terminal geprint. Het is ook mogelijk om de metingen op te slaan als CSV-bestand. Dit kan met de optie `--output FILENAME`. Wanneer met die optie een bestandsnaam wordt meegegeven worden de metingen opgeslagen en anders niet.
         
