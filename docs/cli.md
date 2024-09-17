@@ -840,9 +840,6 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
         - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
-    Als het goed is geeft je programma al een onzekerheid op de metingen terug op basis van herhaalmetingen. Bouw een optie in waarmee het aantal herhaalmetingen gekozen kan worden. Waarschijnlijk doe je dat al, maar bereken op basis van de herhaalmetingen de beste schatting van de stoomsterkte en de onzekerheid daarop, en ook voor de spanning over de LED.
-
-!!! opdracht-inlever "Pythondaq: herhaalmetingen"
     === "opdracht"
         Je kunt met een optie het aantal herhaalmetingen kiezen. Je test de optie met 1, 3 en 10 metingen en ziet de onzekerheid op de stroomsterkte en de onzekerheid op de spanning over de LED afnemen wanneer het aantal metingen toenneemt. 
     === "code"
