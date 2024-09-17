@@ -816,14 +816,17 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
 
 !!! opdracht-inlever "Pythondaq: `scan`"
     === "opdracht"
-        Met het commando `scan` wil je een meetserie uitvoeren over een spanningsbereik. Als een meting lang duurt is het niet erg als de resultaten pas ná de meting worden weergegeven.
+        Je voert het commando `diode scan` uit, met argumenten of opties is het mogelijk om het spanningsbereik (in Volt) aan te passen. Er wordt een meting gestart die binnen het spanningsbereik blijft. De stroomsterkte dóór en de spanning óver de LED worden in de terminal geprint. Het is ook mogelijk om de metingen op te slaan als CSV-bestand. Dit kan met de optie `--output FILENAME`. Wanneer met die optie een bestandsnaam wordt meegegeven worden de metingen opgeslagen en anders niet.
         
     === "code"
-        <pre><code>(ecpc) > diode scan --output FILENAME <button type="button" name="diode scan --output FILENAME" onclick="runScript('diode scan --output FILENAME')">{{ enter }}</button><button type="button" name="diode scan --output FILENAME" onclick="runScript('diode scan --output FILENAME')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="diode scan --output FILENAME">...</span>
-        </code></pre>
-        
-
+        **Pseudo-code**
+        ```py
+        # subcommando scan with range in Volt and output CSV
+            # start scan with range
+            # print current and voltage
+            # if output:
+                # create csv
+        ```
     === "check"
         **Checkpunten:**
 
