@@ -793,8 +793,8 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
         - [ ] Pythondaq: `scan`
         - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: `list`
-        - [ ] Pythondaq: choose device
         - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: choose device
         - [ ] Pythondaq: Helpteksten
         - [ ] Pythondaq: Grafiek
     
@@ -834,8 +834,8 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
         - [x] Pythondaq: `scan`
         - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: `list`
-        - [ ] Pythondaq: choose device
         - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: choose device
         - [ ] Pythondaq: Helpteksten
         - [ ] Pythondaq: Grafiek
 
@@ -863,8 +863,8 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
         - [x] Pythondaq: `scan`
         - [x] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: `list`
-        - [ ] Pythondaq: choose device
         - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: choose device
         - [ ] Pythondaq: Helpteksten
         - [ ] Pythondaq: Grafiek
 
@@ -892,35 +892,8 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: `scan`
         - [x] Pythondaq: herhaalmetingen
         - [x] Pythondaq: `list`
+        - [ ] Pythondaq: `info`
         - [ ] Pythondaq: choose device
-        - [ ] Pythondaq: `info`
-        - [ ] Pythondaq: Helpteksten
-        - [ ] Pythondaq: Grafiek
-
-!!! opdracht-inlever "Pythondaq: choose device"
-    === "opdracht"
-        Nadat je met het subcommando `list` een lijst van aangesloten instrumenten hebt opgevraagd weet je wat de naam is van de poort waar de Arduino aanhangt. Deze poortnaam geef je vervolgens mee bij het subcommando `scan` om een meting op de (juiste) Arduino uit te voeren. Daarna test je het subcommando `scan` door géén poortnaam mee te geven, je ziet een foutmelding verschijnen. Tot slot leen je de Arduino van je buurmens, kijkt met `list` aan welke poortnaam die Arduino hangt en voert een scan uit op die Arduino. Je ziet dat het lampje van de Arduino van je buur gaat branden en niet die van jou. 
-    === "code"
-        <pre><code>(ecpc) > diode scan <button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')">{{ enter }}</button><button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="diode scan_no device">errorUsage: diode [OPTIONS] DEVICE
-        Try 'diode --help' for help.
-        Error: Missing argument 'DEVICE'.</span>
-        </code></pre>
-    === "check"
-        **Checkpunten:**
-
-        - [ ] De gebruiker moet een poortnaam meegeven.
-        - [ ] De gekozen device wordt ook daadwerkelijk gebruikt in het model en de controller.
-        - [ ] Als géén poortnaam wordt opgegeven, krijgt de gebruiker een foutmelding.
-
-        **Projecttraject:**
-
-        - [x] Pythondaq: commando's
-        - [x] Pythondaq: `scan`
-        - [x] Pythondaq: herhaalmetingen
-        - [x] Pythondaq: `list`
-        - [x] Pythondaq: choose device
-        - [ ] Pythondaq: `info`
         - [ ] Pythondaq: Helpteksten
         - [ ] Pythondaq: Grafiek
 
@@ -954,10 +927,38 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: `scan`
         - [x] Pythondaq: herhaalmetingen
         - [x] Pythondaq: `list`
-        - [x] Pythondaq: choose device
         - [x] Pythondaq: `info`
+        - [ ] Pythondaq: choose device
         - [ ] Pythondaq: Helpteksten
         - [ ] Pythondaq: Grafiek
+
+!!! opdracht-inlever "Pythondaq: choose device"
+    === "opdracht"
+        Nadat je met het subcommando `list` een lijst van aangesloten instrumenten hebt opgevraagd en met het subcommando `info` erachter bent gekomen wat de naam is van de poort waar de Arduino aanhangt. Geef je vervolgens deze poortnaam mee bij het subcommando `scan` om een meting op de (juiste) Arduino uit te voeren. Daarna test je het subcommando `scan` door géén poortnaam mee te geven, je ziet een foutmelding verschijnen. Tot slot leen je de Arduino van je buurmens, kijkt met `list` en `info` aan welke poortnaam die Arduino hangt en voert een scan uit op die Arduino. Je ziet dat het lampje van de Arduino van je buur gaat branden en niet die van jou. 
+    === "code"
+        <pre><code>(ecpc) > diode scan <button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')">{{ enter }}</button><button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode scan_no device">errorUsage: diode [OPTIONS] DEVICE
+        Try 'diode --help' for help.
+        Error: Missing argument 'DEVICE'.</span>
+        </code></pre>
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De gebruiker moet een poortnaam meegeven.
+        - [ ] De gekozen device wordt ook daadwerkelijk gebruikt in het model en de controller.
+        - [ ] Als géén poortnaam wordt opgegeven, krijgt de gebruiker een foutmelding.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: `list`
+        - [x] Pythondaq: `info`
+        - [x] Pythondaq: choose device
+        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: Grafiek
+
 
 
 !!! opdracht-inlever "Pythondaq: Helpteksten"
@@ -979,8 +980,8 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: `scan`
         - [x] Pythondaq: herhaalmetingen
         - [x] Pythondaq: `list`
-        - [x] Pythondaq: choose device
         - [x] Pythondaq: `info`
+        - [x] Pythondaq: choose device
         - [x] Pythondaq: Helpteksten
         - [ ] Pythondaq: Grafiek
 
@@ -1002,8 +1003,8 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: `scan`
         - [x] Pythondaq: herhaalmetingen
         - [x] Pythondaq: `list`
-        - [x] Pythondaq: choose device
         - [x] Pythondaq: `info`
+        - [x] Pythondaq: choose device
         - [x] Pythondaq: Helpteksten
         - [x] Pythondaq: Grafiek
 
