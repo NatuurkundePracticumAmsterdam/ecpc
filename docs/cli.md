@@ -795,7 +795,7 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
         - [ ] Pythondaq: `list`
         - [ ] Pythondaq: `info`
         - [ ] Pythondaq: choose device
-        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: `--help`
         - [ ] Pythondaq: Grafiek
     
 
@@ -836,7 +836,7 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
         - [ ] Pythondaq: `list`
         - [ ] Pythondaq: `info`
         - [ ] Pythondaq: choose device
-        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: `--help`
         - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
@@ -865,7 +865,7 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
         - [ ] Pythondaq: `list`
         - [ ] Pythondaq: `info`
         - [ ] Pythondaq: choose device
-        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: `--help`
         - [ ] Pythondaq: Grafiek
 
 ### Het meetinstrument kiezen
@@ -894,7 +894,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: `list`
         - [ ] Pythondaq: `info`
         - [ ] Pythondaq: choose device
-        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: `--help`
         - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: `info`"
@@ -929,7 +929,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: `list`
         - [x] Pythondaq: `info`
         - [ ] Pythondaq: choose device
-        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: `--help`
         - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: choose device"
@@ -956,18 +956,34 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: `list`
         - [x] Pythondaq: `info`
         - [x] Pythondaq: choose device
-        - [ ] Pythondaq: Helpteksten
+        - [ ] Pythondaq: `--help`
         - [ ] Pythondaq: Grafiek
 
 
 
-!!! opdracht-inlever "Pythondaq: Helpteksten"
+!!! opdracht-inlever "Pythondaq: `--help`"
     Loop al je commando's nog eens na en zorg ervoor dat er duidelijke helpteksten aanwezig zijn. Een nieuwe gebruiker moet met deze informatie met jouw command-line interface uit de voeten kunnen.
 
-!!! opdracht-inlever "Pythondaq: Helpteksten"
+!!! opdracht-inlever "Pythondaq: `--help`"
     === "opdracht"
         Je gaat de applicatie testen vanuit de ogen van een nieuwe gebruiker. Je typt `diode --help` en bekijkt de helptekst. Je ziet dat er subcommando's zijn. Met `subcommando --help` test je de helpteksten een voor een uit. Ook bekijk je de helpteksten van argumenten en opties. De helpteksten stellen je in staat om de applicatie te begrijpen en te bedienen
+    === "code"
+        **Pseudo-code**
+        ```
+        """Summary containing ARGUMENTs.
 
+        ARGUMENT description of the argument.
+        """
+        ```
+        **Testcode**
+        <pre><code>(ecpc) > diode --help <button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')">{{ enter }}</button><button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode --help">Usage: diode [OPTIONS] COMMAND [ARGS] ...
+            Options: 
+                --help Show this message and exit.
+            Commands:
+                Subcommand Summary containing ARGUMENTs.
+        </span>
+        </code></pre>
     === "check"
         **Checkpunten:**
 
@@ -983,7 +999,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: `list`
         - [x] Pythondaq: `info`
         - [x] Pythondaq: choose device
-        - [x] Pythondaq: Helpteksten
+        - [x] Pythondaq: `--help`
         - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: Grafiek"
@@ -1006,7 +1022,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: `list`
         - [x] Pythondaq: `info`
         - [x] Pythondaq: choose device
-        - [x] Pythondaq: Helpteksten
+        - [x] Pythondaq: `--help`
         - [x] Pythondaq: Grafiek
 
 ???+ opdracht-meer "Pythondaq: `list --search`"
