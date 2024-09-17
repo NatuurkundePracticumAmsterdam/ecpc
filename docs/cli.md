@@ -873,9 +873,6 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
 We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan heeft toegekend. Helaas kan &mdash; ook afhankelijk van het besturingssysteem &mdash; die naam veranderen als we de Arduino in een andere poort van onze computer steken of soms zelfs als we een andere Arduino op dezelfde poort koppelen. Met het commando `list` laten we alle apparaten zien die gevonden worden door de VISA drivers.
 
 !!! opdracht-inlever "Pythondaq: `list`"
-    Schrijf het commando `list` zodat het een lijst geeft van de aangesloten instrumenten &mdash; zoals we in het vorige hoofdstuk al eens gedaan hebben.
-
-!!! opdracht-inlever "Pythondaq: `list`"
     === "opdracht"
         Met het subcommando `list` wordt een lijst gegeven van aangesloten instrumenten.
         
