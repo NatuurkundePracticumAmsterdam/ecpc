@@ -898,9 +898,6 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: choose device"
-    Pas het commando `scan` aan zodat je de poortnaam van een device kunt meegeven. Zorg dat het gekozen device ook daadwerkelijk wordt gebruikt in het model en de controller. Als je géén poortnaam opgeeft, geef dan een foutmelding.
-
-!!! opdracht-inlever "Pythondaq: choose device"
     === "opdracht"
         Nadat je met het subcommando `list` een lijst van aangesloten instrumenten hebt opgevraagd weet je wat de naam is van de poort waar de Arduino aanhangt. Deze poortnaam geef je vervolgens mee bij het subcommando `scan` om een meting op de (juiste) Arduino uit te voeren. Daarna test je het subcommando `scan` door géén poortnaam mee te geven, je ziet een foutmelding verschijnen. Tot slot leen je de Arduino van je buurmens, kijkt met `list` aan welke poortnaam die Arduino hangt en voert een scan uit op die Arduino. Je ziet dat het lampje van de Arduino van je buur gaat branden en niet die van jou. 
     === "code"
