@@ -925,9 +925,6 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: `info`"
-    Maak een commando `info` waarmee je de identificatiestring[^identificatie] van een opgegeven instrument opvraagt en weergeeft. Je kunt het instrument met een optie of argument meegeven.
-
-!!! opdracht-inlever "Pythondaq: `info`"
     === "opdracht"
         Nadat je met het subcommando `list` een lijst hebt van aangsloten devices wil je weten of de Arduino aan een bepaalde poortnaam is gekoppeld.Je voert het subcommando `info DEVICE` uit waarna de identificatiestring van het instrument wordt geprint.
 
