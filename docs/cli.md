@@ -927,22 +927,28 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 !!! opdracht-inlever "Pythondaq: `info`"
     Maak een commando `info` waarmee je de identificatiestring[^identificatie] van een opgegeven instrument opvraagt en weergeeft. Je kunt het instrument met een optie of argument meegeven.
 
-    [^identificatie]: De identificatiestring van onze Arduino was `Arduino VISA firmware v1.0.0`. Je moet natuurlijk niet letterlijk deze string copy/pasten, maar de identificatie opvragen van het instrument. Welk firmwarecommando moest je daarvoor ook alweer gebruiken?
-
 !!! opdracht-inlever "Pythondaq: `info`"
     === "opdracht"
-        We willen nu de identificatiestring[^identificatie] van een opgegeven instrument op kunnen vragen en weergeven.
+        Nadat je met het subcommando `list` een lijst hebt van aangsloten devices wil je weten of de Arduino aan een bepaalde poortnaam is gekoppeld.Je voert het subcommando `info DEVICE` uit waarna de identificatiestring van het instrument wordt geprint.
+
+        !!! info "identificatiestring"
+            De identificatiestring van onze Arduino was `Arduino VISA firmware v1.0.0`. Je moet natuurlijk niet letterlijk deze string copy/pasten, maar de identificatie opvragen van het instrument. Welk firmwarecommando moest je daarvoor ook alweer gebruiken?
         
     === "code"
-        Bijvoorbeeld:
-        <pre><code>(ecpc) > diode info ASRL3::INSTR <button type="button" name="diode info ASRL3::INSTR" onclick="runScript('diode info ASRL3::INSTR')">{{ enter }}</button><button type="button" name="diode info ASRL3::INSTR" onclick="runScript('diode info ASRL3::INSTR')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="diode info ASRL3::INSTR">Arduino VISA firmware v1.0.0</span>
+        **Pseudo-code**
+        ```py
+        # subcommando info with device
+            # print identificationstring of device
+        ```
+        **Testcode**
+        <pre><code>(ecpc) > diode info ASRL28::INSTR <button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')">{{ enter }}</button><button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode info ASRL28::INSTR">Arduino VISA firmware v1.0.0</span>
         </code></pre>
 
     === "check"
         **Checkpunten:**
 
-        - [ ] De identificatiestring is met `diode info ...` op te vragen.
+        - [ ] De identificatiestring is met `diode info DEVICE` op te vragen.
         - [ ] De string is niet direct gecopypaste, maar wordt daadwerkelijk opgevraagd.
 
         **Projecttraject:**
