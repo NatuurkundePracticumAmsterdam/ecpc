@@ -960,10 +960,6 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [ ] Pythondaq: Grafiek
 
 
-
-!!! opdracht-inlever "Pythondaq: `--help`"
-    Loop al je commando's nog eens na en zorg ervoor dat er duidelijke helpteksten aanwezig zijn. Een nieuwe gebruiker moet met deze informatie met jouw command-line interface uit de voeten kunnen.
-
 !!! opdracht-inlever "Pythondaq: `--help`"
     === "opdracht"
         Je gaat de applicatie testen vanuit de ogen van een nieuwe gebruiker. Je typt `diode --help` en bekijkt de helptekst. Je ziet dat er subcommando's zijn. Met `subcommando --help` test je de helpteksten een voor een uit. Ook bekijk je de helpteksten van argumenten en opties. De helpteksten stellen je in staat om de applicatie te begrijpen en te bedienen
