@@ -468,17 +468,6 @@ if __name__ == "__main__":
 ```
 In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeurig `#!py cmd_group()` genoemd hebben en die we bovenaan definiëren. In tegenstelling tot het {{file}}`hello.py`-script doet deze functie helemaal niets (`#!py pass`). We vertellen aan click dat we een groep van commando's aan gaan maken met de `#!py @click.group()`-decorator in regel 3. Vervolgens gaan we commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` &mdash; zie regels 7 en 12. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 7 en 9 maken samen het commando `install`. Verder werkt alles hetzelfde. Dus een argument toevoegen &mdash; zoals in regel 8 &mdash; is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
 
-<div id="warn:cmd_name"></div>
-!!! warning
-    Omdat de naam van een subcommando gelijk is aan de functienaam kan dat voor problemen zorgen wanneer je gereserveerde namen van python wilt gebruiken zoals: `#!py import`, `#!py return`, `#!py lambda`. Of wanneer je de naam van het subcommando graag hetzelfde wilt hebben als een ander pythonfunctie zoals `#!py sin` of `#!py list`.
-    Een oplossing is om de functienaam aan te passen en de subcommando naam expliciet aan click mee te geven bij `command`:
-    ``` py
-    @cmd_group.command("import")
-    @click.argument("package")
-    def import_package(package):
-        print(f"import {package}...")
-    ```
-    We hebben nu een commando `import` aangemaakt &mdash; _niet_ een commando `import_package`.
 
 !!! opdracht-basis "Fake conda"
     === "opdracht"
@@ -770,19 +759,44 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
 
 !!! opdracht-inlever "Pythondaq: commando's"
     === "opdracht"
-        1. Maak een nieuw bestand {{new_file}}`src/pythondaq/cli.py`.
-        1. Maak een `#!py @click.group()` aan en voeg de subcommando's `list` en `scan` daaraan toe. Laat de commando's voorlopig alleen een willekeurige korte tekst printen; ze hoeven nu nog niet echt iets te doen. Merk op dat `#!py list()` een Pythonfunctie is, dus daar moet je misschien nog iets mee.[^cmd_name]
+        Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand {{new_file}}`src/pythondaq/cli.py` een opzetje maken waarin je stap voor stap functionaliteit aan toevoegd. De oude {{file}}`view.py` maakte eerst een lijst van aangesloten apparaten en daarna werd een scan uitgevoerd. Daarom zet je in {{file}}`cli.py` de subcommando's `list` en `scan`. Je test de subcommando's en je ziet dat ze werken omdat ze een stukje tekst printen. 
+
+        <div id="warn:cmd_name"></div>
+        !!! warning
+            Omdat de naam van een subcommando gelijk is aan de functienaam kan dat voor problemen zorgen wanneer je gereserveerde namen van python wilt gebruiken zoals: `#!py import`, `#!py return`, `#!py lambda`. Of wanneer je de naam van het subcommando graag hetzelfde wilt hebben als een ander pythonfunctie zoals `#!py sin` of `#!py list`.
+            Een oplossing is om de functienaam aan te passen en de subcommando naam expliciet aan click mee te geven bij `command`:
+            ``` py
+            @cmd_group.command("import")
+            @click.argument("package")
+            def import_package(package):
+                print(f"import {package}...")
+            ```
+            We hebben nu een commando `import` aangemaakt &mdash; _niet_ een commando `import_package`.
         
     === "code"
+        **Pseudo-code**
+        ```
+        # subcommando list
+            # print Work in progress, list devices
+        # subcommando scan
+            # print Work in progress, scan LED
+        ```
+        **Testcode**
         <pre><code>(ecpc) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="diode list">List, dit moet ik later nog afmaken.</span>
+        <span class="invisible" name="diode list">Work in progress, list devices </span>
         </code></pre>
+
+        <pre><code>(ecpc) > diode scan <button type="button" name="diode scan" onclick="runScript('diode scan')">{{ enter }}</button><button type="button" name="diode scan" onclick="runScript('diode scan')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode scan">Work in progress, scan LED</span>
+        </code></pre>
+        
 
     === "check"
         **Checkpunten:**
 
         - [ ] De applicatie is aan te roepen met `diode`.
-        - [ ] De subcommando's `list` en `scan` verwijzen naar de juiste functies.
+        - [ ] Het subcommando `list` print een stukje tekst.
+        - [ ] Het subcommando `scan` print een ander stukje tekst.
 
         **Projecttraject:**
 
@@ -795,7 +809,6 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
         - [ ] Pythondaq: Helpteksten
         - [ ] Pythondaq: Grafiek
     
-[^cmd_name]: Zie ook de waarschuwing op [warn:cmd_name](#warn:cmd_name)
 
 
 ### Het uitvoeren van een meetserie
