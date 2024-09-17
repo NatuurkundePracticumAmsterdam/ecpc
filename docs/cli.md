@@ -966,13 +966,14 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
 !!! opdracht-inlever "Pythondaq: Helpteksten"
     === "opdracht"
-        Een nieuwe gebruiker moet ook jouw command-line interface kunnen gebruiken, dus voeg duidelijke helpteksten toe aan je applicatie.
+        Je gaat de applicatie testen vanuit de ogen van een nieuwe gebruiker. Je typt `diode --help` en bekijkt de helptekst. Je ziet dat er subcommando's zijn. Met `subcommando --help` test je de helpteksten een voor een uit. Ook bekijk je de helpteksten van argumenten en opties. De helpteksten stellen je in staat om de applicatie te begrijpen en te bedienen
 
     === "check"
         **Checkpunten:**
 
+        - [ ] De informatie in de helpteksten is voldoende om de applicatie te begrijpen en te bedienen.
         - [ ] `diode --help` vertelt duidelijk welke subcommando's aanwezig zijn en wat ze doen.
-        - [ ] Bij de subcommando's, bijvoorbeeld `diode list --help`, is het duidelijk welke opties en argumenten er zijn, wat de standaardwaarden zijn en wat ze doen.
+        - [ ] Bij alle subcommando's, is het duidelijk welke opties en argumenten er zijn, wat de standaardwaarden zijn en wat ze doen.
 
         **Projecttraject:**
 
