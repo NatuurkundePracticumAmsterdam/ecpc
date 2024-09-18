@@ -196,12 +196,6 @@ In de volgende opdrachten ga je zelf de hele applicatie opbouwen, zodat je preci
 Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets zijn bijvoorbeeld een menubalk, knoppenbalk of statusbalk.
 
 !!! opdracht-basis "Central widget toevoegen"
-
-    1. Breid {{file}}`example-gui.py` uit met een centrale widget.
-    1. Geef aan dat dit het centrale widget gaat zijn ([regels 11-12](#code:layout)).
-    1. Test of {{file}}`example-gui.py` nog steeds werkt.
-
-!!! opdracht-basis "Central widget toevoegen"
     === "opdracht"
         Nu de parent class wordt geïnitialiseerd kan je een widget aanmaken met `#!py QtWidgets.QWidget()`, je noemt deze widget `#!py central_widget`. En stelt deze in als centrale widget met de method `#!py setCentralWidget()` van de class `#!py QtWidgets.QMainWindow`. Je runt {{file}}`example-gui.py` en ziet dat er nog steeds een leeg venster wordt gestart. 
 
