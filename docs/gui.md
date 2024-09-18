@@ -237,13 +237,6 @@ Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets 
 
 Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen netjes uitgelijnd worden. We willen het tekstvenster en de knoppen onder elkaar zetten en maken dus eerst een verticale layout. Aan die layout voegen we een textbox toe.
 
-!!! opdracht-basis "Verticale layout toevoegen"
-
-    1. Breid {{file}}`example-gui.py` uit met een verticale layout ([regel 15](#code:layout)).
-    1. Maak een textbox ([regel 16](#code:layout)).
-    1. Voeg de textbox toe aan de verticale layout ([regel 17](#code:layout)).
-    1. Test of {{file}}`example-gui.py` nog steeds werkt en of je tekst kan schrijven in de textbox.
-
 !!! opdracht-basis "textbox toevoegen"
     === "opdracht"
         Omdat je de textbox en de knoppen onder elkaar wilt uitlijnen voeg je een verticale layout toe. Door de `#!py central_widget` mee te geven tijdens het aanmaken van de verticale layout is de layout automatische onderdeel van de central widget en zal deze in het venster verschijnen. Je maakt een textbox aan en voegt deze toe aan de verticale layout. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen, je typt een vrolijke tekst en sluit het venster. 
