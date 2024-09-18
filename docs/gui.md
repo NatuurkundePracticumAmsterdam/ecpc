@@ -277,10 +277,8 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
     === "check"
         **Checkpunten:**
 
-        - [ ] Het juiste conda environment is geactiveerd.
-        - [ ] Er is een central widget gemaakt met ``#!py QtWidgets.QWidget()`.
-        - [ ] De widget wordt als centrale widget ingesteld met `#!py setCentralWidget()`.
-        - [ ] De method `#!py setCentralWidget()` is afkomstig van de class `#!py QtWidgets.QMainWindow` welke geïnitialiseerd is, de method wordt daarom met `#!py self.setCentralWidget()` aangeroepen.
+        - [ ] Bij het aanmaken van de verticale layout is de `#!py central_widget` als parameter meegegeven.
+        - [ ] De tekstbox (`#!py QTextEdit) is toegevoegd aan de verticale layout.
         - [ ] Er verschijnt een venster met textbox waar je in kan typen {{feesttoeter}}.
 
         **Projecttraject:**
