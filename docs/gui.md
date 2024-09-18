@@ -78,6 +78,12 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
         **Projecttraject:**
 
         - [x] Minimale GUI
+        - [ ] Parent class initialiseren
+        - [ ] Central widget toevoegen    
+        - [ ] textbox toevoegen
+        - [ ] knoppen toevoegen
+        - [ ] Slots en signals toevoegen
+        - [ ] 'Hello world' en Quit knoppen toevoegen
     
 
 Elke keer als je een nieuwe Qt applicatie gaat schrijven kun je bovenstaand stukje code copy/pasten. Als we dit programma draaien hebben we echter een klein leeg venster op het scherm, zonder elementen. Die elementen kunnen we op twee manieren toevoegen: door ze te programmeren of door het gebruik van een visueel ontwerp met Qt Designer. Beide zullen in de volgende secties toegelicht worden.
@@ -192,6 +198,11 @@ In de volgende opdrachten ga je zelf de hele applicatie opbouwen, zodat je preci
 
         - [x] Minimale GUI
         - [x] Parent class initialiseren
+        - [ ] Central widget toevoegen    
+        - [ ] textbox toevoegen
+        - [ ] knoppen toevoegen
+        - [ ] Slots en signals toevoegen
+        - [ ] 'Hello world' en Quit knoppen toevoegen
     
 Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets zijn bijvoorbeeld een menubalk, knoppenbalk of statusbalk.
 
@@ -234,6 +245,10 @@ Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets 
         - [x] Minimale GUI
         - [x] Parent class initialiseren
         - [x] Central widget toevoegen    
+        - [ ] textbox toevoegen
+        - [ ] knoppen toevoegen
+        - [ ] Slots en signals toevoegen
+        - [ ] 'Hello world' en Quit knoppen toevoegen    
 
 Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen netjes uitgelijnd worden. We willen het tekstvenster en de knoppen onder elkaar zetten en maken dus eerst een verticale layout. Aan die layout voegen we een textbox toe.
 
@@ -281,6 +296,9 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
         - [x] Parent class initialiseren
         - [x] Central widget toevoegen    
         - [x] textbox toevoegen
+        - [ ] knoppen toevoegen
+        - [ ] Slots en signals toevoegen
+        - [ ] 'Hello world' en Quit knoppen toevoegen
     
 De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we ook toe aan de `#!py vbox`. En we maken de layout compleet door knoppen toe te voegen aan de `#!py hbox`.
 
@@ -339,6 +357,8 @@ De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we 
         - [x] Central widget toevoegen    
         - [x] textbox toevoegen
         - [x] knoppen toevoegen
+        - [ ] Slots en signals toevoegen
+        - [ ] 'Hello world' en Quit knoppen toevoegen
 
 !!! info
     Widgets zoals knoppen voeg je toe met `#!py addWidget()`. Layouts voeg je toe aan andere layouts met `#!py addLayout()`.
@@ -412,6 +432,7 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
         - [x] textbox toevoegen
         - [x] knoppen toevoegen
         - [x] Slots en signals toevoegen
+        - [ ] 'Hello world' en Quit knoppen toevoegen
 
 Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst in de [Qt for Python-documentatie](https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes). Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk naar Python. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies `CamelCase` namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we `snake_case` gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
 
