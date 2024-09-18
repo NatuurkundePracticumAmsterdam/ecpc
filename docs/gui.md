@@ -293,6 +293,62 @@ De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we 
 
 [^knop-stuk]: Waarom doen de knoppen niets als je er op klikt?
 
+!!! opdracht-basis "Knoppen toevoegen"
+    === "opdracht"
+        Omdat de knoppen naast elkaar moeten komen te staan voeg je een horizontale layout toe aan de verticale layout. Je maakt een `clear button` en een `add button` en voegt deze toe aan de horizontale layout. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen met daaronder twee knoppen, je drukt verwoed op de knoppen maar er gebeurd niets[^knop-stuk]. 
+
+        [^knop-stuk]: Waarom doen de knoppen niets als je er op klikt?
+    === "code"
+        **Pseudo-code**
+        ``` py hl_lines="15-21"
+        import sys
+
+        from PySide6 import QtWidgets
+
+        # create subclass of QtWidgets.QMainWindow
+            # def __init__()
+                # initialise the parent class Qtwidgets.QMainWindow
+                # create central widget with QtWidgets.QWidget()
+                # set central widget
+
+                # create vertical layout as part of central widget
+                # create textbox
+                # add textbox to vertical layout
+
+                # create horizontal layout
+                # add horizontal layout to vertical layout
+
+                # create clear_button
+                # add clear button to horizontal layout
+                # create add_text_button
+                # add add_text_button to horizontal layout
+
+        def main():
+            # create instance of QtWidgets.QApplication with arguments from sys.argv
+            # create instance of subclass
+            # call show method of subclass
+            # get exit code with exec method of QApplication instance and give exit code to sys.exit()
+
+        # when run this script:
+            # run main function  
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Er is een horizontale layout aangemaakt ([regel 21](#__codelineno-3-21)).
+        - [ ] De horizontale layout is toegevoegd aan de verticale layout ([regel 22](#__codelineno-3-22)).
+        - [ ] Er is een `clear_button` en `add_text_button` aan gemaakt met daarop de tekst "Clear" en "Add text" respectivelijk ([regels 24 en 26](#__codelineno-3-24)).
+        - [ ] De buttons zijn toegevoegd aan de horizontale layout ([regel 25 en 27](#__codelineno-3-25)).
+        - [ ] Als je op de knoppen drukt gebeurt er niets.
+         
+        **Projecttraject**
+    
+        - [x] Minimale GUI
+        - [x] Parent class initialiseren
+        - [x] Central widget toevoegen    
+        - [x] textbox toevoegen
+        - [x] knoppen toevoegen
+
 !!! info
     Widgets zoals knoppen voeg je toe met `#!py addWidget()`. Layouts voeg je toe aan andere layouts met `#!py addLayout()`.
 
