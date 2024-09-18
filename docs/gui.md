@@ -425,6 +425,40 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
     1. Voeg een derde knop `Hello, world` toe die de tekst _Hello, world_ toevoegt aan het venster.
     1. Zet een hekje voor de `#!py super()`-aanroep of haal de regel weg. Wat gebeurt er als je de code opstart? (Zet de regel weer terug!)
     1. Voeg _onder_ de andere knoppen een `Quit`-knop toe. Als je daar op klikt moet de method `#!py self.close()` aangeroepen worden. Daarmee sluit je het programma af. Denk erom dat als je het `#!py clicked`-signaal verbind met `#!py clicked.connect()` dat je de functie die je meegeeft nog _niet_ moet aanroepen maar alleen moet meegeven zodat die _later_ kan worden aangeroepen. Concreet betekent dit dat je de haakjes weglaat. Zie ook regel 27 en 28 van [bovenstaande code](#code:layout).
+
+!!! opdracht-basis "'Hello world' en Quit knoppen toevoegen"
+    === "opdracht"
+        Nu de minimale GUI werkt wil je meer knoppen toevoegen. Je begint met een knop `Hello, world` die de tekst "Hello, world" aan de textbox toevoegd. Je runt {{file}}`example-gui.py` en ziet dat de knop werkt. Daarna voeg je een `Quit`-knop toe die _onder_ de andere knoppen staat. Het signaal van deze knop verbind je met de method `#!py self.close()` zodat de applicatie wordt afgesloten. Je runt {{file}}`example-gui.py` drukt nog een paar keer op de `Hello, world`-knop en daarna op de knop  `Quit`, het venster is gesloten de opdracht is voltooid {{feesttoeter}}.
+    === "code"
+        **Pseudo-code**
+        ``` py
+        # create hello_world button and add to layout
+        # create Quit button and add to layout
+
+        # connect hello_world button to add_hello_world_clicked method
+        # connect Quit button to self.close()
+        
+        # decorate with Slot
+        # def add_hello_world_clicked
+            # add Hello World to textbox        
+        ```
+    === "check"
+        **Checkpunten:**
+        
+        - [ ] De 'Add Text' en 'Clear' knoppen werken nog zoals verwacht.
+        - [ ] Druk op de `Hello World` knop voegt de text "Hello World" toe aan de textbox.
+        - [ ] De `Quit` knop staat _ onder_ de andere knoppen.
+        - [ ] Druk op de `Quit` knop sluit het venster.
+
+        **Projecttraject**
+    
+        - [x] Minimale GUI
+        - [x] Parent class initialiseren
+        - [x] Central widget toevoegen    
+        - [x] textbox toevoegen
+        - [x] knoppen toevoegen
+        - [x] Slots en signals toevoegen
+        - [x] 'Hello world' en Quit knoppen toevoegen
     
 
 ### De interface ontwerpen met Qt Designer
