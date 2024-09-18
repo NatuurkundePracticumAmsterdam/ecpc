@@ -163,7 +163,7 @@ In de volgende opdrachten ga je zelf de hele applicatie opbouwen, zodat je preci
 
     === "code"
         **Pseudo-code**
-        ``` py
+        ``` py hl_lines="6 7"
         import sys
 
         from PySide6 import QtWidgets
@@ -201,7 +201,7 @@ Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets 
 
     === "code"
         **Pseudo-code**
-        ``` py
+        ``` py hl_lines="8 9"
         import sys
 
         from PySide6 import QtWidgets
@@ -243,7 +243,7 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
 
     === "code"
         **Pseudo-code**
-        ``` py
+        ``` py hl_lines="12 13"
         import sys
 
         from PySide6 import QtWidgets
