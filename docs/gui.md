@@ -476,7 +476,7 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 
 ### De interface ontwerpen met Qt Designer
 
-!!! info
+!!! info "Designer opstarten"
     Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op vanuit een terminal. Activeer je `test-qt` conda environment als dat nog nodig is en type `pyside6-designer`.
 
 Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Je bewaart dat als een `.ui`-bestand. Vervolgens vertaal je het `.ui`-bestand naar een Pythonbestand dat je importeert in je eigen programma. De volledige class van het [vorige voorbeeld](#code:layout) kan dan vervangen worden door:
