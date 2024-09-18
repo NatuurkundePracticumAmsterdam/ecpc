@@ -350,6 +350,9 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
 !!! opdracht-basis "Slots en signals toevoegen"
     === "opdracht"
         Je gaat functionaliteit aan de knoppen verbinden. Je verbind de `clear_button` aan de `clear()` method van `textedit`. Je maakt een eigen `Slot` met de naam `add_text_button_clicked` die een tekst aan de textbox toegevoegd. Je vind de tekst "You clicked me." maar suf en bedenkt zelf een andere leuke tekst. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen met daaronder twee knoppen. Je drukt op "Add text" en er verschijnt tekst in de textbox, daarna druk je op "Clear" en de tekst verdwijnt.
+
+        !!! info () ontbreken bij `clear` en `add_text_button_clicked`
+            Bij het verbinden van het `#!py clicked`-signaal met `#!py clicked.connect()` geef je aan connect de methods `clear` en `add_text_button_clicked` mee _zonder_ deze aan te roepen (dat gebeurd later). Concreet betekent dit dat je de haakjes weglaat ([regel 30 en 31](#__codelineno-3-30)).
     === "code"
         **Pseudo-code**
         ``` py hl_lines="23 24 26 27 28"
