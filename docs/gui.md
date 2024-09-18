@@ -48,11 +48,6 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
 
 <div id="opd:minimal-gui"></div>
 !!! opdracht-basis "Minimale GUI"
-
-    1. Maak een nieuw bestand {{file}}`example-gui.py`.
-    1. Neem de pythoncode van de minimale Qt-applicatie over en test het in de `test-qt` conda environment.
-
-!!! opdracht-basis "Minimale GUI"
     === "opdracht"
         Je gaat de gegeven Python code voor een een minimale GUI testen. In de map {{folder}}`ECPC` maak je een {{new_file}}`example-gui.py` aan en zet daarin de Python code. Je activeert de `test-qt` conda environment en runt het bestand {{new_file}}`example-gui.py`. Er verschijnt een leeg venster in beeld met als venstertitel `python` en drie knoppen. Een streepje (minimize), een vierkant (maximize) en een kruis (close). Je drukt op het kruisje en het venster sluit. 
     === "code"
