@@ -354,6 +354,69 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
     1. Definieer een `#!py add_button_clicked()` functie ([regels 30-32](#code:layout)) en verbind deze aan de `Add text`-knop ([regel 28](#code:layout)).
     1. Test of {{file}}`example-gui.py` nog steeds werkt en of de knoppen doen wat je verwacht.
     
+!!! opdracht-basis "Slots en signals toevoegen"
+    === "opdracht"
+        Je gaat functionaliteit aan de knoppen verbinden. Je verbind de `clear_button` aan de `clear()` method van `textedit`. Je maakt een eigen `Slot` met de naam `add_text_button_clicked` die een tekst aan de textbox toegevoegd. Je vind de tekst "You clicked me." maar suf en bedenkt zelf een andere leuke tekst. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen met daaronder twee knoppen. Je drukt op "Add text" en er verschijnt tekst in de textbox, daarna druk je op "Clear" en de tekst verdwijnt.
+    === "code"
+        **Pseudo-code**
+        ``` py hl_lines="23 24 26 27 28"
+        import sys
+
+        from PySide6 import QtWidgets
+
+        # create subclass of QtWidgets.QMainWindow
+            # def __init__()
+                # initialise the parent class Qtwidgets.QMainWindow
+                # create central widget with QtWidgets.QWidget()
+                # set central widget
+
+                # create vertical layout as part of central widget
+                # create textbox
+                # add textbox to vertical layout
+
+                # create horizontal layout
+                # add horizontal layout to vertical layout
+
+                # create clear_button
+                # add clear button to horizontal layout
+                # create add_text_button
+                # add add_text_button to horizontal layout
+
+                # connect clear_button to clear method of textedit
+                # connect add_text_button to add_text_button_clicked
+
+            # decorate method with Slot function
+            # def add_text_button_clicked
+                # add text to textedit
+
+        def main():
+            # create instance of QtWidgets.QApplication with arguments from sys.argv
+            # create instance of subclass
+            # call show method of subclass
+            # get exit code with exec method of QApplication instance and give exit code to sys.exit()
+
+        # when run this script:
+            # run main function  
+        ```
+    === "check"
+        **Checkpunten:**
+        
+        - [ ] Het `clicked` signaal van `clear_button` is met `connect` verbonden met de `clear()`method van `textedit` ([regel 30](#__codelineno-3-30)). 
+        - [ ] Het `clicked signaal van `add_text_button` is met `connect` verbonden met een eigen method `add_text_button_clicked` ([regel 31](#__codelineno-3-31)). 
+        - [ ] De method `add_text_button_clicked` is voorzien van een decorator `@Slot()` met Slot met een hoofdletter en ronde haakjes erachter omdat Slot een functie is ([regel 33](#__codelineno-3-33)). 
+        - [ ] De method `add_text_button_clicked` voegt met `append` een tekst toe aan `textedit` ([regel 35](#__codelineno-3-35)). 
+        - [ ] Druk op de knop "Add text" zorgt voor het verschijnen van tekst in de textbox.
+        - [ ] Druk op de knop "Clear" zorgt ervoor dat alle tekst in de textbox verdwijnt.
+
+        **Projecttraject**
+    
+        - [x] Minimale GUI
+        - [x] Parent class initialiseren
+        - [x] Central widget toevoegen    
+        - [x] textbox toevoegen
+        - [x] knoppen toevoegen
+        - [x] Slots en signals toevoegen
+
 Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst in de [Qt for Python-documentatie](https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes). Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk naar Python. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies `CamelCase` namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we `snake_case` gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
 
 ???+ opdracht-meer "Volgorde layout aanpassen"
