@@ -158,12 +158,6 @@ De oplossing is gelukkig vrij eenvoudig: we kunnen de `__init__()` van de parent
 In de volgende opdrachten ga je zelf de hele applicatie opbouwen, zodat je precies weet wat in de code hierboven staat. 
 
 !!! opdracht-basis "Parent class initialiseren"
-
-    1. Breid het script {{file}}`example-gui.py` van [_opdracht minimale GUI_](#opd:minimal-gui) uit met een `#!py __init__`-method. Deze hoeft verder nog niets te doen.
-    1. Zorg dat de parent class volledig geïnitialiseerd wordt.
-    1. Test of {{file}}`example-gui.py` nog steeds werkt.
-
-!!! opdracht-basis "Parent class initialiseren"
     === "opdracht"
         Je hebt geleerd hoe je widgets aan de applicatie kunt toevoegen. Omdat het veel stappen in een keer zijn ga je de instructies stap voor stap volgen en steeds tussendoor testen. Je begint met het maken van een `#!py __init__()` method voor de `#!py class UserInterface` en zorgt ervoor dat de parent class (`#!py QtWidgets.QMainWindow`) volledig wordt geïnitialiseerd. Je runt {{file}}`example-gui.py` en ziet dat er nog steeds een leeg venster wordt gestart. 
 
