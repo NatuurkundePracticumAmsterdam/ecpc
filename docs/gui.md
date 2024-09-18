@@ -346,14 +346,7 @@ De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we 
 De horizontale layout (voor de knoppen) moeten we expliciet toevoegen aan de verticale layout zodat hij netjes verticaal onder het tekstvenster verschijnt. Merk op dat de verticale layout `#!py vbox` _niet_ expliciet wordt toegevoegd (aan de centrale widget). De centrale widget (en _alleen_ de centrale widget) krijgt een layout door bij het aanmaken van de layout de parent `#!py central_widget` op te geven, dus: `#!py QtWidgets.QVBoxLayout(central_widget)`. Alle andere widgets en layouts worden expliciet toegevoegd en daarvoor hoef je dus geen parent op te geven.
 
 Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wordt er een zogeheten _signal_ afgegeven. Die kun je verbinden met een _slot_. Er zijn ook verschillende soorten signalen. Het drukken op een knop zorgt voor een _clicked signal_, het veranderen van een getal in een keuzevenster geeft een _changed signal_. Wij verbinden één knop direct met een al bestaande method van het tekstvenster `#!py clear()` en de andere knop met een eigen method `#!py add_button_clicked()`. De naam is geheel vrij te kiezen, maar boven de functiedefinitie moet je wel de `#!py @Slot()`-decorator gebruiken (voor meer informatie over decorators zie [paragraaf Decorators](vervolg-python.md#decorators)). PySide kan dan net wat efficiënter werken.
-
-!!! opdracht-basis "Slots en signals toevoegen"
-
-    1. Breid {{file}}`example-gui.py` uit met slots en signals.
-    1. Verbind de `Clear`-knop met de clear functie ([regel 27](#code:layout)).
-    1. Definieer een `#!py add_button_clicked()` functie ([regels 30-32](#code:layout)) en verbind deze aan de `Add text`-knop ([regel 28](#code:layout)).
-    1. Test of {{file}}`example-gui.py` nog steeds werkt en of de knoppen doen wat je verwacht.
-    
+   
 !!! opdracht-basis "Slots en signals toevoegen"
     === "opdracht"
         Je gaat functionaliteit aan de knoppen verbinden. Je verbind de `clear_button` aan de `clear()` method van `textedit`. Je maakt een eigen `Slot` met de naam `add_text_button_clicked` die een tekst aan de textbox toegevoegd. Je vind de tekst "You clicked me." maar suf en bedenkt zelf een andere leuke tekst. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen met daaronder twee knoppen. Je drukt op "Add text" en er verschijnt tekst in de textbox, daarna druk je op "Clear" en de tekst verdwijnt.
