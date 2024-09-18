@@ -283,16 +283,6 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
     
 De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we ook toe aan de `#!py vbox`. En we maken de layout compleet door knoppen toe te voegen aan de `#!py hbox`.
 
-!!! opdracht-basis "Horizontale layout toevoegen"
-
-    1. Breid {{file}}`example-gui.py` uit met een horizontale layout ([regel 18](#code:layout)).
-    1. Voeg de horizontale layout toe aan de verticale layout ([regel 19](#code:layout)).
-    1. Maak een clear button en voeg deze toe aan de horizontale layout ([regels 21-22](#code:layout)).
-    1. Maak ook een add button en voeg deze toe aan de horizontale layout ([regel 23-24](#code:layout)).
-    1. Test of {{file}}`example-gui.py` nog steeds werkt.[^knop-stuk]
-
-[^knop-stuk]: Waarom doen de knoppen niets als je er op klikt?
-
 !!! opdracht-basis "Knoppen toevoegen"
     === "opdracht"
         Omdat de knoppen naast elkaar moeten komen te staan voeg je een horizontale layout toe aan de verticale layout. Je maakt een `clear button` en een `add button` en voegt deze toe aan de horizontale layout. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen met daaronder twee knoppen, je drukt verwoed op de knoppen maar er gebeurd niets[^knop-stuk]. 
@@ -340,7 +330,7 @@ De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we 
         - [ ] Er is een `clear_button` en `add_text_button` aan gemaakt met daarop de tekst "Clear" en "Add text" respectivelijk ([regels 24 en 26](#__codelineno-3-24)).
         - [ ] De buttons zijn toegevoegd aan de horizontale layout ([regel 25 en 27](#__codelineno-3-25)).
         - [ ] Als je op de knoppen drukt gebeurt er niets.
-         
+
         **Projecttraject**
     
         - [x] Minimale GUI
