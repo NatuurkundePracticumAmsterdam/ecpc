@@ -20,7 +20,7 @@ Als je een grafische applicatie schrijft roep je functies aan van het besturings
 Een minimale Qt-applicatie ziet er als volgt uit:
 <div id="code:minimal"></div>
 
-``` py
+``` py linenums="1"
 import sys
 
 from PySide6 import QtWidgets
@@ -117,7 +117,7 @@ In de horizontale layout plaatsen we twee `button`s:
 Het stuk programma om bovenstaande layout op te bouwen geven we hieronder weer. We bespreken straks de code regel voor regel.
 <div id="code:layout"></div>
 
-``` py linenums="1" hl_lines="1"
+``` py linenums="4" hl_lines="1"
 from PySide6.QtCore import Slot
 
 
@@ -153,7 +153,7 @@ class UserInterface(QtWidgets.QMainWindow):
 ```
 Allereerst definiëren we een `__init__()`. Helaas gaat dat niet zomaar. We schrijven namelijk _niet_ helemaal zelf een nieuwe class (`#!py class UserInterface`), maar breiden de `#!py QMainWindow`-class uit (`#!py class UserInterface(QtWidgets.QMainWindow)`). Door dat te doen zijn er heel veel methods al voor ons gedefinieerd. Daar hoeven we verder niet over na te denken, onze interface <q>werkt gewoon</q>. Het gaat mis als wij zelf nieuwe methods gaan schrijven die dezelfde naam hebben. Stel dat de _parent class_ `#!py QMainWindow` een method `#!py click_this_button()` heeft. Als onze class _ook_ een method `#!py click_this_button()` heeft, dan zal _die_ worden aangeroepen in plaats van de method uit de parent class. Dat is handig als je de parent method wilt vervangen maar niet zo handig als je de parent method wilt _aanvullen_, zoals nodig is bij `__init__()`. Immers, we willen onze eigen class initialiseren, maar we willen ook dat de parent class volledig wordt geïnitialiseerd.
 
-De oplossing is gelukkig vrij eenvoudig: we kunnen de `__init__()` van de parent class gewoon aanroepen en daarna ons eigen ding doen. De Pythonfunctie `#!py super()` verwijst altijd naar de parent class, dus met `#!py super().__init__()` wordt de parent class volledig geïnitialiseerd. Dat is dus het eerste dat we doen in regel 7. Kijk voor meer informatie over `#!py super().__init__()` in de [paragraaf subclasses](classes.md#subclasses).
+De oplossing is gelukkig vrij eenvoudig: we kunnen de `__init__()` van de parent class gewoon aanroepen en daarna ons eigen ding doen. De Pythonfunctie `#!py super()` verwijst altijd naar de parent class, dus met `#!py super().__init__()` wordt de parent class volledig geïnitialiseerd. Dat is dus het eerste dat we doen in regel 10. Kijk voor meer informatie over `#!py super().__init__()` in de [paragraaf subclasses](classes.md#subclasses).
 
 In de volgende opdrachten ga je zelf de hele applicatie opbouwen, zodat je precies weet wat in de code hierboven staat. 
 
@@ -191,7 +191,7 @@ In de volgende opdrachten ga je zelf de hele applicatie opbouwen, zodat je preci
         **Checkpunten:**
 
         - [ ] Er is een `#!py __init__()` method gemaakt voor de subclass `UserInterface`.
-        - [ ] In de `#!py __init__()` method wordt de parent class geïnitialiseerd ([regel 7](#__codelineno-3-7)).
+        - [ ] In de `#!py __init__()` method wordt de parent class geïnitialiseerd ([regel 10](#__codelineno-3-10)).
         - [ ] Er verschijnt een leeg venster.
 
         **Projecttraject:**
@@ -236,8 +236,8 @@ Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets 
     === "check"
         **Checkpunten:**
 
-        - [ ] Er is een central widget gemaakt met ``#!py QtWidgets.QWidget()` ([regel 11](#__codelineno-3-11)).
-        - [ ] De widget wordt als centrale widget ingesteld met `#!py setCentralWidget()` ([regel 12](#__codelineno-3-12)).
+        - [ ] Er is een central widget gemaakt met ``#!py QtWidgets.QWidget()` ([regel 14](#__codelineno-3-14)).
+        - [ ] De widget wordt als centrale widget ingesteld met `#!py setCentralWidget()` ([regel 15](#__codelineno-3-15)).
         - [ ] De method `#!py setCentralWidget()` is afkomstig van de class `#!py QtWidgets.QMainWindow` welke geïnitialiseerd is, de method wordt daarom met `#!py self.setCentralWidget()` aangeroepen.
         - [ ] Er verschijnt een leeg venster.
 
