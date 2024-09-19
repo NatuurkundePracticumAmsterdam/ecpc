@@ -593,9 +593,6 @@ class UserInterface(QtWidgets.QMainWindow):
 ```
 Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` om te zien wat ze doen. Leeg maken kan met `#!py self.plot_widget.clear()`.
 
-!!! opdracht-inlever "Functieplotter: plot"
-    Schrijf een script en ontwerp een (eenvoudige!) grafische interface waarmee je de functie $\sin(x)$ plot in het domein $(0, 2\pi)$. De <q>applicatie</q> hoeft verder niets te kunnen.
-
 !!! opdracht-inlever "Functionplotter: plot"
     === "opdracht"
         Via GitHub Desktop open je de repository {{github}}`functionplotter` in Visual Studio Code. Je bekijkt de {{file_lines}}`pyproject.toml` en ziet dat het project beheerd wordt met Poetry en dat er een commando is aangemaakt om de applicatie te starten. Je {{lightbulb}} maakt een nieuw conda environment aan met alleen Python daarin, gebruikt `poetry install` om het project te installeren en voert het commando uit om de applicatie te starten. Er verschijnt een scherm met een plot waarin de functie $\sin(x)$ plot in het domein $(0, 2\pi)$ is geplot. Een golfje van trots gaat door je heen en je gaat door naar de volgende opdracht.
