@@ -99,27 +99,27 @@ Je hebt op de middelbare school ongetwijfeld de $I,U$-karakteristiek van een ohm
 Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ anders. Met de schakeling die we hebben gebouwd kunnen we de $I,U$-karakteristiek van een LED bepalen. Voor meer informatie over de fysica achter diodes, zie de [appendix Diodes](diodes.md).
 
 !!! opdracht-basis "I,U-karakteristiek van een LED"
-    <iframe src="https://drive.google.com/file/d/1EJf9-tg_G1O4K9arKVTcKKdD-9TkEuRS/preview?mute=1" width="960" height="512" style="border:none;"></iframe>
+    <iframe src="https://drive.google.com/file/d/1EJf9-tg_G1O4K9arKVTcKKdD-9TkEuRS/preview" width="960" height="512" style="border:none;"></iframe>
     
     Maak een schets van hoe je denkt dat de grafiek van de spanning tegen de stroom van een LED eruit zal zien.
 
 !!! opdracht-basis "Geen stroommeter"
-    <iframe src="https://drive.google.com/file/d/1LOKNShks_flW73ENptugMRjRvHImXTE-/preview?mute=1" width="960" height="512" style="border:none;"></iframe>
+    <iframe src="https://drive.google.com/file/d/1LOKNShks_flW73ENptugMRjRvHImXTE-/preview" width="960" height="512" style="border:none;"></iframe>
     
     Schrijf op hoe je de spanning over de LED en de stroom door de LED berekent in termen van de spanningsmeters U1 en U2 en de bekende weerstand R.
 
 !!! opdracht-basis "Arduino pins"
-    <iframe src="https://drive.google.com/file/d/15TsiefYFf3Id8FxLEJaiFd06ZvuQOfvR/preview?mute=1" width="960" height="512" style="border:none;"></iframe>
+    <iframe src="https://drive.google.com/file/d/15TsiefYFf3Id8FxLEJaiFd06ZvuQOfvR/preview" width="960" height="512" style="border:none;"></iframe>
     
     Kijk aan de onderkant van de Arduino of je de pinnentjes A0, A1, A2 en GND kan vinden.
 
 !!! opdracht-basis "Breadboard"
-    <iframe src="https://drive.google.com/file/d/1GyPcwku2QVBOVQ_hHiG91tQy8QaKybHy/preview?mute=1" width="960" height="512" style="border:none;"></iframe>
+    <iframe src="https://drive.google.com/file/d/1GyPcwku2QVBOVQ_hHiG91tQy8QaKybHy/preview" width="960" height="512" style="border:none;"></iframe>
     
     Kijk terug naar de theoretische schakeling, welke lijnen komen daar overeen met de vier draadjes (rood, blauw, groen, oranje) in de echte schakeling?
 
 !!! opdracht-basis "Channels"
-    <iframe src="https://drive.google.com/file/d/17XfPCQLVJiVJXvfGHpetPzcH05EFzQvf/preview?mute=1" width="960" height="512" style="border:none;"></iframe>
+    <iframe src="https://drive.google.com/file/d/17XfPCQLVJiVJXvfGHpetPzcH05EFzQvf/preview" width="960" height="512" style="border:none;"></iframe>
     
     Bekijk de documentatie over de firmware en schrijf het commando op om de maximale uitvoerspanning op kanaal 0 te zetten. Schrijf daarna de commando's op om de waardes van U1 en U2 uit te lezen.
 
