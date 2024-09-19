@@ -775,10 +775,6 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
     
         - [x] Pythondaq: leeg venster
         - [x] Pythondaq: plot scan
-    
-
-!!! opdracht-inlever "Pythondaq: knoppen"
-    Maak nu in je grafische interface widgets om de start- en stopwaardes, aantal metingen e.d. te kunnen instellen. Maak ook een startknop. Als je op de startknop drukt moet je applicatie een nieuwe meting uitvoeren.
 
 !!! opdracht-inlever "Pythondaq: widgets"
     === "opdracht"
