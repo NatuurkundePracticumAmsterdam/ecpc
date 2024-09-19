@@ -33,8 +33,13 @@ function hoverFunction(id, trigger_bool=true) {
     let elem = document.getElementById(id);
     elem.classList.toggle('highlight_hover');
     
-    let target_elem = document.getElementById(target_id);
-    target_elem.classList.toggle('highlight');
+    if (currentUrl.includes('classes') & id.includes("ext_")) {
+        let target_elem = document.getElementById(target_id);
+        target_elem.classList.toggle('highlight');
+    } else {
+        let elem = document.getElementById(target_id);
+        elem.classList.toggle('highlight_hover');
+    }
     
     // reset idle animation timeout and disable animation on interaction
     start = new Date();
