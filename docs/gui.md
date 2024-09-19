@@ -781,22 +781,6 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
     Maak nu in je grafische interface widgets om de start- en stopwaardes, aantal metingen e.d. te kunnen instellen. Maak ook een startknop. Als je op de startknop drukt moet je applicatie een nieuwe meting uitvoeren.
 
 
-
-### Van script naar applicatie
-
-!!! opdracht-inlever "Pythondaq: app"
-    Het is weer mogelijk om van het script een applicatie te maken die je aan kunt roepen vanaf de command line. Daar moeten we het volgende voor doen:
-
-    1. Voeg een nieuw item toe voor je applicatie in de sectie `[tool.poetry.scripts]` in de {{file}}`pyproject.toml` zoals je dat ook gedaan hebt voor je command-line-applicatie.
-    1. Installeer je package opnieuw met:
-        ``` ps1
-        poetry install
-        ```
-    
-    Test je applicatie.
-
-
-
 ### Bewaren van meetgegevens
 
 Je zou na iedere meting de gegevens automatisch kunnen wegschrijven naar bestanden zonder dat de gebruiker nog iets kan kiezen, maar je kunt ook gebruik maken van een `Save`-knop en dialoogvensters. Je kunt de knop koppelen aan een method `#!py save_data()` en daarin de volgende regel opnemen:
