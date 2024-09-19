@@ -596,6 +596,35 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
 !!! opdracht-inlever "Functieplotter: plot"
     Schrijf een script en ontwerp een (eenvoudige!) grafische interface waarmee je de functie $\sin(x)$ plot in het domein $(0, 2\pi)$. De <q>applicatie</q> hoeft verder niets te kunnen.
 
+!!! opdracht-inlever "Functionplotter: plot"
+    === "opdracht"
+        Via GitHub Desktop open je de repository {{github}}`functionplotter` in Visual Studio Code. Je bekijkt de {{file_lines}}`pyproject.toml` en ziet dat het project beheerd wordt met Poetry en dat er een commando is aangemaakt om de applicatie te starten. Je {{lightbulb}} maakt een nieuw conda environment aan met alleen Python daarin, gebruikt `poetry install` om het project te installeren en voert het commando uit om de applicatie te starten. Er verschijnt een scherm met een plot waarin de functie $\sin(x)$ plot in het domein $(0, 2\pi)$ is geplot. Een golfje van trots gaat door je heen en je gaat door naar de volgende opdracht.
+    === "code"
+        **Pseudo-code**
+        ```
+        # import statements
+
+        # class UserInterface(QtWidgets.QMainWindow):
+            ...
+            # when app starts plot sin function
+
+        # create application
+        # show UserInterface
+        # close properly
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Er is een repository {{github}}`functionplotter`
+        - [ ] Er is een commando om de applicatie te starten
+        - [ ] De applicatie laat een $\sin(x)$ plot zien in het domein $(0, 2\pi)$
+        - [ ] De applicatie werkt ook na `poetry install` in een nieuwe conda environment.
+
+        **Projecttraject**
+    
+        - [ ] Functionplotter: plot
+        - [ ] Functionplotter: knoppen
+
 
 !!! opdracht-inlever "Functieplotter: knoppen"
     Voeg knoppen toe om het domein aan te passen. Maak bijvoorbeeld een `start`, een `stop` en een `numpoints` om het aantal punten te kiezen. Kies daarvoor ook een handige standaardwaarde. Zorg ervoor dat als je de waardes aanpast dat de functie automatisch opnieuw wordt geplot.
