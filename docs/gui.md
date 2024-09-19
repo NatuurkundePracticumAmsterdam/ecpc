@@ -822,6 +822,32 @@ Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder
 !!! opdracht-inlever "Pythondaq: save"
     Voeg een `Save`-knop toe aan je interface om je metingen op te slaan als CSV-bestand. Controleer dat de gegevens ook inderdaad bewaard zijn.
 
+!!! opdracht-inlever "Pythondaq: save"
+    === "opdracht"
+        Je opent de applicatie en start een scan. Dan valt je oog op een `Save`-knop, wanneer je op deze knop drukt wordt er een dialoogvenster geopent. Je kiest een locatie en typt een bestandsnaam, je klikt op `Save` (of `Opslaan`). Daarna ben je nieuwsgierig of het gelukt is. Via `File Explorer` (of `Verkenner`) navigeer je op de computer naar de locatie waar je het bestand hebt opgeslagen. Je opent het bestand en ziet de metingen staan. Tevreden sluit je het bestand af en ga je door naar de volgende opdracht.
+    === "code"
+        **Pseudo-code**
+        ```
+        # create widget for save in designer or in the script
+        
+        # connect widget to method
+
+        # methods save
+            # open dialog
+            # save measurments as csv in given filename
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Druk op de knop `Save` opent een dialoogvenster.
+        - [ ] De metingen worden opgeslagen als csv-bestand op de gegeven locatie en onder de gegeven bestandsnaam.
+        
+        **Projecttraject**
+    
+        - [x] Pythondaq: leeg venster
+        - [x] Pythondaq: plot scan
+        - [x] Pythondaq: widgets
+        - [x] Pythondaq: save 
 
 ???+ meer-leren "Menu's, taak- en statusbalken"
     
