@@ -97,7 +97,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
     ``` ps1 title="Terminal"
     conda activate pythondaq
     ```
-
+<div id="opd:pyvisaterminal"></div>
 !!! opdracht-basis "Pyvisa in terminal"
     === "opdracht"
         Je sluit de Arduino met een USB-kabel aan op de computer. In een `Anaconda Prompt` open je het goede conda environment en open je een `pyvisa-shell` met een python _backend_. Om erachter te komen hoe de `pyvisa-shell` werkt type je het commando `help`. Je ziet een reeks aan commando's en bekijkt de helptekst van de commando's waarmee je denkt de `pyvisa-shell` te kunnen afsluiten. Wanneer je het afsluit commando hebt gevonden sluit je daarmee de `pyvisa-shell` af. 
