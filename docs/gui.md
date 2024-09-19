@@ -729,35 +729,56 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
 !!! opdracht-inlever "Pythondaq: plot scan"
     Voeg aan je applicatie een `PlotWidget` toe &mdash; geprogrammeerd of met Designer. Laat je applicatie een scan uitvoeren (door het model te openen en aan te roepen) en laat het resultaat zien in een grafiek. Voor deze opdracht mag je nog gewoon de poortnaam in je code schrijven, net als start- en stop waardes e.d. De gebruiker hoeft nog niets te kunnen instellen. Dat komt straks.
 
+!!! opdracht-inlever "Pythondaq: plot scan"
+    === "opdracht"
+        Als het commando wordt uitgevoerd start de applicatie een scan en laat de metingen vervolgens zien in een plot binnen het venster. Voor het gemak heb je de poortnaam, start- en stopwaardes e.d. <q>hard coded</q> in het script gezet. Later ga je er voor zorgen dat een gebruiker die kan instellen, maar dat komt straks wel. 
 
+        !!! info "Foutenvlaggen plotten"
+                Foutenvlaggen toevoegen aan een pyqtgraph is helaas iets minder intuitief dan bij matplotlib. Met _breedte_ en _hoogte_ geef je aan hoe groot de vlaggen zijn, de vlag is 2 keer zo hoog of breed als de onzekerheid. Samen met de $x$ en $y$ data maak je dan een `ErrorBarItem` aan die je expliciet toevoegt aan de plot.
 
-!!! info "Foutenvlaggen plotten"
-        Foutenvlaggen toevoegen aan een pyqtgraph is helaas iets minder intuitief dan bij matplotlib. Met _breedte_ en _hoogte_ geef je aan hoe groot de vlaggen zijn, de vlag is 2 keer zo hoog of breed als de onzekerheid. Samen met de $x$ en $y$ data maak je dan een `ErrorBarItem` aan die je expliciet toevoegt aan de plot.
+            ``` py linenums="1" hl_lines="20 22"
+            def plot(self):
+                """Clear the plot widget and display experimental data."""
 
-    ``` py linenums="1" hl_lines="20 22"
-    def plot(self):
-        """Clear the plot widget and display experimental data."""
+                # Genereer wat data als demo
+                x = np.linspace(0, 2 * np.pi, 20)
+                y = np.sin(x)
+                x_err = 0.1
+                y_err = np.random.normal(0, 0.2, size=len(x))
 
-        # Genereer wat data als demo
-        x = np.linspace(0, 2 * np.pi, 20)
-        y = np.sin(x)
-        x_err = 0.1
-        y_err = np.random.normal(0, 0.2, size=len(x))
+                # Maak eerst een scatterplot
+                self.plot_widget.plot(x, y, symbol="o", symbolSize=5, pen=None)
 
-        # Maak eerst een scatterplot
-        self.plot_widget.plot(x, y, symbol="o", symbolSize=5, pen=None)
+                # nu de foutvlaggen, met 'breedte' en 'hoogte' in plaats van x errors en y
+                # errors let op: als je x_errors *lijsten* zijn, dan kun je niet gewoon 2 *
+                # doen, maar wel als je eerst een NumPy array maakt:
+                #
+                # width = 2 * np.array(x_err)
+                #
+                # (we maken er voor de zekerheid eerst een array van)
+                error_bars = pg.ErrorBarItem(x=x, y=y, width=2 * x_err, height=2 * y_err)
+                # we moeten de error_bars expliciet toevoegen aan de plot
+                self.plot_widget.addItem(error_bars)
+            ```
+    === "code"
+        **Pseudo-code**
+        ```
+        # when application starts
+            # ask model to do scan
+            # plot results in application window
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Het uitvoeren van het commando zorgt ervoor dat een scan wordt gestart.
+        - [ ] Het LED lampje gaat branden.
+        - [ ] De resultaten van de meting worden geplot in het venster.
 
-        # nu de foutvlaggen, met 'breedte' en 'hoogte' in plaats van x errors en y
-        # errors let op: als je x_errors *lijsten* zijn, dan kun je niet gewoon 2 *
-        # doen, maar wel als je eerst een NumPy array maakt:
-        #
-        # width = 2 * np.array(x_err)
-        #
-        # (we maken er voor de zekerheid eerst een array van)
-        error_bars = pg.ErrorBarItem(x=x, y=y, width=2 * x_err, height=2 * y_err)
-        # we moeten de error_bars expliciet toevoegen aan de plot
-        self.plot_widget.addItem(error_bars)
-    ```
+        **Projecttraject**
+    
+        - [x] Pythondaq: leeg venster
+        - [x] Pythondaq: plot scan
+    
 
 !!! opdracht-inlever "Pythondaq: knoppen"
     Maak nu in je grafische interface widgets om de start- en stopwaardes, aantal metingen e.d. te kunnen instellen. Maak ook een startknop. Als je op de startknop drukt moet je applicatie een nieuwe meting uitvoeren.
