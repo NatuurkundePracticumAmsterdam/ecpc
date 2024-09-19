@@ -634,7 +634,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
             ...
             # when app starts plot sin function
 
-            # create widgets for start, stop and num
+            # create widgets for start, stop and num in designer or in the script
             # connect widgets to methods
 
             # methods for start stop and num
@@ -780,6 +780,33 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
 !!! opdracht-inlever "Pythondaq: knoppen"
     Maak nu in je grafische interface widgets om de start- en stopwaardes, aantal metingen e.d. te kunnen instellen. Maak ook een startknop. Als je op de startknop drukt moet je applicatie een nieuwe meting uitvoeren.
 
+!!! opdracht-inlever "Pythondaq: widgets"
+    === "opdracht"
+        Na het uitvoeren van het commando start de `pythondaq` applicatie waarin een aantal widgets zijn te zien waarmee de start- en stopwaardes, het aantal metingen kunnen worden ingesteld. Ook is er een startknop waarmee een nieuwe meting wordt uitgevoerd. Je vult verschillende (logische en niet logische) waardes in voor de start- en stopwaardes en het aantal metingen en ziet dat de applicatie naar verwachting werkt. 
+    === "code"
+        **Pseudo-code**
+        ```
+        # create widgets in designer or in the script
+        # for start, stop, measurements and start scan
+        
+        # connect widgets to methods
+
+        # methods for start, stop, measurements and start scan
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] In de applicatie kan de startwaarde worden aangepast.
+        - [ ] In de applicatie kan de stopwaarde worden aangepast.
+        - [ ] In de applicatie kan het aantal metingen worden aangepast.
+        - [ ] Druk op de startknop laat een meting starten.
+        - [ ] De applicatie werkt naar verwachting bij het invullen van logische en niet logische waardes voor start, stop en aantal metingen.
+
+        **Projecttraject**
+    
+        - [x] Pythondaq: leeg venster
+        - [x] Pythondaq: plot scan
+        - [x] Pythondaq: widgets
 
 ### Bewaren van meetgegevens
 
