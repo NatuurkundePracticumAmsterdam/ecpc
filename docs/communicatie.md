@@ -465,7 +465,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         print(final_value)
         ```
         <pre>
-        <code>(ecpc) > python.exe test_LED.py
+        <code>(ecpc) > python test_LED.py
         <span class="invisible" name="test_LED">1023</span>
         </code></pre></div>        
     === "check"

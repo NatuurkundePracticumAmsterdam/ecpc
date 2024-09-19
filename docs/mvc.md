@@ -69,7 +69,7 @@ Het opsplitsen van het programma in MVC gaan we stapsgewijs doen. We gaan een cl
         print(f"{ch0_value=}")
         ```
         <pre>
-        <code>(ecpc) > python.exe basisscript.py
+        <code>(ecpc) > python basisscript.py
         <span class="invisible" name="basisscript_controller">('ASRL28::INSTR', ) 
         Arduino VISA firmware v1.0.0
         ch2_value=224
