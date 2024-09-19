@@ -711,9 +711,29 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
 !!! opdracht-inlever "Pythondaq: leeg venster"
     Maak een nieuwe applicatie aan de hand van de code aan het begin van het hoofdstuk ([_minimale Qt-applicatie_](#code:minimal)). De applicatie doet dus nog niets anders dan het tonen van een leeg venster.
 
+!!! opdracht-inlever "Pythondaq: leeg venster"
+    === "opdracht"
+        Je wilt een toffe GUI maken voor de `pythondaq` applicatie. Je gaat dit in stapjes opbouwen zodat je tussendoor nog kunt testen of het werkt. Je begint met het maken van een leeg venster deze start op zodra je een commando in de terminal intypt. Je sluit het venster. Om te testen of dit bij andere mensen ook zou werken maak {{lightbulb}} je een nieuwe conda environment aan met Python, installeer je de package met Poetry en test je opnieuw het commando, er verschijnt opnieuw een leeg venster. 
+    === "code"
+        **Pseudo-code**
+        ```
+        # create empty window
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Het uitvoeren van een commando zorgt ervoor dat een leeg venster wordt getoont. 
+        - [ ] Het commando werkt ook na het installeren van de package `pythondaq` met Poetry in een nieuwe conda environment met Python. 
+
+        **Projecttraject**
+    
+        - [ ] Pythondaq: leeg venster
+
 
 !!! opdracht-inlever "Pythondaq: plot scan"
     Voeg aan je applicatie een `PlotWidget` toe &mdash; geprogrammeerd of met Designer. Laat je applicatie een scan uitvoeren (door het model te openen en aan te roepen) en laat het resultaat zien in een grafiek. Voor deze opdracht mag je nog gewoon de poortnaam in je code schrijven, net als start- en stop waardes e.d. De gebruiker hoeft nog niets te kunnen instellen. Dat komt straks.
+
+
 
 !!! info "Foutenvlaggen plotten"
         Foutenvlaggen toevoegen aan een pyqtgraph is helaas iets minder intuitief dan bij matplotlib. Met _breedte_ en _hoogte_ geef je aan hoe groot de vlaggen zijn, de vlag is 2 keer zo hoog of breed als de onzekerheid. Samen met de $x$ en $y$ data maak je dan een `ErrorBarItem` aan die je expliciet toevoegt aan de plot.
