@@ -707,10 +707,6 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
         En dat gaat een stuk sneller dan die lange `pyside-uic`-regel onthouden en intypen!
 
 
-
-!!! opdracht-inlever "Pythondaq: leeg venster"
-    Maak een nieuwe applicatie aan de hand van de code aan het begin van het hoofdstuk ([_minimale Qt-applicatie_](#code:minimal)). De applicatie doet dus nog niets anders dan het tonen van een leeg venster.
-
 !!! opdracht-inlever "Pythondaq: leeg venster"
     === "opdracht"
         Je wilt een toffe GUI maken voor de `pythondaq` applicatie. Je gaat dit in stapjes opbouwen zodat je tussendoor nog kunt testen of het werkt. Je begint met het maken van een leeg venster deze start op zodra je een commando in de terminal intypt. Je sluit het venster. Om te testen of dit bij andere mensen ook zou werken maak {{lightbulb}} je een nieuwe conda environment aan met Python, installeer je de package met Poetry en test je opnieuw het commando, er verschijnt opnieuw een leeg venster. 
