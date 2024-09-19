@@ -56,7 +56,7 @@ function comparisonIdleAnimation() {
             // highlight next compared elements in list for 2 s
             hover_target = target_list_function_class[targetindex % 6];
             hoverFunction(hover_target);
-            setTimeout(hoverFunction, 2000, hover_target);
+            setTimeout(hoverFunction, 2500, hover_target);
             
             hover_target = target_list_function_class_body[targetindex % 2];
             hoverFunction(hover_target, false);
@@ -67,7 +67,7 @@ function comparisonIdleAnimation() {
             // highlight next compared elements in list for 2 s
             hover_target = target_list_shell_script[targetindex % 15];
             hoverFunction(hover_target);
-            setTimeout(hoverFunction, 2000, hover_target);
+            setTimeout(hoverFunction, 3000, hover_target);
 
             targetindex += 1;
         }
