@@ -622,10 +622,6 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
         - [ ] Functionplotter: plot
         - [ ] Functionplotter: widgets
 
-
-!!! opdracht-inlever "Functieplotter: knoppen"
-    Voeg knoppen toe om het domein aan te passen. Maak bijvoorbeeld een `start`, een `stop` en een `numpoints` om het aantal punten te kiezen. Kies daarvoor ook een handige standaardwaarde. Zorg ervoor dat als je de waardes aanpast dat de functie automatisch opnieuw wordt geplot.
-
 !!! opdracht-inlever "Functionplotter: widgets"
     === "opdracht"
         Opnieuw voer je het commando uit om de applicatie `functionplotter` te starten. Dit keer heeft de applicatie de mogelijkheid om het domein van de plot aan te passen. Je ziet de sinus plot smaller worden wanneer je de startwaarde verhoogd. Daarna pas je de startwaarde aan naar beneden. Vervolgens ga je stopwaarde aanpassen en zie je de sinus plot naar verwachting veranderen. Dan is er nog een widget om het aantal punten (`num`) te kiezen waarmee de sinus wordt geplot. Je speelt met de widget en ziet de sinus van hoekig naar mooi glad veranderen. Steeds als je een waarde aanpast wordt de functie automatisch opnieuw geplot.
