@@ -855,7 +855,6 @@ Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder
         Maak een statusbalk die aangeeft wat de identificatiestring is van het device dat geselecteerd is. Maak ook een menu waarmee je een CSV-bestand kunt opslaan en een nieuwe meting kunt starten. Let op: je hebt dan een menu-item én een knop die dezelfde method aanroepen. Je hoeft geen dubbele code te schrijven, maar moet de `#!py save_data()`-method wel twee keer verbinden.
 
 
-
 ### Selecteer de Arduino
 
 Je hebt nu waarschijnlijk nog de poortnaam van de Arduino in je code gedefinieerd als vaste waarde. Dat betekent dat als je de code deelt met iemand anders &mdash; bijvoorbeeld wanneer je de code inlevert op Canvas of wanneer je je experiment op een labcomputer wilt draaien &mdash; je het risico loopt dat je applicatie crasht omdat de Arduino aan een andere poort hangt. Zeker bij de overstap van Windows naar MacOS of Linux, of andersom! Je kunt dit op twee manieren oplossen:
@@ -867,6 +866,37 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
 
 !!! opdracht-inlever "Pythondaq: selecteer Arduino"
     Maak een keuzemenu (`#!py QComboBox`) zodat je de Arduino kunt selecteren. Je zult in de `__init__()` eerst een lijst van devices moeten maken en die toe moeten voegen aan de widget. Zie ook de [_lijst met handige widgets_](#info:widgets) en de documentatie. Het kan daarbij handig zijn om de device pas te _openen_ als je een scan uitvoert en hem te sluiten (schrijf een soort `#!py device.close()`) als de scan is afgelopen. In de controller werk je met een `#!py pyvisa` device en die heeft al een `#!py close()`-method.
+
+!!! opdracht-inlever "Pythondaq: selecteer Arduino"
+    === "opdracht"
+        Je opent de applicatie en ziet een keuzemenu (`#!py QComboBox`) waarmee je de Arduino kunt selecteren. Je selecteerd de juiste Arduino, start een meting en ziet het LED lampje branden. Je sluit de applicatie af en bent benieuwd wat er gebeurd als je meerder Arduino's aansluit. Dus vraag je een (of twee, of drie) Arduino('s) van je buren, sluit deze aan op je computer en start opnieuw de applicatie. Je ziet dat er meerdere apparaten in het keuzemenu staan. Je kiest een Arduino, start een meting en ziet een lampje branden. Daarna selecteer je een andere Arduino, start een meting en ziet een ander lampje branden, hoe leuk {{feesttoeter}}.
+
+        !!! info "Arduino afsluiten"
+            Als je met meerdere Arduino's werkt kan het handig zijn om na afloop van de scan de communicatie met de Arduino weer te sluiten. In de [_opdracht Pyvisa in terminal_](communicatie.md#opd:pyvisaterminal) heb je al eens gewerkt met het commando `close`. Dit werkt ook voor pyvisa in een script. Je hebt in de controller de communicatie geopend met `#!py self.device = rm.open_resource(port, read_termination="\r\n", write_termination="\n")`, je kunt de communicatie met `self.device` in de controller sluiten met `self.device.close()`. Je een method in de controller toevoegen die de communicatie sluit. Via het model kun je deze method aanroepen in de gui.
+
+    === "code"
+        **Pseudo-code**
+        ```
+        # create widget for select Arduino
+        
+        # method start scan
+            # open communication with selected Arduino
+            # start scan
+            # close communication with selected Arduino
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] In de applicatie kan een Arduino geselecteerd worden.
+        - [ ] De gekozen Arduino wordt gebruikt tijdens het uitvoeren van een scan
+
+        **Projecttraject**
+    
+        - [x] Pythondaq: leeg venster
+        - [x] Pythondaq: plot scan
+        - [x] Pythondaq: widgets
+        - [x] Pythondaq: save 
+        - [x] Pythondaq: selecteer Arduino
 
 <!-- 
 ???+ opdracht-meer "Pythondaq: Exceptions"
