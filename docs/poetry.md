@@ -518,6 +518,7 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
             {{T}}{{github}}`flasher`  
             {{tab}}{{L}}{{folder}}`src`  
             {{tab}}{{tab}}{{L}}{{folder}}`flasher`
+            {{tab}}{{tab}}{{tab}}{{T}}{{new_file}}`__init__.py`
             {{tab}}{{tab}}{{tab}}{{L}}{{file}}`flashingLED.py`
             {{L}}{{dots}}  
             </div>
