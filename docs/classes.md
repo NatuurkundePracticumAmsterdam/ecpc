@@ -77,7 +77,19 @@ master_oogway.forward(50)
    
 !!! opdracht-basis "turtle"
     === "opdracht"
-        Je bent inmiddels nieuwschierig geworden naar de schildpad en schrijft een script die een schildpad met de instancenaam `master_oogway` laat lopen en draaien.
+        <div class="grid-tree" markdown>
+            <div>
+            Je bent inmiddels nieuwschierig geworden naar de schildpad en schrijft een script in het bestand {{file}} `turtle.py` die een schildpad met de instancenaam `master_oogway` laat lopen en draaien.
+            </div>
+            <div>
+            {{folder}} ECPC  
+            {{T}} {{folder}} oefenopdrachten  
+            {{tab}} {{T}} {{new_file}} turtle.py  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{github}} Pythondaq  
+            {{tab}} {{L}} {{dots}}  
+            </div>
+        </div>
 
         !!! info "Schildpad verdwijnt"
             Na het uitvoeren van het script sluit Python het scherm van de schildpad. Voeg de regel `#!py master_oogway.screen.mainloop()` toe om het scherm te laten staan en handmatig af te sluiten. 
@@ -197,7 +209,20 @@ print(master_oogway.quote)
     === "opdracht"
         ![spin flip](assets/particle-spin-flip/spin-flip.gif){style="width:128px;height:72px;" align=right}
         
-        Je maakt een instance van de class `#!py Particle` aan voor een proton, naast de naam geeft je ook mee dat de spin 0.5 is. Je gebruikt de method `#!py is_up_or_down()` om terug op te vragen wat de spin van het deeltje op dat moment is (spin omhoog/positief of spin omlaag/negatief). Met de method `#!py flip()` keer je de spin van het deeltje om. 
+        <div class="grid-tree" markdown>
+            <div>
+            Je maakt een instance van de class `#!py Particle` in een nieuw bestand {{file}} `particle.py` aan voor een proton, naast de naam geeft je ook mee dat de spin 0.5 is. Je gebruikt de method `#!py is_up_or_down()` om terug op te vragen wat de spin van het deeltje op dat moment is (spin omhoog/positief of spin omlaag/negatief). Met de method `#!py flip()` keer je de spin van het deeltje om. 
+            </div>
+            <div>
+            {{folder}} ECPC  
+            {{T}} {{folder}} oefenopdrachten  
+            {{tab}} {{T}} {{new_file}} particle.py  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{github}} Pythondaq  
+            {{tab}} {{L}} {{dots}}  
+            </div>
+        </div>
+
     === "code"
         **Pseudo-code**
         ``` py
@@ -244,7 +269,21 @@ print(master_oogway.quote)
 
 !!! opdracht-inlever "Class ProjectileMotion"
     === "opdracht"
-        Je gaat een waterraket een aantal keer wegschieten met steeds een andere beginsnelheid en lanceerhoek. Je hebt een instance aangemaakt van de class `#!py ProjectileMotion`. De metingen van de beginsnelheid en de lanceerhoek bewaar je steeds met de method `#!py add_measurement()`. Om in een keer alle beginsnelheden op te vragen gebruik je de method `#!py get_initial_velocities()`. Om alle lanceerhoeken op te vragen gebruik je de method `#!py get_launch_angles()`. Op basis van de gegevens (en door de luchtweerstand te verwaarlozen) bepaal je de vluchtduur en het bereik van de raket. Je kunt de vluchtduur van alle vluchten opvragen met de method `#!py get_time_of_flights()` en het bereik van alle vluchten met `#!py get_flight_ranges()`.
+
+        <div class="grid-tree" markdown>
+            <div>
+            Je gaat een waterraket een aantal keer wegschieten met steeds een andere beginsnelheid en lanceerhoek. Je hebt een instance aangemaakt van de class `#!py ProjectileMotion`. De metingen van de beginsnelheid en de lanceerhoek bewaar je steeds met de method `#!py add_measurement()`. Om in een keer alle beginsnelheden op te vragen gebruik je de method `#!py get_initial_velocities()`. Om alle lanceerhoeken op te vragen gebruik je de method `#!py get_launch_angles()`. Op basis van de gegevens (en door de luchtweerstand te verwaarlozen) bepaal je de vluchtduur en het bereik van de raket. Je kunt de vluchtduur van alle vluchten opvragen met de method `#!py get_time_of_flights()` en het bereik van alle vluchten met `#!py get_flight_ranges()`.
+            </div>
+            <div>
+            {{folder}} ECPC  
+            {{T}} {{folder}} oefenopdrachten  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{github}} Pythondaq  
+            {{tab}} {{T}} {{new_file}} water_rocket.py  
+            {{tab}} {{L}} {{dots}}  
+            </div>
+        </div>
+    
     === "code"
         **Pseudo-code**
         ``` py
