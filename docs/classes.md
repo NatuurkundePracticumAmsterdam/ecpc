@@ -83,7 +83,7 @@ master_oogway.forward(50)
             </div>
             <div>
             {{folder}} ECPC  
-            {{T}} {{folder}} oefenopdrachten  
+            {{T}} {{github}} oefenopdrachten  
             {{tab}} {{T}} {{new_file}} turtle.py  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{github}} Pythondaq  
@@ -215,7 +215,7 @@ print(master_oogway.quote)
             </div>
             <div>
             {{folder}} ECPC  
-            {{T}} {{folder}} oefenopdrachten  
+            {{T}} {{github}} oefenopdrachten  
             {{tab}} {{T}} {{new_file}} particle.py  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{github}} Pythondaq  
@@ -276,7 +276,7 @@ print(master_oogway.quote)
             </div>
             <div>
             {{folder}} ECPC  
-            {{T}} {{folder}} oefenopdrachten  
+            {{T}} {{github}} oefenopdrachten  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{github}} Pythondaq  
             {{tab}} {{T}} {{new_file}} water_rocket.py  
