@@ -114,7 +114,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Je maakt het bestand {{file}}`basisscript.py` aan in de nieuwe {{github}} Pythondaq, waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de spanning over de weerstand uit. Je print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand.
+            Je maakt het bestand {{file}}`basisscript.py` aan in de nieuwe {{github}} `Pythondaq` repository, waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de spanning over de weerstand uit. Je print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand.
             </div>
             <div>
             {{folder}} ECPC  
