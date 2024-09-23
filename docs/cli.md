@@ -110,7 +110,21 @@ python hello.py --help
 <div id="opd:hello-help"></div>
 !!! opdracht-basis "Help functie"
     === "opdracht"
-        Je neemt het script {{file}}`hello.py` over. Je vraagt de helpfunctie van het script op. Je ziet een helptekst verschijnen. Je vraagt je af wat er gebeurt als je `#!py @click.command()` weghaald en dan de helpfunctie opvraagt. Je krijgt gewoon de output van de functie `#!py hello()` een geen help tekst.
+
+        <div class="grid-tree" markdown>
+            <div>
+            Je neemt het script {{file}}`hello.py` over. Je vraagt de helpfunctie van het script op. Je ziet een helptekst verschijnen. Je vraagt je af wat er gebeurt als je `#!py @click.command()` weg haalt en dan de helpfunctie opvraagt. Je krijgt gewoon de output van de functie `#!py hello()` een geen help tekst.
+            </div>
+            <div>
+            {{folder}} ECPC  
+            {{T}} {{github}} oefenopdrachten  
+            {{tab}} {{T}} {{new_file}} hello.py  
+            {{tab}} {{L}} {{dots}}  
+            {{T}} {{github}} pythondaq  
+            {{L}} {{dots}}  
+            </div>
+        </div>
+
     === "code"
         **Pseudo-code**
         ``` py title="hello.py"
@@ -471,7 +485,24 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 
 !!! opdracht-basis "Fake conda"
     === "opdracht"
-        Nu je hebt geleerd om met Click subcommando's te maken wil je deze uittesten in combinatie met het commando wat je met Poetry kan aanmaken om een functie uit een script uit te voeren. Je maakt in de map {{folder}}`ECPC` {{lightbulb}} een nieuw Poetry project aan voor {{folder}}`fake_conda` en zet daarin de code uit het bestand {{file}}`fake_conda.py`. Je past de {{file_lines}}`pyproject.toml` aan zodat je met het commando `fake_conda install scipy` zogenaamd `scipy` kunt installeren. 
+
+        <div class="grid-tree" markdown>
+            <div>
+            Nu je hebt geleerd om met Click subcommando's te maken wil je deze uittesten in combinatie met het commando wat je met Poetry kan aanmaken om een functie uit een script uit te voeren. Je maakt in de map {{folder}}`ECPC` {{lightbulb}} een nieuw Poetry project aan voor {{folder}}`fake_conda` en zet daarin de code uit het bestand {{file}}`fake_conda.py`. Je past de {{file_lines}}`pyproject.toml` aan zodat je met het commando `fake_conda install scipy` zogenaamd `scipy` kunt installeren. 
+            </div>
+            <div>
+            {{folder}} ECPC  
+            {{T}} {{new_folder}} fake_conda  
+            {{tab}} {{T}} {{new_folder}} src/fake_conda  
+            {{tab}} {{tab}} {{T}} {{new_file}} \_\_init\_\_.py  
+            {{tab}} {{tab}} {{L}} {{new_file}} fake_conda.py  
+            {{tab}} {{L}} {{new_file_lines}} pyptoject.toml  
+            {{tab}} {{L}} {{dots}}  
+            {{T}} {{github}} oefenopdrachten  
+            {{T}} {{github}} pythondaq  
+            {{L}} {{dots}}  
+            </div>
+        </div>
 
         !!! info "commando"
             Als je een commando met Poetry toevoegt dan heeft dat de opbouw `naam_commando = "package.module:naam_functie"`, welke functie moet uitgevoerd worden als je het commando aanroept?
@@ -532,7 +563,20 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 
 !!! opdracht-inlever "smallangle installeren"
     === "opdracht"
-        Je cloned het Poetry project {{github}}`smallangle` van {{github}}`AnneliesVlaar/smallangle` door [de repository in GitHub desktop te openen](x-github-client://openRepo/https://github.com/AnneliesVlaar/smallangle). Daarna open je het project in Visual Studio Code. Na het installeren van het project in een nieuwe conda environment run je het bestand {{file}}`smallangle.py` en krijg je een lijst van 10 punten tussen 0 en 2 $\pi$ en de sinus van deze punten. 
+
+        <div class="grid-tree" markdown>
+            <div>
+            Je cloned het Poetry project {{github}}`smallangle` van {{github}}`AnneliesVlaar/smallangle` door [de repository in GitHub desktop te openen](x-github-client://openRepo/https://github.com/AnneliesVlaar/smallangle). Daarna open je het project in Visual Studio Code. Na het installeren van het project in een nieuwe conda environment run je het bestand {{file}}`smallangle.py` en krijg je een lijst van 10 punten tussen 0 en 2 $\pi$ en de sinus van deze punten. 
+            </div>
+            <div>
+            {{folder}} ECPC  
+            {{T}} {{github}} pythondaq   
+            {{L}} {{github}} smallangle  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{dots}}  
+            </div>
+        </div>
+
     === "code"
         **Testcode**
         <div class="code-box"><button type="button" name="smallangle" onclick="runScript('smallangle')" class="run">{{ run }}</button><button type="button" name="smallangle" onclick="runScript('smallangle')" class="reload invisible">{{ reload }}</button> smallangle.py
@@ -748,7 +792,24 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
 
 !!! opdracht-inlever "Pythondaq: commando's"
     === "opdracht"
-        Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand {{new_file}}`src/pythondaq/cli.py` een opzetje maken waarin je stap voor stap functionaliteit aan toevoegd. De oude {{file}}`view.py` maakte eerst een lijst van aangesloten apparaten en daarna werd een scan uitgevoerd. Daarom zet je in {{file}}`cli.py` de subcommando's `list` en `scan`. Je test de subcommando's en je ziet dat ze werken omdat ze een stukje tekst printen. 
+
+        <div class="grid-tree" markdown>
+            <div>
+            Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand {{new_file}}`src/pythondaq/cli.py` een opzetje maken waarin je stap voor stap functionaliteit aan toevoegd. De oude {{file}}`view.py` maakte eerst een lijst van aangesloten apparaten en daarna werd een scan uitgevoerd. Daarom zet je in {{file}}`cli.py` de subcommando's `list` en `scan`. Je test de subcommando's en je ziet dat ze werken omdat ze een stukje tekst printen. 
+            </div>
+            <div>
+            {{folder}} ECPC  
+            {{T}} {{github}} pythondaq  
+            {{tab}} {{T}} {{folder}} src/pythondaq  
+            {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
+            {{tab}} {{tab}} {{T}} {{file}} arduino_device.py  
+            {{tab}} {{tab}} {{T}} {{file}} diode_experiment.py  
+            {{tab}} {{tab}} {{T}} {{file}} view.py  
+            {{tab}} {{tab}} {{L}} {{new_file}} cli.py  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{dots}}  
+            </div>
+        </div>
 
         <div id="warn:cmd_name"></div>
         !!! warning

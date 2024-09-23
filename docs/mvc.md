@@ -153,7 +153,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
             </div>
             <div>
             {{folder}} ECPC   
-            {{T}} {{github}} Pythondaq  
+            {{T}} {{github}} pythondaq  
             {{tab}} {{T}} {{file}} basisscript.py  
             {{tab}} {{T}} {{new_file}} arduino_device.py  
             {{tab}} {{L}} {{dots}}  
@@ -245,7 +245,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
             </div>
             <div>
             {{folder}} ECPC   
-            {{T}} {{github}} Pythondaq  
+            {{T}} {{github}} pythondaq  
             {{tab}} {{T}} {{file}} diode_experiment.py  
             {{tab}} {{T}} {{file}} arduino_device.py  
             {{tab}} {{T}} {{new_file}} view.py  

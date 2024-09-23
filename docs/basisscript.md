@@ -101,9 +101,9 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
 !!! opdracht-inlever "Pythondaq: repository"
     Omdat we met een belangrijk project aan de slag gaan, namelijk een inleveropdracht, gaan we gelijk goed beginnen door een repository aan te maken. 
 
-    1. Open Github Desktop en ga naar **File > New repository ...**. Geef de repository een naam (Pythondaq) en kies onderstaande locatie. Let er op dat je mappenstructuur er als volgt uit ziet:   
+    1. Open Github Desktop en ga naar **File > New repository ...**. Geef de repository een naam (`pythondaq`) en kies onderstaande locatie. Let er op dat je mappenstructuur er als volgt uit ziet:   
     {{folder}} ECPC  
-    {{T}} {{github}} Pythondaq  
+    {{T}} {{github}} pythondaq  
     {{tab}} {{L}} {{dots}}  
     {{L}} {{dots}}  
     1. Vink `Initialize this repository with a README` aan.
@@ -114,14 +114,14 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Je maakt het bestand {{file}}`basisscript.py` aan in de nieuwe {{github}} `Pythondaq` repository, waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de spanning over de weerstand uit. Je print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand.
+            Je maakt het bestand {{file}}`basisscript.py` aan in de nieuwe {{github}} `pythondaq` repository, waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de spanning over de weerstand uit. Je print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand.
             </div>
             <div>
             {{folder}} ECPC  
-            {{T}} {{github}} Pythondaq  
+            {{T}} {{github}} oefenopdrachten  
+            {{L}} {{github}} pythondaq  
             {{tab}} {{T}} {{new_file}} basisscript.py  
             {{tab}} {{L}} {{dots}}  
-            {{L}} {{dots}} 
             </div>
         </div>
     === "code"

@@ -79,12 +79,12 @@ master_oogway.forward(50)
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Je bent inmiddels nieuwschierig geworden naar de schildpad en schrijft een script in het bestand {{file}} `turtle.py` die een schildpad met de instancenaam `master_oogway` laat lopen en draaien.
+            Je bent inmiddels nieuwschierig geworden naar de schildpad en schrijft een script in het bestand {{file}} `turtles.py` die een schildpad met de instancenaam `master_oogway` laat lopen en draaien.
             </div>
             <div>
             {{folder}} ECPC  
             {{T}} {{github}} oefenopdrachten  
-            {{tab}} {{T}} {{new_file}} turtle.py  
+            {{tab}} {{T}} {{new_file}} turtles.py  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{github}} Pythondaq  
             {{tab}} {{L}} {{dots}}  
@@ -165,7 +165,7 @@ class Turtle:
 ```
 De instance attribute `#!py quote` is nu onderdeel van de instance. We kunnen die oproepen binnen elke method met `#!py self.quote` maar ook buiten de class:
 
-<div class="code-box"><button type="button" name="turtle_quote" onclick="runScript('turtle_quote')" class="run">{{ run }}</button><button type="button" name="turtle_quote" onclick="runScript('turtle_quote')" class="reload invisible">{{ reload }}</button> turtle.py
+<div class="code-box"><button type="button" name="turtle_quote" onclick="runScript('turtle_quote')" class="run">{{ run }}</button><button type="button" name="turtle_quote" onclick="runScript('turtle_quote')" class="reload invisible">{{ reload }}</button> turtles.py
 ``` py
 ...
 master_oogway = Turtle("turtle")
@@ -173,7 +173,7 @@ master_oogway = Turtle("turtle")
 print(master_oogway.quote)
 ```
 <pre>
-<code>(ecpc) > python turtle.py
+<code>(ecpc) > python turtles.py
 <span class="invisible" name="turtle_quote">"Yesterday is history, Tomorrow is a mystery, but Today is a gift. That is why it is called the present"</span>
 </code></pre></div>
 
@@ -278,7 +278,9 @@ print(master_oogway.quote)
             {{folder}} ECPC  
             {{T}} {{github}} oefenopdrachten  
             {{tab}} {{L}} {{dots}}  
-            {{L}} {{github}} Pythondaq  
+            {{T}} {{github}} pythondaq  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{github}} projectile-motion  
             {{tab}} {{T}} {{new_file}} water_rocket.py  
             {{tab}} {{L}} {{dots}}  
             </div>
