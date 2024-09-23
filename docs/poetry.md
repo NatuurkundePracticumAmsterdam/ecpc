@@ -751,7 +751,7 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
    
 !!! opdracht-basis "Main functie toevoegen"
     === "opdracht"
-        Je [open de repository just_count in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en daarna in Visual Studio Code. Je ziet een {{file_lines}}`pyproject.toml` in de repository staan. Dus installeer je het pakket met Poetry in een nieuwe conda environment (met alleen python=3.10). Je opent het hoofdbestand {{file}}`count_count.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Daarna pas je het bestand aan zodat de functie nog steeds wordt uitgevoerd wanneer je het bestand {{file}}`count_count.py` runt. 
+        Je [cloned de repository just_count in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en opent het daarna vanuit GitHub Desktop in Visual Studio Code. Je ziet een {{file_lines}}`pyproject.toml` in de repository staan. Dus installeer je het pakket met Poetry in een nieuwe conda environment (met alleen python=3.10). Je opent het hoofdbestand {{file}}`count_count.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Daarna pas je het bestand aan zodat de functie nog steeds wordt uitgevoerd wanneer je het bestand {{file}}`count_count.py` runt. 
     === "code"
         **Testcode**
         <div class="code-box"><button type="button" name="count_count_main function" onclick="runScript('count_count_main function')" class="run">{{ run }}</button><button type="button" name="count_count_main function" onclick="runScript('count_count_main function')" class="reload invisible">{{ reload }}</button> count_count.py
@@ -841,7 +841,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
 ???+ opdracht-meer "Error analysis"
     Als extra oefening gaan we met Poetry een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script {{file}}`data_analysis.py` te laten runnen.
 
-    1. Ga naar GitHub en open {{github}}[`AnneliesVlaar/erroranalysis`](https://github.com/AnneliesVlaar/erroranalysis) in GitHub Desktop en Visual Studio Code.
+    1. Ga naar GitHub en clone {{github}}[`AnneliesVlaar/erroranalysis`](https://github.com/AnneliesVlaar/erroranalysis) in GitHub Desktop en open de repository daarna in Visual Studio Code.
     1. Natuurlijk maak je gelijk een nieuwe Conda environment aan, voordat we dit package gaan testen.
     1. Snuffel door de bestanden en mappen, en open {{file}}`src/erroranalysis/data_analysis.py`. Dit is het script wat moet kunnen runnen.
     1. Run het script {{file}}`data_analysis.py` en los de errors één voor één op.
