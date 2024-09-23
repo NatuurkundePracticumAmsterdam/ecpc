@@ -38,15 +38,20 @@ Wij gaan werken met GitHub, je moet dan wel een (gratis) account aanmaken. Als s
 
 
 ### GitHub Desktop
-Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een desktop applicatie ontwikkeld.
+Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een desktop applicatie ontwikkeld met de naam `GitHub Desktop`. We gaan GitHub Desktop gebruiken om een repository te maken van een map met oefenopdrachten.
 
 <div id="opd:add_repository"></div>
 !!! opdracht-basis ""Van bestaande map repository maken"
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            assignment. Je gaat een repository maken van een bestaande map. Als je van de {{folder}}`ECPC` een repository maakt, kun je daar geen andere repositories inzetten. Dus maak je de map {{folder}}`ECPC` een nieuwe map {{new_folder}}`Oefenopdrachten` en zet daarin alle Python-bestandjes die je hebt gemaakt om te oefenen zoals de opdrachten [_Pyvisa in pythonscript_](communicatie.md#opd:test_arduino) en [_KnipperLED_](communicatie.md#opd:flashingLED).
-            Je gaat naar GitHub Desktop en logt in met je eigen account. Je ziet bij **File** drie opties staan, `New`, `Add local` en `Clone` repository. Hoewel `New repository` een goede optie lijkt, wordt daarmee een nieuwe map aangemaakt en dat is niet nodig. Dus kies je voor `Add local` repository. Je geeft de map {{folder}}`Oefenopdrachten` op als locatie en krijgt in rode tekst een waarschuwing. De waarschuwing geeft aan dat de map wel bestaat maar dat het geen `Git repository` is, daarom klik je op de blauwe tekst `create a repository`. Je vinkt `Initialize this repository with a README` aan en kiest bij `Git ignore` voor <q>Python</q>. Je bevestigt dan met de blauwe knop `Create Repository`. Vanaf nu duiden we een repository aan met het {{githb}}-symbool. De repository {{github}}`Oefenopdrachten` is in GitHub Desktop geopend en als je op het tabblad 'History' klikt dan zie je dat er een `Initial commit` is met wat `git`-bestanden en de Pythonscripts die je in de map hebt gezet. Vanaf nu staat {{github}}`Oefenopdrachten` in versiebeheer en houdt Git je wijzigingen bij, maar je moet wel zelf [committen](#commit)!
+            Je gaat een repository maken van een bestaande map. Als je van de {{folder}}`ECPC` een repository maakt, kun je daar geen andere repositories inzetten. Dus maak je in de map {{folder}}`ECPC` een nieuwe map {{new_folder}}`Oefenopdrachten` aan en zet daarin alle Python-bestandjes die je hebt gemaakt om te oefenen zoals de opdrachten [_Pyvisa in pythonscript_](communicatie.md#opd:test_arduino) en [_KnipperLED_](communicatie.md#opd:flashingLED). 
+            <br>
+            Je gaat naar GitHub Desktop en logt in met je eigen account. Je ziet bij **File** drie opties staan, `New`, `Add local` en `Clone` repository. Hoewel `New repository` een goede optie lijkt, wordt daarmee een nieuwe map aangemaakt en dat is niet nodig. Dus kies je voor `Add local` repository. Je geeft de map {{folder}}`Oefenopdrachten` op als locatie en krijgt in rode tekst een waarschuwing. De waarschuwing geeft aan dat de map wel bestaat maar dat het geen `Git repository` is, daarom klik je op de blauwe tekst `create a repository`. Je vinkt `Initialize this repository with a README` aan en kiest bij `Git ignore` voor <q>Python</q>. Je bevestigt dan met de blauwe knop `Create Repository`. 
+            <br>
+            Vanaf nu duiden we een repository aan met het {{github}}-symbool. 
+            <br>
+            De repository {{github}}`Oefenopdrachten` is in GitHub Desktop geopend en als je op het tabblad 'History' klikt dan zie je dat er een `Initial commit` is met wat `git`-bestanden en de Pythonscripts die je in de map hebt gezet. Vanaf nu staat {{github}}`Oefenopdrachten` in versiebeheer en houdt Git je wijzigingen bij, maar je moet wel zelf [committen](#commit)!
             </div>
             <div>
             {{folder}} ECPC  
