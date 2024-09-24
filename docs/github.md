@@ -103,14 +103,15 @@ Dit kan in GitHub Desktop, maar ook direct vanuit Visual Studio Code. Elke commi
         [^geen bolletje]: Zie je geen bolletje verschijnen? Kijk of je het bestand zeker weten hebt opgeslagen. Nog steeds geen blauw bolletje? Ga naar GitHub Dekstop en ga verder met stap 5. 
         [^commit message]: Je kunt je commit message opdelen in een titel (of summary) en een beschrijving. Dit doe je dit door een witregel toe te voegen tussen de titel en de beschrijving.
 
+    !!! info
+        Als je wilt opzoeken hoe iets werkt bij GitHub Desktop, kijk dan in de documentatie: [https://docs.github.com/en/desktop](https://docs.github.com/en/desktop).
+
 In GitHub Desktop zie je nu bij history de commit staan, met in een oogopslag alle wijzigingen.
 
 Hieronder zie je een aantal voorbeelden van commit messages. 
 
 --8<-- "docs/html-snippets/commit.html"
 
-!!! info
-    Als je wilt opzoeken hoe iets werkt bij GitHub Desktop, kijk dan in de documentatie: [https://docs.github.com/en/desktop](https://docs.github.com/en/desktop).
 
 
 ##  GitHub
