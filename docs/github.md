@@ -133,7 +133,7 @@ Dit kan in GitHub Desktop, maar ook direct vanuit Visual Studio Code. Elke commi
 
 In GitHub Desktop zie je nu bij history de commit staan, met in een oogopslag alle wijzigingen.
 
-Hieronder zie je een aantal voorbeelden van commit messages. 
+Hieronder zie je een aantal voorbeelden van commit messages. De titels zijn kort en krachtig, in de description staat specifieke en uitgebreidere informatie. 
 
 --8<-- "docs/html-snippets/commit.html"
 
