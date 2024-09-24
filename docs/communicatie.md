@@ -429,6 +429,9 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         - [x] Pyvisa in pythonscript
         - [ ] LED laten branden
         - [ ] flashingLED
+        - [ ] Van bestaande map repository maken
+        - [ ] Commit 
+        - [ ] Push en pull
 
 !!! opdracht-basis "LED laten branden"
     === "opdracht"
@@ -483,6 +486,9 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         - [x] Pyvisa in pythonscript
         - [x] LED laten branden
         - [ ] flashingLED
+        - [ ] Van bestaande map repository maken
+        - [ ] Commit 
+        - [ ] Push en pull
 
 
 <div id="opd:flashingLED"></div>
@@ -539,6 +545,9 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         - [x] Pyvisa in pythonscript
         - [x] LED laten branden
         - [x] flashingLED
+        - [ ] Van bestaande map repository maken
+        - [ ] Commit 
+        - [ ] Push en pull
 
 !!! opdracht-meer "Meer knipperritmes"
     Breid het bestand {{file}}`flashingLED.py` uit met meer knipperritmes, bijvoorbeeld:
