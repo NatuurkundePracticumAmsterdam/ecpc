@@ -66,6 +66,32 @@
             pointer-events: none; /* Disable editing */
         }
 
+        /* create responsive title */
+        .commit-title-resp {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color: white;
+            color: #495057;
+        }
+
+        /* create responsive description */
+        .commit-description-resp {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color: white;
+            color: #495057;
+            height: 80px;
+            resize: none;
+        }
+
         .submit-btn {
             display: block;
             width: 100%;
@@ -142,9 +168,9 @@
     <div class="commit-box">
         <div class="commit-title-wrapper">
             <img src="..\figures\ECPC_logo_simple.svg" alt="ECPC logo" width="24" height="24">
-            <input type="text" class="commit-title" value="test: add unit tests for calibration">
+            <input type="text" class="commit-title-resp" placeholder="Summary (required)">
         </div>
-        <textarea class="commit-description">Added unit tests for the calibration functionality to ensure it works as expected.</textarea>
+        <textarea class="commit-description-resp" placeholder="Description"></textarea>
         <button class="submit-btn">Commit to main</button>
     </div>
 </div>
