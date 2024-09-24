@@ -120,50 +120,50 @@
     <div class="commit-box">
         <div class="commit-title-wrapper">
             <img src="..\figures\ECPC_logo_simple.svg" alt="ECPC logo" width="24" height="24">
-            <input type="text" class="commit-title" value="feat: add initialization process" readonly>
+            <input type="text" class="commit-title" placeholder="Summary (required)" value="feat: add initialization process" readonly>
         </div>
-        <textarea class="commit-description" readonly>Added the ability to initialize the measurement instrument and calibrate its sensors for accurate data collection.</textarea>
-        <button class="submit-btn">Commit to main</button>
+        <textarea class="commit-description" placeholder="Description" readonly>Added the ability to initialize the measurement instrument and calibrate its sensors for accurate data collection.</textarea>
+        <button class="submit-btn" onclick="handleSubmit(this)">Commit to main</button>
     </div>
 
     <!-- Commit Box 2 -->
     <div class="commit-box">
         <div class="commit-title-wrapper">
             <img src="..\figures\ECPC_logo_simple.svg" alt="ECPC logo" width="24" height="24">
-            <input type="text" class="commit-title" value="fix: resolve calibration issue" readonly>
+            <input type="text" class="commit-title" placeholder="Summary (required)" value="fix: resolve calibration issue" readonly>
         </div>
-        <textarea class="commit-description" readonly>Fixed the calibration error that occurred due to incorrect sensor configuration.</textarea>
-        <button class="submit-btn">Commit to main</button>
+        <textarea class="commit-description" placeholder="Description" readonly>Fixed the calibration error that occurred due to incorrect sensor configuration.</textarea>
+        <button class="submit-btn" onclick="handleSubmit(this)">Commit to main</button>
     </div>
 
     <!-- Commit Box 3 -->
     <div class="commit-box">
         <div class="commit-title-wrapper">
             <img src="..\figures\ECPC_logo_simple.svg" alt="ECPC logo" width="24" height="24">
-            <input type="text" class="commit-title" value="chore: update dependencies" readonly>
+            <input type="text" class="commit-title" placeholder="Summary (required)" value="chore: update dependencies" readonly>
         </div>
-        <textarea class="commit-description" readonly>Updated project dependencies to their latest versions for improved stability.</textarea>
-        <button class="submit-btn">Commit to main</button>
+        <textarea class="commit-description" placeholder="Description" readonly>Updated project dependencies to their latest versions for improved stability.</textarea>
+        <button class="submit-btn" onclick="handleSubmit(this)">Commit to main</button>
     </div>
 
     <!-- Commit Box 4 -->
     <div class="commit-box">
         <div class="commit-title-wrapper">
             <img src="..\figures\ECPC_logo_simple.svg" alt="ECPC logo" width="24" height="24">
-            <input type="text" class="commit-title" value="refactor: optimize data flow" readonly>
+            <input type="text" class="commit-title" placeholder="Summary (required)" value="refactor: optimize data flow" readonly>
         </div>
-        <textarea class="commit-description" readonly>Refactored the data flow within the application to improve performance and efficiency.</textarea>
-        <button class="submit-btn">Commit to main</button>
+        <textarea class="commit-description" placeholder="Description" readonly>Refactored the data flow within the application to improve performance and efficiency.</textarea>
+        <button class="submit-btn" onclick="handleSubmit(this)">Commit to main</button>
     </div>
     
         <!-- Commit Box 5 -->
         <div class="commit-box">
             <div class="commit-title-wrapper">
                 <img src="..\figures\ECPC_logo_simple.svg" alt="ECPC logo" width="24" height="24">
-                <input type="text" class="commit-title" value="docs: update README" readonly>
+                <input type="text" class="commit-title" placeholder="Summary (required)" value="docs: update README" readonly>
             </div>
-            <textarea class="commit-description" readonly>Updated the README file to reflect recent changes and new features in the application.</textarea>
-            <button class="submit-btn">Commit to main</button>
+            <textarea class="commit-description" placeholder="Description" readonly>Updated the README file to reflect recent changes and new features in the application.</textarea>
+            <button class="submit-btn" onclick="handleSubmit(this)">Commit to main</button>
         </div>
 
     <!-- Commit Box 6 -->
@@ -173,9 +173,57 @@
             <input type="text" class="commit-title-resp" placeholder="Summary (required)">
         </div>
         <textarea class="commit-description-resp" placeholder="Description"></textarea>
-        <button class="submit-btn">Commit to main</button>
+        <button class="submit-btn" onclick="handleSubmit(this)">Commit to main</button>
     </div>
 </div>
+
+<script>
+    // Store original title and description texts
+    const originalTexts = [
+        {
+            title: "feat: add initialization process",
+            description: "Added the ability to initialize the measurement instrument and calibrate its sensors for accurate data collection."
+        },
+        {
+            title: "fix: resolve calibration issue",
+            description: "Fixed the calibration error that occurred due to incorrect sensor configuration."
+        },
+        {
+            title: "chore: update dependencies",
+            description: "Updated project dependencies to their latest versions for improved stability."
+        },
+        {
+            title: "refactor: optimize data flow",
+            description: "Refactored the data flow within the application to improve performance and efficiency."
+        },
+        {
+            title: "docs: update README",
+            description: "Updated the README file to reflect recent changes and new features in the application."
+        },
+        {
+            title: '',
+            description: ''
+        }
+    ];
+
+    function handleSubmit(button) {
+        const commitBox = button.closest('.commit-box'); // Find the closest commit box
+        const titleInput = commitBox.querySelector('.commit-title, .commit-title-resp');
+        const descriptionTextarea = commitBox.querySelector('.commit-description, .commit-description-resp');
+
+
+        // Clear the text of the title and description
+        titleInput.value = '';
+        descriptionTextarea.value = '';
+
+        // Restore original text after a delay
+        const index = Array.from(commitBox.parentNode.children).indexOf(commitBox);
+        setTimeout(() => {
+            titleInput.value = originalTexts[index].title;
+            descriptionTextarea.value = originalTexts[index].description;
+        }, 1000); // 1000ms delay before restoring
+    }
+</script>
 
 </body>
 </html>
