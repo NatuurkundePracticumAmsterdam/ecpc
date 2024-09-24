@@ -120,9 +120,9 @@
     <div class="commit-box">
         <div class="commit-title-wrapper">
             <img src="..\figures\ECPC_logo_simple.svg" alt="ECPC logo" width="24" height="24">
-            <input type="text" class="commit-title" placeholder="Summary (required)" value="feat: add initialization process" readonly>
+            <input type="text" class="commit-title" placeholder="Summary (required)" value="feat: implement initialization process" readonly>
         </div>
-        <textarea class="commit-description" placeholder="Description" readonly>Added the ability to initialize the measurement instrument and calibrate its sensors for accurate data collection.</textarea>
+        <textarea class="commit-description" placeholder="Description" readonly>Enabled initialization of the measurement instrument and calibration of sensors for accurate data collection.</textarea>
         <button class="submit-btn" onclick="handleSubmit(this)">Commit to main</button>
     </div>
 
@@ -130,9 +130,9 @@
     <div class="commit-box">
         <div class="commit-title-wrapper">
             <img src="..\figures\ECPC_logo_simple.svg" alt="ECPC logo" width="24" height="24">
-            <input type="text" class="commit-title" placeholder="Summary (required)" value="fix: resolve calibration issue" readonly>
+            <input type="text" class="commit-title" placeholder="Summary (required)" value="fix: correct calibration error" readonly>
         </div>
-        <textarea class="commit-description" placeholder="Description" readonly>Fixed the calibration error that occurred due to incorrect sensor configuration.</textarea>
+        <textarea class="commit-description" placeholder="Description" readonly>Resolved calibration errors caused by incorrect sensor configurations.</textarea>
         <button class="submit-btn" onclick="handleSubmit(this)">Commit to main</button>
     </div>
 
@@ -140,9 +140,9 @@
     <div class="commit-box">
         <div class="commit-title-wrapper">
             <img src="..\figures\ECPC_logo_simple.svg" alt="ECPC logo" width="24" height="24">
-            <input type="text" class="commit-title" placeholder="Summary (required)" value="chore: update dependencies" readonly>
+            <input type="text" class="commit-title" placeholder="Summary (required)" value="chore: upgrade dependencies" readonly>
         </div>
-        <textarea class="commit-description" placeholder="Description" readonly>Updated project dependencies to their latest versions for improved stability.</textarea>
+        <textarea class="commit-description" placeholder="Description" readonly>Upgraded matplotlib and click to the latest versions to enable error bar functionality.</textarea>
         <button class="submit-btn" onclick="handleSubmit(this)">Commit to main</button>
     </div>
 
@@ -150,9 +150,9 @@
     <div class="commit-box">
         <div class="commit-title-wrapper">
             <img src="..\figures\ECPC_logo_simple.svg" alt="ECPC logo" width="24" height="24">
-            <input type="text" class="commit-title" placeholder="Summary (required)" value="refactor: optimize data flow" readonly>
+            <input type="text" class="commit-title" placeholder="Summary (required)" value="refactor: streamline data flow" readonly>
         </div>
-        <textarea class="commit-description" placeholder="Description" readonly>Refactored the data flow within the application to improve performance and efficiency.</textarea>
+        <textarea class="commit-description" placeholder="Description" readonly>Fetched all measurements prior to analysis to enhance performance and efficiency.</textarea>
         <button class="submit-btn" onclick="handleSubmit(this)">Commit to main</button>
     </div>
     
@@ -162,7 +162,7 @@
                 <img src="..\figures\ECPC_logo_simple.svg" alt="ECPC logo" width="24" height="24">
                 <input type="text" class="commit-title" placeholder="Summary (required)" value="docs: update README" readonly>
             </div>
-            <textarea class="commit-description" placeholder="Description" readonly>Updated the README file to reflect recent changes and new features in the application.</textarea>
+            <textarea class="commit-description" placeholder="Description" readonly>Updated README to include information about the new plot button and save feature.</textarea>
             <button class="submit-btn" onclick="handleSubmit(this)">Commit to main</button>
         </div>
 
@@ -180,30 +180,30 @@
 <script>
     // Store original title and description texts
     const originalTexts = [
-        {
-            title: "feat: add initialization process",
-            description: "Added the ability to initialize the measurement instrument and calibrate its sensors for accurate data collection."
-        },
-        {
-            title: "fix: resolve calibration issue",
-            description: "Fixed the calibration error that occurred due to incorrect sensor configuration."
-        },
-        {
-            title: "chore: update dependencies",
-            description: "Updated project dependencies to their latest versions for improved stability."
-        },
-        {
-            title: "refactor: optimize data flow",
-            description: "Refactored the data flow within the application to improve performance and efficiency."
-        },
-        {
-            title: "docs: update README",
-            description: "Updated the README file to reflect recent changes and new features in the application."
-        },
-        {
-            title: '',
-            description: ''
-        }
+    {
+    title: "feat: implement initialization process",
+    description: "Enabled initialization of the measurement instrument and calibration of sensors for accurate data collection."
+    },
+    {
+        title: "fix: correct calibration error",
+        description: "Resolved calibration errors caused by incorrect sensor configurations."
+    },
+    {
+        title: "chore: upgrade dependencies",
+        description: "Upgraded matplotlib and click to the latest versions to enable error bar functionality."
+    },
+    {
+        title: "refactor: streamline data flow",
+        description: "Fetched all measurements prior to analysis to enhance performance and efficiency."
+    },
+    {
+        title: "docs: update README",
+        description: "Updated README to include information about the new plot button and save feature."
+    },
+    {
+        title: '',
+        description: ''
+    }
     ];
 
     function handleSubmit(button) {
