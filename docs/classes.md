@@ -225,7 +225,7 @@ print(master_oogway.quote)
         print(proton.name)
         ```
         <pre>
-        <code>(ecpc) > python.exe particle.py
+        <code>(ecpc) > python particle.py
         <span class="invisible" name="particle">up
         down
         -0.5
@@ -282,7 +282,7 @@ print(master_oogway.quote)
 
         ```
         <pre>
-        <code>(ecpc) > python.exe water_rocket.py
+        <code>(ecpc) > python water_rocket.py
         <span class="invisible" name="water_rocket">v=[28, 11]
         angles=[68, 15]
         x=[55.51602063607072, 6.167176350662587]
