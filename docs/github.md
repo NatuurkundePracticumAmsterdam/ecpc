@@ -110,11 +110,26 @@ Dit kan in GitHub Desktop, maar ook direct vanuit Visual Studio Code. Elke commi
 
         !!! info "Geen blauw bolletje"
             Zie je geen bolletje verschijnen? Kijk of je het bestand zeker weten hebt opgeslagen. Nog steeds geen blauw bolletje? Ga naar [{{github}} GitHub Dekstop](#__tabbed_2_1) en ga verder met stap 5.
- 
+
         [^commit message]: Je kunt je commit message opdelen in een titel (of summary) en een beschrijving. Dit doe je dit door een witregel toe te voegen tussen de titel en de beschrijving.
 
     !!! info
         Als je wilt opzoeken hoe iets werkt bij GitHub Desktop, kijk dan in de documentatie: [https://docs.github.com/en/desktop](https://docs.github.com/en/desktop).
+    
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] In GitHub Desktop staat onder het `History` tabblad een nieuw commit message.
+        - [ ] De commit bevat het bestand waarin je een aanpassing hebt gedaan.
+        - [ ] De aanpassing is aangegeven met groen (toegevoegd) en rood (weggehaald).
+
+        **Projecttraject**
+    
+        - [x] Pyvisa in pythonscript
+        - [x] LED laten branden
+        - [x] flashingLED
+        - [x] Van bestaande map repository maken
+        - [x] Commit
 
 In GitHub Desktop zie je nu bij history de commit staan, met in een oogopslag alle wijzigingen.
 
