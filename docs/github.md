@@ -137,6 +137,24 @@ Hieronder zie je een aantal voorbeelden van commit messages. De titels zijn kort
 
 --8<-- "docs/html-snippets/commit.html"
 
+!!! opdracht-basis "Push en pull"
+    === "opdracht"
+        De repository die je in [opdracht _Repository toevoegen_](#opd:add_repository) hebt aangemaakt bestaat alleen nog maar op de computer. Als de computerkabouters 's nachts langskomen kan het zijn dat de computer daarna is gewist en je alles kwijt bent. Daarom is het fijn om de repository ook in de cloud te hebben op GitHub.com. In GitHub desktop is een knop `Publish repository; Publish this repository to GitHub`, als je daar op drukt kun je nog een andere naam aan de repository geven (dat bepaald de url op github.com), een description en of de code privé moet zijn. Daarna klik je op de blauwe knop `Publish repository`. Als je nu naar [GitHub.com](https://github.com) gaat zie je bij jouw repositories de zojuist gepubliceerde repository staan. 
+    
+        Om je wijzigen ook in de cloud op te slaan kun je commits `pushen` naar Github.com met de knop `Push origin`. Als je op een andere computer gaat werken kun je de repository vanuit de cloud naar de computer halen door op `Fetch origin` te klikken en daarna op `Pull origin`.
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] De repository staat op github.com bij jouw repositories
+
+        **Projecttraject**
+    
+        - [x] Pyvisa in pythonscript
+        - [x] LED laten branden
+        - [x] flashingLED
+        - [x] Van bestaande map repository maken
+        - [x] Commit 
+        - [x] Push en pull
 
 
 ##  GitHub
@@ -176,11 +194,6 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
 
     Aangezien je geen schrijfrechten hebt voor LMfit kun je niet kiezen voor `Push origin` &mdash; de knop die rechtsboven verschijnt. Met die knop <q>duw</q> je je wijzigingen naar GitHub zodat iedereen ze kan zien. Dat is mooi, maar je mag niet zomaar de repository van iemand anders wijzigen.
 
-???+ opdracht-meer "Push en pull"
-    In eerdere opdrachten heb je repositories op de computer aangemaakt. Vanuit GitHub Desktop kan je een repository publiceren op GitHub. Commits kun je vervolgens pullen en pushen van en naar Github.
-
-    1. Publiceer een repository op Github &mdash; bijvoorbeeld je oefenopdrachten of je `pythondaq`-repository. Verander iets in je code, commit en kijk hoe je dat naar GitHub kunt Pushen.
-    1. Ga naar Github.com en verander daar iets in de code, commit en kijk hoe je dat naar de computer kan Pullen.
     
 
 
