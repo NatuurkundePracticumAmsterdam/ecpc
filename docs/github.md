@@ -77,6 +77,8 @@ Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een d
         - [x] LED laten branden
         - [x] flashingLED
         - [x] Van bestaande map repository maken
+        - [ ] Commit 
+        - [ ] Push en pull
 
 ### Commit
 Alle wijzigingen aan bestanden in de repository kun je vanaf nu bijhouden door regelmatig een commit te maken. Met een commit maak je als het ware een snapshot van alle bestanden en hang je daar een labeltje aan.
@@ -129,7 +131,8 @@ Dit kan in GitHub Desktop, maar ook direct vanuit Visual Studio Code. Elke commi
         - [x] LED laten branden
         - [x] flashingLED
         - [x] Van bestaande map repository maken
-        - [x] Commit
+        - [x] Commit 
+        - [ ] Push en pull
 
 In GitHub Desktop zie je nu bij history de commit staan, met in een oogopslag alle wijzigingen.
 
