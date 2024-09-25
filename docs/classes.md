@@ -98,7 +98,7 @@ master_oogway.forward(50)
         **Checkpunten:**
 
         - [ ] De instance is van de class `Turtle` met hoofdletter T
-        - [ ] Om de schildpad te laten bewegen roep je de method `#!py forward()` of `#!py lef()` van de instance aan
+        - [ ] Om de schildpad te laten bewegen roep je de method `#!py forward()` of `#!py left()` van de instance aan
 
         **Projecttraject:**
 
