@@ -581,6 +581,14 @@ of
 <div class="texteditor_container" style="height: 460px;"><iframe src="http://localhost/h5p/embed.php?url=http%3A%2F%2Flocalhost%2Fpluginfile.php%2F17%2Fmod_h5pactivity%2Fpackage%2F0%2Fhighlighterlumi.h5p&amp;component=mod_h5pactivity" height="500px" width="100%" frameborder="0" allowfullscreen="allowfullscreen" lang="en" scrolling="no" class="flashcard_element"></iframe></div>
 </div>
 
+of
+
+<div class="flashcards_container" style="height: 460px;">
+<iframe src="http://localhost/h5p/embed.php?url=http%3A%2F%2Flocalhost%2Fpluginfile.php%2F24%2Fmod_h5pactivity%2Fpackage%2F0%2Fnewcodeblock.h5p&amp;component=mod_h5pactivity" width="47.5%" height="460px" frameborder="0" allowfullscreen="allowfullscreen" lang="en" scrolling="no" style="float:left;"></iframe>
+
+<div class="texteditor_container"><iframe src="http://localhost/h5p/embed.php?url=http%3A%2F%2Flocalhost%2Fpluginfile.php%2F17%2Fmod_h5pactivity%2Fpackage%2F0%2Fhighlighterlumi.h5p&amp;component=mod_h5pactivity" height="500px" width="100%" frameborder="0" allowfullscreen="allowfullscreen" lang="en" scrolling="no" class="flashcard_element"></iframe></div>
+</div>
+
 <!-- <div class="d-flex justify-content-end mb-3">
 </div>
 
