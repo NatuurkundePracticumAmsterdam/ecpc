@@ -153,8 +153,8 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
     === "opdracht"
         Je code berekent de spanning _over_ en de stroomsterkte _door_ de LED terwijl de spanning over het cirquit oploopt van nul tot de maximale waarde. De resultaten worden in een grafiek weergegeven.  
     === "code"
-        **Pseudo-code** title="basisscript.py"
-        ``` py
+        **Pseudo-code**
+        ``` py title="basisscript.py"
         # connect to Arduino
 
         # set input voltage from 0 to max
