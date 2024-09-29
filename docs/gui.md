@@ -49,7 +49,21 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
 <div id="opd:minimal-gui"></div>
 !!! opdracht-basis "Minimale GUI"
     === "opdracht"
-        Je gaat de gegeven Python code voor een een minimale GUI testen. In de map {{folder}}`ECPC` maak je een {{new_file}}`example-gui.py` aan en zet daarin de Python code. Je activeert de `test-qt` conda environment en runt het bestand {{new_file}}`example-gui.py`. Er verschijnt een leeg venster in beeld met als venstertitel `python` en drie knoppen. Een streepje (minimize), een vierkant (maximize) en een kruis (close). Je drukt op het kruisje en het venster sluit. 
+
+        <div class="grid-tree" markdown>
+            <div>
+            Je gaat de gegeven Python code voor een een minimale GUI testen. In de map {{folder}}`ECPC` maak je een {{new_file}}`example-gui.py` aan en zet daarin de Python code. Je activeert de `test-qt` conda environment en runt het bestand {{new_file}}`example-gui.py`. Er verschijnt een leeg venster in beeld met als venstertitel `python` en drie knoppen. Een streepje (minimize), een vierkant (maximize) en een kruis (close). Je drukt op het kruisje en het venster sluit. 
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `pythondaq`  
+            {{T}} {{github}} `oefenopdrachten`    
+            {{tab}} {{T}} {{new_file}} `example-gui.py`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{dots}}  
+            </div>
+        </div>
+
     === "code"
         **Pseudo-code**
         ``` py
@@ -507,12 +521,25 @@ Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog ma
 !!! opdracht-basis "Designer gebruiken"
 
     1. Open Designer en kies bij **templates/forms** voor `#!py MainWindow`. Klik dan op **Create**. Ontwerp de user interface van [het screenshot](#fig:screenshot-ui-prog) en gebruik dezelfde namen voor de widgets als het voorbeeld. Dus een `#!py add_button` knop, een `#!py clear_button` knop en een `#!py textedit` tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.
-    1. Bewaar het bestand als {{file_lines}}`simple_app.ui`.
+    1. Bewaar het bestand als {{file_lines}}`simple_app.ui`.  
+    {{folder}} `ECPC`  
+    {{T}} {{github}} `oefenopdrachten`  
+    {{tab}} {{T}} {{new_file_lines}} `simple_app.ui`  
+    {{tab}} {{T}} {{file}} `example-gui.py`  
+    {{tab}} {{L}} {{dots}}  
+    {{L}} {{dots}}  
     1. In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan[^overleg-navigeren] en type in:
             ``` ps1 title="Terminal"
             pyside6-uic simple_app.ui -o ui_simple_app.py  
             ```
-            Deze stap moet je doen elke keer als je in Designer iets wijzigt. Gebruik de ++up++-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met Poetry, zullen we dit eenvoudiger maken.
+            Deze stap moet je doen elke keer als je in Designer iets wijzigt. Gebruik de ++up++-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met Poetry, zullen we dit eenvoudiger maken.  
+    {{folder}} `ECPC`  
+    {{T}} {{github}} `oefenopdrachten`  
+    {{tab}} {{T}} {{file_lines}} `simple_app.ui`  
+    {{tab}} {{T}} {{new_file}} `simple_app.py`  
+    {{tab}} {{T}} {{file}} `example-gui.py`  
+    {{tab}} {{L}} {{dots}}  
+    {{L}} {{dots}} 
     1. Copy/paste nu de [voorbeeldcode](#code:designer) in een nieuw script, fix eventuele importerrors en test de applicatie.
 
 [^overleg-navigeren]: Overleg met elkaar of met de assistent als je niet weet hoe dat moet.
@@ -595,7 +622,21 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
 
 !!! opdracht-inlever "Functionplotter: plot"
     === "opdracht"
-        Via GitHub Desktop open je de repository {{github}}`functionplotter` in Visual Studio Code. Je bekijkt de {{file_lines}}`pyproject.toml` en ziet dat het project beheerd wordt met Poetry en dat er een commando is aangemaakt om de applicatie te starten. Je {{lightbulb}} maakt een nieuw conda environment aan met alleen Python daarin, gebruikt `poetry install` om het project te installeren en voert het commando uit om de applicatie te starten. Er verschijnt een scherm met een plot waarin de functie $\sin(x)$ plot in het domein $(0, 2\pi)$ is geplot. Een golfje van trots gaat door je heen en je gaat door naar de volgende opdracht.
+
+        <div class="grid-tree" markdown>
+            <div>
+            Via GitHub Desktop open je de repository {{github}}`functionplotter` in Visual Studio Code. Je bekijkt de {{file_lines}}`pyproject.toml` en ziet dat het project beheerd wordt met Poetry en dat er een commando is aangemaakt om de applicatie te starten. Je {{lightbulb}} maakt een nieuw conda environment aan met alleen Python daarin, gebruikt `poetry install` om het project te installeren en voert het commando uit om de applicatie te starten. Er verschijnt een scherm met een plot waarin de functie $\sin(x)$ plot in het domein $(0, 2\pi)$ is geplot. Een golfje van trots gaat door je heen en je gaat door naar de volgende opdracht.
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `pythondaq`  
+            {{T}} {{github}} `functionplotter`  
+            {{tab}} {{T}} {{new_file_lines}} `pyproject.toml`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{dots}}  
+            </div>
+        </div>
+
     === "code"
         **Pseudo-code**
         ```
@@ -709,7 +750,22 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
 
 !!! opdracht-inlever "Pythondaq: leeg venster"
     === "opdracht"
-        Je wilt een toffe GUI maken voor de `pythondaq` applicatie. Je gaat dit in stapjes opbouwen zodat je tussendoor nog kunt testen of het werkt. Je maakt een {{new_file}}`gui.py` aan waarin een leeg venster wordt gemaakt. Het lege venster wordt getoont zodra je een commando in de terminal intypt. Je sluit het venster. Om te testen of dit bij andere mensen ook zou werken maak {{lightbulb}} je een nieuwe conda environment aan met Python, installeer je de package met Poetry en test je opnieuw het commando, er verschijnt opnieuw een leeg venster. 
+
+        <div class="grid-tree" markdown>
+            <div>
+            Je wilt een toffe GUI maken voor de `pythondaq` applicatie. Je gaat dit in stapjes opbouwen zodat je tussendoor nog kunt testen of het werkt. Je maakt een {{new_file}}`gui.py` aan waarin een leeg venster wordt gemaakt. Het lege venster wordt getoont zodra je een commando in de terminal intypt. Je sluit het venster. Om te testen of dit bij andere mensen ook zou werken maak {{lightbulb}} je een nieuwe conda environment aan met Python, installeer je de package met Poetry en test je opnieuw het commando, er verschijnt opnieuw een leeg venster. 
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `pythondaq`  
+            {{tab}} {{T}} {{folder}} `src/pythondaq`  
+            {{tab}} {{tab}} {{T}} {{new_file}} `gui.py`  
+            {{tab}} {{tab}} {{L}} {{dots}}  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{dots}}  
+            </div>
+        </div>
+
     === "code"
         **Pseudo-code**
         ```

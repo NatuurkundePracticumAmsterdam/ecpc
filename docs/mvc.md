@@ -152,10 +152,10 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
             Omdat je het basisscript later gaat uitbreiden om het gebruiksvriendelijker te maken ga je alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten. Het bestand {{file}}`#!py arduino_device.py` bevat de class `#!py ArduinoVisaDevice` en de functie `#!py list_devices()`. In {{file}}`basisscript.py` importeer je de class en de functie uit de module {{file}}`arduino_device.py` zodat je ze daar kunt gebruiken.
             </div>
             <div>
-            {{folder}} ECPC   
-            {{T}} {{github}} pythondaq  
-            {{tab}} {{T}} {{file}} basisscript.py  
-            {{tab}} {{T}} {{new_file}} arduino_device.py  
+            {{folder}} `ECPC`   
+            {{T}} {{github}} `pythondaq`  
+            {{tab}} {{T}} {{file}} `basisscript.py`  
+            {{tab}} {{T}} {{new_file}} `arduino_device.py`  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{dots}}  
             </div>
@@ -244,11 +244,11 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
             Omdat de uitbreidingen om het basisscript gebruiksvriendelijker te maken vooral de view zullen uitbreiden zet je het model en de view ook in aparte bestanden. Wanneer je het bestand {{file}}`view.py` runt roept deze in het model de method `#!py scan()` aan welke een meting start. Om gegevens van het naar de Arduino te sturen maakt het model gebruik van de controller. De gegevens die het model terugkrijgt van de Arduino worden volgens de fysische relaties verwerkt tot de benodigde gegevens en doorgestuurd naar de view. De view presenteerd de gegevens in een grafiek. Wanneer je in een ander bereik wilt meten pas je in de view het bereik aan, het model gebruikt dit bereik bij het doen van de meting. Let op, we hernoemen {{file}} `basisscript.py` naar {{file}} `diode_experiment.py`.
             </div>
             <div>
-            {{folder}} ECPC   
-            {{T}} {{github}} pythondaq  
-            {{tab}} {{T}} {{file}} diode_experiment.py  
-            {{tab}} {{T}} {{file}} arduino_device.py  
-            {{tab}} {{T}} {{new_file}} view.py  
+            {{folder}} `ECPC`   
+            {{T}} {{github}} `pythondaq`  
+            {{tab}} {{T}} {{file}} `diode_experiment.py`  
+            {{tab}} {{T}} {{file}} `arduino_device.py`  
+            {{tab}} {{T}} {{new_file}} `view.py`  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{dots}}  
             </div>

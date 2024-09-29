@@ -77,16 +77,17 @@ master_oogway.forward(50)
    
 !!! opdracht-basis "turtle"
     === "opdracht"
+
         <div class="grid-tree" markdown>
             <div>
             Je bent inmiddels nieuwschierig geworden naar de schildpad en schrijft een script in het bestand {{file}} `turtles.py` die een schildpad met de instancenaam `master_oogway` laat lopen en draaien.
             </div>
             <div>
-            {{folder}} ECPC  
-            {{T}} {{github}} oefenopdrachten  
-            {{tab}} {{T}} {{new_file}} turtles.py  
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{tab}} {{T}} {{new_file}} `turtles.py`  
             {{tab}} {{L}} {{dots}}  
-            {{L}} {{github}} Pythondaq  
+            {{L}} {{github}} `pythondaq`  
             {{tab}} {{L}} {{dots}}  
             </div>
         </div>
@@ -214,11 +215,11 @@ print(master_oogway.quote)
             Je maakt een instance van de class `#!py Particle` in een nieuw bestand {{file}} `particle.py` aan voor een proton, naast de naam geeft je ook mee dat de spin 0.5 is. Je gebruikt de method `#!py is_up_or_down()` om terug op te vragen wat de spin van het deeltje op dat moment is (spin omhoog/positief of spin omlaag/negatief). Met de method `#!py flip()` keer je de spin van het deeltje om. 
             </div>
             <div>
-            {{folder}} ECPC  
-            {{T}} {{github}} oefenopdrachten  
-            {{tab}} {{T}} {{new_file}} particle.py  
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{tab}} {{T}} {{new_file}} `particle.py`  
             {{tab}} {{L}} {{dots}}  
-            {{L}} {{github}} Pythondaq  
+            {{L}} {{github}} `pythondaq`  
             {{tab}} {{L}} {{dots}}  
             </div>
         </div>
@@ -275,13 +276,13 @@ print(master_oogway.quote)
             Je gaat een waterraket een aantal keer wegschieten met steeds een andere beginsnelheid en lanceerhoek. Je hebt een instance aangemaakt van de class `#!py ProjectileMotion`. De metingen van de beginsnelheid en de lanceerhoek bewaar je steeds met de method `#!py add_measurement()`. Om in een keer alle beginsnelheden op te vragen gebruik je de method `#!py get_initial_velocities()`. Om alle lanceerhoeken op te vragen gebruik je de method `#!py get_launch_angles()`. Op basis van de gegevens (en door de luchtweerstand te verwaarlozen) bepaal je de vluchtduur en het bereik van de raket. Je kunt de vluchtduur van alle vluchten opvragen met de method `#!py get_time_of_flights()` en het bereik van alle vluchten met `#!py get_flight_ranges()`.
             </div>
             <div>
-            {{folder}} ECPC  
-            {{T}} {{github}} oefenopdrachten  
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
             {{tab}} {{L}} {{dots}}  
-            {{T}} {{github}} pythondaq  
+            {{T}} {{github}} `pythondaq`  
             {{tab}} {{L}} {{dots}}  
-            {{L}} {{github}} projectile-motion  
-            {{tab}} {{T}} {{new_file}} water_rocket.py  
+            {{L}} {{github}} `projectile-motion`  
+            {{tab}} {{T}} {{new_file}} `water_rocket.py`  
             {{tab}} {{L}} {{dots}}  
             </div>
         </div>

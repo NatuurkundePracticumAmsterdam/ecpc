@@ -112,15 +112,16 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
 
 !!! opdracht-inlever "Pythondaq: start script"
     === "opdracht"
+    
         <div class="grid-tree" markdown>
             <div>
             Je maakt het bestand {{file}}`basisscript.py` aan in de nieuwe {{github}} `pythondaq` repository, waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de spanning over de weerstand uit. Je print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand.
             </div>
             <div>
-            {{folder}} ECPC  
-            {{T}} {{github}} oefenopdrachten  
-            {{L}} {{github}} pythondaq  
-            {{tab}} {{T}} {{new_file}} basisscript.py  
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{L}} {{github}} `pythondaq`  
+            {{tab}} {{T}} {{new_file}} `basisscript.py`  
             {{tab}} {{L}} {{dots}}  
             </div>
         </div>
