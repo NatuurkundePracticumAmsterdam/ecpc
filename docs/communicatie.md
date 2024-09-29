@@ -437,7 +437,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Omdat je straks de IU-karakteristiek van de LED wilt gaan bepalen ga je een reeks aan spanningen naar de LED sturen waardoor de LED gaat branden. Je maakt daarvoor een bestand {{new_file}}`test_LED.py` aan in de map {{folder}}ECPC. Je schrijft eerst een regel code waarmee je een commando naar de Arduino stuurt waardoor de LED gaat branden. Daarna schrijf je de code om zodat de spanning oploopt van de minimale waarde tot aan de maximale waarde.
+            Omdat je straks de IU-karakteristiek van de LED wilt gaan bepalen ga je een reeks aan spanningen naar de LED sturen waardoor de LED gaat branden. Je maakt daarvoor een bestand {{new_file}}`test_LED.py` aan in de map {{folder}}`ECPC`. Je schrijft eerst een regel code waarmee je een commando naar de Arduino stuurt waardoor de LED gaat branden. Daarna schrijf je de code om zodat de spanning oploopt van de minimale waarde tot aan de maximale waarde.
             </div>
             <div>
             {{folder}}`ECPC`  
