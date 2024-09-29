@@ -260,7 +260,7 @@ Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de len
         I = [0.3, 0.4, 0.6, 0.8, 1.0] # A 
 
         # repeat
-        #   print U , I, R
+        #   print U, I, R
         ```
     === "check"
         **Checkpunten:**
