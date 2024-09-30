@@ -44,7 +44,7 @@ De digitale metingen die je programma krijgt van de ADC is hierboven weergegeven
 
 !!! opdracht-basis "Volt naar ADC"
     === "opdracht"
-        Je hebt gezien dat de Arduino werkt met getallen van 0 t/m 1023 en dat de Arduino een bereik heeft van 0 V tot 3.3 V. Je schrijft de formule op om de ruwe ADC waarde naar een spanning in Volt om te rekenen en omgekeerd. Je controleerd of je formules logische antwoorden geven door de spanning te berekenen die bij een ruwe waarde van 700 hoort en de ruwe waarde die hoort bij 2.28 V. 
+        Je hebt gezien dat de Arduino werkt met getallen van 0 t/m 1023 en dat de Arduino een bereik heeft van 0 V tot 3.3 V. Je schrijft de formule op om de ruwe ADC waarde naar een spanning in Volt om te rekenen en omgekeerd. Je controleert of je formules logische antwoorden geven door de spanning te berekenen die bij een ruwe waarde van 700 hoort en de ruwe waarde die hoort bij 2.28 V. 
     === "code"
         **Pseudo-code**
         ``` py
@@ -101,14 +101,30 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
 !!! opdracht-inlever "Pythondaq: repository"
     Omdat we met een belangrijk project aan de slag gaan, namelijk een inleveropdracht, gaan we gelijk goed beginnen door een repository aan te maken. 
 
-    1. Open Github Desktop en ga naar **File > New repository ...**. Geef de repository een naam (Pythondaq) en kies een locatie. Let er op dat je deze map _niet_ in een andere repository aanmaakt, maar daarbuiten. Overleg eventueel over een handige plek.
+    1. Open Github Desktop en ga naar **File > New repository ...**. Geef de repository een naam (`pythondaq`) en kies onderstaande locatie. Let er op dat je mappenstructuur er als volgt uit ziet:   
+    {{folder}} ECPC  
+    {{T}} {{github}} pythondaq  
+    {{tab}} {{L}} {{dots}}  
+    {{L}} {{dots}}  
     1. Vink `Initialize this repository with a README` aan.
     1. Kies bij `Git ignore` voor <q>Python</q>.
     1. Ga naar **Repository > Open in Visual Studio Code** en ga aan de slag. Vergeet niet regelmatig te committen!
 
 !!! opdracht-inlever "Pythondaq: start script"
     === "opdracht"
-        Je runt het bestand {{file}}`basisscript.py` waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de spanning over de weerstand uit. Je print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand.
+    
+        <div class="grid-tree" markdown>
+            <div>
+            Je maakt het bestand {{file}}`basisscript.py` aan in de nieuwe {{github}} `pythondaq` repository, waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de spanning over de weerstand uit. Je print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand.
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{L}} {{github}} `pythondaq`  
+            {{tab}} {{T}} {{new_file}} `basisscript.py`  
+            {{tab}} {{L}} {{dots}}  
+            </div>
+        </div>
     === "code"
         **Pseudo-code**
         ``` py title="basisscript.py"

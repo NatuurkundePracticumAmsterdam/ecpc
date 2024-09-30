@@ -107,17 +107,17 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
 
 Er is nu de volgende structuur aangemaakt:
 
-{{folder}} ECPC  
-{{T}} {{github}} oefenopdrachten  
-{{T}} {{github}} pythondaq  
-{{T}} {{new_folder}} easystat  
-{{tab}} {{T}} {{new_folder}} src  
-{{tab}} {{tab}} {{L}} {{new_folder}} easystat  
-{{tab}} {{tab}} {{tab}} {{L}} {{new_file}} \_\_init\_\_.py  
-{{tab}} {{T}} {{new_folder}} tests  
-{{tab}} {{tab}} {{L}} {{new_file}} \_\_init\_\_.py  
-{{tab}} {{T}} {{new_file_lines}} pyproject.toml  
-{{tab}} {{L}} {{new_file_lines}} readme.md  
+{{folder}} `ECPC`  
+{{T}} {{github}} `oefenopdrachten`  
+{{T}} {{github}} `pythondaq`  
+{{T}} {{new_folder}} `easystat`  
+{{tab}} {{T}} {{new_folder}} `src`  
+{{tab}} {{tab}} {{L}} {{new_folder}} `easystat`  
+{{tab}} {{tab}} {{tab}} {{L}} {{new_file}} `__init__.py`  
+{{tab}} {{T}} {{new_folder}} `tests`  
+{{tab}} {{tab}} {{L}} {{new_file}} `__init__.py`  
+{{tab}} {{T}} {{new_file_lines}} `pyproject.toml`  
+{{tab}} {{L}} {{new_file_lines}} `readme.md`  
 {{L}} {{folder}} {{dots}}  
 
 Allereerst is er een projectmap `easystat` aangemaakt. Je kunt nu in GitHub Desktop deze map toevoegen als nieuwe repository, zoals we gedaan hebben in [opdracht _Repository toevoegen_](github.md#opd:add_repository).
@@ -230,16 +230,16 @@ We starten met onze package. Stel, we berekenen vaak de standaarddeviatie van he
         ```
         </div>
         <div>
-        {{L}} {{github}} easystat  
-        {{tab}} {{T}} {{folder}} src  
-        {{tab}} {{tab}} {{T}} {{folder}} easystat  
-        {{tab}} {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
-        {{tab}} {{tab}} {{tab}} {{L}} {{new_file}} shortcuts.py  
-        {{tab}} {{T}} {{folder}} tests  
-        {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
-        {{tab}} {{tab}} {{L}} {{new_file}} try_shortcuts.py  
-        {{tab}} {{T}} {{file_lines}} pyproject.toml  
-        {{tab}} {{L}} {{file_lines}} readme.md  
+        {{github}} `easystat`  
+        {{T}} {{folder}} `src`  
+        {{tab}} {{T}} {{folder}} `easystat`  
+        {{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
+        {{tab}} {{tab}} {{L}} {{new_file}} `shortcuts.py`  
+        {{T}} {{folder}} `tests`  
+        {{tab}} {{T}} {{file}} `__init__.py`  
+        {{tab}} {{L}} {{new_file}} `try_shortcuts.py`  
+        {{T}} {{file_lines}} `pyproject.toml`  
+        {{L}} {{file_lines}} `readme.md`  
         </div>
     </div>
 
@@ -507,20 +507,20 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
 
 !!! opdracht-basis "Poetry flashingLED"
     === "opdracht"
+    
         <div class="grid-tree" markdown>
             <div>
             Je gaat een bestaand project maken zodat je kunt oefenen om daar Poetry aan toe te voegen. Omdat de [opdracht _flashingLED_](communicatie.md#opd:flashingLED) een oefenopdracht was voor `Pythondaq` besluit je deze als oefenpackage te gebruiken. Je maakt {{lightbulb}} een nieuwe repository {{github}}`flasher` aan en opent deze in Visual Studio Code. Je maakt zelf in de repository {{github}}`flasher` de src-layout van mappen en bestanden, zoals hier rechts is weergegeven. Het bestand {{file}}`flashingLED` heb je gekopieerd uit je repository {{github}}`oefenopdrachten`. Nu het oefenpackage klaar staat (commit{{feesttoeter}}) maak {{lightbulb}} je een nieuwe conda environment met de naam `flasher` met daarin `python=3.10`. Je activeert de environment `flasher` en voegt Poetry toe. Je installeert het pakket en daarna voeg je de benodigde dependencies toe (in ieder geval `pyvisa-py` maar wat nog meer?) net zolang tot het scriptje weer werkt. 
             </div>
             <div>
-            {{folder}}`ECPC`  
-            {{T}}{{github}}`oefenopdrachten`  
-            {{T}}{{github}}`pythondaq`  
-            {{T}}{{github}}`flasher`  
-            {{tab}}{{L}}{{folder}}`src`  
-            {{tab}}{{tab}}{{L}}{{folder}}`flasher`
-            {{tab}}{{tab}}{{tab}}{{T}}{{new_file}}`__init__.py`
-            {{tab}}{{tab}}{{tab}}{{L}}{{file}}`flashingLED.py`
-            {{L}}{{dots}}  
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{T}} {{github}} `pythondaq`  
+            {{T}} {{github}} `flasher`  
+            {{tab}} {{L}} {{folder}} `src`  
+            {{tab}} {{tab}} {{L}} {{folder}} `flasher`  
+            {{tab}} {{tab}} {{tab}} {{L}} {{file}} `flashingLED.py`  
+            {{L}} {{dots}}  
             </div>
         </div>
         !!! info "No module named 'serial'"
