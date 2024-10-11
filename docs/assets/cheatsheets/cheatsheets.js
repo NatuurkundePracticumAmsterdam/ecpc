@@ -10,6 +10,9 @@ if (currentUrl.includes("cheatsheets")) {
     // remove header if cheatsheet page is viewed
     const full_header = document.getElementsByClassName("md-header--shadow")[0];
     full_header.setAttribute("style","display: none;");
+
+    const cheatsheet_title = document.querySelector("h1");
+    cheatsheet_title.setAttribute("style","display: none;");
 } else {
     // get header and wrapper for icon and cheatsheet
     const header = document.getElementsByClassName("md-header__ellipsis")[0];

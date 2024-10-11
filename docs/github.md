@@ -38,39 +38,47 @@ Wij gaan werken met GitHub, je moet dan wel een (gratis) account aanmaken. Als s
 
 
 ### GitHub Desktop
-Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een desktop applicatie ontwikkeld.
+Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een desktop applicatie ontwikkeld met de naam `GitHub Desktop`. We gaan GitHub Desktop gebruiken om een repository te maken van een map met oefenopdrachten.
 
 <div id="opd:add_repository"></div>
-!!! opdracht-basis "Repository toevoegen"
-    Maak op de volgende manier een repository voor je Pythonscripts:
+!!! opdracht-basis "Van bestaande map repository maken"
+    === "opdracht"
+        <div class="grid-tree" markdown>
+            <div>
+            Je gaat een repository maken van een bestaande map. Als je van de {{folder}}`ECPC` een repository maakt, kun je daar geen andere repositories inzetten. Dus maak je in de map {{folder}}`ECPC` een nieuwe map {{new_folder}}`Oefenopdrachten` aan en zet daarin alle Python-bestandjes die je hebt gemaakt om te oefenen zoals de opdrachten [_Pyvisa in pythonscript_](communicatie.md#opd:test_arduino) en [_KnipperLED_](communicatie.md#opd:flashingLED). 
+            <br>
+            Je gaat naar GitHub Desktop en logt in met je eigen account. Je ziet bij **File** drie opties staan, `New`, `Add local` en `Clone` repository. Hoewel `New repository` een goede optie lijkt, wordt daarmee een nieuwe map aangemaakt en dat is niet nodig. Dus kies je voor `Add local` repository. Je geeft de map {{folder}}`Oefenopdrachten` op als locatie en krijgt in rode tekst een waarschuwing. De waarschuwing geeft aan dat de map wel bestaat maar dat het geen `Git repository` is, daarom klik je op de blauwe tekst `create a repository`. Je vinkt `Initialize this repository with a README` aan en kiest bij `Git ignore` voor <q>Python</q>. Je bevestigt dan met de blauwe knop `Create Repository`. 
+            <br>
+            Vanaf nu duiden we een repository aan met het {{github}}-symbool. 
+            <br>
+            De repository {{github}}`Oefenopdrachten` is in GitHub Desktop geopend en als je op het tabblad 'History' klikt dan zie je dat er een `Initial commit` is met wat `git`-bestanden en de Pythonscripts die je in de map hebt gezet. Vanaf nu staat {{github}}`Oefenopdrachten` in versiebeheer en houdt Git je wijzigingen bij, maar je moet wel zelf [committen](#commit)!
+            </div>
+            <div>
+            {{folder}}`ECPC`  
+            {{T}} {{new_folder}} `oefenopdrachten`  
+            {{tab}} {{T}} {{file}} `test_arduino.py`  
+            {{tab}} {{T}} {{file}} `flashingLED.py`  
+            {{tab}} {{L}} {{dots}} 
+            </div>
+        </div>        
+        !!! info "Git ignore Python"
+            Waarom zou je bij Git ignore voor Python kiezen, we gaan toch juist Python bestanden maken? De Git Ignore zorgt ervoor dat allerlei _hulpbestanden_ van Python niet bewaard worden als commit. Maar de Python code wordt wel bewaard.
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] De repository {{github}}`Oefenopdrachten` zit in de map {{folder}}`ECPC`.
+        - [ ] In de repository {{github}}`Oefenopdrachten` is een bestand {{file}}`README.md`
+        - [ ] In de repository {{github}}`Oefenopdrachten` is een bestand {{file}}`.gitattributes`.
+        - [ ] In de repository {{github}}`Oefenopdrachten` is een bestand {{file}}`.gitignore`.
 
-    1. Maak &mdash; bijvoorbeeld vanuit Visual Studio Code &mdash; in de map {{folder}}`ECPC` een map {{folder}}`Oefenopdrachten` en zet daarin alle python-bestandjes die je hebt gemaakt om te oefenen zoals de opdrachten [_Pyvisa in pythonscript_](communicatie.md#opd:test_arduino) en [_KnipperLED_](communicatie.md#opd:flashingLED). De mappenstructuur ziet er dan als volgt uit:  
-    {{L}} {{folder}} ECPC  
-    {{tab}} {{T}} {{folder}} oefenopdrachten  
-    {{tab}} {{tab}} {{T}} {{file}} test_arduino.py  
-    {{tab}} {{tab}} {{T}} {{file}} flashingLED.py  
-    {{tab}} {{tab}} {{L}} &bull;&bull;&bull;  
-    {{tab}} {{L}} &bull;&bull;&bull;  
-    1. Open GitHub desktop en log in met je GitHub account.
-    1. **File > Add Local Repository**. Kies de map {{folder}}`Oefenopdrachten`.
-    1. Je kunt de repository niet toevoegen omdat de map weliswaar bestaat, maar nog geen bestaande repository is. Er verschijnt een waarschuwing met een stukje kleine blauwe tekst. Klik op `create a repository`.
-    1. Vink `Initialize this repository with a README` aan.
-    1. Kies bij `Git ignore` voor <q>Python</q>.[^gitignore]
-    1. En bevestig dan met de blauwe knop `Create Repository`.
-    1. Als je nu op de history klikt dan zie je dat er een `Initial commit` is met wat `git`-bestanden en de Pythonscripts die je in de map hebt gezet. Vanaf nu staat {{folder}}`Oefenopdrachten` in versiebeheer en houdt Git je wijzigingen bij.
-
-    [^gitignore]: De Git Ignore zorgt ervoor dat allerlei hulpbestanden van Python niet bewaard worden als commit. Alleen je eigen code wordt dan bewaard
-
-    Nu de map {{folder}}`oefenopdrachten` een repository is geworden duiden we het voortaan aan met het {{github}}-symbool. De mappenstructuur is nu dus:  
-
-    {{L}} {{folder}} ECPC  
-    {{tab}} {{T}} {{github}} oefenopdrachten  
-    {{tab}} {{tab}} {{T}} {{file}} test_arduino.py  
-    {{tab}} {{tab}} {{T}} {{file}} flashingLED.py  
-    {{tab}} {{tab}} {{L}} &bull;&bull;&bull;  
-    {{tab}} {{L}} &bull;&bull;&bull;  
-
-    Het is ook mogelijk om een repository aan te maken via **File > New Repository**. Gebruik dit vóór de start van een project om een nieuwe map te maken met een lege Git repository.
+        **Projecttraject**
+    
+        - [x] Pyvisa in pythonscript
+        - [x] LED laten branden
+        - [x] flashingLED
+        - [x] Van bestaande map repository maken
+        - [ ] Commit 
+        - [ ] Push en pull
 
 ### Commit
 Alle wijzigingen aan bestanden in de repository kun je vanaf nu bijhouden door regelmatig een commit te maken. Met een commit maak je als het ware een snapshot van alle bestanden en hang je daar een labeltje aan.
@@ -80,36 +88,76 @@ Dit kan in GitHub Desktop, maar ook direct vanuit Visual Studio Code. Elke commi
     === "{{github}} GitHub Desktop"
         Voer de volgende opdrachten uit:
 
-        1. Open Visual Studio Code, ga naar **File > Open Folder** en kies de map waar je in [opdracht _Repository toevoegen_](#opd:add_repository) een repository hebt aangemaakt.
-        1. Open één van je Pythonscripts.
-        1. Type een stukje code erbij &mdash; bijvoorbeeld een print-statement &mdash; en haal ergens anders iets weg. Bewaar het bestand.
         1. Open GitHub Desktop, klik op *Current repository* (links onder de menubalk) en selecteer de repository die je in [opdracht _Repository toevoegen_](#opd:add_repository) hebt aangemaakt.
+        1. Ga naar **Repository > Open in Visual Studio Code** (of druk op ++ctrl+shift+a++ ) en open de repository in Visual Studio Code.
+        1. Open in Visual Studio Code één van je Pythonscripts.
+        1. Type een stukje code erbij &mdash; bijvoorbeeld een print-statement &mdash; en haal ergens anders iets weg. Bewaar het bestand.
+        1. Ga naar GitHub Desktop, controleer bij *Current repository* (links onder de menubalk) of de juiste repository is geopend.
         1. Als er meerder bestanden gewijzigd zijn kan je met het blauwe vinkje aangeven voor welke bestanden je een commit schrijft. 
         1. Onder de lijst met gewijzigde bestanden vind je twee invulvulden. Een smal veld voor een titel en een groot veld voor een uitgebreide beschrijving (Description). 
-        1. In het titelveld staat in lichtgrijs een nietzeggende commit (bijvoorbeeld: Update test.py). Schrijf daar een nuttige <q>commit message</q>. Dus niet: <q>opdracht: commit</q>, maar zoiets als: <q>search for port name to open communication with device</q>.
+        1. In het titelveld staat in lichtgrijs een nietzeggende commit (bijvoorbeeld: Update test.py). Schrijf daar een nuttige <q>commit message</q>. Dus niet: <q>opdracht: commit</q>, maar zoiets als: <q>feat: lookup port name for device</q>.
         1. Klik op *Commit to main*. Gefeliciteerd! {{feesttoeter}} Je hebt je eerste commit gepleegd!
 
 
     === "Visual Studio Code"
 
-        1. Open Visual Studio Code, ga naar **File > Open Folder** en kies de map waar je in [opdracht _Repository toevoegen_](#opd:add_repository) een repository hebt aangemaakt.
-        1. Open één van je Pythonscripts.
+        1. Open GitHub Desktop, klik op *Current repository* (links onder de menubalk) en selecteer de repository die je in [opdracht _Repository toevoegen_](#opd:add_repository) hebt aangemaakt.
+        1. Ga naar **Repository > Open in Visual Studio Code** (of druk op ++ctrl+shift+a++ ) en open de repository in Visual Studio Code.
+        1. Open in Visual Studio Code één van je Pythonscripts.
         1. Type een stukje code erbij &mdash; bijvoorbeeld een print-statement &mdash; en haal ergens anders iets weg. Bewaar het bestand.
         1. Links verschijnt een blauw bolletje [^geen bolletje] bij `Source Control`{{branch}} die laat weten dat er wijzigingen zijn ten opzichte van de vorige commit. Klik op `Source Control`.
         1. Onder `Changes` staat een lijst met bestanden waar wijzigingen in aan zijn gebracht. Kies welke bestanden je wilt committen door rechts op het +je te klikken. Deze bestanden komen nu op het podium te staan onder `Staged Changes`. Je kunt ook alle bestanden in een keer op het podium zetten door naast het kopje `Changes` op het +je te klikken.
-        1. Schrijf een nuttige <q>commit message</q>. Dus niet: <q>opdracht: commit</q>, maar zoiets als: <q>search for port name to open communication with device</q>.[^commit message]
+        1. Schrijf een nuttige <q>commit message</q>. Dus niet: <q>opdracht: commit</q>, maar zoiets als: <q>feat: lookup port name for device</q>.[^commit message]
         1. Klik op het vinkje om te committen. Gefeliciteerd! {{feesttoeter}} Je hebt je eerste commit gepleegd!
 
-        [^geen bolletje]: Zie je geen bolletje verschijnen? Kijk of je het bestand zeker weten hebt opgeslagen. Nog steeds geen blauw bolletje? Ga naar GitHub Dekstop en ga verder met stap 5. 
+        !!! info "Geen blauw bolletje"
+            Zie je geen bolletje verschijnen? Kijk of je het bestand zeker weten hebt opgeslagen. Nog steeds geen blauw bolletje? Ga naar [{{github}} GitHub Dekstop](#__tabbed_2_1) en ga verder met stap 5.
+
         [^commit message]: Je kunt je commit message opdelen in een titel (of summary) en een beschrijving. Dit doe je dit door een witregel toe te voegen tussen de titel en de beschrijving.
+    
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] In GitHub Desktop staat onder het `History` tabblad een nieuw commit message.
+        - [ ] De commit bevat het bestand waarin je een aanpassing hebt gedaan.
+        - [ ] De aanpassing is aangegeven met groen (toegevoegd) en rood (weggehaald).
 
-
-
+        **Projecttraject**
+    
+        - [x] Pyvisa in pythonscript
+        - [x] LED laten branden
+        - [x] flashingLED
+        - [x] Van bestaande map repository maken
+        - [x] Commit 
+        - [ ] Push en pull
 
 In GitHub Desktop zie je nu bij history de commit staan, met in een oogopslag alle wijzigingen.
 
 !!! info
     Als je wilt opzoeken hoe iets werkt bij GitHub Desktop, kijk dan in de documentatie: [https://docs.github.com/en/desktop](https://docs.github.com/en/desktop).
+
+Hieronder zie je een aantal voorbeelden van commit messages. De titels zijn kort en krachtig, in de description staat specifieke en uitgebreidere informatie. 
+
+--8<-- "docs/html-snippets/commit.html"
+
+!!! opdracht-basis "Push en pull"
+    === "opdracht"
+        De repository die je in [opdracht _Repository toevoegen_](#opd:add_repository) hebt aangemaakt bestaat alleen nog maar op de computer. Als de computerkabouters 's nachts langskomen kan het zijn dat de computer daarna is gewist en je alles kwijt bent. Daarom is het fijn om de repository ook in de cloud te hebben op GitHub.com. In GitHub desktop is een knop `Publish repository; Publish this repository to GitHub`, als je daar op drukt kun je nog een andere naam aan de repository geven (dat bepaald de url op github.com), een description en of de code privé moet zijn. Daarna klik je op de blauwe knop `Publish repository`. Als je nu naar [GitHub.com](https://github.com) gaat zie je bij jouw repositories de zojuist gepubliceerde repository staan. 
+    
+        Om je wijzigen ook in de cloud op te slaan kun je commits `pushen` naar Github.com met de knop `Push origin`. Als je op een andere computer gaat werken kun je de repository vanuit de cloud naar de computer halen door op `Fetch origin` te klikken en daarna op `Pull origin`.
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] De repository staat op github.com bij jouw repositories
+
+        **Projecttraject**
+    
+        - [x] Pyvisa in pythonscript
+        - [x] LED laten branden
+        - [x] flashingLED
+        - [x] Van bestaande map repository maken
+        - [x] Commit 
+        - [x] Push en pull
 
 
 ##  GitHub
@@ -149,11 +197,6 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
 
     Aangezien je geen schrijfrechten hebt voor LMfit kun je niet kiezen voor `Push origin` &mdash; de knop die rechtsboven verschijnt. Met die knop <q>duw</q> je je wijzigingen naar GitHub zodat iedereen ze kan zien. Dat is mooi, maar je mag niet zomaar de repository van iemand anders wijzigen.
 
-???+ opdracht-meer "Push en pull"
-    In eerdere opdrachten heb je repositories op de computer aangemaakt. Vanuit GitHub Desktop kan je een repository publiceren op GitHub. Commits kun je vervolgens pullen en pushen van en naar Github.
-
-    1. Publiceer een repository op Github &mdash; bijvoorbeeld je oefenopdrachten of je `pythondaq`-repository. Verander iets in je code, commit en kijk hoe je dat naar GitHub kunt Pushen.
-    1. Ga naar Github.com en verander daar iets in de code, commit en kijk hoe je dat naar de computer kan Pullen.
     
 
 

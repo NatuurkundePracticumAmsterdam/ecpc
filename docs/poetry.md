@@ -77,9 +77,9 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
 
 !!! opdracht-basis "Easystat Poetry project aanmaken"
     === "opdracht"
-        Een project stop je altijd in een map {{folder}}, als je aan Poetry vraagt om een project te maken zal er een map worden aangemaakt.
+        Een project stop je altijd in een map {{folder}} , als je aan Poetry vraagt om een project te maken zal er een map worden aangemaakt.
         Je denkt na over een geschikte locatie en besluit dat het in de {{folder}}`ECPC` map moet komen te staan. Je opent Visual Studio Code en opent de map {{folder}}`ECPC`. Je opent een terminal en controlleert dat de terminal ook in de map {{folder}}`ECPC` is. 
-        Je geeft Poetry de opdracht om een nieuw project met de naam {{folder}}easystat aan te maken in de src-layout[@srclayout] met het commando `poetry new --src easystat`. Je bekijkt de nieuw gemaakte mappenstructuur en ziet dat het overeenkomt met de mappenstructuur zoals hieronder weergegeven.
+        Je geeft Poetry de opdracht om een nieuw project met de naam {{folder}}`easystat` aan te maken in de src-layout[@srclayout] met het commando `poetry new --src easystat`. Je bekijkt de nieuw gemaakte mappenstructuur en ziet dat het overeenkomt met de mappenstructuur zoals hieronder weergegeven.
 
         !!! info "src-layout"
             Door het project in een source layout (src-layout) te bouwen maken we het _expres_ iets moeilijker om vanuit een script je package te importeren. Je kunt dat dan alleen nog maar doen door het package zelf ook te _installeren_ (zoals andere gebruikers ook moeten doen) en daardoor loop je zelf tegen eventuele problemen aan. Werkt het uiteindelijk bij jou? Dan werkt het _ook_ bij andere mensen.
@@ -107,17 +107,17 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
 
 Er is nu de volgende structuur aangemaakt:
 
-{{folder}} ECPC  
-{{T}} {{github}} oefenopdrachten  
-{{T}} {{github}} pythondaq  
-{{T}} {{new_folder}} easystat  
-{{tab}} {{T}} {{new_folder}} src  
-{{tab}} {{tab}} {{L}} {{new_folder}} easystat  
-{{tab}} {{tab}} {{tab}} {{L}} {{new_file}} \_\_init\_\_.py  
-{{tab}} {{T}} {{new_folder}} tests  
-{{tab}} {{tab}} {{L}} {{new_file}} \_\_init\_\_.py  
-{{tab}} {{T}} {{new_file_lines}} pyproject.toml  
-{{tab}} {{L}} {{new_file_lines}} readme.md  
+{{folder}} `ECPC`  
+{{T}} {{github}} `oefenopdrachten`  
+{{T}} {{github}} `pythondaq`  
+{{T}} {{new_folder}} `easystat`  
+{{tab}} {{T}} {{new_folder}} `src`  
+{{tab}} {{tab}} {{L}} {{new_folder}} `easystat`  
+{{tab}} {{tab}} {{tab}} {{L}} {{new_file}} `__init__.py`  
+{{tab}} {{T}} {{new_folder}} `tests`  
+{{tab}} {{tab}} {{L}} {{new_file}} `__init__.py`  
+{{tab}} {{T}} {{new_file_lines}} `pyproject.toml`  
+{{tab}} {{L}} {{new_file_lines}} `readme.md`  
 {{L}} {{folder}} {{dots}}  
 
 Allereerst is er een projectmap `easystat` aangemaakt. Je kunt nu in GitHub Desktop deze map toevoegen als nieuwe repository, zoals we gedaan hebben in [opdracht _Repository toevoegen_](github.md#opd:add_repository).
@@ -230,16 +230,16 @@ We starten met onze package. Stel, we berekenen vaak de standaarddeviatie van he
         ```
         </div>
         <div>
-        {{L}} {{github}} easystat  
-        {{tab}} {{T}} {{folder}} src  
-        {{tab}} {{tab}} {{T}} {{folder}} easystat  
-        {{tab}} {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
-        {{tab}} {{tab}} {{tab}} {{L}} {{new_file}} shortcuts.py  
-        {{tab}} {{T}} {{folder}} tests  
-        {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
-        {{tab}} {{tab}} {{L}} {{new_file}} try_shortcuts.py  
-        {{tab}} {{T}} {{file_lines}} pyproject.toml  
-        {{tab}} {{L}} {{file_lines}} readme.md  
+        {{github}} `easystat`  
+        {{T}} {{folder}} `src`  
+        {{tab}} {{T}} {{folder}} `easystat`  
+        {{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
+        {{tab}} {{tab}} {{L}} {{new_file}} `shortcuts.py`  
+        {{T}} {{folder}} `tests`  
+        {{tab}} {{T}} {{file}} `__init__.py`  
+        {{tab}} {{L}} {{new_file}} `try_shortcuts.py`  
+        {{T}} {{file_lines}} `pyproject.toml`  
+        {{L}} {{file_lines}} `readme.md`  
         </div>
     </div>
 
@@ -507,19 +507,20 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
 
 !!! opdracht-basis "Poetry flashingLED"
     === "opdracht"
+    
         <div class="grid-tree" markdown>
             <div>
             Je gaat een bestaand project maken zodat je kunt oefenen om daar Poetry aan toe te voegen. Omdat de [opdracht _flashingLED_](communicatie.md#opd:flashingLED) een oefenopdracht was voor `Pythondaq` besluit je deze als oefenpackage te gebruiken. Je maakt {{lightbulb}} een nieuwe repository {{github}}`flasher` aan en opent deze in Visual Studio Code. Je maakt zelf in de repository {{github}}`flasher` de src-layout van mappen en bestanden, zoals hier rechts is weergegeven. Het bestand {{file}}`flashingLED` heb je gekopieerd uit je repository {{github}}`oefenopdrachten`. Nu het oefenpackage klaar staat (commit{{feesttoeter}}) maak {{lightbulb}} je een nieuwe conda environment met de naam `flasher` met daarin `python=3.10`. Je activeert de environment `flasher` en voegt Poetry toe. Je installeert het pakket en daarna voeg je de benodigde dependencies toe (in ieder geval `pyvisa-py` maar wat nog meer?) net zolang tot het scriptje weer werkt. 
             </div>
             <div>
-            {{folder}}`ECPC`  
-            {{T}}{{github}}`oefenopdrachten`  
-            {{T}}{{github}}`pythondaq`  
-            {{T}}{{github}}`flasher`  
-            {{tab}}{{L}}{{folder}}`src`  
-            {{tab}}{{tab}}{{L}}{{folder}}`flasher`
-            {{tab}}{{tab}}{{tab}}{{L}}{{file}}`flashingLED.py`
-            {{L}}{{dots}}  
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{T}} {{github}} `pythondaq`  
+            {{T}} {{github}} `flasher`  
+            {{tab}} {{L}} {{folder}} `src`  
+            {{tab}} {{tab}} {{L}} {{folder}} `flasher`  
+            {{tab}} {{tab}} {{tab}} {{L}} {{file}} `flashingLED.py`  
+            {{L}} {{dots}}  
             </div>
         </div>
         !!! info "No module named 'serial'"
@@ -750,7 +751,7 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
    
 !!! opdracht-basis "Main functie toevoegen"
     === "opdracht"
-        Je [open de repository just_count in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en daarna in Visual Studio Code. Je ziet een {{file_lines}}`pyproject.toml` in de repository staan. Dus installeer je het pakket met Poetry in een nieuwe conda environment (met alleen python=3.10). Je opent het hoofdbestand {{file}}`count_count.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Daarna pas je het bestand aan zodat de functie nog steeds wordt uitgevoerd wanneer je het bestand {{file}}`count_count.py` runt. 
+        Je [cloned de repository just_count in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en opent het daarna vanuit GitHub Desktop in Visual Studio Code. Je ziet een {{file_lines}}`pyproject.toml` in de repository staan. Dus installeer je het pakket met Poetry in een nieuwe conda environment (met alleen python=3.10). Je opent het hoofdbestand {{file}}`count_count.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Daarna pas je het bestand aan zodat de functie nog steeds wordt uitgevoerd wanneer je het bestand {{file}}`count_count.py` runt. 
     === "code"
         **Testcode**
         <div class="code-box"><button type="button" name="count_count_main function" onclick="runScript('count_count_main function')" class="run">{{ run }}</button><button type="button" name="count_count_main function" onclick="runScript('count_count_main function')" class="reload invisible">{{ reload }}</button> count_count.py
@@ -840,7 +841,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
 ???+ opdracht-meer "Error analysis"
     Als extra oefening gaan we met Poetry een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script {{file}}`data_analysis.py` te laten runnen.
 
-    1. Ga naar GitHub en open {{github}}[`AnneliesVlaar/erroranalysis`](https://github.com/AnneliesVlaar/erroranalysis) in GitHub Desktop en Visual Studio Code.
+    1. Ga naar GitHub en clone {{github}}[`AnneliesVlaar/erroranalysis`](https://github.com/AnneliesVlaar/erroranalysis) in GitHub Desktop en open de repository daarna in Visual Studio Code.
     1. Natuurlijk maak je gelijk een nieuwe Conda environment aan, voordat we dit package gaan testen.
     1. Snuffel door de bestanden en mappen, en open {{file}}`src/erroranalysis/data_analysis.py`. Dit is het script wat moet kunnen runnen.
     1. Run het script {{file}}`data_analysis.py` en los de errors één voor één op.

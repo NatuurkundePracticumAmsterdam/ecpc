@@ -20,7 +20,7 @@ Als je een grafische applicatie schrijft roep je functies aan van het besturings
 Een minimale Qt-applicatie ziet er als volgt uit:
 <div id="code:minimal"></div>
 
-``` py
+``` py linenums="1"
 import sys
 
 from PySide6 import QtWidgets
@@ -48,13 +48,22 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
 
 <div id="opd:minimal-gui"></div>
 !!! opdracht-basis "Minimale GUI"
-
-    1. Maak een nieuw bestand {{file}}`example-gui.py`.
-    1. Neem de pythoncode van de minimale Qt-applicatie over en test het in de `test-qt` conda environment.
-
-!!! opdracht-basis "Minimale GUI"
     === "opdracht"
-        Je gaat de gegeven Python code voor een een minimale GUI testen. In de map {{folder}}`ECPC` maak je een {{new_file}}`example-gui.py` aan en zet daarin de Python code. Je activeert de `test-qt` conda environment en runt het bestand {{new_file}}`example-gui.py`. Er verschijnt een leeg venster in beeld met als venstertitel `python` en drie knoppen. Een streepje (minimize), een vierkant (maximize) en een kruis (close). Je drukt op het kruisje en het venster sluit. 
+
+        <div class="grid-tree" markdown>
+            <div>
+            Je gaat de gegeven Python code voor een een minimale GUI testen. In de map {{folder}}`ECPC` maak je een {{new_file}}`example-gui.py` aan en zet daarin de Python code. Je activeert de `test-qt` conda environment en runt het bestand {{new_file}}`example-gui.py`. Er verschijnt een leeg venster in beeld met als venstertitel `python` en drie knoppen. Een streepje (minimize), een vierkant (maximize) en een kruis (close). Je drukt op het kruisje en het venster sluit. 
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `pythondaq`  
+            {{T}} {{github}} `oefenopdrachten`    
+            {{tab}} {{T}} {{new_file}} `example-gui.py`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{dots}}  
+            </div>
+        </div>
+
     === "code"
         **Pseudo-code**
         ``` py
@@ -83,6 +92,12 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
         **Projecttraject:**
 
         - [x] Minimale GUI
+        - [ ] Parent class initialiseren
+        - [ ] Central widget toevoegen    
+        - [ ] textbox toevoegen
+        - [ ] knoppen toevoegen
+        - [ ] Slots en signals toevoegen
+        - [ ] 'Hello world' en Quit knoppen toevoegen
     
 
 Elke keer als je een nieuwe Qt applicatie gaat schrijven kun je bovenstaand stukje code copy/pasten. Als we dit programma draaien hebben we echter een klein leeg venster op het scherm, zonder elementen. Die elementen kunnen we op twee manieren toevoegen: door ze te programmeren of door het gebruik van een visueel ontwerp met Qt Designer. Beide zullen in de volgende secties toegelicht worden.
@@ -122,7 +137,7 @@ In de horizontale layout plaatsen we twee `button`s:
 Het stuk programma om bovenstaande layout op te bouwen geven we hieronder weer. We bespreken straks de code regel voor regel.
 <div id="code:layout"></div>
 
-``` py linenums="1" hl_lines="1"
+``` py linenums="4" hl_lines="1"
 from PySide6.QtCore import Slot
 
 
@@ -158,23 +173,17 @@ class UserInterface(QtWidgets.QMainWindow):
 ```
 Allereerst definiëren we een `__init__()`. Helaas gaat dat niet zomaar. We schrijven namelijk _niet_ helemaal zelf een nieuwe class (`#!py class UserInterface`), maar breiden de `#!py QMainWindow`-class uit (`#!py class UserInterface(QtWidgets.QMainWindow)`). Door dat te doen zijn er heel veel methods al voor ons gedefinieerd. Daar hoeven we verder niet over na te denken, onze interface <q>werkt gewoon</q>. Het gaat mis als wij zelf nieuwe methods gaan schrijven die dezelfde naam hebben. Stel dat de _parent class_ `#!py QMainWindow` een method `#!py click_this_button()` heeft. Als onze class _ook_ een method `#!py click_this_button()` heeft, dan zal _die_ worden aangeroepen in plaats van de method uit de parent class. Dat is handig als je de parent method wilt vervangen maar niet zo handig als je de parent method wilt _aanvullen_, zoals nodig is bij `__init__()`. Immers, we willen onze eigen class initialiseren, maar we willen ook dat de parent class volledig wordt geïnitialiseerd.
 
-De oplossing is gelukkig vrij eenvoudig: we kunnen de `__init__()` van de parent class gewoon aanroepen en daarna ons eigen ding doen. De Pythonfunctie `#!py super()` verwijst altijd naar de parent class, dus met `#!py super().__init__()` wordt de parent class volledig geïnitialiseerd. Dat is dus het eerste dat we doen in regel 7. Kijk voor meer informatie over `#!py super().__init__()` in de [paragraaf subclasses](classes.md#subclasses).
+De oplossing is gelukkig vrij eenvoudig: we kunnen de `__init__()` van de parent class gewoon aanroepen en daarna ons eigen ding doen. De Pythonfunctie `#!py super()` verwijst altijd naar de parent class, dus met `#!py super().__init__()` wordt de parent class volledig geïnitialiseerd. Dat is dus het eerste dat we doen in regel 10. Kijk voor meer informatie over `#!py super().__init__()` in de [paragraaf subclasses](classes.md#subclasses).
 
 In de volgende opdrachten ga je zelf de hele applicatie opbouwen, zodat je precies weet wat in de code hierboven staat. 
 
 !!! opdracht-basis "Parent class initialiseren"
-
-    1. Breid het script {{file}}`example-gui.py` van [_opdracht minimale GUI_](#opd:minimal-gui) uit met een `#!py __init__`-method. Deze hoeft verder nog niets te doen.
-    1. Zorg dat de parent class volledig geïnitialiseerd wordt.
-    1. Test of {{file}}`example-gui.py` nog steeds werkt.
-
-!!! opdracht-basis "Parent class initialiseren"
     === "opdracht"
-        Je hebt geleerd hoe je widgets aan de applicatie kunt toevoegen. Omdat het veel stappen in een keer zijn ga je de instructies stap voor stap volgen en steeds tussendoor testen. Je begint met het maken van een `#!py __init__()` method voor de `#!py class UserInterface` en zorgt ervoor dat de parent class (`#!py QtWidgets.QMainWindow`) volledig wordt geïnitialiseerd. Je runt {{file}}`example-gui.py` en ziet dat er nog steeds een leeg venster wordt gestart. 
+        Je hebt geleerd hoe je widgets aan de applicatie kunt toevoegen. Omdat het veel stappen in een keer zijn ga je de instructies stap voor stap volgen en steeds tussendoor testen. Je begint met het maken van een `#!py __init__()` method voor de `#!py class UserInterface` en zorgt ervoor dat de parent class (`#!py QtWidgets.QMainWindow`) volledig wordt geïnitialiseerd. Je runt {{file}}`example-gui.py` en ziet dat er nog steeds een leeg venster wordt gestart. Je bent benieuwd of het initialiseren écht nodig is, daarom haal je de `#!py super()`-aanroep weg en kijkt wat er gebeurd als je {{file}}`example-gui.py` runt. Je zet `#!py super()`-aanroep heel gauw weer terug.
 
     === "code"
         **Pseudo-code**
-        ``` py
+        ``` py hl_lines="6 7"
         import sys
 
         from PySide6 import QtWidgets
@@ -196,21 +205,20 @@ In de volgende opdrachten ga je zelf de hele applicatie opbouwen, zodat je preci
         **Checkpunten:**
 
         - [ ] Er is een `#!py __init__()` method gemaakt voor de subclass `UserInterface`.
-        - [ ] In de `#!py __init__()` method wordt de parent class geïnitialiseerd ([regel 7](#__codelineno-3-7)).
+        - [ ] In de `#!py __init__()` method wordt de parent class geïnitialiseerd ([regel 10](#__codelineno-3-10)).
         - [ ] Er verschijnt een leeg venster.
 
         **Projecttraject:**
 
         - [x] Minimale GUI
         - [x] Parent class initialiseren
+        - [ ] Central widget toevoegen    
+        - [ ] textbox toevoegen
+        - [ ] knoppen toevoegen
+        - [ ] Slots en signals toevoegen
+        - [ ] 'Hello world' en Quit knoppen toevoegen
     
 Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets zijn bijvoorbeeld een menubalk, knoppenbalk of statusbalk.
-
-!!! opdracht-basis "Central widget toevoegen"
-
-    1. Breid {{file}}`example-gui.py` uit met een centrale widget.
-    1. Geef aan dat dit het centrale widget gaat zijn ([regels 11-12](#code:layout)).
-    1. Test of {{file}}`example-gui.py` nog steeds werkt.
 
 !!! opdracht-basis "Central widget toevoegen"
     === "opdracht"
@@ -218,7 +226,7 @@ Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets 
 
     === "code"
         **Pseudo-code**
-        ``` py
+        ``` py hl_lines="8 9"
         import sys
 
         from PySide6 import QtWidgets
@@ -241,8 +249,8 @@ Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets 
     === "check"
         **Checkpunten:**
 
-        - [ ] Er is een central widget gemaakt met ``#!py QtWidgets.QWidget()` ([regel 11](#__codelineno-3-11)).
-        - [ ] De widget wordt als centrale widget ingesteld met `#!py setCentralWidget()` ([regel 12](#__codelineno-3-12)).
+        - [ ] Er is een central widget gemaakt met ``#!py QtWidgets.QWidget()` ([regel 14](#__codelineno-3-14)).
+        - [ ] De widget wordt als centrale widget ingesteld met `#!py setCentralWidget()` ([regel 15](#__codelineno-3-15)).
         - [ ] De method `#!py setCentralWidget()` is afkomstig van de class `#!py QtWidgets.QMainWindow` welke geïnitialiseerd is, de method wordt daarom met `#!py self.setCentralWidget()` aangeroepen.
         - [ ] Er verschijnt een leeg venster.
 
@@ -251,15 +259,12 @@ Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets 
         - [x] Minimale GUI
         - [x] Parent class initialiseren
         - [x] Central widget toevoegen    
+        - [ ] textbox toevoegen
+        - [ ] knoppen toevoegen
+        - [ ] Slots en signals toevoegen
+        - [ ] 'Hello world' en Quit knoppen toevoegen    
 
 Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen netjes uitgelijnd worden. We willen het tekstvenster en de knoppen onder elkaar zetten en maken dus eerst een verticale layout. Aan die layout voegen we een textbox toe.
-
-!!! opdracht-basis "Verticale layout toevoegen"
-
-    1. Breid {{file}}`example-gui.py` uit met een verticale layout ([regel 15](#code:layout)).
-    1. Maak een textbox ([regel 16](#code:layout)).
-    1. Voeg de textbox toe aan de verticale layout ([regel 17](#code:layout)).
-    1. Test of {{file}}`example-gui.py` nog steeds werkt en of je tekst kan schrijven in de textbox.
 
 !!! opdracht-basis "textbox toevoegen"
     === "opdracht"
@@ -267,7 +272,7 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
 
     === "code"
         **Pseudo-code**
-        ``` py
+        ``` py hl_lines="12 13"
         import sys
 
         from PySide6 import QtWidgets
@@ -294,10 +299,9 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
     === "check"
         **Checkpunten:**
 
-        - [ ] Het juiste conda environment is geactiveerd.
-        - [ ] Er is een central widget gemaakt met ``#!py QtWidgets.QWidget()`.
-        - [ ] De widget wordt als centrale widget ingesteld met `#!py setCentralWidget()`.
-        - [ ] De method `#!py setCentralWidget()` is afkomstig van de class `#!py QtWidgets.QMainWindow` welke geïnitialiseerd is, de method wordt daarom met `#!py self.setCentralWidget()` aangeroepen.
+        - [ ] Bij het aanmaken van de verticale layout is de `#!py central_widget` als parameter meegegeven ([regel 18](#__codelineno-3-18)).
+        - [ ] Er is een tekstbox gemaakt ([regel 19](#__codelineno-3-19)).
+        - [ ] De tekstbox (`#!py QTextEdit) is toegevoegd aan de verticale layout ([regel 20](#__codelineno-3-20)).
         - [ ] Er verschijnt een venster met textbox waar je in kan typen {{feesttoeter}}.
 
         **Projecttraject:**
@@ -306,18 +310,69 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
         - [x] Parent class initialiseren
         - [x] Central widget toevoegen    
         - [x] textbox toevoegen
+        - [ ] knoppen toevoegen
+        - [ ] Slots en signals toevoegen
+        - [ ] 'Hello world' en Quit knoppen toevoegen
     
 De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we ook toe aan de `#!py vbox`. En we maken de layout compleet door knoppen toe te voegen aan de `#!py hbox`.
 
-!!! opdracht-basis "Horizontale layout toevoegen"
+!!! opdracht-basis "Knoppen toevoegen"
+    === "opdracht"
+        Omdat de knoppen naast elkaar moeten komen te staan voeg je een horizontale layout toe aan de verticale layout. Je maakt een `clear button` en een `add button` en voegt deze toe aan de horizontale layout. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen met daaronder twee knoppen, je drukt verwoed op de knoppen maar er gebeurd niets[^knop-stuk]. 
 
-    1. Breid {{file}}`example-gui.py` uit met een horizontale layout ([regel 18](#code:layout)).
-    1. Voeg de horizontale layout toe aan de verticale layout ([regel 19](#code:layout)).
-    1. Maak een clear button en voeg deze toe aan de horizontale layout ([regels 21-22](#code:layout)).
-    1. Maak ook een add button en voeg deze toe aan de horizontale layout ([regel 23-24](#code:layout)).
-    1. Test of {{file}}`example-gui.py` nog steeds werkt.[^knop-stuk]
+        [^knop-stuk]: Waarom doen de knoppen niets als je er op klikt?
+    === "code"
+        **Pseudo-code**
+        ``` py hl_lines="15-21"
+        import sys
 
-[^knop-stuk]: Waarom doen de knoppen niets als je er op klikt?
+        from PySide6 import QtWidgets
+
+        # create subclass of QtWidgets.QMainWindow
+            # def __init__()
+                # initialise the parent class Qtwidgets.QMainWindow
+                # create central widget with QtWidgets.QWidget()
+                # set central widget
+
+                # create vertical layout as part of central widget
+                # create textbox
+                # add textbox to vertical layout
+
+                # create horizontal layout
+                # add horizontal layout to vertical layout
+
+                # create clear_button
+                # add clear button to horizontal layout
+                # create add_text_button
+                # add add_text_button to horizontal layout
+
+        def main():
+            # create instance of QtWidgets.QApplication with arguments from sys.argv
+            # create instance of subclass
+            # call show method of subclass
+            # get exit code with exec method of QApplication instance and give exit code to sys.exit()
+
+        # when run this script:
+            # run main function  
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Er is een horizontale layout aangemaakt ([regel 21](#__codelineno-3-21)).
+        - [ ] De horizontale layout is toegevoegd aan de verticale layout ([regel 22](#__codelineno-3-22)).
+        - [ ] Er is een `clear_button` en `add_text_button` aan gemaakt met daarop de tekst "Clear" en "Add text" respectivelijk ([regels 24 en 26](#__codelineno-3-24)).
+        - [ ] De buttons zijn toegevoegd aan de horizontale layout ([regel 25 en 27](#__codelineno-3-25)).
+        - [ ] Als je op de knoppen drukt gebeurt er niets.
+
+        **Projecttraject**
+    
+        - [x] Minimale GUI
+        - [x] Parent class initialiseren
+        - [x] Central widget toevoegen    
+        - [x] textbox toevoegen
+        - [x] knoppen toevoegen
+        - [ ] Slots en signals toevoegen
+        - [ ] 'Hello world' en Quit knoppen toevoegen
 
 !!! info
     Widgets zoals knoppen voeg je toe met `#!py addWidget()`. Layouts voeg je toe aan andere layouts met `#!py addLayout()`.
@@ -325,31 +380,117 @@ De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we 
 De horizontale layout (voor de knoppen) moeten we expliciet toevoegen aan de verticale layout zodat hij netjes verticaal onder het tekstvenster verschijnt. Merk op dat de verticale layout `#!py vbox` _niet_ expliciet wordt toegevoegd (aan de centrale widget). De centrale widget (en _alleen_ de centrale widget) krijgt een layout door bij het aanmaken van de layout de parent `#!py central_widget` op te geven, dus: `#!py QtWidgets.QVBoxLayout(central_widget)`. Alle andere widgets en layouts worden expliciet toegevoegd en daarvoor hoef je dus geen parent op te geven.
 
 Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wordt er een zogeheten _signal_ afgegeven. Die kun je verbinden met een _slot_. Er zijn ook verschillende soorten signalen. Het drukken op een knop zorgt voor een _clicked signal_, het veranderen van een getal in een keuzevenster geeft een _changed signal_. Wij verbinden één knop direct met een al bestaande method van het tekstvenster `#!py clear()` en de andere knop met een eigen method `#!py add_button_clicked()`. De naam is geheel vrij te kiezen, maar boven de functiedefinitie moet je wel de `#!py @Slot()`-decorator gebruiken (voor meer informatie over decorators zie [paragraaf Decorators](vervolg-python.md#decorators)). PySide kan dan net wat efficiënter werken.
-
+   
 !!! opdracht-basis "Slots en signals toevoegen"
+    === "opdracht"
+        Je gaat functionaliteit aan de knoppen verbinden. Je verbind de `clear_button` aan de `clear()` method van `textedit`. Je maakt een eigen `Slot` met de naam `add_text_button_clicked` die een tekst aan de textbox toegevoegd. Je vind de tekst "You clicked me." maar suf en bedenkt zelf een andere leuke tekst. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen met daaronder twee knoppen. Je drukt op "Add text" en er verschijnt tekst in de textbox, daarna druk je op "Clear" en de tekst verdwijnt.
 
-    1. Breid {{file}}`example-gui.py` uit met slots en signals.
-    1. Verbind de `Clear`-knop met de clear functie ([regel 27](#code:layout)).
-    1. Definieer een `#!py add_button_clicked()` functie ([regels 30-32](#code:layout)) en verbind deze aan de `Add text`-knop ([regel 28](#code:layout)).
-    1. Test of {{file}}`example-gui.py` nog steeds werkt en of de knoppen doen wat je verwacht.
+        !!! info () ontbreken bij `clear` en `add_text_button_clicked`
+            Bij het verbinden van het `#!py clicked`-signaal met `#!py clicked.connect()` geef je aan connect de methods `clear` en `add_text_button_clicked` mee _zonder_ deze aan te roepen (dat gebeurd later). Concreet betekent dit dat je de haakjes weglaat ([regel 30 en 31](#__codelineno-3-30)).
+    === "code"
+        **Pseudo-code**
+        ``` py hl_lines="23 24 26 27 28"
+        import sys
+
+        from PySide6 import QtWidgets
+
+        # create subclass of QtWidgets.QMainWindow
+            # def __init__()
+                # initialise the parent class Qtwidgets.QMainWindow
+                # create central widget with QtWidgets.QWidget()
+                # set central widget
+
+                # create vertical layout as part of central widget
+                # create textbox
+                # add textbox to vertical layout
+
+                # create horizontal layout
+                # add horizontal layout to vertical layout
+
+                # create clear_button
+                # add clear button to horizontal layout
+                # create add_text_button
+                # add add_text_button to horizontal layout
+
+                # connect clear_button to clear method of textedit
+                # connect add_text_button to add_text_button_clicked
+
+            # decorate method with Slot function
+            # def add_text_button_clicked
+                # add text to textedit
+
+        def main():
+            # create instance of QtWidgets.QApplication with arguments from sys.argv
+            # create instance of subclass
+            # call show method of subclass
+            # get exit code with exec method of QApplication instance and give exit code to sys.exit()
+
+        # when run this script:
+            # run main function  
+        ```
+    === "check"
+        **Checkpunten:**
+        
+        - [ ] Het `clicked` signaal van `clear_button` is met `connect` verbonden met de `clear()`method van `textedit` ([regel 30](#__codelineno-3-30)). 
+        - [ ] Het `clicked signaal van `add_text_button` is met `connect` verbonden met een eigen method `add_text_button_clicked` ([regel 31](#__codelineno-3-31)). 
+        - [ ] De method `add_text_button_clicked` is voorzien van een decorator `@Slot()` met Slot met een hoofdletter en ronde haakjes erachter omdat Slot een functie is ([regel 33](#__codelineno-3-33)). 
+        - [ ] De method `add_text_button_clicked` voegt met `append` een tekst toe aan `textedit` ([regel 35](#__codelineno-3-35)). 
+        - [ ] Druk op de knop "Add text" zorgt voor het verschijnen van tekst in de textbox.
+        - [ ] Druk op de knop "Clear" zorgt ervoor dat alle tekst in de textbox verdwijnt.
+
+        **Projecttraject**
     
+        - [x] Minimale GUI
+        - [x] Parent class initialiseren
+        - [x] Central widget toevoegen    
+        - [x] textbox toevoegen
+        - [x] knoppen toevoegen
+        - [x] Slots en signals toevoegen
+        - [ ] 'Hello world' en Quit knoppen toevoegen
+
 Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lijst in de [Qt for Python-documentatie](https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes). Qt6 zelf bestaat uit C++ code en PySide6 vertaalt alle methods e.d. letterlijk naar Python. Vandaar ook de methodnaam `#!py addWidget()` in plaats van `#!py add_widget()`. In C++ en Java is het wel gebruikelijk om functies `CamelCase` namen te geven als `#!py kijkDitIsEenMooieFunctie()`, maar in Python zijn we `snake_case` gewend, als in `#!py kijk_dit_is_een_mooie_functie()`.
 
 ???+ opdracht-meer "Volgorde layout aanpassen"
     De volgorde waarin je layout en widgets toevoegt bepaalt het uiterlijk van de grafische interface. Verander de code om de layout aan te passen (zet bijvoorbeeld de knoppen boven de textbox of zet de knoppen onder elkaar en naast de textbox).
 
+!!! opdracht-basis "'Hello world' en Quit knoppen toevoegen"
+    === "opdracht"
+        Nu de minimale GUI werkt wil je meer knoppen toevoegen. Je begint met een knop `Hello, world` die de tekst "Hello, world" aan de textbox toevoegd. Je runt {{file}}`example-gui.py` en ziet dat de knop werkt. Daarna voeg je een `Quit`-knop toe die _onder_ de andere knoppen staat. Het signaal van deze knop verbind je met de method `#!py self.close()` zodat de applicatie wordt afgesloten. Je runt {{file}}`example-gui.py` drukt nog een paar keer op de `Hello, world`-knop en daarna op de knop  `Quit`, het venster is gesloten de opdracht is voltooid {{feesttoeter}}.
+    === "code"
+        **Pseudo-code**
+        ``` py
+        # create hello_world button and add to layout
+        # create Quit button and add to layout
 
-!!! opdracht-basis "Hello world-knop toevoegen"
-    Probeer het volgende in {{file}}`example-gui.py`:
+        # connect hello_world button to add_hello_world_clicked method
+        # connect Quit button to self.close()
+        
+        # decorate with Slot
+        # def add_hello_world_clicked
+            # add Hello World to textbox        
+        ```
+    === "check"
+        **Checkpunten:**
+        
+        - [ ] De 'Add Text' en 'Clear' knoppen werken nog zoals verwacht.
+        - [ ] Druk op de `Hello World` knop voegt de text "Hello World" toe aan de textbox.
+        - [ ] De `Quit` knop staat _ onder_ de andere knoppen.
+        - [ ] Druk op de `Quit` knop sluit het venster.
 
-    1. Voeg een derde knop `Hello, world` toe die de tekst _Hello, world_ toevoegt aan het venster.
-    1. Zet een hekje voor de `#!py super()`-aanroep of haal de regel weg. Wat gebeurt er als je de code opstart? (Zet de regel weer terug!)
-    1. Voeg _onder_ de andere knoppen een `Quit`-knop toe. Als je daar op klikt moet de method `#!py self.close()` aangeroepen worden. Daarmee sluit je het programma af. Denk erom dat als je het `#!py clicked`-signaal verbind met `#!py clicked.connect()` dat je de functie die je meegeeft nog _niet_ moet aanroepen maar alleen moet meegeven zodat die _later_ kan worden aangeroepen. Concreet betekent dit dat je de haakjes weglaat. Zie ook regel 27 en 28 van [bovenstaande code](#code:layout).
+        **Projecttraject**
+    
+        - [x] Minimale GUI
+        - [x] Parent class initialiseren
+        - [x] Central widget toevoegen    
+        - [x] textbox toevoegen
+        - [x] knoppen toevoegen
+        - [x] Slots en signals toevoegen
+        - [x] 'Hello world' en Quit knoppen toevoegen
     
 
 ### De interface ontwerpen met Qt Designer
 
-!!! info
+!!! info "Designer opstarten"
     Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op vanuit een terminal. Activeer je `test-qt` conda environment als dat nog nodig is en type `pyside6-designer`.
 
 Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Je bewaart dat als een `.ui`-bestand. Vervolgens vertaal je het `.ui`-bestand naar een Pythonbestand dat je importeert in je eigen programma. De volledige class van het [vorige voorbeeld](#code:layout) kan dan vervangen worden door:
@@ -380,12 +521,25 @@ Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog ma
 !!! opdracht-basis "Designer gebruiken"
 
     1. Open Designer en kies bij **templates/forms** voor `#!py MainWindow`. Klik dan op **Create**. Ontwerp de user interface van [het screenshot](#fig:screenshot-ui-prog) en gebruik dezelfde namen voor de widgets als het voorbeeld. Dus een `#!py add_button` knop, een `#!py clear_button` knop en een `#!py textedit` tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.
-    1. Bewaar het bestand als {{file_lines}}`simple_app.ui`.
+    1. Bewaar het bestand als {{file_lines}}`simple_app.ui`.  
+    {{folder}} `ECPC`  
+    {{T}} {{github}} `oefenopdrachten`  
+    {{tab}} {{T}} {{new_file_lines}} `simple_app.ui`  
+    {{tab}} {{T}} {{file}} `example-gui.py`  
+    {{tab}} {{L}} {{dots}}  
+    {{L}} {{dots}}  
     1. In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan[^overleg-navigeren] en type in:
             ``` ps1 title="Terminal"
             pyside6-uic simple_app.ui -o ui_simple_app.py  
             ```
-            Deze stap moet je doen elke keer als je in Designer iets wijzigt. Gebruik de ++up++-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met Poetry, zullen we dit eenvoudiger maken.
+            Deze stap moet je doen elke keer als je in Designer iets wijzigt. Gebruik de ++up++-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met Poetry, zullen we dit eenvoudiger maken.  
+    {{folder}} `ECPC`  
+    {{T}} {{github}} `oefenopdrachten`  
+    {{tab}} {{T}} {{file_lines}} `simple_app.ui`  
+    {{tab}} {{T}} {{new_file}} `simple_app.py`  
+    {{tab}} {{T}} {{file}} `example-gui.py`  
+    {{tab}} {{L}} {{dots}}  
+    {{L}} {{dots}} 
     1. Copy/paste nu de [voorbeeldcode](#code:designer) in een nieuw script, fix eventuele importerrors en test de applicatie.
 
 [^overleg-navigeren]: Overleg met elkaar of met de assistent als je niet weet hoe dat moet.
@@ -466,13 +620,82 @@ class UserInterface(QtWidgets.QMainWindow):
 ```
 Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` om te zien wat ze doen. Leeg maken kan met `#!py self.plot_widget.clear()`.
 
-!!! opdracht-inlever "Functieplotter: plot"
-    Schrijf een script en ontwerp een (eenvoudige!) grafische interface waarmee je de functie $\sin(x)$ plot in het domein $(0, 2\pi)$. De <q>applicatie</q> hoeft verder niets te kunnen.
+!!! opdracht-inlever "Functionplotter: plot"
+    === "opdracht"
 
+        <div class="grid-tree" markdown>
+            <div>
+            Via GitHub Desktop open je de repository {{github}}`functionplotter` in Visual Studio Code. Je bekijkt de {{file_lines}}`pyproject.toml` en ziet dat het project beheerd wordt met Poetry en dat er een commando is aangemaakt om de applicatie te starten. Je {{lightbulb}} maakt een nieuw conda environment aan met alleen Python daarin, gebruikt `poetry install` om het project te installeren en voert het commando uit om de applicatie te starten. Er verschijnt een scherm met een plot waarin de functie $\sin(x)$ plot in het domein $(0, 2\pi)$ is geplot. Een golfje van trots gaat door je heen en je gaat door naar de volgende opdracht.
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `pythondaq`  
+            {{T}} {{github}} `functionplotter`  
+            {{tab}} {{T}} {{new_file_lines}} `pyproject.toml`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{dots}}  
+            </div>
+        </div>
 
-!!! opdracht-inlever "Functieplotter: knoppen"
-    Voeg knoppen toe om het domein aan te passen. Maak bijvoorbeeld een `start`, een `stop` en een `numpoints` om het aantal punten te kiezen. Kies daarvoor ook een handige standaardwaarde. Zorg ervoor dat als je de waardes aanpast dat de functie automatisch opnieuw wordt geplot.
+    === "code"
+        **Pseudo-code**
+        ```
+        # import statements
 
+        # class UserInterface(QtWidgets.QMainWindow):
+            ...
+            # when app starts plot sin function
+
+        # create application
+        # show UserInterface
+        # close properly
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Er is een repository {{github}}`functionplotter`
+        - [ ] Er is een commando om de applicatie te starten
+        - [ ] De applicatie laat een $\sin(x)$ plot zien in het domein $(0, 2\pi)$
+        - [ ] De applicatie werkt ook na `poetry install` in een nieuwe conda environment.
+
+        **Projecttraject**
+    
+        - [ ] Functionplotter: plot
+        - [ ] Functionplotter: widgets
+
+!!! opdracht-inlever "Functionplotter: widgets"
+    === "opdracht"
+        Opnieuw voer je het commando uit om de applicatie `functionplotter` te starten. Dit keer heeft de applicatie de mogelijkheid om het domein van de plot aan te passen. Je ziet de sinus plot smaller worden wanneer je de startwaarde verhoogd. Daarna pas je de startwaarde aan naar beneden. Vervolgens ga je stopwaarde aanpassen en zie je de sinus plot naar verwachting veranderen. Dan is er nog een widget om het aantal punten (`num`) te kiezen waarmee de sinus wordt geplot. Je speelt met de widget en ziet de sinus van hoekig naar mooi glad veranderen. Steeds als je een waarde aanpast wordt de functie automatisch opnieuw geplot.
+    === "code"
+        **Pseudo-code**
+        ```
+        # import statements
+
+        # class UserInterface(QtWidgets.QMainWindow):
+            ...
+            # when app starts plot sin function
+
+            # create widgets for start, stop and num in designer or in the script
+            # connect widgets to methods
+
+            # methods for start stop and num
+
+        # create application
+        # show UserInterface
+        # close properly
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Het is mogelijk om de start waarde aan te passen.
+        - [ ] Het is mogelijk om de stop waarde aan te passen.
+        - [ ] Het is mogelijk om het aantal punten te kiezen waarmee de sinus functie wordt geplot.
+        - [ ] Na het aanpassen van een waarde wordt de plot automatische opnieuw geplot.
+
+        **Projecttraject**
+    
+        - [ ] Functionplotter: plot
+        - [ ] Functionplotter: widgets
 
 ???+ opdracht-meer "Functieplotter: functie kiezen drop-down menu"
     Gebruik een `#!py QComboBox` om de functie te kunnen kiezen. Je moet hem _leeg_ toevoegen aan je interface en vult hem vanuit je programma. Zoek de widget op in de documentatie om uit te zoeken welke functie je moet gebruiken om keuzemogelijkheden toe te voegen en welk signaal je moet koppelen om te zorgen dat de plot opnieuw wordt uitgevoerd als je de functie aanpast. Geef de gebruiker de keuzes $\sin(x)$, $\cos(x)$, $\tan(x)$ en $\exp(x)$.
@@ -525,61 +748,126 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
         En dat gaat een stuk sneller dan die lange `pyside-uic`-regel onthouden en intypen!
 
 
-
 !!! opdracht-inlever "Pythondaq: leeg venster"
-    Maak een nieuwe applicatie aan de hand van de code aan het begin van het hoofdstuk ([_minimale Qt-applicatie_](#code:minimal)). De applicatie doet dus nog niets anders dan het tonen van een leeg venster.
+    === "opdracht"
+
+        <div class="grid-tree" markdown>
+            <div>
+            Je wilt een toffe GUI maken voor de `pythondaq` applicatie. Je gaat dit in stapjes opbouwen zodat je tussendoor nog kunt testen of het werkt. Je maakt een {{new_file}}`gui.py` aan waarin een leeg venster wordt gemaakt. Het lege venster wordt getoont zodra je een commando in de terminal intypt. Je sluit het venster. Om te testen of dit bij andere mensen ook zou werken maak {{lightbulb}} je een nieuwe conda environment aan met Python, installeer je de package met Poetry en test je opnieuw het commando, er verschijnt opnieuw een leeg venster. 
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `pythondaq`  
+            {{tab}} {{T}} {{folder}} `src/pythondaq`  
+            {{tab}} {{tab}} {{T}} {{new_file}} `gui.py`  
+            {{tab}} {{tab}} {{L}} {{dots}}  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{dots}}  
+            </div>
+        </div>
+
+    === "code"
+        **Pseudo-code**
+        ```
+        # create empty window
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Het uitvoeren van een commando zorgt ervoor dat een leeg venster wordt getoont. 
+        - [ ] Het commando werkt ook na het installeren van de package `pythondaq` met Poetry in een nieuwe conda environment met Python. 
+
+        **Projecttraject**
+    
+        - [x] Pythondaq: leeg venster
+        - [ ] Pythondaq: plot scan
+        - [ ] Pythondaq: widgets
+        - [ ] Pythondaq: save 
+        - [ ] Pythondaq: selecteer Arduino 
 
 
 !!! opdracht-inlever "Pythondaq: plot scan"
-    Voeg aan je applicatie een `PlotWidget` toe &mdash; geprogrammeerd of met Designer. Laat je applicatie een scan uitvoeren (door het model te openen en aan te roepen) en laat het resultaat zien in een grafiek. Voor deze opdracht mag je nog gewoon de poortnaam in je code schrijven, net als start- en stop waardes e.d. De gebruiker hoeft nog niets te kunnen instellen. Dat komt straks.
+    === "opdracht"
+        Als het commando wordt uitgevoerd start de applicatie een scan en laat de metingen vervolgens zien in een plot binnen het venster. Voor het gemak heb je de poortnaam, start- en stopwaardes e.d. <q>hard coded</q> in het script gezet. Later ga je er voor zorgen dat een gebruiker die kan instellen, maar dat komt straks wel. 
 
-!!! info "Foutenvlaggen plotten"
-        Foutenvlaggen toevoegen aan een pyqtgraph is helaas iets minder intuitief dan bij matplotlib. Met _breedte_ en _hoogte_ geef je aan hoe groot de vlaggen zijn, de vlag is 2 keer zo hoog of breed als de onzekerheid. Samen met de $x$ en $y$ data maak je dan een `ErrorBarItem` aan die je expliciet toevoegt aan de plot.
+        !!! info "Foutenvlaggen plotten"
+                Foutenvlaggen toevoegen aan een pyqtgraph is helaas iets minder intuitief dan bij matplotlib. Met _breedte_ en _hoogte_ geef je aan hoe groot de vlaggen zijn, de vlag is 2 keer zo hoog of breed als de onzekerheid. Samen met de $x$ en $y$ data maak je dan een `ErrorBarItem` aan die je expliciet toevoegt aan de plot.
 
-    ``` py linenums="1" hl_lines="20 22"
-    def plot(self):
-        """Clear the plot widget and display experimental data."""
+            ``` py linenums="1" hl_lines="20 22"
+            def plot(self):
+                """Clear the plot widget and display experimental data."""
 
-        # Genereer wat data als demo
-        x = np.linspace(0, 2 * np.pi, 20)
-        y = np.sin(x)
-        x_err = 0.1
-        y_err = np.random.normal(0, 0.2, size=len(x))
+                # Genereer wat data als demo
+                x = np.linspace(0, 2 * np.pi, 20)
+                y = np.sin(x)
+                x_err = 0.1
+                y_err = np.random.normal(0, 0.2, size=len(x))
 
-        # Maak eerst een scatterplot
-        self.plot_widget.plot(x, y, symbol="o", symbolSize=5, pen=None)
+                # Maak eerst een scatterplot
+                self.plot_widget.plot(x, y, symbol="o", symbolSize=5, pen=None)
 
-        # nu de foutvlaggen, met 'breedte' en 'hoogte' in plaats van x errors en y
-        # errors let op: als je x_errors *lijsten* zijn, dan kun je niet gewoon 2 *
-        # doen, maar wel als je eerst een NumPy array maakt:
-        #
-        # width = 2 * np.array(x_err)
-        #
-        # (we maken er voor de zekerheid eerst een array van)
-        error_bars = pg.ErrorBarItem(x=x, y=y, width=2 * x_err, height=2 * y_err)
-        # we moeten de error_bars expliciet toevoegen aan de plot
-        self.plot_widget.addItem(error_bars)
-    ```
-
-!!! opdracht-inlever "Pythondaq: knoppen"
-    Maak nu in je grafische interface widgets om de start- en stopwaardes, aantal metingen e.d. te kunnen instellen. Maak ook een startknop. Als je op de startknop drukt moet je applicatie een nieuwe meting uitvoeren.
-
-
-
-### Van script naar applicatie
-
-!!! opdracht-inlever "Pythondaq: app"
-    Het is weer mogelijk om van het script een applicatie te maken die je aan kunt roepen vanaf de command line. Daar moeten we het volgende voor doen:
-
-    1. Voeg een nieuw item toe voor je applicatie in de sectie `[tool.poetry.scripts]` in de {{file}}`pyproject.toml` zoals je dat ook gedaan hebt voor je command-line-applicatie.
-    1. Installeer je package opnieuw met:
-        ``` ps1
-        poetry install
+                # nu de foutvlaggen, met 'breedte' en 'hoogte' in plaats van x errors en y
+                # errors let op: als je x_errors *lijsten* zijn, dan kun je niet gewoon 2 *
+                # doen, maar wel als je eerst een NumPy array maakt:
+                #
+                # width = 2 * np.array(x_err)
+                #
+                # (we maken er voor de zekerheid eerst een array van)
+                error_bars = pg.ErrorBarItem(x=x, y=y, width=2 * x_err, height=2 * y_err)
+                # we moeten de error_bars expliciet toevoegen aan de plot
+                self.plot_widget.addItem(error_bars)
+            ```
+    === "code"
+        **Pseudo-code**
         ```
+        # when application starts
+            # ask model to do scan
+            # plot results in application window
+        ```
+    === "check"
+        **Checkpunten:**
     
-    Test je applicatie.
+        - [ ] Het uitvoeren van het commando zorgt ervoor dat een scan wordt gestart.
+        - [ ] Het LED lampje gaat branden.
+        - [ ] De resultaten van de meting worden geplot in het venster.
 
+        **Projecttraject**
+    
+        - [x] Pythondaq: leeg venster
+        - [x] Pythondaq: plot scan
+        - [ ] Pythondaq: widgets
+        - [ ] Pythondaq: save 
+        - [ ] Pythondaq: selecteer Arduino
 
+!!! opdracht-inlever "Pythondaq: widgets"
+    === "opdracht"
+        Na het uitvoeren van het commando start de `pythondaq` applicatie waarin een aantal widgets zijn te zien waarmee de start- en stopwaardes, het aantal metingen kunnen worden ingesteld. Ook is er een startknop waarmee een nieuwe meting wordt uitgevoerd. Je vult verschillende (logische en niet logische) waardes in voor de start- en stopwaardes en het aantal metingen en ziet dat de applicatie naar verwachting werkt. 
+    === "code"
+        **Pseudo-code**
+        ```
+        # create widgets in designer or in the script
+        # for start, stop, measurements and start scan
+        
+        # connect widgets to methods
+
+        # methods for start, stop, measurements and start scan
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] In de applicatie kan de startwaarde worden aangepast.
+        - [ ] In de applicatie kan de stopwaarde worden aangepast.
+        - [ ] In de applicatie kan het aantal metingen worden aangepast.
+        - [ ] Druk op de startknop laat een meting starten.
+        - [ ] De applicatie werkt naar verwachting bij het invullen van logische en niet logische waardes voor start, stop en aantal metingen.
+
+        **Projecttraject**
+    
+        - [x] Pythondaq: leeg venster
+        - [x] Pythondaq: plot scan
+        - [x] Pythondaq: widgets
+        - [ ] Pythondaq: save 
+        - [ ] Pythondaq: selecteer Arduino 
 
 ### Bewaren van meetgegevens
 
@@ -595,10 +883,33 @@ De functie `#!py getSaveFileName()` opent een dialoogvenster om een bestand op t
 
 Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder welke naam het bestand moet worden opgeslagen. Je krijgt echt alleen een pad en bestandsnaam terug, de data is _niet_ opgeslagen en het bestand is _niet_ aangemaakt. De variabele `filename` is echt niets anders dan een bestandsnaam, bijvoorbeeld: `/Users/david/LED-rood.csv`. Nadat je die bestandsnaam gekregen hebt moet je dus zelf nog code schrijven zodat het CSV-bestand wordt opgeslagen onder die naam.
 
-
 !!! opdracht-inlever "Pythondaq: save"
-    Voeg een `Save`-knop toe aan je interface om je metingen op te slaan als CSV-bestand. Controleer dat de gegevens ook inderdaad bewaard zijn.
+    === "opdracht"
+        Je opent de applicatie en start een scan. Dan valt je oog op een `Save`-knop, wanneer je op deze knop drukt wordt er een dialoogvenster geopent. Je kiest een locatie en typt een bestandsnaam, je klikt op `Save` (of `Opslaan`). Daarna ben je nieuwsgierig of het gelukt is. Via `File Explorer` (of `Verkenner`) navigeer je op de computer naar de locatie waar je het bestand hebt opgeslagen. Je opent het bestand en ziet de metingen staan. Tevreden sluit je het bestand af en ga je door naar de volgende opdracht.
+    === "code"
+        **Pseudo-code**
+        ```
+        # create widget for save in designer or in the script
+        
+        # connect widget to method
 
+        # methods save
+            # open dialog
+            # save measurments as csv in given filename
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Druk op de knop `Save` opent een dialoogvenster.
+        - [ ] De metingen worden opgeslagen als csv-bestand op de gegeven locatie en onder de gegeven bestandsnaam.
+
+        **Projecttraject**
+    
+        - [x] Pythondaq: leeg venster
+        - [x] Pythondaq: plot scan
+        - [x] Pythondaq: widgets
+        - [x] Pythondaq: save 
+        - [ ] Pythondaq: selecteer Arduino 
 
 ???+ meer-leren "Menu's, taak- en statusbalken"
     
@@ -608,7 +919,6 @@ Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder
 
     !!! opdracht-meer "Pythondaq: statusbalk"
         Maak een statusbalk die aangeeft wat de identificatiestring is van het device dat geselecteerd is. Maak ook een menu waarmee je een CSV-bestand kunt opslaan en een nieuwe meting kunt starten. Let op: je hebt dan een menu-item én een knop die dezelfde method aanroepen. Je hoeft geen dubbele code te schrijven, maar moet de `#!py save_data()`-method wel twee keer verbinden.
-
 
 
 ### Selecteer de Arduino
@@ -621,13 +931,39 @@ Je hebt nu waarschijnlijk nog de poortnaam van de Arduino in je code gedefinieer
 Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeilijker dan gedacht. Zodra je andere devices gaat openen en commando's gaat sturen om te ontdekken wat voor apparaat het is kunnen er gekke dingen gebeuren. Onder MacOS bijvoorbeeld kunnen Bluetooth luidsprekers en koptelefoons opeens ontkoppelen. _We gaan dus toch voor keuze 1._ Bijkomend voordeel van deze keuze is dat je meerdere Arduino's aan je computer kunt hangen en kunt schakelen &mdash; vooral handig als je meerdere experimenten vanaf één computer wilt aansturen.
 
 !!! opdracht-inlever "Pythondaq: selecteer Arduino"
-    Maak een keuzemenu (`#!py QComboBox`) zodat je de Arduino kunt selecteren. Je zult in de `__init__()` eerst een lijst van devices moeten maken en die toe moeten voegen aan de widget. Zie ook de [_lijst met handige widgets_](#info:widgets) en de documentatie. Het kan daarbij handig zijn om de device pas te _openen_ als je een scan uitvoert en hem te sluiten (schrijf een soort `#!py device.close()`) als de scan is afgelopen. In de controller werk je met een `#!py pyvisa` device en die heeft al een `#!py close()`-method.
+    === "opdracht"
+        Je opent de applicatie en ziet een keuzemenu (`#!py QComboBox`) waarmee je de Arduino kunt selecteren. Je selecteerd de juiste Arduino, start een meting en ziet het LED lampje branden. Je sluit de applicatie af en bent benieuwd wat er gebeurd als je meerder Arduino's aansluit. Dus vraag je een (of twee, of drie) Arduino('s) van je buren, sluit deze aan op je computer en start opnieuw de applicatie. Je ziet dat er meerdere apparaten in het keuzemenu staan. Je kiest een Arduino, start een meting en ziet een lampje branden. Daarna selecteer je een andere Arduino, start een meting en ziet een ander lampje branden, hoe leuk {{feesttoeter}}.
+
+        !!! info "Arduino afsluiten"
+            Als je met meerdere Arduino's werkt kan het handig zijn om na afloop van de scan de communicatie met de Arduino weer te sluiten. In de [_opdracht Pyvisa in terminal_](communicatie.md#opd:pyvisaterminal) heb je al eens gewerkt met het commando `close`. Dit werkt ook voor pyvisa in een script. Je hebt in de controller de communicatie geopend met `#!py self.device = rm.open_resource(port, read_termination="\r\n", write_termination="\n")`, je kunt de communicatie met `self.device` in de controller sluiten met `self.device.close()`. Je kunt een method in de controller toevoegen die de communicatie sluit. Via het model kun je deze method aanroepen in de gui.
+
+    === "code"
+        **Pseudo-code**
+        ```
+        # create widget for select Arduino
+        
+        # method start scan
+            # open communication with selected Arduino
+            # start scan
+            # close communication with selected Arduino
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] In de applicatie kan een Arduino geselecteerd worden.
+        - [ ] De gekozen Arduino wordt gebruikt tijdens het uitvoeren van een scan
+
+        **Projecttraject**
+    
+        - [x] Pythondaq: leeg venster
+        - [x] Pythondaq: plot scan
+        - [x] Pythondaq: widgets
+        - [x] Pythondaq: save 
+        - [x] Pythondaq: selecteer Arduino
 
 <!-- 
 ???+ opdracht-meer "Pythondaq: Exceptions"
     Het is natuurlijk niet zo mooi wanneer je de verkeerde poort kiest en het programma crasht. Vang de exception af en geef een melding (gebruik bijvoorbeeld `#!py QDialog`) dat het device geen Arduino VISA device is. De gebruiker kan daarna een andere poort proberen. -->
-
-
 
 ???+ meer-leren "Threads"
 

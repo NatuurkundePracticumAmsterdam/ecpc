@@ -23,10 +23,12 @@ De schakeling voor onze Arduino is weergegeven in de figuur hieronder. Hier bela
 
 ![Schakeling zonnepaneel](figures/PV-schakeling.svg){: style="width:75%"}
 
-In de figuur hieronder is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld. Aan de linkerkant van het breadboard is de serieschakeling van de MOSFET met de kleine weerstand geplaatst. De pinnen van de MOSFET zijn van boven naar beneden de gate, de drain (+) en de source (-). De rechterkant bevat de spanningsdeler. Het zonnepaneel zelf wordt aan de $+$ en $-$ power rails aan de rechterkant van het bord geschakeld. 
+In de 3D-model[^bronpv] hieronder is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld. Aan de linkerkant van het breadboard is de serieschakeling van de MOSFET met de kleine weerstand geplaatst. De pinnen van de MOSFET zijn van boven naar beneden de gate, de drain (+) en de source (-). De rechterkant bevat de spanningsdeler. Het zonnepaneel zelf wordt aan de $+$ en $-$ power rails aan de rechterkant van het bord geschakeld. 
 
 <div id="fig:arduino-PV-breadboard"></div>
 <!-- ![Arduinoschakeling zonnepaneel](figures/PV-measurement_bb.svg){: style="width:50%"} -->
 
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 <model-viewer id="model" style="width: 100%; height: 700px;" alt="Schakelschema PV" src="../assets/circuit/Breadboard_PV.glb" ar shadow-intensity="1" camera-controls touch-action="pan-y" poster="../assets/circuit/breadboard_pv_top_view.png" camera-orbit="0rad 0.39269908169872414rad 4.718948223475571m" autoplay exposure="0.6"></model-viewer>
+
+[^bronpv]: Dit model bevat twee 3D modellen die zijn gecreëerd door Lara Sophie Schütt en AppliedSBC en zijn gedeeld onder respectievelijk een CC-BY en CC-BY-SA licentie. De originele modellen zijn te vinden via [[CC0] Set of Electronic Components](https://sketchfab.com/3d-models/cc0-set-of-electronic-components-f4cb777b4ea3490587008e24b61bcf75) en [Arduino Nano 33 IoT](https://sketchfab.com/3d-models/arduino-nano-33-iot-f57fd7f5485a47a8b71f8604872fd78c). De modellen zijn samengevoegd en Voorzien van een Arduino texture, mosfet, zonnecel en draden. Dit 3D model heeft een CC-BY-SA licentie.

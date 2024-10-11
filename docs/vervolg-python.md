@@ -45,18 +45,17 @@ Je kunt het lezen middels een _easter egg_ in Python zelf: `#!py import this`.
 
 !!! opdracht-basis "zen"
     1. Open Visual Studio Code.
-    1. Open de map {{folder}}`ECPC` (en/of maak deze aan).
+    1. Open de map {{folder}}`ECPC`).
     1. Maak een bestand {{file}}`zen-of-python.py` met daarin de onderstaande code:
     ``` py
     import this
-    ```
+    ```  
+    {{folder}} `ECPC`  
+    {{T}} {{new_file}} `zen-of-python.py`  
+    {{L}} {{dots}}
     1. Run het script en lees de output. 
 
 
-{{folder}} ECPC zou er nu zo uit moeten zien, zorg ervoor dat alles in deze map komt (uiteraard in andere mappen in {{folder}} ECPC als dat wordt gezegd):
-
-{{folder}} ECPC  
-{{L}} {{new_file}} zen-of-python.py
 
 Deze tekst kan nog behoorlijk cryptisch overkomen, maar een paar dingen worden snel duidelijk: code moet _mooi_ zijn (regel 1) en duidelijk (regels 2, 3 en 6). Er bestaan prachtige programmeertrucs in één of twee regels, maar onleesbaar is het wel. Een voorbeeld [@contemplating_zenofpython]:
 ``` py
@@ -402,12 +401,6 @@ print(f"{pdfs=}")
 <span class = "invisible" name="pdf">pdfs=['text.pdf', 'manual.pdf']</span>
 </code></pre></div>
 
-
-Let op! Deze terminal command werkt alleen als je de juiste mappenstructuur hebt aangehouden:
-
-{{folder}} ECPC  
-{{T}} {{new_file}} pdf.py  
-{{L}} {{dots}}
 
 In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions heb je ook _set comprehensions_[^{}] en _dict comprehensions_.
 
@@ -890,7 +883,11 @@ Wanneer je een python script runt is de speciale variabele `#!py __name__` gelij
 Het `#!py if __name__ == '__main__'`-statement wordt heel veel gebruikt in Python modules.
 
 !!! opdracht-basis "modules"
-    1. Maak zelf de bestanden {{file}}`square.py` en {{file}}`just_count.py` aan.
+    1. Maak zelf de bestanden {{file}}`square.py` en {{file}}`just_count.py` aan.  
+    {{folder}} `ECPC`  
+    {{T}} {{new_file}} `square.py`  
+    {{T}} {{new_file}} `just_count.py`  
+    {{L}} {{dots}}
     1. Run {{file}}`just_count.py` zonder het `#!py if __name__ == '__main__'`-statement.
     1. Run {{file}}`just_count.py` met het `#!py if __name__ == '__main__'`-statement.
     1. Voeg `#!py print(f"{__name__ = }")` toe bovenaan {{file}}`square.py`. 
@@ -910,18 +907,18 @@ In bovenstaande code zijn `#!py numpy` en `#!py scipy` afzonderlijke namespaces.
 Wij gaan in deze cursus onze code ook in packages stoppen. Op die manier kun je een softwarebibliotheek opbouwen voor je experiment en die code makkelijker delen met andere onderzoekers. Een pakket is opgebouwd zoals hieronder weergegeven:
 
 <div id="fig:packagetree"></div>
-{{L}} {{github}} my\_project\_folder  
-{{tab}} {{T}} {{file}} script.py  
-{{tab}} {{L}} {{folder}} my\_package  
-{{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
-{{tab}} {{tab}} {{L}} {{folder}} package1  
-{{tab}} {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
-{{tab}} {{tab}} {{tab}} {{T}} {{file}} module1.py  
-{{tab}} {{tab}} {{tab}} {{L}} {{file}} module2.py  
-{{tab}} {{tab}} {{L}} {{folder}} package2  
-{{tab}} {{tab}} {{tab}} {{T}} {{file}}\_\_init\_\_.py  
-{{tab}} {{tab}} {{tab}} {{L}} {{file}}module3.py  
-{{tab}} {{tab}} {{L}} {{file}}module4.py  
+{{L}} {{github}} `my_project_folder`  
+{{tab}} {{T}} {{file}} `script.py`  
+{{tab}} {{L}} {{folder}} `my_package`  
+{{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
+{{tab}} {{tab}} {{L}} {{folder}} `package1`  
+{{tab}} {{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
+{{tab}} {{tab}} {{tab}} {{T}} {{file}} `module1.py`  
+{{tab}} {{tab}} {{tab}} {{L}} {{file}} `module2.py`  
+{{tab}} {{tab}} {{L}} {{folder}} `package2`  
+{{tab}} {{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
+{{tab}} {{tab}} {{tab}} {{L}} {{file}} `module3.py`  
+{{tab}} {{tab}} {{L}} {{file}} `module4.py`  
 
 Iedere package bestaat uit een directory met een {{file}}`__init__.py`-bestand.[^init]
 
@@ -971,13 +968,13 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
     ??? uitwerkingen
         De mappen structuur ziet er als volgt uit:
 
-        {{L}} {{folder}} ECPC  
+        {{L}} {{folder}} `ECPC`  
         {{tab}} {{T}} {{dots}}  
-        {{tab}} {{T}} {{file}} practice-packages.py  
-        {{tab}} {{L}} {{folder}} models  
-        {{tab}} {{tab}} {{T}} {{file}} \_\_init\_\_.py  
-        {{tab}} {{tab}} {{T}} {{file}} polynomials.py  
-        {{tab}} {{tab}} {{L}} {{file}} tests.py
+        {{tab}} {{T}} {{file}} `practice-packages.py`  
+        {{tab}} {{L}} {{folder}} `models`  
+        {{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
+        {{tab}} {{tab}} {{T}} {{file}} `polynomials.py`  
+        {{tab}} {{tab}} {{L}} {{file}} `tests.py`
 
         ``` py title="polynomials.py"
         --8<-- "uitwerkingen-on/polynomials-on.py"

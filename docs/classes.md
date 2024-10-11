@@ -6,7 +6,7 @@ Een class is eigenlijk een groep functies die je bij elkaar pakt en die met elka
 
 
 ## Aanmaken van een class
-Een class is een verzameling functies. Hieronder staat een versimpelde weergave van de class `Turtle`. Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van fucnties &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods) ), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
+Een class is een verzameling functies. Hieronder staat een versimpelde weergave van de class `Turtle`. Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van fucnties &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods)), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
 
 [^ClassTitle]: Wanneer je de Google Style Guide[@google_style_guide] volgt schrijf je de naam van de class in CapWords of CamelCase. 
 
@@ -77,7 +77,20 @@ master_oogway.forward(50)
    
 !!! opdracht-basis "turtle"
     === "opdracht"
-        Je bent inmiddels nieuwschierig geworden naar de schildpad en schrijft een script die een schildpad met de instancenaam `master_oogway` laat lopen en draaien.
+
+        <div class="grid-tree" markdown>
+            <div>
+            Je bent inmiddels nieuwschierig geworden naar de schildpad en schrijft een script in het bestand {{file}} `turtles.py` die een schildpad met de instancenaam `master_oogway` laat lopen en draaien.
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{tab}} {{T}} {{new_file}} `turtles.py`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{github}} `pythondaq`  
+            {{tab}} {{L}} {{dots}}  
+            </div>
+        </div>
 
         !!! info "Schildpad verdwijnt"
             Na het uitvoeren van het script sluit Python het scherm van de schildpad. Voeg de regel `#!py master_oogway.screen.mainloop()` toe om het scherm te laten staan en handmatig af te sluiten. 
@@ -98,7 +111,7 @@ master_oogway.forward(50)
         **Checkpunten:**
 
         - [ ] De instance is van de class `Turtle` met hoofdletter T
-        - [ ] Om de schildpad te laten bewegen roep je de method `#!py forward()` of `#!py lef()` van de instance aan
+        - [ ] Om de schildpad te laten bewegen roep je de method `#!py forward()` of `#!py left()` van de instance aan
 
         **Projecttraject:**
 
@@ -153,7 +166,7 @@ class Turtle:
 ```
 De instance attribute `#!py quote` is nu onderdeel van de instance. We kunnen die oproepen binnen elke method met `#!py self.quote` maar ook buiten de class:
 
-<div class="code-box"><button type="button" name="turtle_quote" onclick="runScript('turtle_quote')" class="run">{{ run }}</button><button type="button" name="turtle_quote" onclick="runScript('turtle_quote')" class="reload invisible">{{ reload }}</button> turtle.py
+<div class="code-box"><button type="button" name="turtle_quote" onclick="runScript('turtle_quote')" class="run">{{ run }}</button><button type="button" name="turtle_quote" onclick="runScript('turtle_quote')" class="reload invisible">{{ reload }}</button> turtles.py
 ``` py
 ...
 master_oogway = Turtle("turtle")
@@ -161,7 +174,7 @@ master_oogway = Turtle("turtle")
 print(master_oogway.quote)
 ```
 <pre>
-<code>(ecpc) > python turtle.py
+<code>(ecpc) > python turtles.py
 <span class="invisible" name="turtle_quote">"Yesterday is history, Tomorrow is a mystery, but Today is a gift. That is why it is called the present"</span>
 </code></pre></div>
 
@@ -196,8 +209,21 @@ print(master_oogway.quote)
 !!! opdracht-basis "Class Particle"
     === "opdracht"
         <img class="gif" src="../assets/particle-spin-flip/spin-flip-still.png" onclick="this.src='../assets/particle-spin-flip/spin-flip.gif'" style="width:128px;height:72px;" align=right />
+        
+        <div class="grid-tree" markdown>
+            <div>
+            Je maakt een instance van de class `#!py Particle` in een nieuw bestand {{file}} `particle.py` aan voor een proton, naast de naam geeft je ook mee dat de spin 0.5 is. Je gebruikt de method `#!py is_up_or_down()` om terug op te vragen wat de spin van het deeltje op dat moment is (spin omhoog/positief of spin omlaag/negatief). Met de method `#!py flip()` keer je de spin van het deeltje om. 
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{tab}} {{T}} {{new_file}} `particle.py`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{github}} `pythondaq`  
+            {{tab}} {{L}} {{dots}}  
+            </div>
+        </div>
 
-        Je maakt een instance van de class `#!py Particle` aan voor een proton, naast de naam geeft je ook mee dat de spin 0.5 is. Je gebruikt de method `#!py is_up_or_down()` om terug op te vragen wat de spin van het deeltje op dat moment is (spin omhoog/positief of spin omlaag/negatief). Met de method `#!py flip()` keer je de spin van het deeltje om. 
     === "code"
         **Pseudo-code**
         ``` py
@@ -225,7 +251,7 @@ print(master_oogway.quote)
         print(proton.name)
         ```
         <pre>
-        <code>(ecpc) > python.exe particle.py
+        <code>(ecpc) > python particle.py
         <span class="invisible" name="particle">up
         down
         -0.5
@@ -244,7 +270,23 @@ print(master_oogway.quote)
 
 !!! opdracht-inlever "Class ProjectileMotion"
     === "opdracht"
-        Je gaat een waterraket een aantal keer wegschieten met steeds een andere beginsnelheid en lanceerhoek. Je hebt een instance aangemaakt van de class `#!py ProjectileMotion`. De metingen van de beginsnelheid en de lanceerhoek bewaar je steeds met de method `#!py add_measurement()`. Om in een keer alle beginsnelheden op te vragen gebruik je de method `#!py get_initial_velocities()`. Om alle lanceerhoeken op te vragen gebruik je de method `#!py get_launch_angles()`. Op basis van de gegevens (en door de luchtweerstand te verwaarlozen) bepaal je de vluchtduur en het bereik van de raket. Je kunt de vluchtduur van alle vluchten opvragen met de method `#!py get_time_of_flights()` en het bereik van alle vluchten met `#!py get_flight_ranges()`.
+
+        <div class="grid-tree" markdown>
+            <div>
+            Je gaat een waterraket een aantal keer wegschieten met steeds een andere beginsnelheid en lanceerhoek. Je hebt een instance aangemaakt van de class `#!py ProjectileMotion`. De metingen van de beginsnelheid en de lanceerhoek bewaar je steeds met de method `#!py add_measurement()`. Om in een keer alle beginsnelheden op te vragen gebruik je de method `#!py get_initial_velocities()`. Om alle lanceerhoeken op te vragen gebruik je de method `#!py get_launch_angles()`. Op basis van de gegevens (en door de luchtweerstand te verwaarlozen) bepaal je de vluchtduur en het bereik van de raket. Je kunt de vluchtduur van alle vluchten opvragen met de method `#!py get_time_of_flights()` en het bereik van alle vluchten met `#!py get_flight_ranges()`.
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{tab}} {{L}} {{dots}}  
+            {{T}} {{github}} `pythondaq`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{github}} `projectile-motion`  
+            {{tab}} {{T}} {{new_file}} `water_rocket.py`  
+            {{tab}} {{L}} {{dots}}  
+            </div>
+        </div>
+    
     === "code"
         **Pseudo-code**
         ``` py
@@ -282,7 +324,7 @@ print(master_oogway.quote)
 
         ```
         <pre>
-        <code>(ecpc) > python.exe water_rocket.py
+        <code>(ecpc) > python water_rocket.py
         <span class="invisible" name="water_rocket">v=[28, 11]
         angles=[68, 15]
         x=[55.51602063607072, 6.167176350662587]
