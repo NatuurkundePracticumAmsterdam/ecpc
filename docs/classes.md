@@ -208,7 +208,7 @@ print(master_oogway.quote)
 
 !!! opdracht-basis "Class Particle"
     === "opdracht"
-        ![spin flip](assets/particle-spin-flip/spin-flip.gif){style="width:128px;height:72px;" align=right}
+        <img class="gif" src="../assets/particle-spin-flip/spin-flip-still.png" onclick="this.src='../assets/particle-spin-flip/spin-flip.gif'" style="width:128px;height:72px;" align=right />
         
         <div class="grid-tree" markdown>
             <div>

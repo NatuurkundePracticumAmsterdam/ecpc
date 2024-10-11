@@ -223,9 +223,9 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de [documentatie van de firmware](firmware.md) dan zie je dat er bepaalde _terminator characters_ nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een <q>enter</q> aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een _carriage return_ (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een _line feed_ (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van _carriage return + line feed_ (CRLF). 
 
 !!! info "Carriage Return Line Feed: Typewriter Demonstration"
-    <div style="display: flex; justify-content: left;"> 
-    <iframe src="https://vu.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=746ea616-4958-4b9c-9bea-b17300e6b754&autoplay=true&offerviewer=false&showtitle=true&showbrand=false&captions=false&interactivity=none" height="304" width="540" style="border: none;" allowfullscreen allow="autoplay" aria-label="Panopto ingesloten videospeler" aria-description="Carriage Return Line Feed: Typewriter Demonstration" ></iframe>
-    </div>
+    <iframe title="Carriage Return Line Feed: Typewriter Demonstration" src="https://drive.google.com/file/d/16jcQcI2o8i3dh3z7TLnK1Qb9OLnF5g20/preview" width="540" height="304" style="border:none;"></iframe>
+
+    
 
 Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer heb je nodig? Af en toe is dat lastig, vooral wanneer er elektronica in het spel is want dan willen de regeleindes voor schrijven en lezen nog wel eens verschillend zijn.[^regeleindes] We gaan nu het gebruik van de karakters instellen:
 
@@ -533,7 +533,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         ```
         **Testvoorbeeld**
 
-        <iframe src="https://vu.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=8d7b4743-eaa5-4221-a135-b1b600f1cf3f&autoplay=true&offerviewer=false&showtitle=false&showbrand=false&captions=false&interactivity=none" height="281" width="500" style="margin-left: 1em; "frameBorder="0" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="Blinking LED" align="left"></iframe>
+        <iframe title="Blinking LED" src="https://drive.google.com/file/d/1GdP3-9LTCSW_UGF708GlX0rKdhoNS5_G/preview" width="500" height="281" style="border:none;" align="left"></iframe>
     === "check"
         **Checkpunten:**
 
