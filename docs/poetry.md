@@ -637,6 +637,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
 
         **Projecttraject**
     
+        - [x] Pythondaq: Docstring
         - [x] Pythondaq: src-layout
         - [x] Pythondaq: poetry    
         - [ ] Pythondaq: test imports
@@ -700,6 +701,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
 
         **Projecttraject**
 
+        - [x] Pythondaq: Docstring
         - [x] Pythondaq: src-layout
         - [x] Pythondaq: poetry    
         - [x] Pythondaq: test imports
@@ -884,6 +886,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
 
         **Projecttraject**
     
+        - [x] Pythondaq: Docstring
         - [x] Pythondaq: src-layout
         - [x] Pythondaq: poetry    
         - [x] Pythondaq: test imports

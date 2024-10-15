@@ -119,6 +119,10 @@ Zo kunnen we gemakkelijk alles gaan invullen. Zo lang je niet op ++escape++ druk
         **Projecttraject:**
 
         - [x] Pythondaq: Docstring
+        - [ ] Pythondaq: src-layout
+        - [ ] Pythondaq: poetry    
+        - [ ] Pythondaq: test imports
+        - [ ] Pythondaq: applicatie
 
 
 ???+ meer-leren "Material for MkDocs"
