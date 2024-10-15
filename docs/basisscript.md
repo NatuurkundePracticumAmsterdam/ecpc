@@ -101,7 +101,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
 !!! opdracht-basis "I,U-karakteristiek van een LED"
     <iframe src="https://drive.google.com/file/d/1BcYJaCm3Er1hQyqQtCRx9umI5d2Q3V-m/preview" width="620" height="349" style="border:none;"></iframe>
     
-    Maak een schets van hoe je denkt dat de grafiek van de spanning tegen de stroom van een LED eruit zal zien.
+    Maak een schets van hoe je denkt dat de grafiek van de stroom tegen de spanning van een LED eruit zal zien.
 
 !!! opdracht-basis "Arduino heeft geen stroommeter"
     <iframe src="https://drive.google.com/file/d/10FwUnWe7CPjygzoRhVIJLE44qlwUo78Z/preview" width="620" height="349" style="border:none;"></iframe>
