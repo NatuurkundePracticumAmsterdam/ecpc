@@ -660,7 +660,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
 
         **Projecttraject**
     
-        - [ ] Functionplotter: plot
+        - [x] Functionplotter: plot
         - [ ] Functionplotter: widgets
 
 !!! opdracht-inlever "Functionplotter: widgets"
@@ -694,8 +694,8 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
 
         **Projecttraject**
     
-        - [ ] Functionplotter: plot
-        - [ ] Functionplotter: widgets
+        - [x] Functionplotter: plot
+        - [x] Functionplotter: widgets
 
 ???+ opdracht-meer "Functieplotter: functie kiezen drop-down menu"
     Gebruik een `#!py QComboBox` om de functie te kunnen kiezen. Je moet hem _leeg_ toevoegen aan je interface en vult hem vanuit je programma. Zoek de widget op in de documentatie om uit te zoeken welke functie je moet gebruiken om keuzemogelijkheden toe te voegen en welk signaal je moet koppelen om te zorgen dat de plot opnieuw wordt uitgevoerd als je de functie aanpast. Geef de gebruiker de keuzes $\sin(x)$, $\cos(x)$, $\tan(x)$ en $\exp(x)$.
