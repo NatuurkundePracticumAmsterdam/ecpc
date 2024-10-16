@@ -497,6 +497,9 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
 [^poetry-init]: Het is eenvoudig om zelf de {{file}}`pyproject.toml` te openen en daar wat in aan te passen voor zover nodig.
 
 !!! info
+    Vergeet niet &mdash; waar nodig &mdash; de {{file}}`__init__.py` bestanden toe te voegen aan de packages. Meer informatie over de {{file}}`__init__.py` bestanden vind je in [paragraaf _packages_](vervolg-python.md#packages).
+
+!!! info
     Als je al bezig bent met een project dan werk je als het goed is al in een conda environment. Daar heb je dan met `conda install` al packages geïnstalleerd die je nodig hebt. Het gebeurt dan makkelijk dat je vergeet om dat aan te geven met `poetry add`. Dat betekent alleen dat als iemand anders je package installeert dat er dependencies missen en dat jouw code dus _niet_ werkt! Dit is makkelijk op te lossen. Zodra je Poetry gaat gebruiken _wis dan je environment en maak een nieuwe aan met alleen Python._ Dat gaat het makkelijkst als volgt. Stel dat je bezig bent in het environment `pythondaq`. We maken dan een nieuw environment met dezelfde naam:
     <pre><code>(ecpc) > conda create -n pythondaq python=3.10 <button type="button" name="conda create -n pythondaq python=3.10" onclick="runScript('conda create -n pythondaq python=3.10')">{{ enter }}</button><button type="button" name="conda create -n pythondaq python=3.10" onclick="runScript('conda create -n pythondaq python=3.10')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="conda create -n pythondaq python=3.10">WARNING: A conda environment already exists at '/Users/david/opt/anaconda3/envs/pythondaq'
@@ -520,6 +523,7 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
             {{T}} {{github}} `flasher`  
             {{tab}} {{L}} {{folder}} `src`  
             {{tab}} {{tab}} {{L}} {{folder}} `flasher`  
+            {{tab}} {{tab}} {{tab}} {{T}} {{new_file_lines}}`__init__.py`  
             {{tab}} {{tab}} {{tab}} {{L}} {{file}} `flashingLED.py`  
             {{L}} {{dots}}  
             </div>
@@ -593,8 +597,6 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
 ## Poetry gebruiken voor pythondaq
 Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten we twee dingen doen. Als eerste gaan we de `pythondaq` repository in een `src`-structuur zetten en daarna gaan we Poetry initialiseren.
 
-!!! info
-    Vergeet niet &mdash; waar nodig &mdash; de {{file}}`__init__.py` bestanden toe te voegen aan de packages.
 
 !!! opdracht-inlever "Pythondaq: src-layout"
     <div class="grid-tree" markdown>
