@@ -75,7 +75,7 @@ else:
     print(f"CommandNotFoundError: No command '{args[1]}'.")
 ```
 
-Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de _standard library_. Een hele handige &mdash; die níet in de _standard library_ zit maar wél meegeleverd is met Anaconda &mdash; is Click.[@click]
+Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de _standard library_ van Python. Een hele handige &mdash; die níet in de _standard library_ van Pythhon zit maar wél meegeleverd is met de _base_ environment van Anaconda &mdash; is Click.[@click]
 
 !!! info
     Click maakt gebruik van _decorators_ (`#!py @decorator`). Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_. Als je meer wilt weten over de werking ervan kijk dan de [calmcode tutorial](https://calmcode.io/decorators/introduction.html) of lees de [Primer on Python Decorators](https://realpython.com/primer-on-python-decorators/).
