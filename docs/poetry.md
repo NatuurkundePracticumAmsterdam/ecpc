@@ -77,8 +77,8 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
 
 !!! opdracht-basis "Easystat Poetry project aanmaken"
     === "opdracht"
-        Een project stop je altijd in een map {{folder}} , als je aan Poetry vraagt om een project te maken zal er een map worden aangemaakt.
-        Je denkt na over een geschikte locatie en besluit dat het in de {{folder}}`ECPC` map moet komen te staan. Je opent Visual Studio Code en opent de map {{folder}}`ECPC`. Je opent een terminal en controlleert dat de terminal ook in de map {{folder}}`ECPC` is. 
+        Een project stop je altijd in een map {{folder}} , als je aan Poetry vraagt om een project te maken zal er een _nieuwe_ (project)map worden aangemaakt.
+        Je denkt na over een geschikte locatie en besluit dat de projectmap in de {{folder}}`ECPC` map moet komen te staan. Je opent Visual Studio Code en opent de map {{folder}}`ECPC`. Je opent een terminal en controlleert dat de terminal ook in de map {{folder}}`ECPC` is. 
         Je geeft Poetry de opdracht om een nieuw project met de naam {{folder}}`easystat` aan te maken in de src-layout[@srclayout] met het commando `poetry new --src easystat`. Je bekijkt de nieuw gemaakte mappenstructuur en ziet dat het overeenkomt met de mappenstructuur zoals hieronder weergegeven.
 
         !!! info "src-layout"
@@ -93,7 +93,8 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
         **Checkpunten:**
     
         - [ ] De projectmap {{folder}}`easystat` staat in de map {{folder}}`ECPC`.
-        - [ ] De projectmap {{folder}}`easystat` heeft een src-layout.
+        - [ ] In de _projectmap_ {{folder}}`easystat` staat een map {{folder}}`src`.
+        - [ ] In de map {{folder}}`src` staat een _package_ map {{folder}}`easystat`
 
         **Projecttraject**
     
@@ -120,7 +121,7 @@ Er is nu de volgende structuur aangemaakt:
 {{tab}} {{L}} {{new_file_lines}} `readme.md`  
 {{L}} {{folder}} {{dots}}  
 
-Allereerst is er een projectmap `easystat` aangemaakt. Je kunt nu in GitHub Desktop deze map toevoegen als nieuwe repository, zoals we gedaan hebben in [opdracht _Repository toevoegen_](github.md#opd:add_repository).
+Allereerst is er een projectmap `easystat` (waar de map {{folder}}`src` in staat) aangemaakt . Je kunt nu in GitHub Desktop deze map toevoegen als nieuwe repository, zoals we gedaan hebben in [opdracht _Repository toevoegen_](github.md#opd:add_repository).
 
 Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaakt. We zien een {{file_lines}}`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van ons project.[^README]
 
