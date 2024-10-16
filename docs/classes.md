@@ -80,7 +80,7 @@ master_oogway.forward(50)
 
         <div class="grid-tree" markdown>
             <div>
-            Je bent inmiddels nieuwschierig geworden naar de schildpad en schrijft een script in het bestand {{file}} `turtles.py` die een schildpad met de instancenaam `master_oogway` laat lopen en draaien.
+            Je bent inmiddels nieuwschierig geworden naar de schildpad. De class `#!py Turtle` zit standaard in Python, daarom kan je die importeren met `#!py from turtle import Turtle`. Maak een bestand {{new_file}} `turtles.py` waarin je een schildpad met de instancenaam `master_oogway` laat lopen en draaien.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -110,8 +110,9 @@ master_oogway.forward(50)
     === "check"
         **Checkpunten:**
 
-        - [ ] De instance is van de class `Turtle` met hoofdletter T
-        - [ ] Om de schildpad te laten bewegen roep je de method `#!py forward()` of `#!py left()` van de instance aan
+        - [ ] De class `Turtle` wordt geïmporteerd uit de module `turtle`.
+        - [ ] De instance is van de class `Turtle` met hoofdletter T.
+        - [ ] Om de schildpad te laten bewegen roep je de method `#!py forward()` of `#!py left()` van de instance aan.
 
         **Projecttraject:**
 
