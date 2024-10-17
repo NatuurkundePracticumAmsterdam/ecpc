@@ -99,8 +99,11 @@ In de handleiding staan verschillende opgaves. De meeste zijn bedoeld als oefeni
 !!! opdracht-inlever "Inleveropdracht"
     Deze opgave moet worden ingeleverd voor feedback en een beoordeling. Je herkent ze aan de groene kleur. De opgaven bouwen voort op elkaar, dus er zijn meerdere opgaven. Je levert ze niet los in, maar als geheel. Kijk goed bij het projecttraject in het tabblad **check** welke groene opdrachten je gemaakt moet hebben voordat je het inlevert. 
 
+    Vaak heb je kennis en/of vaardigheden nodig die je eerder heb geleerd. Zie je een {{lightbulb}} lampje staan? Klik dan bovenin de blauwe balk (rechtsboven, naast de zoekbalk) op het lampje om de spiekbriefjes te openen.
+
 
 !!! opdracht-meer "Meer leren"
     Dit zijn verdiepende en verbredende opgaves om je te kunnen ontwikkelen tot een goed programmeur en een waardevolle aanwinst voor een onderzoeksgroep. Je kunt er geen extra punten mee verdienen wanneer je deze technieken toepast in je inleveropdrachten, maar het is wel een goede oefening. Doe deze opgaves _alleen_ als je klaar bent met de rest.
+
 
 Een basiskennis Python is nodig om de opdrachten te kunnen maken. In de [paragraaf Basiskennis Python](basis-python.md#basiskennis-python) vind je opdrachten om je kennis te testen. Het is handig om een uitgebreidere Python kennis te hebben, meer informatie vind je in de [paragraaf Uitgebreidere Python kennis](vervolg-python.md#uitgebreidere-python-kennis).
