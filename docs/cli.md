@@ -14,10 +14,10 @@ Je hebt tot nu toe al heel wat commando's in de terminal getypt. Laten we een pa
 PS> python script.py
 ```
 Als eerste vertel je welke applicatie je wilt gaan starten; in dit geval: `python`. Daarna geef je met het _argument_ `script.py` aan welk Pythonscript je wilt uitvoeren. Vaak kun je ook _opties_ meegeven zoals in:
-``` ps1con title="Terminal"
-PS> python -V
-Python 3.10.13
-```
+<pre><code>(ecpc) > python -V <button type="button" name="python -V" onclick="runScript('python -V')">{{ enter }}</button><button type="button" name="python -V" onclick="runScript('python -V')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python -V">Python 3.10.13</span>
+</code></pre>
+
 Hiermee vraag je Python om het versienummer weer te geven. Soms kunnen _opties_ zelf weer een _argument_ meekrijgen. Bijvoorbeeld:
 ``` ps1con title="Terminal"
 PS> python -m antigravity
@@ -38,23 +38,29 @@ Uitgesplitst in _argumenten_ en __opties__, met vierkante haken [] om aan te gev
     1. Naast `conda create` heb je ook met andere argumenten gewerkt zoals `activate` en `install`. Welke argumenten ken je al van de applicatie `poetry`?
     1. Vraag de lijst met argumenten (commando's) op van Poetry met `poetry list`, hoeveel kende je nog niet?
     
+!!! opdracht-basis "Conda opties en argumenten"
+    1. Open een `Anaconda Prompt`
+    1. Maak gebruik van de optie __-h__ om de helpfunctie van conda op te vragen. (`conda -h`)
+    1. Zoek de optie op om de conda versie weer te geven (`conda -V`)
+    1. Maak gebruik van de optie __-h__ om de helpfunctie van het commando _activate_ op te vragen (`conda activate -h`)
+    1. Welke argumenten moet je meegeven (positional arguments?) en welke opties mag je meegeven (optional arguments?) (argument: env_name_or_prefix, opties: --help, --stack, --no-stack)
+
 
 ### Click
 Als we gebruik willen maken van commando's in onze eigen applicatie moeten we weten wat de gebruiker in de terminal typt. Dit is mogelijk met `sys.argv`.[^argv]
+Waarbij alles wat we in de terminal typen aan input wordt meegegeven:
 
 [^argv]: argv staat voor: _argument vector_, een lijst met argumenten
-
-``` py title="cli.py"
+<div class="code-box"><button type="button" name="cli.py" onclick="runScript('cli.py')" class="run">{{ run }}</button><button type="button" name="cli.py" onclick="runScript('cli.py')" class="reload invisible">{{ reload }}</button> cli.py
+``` py
 import sys
 
 print(sys.argv)
 ```
-
-Alles wat we in de terminal typen wordt aan input meegegeven:
-``` ps1con title="Terminal"
-PS> python cli.py test 123   
-['cli.py', 'test', '123']
-```
+<pre>
+<code>(ecpc) > python cli.py test 123
+<span class="invisible" name="cli.py">['cli.py', 'test', '123']</span>
+</code></pre></div>
 
 Met if-statements kunnen we acties verbinden aan bepaalde argumenten:
 ``` py title="cli.py" hl_lines="6-9"
@@ -69,7 +75,7 @@ else:
     print(f"CommandNotFoundError: No command '{args[1]}'.")
 ```
 
-Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de _standard library_. Een hele handige &mdash; die níet in de _standard library_ zit maar wél meegeleverd is met Anaconda &mdash; is Click.[@click]
+Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de _standard library_ van Python. Een hele handige &mdash; die níet in de _standard library_ van Pythhon zit maar wél meegeleverd is met de _base_ environment van Anaconda &mdash; is Click.[@click]
 
 !!! info
     Click maakt gebruik van _decorators_ (`#!py @decorator`). Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_. Als je meer wilt weten over de werking ervan kijk dan de [calmcode tutorial](https://calmcode.io/decorators/introduction.html) of lees de [Primer on Python Decorators](https://realpython.com/primer-on-python-decorators/).
@@ -103,27 +109,110 @@ python hello.py --help
 ```
 <div id="opd:hello-help"></div>
 !!! opdracht-basis "Help functie"
-    Neem het script {{file}}`hello.py` over en vraag de helpfunctie op. Test dit met én zonder `#!py @click.command()`.
+    === "opdracht"
 
+        <div class="grid-tree" markdown>
+            <div>
+            Je neemt het script {{file}}`hello.py` over. Je vraagt de helpfunctie van het script op. Je ziet een helptekst verschijnen. Je vraagt je af wat er gebeurt als je `#!py @click.command()` weg haalt en dan de helpfunctie opvraagt. Je krijgt gewoon de output van de functie `#!py hello()` een geen help tekst.
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{tab}} {{T}} {{new_file}} `hello.py`  
+            {{tab}} {{L}} {{dots}}  
+            {{T}} {{github}} `pythondaq`  
+            {{L}} {{dots}}  
+            </div>
+        </div>
+
+    === "code"
+        **Pseudo-code**
+        ``` py title="hello.py"
+        import click
+
+        # make function Click command
+        # function
+            # print hello physicist!
+
+        # when run this script:
+            # run function
+        ```
+        **Testcode**
+        <pre><code>(ecpc) > python hello.py --help <button type="button" name="python hello.py_help" onclick="runScript('python hello.py_help')">{{ enter }}</button><button type="button" name="python hello.py_help" onclick="runScript('python hello.py_help')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="python hello.py_help">Usage: hello.py [OPTIONS]        
+        Options:
+            --help  Show this message and exit.
+        </span>
+        </code></pre>
+        
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Je vraagt de helpfunctie op door `--help` achter de bestandsnaam te zetten in de terminal.
+        - [ ] Er verschijnt een standaard helptekst.
+        - [ ] Zonder `@click.command()` verschijnt er geen helptekst, maar de output van de functie.
+
+
+        **Projecttraject:**
+
+        - [x] Help functie
+        - [ ] Argumenten toevoegen
+        - [ ] Test hello
+        - [ ] Helptekst toevoegen
+        - [ ] Pauze optie
+
+In de code hieronder geven we met de regel `#!py @click.argument("name")` aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie `hello`:
+
+``` py title="hello.py" hl_lines="4 6"
+import click
+
+@click.command()
+@click.argument("name")
+def hello(name):
+    print(f"Hello {name}!")
+
+if __name__ == "__main__":
+    hello()
+```
 
 !!! opdracht-basis "Argument toevoegen"
-    Laten we zorgen dat we een naam als argument mee kunnen geven.
-    
-    1. In de code hieronder geven we met de regel `#!py @click.argument("name")` aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie `hello`:
-            ``` py title="hello.py" hl_lines="4 6"
-            import click
-            
-            @click.command()
-            @click.argument("name")
-            def hello(name):
-                print(f"Hello {name}!")
-            
-            if __name__ == "__main__":
-                hello()
-            ```
-    1. Draai {{file}}`hello.py` eerst zonder een argument `python hello.py` en bekijk de foutmelding.
-    1. Draai {{file}}`hello.py` nu met een argument: `python hello.py Alice`.
-    
+    === "opdracht"
+        Je runt het bestand {{file}}`hello.py` en geef achter de bestandsnaam de naam `Alice` mee. Er verschijnt `Hello Alice!` als output in de terminal.
+    === "code"
+        **Pseudo-code**
+        ``` py title="hello.py"
+        import click
+
+        # make function Click command
+        # make argument name
+        # function, parameter name
+            # print hello <name>!
+
+        # when run this script:
+            # run function
+        ```
+        **Testcode**
+        <pre><code>(ecpc) > python hello.py <button type="button" name="hello.py_name" onclick="runScript('hello.py_name')">{{ enter }}</button><button type="button" name="hello.py_name" onclick="runScript('hello.py_name')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="hello.py_name">Usage: hello.py [OPTIONS] NAME
+        Try 'hello.py --help' for help.
+        Error: Missing argument 'NAME'.
+        </span>
+        </code></pre>
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Het draaien van {{file}}`hello.py` zonder een argument: `python hello.py` geeft een foutmelding.
+        - [ ] Het draaien van {{file}}`hello.py` met een argument: `python hello.py Alice` werkt zoals verwacht.
+
+        **Projecttraject:**
+
+        - [x] Help functie
+        - [x] Argumenten toevoegen
+        - [ ] Test hello
+        - [ ] Helptekst toevoegen
+        - [ ] Pauze optie
 
 
 !!! warning
@@ -151,8 +240,55 @@ if __name__ == "__main__":
     hello()
 ```
 
-!!! opdracht-basis "Test hello"
-    Neem bovenstaande pythoncode over en test {{file}}`hello.py`. Kun je 5 keer een begroeting printen met de naam van je assistent?
+!!! opdracht-basis "5 keer hello"
+    === "opdracht"
+        Je runt het bestand {{file}}`hello.py` en geef achter de bestandsnaam de naam van je assistent mee en geeft aan dat je deze 5 keer wilt printen. Er verschijnt vijf keer `Hello <assistent>!` als output in de terminal.
+    === "code"
+        **Pseudo-code**
+        ``` py title="hello.py"
+        import click
+
+        # make function Click command
+        # make argument name
+        # make option count with default value 1
+        # function, parameter name and count
+            # repeat count times
+                # print hello <name>!
+
+        # when run this script:
+            # run function
+        ```
+        **Testcode**
+        <pre><code>(ecpc) > python hello.py David -c 5 <button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')">{{ enter }}</button><button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="python hello.py David -c 5">Hello David!
+        Hello David!
+        Hello David!
+        Hello David!
+        Hello David!</span>
+        </code></pre>
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Je kan de naam van je assistent 5 keer printen met één commando
+        - [ ] Je kan het aantal keer printen opgeven met `-c`.
+        - [ ] Je kan het aantal keer printen ook opgeven met `--count`.
+        - [ ] Wanneer de optie `count` wordt weggelaten wordt de naam 1 keer geprint.
+        - [ ] Wanneer er geen argument wordt meegegeven met `count` volgt een foutmelding:
+
+            <pre><code>(ecpc) > python hello.py David -c <button type="button" name="python hello.py David -c" onclick="runScript('python hello.py David -c')">{{ enter }}</button><button type="button" name="python hello.py David -c" onclick="runScript('python hello.py David -c')" class="invisible">{{ reload }}</button>
+            <span class="invisible" name="python hello.py David -c">Error: Option '-c' requires an argument.</span>
+            </code></pre>
+        
+
+        **Projecttraject:**
+
+        - [x] Help functie
+        - [x] Argumenten toevoegen
+        - [x] Test hello
+        - [ ] Helptekst toevoegen
+        - [ ] Pauze optie
+
 
 
 !!! warning
@@ -185,31 +321,82 @@ if __name__ == "__main__":
 
 
 Als je dit script gebruikt ziet dat er zo uit:
-
-``` ps1con title="Terminal"
-PS> python hello.py --help
-Usage: hello.py [OPTIONS] NAME
+<pre><code>(ecpc) > python hello.py --help <button type="button" name="python hello.py --help" onclick="runScript('python hello.py --help')">{{ enter }}</button><button type="button" name="python hello.py --help" onclick="runScript('python hello.py --help')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python hello.py --help">Usage: hello.py [OPTIONS] NAME
 
 Options:
   -c, --count INTEGER  Number of times to print greeting.  [default: 1]
   --help               Show this message and exit.
-  
-PS> python hello.py Alice
-Hello Alice!
-  
-PS> python hello.py Alice -c 2
-Hello Alice!
-Hello Alice!
+  </span>
 
-PS> python hello.py Alice --count 3
+(ecpc) > python hello.py Alice <button type="button" name="python hello.py Alice" onclick="runScript('python hello.py Alice')">{{ enter }}</button><button type="button" name="python hello.py Alice" onclick="runScript('python hello.py Alice')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python hello.py Alice">Hello Alice!</span>
+
+(ecpc) > python hello.py Alice -c 2 <button type="button" name="python hello.py Alice -c 2" onclick="runScript('python hello.py Alice -c 2')">{{ enter }}</button><button type="button" name="python hello.py Alice -c 2" onclick="runScript('python hello.py Alice -c 2')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python hello.py Alice -c 2">Hello Alice!
+Hello Alice!</span>
+
+(ecpc) > python hello.py Alice --count 3 <button type="button" name="python hello.py Alice --count 3" onclick="runScript('python hello.py Alice --count 3')">{{ enter }}</button><button type="button" name="python hello.py Alice --count 3" onclick="runScript('python hello.py Alice --count 3')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python hello.py Alice --count 3">Hello Alice!
 Hello Alice!
-Hello Alice!
-Hello Alice!
-```
+Hello Alice!</span>
+</code></pre>
 
 <div id="opd:hello-pauze"></div>
 !!! opdracht-basis "Pauze optie"
-    Breid het bovenstaande script `hello.py` uit met een optie om een korte pauze in te lassen na het printen van ieder `#!py print()`-statement. Een pauze kun je inlassen met `#!py time.sleep()`. Zorg er voor dat er zonder die optie géén pauze is en dat je met de optie kunt kiezen hoe lang er gewacht moet worden.
+    === "opdracht"
+        Je runt het bestand {{file}}`hello.py` en geef achter de bestandsnaam de naam van je assistent mee en geeft aan dat je deze 5 keer wilt printen met een pauze van 2 seconde ertussen. Het duurt 8 seconden voordat er vijf keer `Hello <assistent>!` als output in de terminal staat. Als je geen pauze-optie meegeeft wordt er ook geen pauze gehouden. 
+        
+        !!! info
+            Je kan hiervoor gebruik maken van de module _time_ die standaard met Python meekomt[^standard-library]. Met de functie `#! sleep()` kun je de executie van de volgende regel in het script met een aantal seconden uitstellen.
+
+            ``` py
+            import time
+            # wait 28 second
+            time.sleep(28)
+            ```
+
+            [^standard-library]: Zie ook: [The Python Standard Library](vervolg-python.md#de-standard-library-en-de-python-package-index)
+    === "code"
+        **Pseudo-code**
+        ``` py title="hello.py"
+        import click
+
+        # make function Click command
+        # make argument name
+        # make option count with default value 1
+        # make option pause
+        # function, parameter name and count
+            # repeat count times
+                # print hello <name>!
+                # pause
+
+        # when run this script:
+            # run function
+        ```
+        **Testcode**
+        <pre><code>(ecpc) > python hello.py David -c 5 <button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')">{{ enter }}</button><button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="python hello.py David -c 5">Hello David!
+        Hello David!
+        Hello David!
+        Hello David!
+        Hello David!</span>
+        </code></pre>
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Als de pauze optie niet wordt meegegeven, dan wordt er géén pauze ingelast
+        - [ ] Bij het meegeven van de pauze optie, wacht het programma zo lang als verwacht
+
+        **Projecttraject:**
+
+        - [x] Help functie
+        - [x] Argumenten toevoegen
+        - [x] Test hello
+        - [x] Helptekst toevoegen
+        - [x] Pauze optie
+
 
 Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
 [^flag]: Zie voor meer informatie over flags de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
@@ -219,20 +406,49 @@ Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
 
 
 !!! opdracht-basis "Argumenten en opties"
-    Bij [opdracht _Commando testen_](poetry.md#opd:Poetry_commando) heb je een applicatie gemaakt om het kwadraat van een getal te printen. In deze opdracht gaan we het script uitbreiden om het getal als argument of optie mee te geven op de command line. Voer de volgende stappen uit:
+    === "opdracht"
+        Je opent met Github Desktop de {{github}}`just_count` in Visual Studio Code. Je hebt ooit een environment voor deze repository aangemaakt maar je hebt geen idee of die in de tussentijd niet per ongeluk stuk is gegaan. Daarom maak je {{lightbulb}} een nieuwe environment `just_count` met daarin Python en gebruikt Poetry om het pakket `just_count` in de nieuwe omgeving te installeren. 
 
-    1. Maak een schone environment aan en installeer de applicatie (doet alles het nog?)
-    1. Voeg click toe en pas het script aan zodat je het getal zelf kan kiezen.[^arg-type] Wanneer kies je in het script voor een optie en wanneer voor een argument?
-    1. Test de applicatie.
-    1. Maak de applicatie compleet met helpteksten en default waardes.
-    
-    ???+ opdracht-meer "Meer functies"
-        1. Pas de applicatie aan zodat je kan kiezen tussen het kwadraat of de wortel van het getal. 
+        Je activeert het juiste conda environment en met het commando `square 6` wordt het kwadraat van 6 in de terminal geprint.
+
+        !!! info argument is standaard string
+            Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieerd. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden
+
+        ???+ opdracht-meer "Meer functies"
+            1. Pas de applicatie aan zodat je kan kiezen tussen het kwadraat of de wortel van het getal. 
+    === "code"
+        **Pseudo-code**
+        ``` py title="count_count.py"
+        import square
+
+        # Add functionality to select a number via click and print its square
+        def main():
+            print(f"The square of 5 is {square.square(5)}")
+
+        if __name__ == '__main__':
+            main()
+        ```
+        **Testcode**
+        <pre><code>(ecpc) > square 6 <button type="button" name="square 6" onclick="runScript('square 6')">{{ enter }}</button><button type="button" name="square 6" onclick="runScript('square 6')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="square 6">The square of 6 is 36</span>
+        </code></pre>
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Je hebt `poetry install` in een schone environment (met alleen Python) gedaan.
+        - [ ] Je hebt de juiste omgeving geactiveerd.
+        - [ ] Je kan zelf het getal kiezen met het commando en krijgt het verwachte antwoord terug
+        - [ ] Bij het aanroepen van `count --help` krijg je duidelijke helpteksten en default waardes te zien waarmee je het programma kan begrijpen
+
+        **Projecttraject**
+        
+        - [x] Main functie toevoegen
+        - [x] commando toevoegen
+        - [x] Commando testen
+        - [x] Argumenten en opties
 
     
-    
-[^arg-type]: Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieerd. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden
-
 ### Click subcommando's
 Tot nu toe konden we maar één functie uitvoeren in onze applicatie. Maar het is ook mogelijk om subcommando's aan te maken zodat je met één programma meerdere <q>taken</q> kunt uitvoeren. Denk bijvoorbeeld aan `conda`. Je installeert packages met `conda install`, verwijdert ze met `conda remove`, maakt een environment met `conda create` en activeert het met `conda activate`.
 
@@ -244,7 +460,7 @@ Tot nu toe konden we maar één functie uitvoeren in onze applicatie. Maar het i
 
 Een eenvoudig voorbeeldscript waarin de conda commando's `install` en `remove` worden nagebootst leggen we hieronder uit. Eerst de code:
 
-``` py title="fakeconda.py" linenums="1"
+``` py title="fake_conda.py" linenums="1"
 import click
 
 @click.group()
@@ -266,34 +482,50 @@ if __name__ == "__main__":
 ```
 In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeurig `#!py cmd_group()` genoemd hebben en die we bovenaan definiëren. In tegenstelling tot het {{file}}`hello.py`-script doet deze functie helemaal niets (`#!py pass`). We vertellen aan click dat we een groep van commando's aan gaan maken met de `#!py @click.group()`-decorator in regel 3. Vervolgens gaan we commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` &mdash; zie regels 7 en 12. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 7 en 9 maken samen het commando `install`. Verder werkt alles hetzelfde. Dus een argument toevoegen &mdash; zoals in regel 8 &mdash; is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
 
-<div id="warn:cmd_name"></div>
-!!! warning
-    Omdat de naam van een subcommando gelijk is aan de functienaam kan dat voor problemen zorgen wanneer je gereserveerde namen van python wilt gebruiken zoals: `#!py import`, `#!py return`, `#!py lambda`. Of wanneer je de naam van het subcommando graag hetzelfde wilt hebben als een ander pythonfunctie zoals `#!py sin` of `#!py list`.
-    Een oplossing is om de functienaam aan te passen en de subcommando naam expliciet aan click mee te geven bij `command`:
-    ``` py
-    @cmd_group.command("import")
-    @click.argument("package")
-    def import_package(package):
-        print(f"import {package}...")
-    ```
-    We hebben nu een commando `import` aangemaakt &mdash; _niet_ een commando `import_package`.
 
-!!! opdracht-basis "Pyproject toml"
+!!! opdracht-basis "Fake conda"
+    === "opdracht"
 
-    1. Maak een nieuw poetry project aan met de naam conda. 
-    ``` ps1 title="Terminal"
-    poetry new --src conda
-    ```
-    1. Voeg het bestand {{file}}`fakeconda.py` toe (copy/paste de code hierboven).
-    
-    1. Overleg met elkaar[^poetry-script] en zorg dat de volgende uitvoer mogelijk wordt (je hoeft alleen tekst te printen):
-    ``` ps1con title="Terminal"
-    PS> fake_conda install scipy
-    Installing scipy...
-    ```
+        <div class="grid-tree" markdown>
+            <div>
+            Nu je hebt geleerd om met Click subcommando's te maken wil je deze uittesten in combinatie met het commando wat je met Poetry kan aanmaken om een functie uit een script uit te voeren. Je maakt in de map {{folder}}`ECPC` {{lightbulb}} een nieuw Poetry project aan voor {{folder}}`fake_conda` en zet daarin de code uit het bestand {{file}}`fake_conda.py`. Je past de {{file_lines}}`pyproject.toml` aan zodat je met het commando `fake_conda install scipy` zogenaamd `scipy` kunt installeren. 
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{new_folder}} `fake_conda`  
+            {{tab}} {{T}} {{new_folder}} `src/fake_conda`  
+            {{tab}} {{tab}} {{T}} {{new_file}} `__init__.py`  
+            {{tab}} {{tab}} {{L}} {{new_file}} `fake_conda.py`  
+            {{tab}} {{L}} {{new_file_lines}} `pyptoject.toml`  
+            {{tab}} {{L}} {{dots}}  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{T}} {{github}} `pythondaq`  
+            {{L}} {{dots}}  
+            </div>
+        </div>
 
-    [^poetry-script]: Als je een commando in Poetry toevoegt dan heeft dat de opbouw `naam_commando = "package.module:naam_functie"`, welke functie moet uitgevoerd worden als je het commando aanroept?
+        !!! info "commando"
+            Als je een commando met Poetry toevoegt dan heeft dat de opbouw `naam_commando = "package.module:naam_functie"`, welke functie moet uitgevoerd worden als je het commando aanroept?
+    === "code"
+        **Pseudo-code**
+        ``` toml title="pyproject.toml"
+        [tool.poetry.scripts]
+        naam_commando = "package.module:naam_functie"
+        ```
+        **Testcode**
+        <pre><code>(ecpc) > fake_conda install scipy <button type="button" name="fake_conda install scipy" onclick="runScript('fake_conda install scipy')">{{ enter }}</button><button type="button" name="fake_conda install scipy" onclick="runScript('fake_conda install scipy')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="fake_conda install scipy">Installing scipy...</span>
+        </code></pre>
+        
+    === "check"
+        **Checkpunten:**
 
+        - [ ] In de pyproject.toml verwijst `[tool.poetry.scripts]` naar een functie zodat `install` en `remove` subcommando's zijn.
+        - [ ] Het commando `fake_conda install scipy` print de tekst `Installing scipy...` als output in de terminal. 
+
+        **Projecttraject**
+
+        - [ ] Fake conda
 
 !!! opdracht-meer "Smallangle (meer leren)"
     Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt &mdash; maar jij weet precies over welk onderdeel we het hebben.
@@ -326,19 +558,80 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
         if __name__ == "__main__":
             sin(10)
         ```
-    1. Ga door naar stap 2 van de [_opdracht smallangle_](#opd:smallangle). Je mag stap 1 overslaan &mdash; dat werk heb je nu zelf al gedaan.
+    1. Ga door naar de [_opdracht smallangle aanpassen_](#opd:smallangle). Je mag de opdracht smallangle installeren overslaan &mdash; dat werk heb je nu zelf al gedaan.
     
 
+!!! opdracht-inlever "smallangle installeren"
+    === "opdracht"
+
+        <div class="grid-tree" markdown>
+            <div>
+            Je cloned het Poetry project {{github}}`smallangle` van {{github}}`AnneliesVlaar/smallangle` door [de repository in GitHub desktop te openen](x-github-client://openRepo/https://github.com/AnneliesVlaar/smallangle). Daarna open je het project in Visual Studio Code. Na het installeren van het project in een nieuwe conda environment run je het bestand {{file}}`smallangle.py` en krijg je een lijst van 10 punten tussen 0 en 2 $\pi$ en de sinus van deze punten. 
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `pythondaq`   
+            {{L}} {{github}} `smallangle`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{dots}}  
+            </div>
+        </div>
+
+    === "code"
+        **Testcode**
+        <div class="code-box"><button type="button" name="smallangle" onclick="runScript('smallangle')" class="run">{{ run }}</button><button type="button" name="smallangle" onclick="runScript('smallangle')" class="reload invisible">{{ reload }}</button> smallangle.py
+        ``` py
+        import numpy as np
+        from numpy import pi
+        import pandas as pd
+
+        def sin(number):
+            x = np.linspace(0, 2 * pi, number)
+            df = pd.DataFrame({"x": x, "sin (x)": np.sin(x)})
+            print(df)
+            return
+
+        def tan(number):
+            x = np.linspace(0, 2 * pi, number)
+            df = pd.DataFrame({"x": x, "tan (x)": np.tan(x)})
+            print(df)
+            return
+
+        if __name__ == "__main__":
+            sin(10)
+        ```
+        <pre>
+        <code>(ecpc) > python smallangle.py
+        <span class="invisible" name="smallangle">          x       sin (x)
+        0  0.000000  0.000000e+00
+        1  0.698132  6.427876e-01
+        2  1.396263  9.848078e-01
+        3  2.094395  8.660254e-01
+        4  2.792527  3.420201e-01
+        5  3.490659 -3.420201e-01
+        6  4.188790 -8.660254e-01
+        7  4.886922 -9.848078e-01
+        8  5.585054 -6.427876e-01
+        9  6.283185 -2.449294e-16</span>
+        </code></pre></div>
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Het project is geïnstalleerd in een nieuwe conda environment.
+        - [ ] Na het installeren van het pakket geeft de code de verwachte output.
+
+        **Projecttraject:**
+
+        - [x] smallangle installeren
+        - [ ] smallangle aanpassen
+        - [ ] smallangle docstrings
+
 <div id="opd:smallangle"></div>
-!!! opdracht-inlever "smallangle"
-    Het project {{github}}`smallangle` wordt met Poetry beheerd. Je gaat click aan de module {{file}}`smallangle.py` toevoegen zodat je met subcommando's, argumenten en/of opties kunt werken. Tot slot maak je van smallangle een applicatie die je in de terminal kunt aanroepen.
+!!! opdracht-inlever "smallangle aanpassen"
+    === "opdracht"
+        Je kunt met het commando `smallangle` en de subcommando's `sin` en `tan` een lijst genereren van getallen tussen de 0 en 2 $\pi$ en de bijbehorende sinus dan wel tanges van deze getallen. Met de optie `-n` kan je het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) kiezen. Als je de optie `-n` weglaat werkt de applicatie met een standaardwaarde.
 
-    1. Ga naar GitHub naar {{github}}`AnneliesVlaar/smallangle` en [open de repository in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/smallangle) in GitHub Desktop en Visual Studio Code.
-    1. Installeer de package in een nieuw environment.
-    1. Run het script {{file}}`smallangle.py` en los de errors op totdat het werkt.
-    1. Voeg click toe zodat je de subcommando's `sin` en `tan` hebt. Het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) moet gekozen kunnen worden met een optie (geef een standaardwaarde mee, zodat de gebruiker de optie kan weglaten).
-
-        ??? info "TypeError: 'int' object is not iterable"
+        !!! info "TypeError: 'int' object is not iterable"
 
             Probeer je de code te draaien maar krijg je een foutmelding zoals deze:
             ``` ps1 title="Terminal"
@@ -356,92 +649,51 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 
             Dan komt dat doordat je `#!py sin(10)` probeert uit te voeren, terwijl de functie al verClickt is. De functie verwacht een argument vanuit de terminal en geen integer vanuit het pythonscript.
             Pas je script aan zodat `#!py if __name__ == "__main__":` naar de juiste functie verwijst en Click aanroept; niet `#!py sin(10)`.
+    === "code"
+        <pre><code>(ecpc) > smallangle sin -n 9 <button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')">{{ enter }}</button><button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="smallangle sin -n 9">          x       sin (x)
+        0  0.000000  0.000000e+00
+        1  0.785398  7.071068e-01
+        2  1.570796  1.000000e+00
+        3  2.356194  7.071068e-01
+        4  3.141593  1.224647e-16
+        5  3.926991 -7.071068e-01
+        6  4.712389 -1.000000e+00
+        7  5.497787 -7.071068e-01
+        8  6.283185 -2.449294e-16</span>
+        </code></pre>
+        
+        
+    === "check"
+        **Checkpunten:**
 
-    1. Zorg dat smallangle een applicatie wordt die je aan kunt roepen met bijvoorbeeld `smallangle sin -n 9`.
-    
+        - [ ] De gebruiker kan met subcommando's kiezen tussen `sin` en `tan`.
+        - [ ] De gebruiker kan het aantal stappen kiezen met een optie.
+        - [ ] De gebruiker kan de optie ook weglaten.
+
+        **Projecttraject:**
+
+        - [x] smallangle installeren
+        - [x] smallangle aanpassen
+        - [ ] smallangle docstrings
 
 ???+ opdracht-meer "Smallangle (uitdaging)"
     Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\lvert x - \sin(x) \rvert \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over .000, .001 en .002, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
-    ``` ps1con title="Terminal"
-    PS> smallangle approx .1
-    For an accuracy of 0.1, the small-angle approximation holds
-    up to x = 0.854.
-    ```
+    <pre><code>(ecpc) > smallangle approx .1 <button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')">{{ enter }}</button><button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="smallangle approx .1">For an accuracy of 0.1, the small-angle approximation holds
+    up to x = 0.854.</span>
+    </code></pre>
 
+## Docstrings en Click `--help`
 
-## Docstrings
-Documentatie is vaak een onderschoven kindje, maar is ontzettend belangrijk. Als je zelf informatie opzoekt over bijvoorbeeld een voor jou onbekende Pythonbibliotheek dan vind je het heel fijn als er een duidelijke tutorial is. Als je code schrijft die ook door andere mensen gebruikt moet worden is documentatie nodig. Als de code langer mee moet gaan dan zeg een paar weken, dan helemaal. Want over een paar weken ben jij _zelf_ een ander persoon. Hoe vervelend het ook is, code die je nota bene zelf geschreven hebt is over een paar weken niet meer glashelder. Je zult dan moeten uitzoeken hoe je ook alweer iets hebt gedaan of wat de gedachte erachter was.
+Docstrings werken ook heel handig samen met Click want ze worden gebruikt als we de helpfunctie aanroepen. 
+!!! info
+    We gebruiken bij click-functies niet de standaard structuur voor docstrings. Click breekt de docstrings standaard af waardoor het algauw een onogelijke brij aan informatie wordt. We kiezen daarom voor een samenvatting en eventueel een korte toelichting daarop. 
 
-Tot nu toe heb je waarschijnlijk gebruik gemaakt van `#!py #stukjes commentaar` om duidelijk te maken wat je code doet. Maar als je de applicatie aan het gebruiken bent en je wilt weten wat een bepaalde functie eigenlijk doet, moet je dus de code induiken op zoek naar de betreffende functie. Met _docstrings_ &mdash; documentatiestrings &mdash; is dat verleden tijd. De documentatie over een functie kan automatisch gegenereerd worden vanuit je code met behulp van de docstring. Docstrings staat tussen 3 dubbele aanhalingstekens en hebben doorgaans een vaste structuur:[^style-guide]
+???+ meer-leren "Uitgebreide documentatie en Click"
+    In de documentatie van Click vind je meer informatie over het afbreken van zinnen (en het [voorkomen](https://click.palletsprojects.com/en/8.1.x/documentation/#preventing-rewrapping) daarvan). Ook vind je daar een manier om een uitgebreide docstring te schrijven [zonder](https://click.palletsprojects.com/en/8.1.x/documentation/#truncating-help-texts) dat het een bende wordt.
 
-[^style-guide]: Die vaste structuur wordt niet door Python afgedwongen, maar is een goed gebruik. Er worden verschillende stijlen gebruikt. Eén van de meest gebruikte stijlen is door programmeurs van Google bedacht.[@google_style_guide]
-
-``` py title="integers_up_to.py"
-def integers_up_to(number):
-    """List integers up to a given number.
-
-    Args:
-        number (int): list integers up to this number
-
-    Returns:
-        list: containing the integers
-    """
-    if number > 1:
-        return list(range(1, number))
-    else:
-        return []
-
-
-help(integers_up_to)
-```
-De eerste regel geeft een korte samenvatting weer, na de witregel komt een langere samenvatting. Met `Args:` worden alle argumenten opgesomd die aan de functie worden meegegeven en `Returns:` geeft aan wat de functie teruggeeft. We kunnen de documentatie van deze functie opvragen met: `#!py help(integers_up_to)`. Dat geeft het volgende resultaat:
-``` ps1con title="Terminal"
-PS> python integers_up_to.py 
-    Help on function integers_up_to in module __main__:
-    
-    integers_up_to(number)
-        List integers up to a given number.
-    
-        Args:
-            number (int): list integers up to this number
-    
-        Returns:
-            list: containing the integers
-```
-Je zult niet altijd de `#!py help()` functie gebruiken misschien, maar gebruik zoveel mogelijk docstrings &mdash; ze helpen ook enorm als je de code leest. Het is extra werk maar het verdient zich dubbel en dwars terug. Je hoeft geen proza te schrijven, maar wees duidelijk. Lees voor meer voorbeelden bijvoorbeeld de _Google Python Style Guide_.[@google_style_guide]
-
-
-### Docstring generator
-
-Om het gemakkelijker te maken om docstrings ook écht te gaan schrijven, zijn er docstring generators ontwikkeld. Voor Visual Studio Code is er de extensie _autoDocstring - Python Docstring Generator_.[@AutoDocstring]
-
-!!! opdracht-basis "Autodocstring"
-    Kijk in Visual Studio Code bij extensions hoe je AutoDocstring kunt gebruiken. Kies daarvoor in de linkerkantlijn het goede icoon voor _extensions_ en selecteer dan de `autoDocstring` extensie. Zoek in de documentatie naar hoe je automatisch (een deel van) de docstring genereert.
-
-
-Wanneer we voor de functie `#!py integers_up_to()` de docstring generator gebruiken, krijgen we het volgende:
-``` py
-def integers_up_to(number):
-"""_summary_
-
-Args:
-    number (_type_): _description_
-
-Returns:
-    _type_: _description_
-"""
-if number > 1:
-    return list(range(1, number))
-else:
-    return []
-```
-
-Zo kunnen we gemakkelijk alles gaan invullen. Zo lang je niet op ++escape++ drukt maar gewoon je tekst typt kun je met ++tab++ naar het volgende veld en zo de docstring snel invullen. Het is mooi als je daarna onder de _summary_ nog een uitgebreidere uitleg geeft van een paar zinnen. Vergeet ook niet om de docstring zonodig weer bij te werken als je een functie aanpast.
-
-
-### Docstrings en Click `--help`
-
-Docstrings werken ook heel handig samen met Click want ze worden gebruikt als we de helpfunctie aanroepen. We voegen docstrings toe aan fake-conda:
+We voegen docstrings toe aan fake-conda:
 
 ``` py title="fakeconda.py"
 import click
@@ -455,10 +707,9 @@ def cmd_group():
 @cmd_group.command()
 @click.argument("package")
 def install(package):
-    """Install a conda package.
+    """Install a conda PACKAGE.
 
-    Args:
-        package (string): name of the package
+    PACKAGE is the name of the package.
     """
     print(f"Installing {package}...")
 
@@ -466,10 +717,9 @@ def install(package):
 @cmd_group.command()
 @click.argument("package")
 def remove(package):
-    """Remove a conda package.
+    """Remove a conda PACKAGE.
 
-    Args:
-        package (string): name of the package
+    PACKAGE is the name of the package.
     """
     print(f"Removing {package}...")
 
@@ -477,70 +727,138 @@ if __name__ == "__main__":
     cmd_group()
 ```
 Als we vervolgens de help functie aanroepen zien we de eerste regel van de docstrings verschijnen voor alle subcommando's:
-``` ps1con title="Terminal"
-PS> fake_conda --help
-Usage: fake_conda [OPTIONS] COMMAND [ARGS]...
+<pre><code>(ecpc) > python fake_conda.py --help <button type="button" name="python fake_conda --help" onclick="runScript('python fake_conda --help')">{{ enter }}</button><button type="button" name="python fake_conda --help" onclick="runScript('python fake_conda --help')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python fake_conda --help">Usage: fake_conda.py [OPTIONS] COMMAND [ARGS]...
 
 Options:
-    --help  Show this message and exit.
+  --help  Show this message and exit.
 
 Commands:
-    install  Install a conda package.
-    remove   Remove a conda package.
-```
+  install  Install a conda PACKAGE.
+  remove   Remove a conda PACKAGE.</span>
+</code></pre>
+
+
 Daarna kun je uitleg vragen voor de subcommando's waarbij je de hele docstring te zien krijgt:
-``` ps1con title="Terminal"
-PS> fake_conda install --help
-Usage: fakeconda.py install [OPTIONS] PACKAGE
 
-    Install a conda package.
+<pre><code>(ecpc) > python fake_conda.py install --help <button type="button" name="python fake_conda.py install --help" onclick="runScript('python fake_conda.py install --help')">{{ enter }}</button><button type="button" name="python fake_conda.py install --help" onclick="runScript('python fake_conda.py install --help')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python fake_conda.py install --help">Usage: fake_conda.py install [OPTIONS] PACKAGE
 
-    Args:     package (string): name of the package
+  Install a conda PACKAGE.
+
+  PACKAGE is the name of the package.
 
 Options:
-    --help  Show this message and exit.
-```
+  --help  Show this message and exit.</span>
+</code></pre>
 
-!!! opdracht-inlever "Smallangle: docstring"
-    Voorzie de functies in {{file}}`smallangle.py` die je gemaakt hebt bij de [_opdracht smallangle_](#opd:smallangle) volledig van docstrings, zodat `smallangle --help` zinvolle informatie geeft.[^split-docstring]
+!!! opdracht-inlever "Smallangle docstrings"
+    === "opdracht"
+        Je gebruikt het commando `smallangle --help` en leest de helptekst van de [_opdracht smallangle_](#opd:smallangle). De helptekst bevat zinvolle informatie die je in staat stelt om te begrijpen wat je met de applicatie kan doen. Je ziet dat er twee subcommando's zijn en bekijkt de helptekst van deze commando's met `smallangle sin --help` en daarna `smallangle tan --help`. Beide helpteksten stellen je in staat op de applicatie te begrijpen en te bedienen. Tevreden test je de applicatie verder uit.
+    === "code"
+        **Pseudo-code**
+        ```
+        """Summary containing ARGUMENTs.
 
-[^split-docstring]: Als de docstring zeer uitgebreid wordt met meerdere argumenten dan wordt de helptekst van click onoverzichtelijk. Als je wilt dat alleen de korte samenvatting in de help verschijnt, zet dan na de korte samenvatting: `#!py \f`.
+        ARGUMENT description of the argument.
+        """
+        ```
+        **Testcode**
+        <pre><code>(ecpc) > smallangle --help <button type="button" name="smallangle --help" onclick="runScript('smallangle --help')">{{ enter }}</button><button type="button" name="smallangle --help" onclick="runScript('smallangle --help')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="smallangle --help">Usage: smallangle [OPTIONS] COMMAND [ARGS] ...
+            Options: 
+                --help Show this message and exit.
+            Commands:
+                Subcommand Summary containing ARGUMENTs.
+        </span>
+        </code></pre>
+        
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] `smallangle --help` geeft zinvolle informatie
+        - [ ] `smallangle sin --help` geeft zinvolle informatie
+        - [ ] `smallangle tan --help` geeft zinvolle informatie
 
-
-!!! opdracht-inlever "Pythondaq: docstring"
-
-    1. Pak de `pythondaq` applicatie erbij. Zet bij _alle_ functies een nuttige docstring.
-    1. Schrijf ook docstrings voor de classes die je gemaakt hebt.
-    1. Ga naar je _model_ en houd je muis bij `#!py set_output_voltage()` en zie daar verschijnt jouw fantastische omschrijving van de method die in de _controller_ staat!
-
-
-???+ meer-leren "Material for MkDocs"
-
-    ### Documentatie met _Material for MkDocs_
-
-    Een bijkomend voordeel van docstrings is dat ze gebruikt kunnen worden om automatisch documentatie te genereren voor een heel project met behulp van bijvoorbeeld MkDocs of Sphinx.[^sphinx] _MkDocs_ is een documentatie generator en _Material for MkDocs_ is daar de meestgebruikte uitbreiding op. Het wordt veel gebruikt om documentatie te schrijven voor software projecten. Een paar voorbeelden zijn bijvoorbeeld de website van de _Accelerators and Beam Physics Computing_ groep op CERN[@abp-computing] of de nieuwe _Textual_ bibliotheek[@textual] om zogenaamde _terminal user interfaces_ te maken, een tegenhanger van grafische interfaces. Behalve dat je vrij eenvoudig uitgebreide documentatie kunt schrijven kan MkDocs alle docstrings gebruiken om een referentie op te bouwen. De website voor de [ECPC cursus](https://natuurkundepracticumamsterdam.github.io/ecpc/) is ook gebouwd met Material for MkDocs.
-
-    Het voert tijdens deze cursus te ver om veel aandacht te besteden aan MkDocs. Maar aangezien documentatie zo belangrijk is wilden we het toch noemen! Voor een uitgebreide tutorial, zie _Build Your Python Project Documentation With MkDocs_.[@mkdocs-tutorial]
-
-    [^sphinx]: Sphinx is van oudsher de standaard documentatiegenerator voor Pythonprojecten. Maar Sphinx is al redelijk op leeftijd en gebruikt als tekstformaat niet het bekende en zeer populaire _Markdown_ maar het steeds minder populaire _Restructured Text_. MkDocs wordt steeds meer gebruikt en Sphinx steeds minder. Toch zul je Sphinx nog veel tegenkomen bij projecten omdat het na al die jaren zeer veel features heeft en zeer stabiel is.
-
+        **Projecttraject**
+    
+        - [x] smallangle installeren
+        - [x] smallangle aanpassen
+        - [x] smallangle docstrings
 
 ## Command-line interface voor ons experiment
 
 In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals {{file}}`view.py`, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand {{file}}`cli.py` aanmaken en dat langzaam opbouwen.
 
 !!! opdracht-inlever "Pythondaq: commando's"
+    === "opdracht"
 
-    1. Maak een nieuw bestand {{file}}`src/pythondaq/cli.py`.
-    1. Maak een `#!py @click.group()` aan en voeg de subcommando's `list` en `scan` daaraan toe. Laat de commando's voorlopig alleen een willekeurige korte tekst printen; ze hoeven nu nog niet echt iets te doen. Merk op dat `#!py list()` een Pythonfunctie is, dus daar moet je misschien nog iets mee.[^cmd_name]
-    1. Zorg dat je de command-line applicatie met de naam `diode` in de terminal kunt aanroepen, inclusief de subcommando's `list` en `scan`, dus bijvoorbeeld:
+        <div class="grid-tree" markdown>
+            <div>
+            Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand {{new_file}}`src/pythondaq/cli.py` een opzetje maken waarin je stap voor stap functionaliteit aan toevoegd. De oude {{file}}`view.py` maakte eerst een lijst van aangesloten apparaten en daarna werd een scan uitgevoerd. Daarom zet je in {{file}}`cli.py` de subcommando's `list` en `scan`. Je test de subcommando's en je ziet dat ze werken omdat ze een stukje tekst printen. 
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `pythondaq`  
+            {{tab}} {{T}} {{folder}} `src/pythondaq`  
+            {{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
+            {{tab}} {{tab}} {{T}} {{file}} `arduino_device.py`  
+            {{tab}} {{tab}} {{T}} {{file}} `diode_experiment.py`  
+            {{tab}} {{tab}} {{T}} {{file}} `view.py`  
+            {{tab}} {{tab}} {{L}} {{new_file}} `cli.py`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{dots}}  
+            </div>
+        </div>
 
-        ``` ps1con title="Terminal"
-        PS> diode list
-        List, dit moet ik later nog afmaken.
+        <div id="warn:cmd_name"></div>
+        !!! warning
+            Omdat de naam van een subcommando gelijk is aan de functienaam kan dat voor problemen zorgen wanneer je gereserveerde namen van python wilt gebruiken zoals: `#!py import`, `#!py return`, `#!py lambda`. Of wanneer je de naam van het subcommando graag hetzelfde wilt hebben als een ander pythonfunctie zoals `#!py sin` of `#!py list`.
+            Een oplossing is om de functienaam aan te passen en de subcommando naam expliciet aan click mee te geven bij `command`:
+            ``` py
+            @cmd_group.command("import")
+            @click.argument("package")
+            def import_package(package):
+                print(f"import {package}...")
+            ```
+            We hebben nu een commando `import` aangemaakt &mdash; _niet_ een commando `import_package`.
+        
+    === "code"
+        **Pseudo-code**
+        ```py
+        # subcommando list
+            # print Work in progress, list devices
+        # subcommando scan
+            # print Work in progress, scan LED
         ```
+        **Testcode**
+        <pre><code>(ecpc) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode list">Work in progress, list devices </span>
+        </code></pre>
+
+        <pre><code>(ecpc) > diode scan <button type="button" name="diode scan" onclick="runScript('diode scan')">{{ enter }}</button><button type="button" name="diode scan" onclick="runScript('diode scan')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode scan">Work in progress, scan LED</span>
+        </code></pre>
+        
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De applicatie is aan te roepen met `diode`.
+        - [ ] Het subcommando `list` print een stukje tekst.
+        - [ ] Het subcommando `scan` print een ander stukje tekst.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [ ] Pythondaq: `scan`
+        - [ ] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: `list`
+        - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: `--help`
+        - [ ] Pythondaq: Grafiek
     
-[^cmd_name]: Zie ook de waarschuwing op [warn:cmd_name](#warn:cmd_name)
 
 
 ### Het uitvoeren van een meetserie
@@ -551,58 +869,236 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
     Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen 0 en 3.3 V. Je kunt dit doen door de `#!py type`-parameter in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven (bijvoorbeeld: `#!py type=int` of `#!py type=float`) en Click heeft speciale types zoals `#!py type=click.FloatRange(0, 3.3)` voor een kommagetal tussen 0 en 3.3. Bekijk alle speciale types in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types). Als je hiervan gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat voor je.
 
 !!! opdracht-inlever "Pythondaq: `scan`"
-    Met het commando `scan` wil je een meetserie uitvoeren over een spanningsbereik. Als een meting lang duurt is het niet erg als de resultaten pas ná de meting worden weergegeven. Je applicatie moet straks het volgende kunnen:
-    
-    1. Print een lijst van metingen van de stroomsterkte dóór en de spanning óver de LED.
-    1. De gebruiker moet het spanningsbereik (in volt) zelf kunnen opgeven met argumenten of opties.
-    1. Geef ook de mogelijkheid de metingen op te slaan als CSV-bestand. Gebruik daarvoor een optie `--output FILENAME`. Wanneer met die optie een bestandsnaam wordt meegegeven sla je de metingen op en anders niet.
+    === "opdracht"
+        Je voert het commando `diode scan` uit, met argumenten of opties is het mogelijk om het spanningsbereik (in Volt) aan te passen. Er wordt een meting gestart die binnen het spanningsbereik blijft. De stroomsterkte dóór en de spanning óver de LED worden in de terminal geprint. Het is ook mogelijk om de metingen op te slaan als CSV-bestand. Dit kan met de optie `--output FILENAME`. Wanneer met die optie een bestandsnaam wordt meegegeven worden de metingen opgeslagen en anders niet.
+        
+    === "code"
+        **Pseudo-code**
+        ```py
+        # subcommando scan with range in Volt and output CSV
+            # start scan with range
+            # print current and voltage
+            # if output:
+                # create csv
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Het programma print een lijst van metingen van de stroomsterkte dóór en de spanning óver de LED.
+        - [ ] De gebruiker moet het spanningsbereik (in volt) zelf kunnen opgeven met argumenten of opties.
+        - [ ] De gebruiker kan de metingen opslaan in een CSV-bestand met een optie `--output FILENAME`.
+        - [ ] De meting wordt alleen opgeslagen als de optie wordt meegegeven.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [ ] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: `list`
+        - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: `--help`
+        - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
-    Als het goed is geeft je programma al een onzekerheid op de metingen terug op basis van herhaalmetingen. Bouw een optie in waarmee het aantal herhaalmetingen gekozen kan worden. Waarschijnlijk doe je dat al, maar bereken op basis van de herhaalmetingen de beste schatting van de stoomsterkte en de onzekerheid daarop, en ook voor de spanning over de LED.
+    === "opdracht"
+        Je kunt met een optie het aantal herhaalmetingen kiezen. Je test de optie met 1, 3 en 10 metingen en ziet de onzekerheid op de stroomsterkte en de onzekerheid op de spanning over de LED afnemen wanneer het aantal metingen toenneemt. 
+    === "code"
+        **Pseudo-code**
+        ```py
+        # subcommando scan with range in Volt, output CSV and repeat measurements
+            # start scan with range and repeat measurements
+            # print current, voltage and errors
+            # if output:
+                # create csv
+        ```
+    === "check"
+        **Checkpunten:**
 
+        - [ ] De gebruiker kan het aantal herhaalmetingen met een optie kiezen.
+        - [ ] De herhaalmetingen worden gebruikt om de beste schatting en onzekerheid te berekenen van de stroomsterkte en de spanning.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: `list`
+        - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: `--help`
+        - [ ] Pythondaq: Grafiek
 
 ### Het meetinstrument kiezen
 
 We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan heeft toegekend. Helaas kan &mdash; ook afhankelijk van het besturingssysteem &mdash; die naam veranderen als we de Arduino in een andere poort van onze computer steken of soms zelfs als we een andere Arduino op dezelfde poort koppelen. Met het commando `list` laten we alle apparaten zien die gevonden worden door de VISA drivers.
 
 !!! opdracht-inlever "Pythondaq: `list`"
-    Schrijf het commando `list` zodat het een lijst geeft van de aangesloten instrumenten &mdash; zoals we in het vorige hoofdstuk al eens gedaan hebben.
+    === "opdracht"
+        Met het subcommando `list` wordt een lijst gegeven van aangesloten instrumenten.
+        
+    === "code"
+        <pre><code>(ecpc) > diode list <button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')">{{ enter }}</button><button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode list_filled_in">('ASRL28::INSTR','ASRL5::INSTR')</span>
+        </code></pre>
 
+    === "check"
+        **Checkpunten:**
 
-!!! opdracht-inlever "Pythondaq: choose device"
-    Pas het commando `scan` aan zodat je de poortnaam van een device kunt meegeven. Zorg dat het gekozen device ook daadwerkelijk wordt gebruikt in het model en de controller. Als je géén poortnaam opgeeft, geef dan een foutmelding.
+        - [ ] De gebruiker kan met `diode list` de lijst met aangesloten devices opvragen.
 
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: `list`
+        - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: `--help`
+        - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: `info`"
-    Maak een commando `info` waarmee je de identificatiestring[^identificatie] van een opgegeven instrument opvraagt en weergeeft. Je kunt het instrument met een optie of argument meegeven.
+    === "opdracht"
+        Nadat je met het subcommando `list` een lijst hebt van aangsloten devices wil je weten of de Arduino aan een bepaalde poortnaam is gekoppeld.Je voert het subcommando `info DEVICE` uit waarna de identificatiestring van het instrument wordt geprint.
 
-    [^identificatie]: De identificatiestring van onze Arduino was `Arduino VISA firmware v1.0.0`. Je moet natuurlijk niet letterlijk deze string copy/pasten, maar de identificatie opvragen van het instrument. Welk firmwarecommando moest je daarvoor ook alweer gebruiken?
+        !!! info "identificatiestring"
+            De identificatiestring van onze Arduino was `Arduino VISA firmware v1.0.0`. Je moet natuurlijk niet letterlijk deze string copy/pasten, maar de identificatie opvragen van het instrument. Welk firmwarecommando moest je daarvoor ook alweer gebruiken?
+        
+    === "code"
+        **Pseudo-code**
+        ```py
+        # subcommando info with device
+            # print identificationstring of device
+        ```
+        **Testcode**
+        <pre><code>(ecpc) > diode info ASRL28::INSTR <button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')">{{ enter }}</button><button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode info ASRL28::INSTR">Arduino VISA firmware v1.0.0</span>
+        </code></pre>
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De identificatiestring is met `diode info DEVICE` op te vragen.
+        - [ ] De string is niet direct gecopypaste, maar wordt daadwerkelijk opgevraagd.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: `list`
+        - [x] Pythondaq: `info`
+        - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: `--help`
+        - [ ] Pythondaq: Grafiek
+
+!!! opdracht-inlever "Pythondaq: choose device"
+    === "opdracht"
+        Nadat je met het subcommando `list` een lijst van aangesloten instrumenten hebt opgevraagd en met het subcommando `info` erachter bent gekomen wat de naam is van de poort waar de Arduino aanhangt. Geef je vervolgens deze poortnaam mee bij het subcommando `scan` om een meting op de (juiste) Arduino uit te voeren. Daarna test je het subcommando `scan` door géén poortnaam mee te geven, je ziet een foutmelding verschijnen. Tot slot leen je de Arduino van je buurmens, kijkt met `list` en `info` aan welke poortnaam die Arduino hangt en voert een scan uit op die Arduino. Je ziet dat het lampje van de Arduino van je buur gaat branden en niet die van jou. 
+    === "code"
+        <pre><code>(ecpc) > diode scan <button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')">{{ enter }}</button><button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode scan_no device">errorUsage: diode [OPTIONS] DEVICE
+        Try 'diode --help' for help.
+        Error: Missing argument 'DEVICE'.</span>
+        </code></pre>
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De gebruiker moet een poortnaam meegeven.
+        - [ ] De gekozen device wordt ook daadwerkelijk gebruikt in het model en de controller.
+        - [ ] Als géén poortnaam wordt opgegeven, krijgt de gebruiker een foutmelding.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: `list`
+        - [x] Pythondaq: `info`
+        - [x] Pythondaq: choose device
+        - [ ] Pythondaq: `--help`
+        - [ ] Pythondaq: Grafiek
 
 
-!!! opdracht-inlever "Pythondaq: Helpteksten"
-    Loop al je commando's nog eens na en zorg ervoor dat er duidelijke helpteksten aanwezig zijn. Een nieuwe gebruiker moet met deze informatie met jouw command-line interface uit de voeten kunnen.
+!!! opdracht-inlever "Pythondaq: `--help`"
+    === "opdracht"
+        Je gaat de applicatie testen vanuit de ogen van een nieuwe gebruiker. Je typt `diode --help` en bekijkt de helptekst. Je ziet dat er subcommando's zijn. Met `subcommando --help` test je de helpteksten een voor een uit. Ook bekijk je de helpteksten van argumenten en opties. De helpteksten stellen je in staat om de applicatie te begrijpen en te bedienen
+    === "code"
+        **Pseudo-code**
+        ```
+        """Summary containing ARGUMENTs.
 
+        ARGUMENT description of the argument.
+        """
+        ```
+        **Testcode**
+        <pre><code>(ecpc) > diode --help <button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')">{{ enter }}</button><button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="diode --help">Usage: diode [OPTIONS] COMMAND [ARGS] ...
+            Options: 
+                --help Show this message and exit.
+            Commands:
+                Subcommand Summary containing ARGUMENTs.
+        </span>
+        </code></pre>
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De informatie in de helpteksten is voldoende om de applicatie te begrijpen en te bedienen.
+        - [ ] `diode --help` vertelt duidelijk welke subcommando's aanwezig zijn en wat ze doen.
+        - [ ] Bij alle subcommando's, is het duidelijk welke opties en argumenten er zijn, wat de standaardwaarden zijn en wat ze doen.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: `list`
+        - [x] Pythondaq: `info`
+        - [x] Pythondaq: choose device
+        - [x] Pythondaq: `--help`
+        - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: Grafiek"
     Breid je `scan` opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `--graph` om een grafiek te tekenen en `--no-graph` om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
 
+!!! opdracht-inlever "Pythondaq: Grafiek"
+    === "opdracht"
+        Natuurlijk wil je ook een grafiek maken van de metingen. Je geeft met een _boolean flag_ `--graph` aan dat er een grafiek getoond moet worden. De optie `--no-graph` zorgt ervoor dat er geen grafiek getoond wordt. 
+
+        !!! info "boolean flags"
+            Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De grafiek wordt alleen getoond wanneer `--graph` wordt meegegeven.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: `list`
+        - [x] Pythondaq: `info`
+        - [x] Pythondaq: choose device
+        - [x] Pythondaq: `--help`
+        - [x] Pythondaq: Grafiek
 
 ???+ opdracht-meer "Pythondaq: `list --search`"
     Breid het commando `list` uit met een optie `--search` waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
-    ``` ps1con title="Terminal"
-    PS> diode list
-    The following devices are connected to your computer:
-    
+    <pre><code>(ecpc) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="diode list">The following devices are connected to your computer:                                                                             
     ASRL/dev/cu.SOC::INSTR
     ASRL/dev/cu.MALS::INSTR
     ASRL/dev/cu.AirPodsvanDavid-Wireles-1::INSTR
     ASRL/dev/cu.Bluetooth-Incoming-Port::INSTR
-    ASRL/dev/cu.usbmodem143401::INSTR
-    PS> diode list -s usbmodem
-    The following devices match your search string:
-    
-    ASRL/dev/cu.usbmodem143401::INSTR
-    ```
+    ASRL/dev/cu.usbmodem143401::INSTR 
+    </span>
+    (ecpc) > diode list -s usbmodem <button type="button" name="diode list -s usbmodem" onclick="runScript('diode list -s usbmodem')">{{ enter }}</button><button type="button" name="diode list -s usbmodem" onclick="runScript('diode list -s usbmodem')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="diode list -s usbmodem">The following devices match your search string:                                                                       
+    ASRL/dev/cu.usbmodem143401::INSTR </span>
+    </code></pre>
+
     De lijst met instrumenten kan er op Windows heel anders uitzien. Sterker nog, op Windows is de lijst meestal vrij saai. Maar leen eens heel even een Arduino van iemand anders en je ziet dat er dan _twee_ poorten in de lijst verschijnen.
     
     Pas &mdash; na het uitbreiden van `list` &mdash; de commando's `scan` en `info` aan zodat het niet nodig is om de volledige devicenaam mee te geven, maar alleen een zoekterm.

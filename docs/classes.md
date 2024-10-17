@@ -4,43 +4,9 @@ Voor een snelle meting is het script dat je geschreven hebt bij [opdracht _quick
 
 Een class is eigenlijk een groep functies die je bij elkaar pakt en die met elkaar gegevens kunnen delen. Zodra een programma wat complexer wordt merk je dat het fijn kan zijn om variabelen op te sluiten in geïsoleerde omgevingen. 
 
-???+ meer-leren "Variabele per ongeluk overschrijven."
-    Wanneer je bijvoorbeeld de volgende code schrijft gaat er mogelijk iets mis:
-    ``` py
-    # find first student in alphabetical sorted list
-    names = ["Bob", "Alice", "Charlie"]
-    first_name = sorted(names)[0]
-    # first_name='Alice'
-    ...
-    # split first and last name based on space character
-    first_name, last_name = "Carl Sagan".split(" ")
-    # first_name='Carl'
-    ```
-    In bovenstaand voorbeeld waren we eerst op zoek naar de eerste naam in een alfabetisch gesorteerde lijst. Later in het programma splitsten we een naam op in een voornaam en een achternaam. Daarmee hebben we een variabele overschreven&hellip; Hoe langer het programma wordt, hoe makkelijker dat gebeurt.
-
-
-    Lange programma's worden vaak opgedeeld in functies en dat maakt het al een stuk makkelijker omdat functies hun eigen ruimte voor variabelen hebben. In het volgende geval wordt de variabele `#!py first_name` _niet_ overschreven:
-
-    ``` py
-    def sort_and_find_first_name(names):
-        return sorted(names)[0]
-
-
-    def find_last_name(name):
-        first_name, last_name = name.split(" ")
-        return last_name
-
-
-    first_name = sort_and_find_first_name(["Bob", "Alice", "Charlie"])
-    # first_name='Alice'
-    ...
-    last_name = find_last_name("Carl Sagan")
-    # first_name='Alice'
-    # last_name='Sagan'
-    ```
 
 ## Aanmaken van een class
-Een class is een verzameling functies. Hieronder staat een versimpelde weergave van de class `Turtle`. Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van fucnties &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods) ), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
+Een class is een verzameling functies. Hieronder staat een versimpelde weergave van de class `Turtle`. Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van fucnties &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods)), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
 
 [^ClassTitle]: Wanneer je de Google Style Guide[@google_style_guide] volgt schrijf je de naam van de class in CapWords of CamelCase. 
 
@@ -61,28 +27,22 @@ De eerste parameter van de `#!py __init__()`-method en van alle andere methods, 
 
 ## Aanroepen van een class
 
-Het aanroepen van een class lijkt veel op het aanroepen van een functie. Stel we hebben de functie
-``` py
-def power(a, b):
-    return a ** b
-```
-Dan roep je die aan met `#!py result = power(2, 3)`. Hierbij is `power` de naam van de functie en `result` de parameter waar de uitkomst heen gaat. Bij het aanroepen van een class doe je iets soortgelijks. 
+Het aanroepen van een class lijkt veel op het aanroepen van een functie:
 
-``` py
-master_oogway = Turtle("turtle")
-```
+--8<-- "docs/assets/comparison/compare_function_class.html"
 
-In de parameter `master_oogway` gaat de 'uitkomst' van de class, dat is in dit geval een collectie van methods (en variabelen). De parameter `master_oogway` noemen we een _instance_ van de class `Turtle`. Net zoals je een functie vaker kunt aanroepen, kan je ook meerdere instances van een class aanmaken. Na de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan de  `#!py __init__()`-method (`#!py self` niet meegerekend), de parameter `#!py shape` krijgt dus de variabele `#!py "turtle"` toegewezen.
+Stel we hebben de functie `#!py calculate_squares_up_to(max_number)`. Dan roep je die aan met `#!py result = calculate_squares_up_to(5)`. Hierbij is `calculate_squares_up_to(5)` de naam van de functie en `result` de variabele waar de uitkomst heen gaat. Bij het aanroepen van een class doe je iets soortgelijks. In de variabele `master_oogway` gaat de 'uitkomst' van de class, dat is in dit geval een collectie van methods (en variabelen). De variabele `master_oogway` noemen we een _instance_ van de class `Turtle`. Net zoals je een functie vaker kunt aanroepen, kan je ook meerdere instances van een class aanmaken. Achter de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan de  `#!py __init__()`-method (`#!py self` niet meegerekend), de parameter `#!py shape` krijgt dus de variabele `#!py "turtle"` toegewezen.
+
 
 ???+ meer-leren "Meerdere instances"
-    Je kunt meerdere instances hebben van dezelfde class, bijvoorbeeld wanneer meerdere klanten in de webshop tegelijkertijd winkelmandjes vullen:
+    Je kunt meerdere instances hebben van dezelfde class, bijvoorbeeld voor verschillende schildpadden:
     ``` py
-    class Cart:
+    class Turtle:
         ...
 
-    cart_alice = Cart()
+    turtle_1247 = Turtle()
     ...
-    cart_bob = Cart()
+    turtle_1428 = Turtle()
     ...
     ```
 
@@ -92,6 +52,13 @@ In de parameter `master_oogway` gaat de 'uitkomst' van de class, dat is in dit g
     class Turtle:
         def __init__(self):
             # initialiseer class
+        
+        def forward(self, distance):
+            # move turtle by distance
+
+        def left(self, angle):
+            # turn turtle counterclockwise
+            # by angle in degrees
     ```
     hoe maak je dan een instance aan van de class?
     ??? uitwerkingen
@@ -107,20 +74,61 @@ master_oogway.forward(50)
 master_oogway.left(30)
 master_oogway.forward(50)
 ```
-    
+   
 !!! opdracht-basis "turtle"
-    1. Maak een bestand aan met de naam {{file}}`turtle.py`.
-    1. Importeer de Turtle class met `#!py from turtle import Turtle`
-    1. Maak een instance van de class Turtle aan met `#!py master_oogway = Turtle("turtle")`
-    1. Laat de schildpad lopen en draaien door de methods `#!py forward()` en `#!py left()` aan te roepen.
+    === "opdracht"
 
-    !!! info "Schildpad verdwijnt"
-        Na het uitvoeren van het script sluit Python het scherm van de schildpad. Voeg de regel `#!py master_oogway.screen.mainloop()` toe om het scherm te laten staan en handmatig af te sluiten. 
+        <div class="grid-tree" markdown>
+            <div>
+            Je bent inmiddels nieuwschierig geworden naar de schildpad. De class `#!py Turtle` zit standaard in Python, daarom kan je die importeren met `#!py from turtle import Turtle`. Maak een bestand {{new_file}} `turtles.py` waarin je een schildpad met de instancenaam `master_oogway` laat lopen en draaien.
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{tab}} {{T}} {{new_file}} `turtles.py`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{github}} `pythondaq`  
+            {{tab}} {{L}} {{dots}}  
+            </div>
+        </div>
+
+        !!! info "Schildpad verdwijnt"
+            Na het uitvoeren van het script sluit Python het scherm van de schildpad. Voeg de regel `#!py master_oogway.screen.mainloop()` toe om het scherm te laten staan en handmatig af te sluiten. 
+    === "code"
+        **Pseudo-code**
+        ``` py
+        from turtle import Turtle
+
+        # create instance of class Turtle
+        master_oogway = Turtle("turtle")
+
+        # move turtle forward with 50 steps
+        ...
+        # turn turtle left with 30 degrees
+        ...
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De class `Turtle` wordt geïmporteerd uit de module `turtle`.
+        - [ ] De instance is van de class `Turtle` met hoofdletter T.
+        - [ ] Om de schildpad te laten bewegen roep je de method `#!py forward()` of `#!py left()` van de instance aan.
+
+        **Projecttraject:**
+
+        - [x] turtle
 
 ## De speciale parameter `#!py self`
-Een class method is vrijwel gelijk aan een normale functie, behalve dat een class method als eerste de parameter `#!py self` verwacht. Aan deze parameter wordt de eigen instance van de class meegegeven wanneer je de method aanroept. Gelukkig hoef je dit niet zelf te doen want wanneer je een method aanroept wordt impliciet de instance als eerste parameter meegegeven. 
+Een class method is vrijwel gelijk aan een normale functie, behalve dat een class method als eerste de parameter `#!py self` verwacht. Aan deze parameter wordt de eigen instance van de class meegegeven wanneer je de method aanroept. 
 
-Maar waarom zou je dit doen? De instance bevat alle methods en variabele, door de instance aan elke method mee te geven kan je de informatie die daarin is opgeslagen in elke method gebruiken. 
+Laten we kijken naar wat die instance van de class eigenlijk is. De instance van een class is de collectie van methods (en variabelen). 
+
+--8<-- "docs/assets/comparison/compare_function_class_body.html"
+
+Als we de functie `#!py calculate_squares_up_to(max_number)` aanroepen met `#!py result = calculate_squares_up_to(5)`, dan komt hetgeen we teruggeven, `#!py squares`, in de variabele `#!py result` terecht. Bij een class is er geen `#!py return`-statement maar komt de hele inhoud van de class _alle methods (en variabelen)_ in de instance `#!py master_oogway` terecht.
+
+Gelukkig hoef je de instance niet steeds zelf mee te geven aan een method. Wanneer je een method aanroept wordt impliciet de instance als eerste parameter meegegeven. 
+Maar waarom zou je die instance meegeven aan een method als je die aanroept? Omdat de instance alle methods en variabele bevat, kan je de informatie die daarin is opgeslagen in elke method gebruiken. 
 
 Stel we maken een nieuwe method `#!py do_kungfu_move` waarin we `#!py forward()` en `#!py left()` willen gebruiken:
 
@@ -143,10 +151,11 @@ class Turtle:
         self.forward(60)
 ```
 
-Als we de method `#!py do_kungfu_move` aanroepen met `#!py master_oogway.do_kungfu_move()` geeft python automatisch de instance `#!py master_oogway` mee aan de method. De parameter `#!py self` is dus nu gelijk aan de instance `#!py master_oogway`, daarmee is `#!py self.forward(130)` ook gelijk aan `#!py master_oogway.forward(130)`. 
+Als we de method `#!py do_kungfu_move` aanroepen met `#!py master_oogway.do_kungfu_move()` geeft python automatisch de instance `#!py master_oogway` mee aan de method. De parameter `#!py self` is dus nu gelijk aan de instance `#!py master_oogway`, daarmee doet `#!py self.forward(130)` hetzelfde als `#!py master_oogway.forward(130)`. 
+
 
 ### Instance attribute
-De instance van een class bevat niet alleen alle methods, maar kan ook variabele hebben. In het voorbeeld hieronder voegen we de variabele `#!py quote` toe in de init-method aan de instance, daarmee wordt het een _intance attribute_.
+De instance van een class bevat niet alleen alle methods, maar kan ook variabele hebben. In het voorbeeld hieronder voegen we de variabele `#!py quote` toe in de init-method aan de instance, daarmee wordt het een _instance attribute_.
 
 ``` py
 class Turtle:
@@ -158,15 +167,19 @@ class Turtle:
 ```
 De instance attribute `#!py quote` is nu onderdeel van de instance. We kunnen die oproepen binnen elke method met `#!py self.quote` maar ook buiten de class:
 
-```py
+<div class="code-box"><button type="button" name="turtle_quote" onclick="runScript('turtle_quote')" class="run">{{ run }}</button><button type="button" name="turtle_quote" onclick="runScript('turtle_quote')" class="reload invisible">{{ reload }}</button> turtles.py
+``` py
+...
 master_oogway = Turtle("turtle")
 
 print(master_oogway.quote)
-# "Yesterday is history, Tomorrow is a mystery, but Today is a gift. That is why it is called the present"
 ```
+<pre>
+<code>(ecpc) > python turtles.py
+<span class="invisible" name="turtle_quote">"Yesterday is history, Tomorrow is a mystery, but Today is a gift. That is why it is called the present"</span>
+</code></pre></div>
 
 !!! opdracht-basis "Opbouw van een class"
-
     1. Beschouw de onderstaande code
     1. Bespreek met elkaar wat de code precies doet en verplaast de onderdelen naar de juiste plek in de code. 
     Twijfel je of je nog weet wat een module is kijk dan voor meer informatie in de [paragraaf modules](vervolg-python.md#modules).
@@ -174,157 +187,171 @@ print(master_oogway.quote)
     <iframe src="https://h5plti.avwebs.nl/h5p/82/embed" width="740" height="830" frameborder="0" allowfullscreen="allowfullscreen" lang="en" scrolling="no"></iframe>
     
 
-???+ meer-leren "Het nut van `#!py self`"
-    Een groot voordeel van functies is natuurlijk ook dat we ze vaker aan kunnen roepen. Ook helpt het de overzichtelijkheid als je goede namen geeft aan je functies. Soms kan het gebruiken van functies ook wat onhandig zijn &mdash; vooral als je gegevens wilt bewaren. Stel dat we voor een webshop code gaan schrijven die een <q>winkelmandje</q> inbouwt. We gaan de functionaliteit handmatig testen en uitbouwen. We beginnen als volgt:
-    ``` py
-    cart = []
-
-    item = "Dune by Frank Herbert"
-    # ... some code to check that item is still available
-    # add item to cart
-    cart.append(item)
-
-    item = "Eon by Greg Bear"
-    # ... some code to check that item is still available
-    # add item to cart
-    cart.append(item)
-
-    item = "The Hunger Games by Suzanne Collins"
-    # ... some code to check that item is still available
-    # add item to cart
-    cart.append(item)
-
-    # removing an item
-    item = "Eon by Greg Bear"
-    # ... some code to check that item is actually in cart
-    cart.remove(item)
-
-    for item in cart:
-        print(item)
-    # Dune by Frank Herbert
-    # The Hunger Games by Suzanne Collins
-    ```
-
-    Vooral het implementeren van de controles dat producten nog leverbaar zijn is een hoop werk. Je besluit functies te gaan gebruiken zodat je die code maar op één plek hoeft te gebruiken:
-    ``` py
-    def add_to_cart(cart, item):
-        # ... some code to check that item is still available
-        cart.append(item)
-
-
-    def remove_from_cart(cart, item):
-        # ... some code to check that item is actually in cart
-        cart.remove(item)
-
-
-    cart = []
-    add_to_cart(cart, "Dune by Frank Herbert")
-    add_to_cart(cart, "Eon by Greg Bear")
-    add_to_cart(cart, "The Hunger Games by Suzanne Collins")
-    remove_from_cart(cart, "Eon by Greg Bear")
-
-    for item in cart:
-        print(item)
-    # Dune by Frank Herbert
-    # The Hunger Games by Suzanne Collins    
-    ```
-
-    De code werkt nog op dezelfde manier, fijn! Het is alleen wel lastig dat je de hele tijd een variabele `#!py cart` moet meegeven aan de functies. Je bedenkt nog veel meer functies om de levertijd te controleren, om de bestelling op te splitsen in verschillende bezorgmomenten, om de bestelling af te rekenen, etc. Elke keer moet je dezelfde variabele blijven meegeven. 
-    
-    Door geen functies te gebruiken maar methods, kan je in elke method de lijst met items gebruiken:
-    
-    ``` py
-    class Cart:
-        def __init__(self):
-            self.contents = []
-
-        def add_to_cart(self, item):
-            # ... some code to check that item is still available
-            self.contents.append(item)
-
-        def remove_from_cart(self, item):
-            # ... some code to check that item is actually in cart
-            self.contents.remove(item)
-    ```
-
-    Bij het gebruiken van de class hoeven we er niet meer om te denken om steeds de lijst met items mee te geven, deze is onderdeel van de instance (`#!py cart`) en wordt automatisch meegegeven bij het aanroepen van de methods. 
-    
-    ``` py
-    cart = Cart()
-    cart.add_to_cart("Dune by Frank Herbert")
-    cart.add_to_cart("Eon by Greg Bear")
-    cart.add_to_cart("The Hunger Games by Suzanne Collins")
-    cart.remove_from_cart("Eon by Greg Bear")
-
-    for item in cart.contents:
-        print(item)
-    # Dune by Frank Herbert
-    # The Hunger Games by Suzanne Collins
-    ```
-
 ???+ meer-leren "Classes importeren"
 
-    Wat is nu het praktisch nut van classes en methods gebruiken in plaats van functies? Want in plaat van
+    Wat is nu het praktisch nut van classes en methods gebruiken in plaats van functies? Want in plaats van
     ``` py
-    add_to_cart(cart, "Eon by Greg Bear")
+    forward(master_oogway, distance=50)
     ```
     hebben we nu
     ``` py
-    cart.add_to_cart("Eon by Greg Bear")
+    master_oogway.forward(distance=50)
     ```
-    en dat is even lang. Het grote voordeel ontstaat pas wanneer de class ingewikkelder wordt en meer data gaat bewaren. Ook kun je de class in een ander pythonbestand (bijvoorbeeld {{file}}`my_webshop_backend.py` zetten en alle functionaliteit in één keer importeren met:
+    en dat is even lang. Het grote voordeel ontstaat pas wanneer de class ingewikkelder wordt en meer data gaat bewaren. Ook kun je de class in een ander pythonbestand (bijvoorbeeld {{file}}`animals.py`) zetten en alle functionaliteit in één keer importeren met:
     ``` py
-    from my_webshop_backend import Cart
+    from animals import Turtle
 
-    cart = Cart()
+    master_oogway = Turtle()
     ...
     ```
-    Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je typt `#!py cart.add` hoef je alleen maar op ++tab++ te drukken en VS Code vult de rest aan.
-
-
-
+    Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je typt `#!py master_oogway.f` hoef je alleen maar op ++tab++ te drukken en VS Code vult de rest aan.
 
 
 !!! opdracht-basis "Class Particle"
-    Maak een class `#!py Particle` die de naam van het deeltje en de spin van het deeltje bewaard. Een method `#!py is_up_or_down()` vertelt je of het deeltje spin omhoog (positief) of spin omlaag (negatief) heeft. Maak nog een method `#!py flip()` die de spin van het deeltje omkeert. De volgende code zou moeten werken:
-    ``` py
-    proton = Particle('mooi proton', 0.5)
-    proton.is_up_or_down()
-    # 'up'
-    proton.flip()
-    proton.is_up_or_down()
-    # 'down'
-    print(proton.spin)
-    # -0.5
-    print(proton.name)
-    # 'mooi proton'
-    ```
+    === "opdracht"
+        <img class="gif" src="../assets/particle-spin-flip/spin-flip-still.png" onclick="this.src='../assets/particle-spin-flip/spin-flip.gif'" style="width:128px;height:72px;" align=right />
+        
+        <div class="grid-tree" markdown>
+            <div>
+            Je maakt een instance van de class `#!py Particle` in een nieuw bestand {{file}} `particle.py` aan voor een proton, naast de naam geeft je ook mee dat de spin 0.5 is. Je gebruikt de method `#!py is_up_or_down()` om terug op te vragen wat de spin van het deeltje op dat moment is (spin omhoog/positief of spin omlaag/negatief). Met de method `#!py flip()` keer je de spin van het deeltje om. 
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{tab}} {{T}} {{new_file}} `particle.py`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{github}} `pythondaq`  
+            {{tab}} {{L}} {{dots}}  
+            </div>
+        </div>
+
+    === "code"
+        **Pseudo-code**
+        ``` py
+        # Class Particle:
+            # def __init__(self, name, spin):
+                ...
+            # def is_up_or_down
+                # print up when spin is positive
+                # print down when spin is negative
+                ...
+            # def flip
+                # Make spin positive if spin is negative
+                # Make spin negative if spin is positive
+                ...
+
+        ```
+        **Testcode**
+        <div class="code-box"><button type="button" name="particle" onclick="runScript('particle')" class="run">{{ run }}</button><button type="button" name="particle" onclick="runScript('particle')" class="reload invisible">{{ reload }}</button> <b>particle.py</b>
+        ``` py
+        proton = Particle('mooi proton', 0.5)
+        proton.is_up_or_down()
+        proton.flip()
+        proton.is_up_or_down()
+        print(proton.spin)
+        print(proton.name)
+        ```
+        <pre>
+        <code>(ecpc) > python particle.py
+        <span class="invisible" name="particle">up
+        down
+        -0.5
+        mooi proton</span>
+        </code></pre></div>
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Naam en spin toestand worden aan instance meegegeven.
+        - [ ] Method `#!py is_up_or_down()` print 'up' als de spin positief is en 'down' als het negatief is.
+        - [ ] Method `#!py flip()` maakt de spin positief als de spin negatief is, en negatief als de spin positief is.
+
+        **Projecttraject:**
+
+        - [x] Class Particle
+
+!!! opdracht-inlever "Class ProjectileMotion"
+    === "opdracht"
+
+        <div class="grid-tree" markdown>
+            <div>
+            Je gaat een waterraket een aantal keer wegschieten met steeds een andere beginsnelheid en lanceerhoek. Je hebt een instance aangemaakt van de class `#!py ProjectileMotion`. De metingen van de beginsnelheid en de lanceerhoek bewaar je steeds met de method `#!py add_measurement()`. Om in een keer alle beginsnelheden op te vragen gebruik je de method `#!py get_initial_velocities()`. Om alle lanceerhoeken op te vragen gebruik je de method `#!py get_launch_angles()`. Op basis van de gegevens (en door de luchtweerstand te verwaarlozen) bepaal je de vluchtduur en het bereik van de raket. Je kunt de vluchtduur van alle vluchten opvragen met de method `#!py get_time_of_flights()` en het bereik van alle vluchten met `#!py get_flight_ranges()`.
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{tab}} {{L}} {{dots}}  
+            {{T}} {{github}} `pythondaq`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{github}} `projectile-motion`  
+            {{tab}} {{T}} {{new_file}} `water_rocket.py`  
+            {{tab}} {{L}} {{dots}}  
+            </div>
+        </div>
+    
+    === "code"
+        **Pseudo-code**
+        ``` py
+        # class ProjectileMotion
+            ...
+            # __init__
+                ...
+            # add_measurement
+                ...
+            # get_initial_velocities
+                ...
+            # get_launch_angles
+                ...
+            # get_time_of_flights
+                ...
+            # get_flight_ranges
+                ...
+        ```
+        **Testcode**
+        <div class="code-box"><button type="button" name="water_rocket" onclick="runScript('water_rocket')" class="run">{{ run }}</button><button type="button" name="water_rocket" onclick="runScript('water_rocket')" class="reload invisible">{{ reload }}</button> <b>water_rocket.py</b>
+        ``` py
+        speedy = ProjectileMotion()
+        speedy.add_measurement(v=28, angle=68)
+        speedy.add_measurement(v=11, angle=15)
+
+        v = speedy.get_initial_velocities()
+        angles = speedy.get_launch_angles()
+        x = speedy.get_flight_ranges()
+        t = speedy.get_time_of_flights()
+
+        print(f"{v=}")
+        print(f"{angles=}")
+        print(f"{x=}")
+        print(f"{t=}")
+
+        ```
+        <pre>
+        <code>(ecpc) > python water_rocket.py
+        <span class="invisible" name="water_rocket">v=[28, 11]
+        angles=[68, 15]
+        x=[55.51602063607072, 6.167176350662587]
+        t=[5.292792645845066, 0.5804300705663054]</span>
+        </code></pre></div>
+        
+        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De code bevindt zich in een GitHub-repository.
+        - [ ] De method `#!py add_measurment` verwacht een beginsnelheid in meter per seconde en een lanceerhoek in graden
+        - [ ] De method `#!py get_initial_velocities` geeft een lijst terug met beginsnelheden van alle ingevoerde metingen.
+        - [ ] De method `#!py get_launch_angles` geeft een lijst terug met alle lanceerhoeken van de ingevoerde metingen.
+        - [ ] De time-of-flight wordt berekent met 2 * v_y / g
+        - [ ] De beginsnelheid in de y-richting: v_y = v * sin(lanceerhoek)
+        - [ ] Het bereik wordt berekent met time_of_flight * v_x
+        - [ ] De beginsnelheid in de x-richting: v_x = v * cos(lanceerhoek)
+        - [ ] De lanceerhoek wordt in radialen meegegeven aan de trigonomische functies
+        - [ ] De method `#!py get_time_of_flights` geeft een lijst terug met de vluchtduur in seconden corresponderend met de ingevoerde metingen. 
+        - [ ] De method `#!py get_flight_ranges` geeft een lijst terug met het bereik in meters die correspondeerd met de ingevoerde metingen.
 
 
-!!! opdracht-inlever "Class ElectronicLoadMeasurements"
-    Schrijf een class `#!py ElectronicLoadMeasurements` waarmee je spanningsmetingen aan een weerstand (_load_) kunt bewaren. De class moet voldoen aan deze eisen:
-    
-    1. Een method `#!py add_measurement(R, U)` waarmee je een gekozen weerstandswaarde en een gemeten spanning kunt toevoegen aan de lijst van metingen.
-    1. Een method `#!py get_loads()` om de gekozen weerstanden in één keer terug te vragen.
-    1. Een method `#!py get_voltages()` om de gemeten spanningen in één keer terug te vragen.
-    1. Een method `#!py get_currents()` om een lijst stroomsterktes op te vragen, berekend op basis van de metingen.
-    1. Een method `#!py get_powers()` om een lijst vermogens op te vragen, berekend op basis van de metingen.
-    1. Een method `#!py clear()` waarmee je alle metingen in één keer kunt wissen.
-    
-    Test je class uitgebreid, je kunt het volgende scriptje als inspiratie gebruiken:
-    ``` py
-    measurements = ElectronicLoadMeasurements()
-    measurements.add_measurement(R=10, U=.5)
-    measurements.add_measurement(R=20, U=1.5)
-    R = measurements.get_loads()
-    # R=[10, 20]
-    U = measurements.get_voltages()
-    # U=[0.5, 1.5]
-    P = measurements.get_powers()
-    # P=[0.025, 0.1125]
-    I = measurements.get_currents()
-    # I=[0.05, 0.075]
-    ```
+        **Projecttraject:**
+
+        - [x] Class ProjectileMotion
 
 ???+ meer-leren "Subclass"
     ## Subclasses
@@ -351,6 +378,7 @@ print(master_oogway.quote)
     ```
     
     Door de parentclass `#!py Turtle` tussen ronde haakjes mee te geven aan de nieuwe subclass `#!py GiantTortoise` krijgt de subclass alle functionaliteit mee van de parentclass, waaronder alle methods zoals `#!py forward()`. Als je in de init-method van de subclass methods of attributes wilt gebruiken van de parentclass, moet je ervoor zorgen dat de parentclass is geïnitialiseerd . Dit doe je met `#!py super().__init__()` hierbij verwijst `#!py super()` naar de parentclass en met `#!py __init__()` voer je de init-method van de parentclass uit. 
+    Nadat we in de init-method van de subclass de eigenschappen van de Reuzenschildpad hebben gedefinieerd, kunnen we extra functionaliteit gaan toevoegen bijvoorbeeld de manier van bewegen met de method `#!py move()`. 
 
     !!! opdracht-meer "`#!py super().__init__()`"
         1. Maak een bestand aan waarin je de subclass `GiantTortoise` aanmaakt.
@@ -361,7 +389,6 @@ print(master_oogway.quote)
         ```
         1. Wat gebeurd er als je `#!py super().__init__()` weglaat?
     
-    Nadat we in de init-method van de subclass de eigenschappen van de Reuzenschildpad hebben gedefinieerd, kunnen we extra functionaliteit gaan toevoegen bijvoorbeeld de manier van bewegen `#!py move()`. 
 
     !!! opdracht-meer "Hawksbill turtle"
         1. Maak een subclass aan voor de Hawksbill turtle.

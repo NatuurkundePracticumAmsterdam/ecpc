@@ -6,12 +6,31 @@ Het experiment wat we gaan uitvoeren is het bepalen van de $I,U$-karakteristiek 
 
 We hebben tot nu toe gewerkt met getallen van 0-1023 sturen en ontvangen. Wat is precies de betekenis van deze getallen? Daarvoor moeten we dieper ingaan op hoe de Arduino &mdash; en computers in het algemeen &mdash; getallen omzet in een spanning en hoe spanningen door de Arduino worden gemeten.
 
-Een _analoog_ signaal is continu in zowel de tijd als de waardes die het signaal aan kan nemen. Een _digitaal_ signaal is echter discreet: op vaste tijdstippen is er een waarde bekend en het signaal kan maar een beperkt aantal verschillende waardes aannemen. Een vallende bal is een continu proces. De bal heeft op elk willekeurig moment een positie. Je zou de positie kunnen meten op het tijdstip $t$ = 2.0 s, maar ook op $t$ = 2.1, 2.01, 2.001 of 2.0001 s. Ook kun je de positie net zo nauwkeurig bepalen als je wilt.[^nauwkeurigheid] De natuur is analoog,[^analoog] maar moderne computers zijn digitaal en dus discreet. Als je een foto op je computer te ver inzoomt zie je blokjes. Je kunt verder inzoomen, maar je gaat niet meer detail zien. De hoeveelheid informatie is beperkt.
+Een _analoog_ signaal is continu in zowel de tijd als de waardes die het signaal aan kan nemen. Een _digitaal_ signaal is echter discreet: op vaste tijdstippen is er een waarde bekend en het signaal kan maar een beperkt aantal verschillende waardes aannemen.[^discreet] 
+
+[^discreet]: Een vallende bal is een continu proces. De bal heeft op elk willekeurig moment een positie. Je zou de positie kunnen meten op het tijdstip $t$ = 2.0 s, maar ook op $t$ = 2.1, 2.01, 2.001 of 2.0001 s. Ook kun je de positie net zo nauwkeurig bepalen als je wilt.[^nauwkeurigheid] De natuur is analoog,[^analoog] maar moderne computers zijn digitaal en dus discreet. Als je een foto op je computer te ver inzoomt zie je blokjes. Je kunt verder inzoomen, maar je gaat niet meer detail zien. De hoeveelheid informatie is beperkt.
 
 [^nauwkeurigheid]: Uiteraard afhankelijk van de nauwkeurigheid van je meetinstrument.
 [^analoog]: Totdat je het domein van de kwantummechanica betreedt, dan blijkt de natuur ook een discrete kant te hebben.
 
 _Bemonsteren_ of _sampling_ is het proces waarbij een analoog signaal wordt <q>uitgelezen</q> en wordt omgezet in een digitaal signaal. Zo wordt een audiosignaal al sinds eind jaren '70 van de vorige eeuw gewoonlijk bemonsterd met een frequentie van 44.1 kHz en een resolutie van 16 bits. Dus 44100 keer per seconde wordt er gekeken wat de waarde van het geluidssignaal is en dat wordt opgeslagen als een getal van 16 bits en kan dus $2^{16} = 65536$ verschillende waardes aannemen. Dit is nauwkeuriger dan het menselijk gehoor kan onderscheiden.
+
+<br>
+<div class="range-wrap" style="width:100%"><span class="range_labels">0</span>&emsp;<input type="range" min="0" max="100" value="50" class="range" step="0.01" id="continuous_slider" oninput="syncSliders('continuous_slider')"><output class="bubble"></output>&emsp;<span class="range_labels">3.3 V</span></div>
+
+<div class="range-wrap" style="width:100%"><span class="range_labels">0</span>&emsp;<input type="range" min="0" max="15" value="8" class="range" step="1" id="discrete_slider" oninput="syncSliders('discrete_slider')"><output class="bubble bubble_below"></output>&emsp;<select id="max_discrete_slider" oninput="updateMax()" class="range_labels">
+<option value=15>15</option>
+<option value=63>63</option>
+<option value=1023>1023</option>
+</select></div>
+<br>
+
+!!! opdracht-basis "ADC resolutie"
+    De schuifjes hierboven zijn aan elkaar gekoppeld. Het bovenste schuifje laat de analoge waarde zien. Het onderste schuifje is de bijbehorende digitale waarde. 
+
+    1. Zet het digitale signaal op een resolutie van 4-bit (16 stapjes). Stel je meet een waarde van 6, wat zijn dan de mogelijke voltages die daarbij horen? Wat is dan de nauwkeurigheid?
+    1. Zet het digitale signaal op een resolutie van 6-bit (64 stapjes). Stel je meet een waarde van 28, wat zijn dan de mogelijke voltages die daarbij horen? Wat is dan de nauwkeurigheid?
+    1. Zet het digitale signaal op een resolutie van 10-bit resolutie (1024 stapjes). Stel je meet een waarde van 768, wat zijn dan de mogelijke voltages die daarbij horen? Wat is dan de nauwkeurigheid?
 
 De conversie van een analoog signaal naar een digitaal signaal (en andersom!) is de reden dat de spanningen die we kiezen en de metingen die we doen niet alle mogelijke waardes kunnen aannemen, maar <q>stapjes</q> maken.
 
@@ -24,12 +43,28 @@ De omzetting van een analoog signaal naar een digitaal signaal gebeurt als volgt
 De digitale metingen die je programma krijgt van de ADC is hierboven weergegeven. De onzekerheid is gelijk aan de halve afstand tot het volgende niveau. In lichtgrijs zie je het oorspronkelijke analoge signaal. De meting benadert het signaal dus maar gedeeltelijk. De Arduino die we gebruiken heeft een bereik van 0 V tot 3.3 V en &mdash; in tegenstelling tot het voorbeeld hierboven &mdash; een resolutie van 10 bits, dus $2^{10} = 1024$ stapjes. Als je een experiment ontwerpt is het dus van belang te weten dat je nooit kunt meten met een nauwkeurigheid kleiner dan de stapgrootte. Voor ons is deze resolutie prima.
 
 !!! opdracht-basis "Volt naar ADC"
-    We kunnen alleen maar de getallen 0 t/m 1023 naar de Arduino sturen. Ook krijgen we alleen maar dat bereik terug.
+    === "opdracht"
+        Je hebt gezien dat de Arduino werkt met getallen van 0 t/m 1023 en dat de Arduino een bereik heeft van 0 V tot 3.3 V. Je schrijft de formule op om de ruwe ADC waarde naar een spanning in Volt om te rekenen en omgekeerd. Je controleert of je formules logische antwoorden geven door de spanning te berekenen die bij een ruwe waarde van 700 hoort en de ruwe waarde die hoort bij 2.28 V. 
+    === "code"
+        **Pseudo-code**
+        ``` py
+        # raw_value to voltage
+        # voltage = something with raw_value
 
-    1. Schrijf de formule op waarmee je een spanning in V omrekent naar een ruwe ADC waarde, én omgekeerd.
-    1. Wat is precies het kleinste spanningsverschil dat we nog kunnen meten in V? Een meting kan dus nooit nauwkeuriger gedaan worden dan deze waarde.
-    1. Bereken welke spanning hoort bij een ruwe waarde van 700.
-    1. Bereken welke waarde we naar de Arduino moeten sturen als we een spanning willen instellen van 2.0 V. En een spanning van 2.28 V?
+        # voltage to raw_value
+        # raw_value = something with voltage
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Ruwe waarde 0 geeft spanning 0 en vice versa 
+        - [ ] Ruwe waarde 1023 geeft spanning 3.3 en vice versa
+        - [ ] Ruwe waarde 700 is ongeveer 2/3 van 1023 dus geeft een spanning in de buurt van 2.2 V
+        - [ ] Spanning van 2.28 V is ongeveer 2/3 van 3.3 dus geeft een ruwe waarde in de buurt van 680
+
+        **Projecttraject:**
+
+        - [x] Volt naar ADC
 
 ???+ meer-leren "Binair Talstelsel"
 
@@ -63,27 +98,88 @@ Je hebt op de middelbare school ongetwijfeld de $I,U$-karakteristiek van een ohm
 
 Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ anders. Met de schakeling die we hebben gebouwd kunnen we de $I,U$-karakteristiek van een LED bepalen. Voor meer informatie over de fysica achter diodes, zie de [appendix Diodes](diodes.md).
 
+!!! opdracht-basis "I,U-karakteristiek van een LED"
+    <iframe src="https://drive.google.com/file/d/1BcYJaCm3Er1hQyqQtCRx9umI5d2Q3V-m/preview" width="620" height="349" style="border:none;"></iframe>
+    
+    Maak een schets van hoe je denkt dat de grafiek van de stroom tegen de spanning van een LED eruit zal zien.
+
+!!! opdracht-basis "Arduino heeft geen stroommeter"
+    <iframe src="https://drive.google.com/file/d/10FwUnWe7CPjygzoRhVIJLE44qlwUo78Z/preview" width="620" height="349" style="border:none;"></iframe>
+    
+    Schrijf op hoe je de spanning over de LED en de stroom door de LED berekent in termen van de spanningsmeters U1 en U2 en de bekende weerstand R.
+
+!!! opdracht-basis "Arduino pins"
+    <iframe src="https://drive.google.com/file/d/1PTzd6aY-yCLK-ubxJ1is0g58YeJrD-PL/preview" width="620" height="349" style="border:none;"></iframe>
+    
+    Kijk aan de onderkant van de Arduino of je de pinnentjes A0, A1, A2 en GND kan vinden.
+
+!!! opdracht-basis "Breadboard"
+    <iframe src="https://drive.google.com/file/d/1n98Q6s0T8YfBO2xoTT5t0Os98hUwNwSh/preview" width="620" height="349" style="border:none;"></iframe>
+    
+    Kijk terug naar de theoretische schakeling, welke lijnen komen daar overeen met de vier draadjes (rood, blauw, groen, oranje) in de echte schakeling?
+
+!!! opdracht-basis "Channels"
+    <iframe src="https://drive.google.com/file/d/1K2KiB21YAMYnVWdrEgYUB_x8v6ikK_9i/preview" width="620" height="349" style="border:none;"></iframe>
+    
+    Bekijk de documentatie over de firmware en schrijf het commando op om de maximale uitvoerspanning op kanaal 0 te zetten. Schrijf daarna de commando's op om de waardes van U1 en U2 uit te lezen.
+
 !!! opdracht-inlever "Pythondaq: repository"
     Omdat we met een belangrijk project aan de slag gaan, namelijk een inleveropdracht, gaan we gelijk goed beginnen door een repository aan te maken. 
 
-    1. Open Github Desktop en ga naar **File > New repository ...**. Geef de repository een naam (Pythondaq) en kies een locatie. Let er op dat je deze map _niet_ in een andere repository aanmaakt, maar daarbuiten. Overleg eventueel over een handige plek.
+    1. Open Github Desktop en ga naar **File > New repository ...**. Geef de repository een naam (`pythondaq`) en kies onderstaande locatie. Let er op dat je mappenstructuur er als volgt uit ziet:   
+    {{folder}} ECPC  
+    {{T}} {{github}} pythondaq  
+    {{tab}} {{L}} {{dots}}  
+    {{L}} {{dots}}  
     1. Vink `Initialize this repository with a README` aan.
     1. Kies bij `Git ignore` voor <q>Python</q>.
     1. Ga naar **Repository > Open in Visual Studio Code** en ga aan de slag. Vergeet niet regelmatig te committen!
 
 !!! opdracht-inlever "Pythondaq: start script"
-    Voer de volgende opdrachten uit:
+    === "opdracht"
+    
+        <div class="grid-tree" markdown>
+            <div>
+            Je maakt het bestand {{file}}`basisscript.py` aan in de nieuwe {{github}} `pythondaq` repository, waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de spanning over de weerstand uit. Je print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand.
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{L}} {{github}} `pythondaq`  
+            {{tab}} {{T}} {{new_file}} `basisscript.py`  
+            {{tab}} {{L}} {{dots}}  
+            </div>
+        </div>
+    === "code"
+        **Pseudo-code**
+        ``` py title="basisscript.py"
+        # connect to Arduino
 
-    1. Schrijf een script waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Kijk wat er gebeurt met de LED.
-    1. Commit.
-    1. Hoe bepaal je de spanning over de weerstand? Overleg met elkaar welke spanningen je precies meet met de verschillende kanalen (_channels_) die op de Arduino zijn aangesloten. Kijk nog eens goed naar de [figuur van de schakeling](communicatie.md#fig:LED-schakeling).
-    1. Lees &mdash; tijdens het laten oplopen van de spanning over de LED &mdash; de spanning over de _weerstand_ uit. Je zult daarvoor het antwoord van de Arduino (een _string_) om moeten zetten naar een _integer_ en print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand. Voorbeeld van uitvoer:
-    ``` consolecode
-    On LED:  750 (2.4 V)    Over resistor:  189 (0.6 V)
-    ```
-    Je hebt nu feitelijk je eerste metingen verricht!
-    1. Commit! {{feesttoeter}}
+        # set input voltage from 0 to max
+            # get voltage LED 
+            # get voltage resistor
+            # print On LED: raw_voltage_LED (voltage_LED V) Over resistor: raw_voltage_resistor (voltage_resistor V)
+        ```
+    === "check"
+        **Checkpunten:**
 
+        - [ ] Spanning over LED loopt van nul tot maximale waarde
+        - [ ] LED lampje brandt steeds feller
+        - [ ] Commit {{feesttoeter}}
+        - [ ] Ruwe waardes en voltages zijn zoals verwacht
+        - [ ] Commit {{feesttoeter}}
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
+        - [ ] Pythondaq: Quick 'n dirty meting
+        - [ ] Pythondaq: CSV
+        - [ ] Pythondaq: Controller bouwen
+        - [ ] Pythondaq: Controller implementeren
+        - [ ] Pythondaq: Controller afsplitsen
+        - [ ] Pythondaq: Model afsplitsen
+        - [ ] Pythondaq: Onzekerheid
 
 Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma of Python notebook o.i.d. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment hebben we ook alleen nog maar _ruwe_ metingen. We gaan hier voorbij aan het feit dat we graag de stroomsterkte door de LED $I$ zouden willen uitzetten tegen de spanning over de LED $U_\mathrm{LED}$.
 
@@ -95,8 +191,42 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
 
 <div id="opd:quickndirty-meting"></div>
 !!! opdracht-inlever "Pythondaq: Quick 'n dirty meting"
-    Bereken in je script de spanning _over_ en de stroomsterkte _door_ de LED en bewaar deze metingen in een lijst met spanningen en een lijst met stroomsterktes. Sluit je meting netjes af (zorg dat de LED niet blijft branden) en maak dan een grafiek van je metingen. Bekijk elkaars resultaten &mdash; ook van andere groepjes &mdash; en denk na of je meting fysisch helemaal correct is.
+    === "opdracht"
+        Je code berekent de spanning _over_ en de stroomsterkte _door_ de LED terwijl de spanning over het cirquit oploopt van nul tot de maximale waarde. De resultaten worden in een grafiek weergegeven.  
+    === "code"
+        **Pseudo-code**
+        ``` py title="basisscript.py"
+        # connect to Arduino
 
+        # set input voltage from 0 to max
+            # calculate LED voltage
+            # calculate LED current
+        
+        # plot current vs voltage
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Bereken spanning over LED
+        - [ ] Bereken stroomsterkte door LED
+        - [ ] Lijst met spanningen
+        - [ ] Lijst met stroomsterkte
+        - [ ] Plot stroomsterke tegen spanning
+        - [ ] Vergelijk met resultaat van iemand anders
+        - [ ] Meting is fysisch correct
+        - [ ] LED wordt uitgezet na de meting
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
+        - [x] Pythondaq: Quick 'n dirty meting
+        - [ ] Pythondaq: CSV
+        - [ ] Pythondaq: Controller bouwen
+        - [ ] Pythondaq: Controller implementeren
+        - [ ] Pythondaq: Controller afsplitsen
+        - [ ] Pythondaq: Model afsplitsen
+        - [ ] Pythondaq: Onzekerheid
 
 
 ## Bewaren van meetgegevens
@@ -130,27 +260,59 @@ Het CSV-bestand heeft kolommen $t$ en $s$. De getallen hebben een punt als decim
 #### De functie `#!py zip()`
 
 Het viel je misschien op dat in bovenstaand CSV-bestand iedere regel een $t$-waarde en een $s$-waarde heeft. Als je een lijst met $t$'s en een lijst met $s$'en hebt dan bevat de eerste regel het eerste element uit beide lijsten, de tweede regel het tweede element, etc. Je kunt dan een for-loop schrijven die Python's indexnotatie gebruikt: `#!py t[i]`, `#!py s[i]`, etc. Het kan óók, makkelijker, met de `#!py zip()`-functie. Beide methodes kun je als volgt gebruiken in het geval van twee[^meer-dan-twee] lijsten A en B:
+ ```
 
 === "with_zip.py"
-    ``` py hl_lines="4 5"
+    <div class="code-box"><button type="button" name="with_zip.py_suffix" onclick="runScript('with_zip.py_suffix')" class="run">{{ run }}</button><button type="button" name="with_zip.py_suffix" onclick="runScript('with_zip.py_suffix')" class="reload invisible">{{ reload }}</button> with_zip.py
+    ``` py
     --8<-- "scripts/with_zip.py"
     ```
+    <pre>
+    <code>(ecpc) > python with_zip.py
+    <span class="invisible" name="with_zip.py_suffix">1 1
+    2 4
+    3 9
+    4 16</span>
+    </code></pre></div>
 === "with_indexing.py"
-    ``` py hl_lines="4 5"
+    <div class="code-box"><button type="button" name="with_indexing.py_suffix" onclick="runScript('with_indexing.py_suffix')" class="run">{{ run }}</button><button type="button" name="with_indexing.py_suffix" onclick="runScript('with_indexing.py_suffix')" class="reload invisible">{{ reload }}</button> with_indexing.py
+    ``` py
     --8<-- "scripts/with_indexing.py"
     ```
+    <pre>
+    <code>(ecpc) > python with_indexing.py
+    <span class="invisible" name="with_indexing.py_suffix">1 1
+    2 4
+    3 9
+    4 16</span>
+    </code></pre></div>
 
 [^meer-dan-twee]: Je kunt net zoveel lijsten in `#!py zip()` gooien als je wilt: `#!py for a, b, c, d, e in zip(A, B, C, D, E)` is geen probleem.
 
 Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de lengte van de lijst op te zoeken en krijg je meteen de losse elementen zonder dat je ze zelf uit de lijst moet plukken met indexnotatie.
 
 !!! opdracht-basis "oefenen met zip"
-    Gegeven de spanningen $U$ en de bijbehorende stroomsterktes $I$: 
-    ```py
-    U = [1.2, 1.8, 2.4, 2.7, 3.1] # V
-    I = [0.3, 0.4, 0.6, 0.8, 1.0] # A
-    ```
-    loop over de lijsten met `#!py zip()` en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
+    === "opdracht"
+        Je hebt een lijst met spanningen en een lijst met stroomsterktes. Je loopt over de lijsten en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
+    === "code"
+        **Pseudo-code**
+        ``` py
+        U = [1.2, 1.8, 2.4, 2.7, 3.1] # V
+        I = [0.3, 0.4, 0.6, 0.8, 1.0] # A 
+
+        # repeat
+        #   print U, I, R
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De for-loop gebruikt `#!py zip()` om de elementen uit de lijst op te vragen
+        - [ ] De variabele hebben logische namen zoals `u` en `i`
+        - [ ] De weerstandswaarde is fysisch correct
+
+        **Projecttraject:**
+
+        - [x] oefenen met zip
 
 
 #### Het gebruik van de `#!py csv`-module
@@ -183,7 +345,37 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
 
 <div id="opd:quickndirty-csv"></div>
 !!! opdracht-inlever "Pythondaq: CSV"
-    Breid je script uit zodat de data niet alleen maar weergegeven wordt in een grafiek maar ook wordt weggeschreven als CSV-bestand. Gebruik de `#!py zip()`-functie en de `#!py csv`-module.
+    === "opdracht"
+        Je code schrijft de metingen ook weg als csv-bestand door gebruik te maken van de `#!py zip()`-functie en de `#!py csv`-module.
+    === "code"
+        **Pseudo-code**
+        ``` py title="basisscript.py"
+        # connect to Arduino
+
+        # set input voltage from 0 to max
+            # calculate LED voltage
+            # calculate LED current
+        
+        # plot current vs voltage
+        # create csv-file
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] CSV-bestand bevat alle metingen
+        - [ ] Waardes in CSV-bestand komen overeen met verwachting
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
+        - [x] Pythondaq: Quick 'n dirty meting
+        - [x] Pythondaq: CSV
+        - [ ] Pythondaq: Controller bouwen
+        - [ ] Pythondaq: Controller implementeren
+        - [ ] Pythondaq: Controller afsplitsen
+        - [ ] Pythondaq: Model afsplitsen
+        - [ ] Pythondaq: Onzekerheid
 
 ???+ opdracht-meer "Git ignore"
     Het kan wenselijk zijn om niet alle bestanden mee te nemen voor versiebeheer in je repository. Soms wil je een bestand uitsluiten, of bepaalde bestand-types.  Om GitHub te laten weten welke bestanden niet gecommit hoeven te worden is er een bestand {{file_lines}}`.gitignore` . Let op de punt voor de bestandsnaam, dit betekend dat het een verborgen bestand is en mogelijk zie je het niet in je repository staan.
