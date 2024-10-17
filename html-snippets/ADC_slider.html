@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .range_labels {
+            font-size: 25px;
+            min-width: 5%;
+            }
+            .range-wrap {
+            position: relative;
+            margin: 0 auto 0rem;
+            }
+            .range-wrap-combined {
+            position: relative;
+            margin: 0 auto 0rem;
+            }
+            .range {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 85%;
+            height: 15px;
+            border-radius: 5px;  
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+            }
+            .range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%; 
+            background: #00addc;
+            cursor: pointer;
+            }
+        
+            .range::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #00addc;
+            cursor: pointer;
+            }
+            .bubble {
+            background: #4051b5;
+            color: white;
+            padding: 4px 12px;
+            position: absolute;
+            border-radius: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            }
+            .bubble::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #4051b5;
+            bottom: -2px;
+            left: 50%;
+            }
+            .bubble_below::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #4051b5;
+            top: -2px;
+            left: 50%;
+            }
+        
+            .bubble_combined {
+            background: #4051b5;
+            color: white;
+            padding: 4px 12px;
+            position: absolute;
+            border-radius: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none; 
+            }
+            .bubble_combined::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #4051b5;
+            left: 50%;
+            top: 0px;
+            }
+        </style>
+    </head>
+
+<body>
+    <div class="range-wrap-combined" style="width:100%"><span class="range_labels">0</span>&emsp;<input type="range" min="0" max="100" value="50" class="range" step="0.01" id="continuous_slider_combined" oninput="syncSlidersLabelsCombined('continuous_slider_combined')"><output class="bubble bubble_combined unclickable"></output>&emsp;<span class="range_labels">3.3</span></div>
+    <div class="range-wrap-combined" style="width:100%"><span class="range_labels">0</span>&emsp;<input type="range" min="0" max="15" value="8" class="range" step="1" id="discrete_slider_combined" oninput="syncSlidersLabelsCombined('discrete_slider_combined')"><output class="bubble bubble_combined bubble_below unclickable"></output>&emsp;<select id="max_discrete_combined" oninput="updateMaxLabelsCombined()" class="range_labels">
+    <option value=15>15</option>
+    <option value=63>63</option>
+    <option value=1023>1023</option>
+    </select></div>
+</body>
+<script>
+    const allRangesCombined = document.querySelectorAll(".range-wrap-combined");
+    allRangesCombined.forEach(wrap => {
+        const range = wrap.querySelector(".range");
+        const bubble = wrap.querySelector(".bubble");
+
+        range.addEventListener("update_bubble", () => {
+            setBubbleCombined(range, bubble);
+        });
+        setBubbleCombined(range, bubble);
+    });
+
+    function syncSlidersLabelsCombined(slider_id) {
+        let value = document.getElementById(slider_id).value;
+        if (slider_id == "continuous_slider_combined") {
+            document.getElementById('discrete_slider_combined').value = value * document.getElementById('discrete_slider_combined').max/100;
+        } else {
+            document.getElementById('continuous_slider_combined').value = value * 100/document.getElementById('discrete_slider_combined').max;
+        }
+        document.getElementById('discrete_slider_combined').dispatchEvent(new Event('update_bubble', { bubbles: true }));
+        document.getElementById('continuous_slider_combined').dispatchEvent(new Event('update_bubble', { bubbles: true }));
+    }
+
+    function updateMaxLabelsCombined() {
+        document.getElementById('discrete_slider_combined').max = document.getElementById('max_discrete_combined').value;
+        syncSlidersLabelsCombined('continuous_slider_combined');
+    }
+
+    function setBubbleCombined(range, bubble) {
+        const val = range.value;
+        const min = range.min ? range.min : 0;
+        const max = range.max ? range.max : 100;
+        const newVal = Number(((val - min) * 100) / (max - min));
+
+        if(bubble.classList.contains('bubble_below')) {
+            bubble.innerHTML = val;
+        } else {
+            bubble.innerHTML = parseFloat(String(val * 3.3 / 100)).toFixed(2);
+        }
+
+        bubble.style.left = `calc(${newVal * 0.85}% + (${14.5 - newVal * 0.27 + 33}px)`;
+    }
+</script>
+
+</html>

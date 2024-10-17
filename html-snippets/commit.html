@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body.commit {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f6f8fa;
+            margin: 0;
+        }
+
+        .md-typeset .commit {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            grid-gap: 20px; /* Space between boxes */
+            padding: 20px;
+        }
+
+        .commit-box {
+            background-color: #f3f4f6; /* Light grey background */
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            padding: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Ensure boxes are responsive within the grid */
+        }
+
+        .commit-title-wrapper {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .commit-title-wrapper img {
+            margin-right: 8px;
+        }
+
+        .commit-title {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color: white;
+            color: #495057;
+            pointer-events: none; /* Disable editing */
+        }
+
+        .commit-description {
+            width: 100%;
+            padding: 8px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color: white;
+            color: #495057;
+            height: 80px;
+            resize: none;
+            pointer-events: none; /* Disable editing */
+        }
+
+        /* create responsive title */
+        .commit-title-resp {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color: white;
+            color: #495057;
+        }
+
+        /* create responsive description */
+        .commit-description-resp {
+            width: 100%;
+            padding: 8px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color: white;
+            color: #495057;
+            height: 80px;
+            resize: none;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #00addcff; /* ECPC Blue color */
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .submit-btn:hover {
+            background-color: #0071bcff; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+
+<div class="commit">
+    <!-- Commit Box 1 -->
+    <div class="commit-box">
+        <div class="commit-title-wrapper">
+            <img src="..\figures\ECPC_logo_simple.svg" alt="ECPC logo" width="24" height="24">
+            <input type="text" class="commit-title" placeholder="Summary (required)" value="feat: implement initialization process" readonly>
+        </div>
+        <textarea class="commit-description" placeholder="Description" readonly>Enabled initialization of the measurement instrument and calibration of sensors for accurate data collection.</textarea>
+        <button class="submit-btn" onclick="handleSubmit(this)">Commit to main</button>
+    </div>
+
+    <!-- Commit Box 2 -->
+    <div class="commit-box">
+        <div class="commit-title-wrapper">
+            <img src="..\figures\ECPC_logo_simple.svg" alt="ECPC logo" width="24" height="24">
+            <input type="text" class="commit-title" placeholder="Summary (required)" value="fix: correct calibration error" readonly>
+        </div>
+        <textarea class="commit-description" placeholder="Description" readonly>Resolved calibration errors caused by incorrect sensor configurations.</textarea>
+        <button class="submit-btn" onclick="handleSubmit(this)">Commit to main</button>
+    </div>
+
+    <!-- Commit Box 3 -->
+    <div class="commit-box">
+        <div class="commit-title-wrapper">
+            <img src="..\figures\ECPC_logo_simple.svg" alt="ECPC logo" width="24" height="24">
+            <input type="text" class="commit-title" placeholder="Summary (required)" value="chore: upgrade dependencies" readonly>
+        </div>
+        <textarea class="commit-description" placeholder="Description" readonly>Upgraded matplotlib and click to the latest versions to enable error bar functionality.</textarea>
+        <button class="submit-btn" onclick="handleSubmit(this)">Commit to main</button>
+    </div>
+
+    <!-- Commit Box 4 -->
+    <div class="commit-box">
+        <div class="commit-title-wrapper">
+            <img src="..\figures\ECPC_logo_simple.svg" alt="ECPC logo" width="24" height="24">
+            <input type="text" class="commit-title" placeholder="Summary (required)" value="refactor: streamline data flow" readonly>
+        </div>
+        <textarea class="commit-description" placeholder="Description" readonly>Fetched all measurements prior to analysis to enhance performance and efficiency.</textarea>
+        <button class="submit-btn" onclick="handleSubmit(this)">Commit to main</button>
+    </div>
+    
+        <!-- Commit Box 5 -->
+        <div class="commit-box">
+            <div class="commit-title-wrapper">
+                <img src="..\figures\ECPC_logo_simple.svg" alt="ECPC logo" width="24" height="24">
+                <input type="text" class="commit-title" placeholder="Summary (required)" value="docs: update README" readonly>
+            </div>
+            <textarea class="commit-description" placeholder="Description" readonly>Updated README to include information about the new plot button and save feature.</textarea>
+            <button class="submit-btn" onclick="handleSubmit(this)">Commit to main</button>
+        </div>
+
+    <!-- Commit Box 6 -->
+    <div class="commit-box">
+        <div class="commit-title-wrapper">
+            <img src="..\figures\ECPC_logo_simple.svg" alt="ECPC logo" width="24" height="24">
+            <input type="text" class="commit-title-resp" placeholder="Summary (required)">
+        </div>
+        <textarea class="commit-description-resp" placeholder="Description"></textarea>
+        <button class="submit-btn" onclick="handleSubmit(this)">Commit to main</button>
+    </div>
+</div>
+
+<script>
+    // Store original title and description texts
+    const originalTexts = [
+    {
+    title: "feat: implement initialization process",
+    description: "Enabled initialization of the measurement instrument and calibration of sensors for accurate data collection."
+    },
+    {
+        title: "fix: correct calibration error",
+        description: "Resolved calibration errors caused by incorrect sensor configurations."
+    },
+    {
+        title: "chore: upgrade dependencies",
+        description: "Upgraded matplotlib and click to the latest versions to enable error bar functionality."
+    },
+    {
+        title: "refactor: streamline data flow",
+        description: "Fetched all measurements prior to analysis to enhance performance and efficiency."
+    },
+    {
+        title: "docs: update README",
+        description: "Updated README to include information about the new plot button and save feature."
+    },
+    {
+        title: '',
+        description: ''
+    }
+    ];
+
+    function handleSubmit(button) {
+        const commitBox = button.closest('.commit-box'); // Find the closest commit box
+        const titleInput = commitBox.querySelector('.commit-title, .commit-title-resp');
+        const descriptionTextarea = commitBox.querySelector('.commit-description, .commit-description-resp');
+
+
+        // Clear the text of the title and description
+        titleInput.value = '';
+        descriptionTextarea.value = '';
+
+        // Restore original text after a delay
+        const index = Array.from(commitBox.parentNode.children).indexOf(commitBox);
+        setTimeout(() => {
+            titleInput.value = originalTexts[index].title;
+            descriptionTextarea.value = originalTexts[index].description;
+        }, 1000); // 1000ms delay before restoring
+    }
+</script>
+
+</body>
+</html>

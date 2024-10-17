@@ -14,8 +14,9 @@
       
         <link rel="next" href="../software-tools/">
       
+      
       <link rel="icon" href="../figures/ECPC_logo_simple.svg">
-      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
     
     
       
@@ -23,11 +24,14 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
       
       
 
+
     
+    
+      
     
     
       
@@ -43,6 +47,18 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../assets/folder_tree/folder_tree.css">
+    
+      <link rel="stylesheet" href="../assets/comparison/comparison.css">
+    
+      <link rel="stylesheet" href="../assets/ADC_slider/ADC_slider.css">
+    
+      <link rel="stylesheet" href="../assets/run_button/run_button.css">
+    
+      <link rel="stylesheet" href="../assets/cheatsheets/cheatsheets.css">
+    
+      <link rel="stylesheet" href="../assets/particle-spin-flip/spin-flip.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -55,9 +71,6 @@
   
     <body dir="ltr">
   
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -87,6 +100,7 @@
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
+      
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
@@ -107,8 +121,12 @@
     </div>
     
     
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
     
       <label class="md-header__button md-icon" for="__search">
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
@@ -117,19 +135,22 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -164,7 +185,10 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Experiment Control with Python Course" class="md-nav__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
@@ -178,14 +202,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href=".." class="md-nav__link">
-        Introductie
+        
+  
+  <span class="md-ellipsis">
+    Introductie
+  </span>
+  
+
       </a>
     </li>
   
@@ -193,14 +222,103 @@
     
       
       
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
       
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Voorkennis
+  </span>
+  
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Voorkennis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basis-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basiskennis Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vervolg-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uitgebreidere Python kennis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
   
   
   
     <li class="md-nav__item">
       <a href="../communicatie/" class="md-nav__link">
-        Communicatie met een meetinstrument
+        
+  
+  <span class="md-ellipsis">
+    Communicatie met een meetinstrument
+  </span>
+  
+
       </a>
     </li>
   
@@ -208,14 +326,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../github/" class="md-nav__link">
-        Versiebeheer met GitHub
+        
+  
+  <span class="md-ellipsis">
+    Versiebeheer met GitHub
+  </span>
+  
+
       </a>
     </li>
   
@@ -223,14 +346,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../basisscript/" class="md-nav__link">
-        Basisscript voor het experiment
+        
+  
+  <span class="md-ellipsis">
+    Basisscript voor het experiment
+  </span>
+  
+
       </a>
     </li>
   
@@ -238,14 +366,39 @@
     
       
       
-      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes
+  </span>
+  
 
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
   
   
   
     <li class="md-nav__item">
       <a href="../mvc/" class="md-nav__link">
-        Model-View-Controller
+        
+  
+  <span class="md-ellipsis">
+    Model-View-Controller
+  </span>
+  
+
       </a>
     </li>
   
@@ -253,14 +406,39 @@
     
       
       
-      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docstrings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docstrings
+  </span>
+  
 
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
   
   
   
     <li class="md-nav__item">
       <a href="../poetry/" class="md-nav__link">
-        Poetry
+        
+  
+  <span class="md-ellipsis">
+    Poetry
+  </span>
+  
+
       </a>
     </li>
   
@@ -268,14 +446,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../cli/" class="md-nav__link">
-        Command-line interface
+        
+  
+  <span class="md-ellipsis">
+    Command-line interface
+  </span>
+  
+
       </a>
     </li>
   
@@ -283,14 +466,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../gui/" class="md-nav__link">
-        Graphical user interfaces
+        
+  
+  <span class="md-ellipsis">
+    Graphical user interfaces
+  </span>
+  
+
       </a>
     </li>
   
@@ -298,11 +486,10 @@
     
       
       
-      
-
   
   
     
+  
   
   
     <li class="md-nav__item md-nav__item--active">
@@ -314,12 +501,24 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Eindopdracht
+          
+  
+  <span class="md-ellipsis">
+    Eindopdracht
+  </span>
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Eindopdracht
+        
+  
+  <span class="md-ellipsis">
+    Eindopdracht
+  </span>
+  
+
       </a>
       
         
@@ -339,7 +538,9 @@
       
         <li class="md-nav__item">
   <a href="#de-schakeling" class="md-nav__link">
-    De schakeling
+    <span class="md-ellipsis">
+      De schakeling
+    </span>
   </a>
   
 </li>
@@ -354,133 +555,187 @@
     
       
       
-      
-
+  
   
   
   
     
+    
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
-          Appendices
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_10">
-          <span class="md-nav__icon md-icon"></span>
-          Appendices
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
           
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Appendices
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Appendices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../software-tools/" class="md-nav__link">
-        Gereedschap
+        
+  
+  <span class="md-ellipsis">
+    Gereedschap
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../firmware/" class="md-nav__link">
-        Firmware
+        
+  
+  <span class="md-ellipsis">
+    Firmware
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../kleurcodes/" class="md-nav__link">
-        Kleurcodes voor weerstanden
+        
+  
+  <span class="md-ellipsis">
+    Kleurcodes voor weerstanden
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../diodes/" class="md-nav__link">
-        De diode: een p-n-overgang
+        
+  
+  <span class="md-ellipsis">
+    De diode: een p-n-overgang
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../zonnecel/" class="md-nav__link">
-        Zonnecel
+        
+  
+  <span class="md-ellipsis">
+    Zonnecel
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
-      <a href="../voorkennis/" class="md-nav__link">
-        Python voorkennis; Batteries (not yet) included
+      <a href="../cheatsheets/cheatsheets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheatsheets
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../faq/" class="md-nav__link">
-        FAQ: lijst conventies
+        
+  
+  <span class="md-ellipsis">
+    FAQ: lijst conventies
+  </span>
+  
+
       </a>
     </li>
   
@@ -492,39 +747,6 @@
                 </div>
               </div>
             
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#de-schakeling" class="md-nav__link">
-    De schakeling
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
             
           
           
@@ -542,23 +764,36 @@
 <div id="fig:pv-equivalente-schakeling"></div>
 <p><img alt="Equivalente schakeling zonnepaneel" src="../figures/PV-vervang-schakeling.svg" style="width:60%" /></p>
 <p>We gebruiken een variabele weerstand $R_\text{var}$ om de belasting van het zonnepaneel te variëren. Deze is in serie geschakeld met een stroomsterktemeter om de stroomsterkte door het circuit te meten. Parallel is een spanningsmeter geschakeld waarmee we de spanning die geleverd wordt door het zonnepaneel kunnen meten.</p>
-<p>Merk op dat onze Arduino geen stroomsterktemeter heeft. We zullen dus de spanning over een kleine weerstand moeten meten om zo &mdash; met behulp van de wet van Ohm &mdash; de stroomsterkte te bepalen. Een ander probleem is dat de spanning die geleverd wordt door het zonnepaneel groter kan zijn dan de 3.3 V die maximaal op de pinnen mag staan. Hiervoor gaan we gebruik maken van een 3:1 spanningsdeler zodat de spanning altijd onder de 3.3 V zal blijven &mdash; volgens de specificaties komt de maximale spanning van het zonnepaneel in de meest ideale omstandigheden uit op 10 V.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">2</a></sup> Het laatste probleem is de variabele weerstand: er zijn variabele weerstanden te koop waarbij de weerstand zeer nauwkeurig kan worden gekozen. Helaas is de minimale weerstand, ten gevolge van de vrij ingewikkelde interne schakelingen, te groot om de maximale stroom van een zonnepaneel te meten. Daarom maken we gebruik van een type veldeffect transistor, de MOSFET. Een MOSFET is feitelijk een soort schakelaar. Afhankelijk van de spanning die op de <em>gate</em> gezet wordt, is de weerstand tussen de <em>source</em> (aarde, minpool) en de <em>drain</em> (pluspool)<sup id="fnref:source_drain"><a class="footnote-ref" href="#fn:source_drain">1</a></sup> te variëren tussen nul en oneindig. Er is maar een relatief klein gebied waarin de weerstand snel verandert van oneindig naar nul.</p>
+<p>Merk op dat onze Arduino geen stroomsterktemeter heeft. We zullen dus de spanning over een kleine weerstand moeten meten om zo &mdash; met behulp van de wet van Ohm &mdash; de stroomsterkte te bepalen. Een ander probleem is dat de spanning die geleverd wordt door het zonnepaneel groter kan zijn dan de 3.3 V die maximaal op de pinnen mag staan. Hiervoor gaan we gebruik maken van een 3:1 spanningsdeler zodat de spanning altijd onder de 3.3 V zal blijven &mdash; volgens de specificaties komt de maximale spanning van het zonnepaneel in de meest ideale omstandigheden uit op 10 V.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">3</a></sup> Het laatste probleem is de variabele weerstand: er zijn variabele weerstanden te koop waarbij de weerstand zeer nauwkeurig kan worden gekozen. Helaas is de minimale weerstand, ten gevolge van de vrij ingewikkelde interne schakelingen, te groot om de maximale stroom van een zonnepaneel te meten. Daarom maken we gebruik van een type veldeffect transistor, de MOSFET. Een MOSFET is feitelijk een soort schakelaar. Afhankelijk van de spanning die op de <em>gate</em> gezet wordt, is de weerstand tussen de <em>source</em> (aarde, minpool) en de <em>drain</em> (pluspool)<sup id="fnref:source_drain"><a class="footnote-ref" href="#fn:source_drain">1</a></sup> te variëren tussen nul en oneindig. Er is maar een relatief klein gebied waarin de weerstand snel verandert van oneindig naar nul.</p>
 <p>De schakeling voor onze Arduino is weergegeven in de figuur hieronder. Hier belasten we het zonnepaneel met een MOSFET. In serie hiermee staat een kleine weerstand van 4.7 &Omega; waarover we de spanning meten ten behoeve van de bepaling van de stroomsterkte. De pin van de Arduino die verbonden is met de <em>gate</em> van de MOSFET is beschermd met een weerstand van 1 k&Omega;. Dit is belangrijk, want wanneer er een spanning gezet wordt op de gate kan er kortdurend een vrij grote stroom lopen. De gate gedraagt zich als een kleine capaciteit. Parallel aan de MOSFET + weerstand is een 3:1 spanningsdeler geschakeld met weerstanden van 2 M&Omega; en 1 M&Omega;. </p>
 <p><img alt="Schakeling zonnepaneel" src="../figures/PV-schakeling.svg" style="width:75%" /></p>
-<p>In de figuur hieronder is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld. Aan de linkerkant van het breadboard is de serieschakeling van de MOSFET met de kleine weerstand geplaatst. De pinnen van de MOSFET zijn van boven naar beneden de gate, de drain (+) en de source (-). De rechterkant bevat de spanningsdeler. Het zonnepaneel zelf wordt aan de $+$ en $-$ power rails aan de rechterkant van het bord geschakeld (de twee pinnen rechtsboven, zonnepaneel niet weergegeven). </p>
+<p>In de 3D-model<sup id="fnref:bronpv"><a class="footnote-ref" href="#fn:bronpv">2</a></sup> hieronder is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld. Aan de linkerkant van het breadboard is de serieschakeling van de MOSFET met de kleine weerstand geplaatst. De pinnen van de MOSFET zijn van boven naar beneden de gate, de drain (+) en de source (-). De rechterkant bevat de spanningsdeler. Het zonnepaneel zelf wordt aan de $+$ en $-$ power rails aan de rechterkant van het bord geschakeld. </p>
 <div id="fig:arduino-PV-breadboard"></div>
-<p><img alt="Arduinoschakeling zonnepaneel" src="../figures/PV-measurement_bb.svg" style="width:50%" /></p>
+<!-- ![Arduinoschakeling zonnepaneel](figures/PV-measurement_bb.svg){: style="width:50%"} -->
+
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+<p><model-viewer id="model" style="width: 100%; height: 700px;" alt="Schakelschema PV" src="../assets/circuit/Breadboard_PV.glb" ar shadow-intensity="1" camera-controls touch-action="pan-y" poster="../assets/circuit/breadboard_pv_top_view.png" camera-orbit="0rad 0.39269908169872414rad 4.718948223475571m" autoplay exposure="0.6"></model-viewer></p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:source_drain">
 <p>De namen <em>source</em> en <em>drain</em> verwijzen hier naar de elektronenstroom. Elektronen worden geleverd door de source (aard, minpool) en stromen dan naar de drain (pluspool).&#160;<a class="footnote-backref" href="#fnref:source_drain" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
+<li id="fn:bronpv">
+<p>Dit model bevat twee 3D modellen die zijn gecreëerd door Lara Sophie Schütt en AppliedSBC en zijn gedeeld onder respectievelijk een CC-BY en CC-BY-SA licentie. De originele modellen zijn te vinden via <a href="https://sketchfab.com/3d-models/cc0-set-of-electronic-components-f4cb777b4ea3490587008e24b61bcf75">[CC0] Set of Electronic Components</a> en <a href="https://sketchfab.com/3d-models/arduino-nano-33-iot-f57fd7f5485a47a8b71f8604872fd78c">Arduino Nano 33 IoT</a>. De modellen zijn samengevoegd en Voorzien van een Arduino texture, mosfet, zonnecel en draden. Dit 3D model heeft een CC-BY-SA licentie.&#160;<a class="footnote-backref" href="#fnref:bronpv" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
 <li id="fn:1">
-<p>Seeed Studio. Small solar panel 55x70mm 0.5w. URL: <a href="https://www.seeedstudio.com/0-5W-Solar-Panel-55x70.html">https://www.seeedstudio.com/0-5W-Solar-Panel-55x70.html</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Seeed Studio. Small solar panel 55x70mm 0.5w. URL: <a href="https://www.seeedstudio.com/0-5W-Solar-Panel-55x70.html">https://www.seeedstudio.com/0-5W-Solar-Panel-55x70.html</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
+
+
+
+
+
+
+
 
 
 
@@ -569,7 +804,14 @@
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -596,22 +838,27 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "toc.integrate", "navigation.top", "content.code.annotate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
-        
-          <script src="../javascripts/katex.js"></script>
-        
+        <script src="../javascripts/katex.js"></script>
       
-        
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
       
-        
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+        <script src="../javascripts/model.js"></script>
+      
+        <script src="../assets/comparison/comparison.js"></script>
+      
+        <script src="../assets/ADC_slider/ADC_slider.js"></script>
+      
+        <script src="../assets/run_button/run_button.js"></script>
+      
+        <script src="../assets/cheatsheets/cheatsheets.js"></script>
       
     
   </body>

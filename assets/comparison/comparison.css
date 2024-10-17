@@ -1,0 +1,11 @@
+span.comparison {
+    transition: 0.3s;
+}
+
+span.highlight {
+    background-color: orange;
+}
+
+span.highlight_hover {
+    background-color: yellow;
+}

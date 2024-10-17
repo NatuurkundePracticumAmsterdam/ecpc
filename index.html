@@ -10,10 +10,11 @@
       
       
       
-        <link rel="next" href="communicatie/">
+        <link rel="next" href="basis-python/">
+      
       
       <link rel="icon" href="figures/ECPC_logo_simple.svg">
-      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
     
     
       
@@ -21,11 +22,14 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.eebd395e.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.3cba04c6.min.css">
       
       
 
+
     
+    
+      
     
     
       
@@ -41,6 +45,18 @@
     
       <link rel="stylesheet" href="stylesheets/extra.css">
     
+      <link rel="stylesheet" href="assets/folder_tree/folder_tree.css">
+    
+      <link rel="stylesheet" href="assets/comparison/comparison.css">
+    
+      <link rel="stylesheet" href="assets/ADC_slider/ADC_slider.css">
+    
+      <link rel="stylesheet" href="assets/run_button/run_button.css">
+    
+      <link rel="stylesheet" href="assets/cheatsheets/cheatsheets.css">
+    
+      <link rel="stylesheet" href="assets/particle-spin-flip/spin-flip.css">
+    
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -53,9 +69,6 @@
   
     <body dir="ltr">
   
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -85,6 +98,7 @@
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
+      
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
@@ -105,8 +119,12 @@
     </div>
     
     
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
     
       <label class="md-header__button md-icon" for="__search">
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
@@ -115,19 +133,22 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -162,7 +183,10 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="." title="Experiment Control with Python Course" class="md-nav__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
       
@@ -176,11 +200,10 @@
     
       
       
-      
-
   
   
     
+  
   
   
     <li class="md-nav__item md-nav__item--active">
@@ -192,12 +215,24 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Introductie
+          
+  
+  <span class="md-ellipsis">
+    Introductie
+  </span>
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="." class="md-nav__link md-nav__link--active">
-        Introductie
+        
+  
+  <span class="md-ellipsis">
+    Introductie
+  </span>
+  
+
       </a>
       
         
@@ -217,14 +252,18 @@
       
         <li class="md-nav__item">
   <a href="#notatie" class="md-nav__link">
-    Notatie
+    <span class="md-ellipsis">
+      Notatie
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#opgaves" class="md-nav__link">
-    Opgaves
+    <span class="md-ellipsis">
+      Opgaves
+    </span>
   </a>
   
 </li>
@@ -239,14 +278,103 @@
     
       
       
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
       
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Voorkennis
+  </span>
+  
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Voorkennis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="basis-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basiskennis Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vervolg-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uitgebreidere Python kennis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
   
   
   
     <li class="md-nav__item">
       <a href="communicatie/" class="md-nav__link">
-        Communicatie met een meetinstrument
+        
+  
+  <span class="md-ellipsis">
+    Communicatie met een meetinstrument
+  </span>
+  
+
       </a>
     </li>
   
@@ -254,14 +382,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="github/" class="md-nav__link">
-        Versiebeheer met GitHub
+        
+  
+  <span class="md-ellipsis">
+    Versiebeheer met GitHub
+  </span>
+  
+
       </a>
     </li>
   
@@ -269,14 +402,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="basisscript/" class="md-nav__link">
-        Basisscript voor het experiment
+        
+  
+  <span class="md-ellipsis">
+    Basisscript voor het experiment
+  </span>
+  
+
       </a>
     </li>
   
@@ -284,14 +422,39 @@
     
       
       
-      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="classes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes
+  </span>
+  
 
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
   
   
   
     <li class="md-nav__item">
       <a href="mvc/" class="md-nav__link">
-        Model-View-Controller
+        
+  
+  <span class="md-ellipsis">
+    Model-View-Controller
+  </span>
+  
+
       </a>
     </li>
   
@@ -299,14 +462,39 @@
     
       
       
-      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docstrings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docstrings
+  </span>
+  
 
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
   
   
   
     <li class="md-nav__item">
       <a href="poetry/" class="md-nav__link">
-        Poetry
+        
+  
+  <span class="md-ellipsis">
+    Poetry
+  </span>
+  
+
       </a>
     </li>
   
@@ -314,14 +502,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="cli/" class="md-nav__link">
-        Command-line interface
+        
+  
+  <span class="md-ellipsis">
+    Command-line interface
+  </span>
+  
+
       </a>
     </li>
   
@@ -329,14 +522,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="gui/" class="md-nav__link">
-        Graphical user interfaces
+        
+  
+  <span class="md-ellipsis">
+    Graphical user interfaces
+  </span>
+  
+
       </a>
     </li>
   
@@ -344,14 +542,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="eindfeest/" class="md-nav__link">
-        Eindopdracht
+        
+  
+  <span class="md-ellipsis">
+    Eindopdracht
+  </span>
+  
+
       </a>
     </li>
   
@@ -359,133 +562,187 @@
     
       
       
-      
-
+  
   
   
   
     
+    
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
-          Appendices
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_10">
-          <span class="md-nav__icon md-icon"></span>
-          Appendices
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
           
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Appendices
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Appendices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="software-tools/" class="md-nav__link">
-        Gereedschap
+        
+  
+  <span class="md-ellipsis">
+    Gereedschap
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="firmware/" class="md-nav__link">
-        Firmware
+        
+  
+  <span class="md-ellipsis">
+    Firmware
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="kleurcodes/" class="md-nav__link">
-        Kleurcodes voor weerstanden
+        
+  
+  <span class="md-ellipsis">
+    Kleurcodes voor weerstanden
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="diodes/" class="md-nav__link">
-        De diode: een p-n-overgang
+        
+  
+  <span class="md-ellipsis">
+    De diode: een p-n-overgang
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="zonnecel/" class="md-nav__link">
-        Zonnecel
+        
+  
+  <span class="md-ellipsis">
+    Zonnecel
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
-      <a href="voorkennis/" class="md-nav__link">
-        Python voorkennis; Batteries (not yet) included
+      <a href="cheatsheets/cheatsheets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheatsheets
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="faq/" class="md-nav__link">
-        FAQ: lijst conventies
+        
+  
+  <span class="md-ellipsis">
+    FAQ: lijst conventies
+  </span>
+  
+
       </a>
     </li>
   
@@ -497,46 +754,6 @@
                 </div>
               </div>
             
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#notatie" class="md-nav__link">
-    Notatie
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#opgaves" class="md-nav__link">
-    Opgaves
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
             
           
           
@@ -554,8 +771,8 @@
 <h2 id="notatie">Notatie<a class="headerlink" href="#notatie" title="Permanent link">&para;</a></h2>
 <p>We zullen in deze handleiding vaak Engelse termen gebruiken, ook als Nederlandse termen voorhanden zijn. Bijvoorbeeld: <q>list</q> in plaats van lijst, <q>class</q> in plaats van klasse. Dit omdat deze Engelse termen veel meer ingeburgerd zijn en omdat voor sommige van de Engelse termen geen goede vertalingen zijn. Liever wat consequenter Engelse termen gebruiken dan alles door elkaar!</p>
 <p>In deze handleiding kom je twee verschillende dingen tegen. Pythoncode en systeemopdrachten. Voor pythoncode geldt dat je in Visual Studio Code een nieuw bestand moet aanmaken met de extensie <code>.py</code> en dat je daarin de code kunt typen. Vervolgens kun je het script runnen en geeft Visual Studio Code de uitvoer terug. In deze handleiding zal dat als volgt worden weergegeven:
-<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Ik ben een script. Ik sta in een gekleurd blok </span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># en de Pythoncode heeft gekleurde syntax.</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># I am a script. I am in a colored block</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># and the Python code has colored syntax.</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
@@ -564,7 +781,7 @@
 </span></code></pre></div>
 Rechtsboven in het blok staat een <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 21H8V7h11m0-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m-3-4H4a2 2 0 0 0-2 2v14h2V3h12V1Z"/></svg></span>-icoon. Als je daar op klikt dan wordt de hele code gekopieerd naar het klembord en kun je het in Visual Studio Code weer plakken met <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-v">V</kbd></span>.</p>
 <p>Ook zullen we soms systeemopdrachten moeten uitvoeren. We willen bijvoorbeeld nieuwe Pythonbibliotheken installeren of onze nieuw-gebouwde applicaties testen. Dit doen we vanuit de <em>terminal</em>. De terminal biedt een zogeheten <em>command-line interface</em> voor het systeem. Dit in tegenstelling tot een grafische interface.</p>
-<p>Met deze notatie laten we zien hoe je <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>my-script.py</code> met python kunt runnen:
+<p>Met deze notatie laten we zien hoe je <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span><code>my-script.py</code> met python kunt runnen:
 <div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">python</span> <span class="n">my-script</span><span class="p">.</span><span class="n">py</span>
 </span></code></pre></div>
 Wanneer we ook de uitvoer van commando's laten zien is het handiger om onderscheid te maken tussen het commando en de uitvoer. Als dat nodig is laten we ook de <em>prompt</em><sup id="fnref:prompts"><a class="footnote-ref" href="#fn:prompts">1</a></sup> zien:
@@ -573,7 +790,7 @@ Wanneer we ook de uitvoer van commando's laten zien is het handiger om ondersche
 </span></code></pre></div>
 Merk op dat de commando's dan iets donkerder gekleurd zijn dan de prompt en de uitvoer. Let dus op de verschillende code blocks. Is het een Python script of zijn het commando's die je moet uitvoeren in een terminal?</p>
 <h2 id="opgaves">Opgaves<a class="headerlink" href="#opgaves" title="Permanent link">&para;</a></h2>
-<p>In de handleiding staan verschillende opgaves. De meeste zijn bedoeld als oefening, maar sommige moet je inleveren voor feedback en een beoordeling.</p>
+<p>In de handleiding staan verschillende opgaves. De meeste zijn bedoeld als oefening, maar sommige moet je inleveren voor feedback en een beoordeling. Schrijf je code in het Engels, zo ben je voorbereid op het werken in een internationale onderzoeksgroep.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>In sommige programmeercursussen is het de bedoeling dat je een bepaald algoritme <em>zelf</em> schrijft. Je moet bijvoorbeeld een loop schrijven om een reeks berekeningen uit te voeren en mag dan niet gebruik maken van de NumPy-bibliotheek om dat in één regel te doen. Je kunt je voorstellen dat als je straks in een lab werkt dat je <em>juist</em> gebruik wilt maken van bibliotheken die het leven een stuk gemakkerlijker maken. Trek dus alles uit de kast. Kijk eens in de <em>Python Standard Library</em>,<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">2</a></sup> de <em>Python Package Index</em><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">3</a></sup> of <em>Awesome Python</em><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">4</a></sup>.</p>
@@ -594,6 +811,7 @@ Merk op dat de commando's dan iets donkerder gekleurd zijn dan de prompt en de u
 <p class="admonition-title">Meer leren</p>
 <p>Dit zijn verdiepende en verbredende opgaves om je te kunnen ontwikkelen tot een goed programmeur en een waardevolle aanwinst voor een onderzoeksgroep. Je kunt er geen extra punten mee verdienen wanneer je deze technieken toepast in je inleveropdrachten, maar het is wel een goede oefening. Doe deze opgaves <em>alleen</em> als je klaar bent met de rest.</p>
 </div>
+<p>Een basiskennis Python is nodig om de opdrachten te kunnen maken. In de <a href="basis-python/#basiskennis-python">paragraaf Basiskennis Python</a> vind je opdrachten om je kennis te testen. Het is handig om een uitgebreidere Python kennis te hebben, meer informatie vind je in de <a href="vervolg-python/#uitgebreidere-python-kennis">paragraaf Uitgebreidere Python kennis</a>.</p>
 <div class="footnote">
 <hr />
 <ol>
@@ -616,12 +834,26 @@ Merk op dat de commando's dan iets donkerder gekleurd zijn dan de prompt en de u
 
 
 
+
+
+
+
+
+
+
                 
               </article>
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -648,22 +880,27 @@ Merk op dat de commando's dan iets donkerder gekleurd zijn dan de prompt en de u
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["content.code.copy"], "search": "assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["content.code.copy", "toc.integrate", "navigation.top", "content.code.annotate"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.220ee61c.min.js"></script>
+      <script src="assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
-        
-          <script src="javascripts/katex.js"></script>
-        
+        <script src="javascripts/katex.js"></script>
       
-        
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
       
-        
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+        <script src="javascripts/model.js"></script>
+      
+        <script src="assets/comparison/comparison.js"></script>
+      
+        <script src="assets/ADC_slider/ADC_slider.js"></script>
+      
+        <script src="assets/run_button/run_button.js"></script>
+      
+        <script src="assets/cheatsheets/cheatsheets.js"></script>
       
     
   </body>
