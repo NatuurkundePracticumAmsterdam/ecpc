@@ -31,7 +31,7 @@ if (currentUrl.includes("cheatsheets")) {
     cheatsheet_div.classList.add("cheatsheet");
     cheatsheet_div.classList.add("invisible");
     cheatsheet_div.id = "cheatsheet_div";
-    cheatsheet_div.innerHTML = '<iframe width="100%" height="100%" id="myHtml" src="../cheatsheets/cheatsheets"></iframe>'
+    cheatsheet_div.innerHTML = '<iframe width="100%" height="100%" id="myHtml" src="cheatsheets"></iframe>'
     // add icon and cheatsheet below eachother in grid
     wrapper_div.appendChild(icon_div);
     wrapper_div.appendChild(cheatsheet_div);

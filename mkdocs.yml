@@ -83,11 +83,11 @@ nav:
   - eindfeest.md
   - Appendices:
       - software-tools.md
+      - cheatsheets.md
       - firmware.md
       - kleurcodes.md
       - diodes.md
       - zonnecel.md
-      - cheatsheets/cheatsheets.md
   - faq.md
 
 extra:
