@@ -358,3 +358,6 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
         - [x] Pythondaq: Controller afsplitsen
         - [x] Pythondaq: Model afsplitsen
         - [x] Pythondaq: Onzekerheid
+
+???+ opdracht-meer "User input"
+    De gebruiker moet in de view het script aanpassen om een andere meting te doen. Kun je `#!py input()` gebruiken om van de gebruiker input te vragen voor de start, stop en aantal metingen?
