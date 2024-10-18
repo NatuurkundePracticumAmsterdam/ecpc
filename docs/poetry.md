@@ -819,9 +819,9 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
         - [x] commando toevoegen
         - [ ] commando testen
 
-    
 
-<div id="opd:Poetry_commando"></div>    
+<div id="opd:Poetry_commando"></div>
+
 !!! opdracht-basis "Commando testen"
     === "opdracht"
         Nu je het commando `square` hebt aangemaakt ga je deze testen in een terminal je ziet de tekst `The square of 5 is 25` verschijnen. Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `square` en ziet weer de tekst `The square of 5 is 25` verschijnen. Je concludeerd dat het commando nu overal werkt zolang het juist conda environment is geactiveerd. Dat test je uit door een ander conda environment te activeren en het commando `square` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
@@ -894,3 +894,6 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
         - [x] Pythondaq: poetry    
         - [x] Pythondaq: test imports
         - [x] Pythondaq: applicatie
+
+???+ meer-leren "Versie 2.0.0"
+    In de {{file}}`pyproject.toml` kan je ook de versie aangeven van je package. Maar wanneer hoog je nu welk cijfertje op? Wanneer wordt iets _versie 2.0.0_? Daar zijn conventies voor. Kleine wijzigingen gaan op het rechter cijfer, grotere wijzigingen en bugfixes gaan op het middelste cijfer. Wanneer de applicatie dusdanig veranderd dat je bijvoorbeeld bestanden die je met oude versie hebt gemaakt niet met de nieuwe versie kunt openen, dan verander je het linker cijfer.
