@@ -587,21 +587,8 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
     Nu je dit een keer gedaan hebt kun je voortaan op een Graphics View meteen kiezen voor **Promote to > PlotWidget** en hoef je niets meer in te typen. Vergeet niet je widget nog even een handige naam te geven, bijvoorbeeld `plot_widget`.
 
 <div id="info:widgets"></div>
-
-!!! info "Handige widgets"
-    In onderstaande tabel zie je een lijst van zeer handige widgets die je vrijwel zeker nodig hebt. Als je nog meer widgets wilt gebruiken, kijk dan in de lijst van Designer en/of op [https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes).
-
-    | <div style="width:120px">Naam class</div> | <div style="width:100px">Naam Designer</div> | Beschrijving  |
-    |------------------|-------------------|---------------|
-    | `QHBoxLayout`    | Horizontal layout | Plaats widgets naast elkaar in deze container.                                                                                  |
-    | `QVBoxLayout`    | Vertical Layout   | Plaats widgets onder elkaar in deze container                                                                                   |
-    | `QFormLayout`    | Form Layout       | Een layout met twee kolommen: links tekstlabels en rechts widgets                                                               |
-    | `QGroupBox`      | Group Box         | Verzamel widgets in een rechthoekig kader met linksbovenin een tekstlabel                                                       |
-    | `QPushButton`    | Push Button       | Een drukknop met tekstlabel. Signals: `clicked`.                                                                                |
-    | `QLabel`         | Label             | Een tekstlabel                                                                                                                  |
-    | `QComboBox`      | Combo Box         | Een knop voor een keuzemenu. Methods: `addItem, addItems`. Signals: `currentIndexChanged, currentTextChanged`. |
-    | `QSpinBox`       | Spin Box          | Kies een geheel getal (intypen of met pijltjes selecteren). Signals: `valueChanged`.                                            |
-    | `QDoubleSpinBox` | Double Spin Box   | Kies een kommagetal (intypen of met pijltjes selecteren). Signals: `valueChanged`.                                              |
+!!! info "PySide6 documentatie"
+    De [documentatie](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes) van PySide6 is niet super inuitief. Daarom hebben we speciaal voor jullie een [compacte documentatie](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/) geschreven. Daarin kan je een lijst van widget vinden met de meest handige methods en signals. De documentatie is dus niet compleet maar genoeg voor een simpele GUI.
 
 Om daadwerkelijk een functie te plotten kun je deze code gebruiken:
 
