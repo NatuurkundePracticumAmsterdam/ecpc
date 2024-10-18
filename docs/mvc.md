@@ -361,3 +361,6 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
 
 ???+ opdracht-meer "User input"
     De gebruiker moet in de view het script aanpassen om een andere meting te doen. Kun je `#!py input()` gebruiken om van de gebruiker input te vragen voor de start, stop en aantal metingen?
+
+???+ opdracht-meer "Error!"
+    Als de gebruiker in de {{file}}`view.py` per ongeluk een negatieve startwaarde of negatieve aantal metingen invult gaat het niet goed. Gebruik [Exceptions](vervolg-python.md#exceptions) om dergelijke gevallen af te vangen en een duidelijke error af te geven. 
