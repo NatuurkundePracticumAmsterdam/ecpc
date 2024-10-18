@@ -79,6 +79,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
         - [ ] Pyvisa in terminal
         - [ ] Pyvisa `list` en `open`
         - [ ] Pyvisa `query`
+        - [ ] Terminator characters demo
         - [ ] Pyvisa regeleindes
         - [ ] Pyvisa LED laten branden
 
@@ -139,6 +140,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
         - [x] Pyvisa in terminal
         - [ ] Pyvisa `list` en `open`
         - [ ] Pyvisa `query`
+        - [ ] Terminator characters demo
         - [ ] Pyvisa regeleindes
         - [ ] Pyvisa LED laten branden
 
@@ -187,6 +189,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
         - [x] Pyvisa in terminal
         - [x] Pyvisa `list` en `open`
         - [ ] Pyvisa `query`
+        - [ ] Terminator characters demo
         - [ ] Pyvisa regeleindes
         - [ ] Pyvisa LED laten branden
 
@@ -217,6 +220,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
         - [x] Pyvisa in terminal
         - [x] Pyvisa `list` en `open`
         - [x] Pyvisa `query`
+        - [ ] Terminator characters demo
         - [ ] Pyvisa regeleindes
         - [ ] Pyvisa LED laten branden
 
@@ -227,13 +231,46 @@ Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de [documentatie van d
 
     
 
-Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer heb je nodig? Af en toe is dat lastig, vooral wanneer er elektronica in het spel is want dan willen de regeleindes voor schrijven en lezen nog wel eens verschillend zijn.[^regeleindes] We gaan nu het gebruik van de karakters instellen:
+Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer heb je nodig? Af en toe is dat lastig, vooral wanneer er elektronica in het spel is want dan willen de regeleindes voor schrijven en lezen nog wel eens verschillend zijn.[^regeleindes]
 
 [^regeleindes]: De regeleindes voor de Arduinofirmware zijn verschillend voor lezen en schrijven. Dit heeft een oninteressante reden: bij het ontvangen van commando's is het makkelijk om alles te lezen totdat je één bepaald karakter (LF) tegenkomt. Bij het schrijven gebruikt de standaard `println`-functie een Windows-stijl regeleinde (CRLF).
 
+!!! opdracht-basis "Terminator characters demo"
+    === "opdracht"
+        Je vraagt je misschien af wat het betekent dat er bij het schrijven en lezen regeleindes gebruikt worden. Daarom open je de [Termchar-demo](https://textual-web.io/natuurkundepracticum-amsterdam/termchar-demo). Je gaat naar de _Basic_ tab, daar zie je twee inputvelden voor de client (dat ben jij) en de server (dat is de Arduino).
+        
+        Je schrijft een commando `measure_voltage` naar de Arduino (druk op _Write_). In het _Input_ veld van de Arduino verschijnt jouw commando maar het staat nog niet in de _Application Log_, het is dus nog niet door de Arduino verwerkt. Want de _Read Termination Characters_ van de Arduino zijn `\n`(LF), die gaat dus pas lezen als die tekens zijn verstuurd. Je verstuurt `\n` en ziet dat het commando wordt verwerkt en jij een antwoord krijgt. 
+
+        Steeds `\n` handmatig versturen is onhandig daarom voer je bij de Client als _Write Termination Characters_ `\n` in. Je verstuurt nog een commando `measure_current`, drukt op _Write_ en ziet dat het bericht direct door de Arduino wordt verwerkt en een antwoord terugstuurt. 
+
+        In het _Input_ veld van de Client staan twee antwoorden van de Arduino, als je nu op _Read_ drukt blijven de termination characters in de antwoorden staan en moet je ze handmatig uit elkaar gaan halen. Dat is niet handig, daarom vul je bij de _Read Termination Characters_ van de Client `\r\n`(CRLF) in. Daarna druk je op _Read_ en merk je dat de twee antwoorden apart uitgelezen worden, super handig!
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] De Client _Write Termination Characters_ is ingesteld op `\n`.
+        - [ ] De Client _Read Termination Characters_ is ingesteld op `\r\n`.
+        - [ ] Bij het versturen van een bericht naar de server wordt deze verwerkt en krijgt de client een antwoord terug.
+        - [ ] Bij het lezen van het antwoord door de client komen geen termination characters in de _Application Log_ te staan.
+
+        **Projecttraject**
+    
+        - [x] Schakeling bouwen
+        - [x] Pyvisa in terminal
+        - [x] Pyvisa `list` en `open`
+        - [x] Pyvisa `query`
+        - [x] Terminator characters demo
+        - [ ] Pyvisa regeleindes
+        - [ ] Pyvisa LED laten branden
+
+We gaan nu het gebruik van de karakters instellen in Pyvisa:
+
 !!! opdracht-basis "Pyvisa regeleindes"
     === "opdracht"
-        Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je dit moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige regeleinde instellingen op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Je bekijkt nog een keer de regeleinde instellingen om te controlleren of ze nu wel goed staan. Je gaat terug naar de [opdracht Pyvisa    `query`](#opd:pyvisa_query) en krijgt een response in plaats van een error. 
+        Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je dit moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige regeleinde instellingen op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Je bekijkt nog een keer de regeleinde instellingen om te controlleren of ze nu wel goed staan. Je gaat terug naar de [opdracht Pyvisa `query`](#opd:pyvisa_query) en krijgt een response in plaats van een error. 
+
+        !!! info "\r\n en CRLF"
+            Bij de _Termination Characters demo_ maakten we gebruik van `\r\n` dat is de programmeertaal equivalent van `CRLF`.
+
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
@@ -277,6 +314,7 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
         - [x] Pyvisa in terminal
         - [x] Pyvisa `list` en `open`
         - [x] Pyvisa `query`
+        - [x] Terminator characters demo
         - [x] Pyvisa regeleindes
         - [ ] Pyvisa LED laten branden
 
@@ -313,6 +351,7 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
         - [x] Pyvisa in terminal
         - [x] Pyvisa `list` en `open`
         - [x] Pyvisa `query`
+        - [x] Terminator characters demo
         - [x] Pyvisa regeleindes
         - [x] Pyvisa LED laten branden
 
@@ -533,7 +572,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         ```
         **Testvoorbeeld**
 
-        <iframe title="Blinking LED" src="https://drive.google.com/file/d/1GdP3-9LTCSW_UGF708GlX0rKdhoNS5_G/preview" width="500" height="281" style="border:none;" align="left"></iframe>
+        <iframe src="https://drive.google.com/file/d/1GdP3-9LTCSW_UGF708GlX0rKdhoNS5_G/preview" width="500" height="281" style="border:none;" align="left"></iframe>
     === "check"
         **Checkpunten:**
 
