@@ -237,13 +237,13 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
 
 !!! opdracht-basis "Terminator characters demo"
     === "opdracht"
-        Je vraagt je af wat het betekend dat er bij het schrijven en lezen regeleindes gebruikt worden. Daarom open je de [Termchar-demo](https://textual-web.io/natuurkundepracticum-amsterdam/termchar-demo). Je gaat naar de _Basic_ tab, daar zie je twee input velden voor de client (dat ben jij) en de server (dat is de Arduino). 
+        Je vraagt je misschien af wat het betekent dat er bij het schrijven en lezen regeleindes gebruikt worden. Daarom open je de [Termchar-demo](https://textual-web.io/natuurkundepracticum-amsterdam/termchar-demo). Je gaat naar de _Basic_ tab, daar zie je twee inputvelden voor de client (dat ben jij) en de server (dat is de Arduino).
         
-        Je schrijft een commando `measure_voltage` naar de Arduino (druk op _Write_). In het _Input_ veld van de Arduino verschijnt jouw commando maar het staat nog niet in de _Application Log_, het is dus nog niet door de Arduino verwerkt. Want de _Read Termination Characters_ van de Arduino zijn `\n`(LF), die gaat dus pas lezen als die tekens zijn verstuurd. Je verstuurd `\n` en ziet dat het commando wordt verwerkt en jij een antwoord krijgt. 
+        Je schrijft een commando `measure_voltage` naar de Arduino (druk op _Write_). In het _Input_ veld van de Arduino verschijnt jouw commando maar het staat nog niet in de _Application Log_, het is dus nog niet door de Arduino verwerkt. Want de _Read Termination Characters_ van de Arduino zijn `\n`(LF), die gaat dus pas lezen als die tekens zijn verstuurd. Je verstuurt `\n` en ziet dat het commando wordt verwerkt en jij een antwoord krijgt. 
 
-        Steeds `\n` handmatig versturen is onhandig daarom voer je bij de Client als _Write Termination Characters_ `\n` in. Je verstuurd nog een commando `measure_current`, drukt op _Write_ en ziet dat het bericht direct door de Arduino wordt verwerkt en een antwoord terug stuurt. 
+        Steeds `\n` handmatig versturen is onhandig daarom voer je bij de Client als _Write Termination Characters_ `\n` in. Je verstuurt nog een commando `measure_current`, drukt op _Write_ en ziet dat het bericht direct door de Arduino wordt verwerkt en een antwoord terugstuurt. 
 
-        In het _Input_ veld van de Client staan twee antwoorden van de Arduino, als je nu op _Read_ drukt blijven de terminatino characters in de antwoorden staan en moet je ze handmatig uit elkaar gaan halen. Dat is niet handig, daarom vul je bij de _Read Termination Characters_ van de Client `\r\n`(CRLF) in. Daarna druk je op _Read_ en merk je dat de twee antwoorden appart uitgelezen worden, super handig!
+        In het _Input_ veld van de Client staan twee antwoorden van de Arduino, als je nu op _Read_ drukt blijven de termination characters in de antwoorden staan en moet je ze handmatig uit elkaar gaan halen. Dat is niet handig, daarom vul je bij de _Read Termination Characters_ van de Client `\r\n`(CRLF) in. Daarna druk je op _Read_ en merk je dat de twee antwoorden apart uitgelezen worden, super handig!
     === "check"
         **Checkpunten:**
     
@@ -269,7 +269,7 @@ We gaan nu het gebruik van de karakters instellen in Pyvisa:
         Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je dit moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige regeleinde instellingen op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Je bekijkt nog een keer de regeleinde instellingen om te controlleren of ze nu wel goed staan. Je gaat terug naar de [opdracht Pyvisa `query`](#opd:pyvisa_query) en krijgt een response in plaats van een error. 
 
         !!! info "\r\n en CRLF"
-            Bij de _Termination Characters demo_ maakte we gebruik van `\r\n` dat is de programmeertaal equivalent van `CRLF`.
+            Bij de _Termination Characters demo_ maakten we gebruik van `\r\n` dat is de programmeertaal equivalent van `CRLF`.
 
     === "code"
         **Pseudo-code**
