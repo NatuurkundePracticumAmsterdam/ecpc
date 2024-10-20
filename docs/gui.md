@@ -301,7 +301,7 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
 
         - [ ] Bij het aanmaken van de verticale layout is de `#!py central_widget` als parameter meegegeven ([regel 18](#__codelineno-3-18)).
         - [ ] Er is een tekstbox gemaakt ([regel 19](#__codelineno-3-19)).
-        - [ ] De tekstbox (`#!py QTextEdit) is toegevoegd aan de verticale layout ([regel 20](#__codelineno-3-20)).
+        - [ ] De tekstbox (`#!py QTextEdit`) is toegevoegd aan de verticale layout ([regel 20](#__codelineno-3-20)).
         - [ ] Er verschijnt een venster met textbox waar je in kan typen {{feesttoeter}}.
 
         **Projecttraject:**
