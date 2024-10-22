@@ -274,7 +274,7 @@ print(master_oogway.quote)
 
         <div class="grid-tree" markdown>
             <div>
-            Je gaat een waterraket een aantal keer wegschieten met steeds een andere beginsnelheid en lanceerhoek. Je hebt een instance aangemaakt van de class `#!py ProjectileMotion`. De metingen van de beginsnelheid en de lanceerhoek bewaar je steeds met de method `#!py add_measurement()`. Om in een keer alle beginsnelheden op te vragen gebruik je de method `#!py get_initial_velocities()`. Om alle lanceerhoeken op te vragen gebruik je de method `#!py get_launch_angles()`. Op basis van de gegevens (en door de luchtweerstand te verwaarlozen) bepaal je de vluchtduur en het bereik van de raket. Je kunt de vluchtduur van alle vluchten opvragen met de method `#!py get_time_of_flights()` en het bereik van alle vluchten met `#!py get_flight_ranges()`.
+            Je gaat een waterraket een aantal keer wegschieten met steeds een andere beginsnelheid en lanceerhoek. Je hebt een instance aangemaakt van de class `#!py ProjectileMotion`. De beginsnelheid en de lanceerhoek bewaar je steeds met de method `#!py add_launch_parameters()`. Om in een keer alle beginsnelheden op te vragen gebruik je de method `#!py get_initial_velocities()`. Om alle lanceerhoeken op te vragen gebruik je de method `#!py get_launch_angles()`. Op basis van de gegevens (en door de luchtweerstand te verwaarlozen) bepaal je de vluchtduur en het bereik van de raket. Je kunt de vluchtduur van alle vluchten opvragen met de method `#!py get_time_of_flights()` en het bereik van alle vluchten met `#!py get_flight_ranges()`.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -295,7 +295,7 @@ print(master_oogway.quote)
             ...
             # __init__
                 ...
-            # add_measurement
+            # add_launch_parameters
                 ...
             # get_initial_velocities
                 ...
@@ -310,8 +310,8 @@ print(master_oogway.quote)
         <div class="code-box"><button type="button" name="water_rocket" onclick="runScript('water_rocket')" class="run">{{ run }}</button><button type="button" name="water_rocket" onclick="runScript('water_rocket')" class="reload invisible">{{ reload }}</button> <b>water_rocket.py</b>
         ``` py
         speedy = ProjectileMotion()
-        speedy.add_measurement(v=28, angle=68)
-        speedy.add_measurement(v=11, angle=15)
+        speedy.add_launch_parameters(v=28, angle=68)
+        speedy.add_launch_parameters(v=11, angle=15)
 
         v = speedy.get_initial_velocities()
         angles = speedy.get_launch_angles()
@@ -337,16 +337,16 @@ print(master_oogway.quote)
         **Checkpunten:**
 
         - [ ] De code bevindt zich in een GitHub-repository.
-        - [ ] De method `#!py add_measurment` verwacht een beginsnelheid in meter per seconde en een lanceerhoek in graden
-        - [ ] De method `#!py get_initial_velocities` geeft een lijst terug met beginsnelheden van alle ingevoerde metingen.
-        - [ ] De method `#!py get_launch_angles` geeft een lijst terug met alle lanceerhoeken van de ingevoerde metingen.
+        - [ ] De method `#!py add_launch_parameters` verwacht een beginsnelheid in meter per seconde en een lanceerhoek in graden
+        - [ ] De method `#!py get_initial_velocities` geeft een lijst terug met beginsnelheden van alle ingevoerde parameters.
+        - [ ] De method `#!py get_launch_angles` geeft een lijst terug met alle lanceerhoeken van de ingevoerde parameters.
         - [ ] De time-of-flight wordt berekent met 2 * v_y / g
         - [ ] De beginsnelheid in de y-richting: v_y = v * sin(lanceerhoek)
         - [ ] Het bereik wordt berekent met time_of_flight * v_x
         - [ ] De beginsnelheid in de x-richting: v_x = v * cos(lanceerhoek)
         - [ ] De lanceerhoek wordt in radialen meegegeven aan de trigonomische functies
-        - [ ] De method `#!py get_time_of_flights` geeft een lijst terug met de vluchtduur in seconden corresponderend met de ingevoerde metingen. 
-        - [ ] De method `#!py get_flight_ranges` geeft een lijst terug met het bereik in meters die correspondeerd met de ingevoerde metingen.
+        - [ ] De method `#!py get_time_of_flights` geeft een lijst terug met de vluchtduur in seconden corresponderend met de ingevoerde parameters. 
+        - [ ] De method `#!py get_flight_ranges` geeft een lijst terug met het bereik in meters die correspondeerd met de ingevoerde parameters.
 
 
         **Projecttraject:**
