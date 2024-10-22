@@ -2,11 +2,11 @@
 
 Welkom bij de _Experiment Control with Python Course_. Dit vak wordt aangeboden aan studenten van de joint degree natuur- en sterrenkunde van de Vrije Universiteit en de Universiteit van Amsterdam, en wordt gegeven door Annelies Vlaar ([a.m.vlaar@vu.nl](mailto:a.m.vlaar@vu.nl)) en David Fokkema ([d.b.r.a.fokkema@vu.nl](mailto:d.b.r.a.fokkema@vu.nl)).
 
-Het doel van deze cursus is om jullie kennis te laten maken met het aansturen en uitlezen van een experiment. Bij heel eenvoudige experimenten kun je metingen één voor één verrichten en noteren in je labjournaal, bijvoorbeeld bij de trillingstijd van een slinger bij verschillende lengtes. Maar al snel wordt dan ondoenlijk, bijvoorbeeld wanneer je de hele beweging van de slinger wilt volgen met een ultrasoon afstandsdetector. In een gemiddeld lab worden alle experimenten via de computer aangestuurd en uitgelezen. Voor <q>standaard</q> handelingen zoals het bekijken van een sample onder een elektronenmicroscoop of het opnemen van een spectrum van een radioactieve bron kun je de door de fabrikant meegeleverde software gebruiken. Vaak echter is die software óf heel duur terwijl je maar een klein deel van de functionaliteit nodig hebt, of ongeschikt voor jouw doeleinden. En heel vaak voer je géén standaardexperiment uit, maar ben je een nieuw experiment aan het opzetten. In dat laatste geval is er helemaal geen software voor handen. Je zult dus zelf aan de slag moeten.
+Het doel van deze cursus is om jullie kennis te laten maken met het aansturen en uitlezen van een experiment. Bij heel eenvoudige experimenten kun je metingen één voor één verrichten en noteren in je labjournaal, bijvoorbeeld bij de trillingstijd van een slinger bij verschillende lengtes. Maar al snel wordt dat ondoenlijk, bijvoorbeeld wanneer je de hele beweging van de slinger wilt volgen met een ultrasoon afstandsdetector. In een gemiddeld lab worden alle experimenten via de computer aangestuurd en uitgelezen. Voor <q>standaard</q> handelingen zoals het bekijken van een sample onder een elektronenmicroscoop of het opnemen van een spectrum van een radioactieve bron kun je de door de fabrikant meegeleverde software gebruiken. Vaak echter is die software óf heel duur terwijl je maar een klein deel van de functionaliteit nodig hebt, of ongeschikt voor jouw doeleinden. En heel vaak voer je géén standaardexperiment uit, maar ben je een nieuw experiment aan het opzetten. In dat laatste geval is er helemaal geen software voorhanden. Je zult dus zelf aan de slag moeten.
 
 We willen je in deze cursus niet alleen maar leren om een snelle meting uit te voeren, maar ook hoe je de code _netjes_ schrijft. Als je een bachelorproject doet, een masterstage, of een promotieonderzoek, dan wil je code schrijven die nog steeds bruikbaar is nadat je je stage hebt afgerond of je proefschrift hebt verdedigd. Ook zullen andere onderzoekers aan dezelfde code werken. Het is dus belangrijk om te zorgen voor een duidelijke structuur waarmee de code overzichtelijk blijft maar ook makkelijk is aan te passen of uit te breiden.
 
-Jullie gaan aan de slag met een Arduino. De Arduino bevat firmware waarmee het zich gedraagd als een meetinstrument en kan communiceren met de computer volgens een standaardprotocol dat ook geïmplementeerd wordt door onder andere functiegeneratoren en oscilloscopen.
+Jullie gaan aan de slag met een Arduino. De Arduino bevat firmware waarmee het zich gedraagt als een meetinstrument en kan communiceren met de computer volgens een standaardprotocol dat ook geïmplementeerd wordt door onder andere functiegeneratoren en oscilloscopen.
 
 
 ## Werk van anderen
@@ -20,7 +20,7 @@ Deze cursus is oorspronkelijk opgezet door David Fokkema maar in de jaren daarna
 
 ## Notatie
 
-We zullen in deze handleiding vaak Engelse termen gebruiken, ook als Nederlandse termen voorhanden zijn. Bijvoorbeeld: <q>list</q> in plaats van lijst, <q>class</q> in plaats van klasse. Dit omdat deze Engelse termen veel meer ingeburgerd zijn en omdat voor sommige van de Engelse termen geen goede vertalingen zijn. Liever wat consequenter Engelse termen gebruiken dan alles door elkaar!
+We zullen in deze handleiding vaak Engelse termen gebruiken, ook als Nederlandse termen voorhanden zijn. Bijvoorbeeld: <q>list</q> in plaats van lijst, <q>class</q> in plaats van klasse. Dit doen we omdat deze Engelse termen veel meer ingeburgerd zijn en omdat voor sommige van de Engelse termen geen goede vertalingen zijn. Liever wat consequenter Engelse termen gebruiken dan alles door elkaar!
 
 In deze handleiding kom je twee verschillende dingen tegen. Pythoncode en systeemopdrachten. Voor pythoncode geldt dat je in Visual Studio Code een nieuw bestand moet aanmaken met de extensie `.py` en dat je daarin de code kunt typen. Vervolgens kun je het script runnen en geeft Visual Studio Code de uitvoer terug. In deze handleiding zal dat als volgt worden weergegeven:
 
@@ -43,16 +43,15 @@ Linksboven kun je op de {{run}}-icoon klikken om de output van de python code te
 
 Rechtsboven in het blok staat een {{copy}}-icoon. Als je daar op klikt dan wordt de hele code gekopieerd naar het klembord en kun je het in Visual Studio Code weer plakken met ++ctrl+v++.
 
-Ook zullen we soms systeemopdrachten moeten uitvoeren[^prompts]. We willen bijvoorbeeld nieuwe Pythonbibliotheken installeren of onze nieuw-gebouwde applicaties testen. Dit doen we vanuit de _terminal_. De terminal biedt een zogeheten _command-line interface_ voor het systeem. Dit in tegenstelling tot een grafische interface.
+Ook zullen we soms systeemopdrachten moeten uitvoeren. We willen bijvoorbeeld nieuwe Pythonbibliotheken installeren of onze nieuw-gebouwde applicaties testen. Dit doen we vanuit de _terminal_. De terminal biedt een zogeheten _command-line interface_ voor het systeem. Dit in tegenstelling tot een grafische interface.[^prompts]
 
-[^prompts]: Er bestaan verschillende prompts, meestal afhankelijk van het besturingssysteem &mdash; al heeft Windows zelf al twee verschillende prompts: de _command prompt_ en de _powershell prompt_. In MacOS en Linux is de prompt vaak een `$`-teken. In veel documentatie op internet wordt deze prompt gebruikt.
+[^prompts]: Er bestaan verschillende _terminal emulators_, meestal afhankelijk van het besturingssysteem &mdash; al heeft Windows zelf al drie verschillende prompts: de _command prompt_, de _powershell prompt_ en tegenwoordig (voorkeur) de _Windows Terminal_. Een terminal ziet eruit als een tekstvenster. Hierbinnen verschijnt een prompt. Dit is een klein stukje tekst dat aangeeft waar je je opdrachten kunt intypen. In MacOS en Linux is de prompt vaak een `$`-teken. In Windows ziet het er vaak uit als `C:\>` of `PS>`. In veel documentatie op internet wordt de `$`-prompt gebruikt.
 
 Met deze notatie laten we zien hoe je {{file}}`my-script.py` met python kunt runnen:
 ``` ps1 title="Terminal"
 python my-script.py
 ```
-Wanneer we ook de uitvoer van commando's laten zien is het handiger om onderscheid te maken tussen het commando en de uitvoer.
-Door op het {{enter}}-icoon te klikken wordt de uitvoer zichtbaar.
+Zoals je ziet hebben we de prompt (bijvoorbeeld `>`) weggelaten zodat je makkelijker commando's kunt kopiëren en plakken. Wanneer we ook de uitvoer van commando's laten zien is het handiger om onderscheid te maken tussen het commando en de uitvoer. Nu geven we _wel_ de prompt weer (`(ecpc) > `). Door op het {{enter}}-icoon te klikken wordt de uitvoer zichtbaar.
 <pre><code>(ecpc) > python --version <button type="button" name="--version_index" onclick="runScript('--version_index')">{{ enter }}</button><button type="button" name="--version_index" onclick="runScript('--version_index')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="--version_index">Python 3.10.9</span>
 </code></pre>
@@ -112,4 +111,4 @@ In de handleiding staan verschillende opgaves. De meeste zijn bedoeld als oefeni
     Dit zijn verdiepende en verbredende opgaves om je te kunnen ontwikkelen tot een goed programmeur en een waardevolle aanwinst voor een onderzoeksgroep. Je kunt er geen extra punten mee verdienen wanneer je deze technieken toepast in je inleveropdrachten, maar het is wel een goede oefening. Doe deze opgaves _alleen_ als je klaar bent met de rest.
 
 
-Een basiskennis Python is nodig om de opdrachten te kunnen maken. In de [paragraaf Basiskennis Python](basis-python.md#basiskennis-python) vind je opdrachten om je kennis te testen. Het is handig om een uitgebreidere Python kennis te hebben, meer informatie vind je in de [paragraaf Uitgebreidere Python kennis](vervolg-python.md#uitgebreidere-python-kennis).
+Een basiskennis van Python is nodig om de opdrachten te kunnen maken. In de [paragraaf Basiskennis Python](basis-python.md#basiskennis-python) vind je opdrachten om je kennis te testen. Het is handig om een uitgebreidere Python kennis te hebben, meer informatie vind je in de [paragraaf Uitgebreidere Python kennis](vervolg-python.md#uitgebreidere-python-kennis).
