@@ -551,7 +551,7 @@ Je hebt nu twee manieren gezien om een interface te bouwen: programmeren of Desi
 
 In de eindopracht willen we data weergeven op een scherm. We zullen dus nog moeten plotten. In de volgende opdrachten gaan we daarmee aan de slag.
 
-Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties. Helaas is matplotlib voor het gebruik in interactieve interfaces nogal traag zodra we te maken krijgen met meer data. We kiezen daarom voor een populair alternatief: PyQtGraph. Eén nadeel: [de documentatie](https://pyqtgraph.readthedocs.io/en/latest/) is niet fantastisch. Het geeft dus niets als je ergens niet uitkomt en je hebt hulp nodig van de assistent of een staflid.
+Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties. Helaas is matplotlib voor het gebruik in interactieve interfaces nogal traag zodra we te maken krijgen met meer data. We kiezen daarom voor een populair alternatief: PyQtGraph. Eén nadeel: [de documentatie](https://pyqtgraph.readthedocs.io/en/latest/) is niet fantastisch. Het geeft dus niets als je ergens niet uitkomt en je hulp nodig hebt van de assistent of een staflid.
 
 ### De plotter als script
 
@@ -588,9 +588,9 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
 
 <div id="info:widgets"></div>
 !!! info "PySide6 documentatie"
-    De [documentatie](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes) van PySide6 is niet super inuitief. Daarom hebben we speciaal voor jullie een [compacte documentatie](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/) geschreven. Daarin kan je een lijst van widget vinden met de meest handige methods en signals. De documentatie is dus niet compleet maar genoeg voor een simpele GUI.
+    De [documentatie](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes) van PySide6 is niet super-intuïtief. Daarom hebben we speciaal voor jullie een [compacte documentatie](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/) geschreven. Daarin kan je een lijst van widget vinden met de meest handige methods en signals. De documentatie is dus niet compleet maar genoeg voor een simpele GUI.
 
-Om daadwerkelijk een functie te plotten kun je deze code gebruiken:
+Om daadwerkelijk een functie te plotten kun je deze code aanpassen:
 
 ``` py
 import numpy as np
@@ -612,7 +612,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
 
         <div class="grid-tree" markdown>
             <div>
-            Via GitHub Desktop open je de repository {{github}}`functionplotter` in Visual Studio Code. Je bekijkt de {{file_lines}}`pyproject.toml` en ziet dat het project beheerd wordt met Poetry en dat er een commando is aangemaakt om de applicatie te starten. Je {{lightbulb}} maakt een nieuw conda environment aan met alleen Python daarin, gebruikt `poetry install` om het project te installeren en voert het commando uit om de applicatie te starten. Er verschijnt een scherm met een plot waarin de functie $\sin(x)$ plot in het domein $(0, 2\pi)$ is geplot. Een golfje van trots gaat door je heen en je gaat door naar de volgende opdracht.
+            We gaan een nieuwe repository aanmaken in de {{folder}}`ECPC` map (zie hiernaast). Maak een Poetry project {{github}}`functionplotter`, voeg die toe aan GitHub Desktop en open hem in Visual Studio Code. Bekijk {{file_lines}}`pyproject.toml` en zorg dat er een commando is aangemaakt om de applicatie te starten. Je {{lightbulb}} maakt een nieuw conda environment aan met alleen Python daarin, gebruikt `poetry install` om het project te installeren en voert het commando uit om de applicatie te starten. Als je applicatie af is verschijnt er een scherm met een plot waarin de functie $\sin(x)$ plot in het domein $(0, 2\pi)$ is weergegeven. Een golfje van trots gaat door je heen en je gaat door naar de volgende opdracht.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -652,7 +652,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
 
 !!! opdracht-inlever "Functionplotter: widgets"
     === "opdracht"
-        Opnieuw voer je het commando uit om de applicatie `functionplotter` te starten. Dit keer heeft de applicatie de mogelijkheid om het domein van de plot aan te passen. Je ziet de sinus plot smaller worden wanneer je de startwaarde verhoogd. Daarna pas je de startwaarde aan naar beneden. Vervolgens ga je stopwaarde aanpassen en zie je de sinus plot naar verwachting veranderen. Dan is er nog een widget om het aantal punten (`num`) te kiezen waarmee de sinus wordt geplot. Je speelt met de widget en ziet de sinus van hoekig naar mooi glad veranderen. Steeds als je een waarde aanpast wordt de functie automatisch opnieuw geplot.
+        Voer opnieuw het commando uit om de applicatie `functionplotter` te starten. Dit keer zorg je dat de applicatie de mogelijkheid krijgt om het domein van de plot aan te passen. Je ziet dan de sinusplot veranderen wanneer je de startwaarde verhoogd. Je kunt de startwaarde ook naar beneden aanpassen. Hetzelfde geldt voor de stopwaarde. Dan maak je nog een widget om het aantal punten (`num`) te kiezen waarmee de sinus wordt geplot. Speel eens met de widget en zie de sinus van hoekig naar mooi glad veranderen. Steeds als je een waarde aanpast moet de functie automatisch opnieuw geplot geworden.
     === "code"
         **Pseudo-code**
         ```
@@ -778,7 +778,8 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
         Als het commando wordt uitgevoerd start de applicatie een scan en laat de metingen vervolgens zien in een plot binnen het venster. Voor het gemak heb je de poortnaam, start- en stopwaardes e.d. <q>hard coded</q> in het script gezet. Later ga je er voor zorgen dat een gebruiker die kan instellen, maar dat komt straks wel. 
 
         !!! info "Foutenvlaggen plotten"
-                Foutenvlaggen toevoegen aan een pyqtgraph is helaas iets minder intuitief dan bij matplotlib. Met _breedte_ en _hoogte_ geef je aan hoe groot de vlaggen zijn, de vlag is 2 keer zo hoog of breed als de onzekerheid. Samen met de $x$ en $y$ data maak je dan een `ErrorBarItem` aan die je expliciet toevoegt aan de plot.
+
+            Foutenvlaggen toevoegen aan een pyqtgraph is helaas iets minder intuitief dan bij matplotlib. Met _breedte_ en _hoogte_ geef je aan hoe groot de vlaggen zijn, de vlag is 2 keer zo hoog of breed als de onzekerheid. Samen met de $x$ en $y$ data maak je dan een `ErrorBarItem` aan die je expliciet toevoegt aan de plot. **Let op:** `x`, `y`, `x_err` en `y_err` *moeten* NumPy arrays zijn *of*, en dat geldt alleen voor de errors, een vast getal. Gewone lijsten werken helaas *niet*.
 
             ``` py linenums="1" hl_lines="20 22"
             def plot(self):
@@ -872,7 +873,7 @@ Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder
 
 !!! opdracht-inlever "Pythondaq: save"
     === "opdracht"
-        Je opent de applicatie en start een scan. Dan valt je oog op een `Save`-knop, wanneer je op deze knop drukt wordt er een dialoogvenster geopent. Je kiest een locatie en typt een bestandsnaam, je klikt op `Save` (of `Opslaan`). Daarna ben je nieuwsgierig of het gelukt is. Via `File Explorer` (of `Verkenner`) navigeer je op de computer naar de locatie waar je het bestand hebt opgeslagen. Je opent het bestand en ziet de metingen staan. Tevreden sluit je het bestand af en ga je door naar de volgende opdracht.
+        Breid je code zodanig uit uit dat het volgende werkt: Je opent de applicatie en start een scan. Dan valt je oog op een `Save`-knop, wanneer je op deze knop drukt wordt er een dialoogvenster geopent. Je kiest een locatie en typt een bestandsnaam, je klikt op `Save` (of `Opslaan`). Daarna ben je nieuwsgierig of het gelukt is. Via `File Explorer` (of `Verkenner`) navigeer je op de computer naar de locatie waar je het bestand hebt opgeslagen. Je opent het bestand en ziet de metingen staan. Tevreden sluit je het bestand af en ga je door naar de volgende opdracht.
     === "code"
         **Pseudo-code**
         ```
@@ -919,7 +920,7 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
 
 !!! opdracht-inlever "Pythondaq: selecteer Arduino"
     === "opdracht"
-        Je opent de applicatie en ziet een keuzemenu (`#!py QComboBox`) waarmee je de Arduino kunt selecteren. Je selecteerd de juiste Arduino, start een meting en ziet het LED lampje branden. Je sluit de applicatie af en bent benieuwd wat er gebeurd als je meerder Arduino's aansluit. Dus vraag je een (of twee, of drie) Arduino('s) van je buren, sluit deze aan op je computer en start opnieuw de applicatie. Je ziet dat er meerdere apparaten in het keuzemenu staan. Je kiest een Arduino, start een meting en ziet een lampje branden. Daarna selecteer je een andere Arduino, start een meting en ziet een ander lampje branden, hoe leuk {{feesttoeter}}.
+        Je opent de applicatie en ziet een keuzemenu (`#!py QComboBox`) waarmee je de Arduino kunt selecteren. Je selecteert de juiste Arduino, start een meting en ziet het LED lampje branden. Je sluit de applicatie af en bent benieuwd wat er gebeurt als je meerder Arduino's aansluit. Dus vraag je een (of twee, of drie) Arduino('s) van je buren, sluit deze aan op je computer en start opnieuw de applicatie. Je ziet dat er meerdere apparaten in het keuzemenu staan. Je kiest een Arduino, start een meting en ziet een lampje branden. Daarna selecteer je een andere Arduino, start een meting en ziet een ander lampje branden, hoe leuk {{feesttoeter}}.
 
         !!! info "Arduino afsluiten"
             Als je met meerdere Arduino's werkt kan het handig zijn om na afloop van de scan de communicatie met de Arduino weer te sluiten. In de [_opdracht Pyvisa in terminal_](communicatie.md#opd:pyvisaterminal) heb je al eens gewerkt met het commando `close`. Dit werkt ook voor pyvisa in een script. Je hebt in de controller de communicatie geopend met `#!py self.device = rm.open_resource(port, read_termination="\r\n", write_termination="\n")`, je kunt de communicatie met `self.device` in de controller sluiten met `self.device.close()`. Je kunt een method in de controller toevoegen die de communicatie sluit. Via het model kun je deze method aanroepen in de gui.
