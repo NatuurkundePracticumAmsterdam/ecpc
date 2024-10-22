@@ -9,6 +9,15 @@ We willen je in deze cursus niet alleen maar leren om een snelle meting uit te v
 Jullie gaan aan de slag met een Arduino. De Arduino bevat firmware waarmee het zich gedraagd als een meetinstrument en kan communiceren met de computer volgens een standaardprotocol dat ook geïmplementeerd wordt door onder andere functiegeneratoren en oscilloscopen.
 
 
+## Werk van anderen
+
+Over Python wordt veel geschreven en er zijn tal van (professionele) trainingen die je kunt volgen. Over de hele wereld zijn conferenties en er is vermoedelijk geen universiteit meer te vinden waar Python niet wordt gebruikt. Dit vak is niet in een vacuüm ontstaan. Voordat dit vak in studiejaar 2020-2021 voor het eerst gegeven werd is jarenlang het vak _Experimentautomatisering met LabVIEW_ gegeven aan de Vrije Universiteit door Jan Mulder en Gerrit Kuik. Dit vak is de spirituele opvolger van het LabVIEW-vak. Een website (en boek!) met eenzelfde soort insteek is _Python for the lab_ van Aquiles Carattino.[@python-for-the-lab] Op de website is veel informatie te vinden over hoe je Python gebruikt (slots, singletons, multiprocessing) en met verschillende soorten hardware communiceert (van o.a. National Instruments en Basler). In het boek leer je hoe je een eenvoudig experiment opzet en aanstuurt vanuit Python, heel vergelijkbaar met het eerste deel van deze cursus. Zowel in deze cursus als in het boek is gekozen voor het diode-experiment (project 1 uit het _Arduino Projects Book_ dat meegeleverd wordt met de _Arduino Starter Kit_). Een groot verschil is dat je in deze cursus leert over versiebeheer, command-line interfaces en project management met Poetry.
+
+Voor het eindfeest automatiseren we een zonnecelexperiment. Het idee hiervoor is gebaseerd op het experiment dat we uitvoeren in het eerste jaar. Hoewel hetzelfde eerder gedaan is door o.a. Chenni et al.[@chenni_etal] en Hammoumi et al.[@Hammoumi_2018] met LabVIEW, is de schakeling die in deze cursus gebruikt wordt door ons ontworpen om de noodzaak van een relatief dure stroomsterktesensor te vermijden. Ook wordt de schakeling daardoor fysisch gezien wat interessanter.
+
+Deze cursus is oorspronkelijk opgezet door David Fokkema maar in de jaren daarna door Annelies Vlaar aanzienlijk verbeterd. De cursus heeft nu een veel sterkere focus (minder belangrijke zaken zijn verwijderd) en de opbouw is flink aangepakt. In 2024 heeft Annelies ook een subsidie toegekend gekregen om verschillende studentassistenten zoals Olivier Swaak, Derk Niessink en anderen.
+
+
 ## Notatie
 
 We zullen in deze handleiding vaak Engelse termen gebruiken, ook als Nederlandse termen voorhanden zijn. Bijvoorbeeld: <q>list</q> in plaats van lijst, <q>class</q> in plaats van klasse. Dit omdat deze Engelse termen veel meer ingeburgerd zijn en omdat voor sommige van de Engelse termen geen goede vertalingen zijn. Liever wat consequenter Engelse termen gebruiken dan alles door elkaar!
@@ -57,9 +66,6 @@ In de handleiding staan verschillende opgaves. De meeste zijn bedoeld als oefeni
 
 !!! info
     In sommige programmeercursussen is het de bedoeling dat je een bepaald algoritme _zelf_ schrijft. Je moet bijvoorbeeld een loop schrijven om een reeks berekeningen uit te voeren en mag dan niet gebruik maken van de NumPy-bibliotheek om dat in één regel te doen. Je kunt je voorstellen dat als je straks in een lab werkt dat je _juist_ gebruik wilt maken van bibliotheken die het leven een stuk gemakkerlijker maken. Trek dus alles uit de kast. Kijk eens in de _Python Standard Library_,[@python-standard-library] de _Python Package Index_[@pypi] of _Awesome Python_[@awesome-python].
-
-!!! waarschuwing
-    Er is één uitzondering op bovenstaande regel. Er zijn _Python frameworks_ beschikbaar die specifiek geschreven zijn om makkelijk interfaces voor experimenten te maken. Ze bevatten een groep drivers voor apparatuur van verschillende fabrikanten en beloven dat je met een paar regels code een heel experiment aan elkaar kunt knopen. Hoewel dat een mooie belofte is zijn het bijna alleen maar pakketten die geschreven zijn door een specifiek lab, vóór dat specifieke lab, in de hoop dat het breder toepasbaar wordt. Ze zijn daarmee eigenlijk te specifiek en je moet flink de documentatie induiken als je iets wilt doen dat nog niet bedacht is door de oorspronkelijke auteurs. Daarom worden ze weinig gebruikt en is de kans dat jullie daar later mee gaan werken klein. Liever leren we jullie hoe zo'n pakket in elkaar zit en daarmee ook een beetje hoe je zo'n pakket zelf schrijft. Doe vooral ideeën op, maar __gebruik ze niet__. Als je twijfelt of je een bibliotheek mag gebruiken, overleg dan met je begeleider.
 
 !!! opdracht-basis "Basisopdracht"
     === "opdracht"
