@@ -612,7 +612,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
 
         <div class="grid-tree" markdown>
             <div>
-            We gaan een nieuwe repository aanmaken in de {{folder}}`ECPC` map (zie hiernaast). Maak een Poetry project {{github}}`functionplotter`, voeg die toe aan GitHub Desktop en open hem in Visual Studio Code. Bekijk {{file_lines}}`pyproject.toml` en zorg dat er een commando is aangemaakt om de applicatie te starten. Je {{lightbulb}} maakt een nieuw conda environment aan met alleen Python daarin, gebruikt `poetry install` om het project te installeren en voert het commando uit om de applicatie te starten. Als je applicatie af is verschijnt er een scherm met een plot waarin de functie $\sin(x)$ plot in het domein $(0, 2\pi)$ is weergegeven. Een golfje van trots gaat door je heen en je gaat door naar de volgende opdracht.
+            We gaan een nieuwe repository aanmaken in de {{folder}}`ECPC` map (zie hiernaast). Maak een Poetry project {{github}}`functionplotter`, voeg die toe aan GitHub Desktop {{lightbulb}} en open hem in Visual Studio Code. Bekijk {{file_lines}}`pyproject.toml` en zorg dat er een commando is aangemaakt om de applicatie te starten. Je {{lightbulb}} maakt een nieuw conda environment aan met alleen Python daarin, gebruikt `poetry install` om het project te installeren en voert het commando uit om de applicatie te starten. Als je applicatie af is verschijnt er een scherm met een plot waarin de functie $\sin(x)$ plot in het domein $(0, 2\pi)$ is weergegeven. Een golfje van trots gaat door je heen en je gaat door naar de volgende opdracht.
             </div>
             <div>
             {{folder}} `ECPC`  
