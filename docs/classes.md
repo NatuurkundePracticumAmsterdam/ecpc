@@ -353,7 +353,7 @@ print(master_oogway.quote)
 
         - [x] Class ProjectileMotion
 
-???+ meer-leren "ProjectileMotion raise error"
+???+ meer-leren "ProjectileMotion raise exception"
     Het is niet logisch als de lanceerhoek boven een bepaalde hoek uitkomt of als een negatieve beginsnelheid wordt ingevoerd. Zorg dat in die gevallen een error afgegeven wordt. Meer informatie hierover vind je in de [paragraaf Exceptions](vervolg-python.md#exceptions).
 
 ???+ meer-leren "Subclass"
