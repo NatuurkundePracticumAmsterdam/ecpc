@@ -192,15 +192,53 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
     
 ### NumPy array
 
+Je kunt op verschillende manieren een NumPy array maken (na `#!py import numpy as np`):
+
+* Door een Python lijst te converteren: `#!py np.array([0, 0.5, 1, 1.5, 2])`.
+* Door een array aan te maken met een stapgroote: `#!py np.arange(0, 3, 0.5) # start, stop, step`
+* Door een array aan te maken met getallen gelijkmatig verdeeld over een interval: `#!py np.linspace(0, 2.5, 6) #start, stop, number`
+
+???+ meer-leren "NumPy arrays"
+
+    NumPy arrays zijn vaak handiger dan lists. Als je een array hebt van 20 $x$-waardes in het domein $[0, \pi]$ kun je in één keer alle waardes van $\sin x$ uitrekenen. Bijvoorbeeld:
+    ``` py
+    import numpy as np
+    from numpy import pi
+
+    x = np.linspace(0, pi, 20)
+    y = np.sin(x)
+    ```
+    NumPy voert de berekeningen uit binnen een C-bibliotheek[^C] en is daarmee veel sneller dan een berekening in Python zelf:
+
+    [^C]: De programmertaal C ligt dichter bij machinetaal dan Python en is daarmee veel sneller maar ook veel minder geavanceerd.
+
+    ``` py
+    import math
+    x = [0.00, 1.05, 2.09, 3.14, 4.19, 5.24, 6.28]
+    y = []
+    for u in x:
+        y.append(math.sin(u))
+    ```
+    Niet alleen is NumPy zo'n honderd keer sneller,[^numpy] het is ook veel korter op te schrijven. Het nadeel van NumPy arrays is dat je geen elementen kunt toevoegen.[^arrays] Python lijsten hebben dus voordelen, zeker als rekentijd geen probleem voor je is.
+
+    [^numpy]:Echt. De sinus van 2000 $x$-waardes berekenen kostte NumPy in een test 11.6$\micro$s en de for-loop wel 1357.7$\micro$s.
+    [^arrays]:Strikt genomen is dit niet helemaal waar. Je kunt een nieuwe array creëren door meerdere arrays aan elkaar te plakken. Maar een eenvoudige `#!py append()`-method bestaat niet voor arrays.
+
+    Als je veel functies uit NumPy gebruikt is het handig – en gebruikelijk – om je import-statements kort te houden en duidelijk te maken dat je de `#!py sin()`-functie uit NumPy gebruikt en niet uit de `#!py math` module. Constantes worden wel vaak los geïmporteerd. Daarom is dit dus gebruikelijk:
+    ``` py
+    import numpy as np
+    from numpy import pi
+
+    x = np.linspace(0, pi, 100)
+    y = np.sin(x)
+    ```
+
 !!! opdracht-basis "np.array"
-    Doe hetzelfde als de vorige opdracht, maar nu met NumPy arrays.
+    Doe hetzelfde als de vorige opdracht met lists, maar nu met NumPy arrays:
 
-    !!! info "NumPy arrays"
-        Je kunt op verschillende manieren een NumPy array maken:
-
-        * Door een Python lijst te converteren: `#!py numpy.array([0, 0.5, 1, 1.5, 2])`.
-        * Door een array aan te maken met een stapgroote: `#!py numpy.arange(0, 3, 0.5) # start, stop, step`
-        * Door een array aan te maken met getallen gelijkmatig verdeeld over een interval: `#!py numpy.linspace(0, 2.5, 6) #start, stop, number`
+    1. Maak een `#!py np.array` van de wortels van de getallen 1 tot en met 10. Dus de rij $\left(\sqrt{1}, \sqrt{2}, \sqrt{3}, \ldots, \sqrt{10}\right)$.
+    1. Print die rij onder elkaar (één getal per regel, met drie decimalen).
+    1. Geef weer of het getal 3 voorkomt in die rij en geef weer of het getal 4 voorkomt in die rij.
 
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="np_array.py" onclick="runScript('np_array.py')" class="run">{{ run }}</button><button type="button" name="np_array.py" onclick="runScript('np_array.py')" class="reload invisible">{{ reload }}</button> np_array.py
@@ -223,38 +261,6 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
         does number 4 appears in the list of squares? False</span>
         </code></pre></div>
 
-???+ meer-leren "NumPy arrays"
-
-    NumPy arrays zijn vaak handiger dan lists. Als je een array hebt van 20 $x$-waardes in het domein $[0, \pi]$ kun je in één keer alle waardes van $\sin x$ uitrekenen. Bijvoorbeeld:
-    ``` py
-    from numpy import pi, linspace, sin
-    x = linspace(0, pi, 20)
-    y = sin(x)
-    ```
-    NumPy voert de berekeningen uit binnen een C-bibliotheek[^C] en is daarmee veel sneller dan een berekening in Python zelf:
-
-    [^C]: De programmertaal C ligt dichter bij machinetaal dan Python en is daarmee veel sneller maar ook veel minder geavanceerd.
-
-    ``` py
-    from math import sin
-    x = [0.00, 1.05, 2.09, 3.14, 4.19, 5.24, 6.28]
-    y = []
-    for u in x:
-        y.append(sin(u))
-    ```
-    Niet alleen is NumPy zo'n honderd keer sneller,[^numpy] het is ook veel korter op te schrijven. Het nadeel van NumPy arrays is dat je geen elementen kunt toevoegen.[^arrays] Python lijsten hebben dus voordelen, zeker als rekentijd geen probleem voor je is.
-
-    [^numpy]:Echt. De sinus van 2000 $x$-waardes berekenen kostte NumPy in een test 11.6$\micro$s en de for-loop wel 1357.7$\micro$s.
-    [^arrays]:Strikt genomen is dit niet helemaal waar. Je kunt een nieuwe array creëren door meerdere arrays aan elkaar te plakken. Maar een eenvoudige `#!py append()`-method bestaat niet voor arrays.
-
-    Als je veel functies uit NumPy gebruikt is het handig -- en gebruikelijk -- om je import-statements kort te houden en duidelijk te maken dat je de `#!py sin()`-functie uit NumPy gebruikt en niet uit de `#!py math` module. Constantes worden wel vaak los geïmporteerd:
-    ``` py
-    import numpy as np
-    from numpy import pi
-
-    x = np.linspace(0, pi, 100)
-    y = np.sin(x)
-    ```
 
 
 

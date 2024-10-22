@@ -1,12 +1,12 @@
 import numpy as np
 
-# Make an array from 1 to
+# Make an array from 1 to 10
 numbers = np.arange(1, 11, 1)
 
-# Take the squareroot of range 1 to 10
+# Take the squareroot of each number
 squareroot = np.sqrt(numbers)
 
-# print the list of squareroots below each other with three decimal places
+# Print the list of squareroots below each other with three decimal places
 for root in squareroot:
     print(f"{root:.3f}")
 
