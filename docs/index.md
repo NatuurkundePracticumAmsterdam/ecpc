@@ -15,7 +15,7 @@ Over Python wordt veel geschreven en er zijn tal van (professionele) trainingen 
 
 Voor het eindfeest automatiseren we een zonnecelexperiment. Het idee hiervoor is gebaseerd op het experiment dat we uitvoeren in het eerste jaar. Hoewel hetzelfde eerder gedaan is door o.a. Chenni et al.[@chenni_etal] en Hammoumi et al.[@Hammoumi_2018] met LabVIEW, is de schakeling die in deze cursus gebruikt wordt door ons ontworpen om de noodzaak van een relatief dure stroomsterktesensor te vermijden. Ook wordt de schakeling daardoor fysisch gezien wat interessanter.
 
-Deze cursus is oorspronkelijk opgezet door David Fokkema maar in de jaren daarna door Annelies Vlaar aanzienlijk verbeterd. De cursus heeft nu een veel sterkere focus (minder belangrijke zaken zijn verwijderd) en de opbouw is flink aangepakt. In 2024 heeft Annelies ook een subsidie toegekend gekregen om verschillende studentassistenten zoals Olivier Swaak, Derk Niessink en anderen.
+Deze cursus is oorspronkelijk opgezet door David Fokkema maar in de jaren daarna door Annelies Vlaar aanzienlijk verbeterd. De cursus heeft nu een veel sterkere focus (minder belangrijke zaken zijn verwijderd) en de opbouw is flink aangepakt. In 2024 heeft Annelies ook een subsidie toegekend gekregen om verschillende studentassistenten zoals Olivier Swaak, Derk Niessink, Amin Rouan Serik, Thijs de Zeeuw en Fijke Oei.
 
 
 ## Notatie
