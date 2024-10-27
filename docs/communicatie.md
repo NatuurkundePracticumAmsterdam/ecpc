@@ -19,7 +19,7 @@ Een Arduino is zo'n microcontroller. Vaak wordt een Arduino vergeleken met een R
 Hoe praat je eigenlijk met hardware? Voor fabrikanten zijn er een paar opties:
 
 1. Je maakt gebruik van een al bestaand protocol (een bestaande _standaard_ en je schrijft vervolgens documentatie specifiek voor jouw instrument (bijvoorbeeld de VISA-standaard [@VISA], o.a. gebruikt door _Tektronix_ digitale oscilloscopen [@tektronix])
-1. Je schrijft een _proprietary_[^proprietary] protocol en een bijbehorende bibliotheek die software-ontwikke\-laars moeten gebruiken.[^drivers] Voorbeelden zijn instrumenten van _National Instruments_ [@national_instruments] of de _PicoScope_ digitale oscilloscopen[^picoscope] [@picoscope].
+1. Je schrijft een _proprietary_[^proprietary] protocol en een bijbehorende bibliotheek die software-ontwikkelaars moeten gebruiken.[^drivers] Voorbeelden zijn instrumenten van _National Instruments_ [@national_instruments] of de _PicoScope_ digitale oscilloscopen[^picoscope] [@picoscope].
 
 [^proprietary]: _Proprietary_ betekent dat een bedrijf of individu exclusieve de rechten heeft over het protocol of de software en anderen geen toegang geeft tot de details.
 [^drivers]: Niet zelden zijn dergelijke bibliotheken maar op een paar besturingssystemen beschikbaar als _driver_. Gebruik je MacOS in plaats van Windows en het wordt alleen op Windows ondersteund? Dan kun je je dure meetinstrument dus niet gebruiken totdat je overstapt.
@@ -150,7 +150,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 
 !!! opdracht-basis "Pyvisa `list` en `open`"
     === "opdracht"
-        Je bekijkt het lijstje met aangesloten aparaten door in de `pyvisa-shell` het commando `list` te typen. Je haalt de USB-kabel waarmee de Arduino aan de computer is aangesloten uit de computer en vraagt nogmaals de lijt met aangesloten aparaten op. Nu weet je welke poort de Arduino is. Je bekijkt de help tekst van het commando `open`, daarna open je de communicatie met de Arduino.
+        Je bekijkt het lijstje met aangesloten aparaten door in de `pyvisa-shell` het commando `list` te typen. Je haalt de USB-kabel waarmee de Arduino aan de computer is aangesloten uit de computer en vraagt nogmaals de lijst met aangesloten apparaten op. Nu weet je welke poort de Arduino is. Je bekijkt de help tekst van het commando `open`, daarna open je de communicatie met de Arduino.
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
@@ -266,7 +266,7 @@ We gaan nu het gebruik van de karakters instellen in Pyvisa:
 
 !!! opdracht-basis "Pyvisa regeleindes"
     === "opdracht"
-        Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je dit moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige regeleinde instellingen op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Je bekijkt nog een keer de regeleinde instellingen om te controlleren of ze nu wel goed staan. Je gaat terug naar de [opdracht Pyvisa `query`](#opd:pyvisa_query) en krijgt een response in plaats van een error. 
+        Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je dit moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige regeleinde instellingen op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Je bekijkt nog een keer de regeleinde instellingen om te controleren of ze nu wel goed staan. Je gaat terug naar de [opdracht Pyvisa `query`](#opd:pyvisa_query) en krijgt een response in plaats van een error. 
 
         !!! info "\r\n en CRLF"
             Bij de _Termination Characters demo_ maakten we gebruik van `\r\n` dat is de programmeertaal equivalent van `CRLF`.
@@ -294,8 +294,8 @@ We gaan nu het gebruik van de karakters instellen in Pyvisa:
         **Checkpunten:**
 
         - [ ] De _read_ regeleindes staan ingesteld op CRLF.
-        - [ ] De _write_ regeleinds staan ingesteld op LF.
-        - [ ] Als je met het commando `termchar` de instellingen van de regeleindes opvraag staat er:
+        - [ ] De _write_ regeleindes staan ingesteld op LF.
+        - [ ] Als je met het commando `termchar` de instellingen van de regeleindes opvraagt staat er:
 
         ``` consolecode
         Termchar read: CRLF write: LF
@@ -418,7 +418,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Je gaat de gegeven Python code testen daarom open je in Visual Studio Code de map {{folder}}`ECPC` en maakt een bestand {{new_file}}`test_arduino.py` aan. Je kopieert de Python code in het bestand. Je ziet dat de code gebruikt maakt van de package `pyvisa` daarom selecteer je de environment die je bij [opdracht Environment aanmaken](#opd:condaenv) hebt gemaakt. Je slaat het bestand op en runt het bestand.
+            Je gaat de gegeven Python code testen daarom open je in Visual Studio Code de map {{folder}}`ECPC` en maakt een bestand {{new_file}}`test_arduino.py` aan. Je kopieert de Python code in het bestand. Je ziet dat de code gebruik maakt van de package `pyvisa` daarom selecteer je de environment die je bij [opdracht Environment aanmaken](#opd:condaenv) hebt gemaakt. Je slaat het bestand op en runt het bestand.
             </div>
             <div>
             {{folder}}`ECPC`  
@@ -460,7 +460,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Checkpunten:**
 
         - [ ] Je hebt het juiste conda environment geselecteerd (zie ook [paragraaf _Conda environments_](software-tools.md#conda-environments)).
-        - [ ] Je hebt het de juiste naam van de Arduino in het script aangepast (als jouw Arduino niet 'ASRL28::INSTR' heet).
+        - [ ] Je hebt de juiste naam van de Arduino in het script gebruikt (als jouw Arduino niet 'ASRL28::INSTR' heet).
         - [ ] Je hebt alle terminals (ook Anaconda Prompt) gesloten waarin communicatie met de Arduino open stond. 
 
         **Projecttraject:**
@@ -514,11 +514,11 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Checkpunten:**
 
         - [ ] Je hebt het juiste conda environment geselecteerd (zie ook [paragraaf _Conda environments_](software-tools.md#conda-environments)).
-        - [ ] Je hebt het de juiste naam van de Arduino in het script aangepast (als jouw Arduino niet 'ASRL28::INSTR' heet).
+        - [ ] Je hebt de juiste naam van de Arduino in het script gebruikt (als jouw Arduino niet 'ASRL28::INSTR' heet).
         - [ ] Je hebt alle terminals (ook Anaconda Prompt) gesloten waarin communicatie met de Arduino open stond. 
         - [ ] Je laat de spanning oplopen van de minimale tot de maximale waarde. 
         - [ ] Als je goed kijkt zie je de LED vertraagd oplichten.
-        - [ ] Als je de waarde op kanaal 0 opvraagd aan het eind van de reeks met `OUT:CH0?` krijg je `1023` terug.
+        - [ ] Als je de waarde op kanaal 0 opvraagt aan het eind van de reeks met `OUT:CH0?` krijg je `1023` terug.
 
         **Projecttraject:**
 
@@ -577,7 +577,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Checkpunten:**
 
         - [ ] De LED staat een tijd aan en een tijd uit.
-        - [ ] Het aan en uitgaan van de LED herhaald zich enkele keren.
+        - [ ] Het aan en uitgaan van de LED herhaalt zich enkele keren.
 
         **Projecttraject:**
 

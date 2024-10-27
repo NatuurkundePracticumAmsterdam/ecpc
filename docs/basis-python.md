@@ -78,9 +78,9 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
     
     Bij het programmeren krijg je vaak errors. Bij het debuggen van een loop zijn twee dingen heel handig `#!py print` en `#!py break`.
 
-    1. Gebruik `#!py print` om het voltage te printen in the while-loop, doe dit handig met f-strings zodat je weet wat je je print bijvoorbeeld: "The voltage is set to 0 mV."
+    1. Gebruik `#!py print` om het voltage te printen in de while-loop, doe dit handig met f-strings zodat je weet wat je print, bijvoorbeeld: "The voltage is set to 0 mV."
     1. Gebruik dan `#!py break` om de loop maar een keer te laten lopen. 
-    1. Schrijf de code om waarbij je gebruikt maakt van een `#!py for`-loop. 
+    1. Schrijf de code om, waarbij je gebruikt maakt van een `#!py for`-loop. 
 
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="print_and_break.py" onclick="runScript('print_and_break.py')" class="run">{{ run }}</button><button type="button" name="print_and_break.py" onclick="runScript('print_and_break.py')" class="reload invisible">{{ reload }}</button> print_and_break.py
@@ -138,7 +138,7 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
 ## List
 
 !!! opdracht-basis "lijsten"
-    1. Schrijf een python script waarin je een lijst definieerd met de namen van de maanden.
+    1. Schrijf een python script waarin je een lijst definieert met de namen van de maanden.
     1. Print de negende maand.
     1. Voeg een dertiende maand toe aan de lijst.
     ??? uitwerkingen
@@ -158,9 +158,9 @@ Bij inleiding programmeren heb je ook geleerd hoe je code netjes opschrijft zoda
 
 - Schrijf code in het Engels.
 - `#!py def functie_namen_met_doel():` Namen van functies mogen lang zijn, maar geven duidelijk weer wat de functie doet.
-- `#!py korte_variabele = 28` de namen van variabele houd je kort en duidelijk. Gebruik alleen afkortingen waarneer deze door veel mensen gekend zijn.
-- Je hoeft de code niet met de hand over te schrijven dus gebruik liever meer regels dan een hele lange regel waar meer dan 1 ding gebeurd.
-- Gebruik `#!py #commentaar-kopjes` om een stukje code samen te vatten, een waarschuwing te geven, uitleg van complexe algoritmen te doen, voor bronvermelding, uitleg van een variabele te geven en zet dit altijd boven het stukje code waar het omgaat. 
+- `#!py korte_variabele = 28` de namen van variabelen houd je kort en duidelijk. Gebruik alleen afkortingen wanneer deze bij veel mensen bekend zijn.
+- Je hoeft de code niet met de hand over te schrijven dus gebruik liever meer regels dan een hele lange regel waar meer dan 1 ding gebeurt.
+- Gebruik `#!py #commentaar-kopjes` om een stukje code samen te vatten, een waarschuwing te geven, uitleg van complexe algoritmen te doen, voor bronvermelding of uitleg van een variabele te geven en zet dit altijd boven het stukje code waar het om gaat. 
 - Spring in waar nodig, gebruik witregels, zet spaties rondom operatoren.
 
 ## Modules

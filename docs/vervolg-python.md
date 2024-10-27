@@ -1,6 +1,6 @@
 # Uitgebreidere Python kennis
 
-Python is een _batteries included_ taal. Dat betekent dat als je 'kaal' Python installeert er al heel veel functionaliteit standaard meegeleverd wordt. Allereerst omdat de taal zelf al behoorlijk krachtig is, maar ook omdat de _standaardbibliotheek_ zeer uitgebreid is. Met een eenvoudig `#!py import`-statement haal je extra functionaliteit binnen, onder andere op het gebied van datatypes, wiskunde, toegang tot bestanden, een database, datacompressie, cryptografie, netwerktoegang, e-mail, multimedia, etc. Nog veel meer bibliotheken zijn beschikbaar via de _Python Package Index_[@pypi].
+Python is een _batteries included_ taal. Dat betekent dat er al heel veel functionaliteit standaard meegeleverd wordt als je 'kaal' Python installeert. Allereerst omdat de taal zelf al behoorlijk krachtig is, maar ook omdat de _standaardbibliotheek_ zeer uitgebreid is. Met een eenvoudig `#!py import`-statement haal je extra functionaliteit binnen, onder andere op het gebied van datatypes, wiskunde, toegang tot bestanden, een database, datacompressie, cryptografie, netwerktoegang, e-mail, multimedia, etc. Nog veel meer bibliotheken zijn beschikbaar via de _Python Package Index_[@pypi].
 
 In dit hoofdstuk behandelen we de kennis die nuttig kan zijn voor de rest van deze cursus[^python3]. Een deel van wat we hier behandelen kan al bekend zijn uit eerdere cursussen. Een ander deel is nieuw.[^zelf_programmeren]
 
@@ -9,7 +9,7 @@ In dit hoofdstuk behandelen we de kennis die nuttig kan zijn voor de rest van de
 
 In de cursus gaan we bibliotheken (_modules, packages_) en een applicatie ontwikkelen. Dat betekent dat we verder gaan dan het schrijven van _scripts_ en dat we dus meer gaan doen dan functies schrijven. Uiteindelijk moet het mogelijk zijn de software te verspreiden op een wat meer professionele manier. Dus niet alleen via een zipje met wat Pythonbestanden waar uiteindelijk verschillende versies van rondslingeren en die lastig zijn te updaten. Wat er nodig is voor een goede distributie van software en om het mogelijk te maken met meerdere mensen software te (blijven) ontwikkelen zal in deze cursus aan bod komen.
 
-Een punt wat vaak onderschoven blijft is _documentatie_. Als je software schrijft die gebruikt (en doorontwikkeld) wordt in een onderzoeksgroep, dan is het heel belangrijk dat iedereen kan begrijpen wat je software doet en hoe die uitgebreid kan worden. Het is zonder hulp vaak heel moeilijk om de code van een iemand anders te begrijpen. En in de praktijk blijkt heel vaak dat als je code schrijft en daar een paar weken of maanden later op terugkijkt, jij zélf die ander bent. Wat toen blijkbaar heel logisch leek, is dat later toch niet meer. Dus documentatie schrijf je heel vaak ook gewoon voor jezelf.
+Een punt wat vaak ondergeschoven blijft is _documentatie_. Als je software schrijft die gebruikt (en doorontwikkeld) wordt in een onderzoeksgroep, dan is het heel belangrijk dat iedereen kan begrijpen wat je software doet en hoe die uitgebreid kan worden. Het is zonder hulp vaak heel moeilijk om de code van een iemand anders te begrijpen. En in de praktijk blijkt heel vaak dat jij zélf die ander bent als je code schrijft en daar een paar weken of maanden later op terugkijkt. Wat toen blijkbaar heel logisch leek, is dat later toch niet meer. Dus documentatie schrijf je heel vaak ook gewoon voor jezelf.
 
 Als je niet zo heel veel in Python geprogrammeerd hebt kan het helpen om de [paragraaf _Basiskennis Python_](basis-python.md#basiskennis-python)[@inl_prog] door te nemen. Een boek dat zeker bij natuurkundigen in de smaak kan vallen is _Effective Computation in Physics_[@eff_comp_physics], maar deze is niet gratis verkrijgbaar. Een boek dat zowel op papier te bestellen is als in de vorm van een pdf of webpagina is te lezen is _Think Python_.[@think_python]
 
@@ -155,7 +155,7 @@ Hier maken we gebruik van de `#!py enumerate(iterable, start=0)`-functie en f-st
 Gehele getallen, kommagetallen, strings: allemaal voorbeelden van _datatypes_. Veel zullen jullie al wel bekend voorkomen, zoals strings, lists en NumPy arrays. Andere zijn misschien alweer wat weggezakt, zoals dictionaries of booleans. Weer andere zijn misschien wat minder bekend, zoals complexe getallen of sets. En als laatste voegt Python af en toe nieuwe datatypes toe, zoals _f-strings_ in Python 3.6 of _data classes_ sinds Python 3.7.
 
 !!! info
-    De _python-standard-library_ documentatie [@python-standard-library] bevat een mooi overzicht van alle datatypes met een beschrijving van operaties en eigenschappen. Voor uitgebreidere tutorials kun je vaak terecht bij _real-python_ [@real-python]. Het kan makkelijk zijn om in een zoekmachine bijvoorbeeld `real python dict` te typen als je een tutorial zoekt over Python dictionaires.
+    De _python-standard-library_ documentatie [@python-standard-library] bevat een mooi overzicht van alle datatypes met een beschrijving van operaties en eigenschappen. Voor uitgebreidere tutorials kun je vaak terecht bij _real-python_ [@real-python]. Het kan makkelijk zijn om in een zoekmachine bijvoorbeeld `real python dict` te typen als je een tutorial zoekt over Python dictionaries.
 
 Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
 
@@ -262,7 +262,7 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
 
     ### Dictionaries
 
-    Dictionaries zijn een bijzonder handige manier om informatie op te slaan. Een dictionary bestaat uit een of meerder key-value tweetallen. Met een handige gekozen naam voor de key kan je betekenis geven aan een value. 
+    Dictionaries zijn een bijzonder handige manier om informatie op te slaan. Een dictionary bestaat uit een of meerder key-value tweetallen. Met een handig gekozen naam voor de key kan je betekenis geven aan een value. 
 
     !!! opdracht-meer "dict"
         Schrijf een kort scriptje:
@@ -430,7 +430,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     
     ## Lambda functions
 
-    In Python zijn functies ook objecten. Je kunt ze bewaren in een lijst of dictionary, of je kunt ze meegeven als parameter aan een andere functie. Dat kan heel handig zijn! Stel je hebt een lijst met verschillende soorten fruit die je wilt sorteren op alfabet:
+    In Python zijn functies ook objecten. Je kunt ze bewaren in een lijst of dictionary, of je kunt ze meegeven als parameter aan een andere functie. Dat kan heel handig zijn! Stel je hebt een lijst met verschillende soorten fruit die je wilt sorteren op alfabetische volgorde:
     ``` py
     a = ["kiwi", "banana", "apple"]
     print(sorted(a))
@@ -892,7 +892,7 @@ Het `#!py if __name__ == '__main__'`-statement wordt heel veel gebruikt in Pytho
     1. Run {{file}}`just_count.py` met het `#!py if __name__ == '__main__'`-statement.
     1. Voeg `#!py print(f"{__name__ = }")` toe bovenaan {{file}}`square.py`. 
     1. Run {{file}}`square.py` en kijk wat `#!py __name__` is.
-    1. Run dan nu {{file}}`just_count.py`. Zie hoe de speciale variabele `#!py __name__` veranderd. 
+    1. Run dan nu {{file}}`just_count.py`. Zie hoe de speciale variabele `#!py __name__` verandert. 
 
 
 ## Packages
@@ -952,10 +952,10 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
     In deze opdracht ga je oefenen met het aanmaken van packages, modules en het importeren en aanroepen daarvan.
     
     1. Maak in de map {{folder}}`ECPC` een package {{folder}}`models` met twee modules: {{file}}`polynomials` en {{file}}`tests`.
-    1. In de `#!py polynomials`-module maak je een functie `#!py line(x, a, b)` die de de vergelijking voor een lijn voor ons berekent: $y = ax + b$.
+    1. In de `#!py polynomials`-module maak je een functie `#!py line(x, a, b)` die de vergelijking voor een lijn voor ons berekent: $y = ax + b$.
     1. In de `#!py tests`-module maak je een functie `#!py test_line()` die het volgende doet:
             
-        1. gebruik de `#!py line()`-functie uit de `#!py polynomials`-module om de $y$-waarde uit te rekenen voor een bepaald punt bij een gegeven $a$ en $b$.
+        1. Gebruik de `#!py line()`-functie uit de `#!py polynomials`-module om de $y$-waarde uit te rekenen voor een bepaald punt bij een gegeven $a$ en $b$.
         1. Vergelijk die berekende waarde met de waarde die het volgens jou moet zijn (met de hand nagerekend).
         1. Print `TEST PASSED` als het klopt, en `TEST FAILED` als het niet klopt.
             
@@ -1015,7 +1015,7 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 
     !!! opdracht-basis "Standard Library"
 
-        1. Zoek de The Python Standard Library lijst op in bijvoorbeeld de Python documentatie. 
+        1. Zoek The Python Standard Library lijst op in bijvoorbeeld de Python documentatie. 
         1. Welke bibliotheken heb je al eerder gebruik van gemaakt?
         1. Kies een bibliotheek uit die jouw aandacht trekt en neus door de documentatie.
         1. Ga terug naar de lijst en bekijk de Built-in functions, welke functie kende je nog niet maar lijkt je wel heel handig?
@@ -1082,7 +1082,7 @@ Merk op dat je een exception met traceback meestal van onder naar boven leest. O
     ??? uitwerkingen
         * Python geeft een TypeError terug.
         * Het probleem zit in regel 3: `#!py print(number_input * number_multiply)`
-        * De functie `#!py input()` geeft een string terug. Daardoor is `#!py number_input` ook een string. Een string behoort tot het type *sequences*. Het is een reeks van elementen, '28' is een reeks van '2' en '8', 'abc' is een reeks van 'a', 'b' en 'c' en ook [0,1,2] is reeks van '0', '1', '2'. Zelfs als je in dit script het getal 8 zou invoeren dan is number_input een sequence met maar een element: '8'. Een sequence kan je vermenigvuldigen, maar niet met en float, alleen met een interger. Kijk maar eens wat er gebeurd als je `#!py number_multiply = 3` neerzet. Wat gebeurd er als je 'abc' met 3 vermenigvuldigd? En kun je ook 3 * [0,1,2] printen? 
+        * De functie `#!py input()` geeft een string terug. Daardoor is `#!py number_input` ook een string. Een string behoort tot het type *sequences*. Het is een reeks van elementen, '28' is een reeks van '2' en '8', 'abc' is een reeks van 'a', 'b' en 'c' en ook [0,1,2] is reeks van '0', '1', '2'. Zelfs als je in dit script het getal 8 zou invoeren dan is number_input een sequence met maar een element: '8'. Een sequence kan je vermenigvuldigen, maar niet met een float, alleen met een interger. Kijk maar eens wat er gebeurt als je `#!py number_multiply = 3` neerzet. Wat gebeurt er als je 'abc' met 3 vermenigvuldigd? En kun je ook 3 * [0,1,2] printen? 
 
 
 ???+ meer-leren "Exceptions afvangen"
