@@ -8,6 +8,14 @@ svg.dropdown_icon:hover {
     fill: yellow;
 }
 
+span.lightbulb {
+    transition: 0.3s;
+}
+
+span.lightbulb:hover {
+    color: #FFD700;
+}
+
 .dropdown_container {
     display: flex;
     /* float: right; */
