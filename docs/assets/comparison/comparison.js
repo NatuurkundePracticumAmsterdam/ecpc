@@ -45,7 +45,12 @@ function hoverFunction(id, trigger_bool=true) {
     start = new Date();
     if (trigger_bool) {
         hoverbool = !hoverbool;
+        console.log(hoverbool)
     }
+}
+
+function disableAnimation() {
+    start = new Date();
 }
 
 function comparisonIdleAnimation() {
@@ -60,8 +65,12 @@ function comparisonIdleAnimation() {
         if (currentUrl.includes('classes')) {
             // highlight next compared elements in list for 2 s
             hover_target = target_list_function_class[targetindex % 6];
-            hoverFunction(hover_target);
-            setTimeout(hoverFunction, 2500, hover_target);
+            hoverFunction(hover_target, false);
+            setTimeout(disableAnimation, 500);
+            setTimeout(disableAnimation, 1000);
+            setTimeout(disableAnimation, 1500);
+            setTimeout(disableAnimation, 2000);
+            setTimeout(hoverFunction, 2500, hover_target, false);
             
             hover_target = target_list_function_class_body[targetindex % 2];
             hoverFunction(hover_target, false);
@@ -71,8 +80,13 @@ function comparisonIdleAnimation() {
         } else if (currentUrl.includes('communicatie')) {
             // highlight next compared elements in list for 2 s
             hover_target = target_list_shell_script[targetindex % 15];
-            hoverFunction(hover_target);
-            setTimeout(hoverFunction, 3000, hover_target);
+            hoverFunction(hover_target, false);
+            setTimeout(disableAnimation, 500);
+            setTimeout(disableAnimation, 1000);
+            setTimeout(disableAnimation, 1500);
+            setTimeout(disableAnimation, 2000);
+            setTimeout(disableAnimation, 2500);
+            setTimeout(hoverFunction, 3000, hover_target, false);
 
             targetindex += 1;
         }
