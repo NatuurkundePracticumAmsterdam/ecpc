@@ -12,7 +12,7 @@ De code is terug te vinden in de repository {{github}}`/davidfokkema/arduino-vis
 <div id="tab:firmware"></div>
 |  Commando            |  Beschrijving                                                                                                                                                               |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `*IDN?`              | Geeft informatie over de hardware.                                                                                                                                          |
+| `*IDN?`              | Geeft de identificatiestring van de firmware.                                                                                                                                          |
 | <div style="white-space: nowrap">`OUT:CH<ch> <value>`</div> | Zet een specifieke spanning `<value>` op uitvoerkanaal `<ch>`. Waardes mogen liggen tussen 0 (minimale spanning) en 1023 (maximale spanning). __Voorbeeld:__ `OUT:CH0 1023` |
 | `OUT:CH<ch>?`        | Geef de huidige instelling voor de spanning terug op uitvoerkanaal `<ch>` in het bereik 0 tot 1023. __Voorbeeld:__ `OUT:CH0?`                                               |
 | `MEAS:CH<ch>?`       | Meet de spanning op invoerkanaal `<ch>` in het bereik 0 tot 1023. __Voorbeeld:__ `MEAS:CH1?`                                                                                |
