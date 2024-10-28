@@ -293,6 +293,7 @@ We gaan nu het gebruik van de karakters instellen in Pyvisa:
     === "check"
         **Checkpunten:**
 
+        - [ ] De regeleindes zijn ingesteld met het commando `termchar` daarna een spatie, vervolgens de karakters voor de read thermchar, dan weer een spatie en daarachter de karakters voor de write termchar. 
         - [ ] De _read_ regeleindes staan ingesteld op CRLF.
         - [ ] De _write_ regeleinds staan ingesteld op LF.
         - [ ] Als je met het commando `termchar` de instellingen van de regeleindes opvraag staat er:
