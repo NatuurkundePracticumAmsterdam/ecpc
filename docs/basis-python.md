@@ -13,7 +13,7 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
 ## F-strings, variabelen en input()
 
 !!! opdracht-basis "f-strings, variabelen en input"
-    1. Maak een bestand {{new_file}}`diameter.py` in de map {{folder}}`ECPC`.  
+    1. Maak een bestand {{new_file}}`diameter-ball.py` in de map {{folder}}`ECPC`.  
     {{new_folder}} `ECPC`  
     {{L}} {{new_file}} `diameter.py`  
     1. Schrijf een stuk code waarin je de gebruiker vraagt wat de diameter van de bal is. 
