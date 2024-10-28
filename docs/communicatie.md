@@ -131,7 +131,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 
         - [ ] Na het openen van een `pyvisa-shell` staat er (visa) tussen haakjes.
         - [ ] Als je `help` intypt verschijnt een heel rijtje met commando's.
-        - [ ] Als je `help EOF` intypt krijg je de hulpvaardige tekst (ahum): `Handle an EOF.`
+        - [ ] Als je `help exit` intypt krijg je de hulpvaardige tekst: `Exit the shell session.`
         - [ ] Als je de pyvisa-shell met een commando afsluit staat de naam van het conda environment weer tussen haakjes (en niet visa).
        
         **Projecttraject:**
