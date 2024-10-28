@@ -274,11 +274,11 @@ We gaan nu het gebruik van de karakters instellen in Pyvisa:
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
-        # help termchar
-        # termchar settings?
-        # read = CRLF and write = LF
-        # termchar settings?
-        # query identificationstring
+        # get help text of termchar
+        # what are the termchar settings?
+        # make read = CRLF and write = LF
+        # check if termchar settings are correct
+        # send query to get identificationstring
         ```
         **Testcode**
         <pre><code>(open) > help termchar <button type="button" name="help termchar" onclick="runScript('help termchar')">{{ enter }}</button><button type="button" name="help termchar" onclick="runScript('help termchar')" class="invisible">{{ reload }}</button>
