@@ -957,7 +957,7 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 !!! opdracht-basis "Packages"
     In deze opdracht ga je oefenen met het aanmaken van packages, modules en het importeren en aanroepen daarvan.
     
-    1. Maak in de map {{folder}}`ECPC` een package {{folder}}`models` met twee modules: {{file}}`polynomials` en {{file}}`tests`.
+    1. Maak in de map {{folder}}`ECPC` een package {{folder}}`models` met twee modules: {{file}}`polynomials.py` en {{file}}`tests.py`.
     1. In de `#!py polynomials`-module maak je een functie `#!py line(x, a, b)` die de de vergelijking voor een lijn voor ons berekent: $y = ax + b$.
     1. In de `#!py tests`-module maak je een functie `#!py test_line()` die het volgende doet:
             
