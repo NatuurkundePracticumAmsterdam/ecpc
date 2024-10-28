@@ -105,10 +105,10 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
-        # open pyvisa-shell
-        # pyvisa-hell help
-        # commando help
-        # close pyvis-shell
+        # open pyvisa-shell with python backend
+        # check help of pyvisa-shell
+        # check help of exit command
+        # shut down the pyvis-shell
 
         ```
         **Testcode**
@@ -200,7 +200,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
-        # query identificationstring
+        # send query to get identificationstring 
         ```
         **Testcode**
         <pre><code>(open) > query gappie <button type="button" name="query gappie" onclick="runScript('query gappie')">{{ enter }}</button><button type="button" name="query gappie" onclick="runScript('query gappie')" class="invisible">{{ reload }}</button>
