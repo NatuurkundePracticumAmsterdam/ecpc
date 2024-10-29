@@ -530,7 +530,7 @@ Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog ma
     {{L}} {{dots}}  
     1. In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan[^overleg-navigeren] en type in:
             ``` ps1 title="Terminal"
-            pyside6-uic simple_app.ui --outputui_simple_app.py  
+            pyside6-uic simple_app.ui --output ui_simple_app.py  
             ```
             Deze stap moet je doen elke keer als je in Designer iets wijzigt. Gebruik de ++up++-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met Poetry, zullen we dit eenvoudiger maken.  
     {{folder}} `ECPC`  
@@ -757,7 +757,7 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
         ``` toml
         [tool.poe.tasks.compile]
         shell = """
-        pyside6-uic src/pythondaq/mainwindow.ui --outputsrc/pythondaq/ui_mainwindow.py
+        pyside6-uic src/pythondaq/mainwindow.ui --output src/pythondaq/ui_mainwindow.py
         """
         interpreter = ["posix", "powershell"]
         ```
