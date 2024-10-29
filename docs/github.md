@@ -93,6 +93,7 @@ Dit kan in GitHub Desktop, maar ook direct vanuit Visual Studio Code. Elke commi
         1. Open in Visual Studio Code één van je Pythonscripts.
         1. Type een stukje code erbij &mdash; bijvoorbeeld een print-statement &mdash; en haal ergens anders iets weg. Bewaar het bestand.
         1. Ga naar GitHub Desktop, controleer bij *Current repository* (links onder de menubalk) of de juiste repository is geopend.
+        1. Klik daaronder op het tabblad *Changes*
         1. Als er meerder bestanden gewijzigd zijn kan je met het blauwe vinkje aangeven voor welke bestanden je een commit schrijft. 
         1. Onder de lijst met gewijzigde bestanden vind je twee invulvulden. Een smal veld voor een titel en een groot veld voor een uitgebreide beschrijving (Description). 
         1. In het titelveld staat in lichtgrijs een nietzeggende commit (bijvoorbeeld: Update test.py). Schrijf daar een nuttige <q>commit message</q>. Dus niet: <q>opdracht: commit</q>, maar zoiets als: <q>feat: lookup port name for device</q>.
