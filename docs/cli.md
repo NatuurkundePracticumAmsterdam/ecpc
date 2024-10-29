@@ -26,11 +26,11 @@ Met deze regel geef je Python de optie `-m` en die importeert een module (hier `
 
 Als applicaties veel verschillende functionaliteit hebben dan krijg je regelmatig te maken met een lange regel met een combinatie van argumenten en opties:
 ``` ps1con title="Terminal"
-PS> conda create --name pythondaq -c conda-forge python pyvisa-py
+PS> conda create --name pythondaq --channel conda-forge python pyvisa-py
 ```
 Uitgesplitst in <mark>_argumenten_</mark> en __opties__, met vierkante haken [] om aan te geven welke onderdelen bij elkaar horen, is dat:
 
-<q>conda <mark>_create_</mark> [__--name__ <mark>_pythondaq_</mark>] [__-c__ <mark>_conda-forge_</mark>] [<mark>_python_</mark> <mark>_pyvisa-py_</mark>]</q>
+<q>conda <mark>_create_</mark> [__--name__ <mark>_pythondaq_</mark>] [__-channel__ <mark>_conda-forge_</mark>] [<mark>_python_</mark> <mark>_pyvisa-py_</mark>]</q>
 
 
 !!! opdracht-basis "Poetry argumenten"

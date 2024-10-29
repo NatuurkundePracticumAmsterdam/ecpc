@@ -186,7 +186,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
 !!! info
     In de volgende opdracht gaan we een grafiek maken. Installeer Matplotlib in je conda environment (zorg dat die geactiveerd is!):
     ``` ps1 title="Terminal"
-    conda install -c conda-forge matplotlib
+    conda install --channel conda-forge matplotlib
     ```
 
 <div id="opd:quickndirty-meting"></div>

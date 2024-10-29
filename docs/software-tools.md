@@ -37,7 +37,7 @@ PS> conda create --name pythondaq python=3.10
 
 Packages installeren vanuit de 'conda-forge' channel en nieuwste Python
 Als het environment al bestaat vraagt hij of hij die moet overschrijven met een nieuwe schone versie
-PS> conda create --name pythondaq -c conda-forge python
+PS> conda create --name pythondaq --channel conda-forge python
 
 Environment activeren
 PS> conda activate pythondaq
@@ -52,16 +52,16 @@ Lijst van environments bekijken
 PS> conda env list
 
 Nieuw pakket installeren vanuit de conda-forge channel in het ACTIEVE environment
-PS> conda install -c conda-forge lmfit
+PS> conda install --channel conda-forge lmfit
 
 Nieuw environment voor NSP2 met notebooks voor analyse en fits
-PS> conda create --name nsp2 -c conda-forge notebook pandas matplotlib lmfit
+PS> conda create --name nsp2 --channel conda-forge notebook pandas matplotlib lmfit
 
 Package pandas updaten naar nieuwe versie in het ACTIEVE environment
-PS> conda update -c conda-forge pandas
+PS> conda update --channel conda-forge pandas
 
 Alle packages updaten naar nieuwe versie in het ACTIEVE environment
-PS> conda update -c conda-forge --all
+PS> conda update --channel conda-forge --all
 ```
 
 Als je scripts schrijft in Visual Studio Code wil je dat ze ook runnen in de omgevingen die je net hebt aangemaakt. Als je in Visual Studio Code een python script opent dan geeft het rechtsonder, in de statusbalk, de huidige Pythonomgeving aan:
