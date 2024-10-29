@@ -88,7 +88,6 @@ nav:
       - kleurcodes.md
       - diodes.md
       - zonnecel.md
-  - faq.md
 
 extra:
     arrow_rotate: ':fontawesome-solid-arrow-rotate-right:'
