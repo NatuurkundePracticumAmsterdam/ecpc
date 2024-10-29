@@ -688,7 +688,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 
 Docstrings werken ook heel handig samen met Click want ze worden gebruikt als we de helpfunctie aanroepen. 
 !!! info
-    We gebruiken bij click-functies niet de standaard structuur voor docstrings. Click breekt de docstrings standaard af waardoor het algauw een onogelijke brij aan informatie wordt. We kiezen daarom voor een samenvatting en eventueel een korte toelichting daarop. 
+    We gebruiken bij click-functies niet de standaard structuur voor docstrings. Click breekt de docstrings standaard af waardoor het algauw een onogelijke brij aan informatie wordt. We kiezen daarom voor een samenvatting in een zin met daarin de paramters (argumenten en/of opties) en eventueel een korte toelichting daarop. 
 
 ???+ meer-leren "Uitgebreide documentatie en Click"
     In de documentatie van Click vind je meer informatie over het afbreken van zinnen (en het [voorkomen](https://click.palletsprojects.com/en/8.1.x/documentation/#preventing-rewrapping) daarvan). Ook vind je daar een manier om een uitgebreide docstring te schrijven [zonder](https://click.palletsprojects.com/en/8.1.x/documentation/#truncating-help-texts) dat het een bende wordt.
