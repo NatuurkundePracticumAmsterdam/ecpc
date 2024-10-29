@@ -119,7 +119,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
         </span>
         </code></pre>
 
-        <pre><code>(visa) > help <button type="button" name="help" onclick="runScript('help')">{{ enter }}</button><button type="button" name="help" onclick="runScript('help')" class="invisible">{{ reload }}</button>
+        <pre><code>(visa) help <button type="button" name="help" onclick="runScript('help')">{{ enter }}</button><button type="button" name="help" onclick="runScript('help')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="help">
         Documented commands (type help `<topic>`):
         ========================================
@@ -161,13 +161,13 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 
         ```
         **Testcode**
-        <pre><code>(visa) > list <button type="button" name="list" onclick="runScript('list')">{{ enter }}</button><button type="button" name="list" onclick="runScript('list')" class="invisible">{{ reload }}</button>
+        <pre><code>(visa) list <button type="button" name="list" onclick="runScript('list')">{{ enter }}</button><button type="button" name="list" onclick="runScript('list')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="list">( 0) ASRL3::INSTR
         ( 1) ASRL5::INSTR
         ( 2) ASRL28::INSTR</span>
         </code></pre>
 
-        <pre><code>(visa) > help open <button type="button" name="help open" onclick="runScript('help open')">{{ enter }}</button><button type="button" name="help open" onclick="runScript('help open')" class="invisible">{{ reload }}</button>
+        <pre><code>(visa) help open <button type="button" name="help open" onclick="runScript('help open')">{{ enter }}</button><button type="button" name="help open" onclick="runScript('help open')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="help open">Open resource by number, resource name or alias: open 3</span>
         </code></pre>    
     === "check"
@@ -203,7 +203,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
         # send query to get identificationstring 
         ```
         **Testcode**
-        <pre><code>(open) > query gappie <button type="button" name="query gappie" onclick="runScript('query gappie')">{{ enter }}</button><button type="button" name="query gappie" onclick="runScript('query gappie')" class="invisible">{{ reload }}</button>
+        <pre><code>(open) query gappie <button type="button" name="query gappie" onclick="runScript('query gappie')">{{ enter }}</button><button type="button" name="query gappie" onclick="runScript('query gappie')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="query gappie">Response: ERROR: UNKNOWN COMMAND gappie</span>
         </code></pre>        
     === "check"
@@ -281,7 +281,7 @@ We gaan nu het gebruik van de karakters instellen in Pyvisa:
         # send query to get identificationstring
         ```
         **Testcode**
-        <pre><code>(open) > help termchar <button type="button" name="help termchar" onclick="runScript('help termchar')">{{ enter }}</button><button type="button" name="help termchar" onclick="runScript('help termchar')" class="invisible">{{ reload }}</button>
+        <pre><code>(open) help termchar <button type="button" name="help termchar" onclick="runScript('help termchar')">{{ enter }}</button><button type="button" name="help termchar" onclick="runScript('help termchar')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="help termchar">Get or set termination character for resource in use.
         `<termchar>` can be one of: CR, LF, CRLF, NUL or None.
         None is used to disable termination character
