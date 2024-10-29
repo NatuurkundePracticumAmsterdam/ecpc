@@ -196,7 +196,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 <div id="opd:pyvisa_query"></div>
 !!! opdracht-basis "Pyvisa `query`"
     === "opdracht"
-        Je stuurt een commando naar de Arduino met `query`. In de [documentatie van de firmware](firmware.md) heb je het commando opgezocht om de identificatiestring uit te lezen. Nadat je dit commando naar de Arduino stuurt krijg je een error. Je leest de handleiding rustig verder om erachter te komen hoe je dit moet oplossen.
+        Je stuurt een commando naar de Arduino met `query COMMANDO`. In de [documentatie van de firmware](firmware.md) heb je het commando opgezocht om de identificatiestring uit te lezen. Nadat je dit commando naar de Arduino stuurt krijg je een error. Je leest de handleiding rustig verder om erachter te komen hoe je dit moet oplossen.
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
