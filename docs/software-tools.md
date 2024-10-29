@@ -30,14 +30,14 @@ Je moet je realiseren dat het aanmaken (en weggooien) van een environment heel m
 Hieronder volgen enkele voorbeelden van het gebruik van conda:
 ``` ps1con title="Terminal"
 Leeg environment aanmaken met naam 'pythondaq' (leeg = zelfs geen Python)
-PS> conda create -n pythondaq
+PS> conda create --name pythondaq
 
 Nieuw environment aanmaken met Python versie 3.10
-PS> conda create -n pythondaq python=3.10
+PS> conda create --name pythondaq python=3.10
 
 Packages installeren vanuit de 'conda-forge' channel en nieuwste Python
 Als het environment al bestaat vraagt hij of hij die moet overschrijven met een nieuwe schone versie
-PS> conda create -n pythondaq -c conda-forge python
+PS> conda create --name pythondaq -c conda-forge python
 
 Environment activeren
 PS> conda activate pythondaq
@@ -46,7 +46,7 @@ Environment deactiveren
 PS> conda deactivate
 
 Environment wissen
-PS> conda env remove -n pythondaq
+PS> conda env remove --name pythondaq
 
 Lijst van environments bekijken
 PS> conda env list
@@ -55,7 +55,7 @@ Nieuw pakket installeren vanuit de conda-forge channel in het ACTIEVE environmen
 PS> conda install -c conda-forge lmfit
 
 Nieuw environment voor NSP2 met notebooks voor analyse en fits
-PS> conda create -n nsp2 -c conda-forge notebook pandas matplotlib lmfit
+PS> conda create --name nsp2 -c conda-forge notebook pandas matplotlib lmfit
 
 Package pandas updaten naar nieuwe versie in het ACTIEVE environment
 PS> conda update -c conda-forge pandas

@@ -25,7 +25,7 @@ Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. Poetry is 
     1. Open een Anaconda Prompt.
     1. Maak een nieuwe environment en installeer pipx via pip
         ```ps1 title="Terminal"
-        conda create -n pipx python
+        conda create --name pipx python
         conda activate pipx
         python -m pip install --user pipx
         ```
@@ -432,7 +432,7 @@ Fijn! Het verwijderen van dependency `PACKAGE` gaat met `poetry remove PACKAGE`.
 
     !!! opdracht-meer "Schone environment"
 
-        1. Maak een schone conda environment met `PS> conda create -n easystat python=3.10`
+        1. Maak een schone conda environment met `PS> conda create --name easystat python=3.10`
         1. Kies voor ja als Conda een waarschuwing geeft dat deze environment al bestaat en vraagt of je het bestaande environment wilt verwijderen.
         1. Draai {{file}}`tests/try_shortcuts.py` en bekijk de foutmelding.
         
@@ -473,7 +473,7 @@ Fijn! Het verwijderen van dependency `PACKAGE` gaat met `poetry remove PACKAGE`.
 
         1. Maak een nieuwe conda environment aan met de naam `test-wheel` en activeer deze.
                 ``` ps1con title="Terminal"
-                PS> conda create -n test-wheel python=3.10
+                PS> conda create --name test-wheel python=3.10
                 ...
                 PS> conda activate test-wheel
                 ```
@@ -501,8 +501,8 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
 
 !!! info
     Als je al bezig bent met een project dan werk je als het goed is al in een conda environment. Daar heb je dan met `conda install` al packages geïnstalleerd die je nodig hebt. Het gebeurt dan makkelijk dat je vergeet om dat aan te geven met `poetry add`. Dat betekent alleen dat als iemand anders je package installeert dat er dependencies missen en dat jouw code dus _niet_ werkt! Dit is makkelijk op te lossen. Zodra je Poetry gaat gebruiken _wis dan je environment en maak een nieuwe aan met alleen Python._ Dat gaat het makkelijkst als volgt. Stel dat je bezig bent in het environment `pythondaq`. We maken dan een nieuw environment met dezelfde naam:
-    <pre><code>(ecpc) > conda create -n pythondaq python=3.10 <button type="button" name="conda create -n pythondaq python=3.10" onclick="runScript('conda create -n pythondaq python=3.10')">{{ enter }}</button><button type="button" name="conda create -n pythondaq python=3.10" onclick="runScript('conda create -n pythondaq python=3.10')" class="invisible">{{ reload }}</button>
-    <span class="invisible" name="conda create -n pythondaq python=3.10">WARNING: A conda environment already exists at '/Users/david/opt/anaconda3/envs/pythondaq'
+    <pre><code>(ecpc) > conda create --name pythondaq python=3.10 <button type="button" name="conda create --name pythondaq python=3.10" onclick="runScript('conda create --name pythondaq python=3.10')">{{ enter }}</button><button type="button" name="conda create --name pythondaq python=3.10" onclick="runScript('conda create --name pythondaq python=3.10')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="conda create --name pythondaq python=3.10">WARNING: A conda environment already exists at '/Users/david/opt/anaconda3/envs/pythondaq'
     Remove existing environment (y/[n])? y                                                                                                                                      
     ...</span>
     </code></pre>

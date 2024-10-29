@@ -1,7 +1,7 @@
 ??? conda "Conda"
     ??? conda1 "environment aanmaken"
         ```
-        conda create -n NAME PACKAGES
+        conda create --name NAME PACKAGES
         ```
     ??? conda1 "environment activeren"
         ```

@@ -92,7 +92,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
     Open een `Anaconda Prompt` die je kunt vinden via de zoekbalk van Windows. Maak de environment en installeer de juiste packages door in te typen:
 
     ``` ps1 title="Terminal"
-    conda create -n pythondaq -c conda-forge python pyvisa-py
+    conda create --name pythondaq -c conda-forge python pyvisa-py
     ```
     Om de conda environment daadwerkelijk te gebruiken moet je die altijd eerst _activeren_ met:
     ``` ps1 title="Terminal"
