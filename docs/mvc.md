@@ -7,7 +7,7 @@ MVC staat voor _Model-View-Controller_ en is een belangrijk, maar wat diffuus co
 <div id="fig:mvc-model"></div>
 ![Een gelaagd model-view-controller model](figures/mvc-model.svg){: style="width:50%", align=left}
 
-De _controllers_ communiceren met de apparatuur; het _model_ bevat de meetgegevens, berekeningen en de opzet van het experiment; de _view_ zorgt voor een gebruikersinterface met weergave van de data.
+De _controllers_ communiceren met de apparatuur, bevat informatie en berekeningen die apparatuur afhankelijk zijn; het _model_ bevat de meetgegevens, berekeningen over - en de opzet van - het experiment; de _view_ zorgt voor een gebruikersinterface met weergave van de data.
 
 Het scheiden van je programma in deze lagen kan enorm helpen om ervoor te zorgen dat je geen _spaghetticode_ schrijft &mdash; ongestructureerde en moeilijk te begrijpen code. Wanneer het drukken op een knop in de code van de grafische omgeving direct commando's stuurt naar de Arduino of dat de code voor het doen van een enkele meting meteen de $x$-as van een grafiek aanpast, sla je lagen over in ons model en knoop je delen van het programma aan elkaar die niet direct iets met elkaar te maken hebben. De knop moet een meting starten, ja, maar _hoe_ dat precies moet is niet de taak van de gebruikersinterface. En de meting zelf moet zich niet bemoeien met welke grafiek er precies getekend wordt. Je zult merken dat het heel lastig wordt om overzicht te houden en later aanpassingen te doen als je alles door elkaar laat lopen. Je zult dan door je hele code moeten zoeken als je óf de aansturing van de Arduino, óf de grafische interface wilt aanpassen. En dus gaan we alles netjes structureren.
 
