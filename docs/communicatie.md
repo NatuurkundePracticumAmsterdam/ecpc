@@ -150,7 +150,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 
 !!! opdracht-basis "Pyvisa `list` en `open`"
     === "opdracht"
-        Je bekijkt het lijstje met aangesloten aparaten door in de `pyvisa-shell` het commando `list` te typen. Je haalt de USB-kabel waarmee de Arduino aan de computer is aangesloten uit de computer en vraagt nogmaals de lijt met aangesloten aparaten op. Nu weet je welke poort de Arduino is. Je bekijkt de help tekst van het commando `open`, daarna open je de communicatie met de Arduino.
+        Je bekijkt het lijstje met aangesloten aparaten door in de `pyvisa-shell` het commando `list` te typen. Je haalt de USB-kabel waarmee de Arduino aan de computer is aangesloten uit de computer en vraagt nogmaals de lijst met aangesloten aparaten op. Nu weet je welke poort de Arduino is. Je bekijkt de help tekst van het commando `open`, daarna open je de communicatie met de Arduino.
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
