@@ -36,7 +36,6 @@ Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. Poetry is 
     1. __Sluit de Anaconda Prompt en open een nieuwe.__
     1. Test of pipx nu werkt met:
         ```ps1 title="Terminal"
-        conda activate pipx
         pipx
         ```
 
