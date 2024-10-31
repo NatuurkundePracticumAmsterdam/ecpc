@@ -213,7 +213,7 @@ print(master_oogway.quote)
         
         <div class="grid-tree" markdown>
             <div>
-            Je maakt een instance van de class `#!py Particle` in een nieuw bestand {{file}} `particle.py` aan voor een proton, naast de naam geeft je ook mee dat de spin 0.5 is. Je gebruikt de method `#!py is_up_or_down()` om terug op te vragen wat de spin van het deeltje op dat moment is (spin omhoog/positief of spin omlaag/negatief). Met de method `#!py flip()` keer je de spin van het deeltje om. 
+            Je hebt een class `#!py Particle` gemaakt in een niew bestand {{file}} `particle.py`. Als je een instance aanmaakt van de class `#!py Particle` kun je de naam van het deeltje meegeven en de spin (bijvoorbeeld: 0.5). De instance attributes van deze class zijn 'name' en 'spin'. Er is ook een method `#!py is_up_or_down()` om terug op te vragen wat de spin van het deeltje op dat moment is (spin omhoog/positief of spin omlaag/negatief). Door de method `#!py flip()` op te roepen wordt de spin van het deeltje omgekeerd.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -230,7 +230,8 @@ print(master_oogway.quote)
         ``` py
         # class Particle:
             # def __init__(self, name, spin):
-                ...
+                # make instance attribute from name
+                # make instance attribute from spin
             # def is_up_or_down
                 # print up when spin is positive
                 # print down when spin is negative
