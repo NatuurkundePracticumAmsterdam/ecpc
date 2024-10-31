@@ -636,8 +636,8 @@ class UserInterface(QtWidgets.QMainWindow):
     def plot(self):
         x = np.linspace(-pi, pi, 100)
         self.plot_widget.plot(x, np.sin(x), symbol=None, pen={"color": "m", "width": 5})
-        self.plot_widget.setLabel("left", "sin(x)")
-        self.plot_widget.setLabel("bottom", "x [radians]")
+        self.plot_widget.setLabel("left", "y-axis [units]")
+        self.plot_widget.setLabel("bottom", "x-axis [units]")
 ```
 Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` om te zien wat ze doen. Leeg maken kan met `#!py self.plot_widget.clear()`.
 
