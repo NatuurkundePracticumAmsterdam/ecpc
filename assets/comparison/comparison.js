@@ -33,7 +33,7 @@ function hoverFunction(id, trigger_bool=true) {
     let elem = document.getElementById(id);
     elem.classList.toggle('highlight_hover');
     
-    if (currentUrl.includes('classes') & id.includes("ext_")) {
+    if (currentUrl.includes('classes')) {
         let target_elem = document.getElementById(target_id);
         target_elem.classList.toggle('highlight');
     } else {
