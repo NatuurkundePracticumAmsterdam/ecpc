@@ -228,7 +228,7 @@ print(master_oogway.quote)
     === "code"
         **Pseudo-code**
         ``` py
-        # Class Particle:
+        # class Particle:
             # def __init__(self, name, spin):
                 ...
             # def is_up_or_down
