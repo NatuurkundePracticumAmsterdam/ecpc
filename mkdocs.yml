@@ -87,7 +87,9 @@ nav:
       - firmware.md
       - kleurcodes.md
       - diodes.md
+      - terminal-adventure-game.md
       - zonnecel.md
+      
 
 extra:
     arrow_rotate: ':fontawesome-solid-arrow-rotate-right:'
