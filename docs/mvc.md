@@ -33,19 +33,33 @@ Het opsplitsen van het {{file}}`basisscript.py` in MVC gaan we stapsgewijs doen.
 <div id="opd:meting-class"></div>
 !!! opdracht-inlever "Pythondaq: controller bouwen"
     === "opdracht"
+        Een gebruiker moet het volgende kunnen doen:
         Je vraagt een lijst met beschikbare poorten op met de functie `#!py list_resources()`. Wanneer je weet welke poort de Arduino is gebruik je deze poortnaam om een instance aan te maken van de class `ArduinoVisaDevice`. Met deze class kan je met de Arduino te communiceren. Met de method `#!py get_identification()` vraag je de identificatiestring op om te controlleren dat je met het juiste apparaat communiceert. Je gebruikt de method `#!py set_output_value()` om een waarde van 828 op het uitvoerkanaal 0 te zetten, omdat de LED gaat branden weet je dat het werkt. Je test de spanningsmeters door met de method `#!py get_input_value()` eerst van kanaal 1 en daarna van kanaal 2 de waarde op te vragen. Je ziet waardes die overeenkomen met je verwachting. Je rekent de waardes om naar spanningen in volt en controlleert daarna de method `#!py get_input_voltage()` om te zien of deze dezelfde waardes terug geeft voor kanaal 1 en 2. Om te controlleren of de waarde die je op het uitvoerkanaal gezet hebt nog steeds gelijk is aan wat je hebt ingesteld vraag je deze waarde op met `#!py get_output_value()`. 
     === "code"
         **Pseudo-code**
         ``` py
+        # def list_resources
+        #    return list of available ports
+
         # class ArduinoVisaDevice
-            ...
+        #    def init (ask port from user)
+                ...
+        #    def get_identification
+        #       return identification string of connected device
+        #
+        #   def set_output_value
+        #       set a value on the output channel
+        #   
+        #   def get_input_value
+        #       get input value from input channel
+        #
+        #   def get_input_voltage
+        #       get input value from input channel in Volt
+                
         ```
         **Testcode:**
         <div class="code-box"><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="run">{{ run }}</button><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="reload invisible">{{ reload }}</button> basisscript.py
         ``` py
-        class ArduinoVisaDevice:
-        ...
-
         # get available ports
         print(list_resources())
 
