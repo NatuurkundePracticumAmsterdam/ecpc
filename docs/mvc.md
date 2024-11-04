@@ -34,14 +34,14 @@ Het opsplitsen van het {{file}}`basisscript.py` in MVC gaan we stapsgewijs doen.
 !!! opdracht-inlever "Pythondaq: controller bouwen"
     === "opdracht"
         Een gebruiker moet het volgende kunnen doen:
-        Je vraagt een lijst met beschikbare poorten op met de functie `#!py list_resources()`. Wanneer je weet welke poort de Arduino is gebruik je deze poortnaam om een instance aan te maken van de class `ArduinoVisaDevice`. Met deze class kan je met de Arduino te communiceren. Met de method `#!py get_identification()` vraag je de identificatiestring op om te controlleren dat je met het juiste apparaat communiceert. Je gebruikt de method `#!py set_output_value()` om een waarde van 828 op het uitvoerkanaal 0 te zetten, omdat de LED gaat branden weet je dat het werkt. Je test de spanningsmeters door met de method `#!py get_input_value()` eerst van kanaal 1 en daarna van kanaal 2 de waarde op te vragen. Je ziet waardes die overeenkomen met je verwachting. Je rekent de waardes om naar spanningen in volt en controlleert daarna de method `#!py get_input_voltage()` om te zien of deze dezelfde waardes terug geeft voor kanaal 1 en 2. Om te controlleren of de waarde die je op het uitvoerkanaal gezet hebt nog steeds gelijk is aan wat je hebt ingesteld vraag je deze waarde op met `#!py get_output_value()`. 
+        Je vraagt een lijst met beschikbare poorten op met de functie `#!py list_resources()`. Wanneer je weet welke poort de Arduino is gebruik je deze poortnaam om een instance aan te maken van de class `ArduinoVISADevice`. Met deze class kan je met de Arduino te communiceren. Met de method `#!py get_identification()` vraag je de identificatiestring op om te controlleren dat je met het juiste apparaat communiceert. Je gebruikt de method `#!py set_output_value()` om een waarde van 828 op het uitvoerkanaal 0 te zetten, omdat de LED gaat branden weet je dat het werkt. Je test de spanningsmeters door met de method `#!py get_input_value()` eerst van kanaal 1 en daarna van kanaal 2 de waarde op te vragen. Je ziet waardes die overeenkomen met je verwachting. Je rekent de waardes om naar spanningen in volt en controlleert daarna de method `#!py get_input_voltage()` om te zien of deze dezelfde waardes terug geeft voor kanaal 1 en 2. Om te controlleren of de waarde die je op het uitvoerkanaal gezet hebt nog steeds gelijk is aan wat je hebt ingesteld vraag je deze waarde op met `#!py get_output_value()`. 
     === "code"
         **Pseudo-code**
         ``` py
         # def list_resources
         #    return list of available ports
 
-        # class ArduinoVisaDevice
+        # class ArduinoVISADevice
         #    def init (ask port from user)
                 ...
         #    def get_identification
@@ -122,14 +122,14 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
 
 !!! opdracht-inlever "Pythondaq: Controller implementeren"
     === "opdracht"
-        Je hebt een Python script die hetzelfde doet als in de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting), maar de code is aangepast zodat er gebruik wordt gemaakt van de class `#!py ArduinoVisaDevice` en de bijbehorende methods. 
+        Je hebt een Python script die hetzelfde doet als in de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting), maar de code is aangepast zodat er gebruik wordt gemaakt van de class `#!py ArduinoVISADevice` en de bijbehorende methods. 
     === "code"
         **Pseudo-code**
         ``` py
         # def list_resources
         #   ...
 
-        # class ArduinoVisaDevice
+        # class ArduinoVISADevice
             ...
         
         # set input voltage from 0 to max
@@ -141,8 +141,8 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
     === "check"
         **Checkpunten:**
 
-        - [ ] In een script staan `#!py list_resources()`, `#!py ArduinoVisaDevice()` en de code om de LED te laten branden, metingen te doen en het resultaat te laten zien.
-        - [ ] Wanneer de class `#!py ArduinoVisaDevice()` uit het script wordt geknipt, werkt de <q>quick 'n dirty</q> niet meer.
+        - [ ] In een script staan `#!py list_resources()`, `#!py ArduinoVISADevice()` en de code om de LED te laten branden, metingen te doen en het resultaat te laten zien.
+        - [ ] Wanneer de class `#!py ArduinoVISADevice()` uit het script wordt geknipt, werkt de <q>quick 'n dirty</q> niet meer.
         - [ ] Het script voldoet nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting).
 
 
@@ -168,7 +168,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
         <div class="grid-tree" markdown>
             <div>
-            Omdat je het basisscript later gaat uitbreiden om het gebruiksvriendelijker te maken ga je alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten. Het bestand {{file}}`#!py arduino_device.py` bevat de class `#!py ArduinoVisaDevice` en de functie `#!py list_resources()`. In {{file}}`basisscript.py` importeer je de class en de functie uit de module {{file}}`arduino_device.py` zodat je ze daar kunt gebruiken.
+            Omdat je het basisscript later gaat uitbreiden om het gebruiksvriendelijker te maken ga je alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten. Het bestand {{file}}`#!py arduino_device.py` bevat de class `#!py ArduinoVISADevice` en de functie `#!py list_resources()`. In {{file}}`basisscript.py` importeer je de class en de functie uit de module {{file}}`arduino_device.py` zodat je ze daar kunt gebruiken.
             </div>
             <div>
             {{folder}} `ECPC`   
@@ -188,7 +188,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         # def list_resources
         #   ...
 
-        # class ArduinoVisaDevice
+        # class ArduinoVISADevice
             ...
         ```
         ``` py title="basisscript.py"
@@ -234,7 +234,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         # def list_resources
         #   ...
 
-        # class ArduinoVisaDevice
+        # class ArduinoVISADevice
             ...
         
         # print list ports if arduino_device.py is the main script 
@@ -280,7 +280,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         # def list_resources
         #   ...
 
-        # class ArduinoVisaDevice
+        # class ArduinoVISADevice
             ...
         ```
         ``` py title="diode_experiment.py"
@@ -339,7 +339,7 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
         # def list_resources
         #   ...
 
-        # class ArduinoVisaDevice
+        # class ArduinoVISADevice
             ...
         ```
         ``` py title="diode_experiment.py"

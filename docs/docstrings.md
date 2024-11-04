@@ -78,7 +78,7 @@ Zo kunnen we gemakkelijk alles gaan invullen. Zo lang je niet op ++escape++ druk
     === "code"
         **Pseudo-code**
         ``` py
-        # class ArduinoVisaDevice
+        # class ArduinoVISADevice
             """Summary of class here.
 
             Longer class information...
@@ -90,12 +90,12 @@ Zo kunnen we gemakkelijk alles gaan invullen. Zo lang je niet op ++escape++ druk
         <div class="code-box"><button type="button" name="arduino_device_help" onclick="runScript('arduino_device_help')" class="run">{{ run }}</button><button type="button" name="arduino_device_help" onclick="runScript('arduino_device_help')" class="reload invisible">{{ reload }}</button> arduino_device.py
         ``` py
         if __name__ == "__main__":
-            help(ArduinoVisaDevice)
+            help(ArduinoVISADevice)
         ```
         <pre>
         <code>(ecpc) > python arduino_device.py
-        <span class="invisible" name="arduino_device_help">Help on class ArduinoVisaDevice in module __main__:
-        class ArduinoVisaDevice(builtins.object)
+        <span class="invisible" name="arduino_device_help">Help on class ArduinoVISADevice in module __main__:
+        class ArduinoVISADevice(builtins.object)
         |  Summary of class here.
         |
         |  Longer class information...
