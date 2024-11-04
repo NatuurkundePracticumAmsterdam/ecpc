@@ -158,7 +158,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         # set input voltage from 0 to max
             # get voltage LED 
             # get voltage resistor
-            # print On LED: raw_voltage_LED (voltage_LED V) Over resistor: raw_voltage_resistor (voltage_resistor V)
+            # print LED: raw_voltage_LED (voltage_LED V) Resistor: raw_voltage_resistor (voltage_resistor V)
         ```
     === "check"
         **Checkpunten:**
