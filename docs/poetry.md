@@ -145,7 +145,7 @@ readme = "README.md"
 packages = [{include = "easystat", from = "src"}]
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.13"
 
 
 [build-system]
