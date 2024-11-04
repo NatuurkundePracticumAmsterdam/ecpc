@@ -268,6 +268,10 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
         - [ ] Pyvisa regeleindes
         - [ ] Pyvisa LED laten branden
 
+???+ opdracht-meer "Input buffer en timeout"
+    Ga opnieuw naar de [Termchar-demo](https://textual-web.io/natuurkundepracticum-amsterdam/termchar-demo) en lees de laatste stappen van de _Introduction_ tab. Open de _Advanced_ tab en voer de stappen uit. 
+
+
 We gaan nu het gebruik van de karakters instellen in Pyvisa:
 
 !!! opdracht-basis "Pyvisa regeleindes"
