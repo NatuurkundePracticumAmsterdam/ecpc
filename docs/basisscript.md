@@ -192,7 +192,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
 <div id="opd:quickndirty-meting"></div>
 !!! opdracht-inlever "Pythondaq: Quick 'n dirty meting"
     === "opdracht"
-        Je code berekent de spanning _over_ en de stroomsterkte _door_ de LED terwijl de spanning over het cirquit oploopt van nul tot de maximale waarde. De resultaten worden in een grafiek weergegeven.  
+        Je code berekent de spanning _over_ en de stroomsterkte _door_ de LED terwijl de spanning over het cirquit oploopt van nul tot de maximale waarde. De resultaten worden geprint en in een grafiek weergegeven.  
     === "code"
         **Pseudo-code**
         ``` py title="basisscript.py"
@@ -201,6 +201,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
         # set input voltage from 0 to max
             # calculate LED voltage
             # calculate LED current
+            # print voltage: raw_voltage_LED (voltage_LED V) current: raw_current_LED (current_LED V)
         
         # plot current vs voltage
         ```
@@ -211,6 +212,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
         - [ ] Bereken stroomsterkte door LED
         - [ ] Lijst met spanningen
         - [ ] Lijst met stroomsterkte
+        - [ ] Print spanningen en stroomsterktes
         - [ ] Plot stroomsterke tegen spanning
         - [ ] Vergelijk met resultaat van iemand anders
         - [ ] Meting is fysisch correct
