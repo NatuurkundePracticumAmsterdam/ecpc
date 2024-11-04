@@ -30,7 +30,7 @@ Het opsplitsen van het programma in MVC gaan we stapsgewijs doen. We gaan een cl
 <div id="opd:meting-class"></div>
 !!! opdracht-inlever "Pythondaq: controller bouwen"
     === "opdracht"
-        Je vraagt een lijst met beschikbare poorten op met de functie `#!py list_devices()`. Wanneer je weet welke poort de Arduino is gebruik je deze poortnaam om een instance aan te maken van de class `ArduinoVisaDevice`. Met deze class kan je met de Arduino te communiceren. Met de method `#!py get_identification()` vraag je de identificatiestring op om te controlleren dat je met het juiste apparaat communiceert. Je gebruikt de method `#!py set_output_value()` om een waarde van 828 op het uitvoerkanaal 0 te zetten, omdat de LED gaat branden weet je dat het werkt. Je test de spanningsmeters door met de method `#!py get_input_value()` eerst van kanaal 1 en daarna van kanaal 2 de waarde op te vragen. Je ziet waardes die overeenkomen met je verwachting. Je rekent de waardes om naar spanningen in volt en controlleert daarna de method `#!py get_input_voltage()` om te zien of deze dezelfde waardes terug geeft voor kanaal 1 en 2. Om te controlleren of de waarde die je op het uitvoerkanaal gezet hebt nog steeds gelijk is aan wat je hebt ingesteld vraag je deze waarde op met `#!py get_output_value()`. 
+        Je vraagt een lijst met beschikbare poorten op met de functie `#!py list_resources()`. Wanneer je weet welke poort de Arduino is gebruik je deze poortnaam om een instance aan te maken van de class `ArduinoVisaDevice`. Met deze class kan je met de Arduino te communiceren. Met de method `#!py get_identification()` vraag je de identificatiestring op om te controlleren dat je met het juiste apparaat communiceert. Je gebruikt de method `#!py set_output_value()` om een waarde van 828 op het uitvoerkanaal 0 te zetten, omdat de LED gaat branden weet je dat het werkt. Je test de spanningsmeters door met de method `#!py get_input_value()` eerst van kanaal 1 en daarna van kanaal 2 de waarde op te vragen. Je ziet waardes die overeenkomen met je verwachting. Je rekent de waardes om naar spanningen in volt en controlleert daarna de method `#!py get_input_voltage()` om te zien of deze dezelfde waardes terug geeft voor kanaal 1 en 2. Om te controlleren of de waarde die je op het uitvoerkanaal gezet hebt nog steeds gelijk is aan wat je hebt ingesteld vraag je deze waarde op met `#!py get_output_value()`. 
     === "code"
         **Pseudo-code**
         ``` py
@@ -44,7 +44,7 @@ Het opsplitsen van het programma in MVC gaan we stapsgewijs doen. We gaan een cl
         ...
 
         # get available ports
-        print(list_devices())
+        print(list_resources())
 
         # Create an instance for the Arduino on port "ASRL28::INSTR"
         device = ArduinoVISADevice(port="ASRL28::INSTR")
@@ -80,7 +80,7 @@ Het opsplitsen van het programma in MVC gaan we stapsgewijs doen. We gaan een cl
     === "check"
         **Checkpunten:**
 
-        - [ ] `#!py list_devices()` is een functie die buiten de class staat.
+        - [ ] `#!py list_resources()` is een functie die buiten de class staat.
         - [ ] De `#!py __init__()` method verlangt een poortnaam en opent de communicatie met deze poort.
         - [ ] Er is een method `#!py get_identification()` die de identificatiestring teruggeeft.
         - [ ] De `set_output_value()` en `get_output_value()` communiceren standaard met kanaal 0.
@@ -108,7 +108,7 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
     === "code"
         **Pseudo-code**
         ``` py
-        # def list_devices
+        # def list_resources
         #   ...
 
         # class ArduinoVisaDevice
@@ -123,7 +123,7 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
     === "check"
         **Checkpunten:**
 
-        - [ ] In een script staan `#!py list_devices()`, `#!py ArduinoVisaDevice()` en de code om de LED te laten branden, metingen te doen en het resultaat te laten zien.
+        - [ ] In een script staan `#!py list_resources()`, `#!py ArduinoVisaDevice()` en de code om de LED te laten branden, metingen te doen en het resultaat te laten zien.
         - [ ] Wanneer de class `#!py ArduinoVisaDevice()` uit het script wordt geknipt, werkt de <q>quick 'n dirty</q> niet meer.
         - [ ] Het script voldoet nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting).
 
@@ -149,7 +149,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
         <div class="grid-tree" markdown>
             <div>
-            Omdat je het basisscript later gaat uitbreiden om het gebruiksvriendelijker te maken ga je alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten. Het bestand {{file}}`#!py arduino_device.py` bevat de class `#!py ArduinoVisaDevice` en de functie `#!py list_devices()`. In {{file}}`basisscript.py` importeer je de class en de functie uit de module {{file}}`arduino_device.py` zodat je ze daar kunt gebruiken.
+            Omdat je het basisscript later gaat uitbreiden om het gebruiksvriendelijker te maken ga je alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten. Het bestand {{file}}`#!py arduino_device.py` bevat de class `#!py ArduinoVisaDevice` en de functie `#!py list_resources()`. In {{file}}`basisscript.py` importeer je de class en de functie uit de module {{file}}`arduino_device.py` zodat je ze daar kunt gebruiken.
             </div>
             <div>
             {{folder}} `ECPC`   
@@ -166,14 +166,14 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
     === "code"
         **Pseudo-code**
         ``` py title="arduino_device.py"
-        # def list_devices
+        # def list_resources
         #   ...
 
         # class ArduinoVisaDevice
             ...
         ```
         ``` py title="basisscript.py"
-        from arduino_device import ArduinoVISADevice, list_devices
+        from arduino_device import ArduinoVISADevice, list_resources
         
         # set input voltage from 0 to max
             # calculate LED voltage
@@ -203,7 +203,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
 ???+ opdracht-meer "`#!py if __name__ == '__main__'`"
     === "opdracht"
-        Later wil je de functie `#!py list_devices()` netjes in het hele model-view-controller systeem vlechten zodat je als gebruiker de lijst kunt opvragen, maar voor nu wil je af en toe even zien aan welke poort de Arduino hangt. Wanneer je het script {{file}}`arduino_device.py` runt wordt er een lijst geprint met poorten. Dit gebeurt niet wanneer het bestand {{file}}`basisscript.py` wordt gerunt. 
+        Later wil je de functie `#!py list_resources()` netjes in het hele model-view-controller systeem vlechten zodat je als gebruiker de lijst kunt opvragen, maar voor nu wil je af en toe even zien aan welke poort de Arduino hangt. Wanneer je het script {{file}}`arduino_device.py` runt wordt er een lijst geprint met poorten. Dit gebeurt niet wanneer het bestand {{file}}`basisscript.py` wordt gerunt. 
 
         !!! info "modules"
             Nog niet bekend met `#!py if __name__ == '__main__'`? kijk dan voor meer informatie in de [paragraaf modules](vervolg-python.md#modules).
@@ -211,7 +211,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
     === "code"
         **Pseudo-code**
         ``` py title="arduino_device.py"
-        # def list_devices
+        # def list_resources
         #   ...
 
         # class ArduinoVisaDevice
@@ -222,7 +222,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
         ```
         ``` py title="basisscript.py"
-        from arduino_device import ArduinoVISADevice, list_devices
+        from arduino_device import ArduinoVISADevice, list_resources
         
         # set input voltage from 0 to max
             # calculate LED voltage
@@ -257,14 +257,14 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
     === "code"
         **Pseudo-code**
         ``` py title="arduino_device.py"
-        # def list_devices
+        # def list_resources
         #   ...
 
         # class ArduinoVisaDevice
             ...
         ```
         ``` py title="diode_experiment.py"
-        from arduino_device import ArduinoVISADevice, list_devices
+        from arduino_device import ArduinoVISADevice, list_resources
         
         # class DiodeExperiment
             ...
@@ -314,14 +314,14 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
     === "code"
         **Pseudo-code**
         ``` py title="arduino_device.py"
-        # def list_devices
+        # def list_resources
         #   ...
 
         # class ArduinoVisaDevice
             ...
         ```
         ``` py title="diode_experiment.py"
-        from arduino_device import ArduinoVISADevice, list_devices
+        from arduino_device import ArduinoVISADevice, list_resources
         
         # class DiodeExperiment
             ...
