@@ -28,7 +28,7 @@ Het opsplitsen van je programma _hoeft niet in één keer!_ Dit kan stapsgewijs.
 Het opsplitsen van het {{file}}`basisscript.py` in MVC gaan we stapsgewijs doen. We gaan een class maken voor de aansturing van de Arduino, deze class valt in de categorie _controller_.
 
 !!! opdracht-inlever "Pythondaq: open de repository"
-    Open in GitHub Desktop de repository van {{repo}}`pythondaq` en open de repository in Visual Studio Code. In de volgende opdrachten ga je het {{file}}`basisscript.py` uitbreiden en opsplitsen in MVC.
+    Open in GitHub Desktop de repository van {{github}}`pythondaq` en open de repository in Visual Studio Code. In de volgende opdrachten ga je het {{file}}`basisscript.py` uitbreiden en opsplitsen in MVC.
 
 <div id="opd:meting-class"></div>
 !!! opdracht-inlever "Pythondaq: controller bouwen"
@@ -247,7 +247,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
         <div class="grid-tree" markdown>
             <div>
-            Omdat de uitbreidingen om het basisscript gebruiksvriendelijker te maken vooral de view zullen uitbreiden zet je het model en de view ook in aparte bestanden. Wanneer je het bestand {{file}}`view.py` runt roept deze in het model de method `#!py scan()` aan welke een meting start. Om gegevens van het naar de Arduino te sturen maakt het model gebruik van de controller. De gegevens die het model terugkrijgt van de Arduino worden volgens de fysische relaties verwerkt tot de benodigde gegevens en doorgestuurd naar de view. De view presenteerd de gegevens in een grafiek. Wanneer je in een ander bereik wilt meten pas je in de view het bereik aan, het model gebruikt dit bereik bij het doen van de meting. Let op, we hernoemen {{file}} `basisscript.py` naar {{file}} `diode_experiment.py`.
+            Omdat de uitbreidingen om het basisscript gebruiksvriendelijker te maken vooral de view zullen uitbreiden zet je het model en de view ook in aparte bestanden. Wanneer je het bestand {{file}}`view.py` runt roept deze in het model de method `#!py scan()` van de class `DiodeExperiment` aan welke een meting start. Om gegevens van het naar de Arduino te sturen maakt het model gebruik van de controller. De gegevens die het model terugkrijgt van de Arduino worden volgens de fysische relaties verwerkt tot de benodigde gegevens en doorgestuurd naar de view. De view presenteerd de gegevens in een grafiek. Wanneer je in een ander bereik wilt meten pas je in de view het bereik aan, het model gebruikt dit bereik bij het doen van de meting. Let op, we hernoemen {{file}} `basisscript.py` naar {{file}} `diode_experiment.py`.
             </div>
             <div>
             {{folder}} `ECPC`   
@@ -291,6 +291,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
         - [ ] Alle directe communicatie met de Arduino, firmwarecommando's en pyvisacommando's, staan in de controller
         - [ ] Alle communicatie met de controller staan in het model
+        - [ ] Het model bevat een class `DiodeExperiment`
         - [ ] De view communiceert alleen met het model. 
         - [ ] Runnen van {{file}}`view.py` zorgt ervoor dat een meting start
         - [ ] De bestanden {{file}}`diode_experiment.py` en {{file}}`view.py` voldoen samen nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting).
