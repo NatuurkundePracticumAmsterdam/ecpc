@@ -305,7 +305,7 @@ Poetry is even bezig en ons package is geïnstalleerd.
 
 !!! opdracht-basis "Easystat Poetry install"
     === "opdracht"
-        Je gaat het project `easystat` installeren in de conda environment `easystat` met het commando `poetry install`. Waarschijnlijk krijg je een error maar door rustig te lezen los je die op. Na het installeren van het project `easystat` draai je opnieuw {{file}}`tests/try_shortcuts.py` en zie je een nieuwe error verschijnen `ModuleNotFoundError: No module named 'numpy'`. Hoera {{feesttoeter}} de vorige error is met succes opgelost.
+        Je gaat het project `easystat` installeren in de conda environment `easystat` met het commando `poetry install`. Waarschijnlijk krijg je een error maar door rustig te lezen los je die op. Je installeert alsnog het project `easystat` draai je opnieuw {{file}}`tests/try_shortcuts.py` en zie je een nieuwe error verschijnen `ModuleNotFoundError: No module named 'numpy'`. Hoera {{feesttoeter}} de vorige error is met succes opgelost.
 
         !!! info "Current Python version is not allowed by the project"
             Waarschijnlijk krijg je in dikke rode letters de error:
