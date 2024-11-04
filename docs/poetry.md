@@ -310,13 +310,13 @@ Poetry is even bezig en ons package is geïnstalleerd.
         !!! info "Current Python version is not allowed by the project"
             Waarschijnlijk krijg je in dikke rode letters de error:
             ``` ps1con
-            Current Python version (3.10.14) is not allowed by the project (^3.12).
+            Current Python version (3.12.7) is not allowed by the project (^3.13).
             Please change python executable via the "env use" command.
             ```
-            In de {{file_lines}}`pyproject.toml` staat bij de Python dependency dat er minstens versie 3.12 of hoger (^3.12) nodig is voor dit project[^versie]. En de conda environment `easystat` heeft Python 3.10 geïnstalleerd. Je kunt nu twee dingen doen: 
+            In de {{file_lines}}`pyproject.toml` staat bij de Python dependency dat er minstens versie 3.13 of hoger (^3.13) nodig is voor dit project[^versie]. En de conda environment `easystat` heeft Python 3.12 geïnstalleerd. Je kunt nu twee dingen doen: 
             
-            1. Je bedenkt dat voor dit project een lagere versie van Python ook voldoende is en past de Python versie dependency aan in de {{file_lines}}`pyproject.toml` naar ^3.10.
-            1. Je vindt dat het project minstens versie 3.12 moet gebruiken en upgrade Python in de `easystat` environment met `conda install python=3.12`.
+            1. Je bedenkt dat voor dit project een lagere versie van Python ook voldoende is en past de Python versie dependency aan in de {{file_lines}}`pyproject.toml` naar ^3.12.
+            1. Je vindt dat het project minstens versie 3.13 moet gebruiken en upgrade Python in de `easystat` environment met `conda install python=3.13`.
             
             [^versie]: Dit is bij het aanmaken standaard ingevuld op basis van de Python versie die in de base environment zit, kijk maar met `conda list` in de base environment welke versie van Python daarin zit.
     === "code"
