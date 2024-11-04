@@ -164,7 +164,7 @@ Bij het schrijven van een nieuw package is het zéker belangrijk om een conda en
 
 !!! opdracht-basis "Easystat conda environment aanmaken"
     === "opdracht"
-        Je voegt {{lightbulb}} de projectmap {{folder}}`easystat` toe als repository in GitHub. Vanuit GitHub Desktop open je de repository {{github}}`easystat` in Visual Studio Code. Je maakt {{lightbulb}} een nieuwe conda environment aan met de naam `easystat` en daarin `python=3.10`. Uiteraard selecteer je het nieuwe environment in Visual Studio Code. 
+        Je voegt {{lightbulb}} de projectmap {{folder}}`easystat` toe als repository in GitHub. Vanuit GitHub Desktop open je de repository {{github}}`easystat` in Visual Studio Code. Je maakt {{lightbulb}} een nieuwe conda environment aan met de naam `easystat` en daarin `python=3.12`. Uiteraard selecteer je het nieuwe environment in Visual Studio Code. 
     === "code"
         **Testcode**
         <pre><code>(easystat) > conda list <button type="button" name="conda list" onclick="runScript('conda list')">{{ enter }}</button><button type="button" name="conda list" onclick="runScript('conda list')" class="invisible">{{ reload }}</button>
@@ -176,7 +176,7 @@ Bij het schrijven van een nieuw package is het zéker belangrijk om een conda en
         libffi                    3.4.4                hd77b12b_1
         openssl                   3.0.15               h827c3e9_0
         pip                       24.2            py310haa95532_0
-        **python                    3.10.14              he1021f5_1**
+        **python                    3.12.7               h99e199e_0**
         setuptools                72.1.0          py310haa95532_0
         sqlite                    3.45.3               h2bbff1b_0
         tk                        8.6.14               h0416ee5_0
