@@ -9,7 +9,7 @@ Als je een grafische applicatie schrijft roep je functies aan van het besturings
 !!! info
     Maak voor de oefeningen een nieuw conda environment `test-qt` met:
     ``` ps1 title="Terminal"
-    conda create --name test-qt python=3.10
+    conda create --name test-qt python=3.12
     conda activate test-qt
     pip install pyside6 pyqtgraph
     ```
