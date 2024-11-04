@@ -77,7 +77,7 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
 !!! opdracht-basis "Easystat Poetry project aanmaken"
     === "opdracht"
         Een project stop je altijd in een map {{folder}} , als je aan Poetry vraagt om een project te maken zal er een _nieuwe_ (project)map worden aangemaakt.
-        Je denkt na over een geschikte locatie en besluit dat de projectmap in de {{folder}}`ECPC` map moet komen te staan. Je opent Visual Studio Code en opent de map {{folder}}`ECPC`. Je opent een terminal en controlleert dat de terminal ook in de map {{folder}}`ECPC` is. 
+        Je denkt na over een geschikte locatie en besluit dat de projectmap in de {{folder}}`ECPC` map moet komen te staan. Je opent Visual Studio Code en opent de map {{folder}}`ECPC`. Je opent een terminal en controleert dat de terminal ook in de map {{folder}}`ECPC` is. 
         Je geeft Poetry de opdracht om een nieuw project met de naam {{folder}}`easystat` aan te maken in de src-layout[@srclayout] met het commando `poetry new --src easystat`. Je bekijkt de nieuw gemaakte mappenstructuur en ziet dat het overeenkomt met de mappenstructuur zoals hieronder weergegeven.
 
         !!! info "src-layout"
@@ -247,7 +247,7 @@ We starten met onze package. Stel, we berekenen vaak de standaarddeviatie van he
         Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee en dat gaan we *straks* ook doen.
 
 
-[^tests]: Niet formeel. Dus hoewel we een script gaan plaatsen in de {{folder}}`tests`-folder is het hier niet een test die automatisch gerunt kan worden.
+[^tests]: Niet formeel. Dus hoewel we een script gaan plaatsen in de {{folder}}`tests`-folder is het hier niet een test die automatisch gerund kan worden.
 
 In de eerste regel van {{file}}`test_shortcuts.py` importeren we de functie uit het nieuwe package om uit te proberen. In de laatste regel gebruiken we een handige functie van f-strings.[^f-string-=]
 
@@ -823,7 +823,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
 
 !!! opdracht-basis "Commando testen"
     === "opdracht"
-        Nu je het commando `square` hebt aangemaakt ga je deze testen in een terminal je ziet de tekst `The square of 5 is 25` verschijnen. Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `square` en ziet weer de tekst `The square of 5 is 25` verschijnen. Je concludeerd dat het commando nu overal werkt zolang het juist conda environment is geactiveerd. Dat test je uit door een ander conda environment te activeren en het commando `square` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
+        Nu je het commando `square` hebt aangemaakt ga je deze testen in een terminal je ziet de tekst `The square of 5 is 25` verschijnen. Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `square` en ziet weer de tekst `The square of 5 is 25` verschijnen. Je concludeert dat het commando nu overal werkt zolang het juiste conda environment is geactiveerd. Dat test je uit door een ander conda environment te activeren en het commando `square` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
     === "code"
         **Pseudo-code**
         <pre><code>(ecpc) > square <button type="button" name="square_test" onclick="runScript('square_test')">{{ enter }}</button><button type="button" name="square_test" onclick="runScript('square_test')" class="invisible">{{ reload }}</button>
@@ -895,4 +895,4 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
         - [x] Pythondaq: applicatie
 
 ???+ meer-leren "Versie 2.0.0"
-    In de {{file}}`pyproject.toml` kan je ook de versie aangeven van je package. Maar wanneer hoog je nu welk cijfertje op? Wanneer wordt iets _versie 2.0.0_? Daar zijn conventies voor. Kleine wijzigingen gaan op het rechter cijfer, grotere wijzigingen en bugfixes gaan op het middelste cijfer. Wanneer de applicatie dusdanig veranderd dat je bijvoorbeeld bestanden die je met oude versie hebt gemaakt niet met de nieuwe versie kunt openen, dan verander je het linker cijfer.
+    In de {{file}}`pyproject.toml` kan je ook de versie aangeven van je package. Maar wanneer hoog je nu welk cijfertje op? Wanneer wordt iets _versie 2.0.0_? Daar zijn conventies voor. Kleine wijzigingen gaan op het rechter cijfer, grotere wijzigingen en bugfixes gaan op het middelste cijfer. Wanneer de applicatie dusdanig verandert dat je bijvoorbeeld bestanden die je met oude versie hebt gemaakt niet met de nieuwe versie kunt openen, dan verander je het linker cijfer.

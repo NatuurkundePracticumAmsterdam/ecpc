@@ -156,7 +156,7 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 
 !!! opdracht-basis "Pyvisa `list` en `open`"
     === "opdracht"
-        Je bekijkt het lijstje met aangesloten aparaten door in de `pyvisa-shell` het commando `list` te typen. Je haalt de USB-kabel waarmee de Arduino aan de computer is aangesloten uit de computer en vraagt nogmaals de lijst met aangesloten aparaten op. Nu weet je welke poort de Arduino is. Je bekijkt de help tekst van het commando `open`, daarna open je de communicatie met de Arduino.
+        Je bekijkt het lijstje met aangesloten apparaten door in de `pyvisa-shell` het commando `list` te typen. Je haalt de USB-kabel waarmee de Arduino aan de computer is aangesloten uit de computer en vraagt nogmaals de lijst met aangesloten apparaten op. Nu weet je welke poort de Arduino is. Je bekijkt de help tekst van het commando `open`, daarna open je de communicatie met de Arduino.
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
@@ -276,7 +276,7 @@ We gaan nu het gebruik van de karakters instellen in Pyvisa:
 
 !!! opdracht-basis "Pyvisa regeleindes"
     === "opdracht"
-        Je gaat weer terug naar de Anaconda prompt. Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je dit moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige regeleinde instellingen op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Je bekijkt nog een keer de regeleinde instellingen om te controlleren of ze nu wel goed staan. Je gaat terug naar de [opdracht Pyvisa `query`](#opd:pyvisa_query) en krijgt een response in plaats van een error. 
+        Je gaat weer terug naar de Anaconda prompt. Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je dit moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige regeleinde instellingen op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Je bekijkt nog een keer de regeleinde instellingen om te controleren of ze nu wel goed staan. Je gaat terug naar de [opdracht Pyvisa `query`](#opd:pyvisa_query) en krijgt een response in plaats van een error. 
 
         !!! info "\r\n en CRLF"
             Bij de _Termination Characters demo_ maakten we gebruik van `\r\n` dat is de programmeertaal equivalent van `CRLF`.

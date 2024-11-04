@@ -6,7 +6,7 @@ Een class is eigenlijk een groep functies die je bij elkaar pakt en die met elka
 
 
 ## Aanmaken van een class
-Een class is een verzameling functies. Hieronder staat een versimpelde weergave van de class `Turtle`. Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van fucnties &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods)), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
+Een class is een verzameling functies. Hieronder staat een versimpelde weergave van de class `Turtle`. Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van functies &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods)), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
 
 [^ClassTitle]: Wanneer je de Google Style Guide[@google_style_guide] volgt schrijf je de naam van de class in CapWords of CamelCase. 
 
@@ -80,7 +80,7 @@ master_oogway.forward(50)
 
         <div class="grid-tree" markdown>
             <div>
-            Je bent inmiddels nieuwschierig geworden naar de schildpad. De class `#!py Turtle` zit standaard in Python, daarom kan je die importeren met `#!py from turtle import Turtle`. Maak een bestand {{new_file}} `turtles.py` waarin je een schildpad met de instancenaam `master_oogway` laat lopen en draaien.
+            Je bent inmiddels nieuwsgierig geworden naar de schildpad. De class `#!py Turtle` zit standaard in Python, daarom kan je die importeren met `#!py from turtle import Turtle`. Maak een bestand {{new_file}} `turtles.py` waarin je een schildpad met de instancenaam `master_oogway` laat lopen en draaien.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -338,14 +338,14 @@ print(master_oogway.quote)
         **Checkpunten:**
 
         - [ ] De code bevindt zich in een GitHub-repository.
-        - [ ] De method `#!py add_launch_parameters` verwacht een beginsnelheid in meter per seconde en een lanceerhoek in graden
+        - [ ] De method `#!py add_launch_parameters` verwacht een beginsnelheid in meter per seconde en een lanceerhoek in graden.
         - [ ] De method `#!py get_initial_velocities` geeft een lijst terug met beginsnelheden van alle ingevoerde parameters.
         - [ ] De method `#!py get_launch_angles` geeft een lijst terug met alle lanceerhoeken van de ingevoerde parameters.
-        - [ ] De time-of-flight wordt berekent met 2 * v_y / g
-        - [ ] De beginsnelheid in de y-richting: v_y = v * sin(lanceerhoek)
-        - [ ] Het bereik wordt berekent met time_of_flight * v_x
-        - [ ] De beginsnelheid in de x-richting: v_x = v * cos(lanceerhoek)
-        - [ ] De lanceerhoek wordt in radialen meegegeven aan de trigonomische functies
+        - [ ] De time-of-flight wordt berekend met 2 * v_y / g.
+        - [ ] De beginsnelheid in de y-richting: v_y = v * sin(lanceerhoek).
+        - [ ] Het bereik wordt berekend met time_of_flight * v_x.
+        - [ ] De beginsnelheid in de x-richting: v_x = v * cos(lanceerhoek).
+        - [ ] De lanceerhoek wordt in radialen meegegeven aan de trigonomische functies.
         - [ ] De method `#!py get_time_of_flights` geeft een lijst terug met de vluchtduur in seconden corresponderend met de ingevoerde parameters. 
         - [ ] De method `#!py get_flight_ranges` geeft een lijst terug met het bereik in meters die correspondeerd met de ingevoerde parameters.
 

@@ -178,7 +178,7 @@ if __name__ == "__main__":
 
 !!! opdracht-basis "Argument toevoegen"
     === "opdracht"
-        Je runt het bestand {{file}}`hello.py` en geef achter de bestandsnaam de naam `Alice` mee. Er verschijnt `Hello Alice!` als output in de terminal.
+        Je runt het bestand {{file}}`hello.py` en geeft achter de bestandsnaam de naam `Alice` mee. Er verschijnt `Hello Alice!` als output in de terminal.
     === "code"
         **Pseudo-code**
         ``` py title="hello.py"
@@ -216,7 +216,7 @@ if __name__ == "__main__":
 
 
 !!! warning
-    Let er op dat je bij `#!py @click.argument` de naam meegeeft die overeen komt met de namen van de parameters van je functie. In ons geval hebben we een argument `#!py "name"`. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name)`.
+    Let er op dat je bij `#!py @click.argument` de naam meegeeft die overeenkomt met de namen van de parameters van je functie. In ons geval hebben we een argument `#!py "name"`. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name)`.
 
 Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij _opties_ is dat anders. Je geeft met mintekens aan dat je een optie meegeeft. Veel opties hebben een lange naam en een afkorting (bijvoorbeeld `--count` en `-c`). Opties kunnen zelf weer een argument hebben (bijvoorbeeld `--count 3`). Het is handig om een standaardwaarde te definiëren. In dat geval mag de gebruiker de optie weglaten. We voegen een for-loop[^weggooivariabele] toe om de begroeting te herhalen.
 
@@ -242,7 +242,7 @@ if __name__ == "__main__":
 
 !!! opdracht-basis "5 keer hello"
     === "opdracht"
-        Je runt het bestand {{file}}`hello.py` en geef achter de bestandsnaam de naam van je assistent mee en geeft aan dat je deze 5 keer wilt printen. Er verschijnt vijf keer `Hello <assistent>!` als output in de terminal.
+        Je runt het bestand {{file}}`hello.py` en geeft achter de bestandsnaam de naam van je assistent mee en geeft aan dat je deze 5 keer wilt printen. Er verschijnt vijf keer `Hello <assistent>!` als output in de terminal.
     === "code"
         **Pseudo-code**
         ``` py title="hello.py"
@@ -345,7 +345,7 @@ Hello Alice!</span>
 <div id="opd:hello-pauze"></div>
 !!! opdracht-basis "Pauze optie"
     === "opdracht"
-        Je runt het bestand {{file}}`hello.py` en geef achter de bestandsnaam de naam van je assistent mee en geeft aan dat je deze 5 keer wilt printen met een pauze van 2 seconde ertussen. Het duurt 8 seconden voordat er vijf keer `Hello <assistent>!` als output in de terminal staat. Als je geen pauze-optie meegeeft wordt er ook geen pauze gehouden. 
+        Je runt het bestand {{file}}`hello.py` en geeft achter de bestandsnaam de naam van je assistent mee en geeft aan dat je deze 5 keer wilt printen met een pauze van 2 seconde ertussen. Het duurt 8 seconden voordat er vijf keer `Hello <assistent>!` als output in de terminal staat. Als je geen pauze-optie meegeeft wordt er ook geen pauze gehouden. 
         
         !!! info
             Je kan hiervoor gebruik maken van de module _time_ die standaard met Python meekomt[^standard-library]. Met de functie `#! sleep()` kun je de executie van de volgende regel in het script met een aantal seconden uitstellen.
@@ -407,12 +407,12 @@ Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
 
 !!! opdracht-basis "Argumenten en opties"
     === "opdracht"
-        Je opent met Github Desktop de {{github}}`just_count` in Visual Studio Code. Je hebt ooit een environment voor deze repository aangemaakt maar je hebt geen idee of die in de tussentijd niet per ongeluk stuk is gegaan. Daarom maak je {{lightbulb}} een nieuwe environment `just_count` met daarin Python en gebruikt Poetry om het pakket `just_count` in de nieuwe omgeving te installeren. 
+        Je opent met Github Desktop de {{github}}`just_count` in Visual Studio Code. Je hebt ooit een environment voor deze repository aangemaakt maar je hebt geen idee of die in de tussentijd niet per ongeluk stuk is gegaan. Daarom maak je {{lightbulb}} een nieuwe environment `just_count` met daarin Python en gebruik je Poetry om het pakket `just_count` in de nieuwe omgeving te installeren. 
 
         Je activeert het juiste conda environment en met het commando `square 6` wordt het kwadraat van 6 in de terminal geprint.
 
         !!! info argument is standaard string
-            Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieerd. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden
+            Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieert. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden
 
         ???+ opdracht-meer "Meer functies"
             1. Pas de applicatie aan zodat je kan kiezen tussen het kwadraat of de wortel van het getal. 
@@ -496,7 +496,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
             {{tab}} {{T}} {{new_folder}} `src/fake_conda`  
             {{tab}} {{tab}} {{T}} {{new_file}} `__init__.py`  
             {{tab}} {{tab}} {{L}} {{new_file}} `fake_conda.py`  
-            {{tab}} {{L}} {{new_file_lines}} `pyptoject.toml`  
+            {{tab}} {{L}} {{new_file_lines}} `pyproject.toml`  
             {{tab}} {{L}} {{dots}}  
             {{T}} {{github}} `oefenopdrachten`  
             {{T}} {{github}} `pythondaq`  
@@ -629,7 +629,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 <div id="opd:smallangle"></div>
 !!! opdracht-inlever "smallangle aanpassen"
     === "opdracht"
-        Je kunt met het commando `smallangle` en de subcommando's `sin` en `tan` een lijst genereren van getallen tussen de 0 en 2 $\pi$ en de bijbehorende sinus dan wel tanges van deze getallen. Met de optie `-n` kan je het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) kiezen. Als je de optie `-n` weglaat werkt de applicatie met een standaardwaarde.
+        Je kunt met het commando `smallangle` en de subcommando's `sin` en `tan` een lijst genereren van getallen tussen de 0 en 2 $\pi$ en de bijbehorende sinus dan wel tangens van deze getallen. Met de optie `-n` kan je het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) kiezen. Als je de optie `-n` weglaat werkt de applicatie met een standaardwaarde.
 
         !!! info "TypeError: 'int' object is not iterable"
 
@@ -795,7 +795,7 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
 
         <div class="grid-tree" markdown>
             <div>
-            Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand {{new_file}}`src/pythondaq/cli.py` een opzetje maken waarin je stap voor stap functionaliteit aan toevoegd. De oude {{file}}`view.py` maakte eerst een lijst van aangesloten apparaten en daarna werd een scan uitgevoerd. Daarom zet je in {{file}}`cli.py` de subcommando's `list` en `scan`. Je test de subcommando's en je ziet dat ze werken omdat ze een stukje tekst printen. 
+            Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand {{new_file}}`src/pythondaq/cli.py` een opzetje maken waar je stap voor stap functionaliteit aan toevoegd. De oude {{file}}`view.py` maakte eerst een lijst van aangesloten apparaten en daarna werd een scan uitgevoerd. Daarom zet je in {{file}}`cli.py` de subcommando's `list` en `scan`. Je test de subcommando's en je ziet dat ze werken omdat ze een stukje tekst printen. 
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -960,7 +960,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
 !!! opdracht-inlever "Pythondaq: `info`"
     === "opdracht"
-        Nadat je met het subcommando `list` een lijst hebt van aangsloten devices wil je weten of de Arduino aan een bepaalde poortnaam is gekoppeld. Je voert het subcommando `info DEVICE` uit waarna de identificatiestring van het instrument wordt geprint.
+        Nadat je met het subcommando `list` een lijst hebt van aangesloten devices wil je weten of de Arduino aan een bepaalde poortnaam is gekoppeld. Je voert het subcommando `info DEVICE` uit waarna de identificatiestring van het instrument wordt geprint.
 
         !!! info "identificatiestring"
             De identificatiestring van onze Arduino was `Arduino VISA firmware v1.0.0`. Je moet natuurlijk niet letterlijk deze string copy/pasten, maar de identificatie opvragen van het instrument. Welk firmwarecommando moest je daarvoor ook alweer gebruiken?

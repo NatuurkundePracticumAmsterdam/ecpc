@@ -268,7 +268,7 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
 
 !!! opdracht-basis "textbox toevoegen"
     === "opdracht"
-        Omdat je de textbox en de knoppen onder elkaar wilt uitlijnen voeg je een verticale layout toe. Door de `#!py central_widget` mee te geven tijdens het aanmaken van de verticale layout is de layout automatische onderdeel van de central widget en zal deze in het venster verschijnen. Je maakt een textbox aan en voegt deze toe aan de verticale layout. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen, je typt een vrolijke tekst en sluit het venster. 
+        Omdat je de textbox en de knoppen onder elkaar wilt uitlijnen voeg je een verticale layout toe. Door de `#!py central_widget` mee te geven tijdens het aanmaken van de verticale layout is de layout automatisch onderdeel van de central widget en zal deze in het venster verschijnen. Je maakt een textbox aan en voegt deze toe aan de verticale layout. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen, je typt een vrolijke tekst en sluit het venster. 
 
     === "code"
         **Pseudo-code**
@@ -318,7 +318,7 @@ De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we 
 
 !!! opdracht-basis "Knoppen toevoegen"
     === "opdracht"
-        Omdat de knoppen naast elkaar moeten komen te staan voeg je een horizontale layout toe aan de verticale layout. Je maakt een `clear button` en een `add button` en voegt deze toe aan de horizontale layout. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen met daaronder twee knoppen, je drukt verwoed op de knoppen maar er gebeurd niets[^knop-stuk]. 
+        Omdat de knoppen naast elkaar moeten komen te staan voeg je een horizontale layout toe aan de verticale layout. Je maakt een `clear button` en een `add button` en voegt deze toe aan de horizontale layout. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen met daaronder twee knoppen, je drukt verwoed op de knoppen maar er gebeurt niets[^knop-stuk]. 
 
         [^knop-stuk]: Waarom doen de knoppen niets als je er op klikt?
     === "code"
@@ -360,7 +360,7 @@ De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we 
     
         - [ ] Er is een horizontale layout aangemaakt ([regel 21](#__codelineno-3-21)).
         - [ ] De horizontale layout is toegevoegd aan de verticale layout ([regel 22](#__codelineno-3-22)).
-        - [ ] Er is een `clear_button` en `add_text_button` aan gemaakt met daarop de tekst "Clear" en "Add text" respectivelijk ([regels 24 en 26](#__codelineno-3-24)).
+        - [ ] Er is een `clear_button` en `add_text_button` aan gemaakt met daarop de tekst "Clear" en "Add text" respectievelijk ([regels 24 en 26](#__codelineno-3-24)).
         - [ ] De buttons zijn toegevoegd aan de horizontale layout ([regel 25 en 27](#__codelineno-3-25)).
         - [ ] Als je op de knoppen drukt gebeurt er niets.
 
@@ -383,10 +383,10 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
    
 !!! opdracht-basis "Slots en signals toevoegen"
     === "opdracht"
-        Je gaat functionaliteit aan de knoppen verbinden. Je verbind de `clear_button` aan de `clear()` method van `textedit`. Je maakt een eigen `Slot` met de naam `add_text_button_clicked` die een tekst aan de textbox toegevoegd. Je vind de tekst "You clicked me." maar suf en bedenkt zelf een andere leuke tekst. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen met daaronder twee knoppen. Je drukt op "Add text" en er verschijnt tekst in de textbox, daarna druk je op "Clear" en de tekst verdwijnt.
+        Je gaat functionaliteit aan de knoppen verbinden. Je verbint de `clear_button` aan de `clear()` method van `textedit`. Je maakt een eigen `Slot` met de naam `add_text_button_clicked` die een tekst aan de textbox toegevoegd. Je vind de tekst "You clicked me." maar suf en bedenkt zelf een andere leuke tekst. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen met daaronder twee knoppen. Je drukt op "Add text" en er verschijnt tekst in de textbox, daarna druk je op "Clear" en de tekst verdwijnt.
 
         !!! info "() ontbreken bij `clear` en `add_text_button_clicked`"
-            Bij het verbinden van het `#!py clicked`-signaal met `#!py clicked.connect()` geef je aan connect de methods `clear` en `add_text_button_clicked` mee _zonder_ deze aan te roepen (dat gebeurd later). Concreet betekent dit dat je de haakjes weglaat ([regel 30 en 31](#__codelineno-3-30)).
+            Bij het verbinden van het `#!py clicked`-signaal met `#!py clicked.connect()` geef je aan connect de methods `clear` en `add_text_button_clicked` mee _zonder_ deze aan te roepen (dat gebeurt later). Concreet betekent dit dat je de haakjes weglaat ([regel 30 en 31](#__codelineno-3-30)).
     === "code"
         **Pseudo-code**
         ``` py hl_lines="23 24 26 27 28"
@@ -711,7 +711,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
         - [ ] Het is mogelijk om de start waarde aan te passen.
         - [ ] Het is mogelijk om de stop waarde aan te passen.
         - [ ] Het is mogelijk om het aantal punten te kiezen waarmee de sinus functie wordt geplot.
-        - [ ] Na het aanpassen van een waarde wordt de plot automatische opnieuw geplot.
+        - [ ] Na het aanpassen van een waarde wordt de plot automatisch opnieuw geplot.
 
         **Projecttraject**
     
@@ -774,7 +774,7 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
 
         <div class="grid-tree" markdown>
             <div>
-            Je wilt een toffe GUI maken voor de `pythondaq` applicatie. Je gaat dit in stapjes opbouwen zodat je tussendoor nog kunt testen of het werkt. Je maakt een {{new_file}}`gui.py` aan waarin een leeg venster wordt gemaakt. Het lege venster wordt getoont zodra je een commando in de terminal intypt. Je sluit het venster. Om te testen of dit bij andere mensen ook zou werken maak {{lightbulb}} je een nieuwe conda environment aan met Python, installeer je de package met Poetry en test je opnieuw het commando, er verschijnt opnieuw een leeg venster. 
+            Je wilt een toffe GUI maken voor de `pythondaq` applicatie. Je gaat dit in stapjes opbouwen zodat je tussendoor nog kunt testen of het werkt. Je maakt een {{new_file}}`gui.py` aan waarin een leeg venster wordt gemaakt. Het lege venster wordt getoond zodra je een commando in de terminal intypt. Je sluit het venster. Om te testen of dit bij andere mensen ook zou werken maak {{lightbulb}} je een nieuwe conda environment aan met Python, installeer je de package met Poetry en test je opnieuw het commando, er verschijnt opnieuw een leeg venster. 
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -795,7 +795,7 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
     === "check"
         **Checkpunten:**
     
-        - [ ] Het uitvoeren van een commando zorgt ervoor dat een leeg venster wordt getoont. 
+        - [ ] Het uitvoeren van een commando zorgt ervoor dat een leeg venster wordt getoond. 
         - [ ] Het commando werkt ook na het installeren van de package `pythondaq` met Poetry in een nieuwe conda environment met Python. 
 
         **Projecttraject**
@@ -917,7 +917,7 @@ Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder
 
         # methods save
             # open dialog
-            # save measurments as csv in given filename
+            # save measurements as csv in given filename
         ```
     === "check"
         **Checkpunten:**
@@ -954,7 +954,7 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
 
 !!! opdracht-inlever "Pythondaq: selecteer Arduino"
     === "opdracht"
-        Je opent de applicatie en ziet een keuzemenu (`#!py QComboBox`) waarmee je de Arduino kunt selecteren. Je selecteert de juiste Arduino, start een meting en ziet het LED lampje branden. Je sluit de applicatie af en bent benieuwd wat er gebeurt als je meerder Arduino's aansluit. Dus vraag je een (of twee, of drie) Arduino('s) van je buren, sluit deze aan op je computer en start opnieuw de applicatie. Je ziet dat er meerdere apparaten in het keuzemenu staan. Je kiest een Arduino, start een meting en ziet een lampje branden. Daarna selecteer je een andere Arduino, start een meting en ziet een ander lampje branden, hoe leuk {{feesttoeter}}.
+        Je opent de applicatie en ziet een keuzemenu (`#!py QComboBox`) waarmee je de Arduino kunt selecteren. Je selecteert de juiste Arduino, start een meting en ziet het LED lampje branden. Je sluit de applicatie af en bent benieuwd wat er gebeurt als je meerdere Arduino's aansluit. Dus vraag je een (of twee, of drie) Arduino('s) van je buren, sluit deze aan op je computer en start opnieuw de applicatie. Je ziet dat er meerdere apparaten in het keuzemenu staan. Je kiest een Arduino, start een meting en ziet een lampje branden. Daarna selecteer je een andere Arduino, start een meting en ziet een ander lampje branden, hoe leuk {{feesttoeter}}.
 
         !!! info "Arduino afsluiten"
             Als je met meerdere Arduino's werkt kan het handig zijn om na afloop van de scan de communicatie met de Arduino weer te sluiten. In de [_opdracht Pyvisa in terminal_](communicatie.md#opd:pyvisaterminal) heb je al eens gewerkt met het commando `close`. Dit werkt ook voor pyvisa in een script. Je hebt in de controller de communicatie geopend met `#!py self.device = rm.open_resource(port, read_termination="\r\n", write_termination="\n")`, je kunt de communicatie met `self.device` in de controller sluiten met `self.device.close()`. Je kunt een method in de controller toevoegen die de communicatie sluit. Via het model kun je deze method aanroepen in de gui.

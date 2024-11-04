@@ -94,7 +94,7 @@ Dit kan in GitHub Desktop, maar ook direct vanuit Visual Studio Code. Elke commi
         1. Type een stukje code erbij &mdash; bijvoorbeeld een print-statement &mdash; en haal ergens anders iets weg. Bewaar het bestand.
         1. Ga naar GitHub Desktop, controleer bij *Current repository* (links onder de menubalk) of de juiste repository is geopend.
         1. Klik daaronder op het tabblad *Changes*
-        1. Als er meerder bestanden gewijzigd zijn kan je met het blauwe vinkje aangeven voor welke bestanden je een commit schrijft. 
+        1. Als er meerdere bestanden gewijzigd zijn kan je met het blauwe vinkje aangeven voor welke bestanden je een commit schrijft. 
         1. Onder de lijst met gewijzigde bestanden vind je twee invulvulden. Een smal veld voor een titel en een groot veld voor een uitgebreide beschrijving (Description). 
         1. In het titelveld staat in lichtgrijs een nietzeggende commit (bijvoorbeeld: Update test.py). Schrijf daar een nuttige <q>commit message</q>. Dus niet: <q>opdracht: commit</q>, maar zoiets als: <q>feat: lookup port name for device</q>.
         1. Klik op *Commit to main*. Gefeliciteerd! {{feesttoeter}} Je hebt je eerste commit gepleegd!
@@ -143,7 +143,7 @@ Hieronder zie je een aantal voorbeelden van commit messages. De titels zijn kort
 
 !!! opdracht-basis "Push en pull"
     === "opdracht"
-        De repository die je in [opdracht _Repository toevoegen_](#opd:add_repository) hebt aangemaakt bestaat alleen nog maar op de computer. Als de computerkabouters 's nachts langskomen kan het zijn dat de computer daarna is gewist en je alles kwijt bent. Daarom is het fijn om de repository ook in de cloud te hebben op GitHub.com. In GitHub desktop is een knop `Publish repository; Publish this repository to GitHub`, als je daar op drukt kun je nog een andere naam aan de repository geven (dat bepaald de url op github.com), een description en of de code privé moet zijn. Daarna klik je op de blauwe knop `Publish repository`. Als je nu naar [GitHub.com](https://github.com) gaat zie je bij jouw repositories de zojuist gepubliceerde repository staan. 
+        De repository die je in [opdracht _Repository toevoegen_](#opd:add_repository) hebt aangemaakt bestaat alleen nog maar op de computer. Als de computerkabouters 's nachts langskomen kan het zijn dat de computer daarna is gewist en je alles kwijt bent. Daarom is het fijn om de repository ook in de cloud te hebben op GitHub.com. In GitHub desktop is een knop `Publish repository; Publish this repository to GitHub`, als je daar op drukt kun je nog een andere naam aan de repository geven (dat bepaalt de url op github.com), een description en of de code privé moet zijn. Daarna klik je op de blauwe knop `Publish repository`. Als je nu naar [GitHub.com](https://github.com) gaat zie je bij jouw repositories de zojuist gepubliceerde repository staan. 
     
         Om je wijzigen ook in de cloud op te slaan kun je commits `pushen` naar Github.com met de knop `Push origin`. Als je op een andere computer gaat werken kun je de repository vanuit de cloud naar de computer halen door op `Fetch origin` te klikken en daarna op `Pull origin`.
     === "check"

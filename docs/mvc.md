@@ -34,7 +34,7 @@ Het opsplitsen van het {{file}}`basisscript.py` in MVC gaan we stapsgewijs doen.
 !!! opdracht-inlever "Pythondaq: controller bouwen"
     === "opdracht"
         Een gebruiker moet het volgende kunnen doen:
-        Je vraagt een lijst met beschikbare poorten op met de functie `#!py list_resources()`. Wanneer je weet welke poort de Arduino is gebruik je deze poortnaam om een instance aan te maken van de class `ArduinoVISADevice`. Met deze class kan je met de Arduino te communiceren. Met de method `#!py get_identification()` vraag je de identificatiestring op om te controlleren dat je met het juiste apparaat communiceert. Je gebruikt de method `#!py set_output_value()` om een waarde van 828 op het uitvoerkanaal 0 te zetten, omdat de LED gaat branden weet je dat het werkt. Je test de spanningsmeters door met de method `#!py get_input_value()` eerst van kanaal 1 en daarna van kanaal 2 de waarde op te vragen. Je ziet waardes die overeenkomen met je verwachting. Je rekent de waardes om naar spanningen in volt en controlleert daarna de method `#!py get_input_voltage()` om te zien of deze dezelfde waardes terug geeft voor kanaal 1 en 2. Om te controlleren of de waarde die je op het uitvoerkanaal gezet hebt nog steeds gelijk is aan wat je hebt ingesteld vraag je deze waarde op met `#!py get_output_value()`. 
+        Je vraagt een lijst met beschikbare poorten op met de functie `#!py list_resources()`. Wanneer je weet welke poort de Arduino is gebruik je deze poortnaam om een instance aan te maken van de class `ArduinoVISADevice`. Met deze class kan je met de Arduino te communiceren. Met de method `#!py get_identification()` vraag je de identificatiestring op om te controleren dat je met het juiste apparaat communiceert. Je gebruikt de method `#!py set_output_value()` om een waarde van 828 op het uitvoerkanaal 0 te zetten, omdat de LED gaat branden weet je dat het werkt. Je test de spanningsmeters door met de method `#!py get_input_value()` eerst van kanaal 1 en daarna van kanaal 2 de waarde op te vragen. Je ziet waardes die overeenkomen met je verwachting. Je rekent de waardes om naar spanningen in volt en controleert daarna de method `#!py get_input_voltage()` om te zien of deze dezelfde waardes terug geeft voor kanaal 1 en 2. Om te controleren of de waarde die je op het uitvoerkanaal gezet hebt nog steeds gelijk is aan wat je hebt ingesteld vraag je deze waarde op met `#!py get_output_value()`. 
     === "code"
         **Pseudo-code**
         ``` py
@@ -223,7 +223,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
 ???+ opdracht-meer "`#!py if __name__ == '__main__'`"
     === "opdracht"
-        Later wil je de functie `#!py list_resources()` netjes in het hele model-view-controller systeem vlechten zodat je als gebruiker de lijst kunt opvragen, maar voor nu wil je af en toe even zien aan welke poort de Arduino hangt. Wanneer je het script {{file}}`arduino_device.py` runt wordt er een lijst geprint met poorten. Dit gebeurt niet wanneer het bestand {{file}}`basisscript.py` wordt gerunt. 
+        Later wil je de functie `#!py list_resources()` netjes in het hele model-view-controller systeem vlechten zodat je als gebruiker de lijst kunt opvragen, maar voor nu wil je af en toe even zien aan welke poort de Arduino hangt. Wanneer je het script {{file}}`arduino_device.py` runt wordt er een lijst geprint met poorten. Dit gebeurt niet wanneer het bestand {{file}}`basisscript.py` wordt gerund. 
 
         !!! info "modules"
             Nog niet bekend met `#!py if __name__ == '__main__'`? kijk dan voor meer informatie in de [paragraaf modules](vervolg-python.md#modules).
@@ -253,15 +253,15 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
     === "check"
         **Checkpunten:**
 
-        - [ ] Er wordt een lijst met poorten geprint wanneer {{file}}`arduino_device.py` wordt gerunt.
-        - [ ] De lijst wordt _niet_ geprint wanneer {{file}}`basisscript.py` wordt gerunt.
+        - [ ] Er wordt een lijst met poorten geprint wanneer {{file}}`arduino_device.py` wordt gerund.
+        - [ ] De lijst wordt _niet_ geprint wanneer {{file}}`basisscript.py` wordt gerund.
 
 !!! opdracht-inlever "Pythondaq: Model afsplitsen"
     === "opdracht"
 
         <div class="grid-tree" markdown>
             <div>
-            Omdat de uitbreidingen om het basisscript gebruiksvriendelijker te maken vooral de view zullen uitbreiden zet je het model en de view ook in aparte bestanden. Wanneer je het bestand {{file}}`view.py` runt roept deze in het model de method `#!py scan()` van de class `DiodeExperiment` aan welke een meting start. Om gegevens van het naar de Arduino te sturen maakt het model gebruik van de controller. De gegevens die het model terugkrijgt van de Arduino worden volgens de fysische relaties verwerkt tot de benodigde gegevens en doorgestuurd naar de view. De view presenteerd de gegevens in een grafiek. Wanneer je in een ander bereik wilt meten pas je in de view het bereik aan, het model gebruikt dit bereik bij het doen van de meting. Let op, we hernoemen {{file}} `basisscript.py` naar {{file}} `diode_experiment.py`.
+            Omdat de uitbreidingen om het basisscript gebruiksvriendelijker te maken vooral de view zullen uitbreiden zet je het model en de view ook in aparte bestanden. Wanneer je het bestand {{file}}`view.py` runt roept deze in het model de method `#!py scan()` van de class `DiodeExperiment` aan welke een meting start. Om gegevens van het naar de Arduino te sturen maakt het model gebruik van de controller. De gegevens die het model terugkrijgt van de Arduino worden volgens de fysische relaties verwerkt tot de benodigde gegevens en doorgestuurd naar de view. De view presenteert de gegevens in een grafiek. Wanneer je in een ander bereik wilt meten pas je in de view het bereik aan, het model gebruikt dit bereik bij het doen van de meting. Let op, we hernoemen {{file}} `basisscript.py` naar {{file}} `diode_experiment.py`.
             </div>
             <div>
             {{folder}} `ECPC`   
@@ -331,7 +331,7 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
 
 !!! opdracht-inlever "Pythondaq: Onzekerheid"
     === "opdracht"
-        Omdat je never nooit je conclusies gaat baseren op een enkele meetserie ga je de meting herhalen en foutenvlaggen toevoegen. Je moet weer even hard nadenken over hoe je dat bepaald en hoe je dat in je code gaat verwerken. Daarom pak je pen en papier, stoot je je buurmens aan en samen gaan jullie nadenken over hoe jullie in dit experiment de onzekerheid kunnen bepalen. Daarna kijken jullie naar de opbouw van de code en maken jullie aantekeningen over wat er waar en hoe in de code aangepast moet worden. Je kijkt naar je repository en ziet dat je de nu-nog-werkende-code hebt gecommit vervolgens ga je stap voor stap (commit voor commit) aan de slag om de aanpassingen te maken. Als het klaar is run je {{file}}`view.py` met het aantal herhaalmetingen op 3 en ziet in de grafiek foutenvlaggen op de metingen voor stroom en spanningen staan. Je kijkt op het beeldscherm van je buurmens en ziet daar ook foutenvlaggen verschijnen. Met een grijns kijken jullie elkaar aan en geven een high five {{feesttoeter}}.
+        Omdat je never nooit je conclusies gaat baseren op een enkele meetserie ga je de meting herhalen en foutenvlaggen toevoegen. Je moet weer even hard nadenken over hoe je dat bepaalt en hoe je dat in je code gaat verwerken. Daarom pak je pen en papier, stoot je je buurmens aan en samen gaan jullie nadenken over hoe jullie in dit experiment de onzekerheid kunnen bepalen. Daarna kijken jullie naar de opbouw van de code en maken jullie aantekeningen over wat er waar en hoe in de code aangepast moet worden. Je kijkt naar je repository en ziet dat je de nu-nog-werkende-code hebt gecommit vervolgens ga je stap voor stap (commit voor commit) aan de slag om de aanpassingen te maken. Als het klaar is run je {{file}}`view.py` met het aantal herhaalmetingen op 3 en ziet in de grafiek foutenvlaggen op de metingen voor stroom en spanningen staan. Je kijkt op het beeldscherm van je buurmens en ziet daar ook foutenvlaggen verschijnen. Met een grijns kijken jullie elkaar aan en geven een high five {{feesttoeter}}.
 
     === "code"
         **Pseudo-code**
@@ -347,7 +347,7 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
         
         # class DiodeExperiment
             ...
-            def scan # with start, stop and number of measurments
+            def scan # with start, stop and number of measurements
                 # set input voltage from start to stop
                     # calculate LED voltage
                     # calculate LED current

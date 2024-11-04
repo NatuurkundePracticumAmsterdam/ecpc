@@ -138,7 +138,7 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
 ## List
 
 !!! opdracht-basis "lijsten"
-    1. Schrijf een python script waarin je een lijst definieerd met de namen van de maanden.
+    1. Schrijf een python script waarin je een lijst definieert met de namen van de maanden.
     1. Print de negende maand.
     1. Voeg een dertiende maand toe aan de lijst.
     ??? uitwerkingen

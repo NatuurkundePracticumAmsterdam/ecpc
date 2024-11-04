@@ -383,7 +383,7 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
         - [ ] Pythondaq: Onzekerheid
 
 ???+ opdracht-meer "Git ignore"
-    Het kan wenselijk zijn om niet alle bestanden mee te nemen voor versiebeheer in je repository. Soms wil je een bestand uitsluiten, of bepaalde bestand-types.  Om GitHub te laten weten welke bestanden niet gecommit hoeven te worden is er een bestand {{file_lines}}`.gitignore` . Let op de punt voor de bestandsnaam, dit betekend dat het een verborgen bestand is en mogelijk zie je het niet in je repository staan.
+    Het kan wenselijk zijn om niet alle bestanden mee te nemen voor versiebeheer in je repository. Soms wil je een bestand uitsluiten, of bepaalde bestand-types.  Om GitHub te laten weten welke bestanden niet gecommit hoeven te worden is er een bestand {{file_lines}}`.gitignore` . Let op de punt voor de bestandsnaam, dit betekent dat het een verborgen bestand is en mogelijk zie je het niet in je repository staan.
     
     Stel je wilt alle csv-bestanden uitsluiten van versiebeheer, dat kan als volgt:
 

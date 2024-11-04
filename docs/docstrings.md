@@ -73,7 +73,7 @@ Zo kunnen we gemakkelijk alles gaan invullen. Zo lang je niet op ++escape++ druk
 
 !!! opdracht-inlever "Pythondaq: docstring"
     === "opdracht"
-         Alle code van je `pythondaq`applicatie zijn voorzien van docstrings. Je bent aan het werk in je _model_ script en ziet dat er gebruikt wordt gemaakt van een method `#!py get_input_voltage()` die in de _controller_ staat. Je vraagt je ineens af wat deze method ook al weer doet. Voorheen ging je dan naar de controller en scrollde je naar`#!py get_input_voltage()`. Maar tegenwoordig heb je overal docstrings geschreven, je blijft in het model-script, houd je muis bij `#!py get_input_voltage()` en ziet daar je  fantastische omschrijving van de method die in de _controller_ staat! 
+         Alle code van je `pythondaq`applicatie zijn voorzien van docstrings. Je bent aan het werk in je _model_ script en ziet dat er gebruik wordt gemaakt van een method `#!py get_input_voltage()` die in de _controller_ staat. Je vraagt je ineens af wat deze method ook al weer doet. Voorheen ging je dan naar de controller en scrolde je naar`#!py get_input_voltage()`. Maar tegenwoordig heb je overal docstrings geschreven, je blijft in het model-script, houd je muis bij `#!py get_input_voltage()` en ziet daar je  fantastische omschrijving van de method die in de _controller_ staat! 
 
     === "code"
         **Pseudo-code**

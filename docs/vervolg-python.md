@@ -268,7 +268,7 @@ Je kunt op verschillende manieren een NumPy array maken (na `#!py import numpy a
 
     ### Dictionaries
 
-    Dictionaries zijn een bijzonder handige manier om informatie op te slaan. Een dictionary bestaat uit een of meerder key-value tweetallen. Met een handige gekozen naam voor de key kan je betekenis geven aan een value. 
+    Dictionaries zijn een bijzonder handige manier om informatie op te slaan. Een dictionary bestaat uit een of meerdere key-value tweetallen. Met een handige gekozen naam voor de key kan je betekenis geven aan een value. 
 
     !!! opdracht-meer "dict"
         Schrijf een kort scriptje:
@@ -493,7 +493,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     <span class="invisible" name="python one_line.py">['banana', 'kiwi', 'apple']</span>
     </code></pre>
 
-    Lambdafuncties kun je ook gebruiken om te fitten aan een bepaald model. Je definiëert je model dan in één regel met een lambdafunctie:
+    Lambdafuncties kun je ook gebruiken om te fitten aan een bepaald model. Je definieert je model dan in één regel met een lambdafunctie:
 
     ``` py
     # from lmfit import models
@@ -868,7 +868,7 @@ The square of 5 is 25</span>
 
 Maar nu is er een probleem met de uitvoer van dit script: zowel het kwadraat van 4 als van 5 wordt geprint.
 
-Tijdens het importeren wordt alle code die aanwezig is in {{file}}`square.py` ook daadwerkelijk gerunt. Er zijn twee manieren om dit op te lossen:
+Tijdens het importeren wordt alle code die aanwezig is in {{file}}`square.py` ook daadwerkelijk gerund. Er zijn twee manieren om dit op te lossen:
 
   1. Alle 'extra' code verwijderen uit de module ({{file}}`square.py`)
   1. De code in de module _alleen_ laten runnen als de module als script wordt aangeroepen, maar _niet_ wanneer de module wordt geïmporteerd
@@ -878,7 +878,7 @@ De eerste oplossing is lang niet altijd wenselijk. Voor de tweede oplossing pas 
 --8<-- "scripts/square.py"
 ```
 Wanneer je een python script runt is de speciale variabele `#!py __name__` gelijk aan de string `__main__`. Maar als je een module importeert is
-`#!py __name__` gelijk aan de _naam_ van de module; in dit geval `#!py square`. Met bovenstaande constructie wordt de code alleen uitgevoerd wanneer de module direct gerunt wordt:
+`#!py __name__` gelijk aan de _naam_ van de module; in dit geval `#!py square`. Met bovenstaande constructie wordt de code alleen uitgevoerd wanneer de module direct gerund wordt:
 <pre><code>(ecpc) > square.py <button type="button" name="square.py" onclick="runScript('square.py')">{{ enter }}</button><button type="button" name="square.py" onclick="runScript('square.py')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="square.py">The square of 4 is 16</span>
 (ecpc) > count_count.py <button type="button" name="count_count.py" onclick="runScript('count_count.py')">{{ enter }}</button><button type="button" name="count_count.py" onclick="runScript('count_count.py')" class="invisible">{{ reload }}</button>
@@ -898,7 +898,7 @@ Het `#!py if __name__ == '__main__'`-statement wordt heel veel gebruikt in Pytho
     1. Run {{file}}`just_count.py` met het `#!py if __name__ == '__main__'`-statement.
     1. Voeg `#!py print(f"{__name__ = }")` toe bovenaan {{file}}`square.py`. 
     1. Run {{file}}`square.py` en kijk wat `#!py __name__` is.
-    1. Run dan nu {{file}}`just_count.py`. Zie hoe de speciale variabele `#!py __name__` veranderd. 
+    1. Run dan nu {{file}}`just_count.py`. Zie hoe de speciale variabele `#!py __name__` verandert. 
 
 
 ## Packages
@@ -928,7 +928,7 @@ Wij gaan in deze cursus onze code ook in packages stoppen. Op die manier kun je 
 
 Iedere package bestaat uit een directory met een {{file}}`__init__.py`-bestand.[^init]
 
-[^init]: Dat bestand is vaak leeg, maar kan code bevatten die gerunt wordt zodra het package wordt geïmporteerd.
+[^init]: Dat bestand is vaak leeg, maar kan code bevatten die gerund wordt zodra het package wordt geïmporteerd.
 
 De verschillende modules uit het [figuur](vervolg-python.md#fig:packagetree) hierboven kun je als volgt importeren en gebruiken in het bestand {{file}}`script.py` (we gaan er even vanuit dat iedere module een functie `#!py some_function()` bevat):
 ``` py title="script.py"
@@ -958,7 +958,7 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
     In deze opdracht ga je oefenen met het aanmaken van packages, modules en het importeren en aanroepen daarvan.
     
     1. Maak in de map {{folder}}`ECPC` een package {{folder}}`models` met twee modules: {{file}}`polynomials.py` en {{file}}`tests.py`.
-    1. In de `#!py polynomials`-module maak je een functie `#!py line(x, a, b)` die de de vergelijking voor een lijn voor ons berekent: $y = ax + b$.
+    1. In de `#!py polynomials`-module maak je een functie `#!py line(x, a, b)` die de vergelijking voor een lijn voor ons berekent: $y = ax + b$.
     1. In de `#!py tests`-module maak je een functie `#!py test_line()` die het volgende doet:
             
         1. gebruik de `#!py line()`-functie uit de `#!py polynomials`-module om de $y$-waarde uit te rekenen voor een bepaald punt bij een gegeven $a$ en $b$.
