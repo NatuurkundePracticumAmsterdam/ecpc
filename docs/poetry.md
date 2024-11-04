@@ -431,7 +431,7 @@ Fijn! Het verwijderen van dependency `PACKAGE` gaat met `poetry remove PACKAGE`.
 
     !!! opdracht-meer "Schone environment"
 
-        1. Maak een schone conda environment met `PS> conda create --name easystat python=3.10`
+        1. Maak een schone conda environment met `conda create --name easystat python=3.12`
         1. Kies voor ja als Conda een waarschuwing geeft dat deze environment al bestaat en vraagt of je het bestaande environment wilt verwijderen.
         1. Draai {{file}}`tests/try_shortcuts.py` en bekijk de foutmelding.
         
@@ -472,7 +472,7 @@ Fijn! Het verwijderen van dependency `PACKAGE` gaat met `poetry remove PACKAGE`.
 
         1. Maak een nieuwe conda environment aan met de naam `test-wheel` en activeer deze.
                 ``` ps1con title="Terminal"
-                PS> conda create --name test-wheel python=3.10
+                PS> conda create --name test-wheel python=3.12
                 ...
                 PS> conda activate test-wheel
                 ```
@@ -500,8 +500,8 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
 
 !!! info
     Als je al bezig bent met een project dan werk je als het goed is al in een conda environment. Daar heb je dan met `conda install` al packages geïnstalleerd die je nodig hebt. Het gebeurt dan makkelijk dat je vergeet om dat aan te geven met `poetry add`. Dat betekent alleen dat als iemand anders je package installeert dat er dependencies missen en dat jouw code dus _niet_ werkt! Dit is makkelijk op te lossen. Zodra je Poetry gaat gebruiken _wis dan je environment en maak een nieuwe aan met alleen Python._ Dat gaat het makkelijkst als volgt. Stel dat je bezig bent in het environment `pythondaq`. We maken dan een nieuw environment met dezelfde naam:
-    <pre><code>(ecpc) > conda create --name pythondaq python=3.10 <button type="button" name="conda create --name pythondaq python=3.10" onclick="runScript('conda create --name pythondaq python=3.10')">{{ enter }}</button><button type="button" name="conda create --name pythondaq python=3.10" onclick="runScript('conda create --name pythondaq python=3.10')" class="invisible">{{ reload }}</button>
-    <span class="invisible" name="conda create --name pythondaq python=3.10">WARNING: A conda environment already exists at '/Users/david/opt/anaconda3/envs/pythondaq'
+    <pre><code>(ecpc) > conda create --name pythondaq python=3.12 <button type="button" name="conda create --name pythondaq python=3.12" onclick="runScript('conda create --name pythondaq python=3.12')">{{ enter }}</button><button type="button" name="conda create --name pythondaq python=3.12" onclick="runScript('conda create --name pythondaq python=3.12')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="conda create --name pythondaq python=3.12">WARNING: A conda environment already exists at '/Users/david/opt/anaconda3/envs/pythondaq'
     Remove existing environment (y/[n])? y                                                                                                                                      
     ...</span>
     </code></pre>
@@ -513,7 +513,7 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
     
         <div class="grid-tree" markdown>
             <div>
-            Je gaat een bestaand project maken zodat je kunt oefenen om daar Poetry aan toe te voegen. Omdat de [opdracht _flashingLED_](communicatie.md#opd:flashingLED) een oefenopdracht was voor `Pythondaq` besluit je deze als oefenpackage te gebruiken. Je maakt {{lightbulb}} een nieuwe repository {{github}}`flasher` aan en opent deze in Visual Studio Code. Je maakt zelf in de repository {{github}}`flasher` de src-layout van mappen en bestanden, zoals hier rechts is weergegeven. Het bestand {{file}}`flashingLED` heb je gekopieerd uit je repository {{github}}`oefenopdrachten`. Nu het oefenpackage klaar staat (commit{{feesttoeter}}) maak {{lightbulb}} je een nieuwe conda environment met de naam `flasher` met daarin `python=3.10`. Je activeert de environment `flasher` en voegt Poetry toe. Je installeert het pakket en daarna voeg je de benodigde dependencies toe (in ieder geval `pyvisa-py` maar wat nog meer?) net zolang tot het scriptje weer werkt. 
+            Je gaat een bestaand project maken zodat je kunt oefenen om daar Poetry aan toe te voegen. Omdat de [opdracht _flashingLED_](communicatie.md#opd:flashingLED) een oefenopdracht was voor `Pythondaq` besluit je deze als oefenpackage te gebruiken. Je maakt {{lightbulb}} een nieuwe repository {{github}}`flasher` aan en opent deze in Visual Studio Code. Je maakt zelf in de repository {{github}}`flasher` de src-layout van mappen en bestanden, zoals hier rechts is weergegeven. Het bestand {{file}}`flashingLED` heb je gekopieerd uit je repository {{github}}`oefenopdrachten`. Nu het oefenpackage klaar staat (commit{{feesttoeter}}) maak {{lightbulb}} je een nieuwe conda environment met de naam `flasher` met daarin `python=3.12`. Je activeert de environment `flasher` en voegt Poetry toe. Je installeert het pakket en daarna voeg je de benodigde dependencies toe (in ieder geval `pyvisa-py` maar wat nog meer?) net zolang tot het scriptje weer werkt. 
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -616,7 +616,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
 
 !!! opdracht-inlever "Pythondaq: poetry"
     === "opdracht"
-        Nu de repository {{github}}`pythondaq` in de src-layout staat voeg je Poetry toe om het project te beheren. Nadat alles gelukt is test je het project door een nieuwe conda environment aan te maken met de naam `pythondaq` met daarin alleen `python=3.10`. Daarna installeer je het Poetry project en wanneer je `view.py` runt zie je als vanouds een lampje branden en een plot verschijnen. 
+        Nu de repository {{github}}`pythondaq` in de src-layout staat voeg je Poetry toe om het project te beheren. Nadat alles gelukt is test je het project door een nieuwe conda environment aan te maken met de naam `pythondaq` met daarin alleen `python=3.12`. Daarna installeer je het Poetry project en wanneer je `view.py` runt zie je als vanouds een lampje branden en een plot verschijnen. 
     === "code"
         **Pseudo-code**
         <pre><code>(ecpc) > poetry install <button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')">{{ enter }}</button><button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')" class="invisible">{{ reload }}</button>
@@ -635,7 +635,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
     === "check"
         **Checkpunten:**
     
-        - [ ] Wanneer met `poetry install` in een nieuwe conda environment met alleen python=3.10 het pakket wordt geïnstalleerd werkt {{file}}`view.py` daarna in die nieuwe omgeving naar behoren. 
+        - [ ] Wanneer met `poetry install` in een nieuwe conda environment met alleen python=3.12 het pakket wordt geïnstalleerd werkt {{file}}`view.py` daarna in die nieuwe omgeving naar behoren. 
 
         **Projecttraject**
     
@@ -755,7 +755,7 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
    
 !!! opdracht-basis "Main functie toevoegen"
     === "opdracht"
-        Je [cloned de repository just_count in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en opent het daarna vanuit GitHub Desktop in Visual Studio Code. Je ziet een {{file_lines}}`pyproject.toml` in de repository staan. Dus installeer je het pakket met Poetry in een nieuwe conda environment (met alleen python=3.10). Je opent het hoofdbestand {{file}}`count_count.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Daarna pas je het bestand aan zodat de functie nog steeds wordt uitgevoerd wanneer je het bestand {{file}}`count_count.py` runt. 
+        Je [cloned de repository just_count in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en opent het daarna vanuit GitHub Desktop in Visual Studio Code. Je ziet een {{file_lines}}`pyproject.toml` in de repository staan. Dus installeer je het pakket met Poetry in een nieuwe conda environment (met alleen python=3.12). Je opent het hoofdbestand {{file}}`count_count.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Daarna pas je het bestand aan zodat de functie nog steeds wordt uitgevoerd wanneer je het bestand {{file}}`count_count.py` runt. 
     === "code"
         **Testcode**
         <div class="code-box"><button type="button" name="count_count_main function" onclick="runScript('count_count_main function')" class="run">{{ run }}</button><button type="button" name="count_count_main function" onclick="runScript('count_count_main function')" class="reload invisible">{{ reload }}</button> count_count.py
