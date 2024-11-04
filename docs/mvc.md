@@ -25,7 +25,10 @@ __Controller__
 Het opsplitsen van je programma _hoeft niet in één keer!_ Dit kan stapsgewijs. Je kunt starten met een eenvoudig script &mdash; zoals we hierboven gedaan hebben &mdash; en dat langzaam uitbreiden. Je begint klein, verdeelt je code in lagen en bouwt vervolgens verder.
 
 ## Implementeren van MVC
-Het opsplitsen van het programma in MVC gaan we stapsgewijs doen. We gaan een class maken voor de aansturing van de Arduino, deze class valt in de categorie _controller_.
+Het opsplitsen van het {{file}}`basisscript.py` in MVC gaan we stapsgewijs doen. We gaan een class maken voor de aansturing van de Arduino, deze class valt in de categorie _controller_.
+
+!!! opdracht-inlever "Pythondaq: open de repository"
+    Open in GitHub Desktop de repository van {{repo}}`pythondaq` en open de repository in Visual Studio Code. In de volgende opdrachten ga je het {{file}}`basisscript.py` uitbreiden en opsplitsen in MVC.
 
 <div id="opd:meting-class"></div>
 !!! opdracht-inlever "Pythondaq: controller bouwen"
@@ -93,6 +96,7 @@ Het opsplitsen van het programma in MVC gaan we stapsgewijs doen. We gaan een cl
         - [x] Pythondaq: Start script
         - [x] Pythondaq: Quick 'n dirty meting
         - [x] Pythondaq: CSV
+        - [x] Pythondaq: open de repository
         - [x] Pythondaq: Controller bouwen
         - [ ] Pythondaq: Controller implementeren
         - [ ] Pythondaq: Controller afsplitsen
@@ -134,6 +138,7 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
         - [x] Pythondaq: Start script
         - [x] Pythondaq: Quick 'n dirty meting
         - [x] Pythondaq: CSV
+        - [x] Pythondaq: open de repository
         - [x] Pythondaq: Controller bouwen
         - [x] Pythondaq: Controller implementeren
         - [ ] Pythondaq: Controller afsplitsen
@@ -195,6 +200,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         - [x] Pythondaq: Start script
         - [x] Pythondaq: Quick 'n dirty meting
         - [x] Pythondaq: CSV
+        - [x] Pythondaq: open de repository
         - [x] Pythondaq: Controller bouwen
         - [x] Pythondaq: Controller implementeren
         - [x] Pythondaq: Controller afsplitsen
@@ -297,6 +303,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         - [x] Pythondaq: Start script
         - [x] Pythondaq: Quick 'n dirty meting
         - [x] Pythondaq: CSV
+        - [x] Pythondaq: open de repository
         - [x] Pythondaq: Controller bouwen
         - [x] Pythondaq: Controller implementeren
         - [x] Pythondaq: Controller afsplitsen
@@ -353,6 +360,7 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
         - [x] Pythondaq: Start script
         - [x] Pythondaq: Quick 'n dirty meting
         - [x] Pythondaq: CSV
+        - [x] Pythondaq: open de repository
         - [x] Pythondaq: Controller bouwen
         - [x] Pythondaq: Controller implementeren
         - [x] Pythondaq: Controller afsplitsen

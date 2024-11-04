@@ -175,6 +175,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         - [x] Pythondaq: Start script
         - [ ] Pythondaq: Quick 'n dirty meting
         - [ ] Pythondaq: CSV
+        - [ ] Pythondaq: open de repository
         - [ ] Pythondaq: Controller bouwen
         - [ ] Pythondaq: Controller implementeren
         - [ ] Pythondaq: Controller afsplitsen
@@ -224,6 +225,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
         - [x] Pythondaq: Start script
         - [x] Pythondaq: Quick 'n dirty meting
         - [ ] Pythondaq: CSV
+        - [ ] Pythondaq: open de repository
         - [ ] Pythondaq: Controller bouwen
         - [ ] Pythondaq: Controller implementeren
         - [ ] Pythondaq: Controller afsplitsen
@@ -373,6 +375,7 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
         - [x] Pythondaq: Start script
         - [x] Pythondaq: Quick 'n dirty meting
         - [x] Pythondaq: CSV
+        - [ ] Pythondaq: open de repository
         - [ ] Pythondaq: Controller bouwen
         - [ ] Pythondaq: Controller implementeren
         - [ ] Pythondaq: Controller afsplitsen
