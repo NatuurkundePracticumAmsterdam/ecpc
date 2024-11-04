@@ -1072,7 +1072,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">opdracht</label><label for="__tabbed_3_2">code</label><label for="__tabbed_3_3">check</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Je code berekent de spanning <em>over</em> en de stroomsterkte <em>door</em> de LED terwijl de spanning over het cirquit oploopt van nul tot de maximale waarde. De resultaten worden in een grafiek weergegeven.  </p>
+<p>Je code berekent de spanning <em>over</em> en de stroomsterkte <em>door</em> de LED terwijl de spanning over het cirquit oploopt van nul tot de maximale waarde. De resultaten worden geprint en in een grafiek weergegeven.  </p>
 </div>
 <div class="tabbed-block">
 <p><strong>Pseudo-code</strong>
@@ -1081,8 +1081,9 @@
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># set input voltage from 0 to max</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="c1"># calculate LED voltage</span>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="c1"># calculate LED current</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># plot current vs voltage</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="c1"># print voltage: raw_voltage_LED (voltage_LED V) current: raw_current_LED (current_LED V)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># plot current vs voltage</span>
 </span></code></pre></div></p>
 </div>
 <div class="tabbed-block">
@@ -1092,6 +1093,7 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Bereken stroomsterkte door LED</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Lijst met spanningen</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Lijst met stroomsterkte</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Print spanningen en stroomsterktes</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Plot stroomsterke tegen spanning</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Vergelijk met resultaat van iemand anders</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Meting is fysisch correct</li>
@@ -1228,7 +1230,7 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">opdracht</label><label for="__tabbed_6_2">code</label><label for="__tabbed_6_3">check</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Je code schrijft de metingen ook weg als csv-bestand door gebruik te maken van de <code class="language-py highlight"><span class="nb">zip</span><span class="p">()</span></code>-functie en de <code class="language-py highlight"><span class="n">csv</span></code>-module.</p>
+<p>Je code schrijft de metingen weg als csv-bestand door gebruik te maken van de <code class="language-py highlight"><span class="nb">zip</span><span class="p">()</span></code>-functie en de <code class="language-py highlight"><span class="n">csv</span></code>-module.</p>
 </div>
 <div class="tabbed-block">
 <p><strong>Pseudo-code</strong>

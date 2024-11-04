@@ -819,7 +819,9 @@ Bron: <a href="https://commons.wikimedia.org/wiki/File:Digitaloszilloskop_Schnit
 <p><div id="fig:LED-schakeling"></div>
 <img alt="LED schakelschema" src="../figures/LED-schakeling.svg" style="width:75%" /></p>
 <p><strong>Praktische schakeling</strong></p>
-<p>In het 3D-model<sup id="fnref:bronLED"><a class="footnote-ref" href="#fn:bronLED">5</a></sup> hieronder is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld met een LED en een weerstand van 220 &Omega;. In een breadboard zijn in iedere rij alle kolommen A t/m E met elkaar verbonden (zo ook kolommen F t/m J). Draadjes die naast elkaar zijn geprikt zijn dus met elkaar verbonden. Zo zie je in de figuur &mdash; als je inzoomt &mdash; dat het rode draadje een verbinding maakt tussen pin A0 van de Arduino en de bovenste pin van de LED. De onderste pin van de LED is verbonden met de weerstand. De kleurcodes voor weerstanden vind je in de <a href="../kleurcodes/">appendix</a>. De kleur van de draden is niet belangrijk. Kies altijd draden met een handige lengte. De platte zijde in de ring van de LED wordt richting aarde geschakeld. De Arduino kan met deze schakeling een variabele spanning aanbrengen over de LED met weerstand, en de spanning meten over alleen de weerstand. </p>
+<p>In het 3D-model<sup id="fnref:bronLED"><a class="footnote-ref" href="#fn:bronLED">5</a></sup> hieronder is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld met een LED en een weerstand van 220 &Omega;. In een breadboard zijn in iedere rij alle kolommen A t/m E met elkaar verbonden (zo ook kolommen F t/m J). Draadjes die naast elkaar zijn geprikt zijn dus met elkaar verbonden. 
+De Arduino is geprikt in kolom D t/m H en van rij 1 t/m 15. De pin van de Arduino in rij 4 is verbonden middels het rode draadje (De kleur van de draden is niet belangrijk. Kies altijd draden met een handige lengte.) met het pootje van de LED. De platte zijde in de onderste ring van de LED wordt richting aarde geschakeld. Het ander pootje van de LED is verbonden met de weerstand. De kleurcodes voor weerstanden vind je in de <a href="../kleurcodes/">appendix</a>. Van de weerstand loopt een draadje naar de aarde van de Arduino (rij 12, kolom H). Zo kan de Arduino een variabele spanning zetten over de LED en de weerstand. </p>
+<p>De pin van de Arduino in rij 5 is verbonden met de LED en meet de spanning over de LED en de weerstand. De pin van de Arduino in rij 6 is verbonden met de weerstand en meet alleen de spanning over weerstand.</p>
 <p><script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 <model-viewer id="model" style="width: 100%; height: 700px;" alt="Schakelschema LED" src="../assets/circuit/Breadboard_LED.glb" ar shadow-intensity="1" camera-controls touch-action="pan-y" poster="../assets/circuit/breadboard_led_top_view.png" camera-orbit="0rad 0.39269908169872414rad 4.718948223475571m" autoplay exposure="0.6"></model-viewer></p>
 <div class="admonition info">
@@ -832,7 +834,10 @@ Bron: <a href="https://commons.wikimedia.org/wiki/File:Digitaloszilloskop_Schnit
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Je hebt een weerstand van 220 Ω gebruikt.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De platte kant in de dikkere ring onderaan de plastic behuizing van de LED staat richting de aarde geschakeld. (Als de pootjes van de LED niet afgeknipt zijn, dan zit het korte pootje aan de platte zijde van de LED)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De andere kant van de LED is met een draadje verbonden aan de A0 pin van de Arduino (4de pin van boven)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De andere kant van de LED is met een draadje verbonden met de 4de rij.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Er loopt een draadje van de 5de rij naar de LED.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Er loopt een draadje van de 6de rij naar de weerstand.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Er loopt een draadje van de andere kant van de weerstand naar de 12de rij (naar dat pinnetje met bovenop een wit vlakje).</li>
 </ul>
 <p><strong>Projecttraject:</strong></p>
 <ul class="task-list">
@@ -1044,6 +1049,10 @@ EOF  attr  close  exit  help  list  open  query  read  termchar  timeout  write
 </div>
 </div>
 </div>
+<details class="opdracht-meer" open="open">
+<summary>Input buffer en timeout</summary>
+<p>Ga opnieuw naar de <a href="https://textual-web.io/natuurkundepracticum-amsterdam/termchar-demo">Termchar-demo</a> en lees de laatste stappen van de <em>Introduction</em> tab. Open de <em>Advanced</em> tab en voer de stappen uit. </p>
+</details>
 <p>We gaan nu het gebruik van de karakters instellen in Pyvisa:</p>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Pyvisa regeleindes</p>
