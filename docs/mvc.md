@@ -49,7 +49,10 @@ Het opsplitsen van het {{file}}`basisscript.py` in MVC gaan we stapsgewijs doen.
         #
         #   def set_output_value
         #       set a value on the output channel
-        #   
+        #
+        #   def get_output_value
+        #       get the value of the output channel
+        #      
         #   def get_input_value
         #       get input value from input channel
         #
