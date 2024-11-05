@@ -155,9 +155,10 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         ``` py title="basisscript.py"
         # connect to Arduino
 
-        # set input voltage from 0 to max
-            # get voltage LED 
-            # get voltage resistor
+        # set output voltage from 0 to max
+            # measure voltages
+            # calculate voltage LED 
+            # calculate voltage resistor
             # print LED: raw_voltage_LED (voltage_LED V) Resistor: raw_voltage_resistor (voltage_resistor V)
         ```
     === "check"
@@ -199,7 +200,8 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
         ``` py title="basisscript.py"
         # connect to Arduino
 
-        # set input voltage from 0 to max
+        # set output voltage from 0 to max
+            # measure voltages
             # calculate LED voltage
             # calculate LED current
             # print voltage: raw_voltage_LED (voltage_LED V) current: raw_current_LED (current_LED V)
@@ -356,7 +358,8 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
         ``` py title="basisscript.py"
         # connect to Arduino
 
-        # set input voltage from 0 to max
+        # set output voltage from 0 to max
+            # measure voltages
             # calculate LED voltage
             # calculate LED current
         

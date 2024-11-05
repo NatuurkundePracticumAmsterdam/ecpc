@@ -132,7 +132,8 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
         # class ArduinoVISADevice
             ...
         
-        # set input voltage from 0 to max
+        # set output voltage from 0 to max
+            # measure voltages
             # calculate LED voltage
             # calculate LED current
 
@@ -245,7 +246,8 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         ``` py title="basisscript.py"
         from arduino_device import ArduinoVISADevice, list_resources
         
-        # set input voltage from 0 to max
+        # set output voltage from 0 to max
+            # measure voltages
             # calculate LED voltage
             # calculate LED current
 
@@ -290,7 +292,8 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         # class DiodeExperiment
             ...
             def scan # with start and stop
-                # set input voltage from start to stop
+                # set output voltage from 0 to max
+                    # measure voltages
                     # calculate LED voltage
                     # calculate LED current
         ```      
@@ -349,7 +352,8 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
         # class DiodeExperiment
             ...
             def scan # with start, stop and number of measurements
-                # set input voltage from start to stop
+                # set output voltage from 0 to max
+                    # measure voltages
                     # calculate LED voltage
                     # calculate LED current
                 # return LED voltage, LED current and errors
