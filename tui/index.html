@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../gui/">
+        <link rel="prev" href="../cli/">
       
       
-        <link rel="next" href="../software-tools/">
+        <link rel="next" href="../gui/">
       
       
       <link rel="icon" href="../figures/ECPC_logo_simple.svg">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Eindopdracht - Experiment Control with Python Course</title>
+        <title>Text-based user interfaces - Experiment Control with Python Course</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#eindopdracht" class="md-skip">
+        <a href="#text-based-user-interfaces" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Eindopdracht
+              Text-based user interfaces
             
           </span>
         </div>
@@ -468,10 +468,19 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../tui/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -480,6 +489,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -508,30 +518,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Eindopdracht
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../eindfeest/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -540,35 +530,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#de-schakeling" class="md-nav__link">
-    <span class="md-ellipsis">
-      De schakeling
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -777,37 +738,20 @@
                   
 
 
-<h1 id="eindopdracht">Eindopdracht<a class="headerlink" href="#eindopdracht" title="Permanent link">&para;</a></h1>
-<p>In het eerste jaar bepalen natuurkundestudenten een $I,U$-curve van een zonnepanneel. Zij variëren met de hand de weerstand en lezen de stroom en spanning af. Wij gaan het experiment automatiseren zodat met één druk op de knop een $I,U$-curve getoond wordt. </p>
-<p>Deze opdracht is vergelijkbaar met wat we tot nu toe hebben gedaan. We gaan wederom een $I,U$-curve bepalen, maar niet van een diode maar van een zonnepaneel. Een zonnepaneel gedraagt zich &mdash; afhankelijk van de belastingsweerstand van het circuit &mdash; soms als een spanningsbron en soms als een stroombron. Het geleverde vermogen is ook zeer afhankelijk van deze belasting. Voor de werking van de zonnecel en een beschrijving van de $I,U$- en $P,R$-curves, zie <a href="../zonnecel/"><em>hoofdstuk Zonnecel</em></a>.</p>
-<h2 id="de-schakeling">De schakeling<a class="headerlink" href="#de-schakeling" title="Permanent link">&para;</a></h2>
-<p>In de figuur hieronder is de equivalente schakeling die we gaan bouwen weergegeven.</p>
-<div id="fig:pv-equivalente-schakeling"></div>
-<p><img alt="Equivalente schakeling zonnepaneel" src="../figures/PV-vervang-schakeling.svg" style="width:60%" /></p>
-<p>We gebruiken een variabele weerstand $R_\text{var}$ om de belasting van het zonnepaneel te variëren. Deze is in serie geschakeld met een stroomsterktemeter om de stroomsterkte door het circuit te meten. Parallel is een spanningsmeter geschakeld waarmee we de spanning die geleverd wordt door het zonnepaneel kunnen meten.</p>
-<p>Merk op dat onze Arduino geen stroomsterktemeter heeft. We zullen dus de spanning over een kleine weerstand moeten meten om zo &mdash; met behulp van de wet van Ohm &mdash; de stroomsterkte te bepalen. Een ander probleem is dat de spanning die geleverd wordt door het zonnepaneel groter kan zijn dan de 3.3 V die maximaal op de pinnen mag staan. Hiervoor gaan we gebruik maken van een 3:1 spanningsdeler zodat de spanning altijd onder de 3.3 V zal blijven &mdash; volgens de specificaties komt de maximale spanning van het zonnepaneel in de meest ideale omstandigheden uit op 10 V.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">3</a></sup> Het laatste probleem is de variabele weerstand: er zijn variabele weerstanden te koop waarbij de weerstand zeer nauwkeurig kan worden gekozen. Helaas is de minimale weerstand, ten gevolge van de vrij ingewikkelde interne schakelingen, te groot om de maximale stroom van een zonnepaneel te meten. Daarom maken we gebruik van een type veldeffect transistor, de MOSFET. Een MOSFET is feitelijk een soort schakelaar. Afhankelijk van de spanning die op de <em>gate</em> gezet wordt, is de weerstand tussen de <em>source</em> (aarde, minpool) en de <em>drain</em> (pluspool)<sup id="fnref:source_drain"><a class="footnote-ref" href="#fn:source_drain">1</a></sup> te variëren tussen nul en oneindig. Er is maar een relatief klein gebied waarin de weerstand snel verandert van oneindig naar nul.</p>
-<p>De schakeling voor onze Arduino is weergegeven in de figuur hieronder. Hier belasten we het zonnepaneel met een MOSFET. In serie hiermee staat een kleine weerstand van 4.7 &Omega; waarover we de spanning meten ten behoeve van de bepaling van de stroomsterkte. De pin van de Arduino die verbonden is met de <em>gate</em> van de MOSFET is beschermd met een weerstand van 1 k&Omega;. Dit is belangrijk, want wanneer er een spanning gezet wordt op de gate kan er kortdurend een vrij grote stroom lopen. De gate gedraagt zich als een kleine capaciteit. Parallel aan de MOSFET + weerstand is een 3:1 spanningsdeler geschakeld met weerstanden van 2 M&Omega; en 1 M&Omega;. </p>
-<p><img alt="Schakeling zonnepaneel" src="../figures/PV-schakeling.svg" style="width:75%" /></p>
-<p>In de 3D-model<sup id="fnref:bronpv"><a class="footnote-ref" href="#fn:bronpv">2</a></sup> hieronder is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld. Aan de linkerkant van het breadboard is de serieschakeling van de MOSFET met de kleine weerstand geplaatst. De pinnen van de MOSFET zijn van boven naar beneden de gate, de drain (+) en de source (-). De rechterkant bevat de spanningsdeler. Het zonnepaneel zelf wordt aan de $+$ en $-$ power rails aan de rechterkant van het bord geschakeld. </p>
-<div id="fig:arduino-PV-breadboard"></div>
-<!-- ![Arduinoschakeling zonnepaneel](figures/PV-measurement_bb.svg){: style="width:50%"} -->
-
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
-<p><model-viewer id="model" style="width: 100%; height: 700px;" alt="Schakelschema PV" src="../assets/circuit/Breadboard_PV.glb" ar shadow-intensity="1" camera-controls touch-action="pan-y" poster="../assets/circuit/breadboard_pv_top_view.png" camera-orbit="0rad 0.39269908169872414rad 4.718948223475571m" autoplay exposure="0.6"></model-viewer></p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:source_drain">
-<p>De namen <em>source</em> en <em>drain</em> verwijzen hier naar de elektronenstroom. Elektronen worden geleverd door de source (aard, minpool) en stromen dan naar de drain (pluspool).&#160;<a class="footnote-backref" href="#fnref:source_drain" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:bronpv">
-<p>Dit model bevat twee 3D modellen die zijn gecreëerd door Lara Sophie Schütt en AppliedSBC en zijn gedeeld onder respectievelijk een CC-BY en CC-BY-SA licentie. De originele modellen zijn te vinden via <a href="https://sketchfab.com/3d-models/cc0-set-of-electronic-components-f4cb777b4ea3490587008e24b61bcf75">[CC0] Set of Electronic Components</a> en <a href="https://sketchfab.com/3d-models/arduino-nano-33-iot-f57fd7f5485a47a8b71f8604872fd78c">Arduino Nano 33 IoT</a>. De modellen zijn samengevoegd en Voorzien van een Arduino texture, mosfet, zonnecel en draden. Dit 3D model heeft een CC-BY-SA licentie.&#160;<a class="footnote-backref" href="#fnref:bronpv" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:1">
-<p>Seeed Studio. Small solar panel 55x70mm 0.5w. URL: <a href="https://www.seeedstudio.com/0-5W-Solar-Panel-55x70.html">https://www.seeedstudio.com/0-5W-Solar-Panel-55x70.html</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+<h1 id="text-based-user-interfaces">Text-based user interfaces<a class="headerlink" href="#text-based-user-interfaces" title="Permanent link">&para;</a></h1>
+<p>De text-based user intefaces (TUI) of terminal user interface zijn de voorlopers van de graphical user interfaces die wel nog in een terminal worden uitgevoerd. Een populair framework waarmee je in Python een TUI kunt bouwen is <a href="https://textual.textualize.io">Textual</a>.</p>
+<details class="opdracht-meer" open="open">
+<summary>Textual installeren</summary>
+<p>Maak een nieuwe conda omgeving aan en installeer de benodigdheden voor Textual. Zie voor meer informatie de <a href="https://textual.textualize.io/getting_started/">documentatie</a></p>
+</details>
+<details class="opdracht-meer" open="open">
+<summary>Stopwatch</summary>
+<p>Volg de tutorial van Textual om een stopwatch applicatie te maken.</p>
+</details>
+<details class="opdracht-meer" open="open">
+<summary>Pythondaq: TUI</summary>
+<p>Maak met behulp van Textual een TUI voor Pythondaq.</p>
+</details>
 
 
 
