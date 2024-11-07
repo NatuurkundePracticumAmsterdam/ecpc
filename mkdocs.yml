@@ -79,6 +79,7 @@ nav:
   - docstrings.md
   - poetry.md
   - cli.md
+  - tui.md
   - gui.md
   - eindfeest.md
   - Appendices:
