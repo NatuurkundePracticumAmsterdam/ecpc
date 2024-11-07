@@ -544,14 +544,12 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
             x = np.linspace(0, 2 * pi, number)
             df = pd.DataFrame({"x": x, "sin (x)": np.sin(x)})
             print(df)
-            return
         
         
         def tan(number):
             x = np.linspace(0, 2 * pi, number)
             df = pd.DataFrame({"x": x, "tan (x)": np.tan(x)})
             print(df)
-            return
         
         
         if __name__ == "__main__":
@@ -588,13 +586,11 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
             x = np.linspace(0, 2 * pi, number)
             df = pd.DataFrame({"x": x, "sin (x)": np.sin(x)})
             print(df)
-            return
 
         def tan(number):
             x = np.linspace(0, 2 * pi, number)
             df = pd.DataFrame({"x": x, "tan (x)": np.tan(x)})
             print(df)
-            return
 
         if __name__ == "__main__":
             sin(10)
