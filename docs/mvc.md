@@ -247,7 +247,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
         ```
         ``` py title="basisscript.py"
-        from arduino_device import ArduinoVISADevice, list_resources
+        from arduino_device import ArduinoVISADevice
         
         # set output voltage from 0 to max
             # measure voltages
