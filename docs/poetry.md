@@ -18,6 +18,9 @@ En daar is _Poetry_.
 
 Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. Poetry is heel populair geworden. Het richt zich op het officiële ecosysteem: standaard Python packages, ofwel PyPI en `pip`; niet `conda` (zie meer hierover in [paragraaf _pip vs conda_](software-tools.md#pip-vs-conda)). Jammer, maar dit zorgt er wel voor dat iedereen mét of zónder Anaconda je package kan installeren. Dat is dan wel weer fijn. Wij gaan Anaconda gebruiken om een virtual environment met _alleen_ Python te maken. Vervolgens installeren we alles dat we nodig hebben met `pip`. Dat werkt prima, want we mengen verder geen `conda` met `pip` packages. Het maken van conda packages valt daarmee buiten het bestek van deze cursus, al is dat een relatief kleine stap als je je standaard Python package af hebt.
 
+!!! opdracht-basis "Werken in een terminal"
+    Poetry is een tool die je enkel en alleen in de terminal kunt gebruiken. Het heeft alleen een command-line interface (CLI). Ben je nog niet zo bekend met het navigeren in een terminal dan kun je als oefening de [Terminal Adventure Game](terminal-adventure-game.md) spelen.
+
 !!! opdracht-inlever "Poetry installeren"
     Om Poetry te installeren gaan we gebruik maken van `pipx`, zie voor meer informatie [paragraaf _pipx_](software-tools.md#pipx).
     Eerst moeten we `pipx` installeren

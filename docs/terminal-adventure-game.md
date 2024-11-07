@@ -1,6 +1,6 @@
 # Terminal Adventure Game
 
-To play the Terminal Adventure Game, [clone the repository](x-github-client://openRepo/https://github.com/AnneliesVlaar/Terminal-Adventure-Game) or [download and unpack the zip](https://github.com/AnneliesVlaar/Terminal-Adventure-Game/archive/refs/heads/main.zip).Open the folder suitable for your operating system and preferred language. Go into the forest folder and open/run the 'start' file. Let yourself be guided through the adventure.
+To play the Terminal Adventure Game, [clone the repository](x-github-client://openRepo/https://github.com/AnneliesVlaar/Terminal-Adventure-Game) or [download and unpack the zip](https://github.com/AnneliesVlaar/Terminal-Adventure-Game/archive/refs/heads/main.zip). Open the folder suitable for your operating system and preferred language. Go into the forest folder and open/run the 'start' file. Let yourself be guided through the adventure.
 
 Parrot Pokkie was taken from the girl by Snerk the Extremely Magnificent. Can you help her get Pokkie back?
 
