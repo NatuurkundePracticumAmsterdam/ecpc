@@ -439,7 +439,6 @@ Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
         - [ ] Je hebt `poetry install` in een schone environment (met alleen Python) gedaan.
         - [ ] Je hebt de juiste omgeving geactiveerd.
         - [ ] Je kan zelf het getal kiezen met het commando en krijgt het verwachte antwoord terug
-        - [ ] Bij het aanroepen van `count --help` krijg je duidelijke helpteksten en default waardes te zien waarmee je het programma kan begrijpen
 
         **Projecttraject**
         
