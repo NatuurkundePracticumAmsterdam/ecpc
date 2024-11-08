@@ -164,7 +164,7 @@ Bij het schrijven van een nieuw package is het zéker belangrijk om een conda en
 
 !!! opdracht-basis "Easystat conda environment aanmaken"
     === "opdracht"
-        Je voegt {{lightbulb}} de projectmap {{folder}}`easystat` toe als repository in GitHub. Vanuit GitHub Desktop open je de repository {{github}}`easystat` in Visual Studio Code. Je maakt {{lightbulb}} een nieuwe conda environment aan met de naam `easystat` en daarin `python=3.12`. Uiteraard selecteer je het nieuwe environment in Visual Studio Code. 
+        Je voegt de projectmap {{folder}}`easystat` toe als repository in GitHub {{lightbulb}}. Vanuit GitHub Desktop open je de repository {{github}}`easystat` in Visual Studio Code. Je maakt een nieuwe conda environment aan met de naam `easystat` en daarin `python=3.12` {{lightbulb}}. Uiteraard selecteer je het nieuwe environment in Visual Studio Code. 
     === "code"
         **Testcode**
         <pre><code>(easystat) > conda list <button type="button" name="conda list" onclick="runScript('conda list')">{{ enter }}</button><button type="button" name="conda list" onclick="runScript('conda list')" class="invisible">{{ reload }}</button>
@@ -275,7 +275,7 @@ In de eerste regel van {{file}}`test_shortcuts.py` importeren we de functie uit 
     === "check"
         **Checkpunten:**
     
-        - [ ] Je hebt het juist conda environment geactiveerd.
+        - [ ] Je hebt de juiste conda environment geactiveerd.
         - [ ] Je runt het bestand {{file}}`try_shortcuts.py` uit de map {{folder}}`tests`.
         - [ ] Je krijgt een foutmelding `#!py ModuleNotFoundError: No module named 'easystat'`
         
@@ -346,7 +346,7 @@ Poetry is even bezig en ons package is geïnstalleerd.
     === "check"
         **Checkpunten:**
     
-        - [ ] Je hebt het juist conda environment geactiveerd.
+        - [ ] Je hebt de juiste conda environment geactiveerd.
         - [ ] Nadat je `poetry install` hebt gedaan krijg je de melding `Installing the current project: easystat (0.1.0)`.
         - [ ] Je runt het bestand {{file}}`tests/try_shortcuts.py`.
         - [ ] Je krijgt een foutmelding `#!py ModuleNotFoundError: No module named 'numpy'`
@@ -513,7 +513,7 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
     
         <div class="grid-tree" markdown>
             <div>
-            Je gaat een bestaand project maken zodat je kunt oefenen om daar Poetry aan toe te voegen. Omdat de [opdracht _flashingLED_](communicatie.md#opd:flashingLED) een oefenopdracht was voor `Pythondaq` besluit je deze als oefenpackage te gebruiken. Je maakt {{lightbulb}} een nieuwe repository {{github}}`flasher` aan en opent deze in Visual Studio Code. Je maakt zelf in de repository {{github}}`flasher` de src-layout van mappen en bestanden, zoals hier rechts is weergegeven. Het bestand {{file}}`flashingLED` heb je gekopieerd uit je repository {{github}}`oefenopdrachten`. Nu het oefenpackage klaar staat (commit{{feesttoeter}}) maak {{lightbulb}} je een nieuwe conda environment met de naam `flasher` met daarin `python=3.12`. Je activeert de environment `flasher` en voegt Poetry toe. Je installeert het pakket en daarna voeg je de benodigde dependencies toe (in ieder geval `pyvisa-py` maar wat nog meer?) net zolang tot het scriptje weer werkt. 
+            Je gaat een bestaand project maken zodat je kunt oefenen om daar Poetry aan toe te voegen. Omdat de [opdracht _flashingLED_](communicatie.md#opd:flashingLED) een oefenopdracht was voor `Pythondaq` besluit je deze als oefenpackage te gebruiken. Je maakt een nieuwe repository {{github}}`flasher` aan {{lightbulb}} en opent deze in Visual Studio Code. Je maakt zelf in de repository {{github}}`flasher` de src-layout van mappen en bestanden, zoals hier rechts is weergegeven. Het bestand {{file}}`flashingLED` heb je gekopieerd uit je repository {{github}}`oefenopdrachten`. Nu het oefenpackage klaar staat (commit{{feesttoeter}}) maak je een nieuwe conda environment met de naam `flasher` met daarin `python=3.12` {{lightbulb}}. Je activeert de environment `flasher` en voegt Poetry toe {{lightbulb}}. Je installeert het pakket en daarna voeg je de benodigde dependencies toe (in ieder geval `pyvisa-py` maar wat nog meer?) net zolang tot het scriptje weer werkt {{lightbulb}}. 
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -616,7 +616,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
 
 !!! opdracht-inlever "Pythondaq: poetry"
     === "opdracht"
-        Nu de repository {{github}}`pythondaq` in de src-layout staat voeg je Poetry toe om het project te beheren. Nadat alles gelukt is test je het project door een nieuwe conda environment aan te maken met de naam `pythondaq` met daarin alleen `python=3.12`. Daarna installeer je het Poetry project en wanneer je `view.py` runt zie je als vanouds een lampje branden en een plot verschijnen. 
+        Nu de repository {{github}}`pythondaq` in de src-layout staat voeg je Poetry toe om het project te beheren. Nadat alles gelukt is test je het project door een nieuwe conda environment aan te maken met de naam `pythondaq` met daarin alleen `python=3.12` {{lightbulb}}. Daarna installeer je het Poetry project {{lightbulb}} en wanneer je `view.py` runt zie je als vanouds een lampje branden en een plot verschijnen. 
     === "code"
         **Pseudo-code**
         <pre><code>(ecpc) > poetry install <button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')">{{ enter }}</button><button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')" class="invisible">{{ reload }}</button>
@@ -649,7 +649,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Bij het uitbouwen van de applicatie ga je mogelijk onderdelen uit de pythonpackage importeren. Daarom is het verstandig net als met de [opdracht _Packages_](vervolg-python.md#opd:test_package) om het importeren uit de package te testen.
+            Bij het uitbouwen van de applicatie ga je mogelijk onderdelen uit de pythonpackage importeren. Daarom is het verstandig om, net als met de [opdracht _Packages_](vervolg-python.md#opd:test_package), het importeren uit de package te testen.
             Maak daarvoor een {{folder}}`tests`-map met {{file}}`__init__.py` en {{file}}`test_imports.py` in de repository {{github}}`pythondaq`. 
             ```py title="test_imports.py"
             import pythondaq.view
@@ -755,7 +755,7 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
    
 !!! opdracht-basis "Main functie toevoegen"
     === "opdracht"
-        Je [cloned de repository just_count in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en opent het daarna vanuit GitHub Desktop in Visual Studio Code. Je ziet een {{file_lines}}`pyproject.toml` in de repository staan. Dus installeer je het pakket met Poetry in een nieuwe conda environment (met alleen python=3.12). Je opent het hoofdbestand {{file}}`count_count.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Daarna pas je het bestand aan zodat de functie nog steeds wordt uitgevoerd wanneer je het bestand {{file}}`count_count.py` runt. 
+        Je [cloned de repository just_count in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en opent het daarna vanuit GitHub Desktop in Visual Studio Code. Je ziet een {{file_lines}}`pyproject.toml` in de repository staan. Dus installeer je het pakket met Poetry in een nieuwe conda environment (met alleen python=3.12) {{lightbulb}}. Je opent het hoofdbestand {{file}}`count_count.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Daarna pas je het bestand aan zodat de functie nog steeds wordt uitgevoerd wanneer je het bestand {{file}}`count_count.py` runt. 
     === "code"
         **Testcode**
         <div class="code-box"><button type="button" name="count_count_main function" onclick="runScript('count_count_main function')" class="run">{{ run }}</button><button type="button" name="count_count_main function" onclick="runScript('count_count_main function')" class="reload invisible">{{ reload }}</button> count_count.py
@@ -795,7 +795,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
 
 !!! opdracht-basis "commando toevoegen"
     === "opdracht"
-        Je voegt in de {{file}}`pyproject.toml` het kopje `[tool.poetry.scripts]` toe. Je voegt vervolgens het commando `square` toe. Deze verwijst naar de functie `#!py main()` welke in de module {{file}}`count_count.py` staat die ondergebracht is in de package {{folder}}`just_count`. Omdat je handmatig het toml-bestand hebt aangepast installeer je het package opnieuw met Poetry.
+        Je voegt in de {{file}}`pyproject.toml` het kopje `[tool.poetry.scripts]` toe. Je voegt vervolgens het commando `square` toe. Deze verwijst naar de functie `#!py main()` welke in de module {{file}}`count_count.py` staat die ondergebracht is in de package {{folder}}`just_count`. Omdat je handmatig het toml-bestand hebt aangepast installeer je het package opnieuw met Poetry {{lightbulb}}.
     === "code"
         **Pseudo-code**
         ``` toml title="pyproject.toml"
@@ -823,7 +823,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
 
 !!! opdracht-basis "Commando testen"
     === "opdracht"
-        Nu je het commando `square` hebt aangemaakt ga je deze testen in een terminal je ziet de tekst `The square of 5 is 25` verschijnen. Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `square` en ziet weer de tekst `The square of 5 is 25` verschijnen. Je concludeert dat het commando nu overal werkt zolang het juiste conda environment is geactiveerd. Dat test je uit door een ander conda environment te activeren en het commando `square` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
+        Nu je het commando `square` hebt aangemaakt ga je deze testen in een terminal je ziet de tekst `The square of 5 is 25` verschijnen. Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `square` en ziet weer de tekst `The square of 5 is 25` verschijnen. Je concludeert dat het commando nu overal werkt zolang het juiste conda environment is geactiveerd. Dat test je uit door een ander conda environment te activeren {{lightbulb}} en het commando `square` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
     === "code"
         **Pseudo-code**
         <pre><code>(ecpc) > square <button type="button" name="square_test" onclick="runScript('square_test')">{{ enter }}</button><button type="button" name="square_test" onclick="runScript('square_test')" class="invisible">{{ reload }}</button>
@@ -846,11 +846,11 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
     Als extra oefening gaan we met Poetry een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script {{file}}`data_analysis.py` te laten runnen.
 
     1. Ga naar GitHub en clone {{github}}[`AnneliesVlaar/erroranalysis`](https://github.com/AnneliesVlaar/erroranalysis) in GitHub Desktop en open de repository daarna in Visual Studio Code.
-    1. Natuurlijk maak je gelijk een nieuwe Conda environment aan, voordat we dit package gaan testen.
+    1. Natuurlijk maak je gelijk een nieuwe Conda environment aan {{lightbulb}}, voordat we dit package gaan testen.
     1. Snuffel door de bestanden en mappen, en open {{file}}`src/erroranalysis/data_analysis.py`. Dit is het script wat moet kunnen runnen.
     1. Run het script {{file}}`data_analysis.py` en los de errors één voor één op.
     
-    Om erachter te komen of de problemen die we hierboven hadden écht zijn opgelost maak je een nieuwe Conda environment aan, installeer je het package en run je het script. Werkt alles? Mooi! Dan gaan we nu een commando aanmaken om de functie `#!py table()` aan te roepen.
+    Om erachter te komen of de problemen die we hierboven hadden écht zijn opgelost maak je een nieuwe Conda environment aan {{lightbulb}}, installeer je het package en run je het script. Werkt alles? Mooi! Dan gaan we nu een commando aanmaken om de functie `#!py table()` aan te roepen.
 
     1. Open {{file}}`pyproject.toml` en voeg een kopje toe voor scripts.
             ``` toml
@@ -865,7 +865,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
     
 !!! opdracht-inlever "Pythondaq: applicatie"
     === "opdracht"
-        Je maakt een commando om het script {{file}}`view.py` uit de repository {{github}}`pythondaq` te starten. Wanneer je het commando aanroept gaat het LED-lampje branden, en verschijnt er even later een IU-plot op het scherm. Je test of het commando ook buiten Visual Studio Code werkt door een `Anaconda prompt` te openen. Je activeert het juiste conda environment en ziet dat ook dan het commando werkt. Wat een feest! {{feesttoeter}} Je hebt nu een applicatie geschreven die een Arduino aanstuurt om een ledje te laten branden. En je kunt je applicatie gewoon vanuit de terminal aanroepen! {{feesttoeter}}
+        Je maakt een commando om het script {{file}}`view.py` uit de repository {{github}}`pythondaq` te starten {{lightbulb}}. Wanneer je het commando aanroept gaat het LED-lampje branden, en verschijnt er even later een IU-plot op het scherm. Je test of het commando ook buiten Visual Studio Code werkt door een `Anaconda prompt` te openen. Je activeert het juiste conda environment {{lightbulb}} en ziet dat ook dan het commando werkt. Wat een feest! {{feesttoeter}} Je hebt nu een applicatie geschreven die een Arduino aanstuurt om een ledje te laten branden. En je kunt je applicatie gewoon vanuit de terminal aanroepen! {{feesttoeter}}
     === "code"
         **Pseudo-code**
         ``` py title="view.py"
