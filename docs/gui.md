@@ -434,9 +434,9 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
         **Checkpunten:**
         
         - [ ] Het `clicked` signaal van `clear_button` is met `connect` verbonden met de `clear()`method van `textedit` ([regel 30](#__codelineno-3-30)). 
-        - [ ] Het `clicked signaal van `add_text_button` is met `connect` verbonden met een eigen method `add_text_button_clicked` ([regel 31](#__codelineno-3-31)). 
+        - [ ] Het clicked signaal van `add_text_button` is met `connect` verbonden met een eigen method `add_text_button_clicked` ([regel 31](#__codelineno-3-31)). 
         - [ ] De method `add_text_button_clicked` is voorzien van een decorator `@Slot()` met Slot met een hoofdletter en ronde haakjes erachter omdat Slot een functie is ([regel 33](#__codelineno-3-33)).
-        - [ ] De Slot functie is geïmporteerd vanuit de `#!py PySide6.QtCore`.
+        - [ ] De `Slot` functie is geïmporteerd vanuit de `#!py PySide6.QtCore`.
         - [ ] De method `add_text_button_clicked` voegt met `append` een tekst toe aan `textedit` ([regel 35](#__codelineno-3-35)). 
         - [ ] Druk op de knop "Add text" zorgt voor het verschijnen van tekst in de textbox.
         - [ ] Druk op de knop "Clear" zorgt ervoor dat alle tekst in de textbox verdwijnt.
