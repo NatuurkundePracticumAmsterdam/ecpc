@@ -407,7 +407,7 @@ Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
 
 !!! opdracht-basis "Argumenten en opties"
     === "opdracht"
-        Je opent met Github Desktop de {{github}}`just_count` in Visual Studio Code. Je hebt ooit een environment voor deze repository aangemaakt maar je hebt geen idee of die in de tussentijd niet per ongeluk stuk is gegaan. Daarom maak je {{lightbulb}} een nieuwe environment `just_count` met daarin Python en gebruik je Poetry om het pakket `just_count` in de nieuwe omgeving te installeren. 
+        Je opent met Github Desktop de {{github}}`just_count` in Visual Studio Code. Je hebt ooit een environment voor deze repository aangemaakt maar je hebt geen idee of die in de tussentijd niet per ongeluk stuk is gegaan. Daarom maak je een nieuwe environment `just_count` met daarin Python {{lightbulb}} en gebruik je Poetry om het pakket `just_count` in de nieuwe omgeving te installeren {{lightbulb}}. 
 
         Je activeert het juiste conda environment en met het commando `square 6` wordt het kwadraat van 6 in de terminal geprint.
 
@@ -487,7 +487,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 
         <div class="grid-tree" markdown>
             <div>
-            Nu je hebt geleerd om met Click subcommando's te maken wil je deze uittesten in combinatie met het commando wat je met Poetry kan aanmaken om een functie uit een script uit te voeren. Je maakt in de map {{folder}}`ECPC` {{lightbulb}} een nieuw Poetry project aan voor {{folder}}`fake_conda` en zet daarin de code uit het bestand {{file}}`fake_conda.py`. Je past de {{file_lines}}`pyproject.toml` aan zodat je met het commando `fake_conda install scipy` zogenaamd `scipy` kunt installeren. 
+            Nu je hebt geleerd om met Click subcommando's te maken wil je deze uittesten in combinatie met het commando wat je met Poetry kan aanmaken om een functie uit een script uit te voeren. Je maakt in de map {{folder}}`ECPC` een nieuw Poetry project aan voor {{folder}}`fake_conda` {{lightbulb}} en zet daarin de code uit het bestand {{file}}`fake_conda.py`. Je past de {{file_lines}}`pyproject.toml` aan zodat je met het commando `fake_conda install scipy` zogenaamd `scipy` kunt installeren {{lightbulb}}. 
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -529,9 +529,9 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 !!! opdracht-meer "Smallangle (meer leren)"
     Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt &mdash; maar jij weet precies over welk onderdeel we het hebben.
 
-    1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam {{github}}`smallangle`.
+    1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam {{github}}`smallangle` {{lightbulb}}.
     1. Let op de Octocat {{github}} voor {{github}}`smallangle`, het moet dus een repository zijn (of worden). 
-    1. Maak een nieuw environment die `smallangle` heet met daarin alleen Python.
+    1. Maak een nieuw environment die `smallangle` heet met daarin alleen Python {{lightbulb}}.
     1. Zet in het package {{folder}}`smallangle` een module {{file}}`smallangle.py`.
     1. Plak de onderstaande code in {{file}}`smallangle.py`:
         ``` py
@@ -790,7 +790,7 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
 
         <div class="grid-tree" markdown>
             <div>
-            Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand {{new_file}}`src/pythondaq/cli.py` een opzetje maken waar je stap voor stap functionaliteit aan toevoegd. De oude {{file}}`view.py` maakte eerst een lijst van aangesloten apparaten en daarna werd een scan uitgevoerd. Daarom zet je in {{file}}`cli.py` de subcommando's `list` en `scan`. Je test de subcommando's en je ziet dat ze werken omdat ze een stukje tekst printen. 
+            Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand {{new_file}}`src/pythondaq/cli.py` een opzetje maken waar je stap voor stap functionaliteit aan toevoegt. De oude {{file}}`view.py` maakte eerst een lijst van aangesloten apparaten en daarna werd een scan uitgevoerd. Daarom zet je in {{file}}`cli.py` de subcommando's `list` en `scan`. Je test de subcommando's en je ziet dat ze werken omdat ze een stukje tekst printen. 
             </div>
             <div>
             {{folder}} `ECPC`  

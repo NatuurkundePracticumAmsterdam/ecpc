@@ -337,7 +337,7 @@ print(master_oogway.quote)
     === "check"
         **Checkpunten:**
 
-        - [ ] De code bevindt zich in een GitHub-repository.
+        - [ ] De code bevindt zich in een GitHub-repository {{lightbulb}}.
         - [ ] De method `#!py add_launch_parameters` verwacht een beginsnelheid in meter per seconde en een lanceerhoek in graden.
         - [ ] De method `#!py get_initial_velocities` geeft een lijst terug met beginsnelheden van alle ingevoerde parameters.
         - [ ] De method `#!py get_launch_angles` geeft een lijst terug met alle lanceerhoeken van de ingevoerde parameters.
