@@ -570,7 +570,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         print("Still calculating...")
         print(square)
     ```
-    <pre><code>(ecpc) > squares.py <button type="button" name="squares.py_2" onclick="runScript('squares.py_2')">{{ enter }}</button><button type="button" name="squares.py_2" onclick="runScript('squares.py_2')" class="invisible">{{ reload }}</button>
+    <pre><code>(ecpc) > python squares.py <button type="button" name="squares.py_2" onclick="runScript('squares.py_2')">{{ enter }}</button><button type="button" name="squares.py_2" onclick="runScript('squares.py_2')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="squares.py_2">Still calculating...
     0
     Still calculating...
