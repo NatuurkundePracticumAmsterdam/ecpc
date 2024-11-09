@@ -249,7 +249,7 @@ Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets 
     === "check"
         **Checkpunten:**
 
-        - [ ] Er is een central widget gemaakt met ``#!py QtWidgets.QWidget()` ([regel 14](#__codelineno-3-14)).
+        - [ ] Er is een central widget gemaakt met `#!py QtWidgets.QWidget()` ([regel 14](#__codelineno-3-14)).
         - [ ] De widget wordt als centrale widget ingesteld met `#!py setCentralWidget()` ([regel 15](#__codelineno-3-15)).
         - [ ] De method `#!py setCentralWidget()` is afkomstig van de class `#!py QtWidgets.QMainWindow` welke geïnitialiseerd is, de method wordt daarom met `#!py self.setCentralWidget()` aangeroepen.
         - [ ] Er verschijnt een leeg venster.
