@@ -588,26 +588,27 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
 
 <div id="info:widgets"></div>
 !!! info "PySide6 documentatie"
-    De [documentatie](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes) van PySide6 is niet super-intuïtief. Daarom hebben we speciaal voor jullie een [compacte documentatie📄](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/) geschreven. Daarin kan je een lijst van widgets vinden met de meest handige methods en signals. De documentatie is dus niet compleet maar genoeg voor een simpele GUI. Een overzicht van alle classes gedocumenteerd in de compacte documentatie vind je hieronder.
+    De [documentatie van PySide6](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes) is niet super-intuïtief. Daarom hebben we speciaal voor jullie een [compacte documentatie📄](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/) geschreven. Daarin kan je een lijst van widgets vinden met de meest handige methods en signals. De documentatie is dus niet compleet maar genoeg voor een simpele GUI. Een overzicht van alle classes gedocumenteerd in de compacte documentatie vind je hieronder.
 
     <hr>
 
 
-    # Alle classes in de [compacte PySide6 documentatie](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/): 
+    ## [Compacte PySide6 documentatie](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/)
+    **Classes:**
     
     - [`QApplication`](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QApplication/): Beheert de controleflow en hoofdinstellingen van de GUI-applicatie.
     - [`QLayout`](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QLayout/): Basisclass van alle layout-objecten in `QtWidgets`.  
     - [`QWidget`](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QWidget/): Basisclass van alle widget-objecten in `QtWidgets`.
     <br>
 
-    - ### Subclasses van `QLayout`:
+    - **Subclasses van `QLayout`:**
         - [`QHBoxLayout`](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QHBoxLayout/): Beheert een horizontale indeling van widgets. 
         - [`QVBoxLayout`](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QVBoxLayout/): Beheert een verticale indeling van widgets. 
         - [`QGridLayout`](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QGridLayout/): Beheert een roosterindeling waarbij de ruimte wordt verdeeld in rijen en kolommen.
         - [`QFormLayout`](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QFormLayout/): Beheert een indeling waarbij de ruimte wordt verdeeld in een linker kolom met labels en een rechter kolom met widgets.
     <br>
     
-    - ### Subclasses van `QWidget`:
+    - **Subclasses van `QWidget`:**
         - [`QMainWindow`](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QMainWindow/): Biedt een framework voor het bouwen van de gebruikersinterface van een applicatie.
         - [`QGroupBox`](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QGroupBox/): Biedt een frame, een titel erboven, en kan verschillende andere widgets binnen zichzelf weergeven.
         - [`QTextEdit`](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QTextEdit/): Geeft tekst weer en stelt de gebruiker in staat om deze te bewerken.
