@@ -66,7 +66,7 @@ Het opsplitsen van het {{file}}`basisscript.py` in MVC gaan we stapsgewijs doen.
         # get available ports
         print(list_resources())
 
-        # Create an instance for the Arduino on port "ASRL28::INSTR"
+        # create an instance for the Arduino on port "ASRL28::INSTR"
         device = ArduinoVISADevice(port="ASRL28::INSTR")
 
         # print identification string
