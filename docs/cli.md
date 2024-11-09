@@ -1055,9 +1055,6 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: Grafiek"
-    Breid je `scan` opdracht uit met een optie om een grafiek te tekenen. Dat kan het makkelijkst met een _boolean flag_. Bijvoorbeeld: `--graph` om een grafiek te tekenen en `--no-graph` om dat niet te doen. De standaardkeuze kan zijn om dat niet te doen. Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
-
-!!! opdracht-inlever "Pythondaq: Grafiek"
     === "opdracht"
         Natuurlijk wil je ook een grafiek maken van de metingen. Je geeft met een _boolean flag_ `--graph` aan dat er een grafiek getoond moet worden. De optie `--no-graph` zorgt ervoor dat er geen grafiek getoond wordt. 
 
