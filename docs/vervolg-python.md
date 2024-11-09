@@ -879,10 +879,10 @@ De eerste oplossing is lang niet altijd wenselijk. Voor de tweede oplossing pas 
 ```
 Wanneer je een python script runt is de speciale variabele `#!py __name__` gelijk aan de string `__main__`. Maar als je een module importeert is
 `#!py __name__` gelijk aan de _naam_ van de module; in dit geval `#!py square`. Met bovenstaande constructie wordt de code alleen uitgevoerd wanneer de module direct gerund wordt:
-<pre><code>(ecpc) > square.py <button type="button" name="square.py" onclick="runScript('square.py')">{{ enter }}</button><button type="button" name="square.py" onclick="runScript('square.py')" class="invisible">{{ reload }}</button>
+<pre><code>(ecpc) > python square.py <button type="button" name="square.py" onclick="runScript('square.py')">{{ enter }}</button><button type="button" name="square.py" onclick="runScript('square.py')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="square.py">The square of 4 is 16</span>
-(ecpc) > count_count.py <button type="button" name="count_count.py" onclick="runScript('count_count.py')">{{ enter }}</button><button type="button" name="count_count.py" onclick="runScript('count_count.py')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="count_count.py">The square of 5 is 25</span>
+(ecpc) > python count_count.py <button type="button" name="count_count_module.py" onclick="runScript('count_count_module.py')">{{ enter }}</button><button type="button" name="count_count_module.py" onclick="runScript('count_count_module.py')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="count_count_module.py">The square of 5 is 25</span>
 </code></pre>
 
 
