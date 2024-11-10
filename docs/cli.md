@@ -409,7 +409,7 @@ Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
     === "opdracht"
         Je opent met Github Desktop de {{github}}`just_count` in Visual Studio Code. Je hebt ooit een environment voor deze repository aangemaakt maar je hebt geen idee of die in de tussentijd niet per ongeluk stuk is gegaan. Daarom maak je een nieuwe environment `just_count` met daarin Python {{lightbulb}} en gebruik je Poetry om het pakket `just_count` in de nieuwe omgeving te installeren {{lightbulb}}. 
 
-        Je activeert het juiste conda environment en met het commando `square 6` wordt het kwadraat van 6 in de terminal geprint.
+        Je activeert het juiste conda environment en past de code aan zodat met het commando `square 6` het kwadraat van 6 in de terminal wordt geprint.
 
         !!! info argument is standaard string
             Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieert. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden
