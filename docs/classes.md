@@ -364,21 +364,21 @@ print(master_oogway.quote)
 
     ```py
     class GiantTortoise(Turtle):
-    def __init__(self):
-        super().__init__()
-        self.shape("turtle")
-        self.color("dark green")
-        self.turtlesize(5)
-        self.speed(1)
+        def __init__(self):
+            super().__init__()
+            self.shape("turtle")
+            self.color("dark green")
+            self.turtlesize(5)
+            self.speed(1)
 
-    def move(self, distance):
-        steps = range(0, distance, 5)
-        i = 1
-        for step in steps:
-            self.tiltangle(i * 5)
-            self.forward(step)
-            time.sleep(1)
-            i = i * -1
+        def move(self, distance):
+            steps = range(0, distance, 5)
+            i = 1
+            for step in steps:
+                self.tiltangle(i * 5)
+                self.forward(step)
+                time.sleep(1)
+                i = i * -1
     ```
     
     Door de parentclass `#!py Turtle` tussen ronde haakjes mee te geven aan de nieuwe subclass `#!py GiantTortoise` krijgt de subclass alle functionaliteit mee van de parentclass, waaronder alle methods zoals `#!py forward()`. Als je in de init-method van de subclass methods of attributes wilt gebruiken van de parentclass, moet je ervoor zorgen dat de parentclass is geïnitialiseerd . Dit doe je met `#!py super().__init__()` hierbij verwijst `#!py super()` naar de parentclass en met `#!py __init__()` voer je de init-method van de parentclass uit. 
