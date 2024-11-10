@@ -524,7 +524,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 
         **Projecttraject**
 
-        - [ ] Fake conda
+        - [x] Fake conda
 
 !!! opdracht-meer "Smallangle (meer leren)"
     Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt &mdash; maar jij weet precies over welk onderdeel we het hebben.
