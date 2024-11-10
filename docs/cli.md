@@ -1029,12 +1029,11 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         ```
         **Testcode**
         <pre><code>(ecpc) > diode --help <button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')">{{ enter }}</button><button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="diode --help">Usage: diode [OPTIONS] COMMAND [ARGS] ...
+        <span class="invisible" name="diode --help_assignment">Usage: diode [OPTIONS] COMMAND [ARGS] ...
             Options: 
                 --help Show this message and exit.
             Commands:
-                Subcommand Summary containing ARGUMENTs.
-        </span>
+                Subcommand Summary containing ARGUMENTs.</span>
         </code></pre>
     === "check"
         **Checkpunten:**
