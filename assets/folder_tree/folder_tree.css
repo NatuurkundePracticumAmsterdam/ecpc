@@ -1,7 +1,7 @@
 /* Flexibele grid-styling voor MkDocs */
 .md-typeset .grid-tree {
     display: grid;
-    grid-template-columns: 5fr 2fr; /* Eerste kolom neemt 2x zoveel ruimte in als de tweede */
+    grid-template-columns: 7fr 4fr; /* Eerste kolom neemt 2x zoveel ruimte in als de tweede */
     grid-gap: 1rem; /* Houd wat ruimte tussen de grid-items */
     margin: 1em 0;
   }
