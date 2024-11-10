@@ -31,7 +31,7 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
     En zo verder.
 
-Bestand: {{file_lines}}`docs/index.md` en ook {{file}}`pythondaq/models/diode.py`. Die vind je[^voetnoot] ook in de repository {{github}}`davidfokkema/tailor`. Folder: {{folder}}`Oefenopdrachten`.
+Bestand: {{file_lines}}`docs/index.md` en ook {{file}}`pythondaq/models/diode.py`. Die vind je[^voetnoot] ook in de repository {{github}}`davidfokkema/tailor`. Folder: {{folder}}`oefenopdrachten`.
 
 [^voetnoot]: en dit is dus een voetnoot
 
