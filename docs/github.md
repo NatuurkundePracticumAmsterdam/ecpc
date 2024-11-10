@@ -106,7 +106,7 @@ Dit kan in GitHub Desktop, maar ook direct vanuit Visual Studio Code. Elke commi
         1. Ga naar **Repository > Open in Visual Studio Code** (of druk op ++ctrl+shift+a++ ) en open de repository in Visual Studio Code.
         1. Open in Visual Studio Code één van je Pythonscripts.
         1. Type een stukje code erbij &mdash; bijvoorbeeld een print-statement &mdash; en haal ergens anders iets weg. Bewaar het bestand.
-        1. Links verschijnt een blauw bolletje [^geen bolletje] bij `Source Control`{{branch}} die laat weten dat er wijzigingen zijn ten opzichte van de vorige commit. Klik op `Source Control`.
+        1. Links verschijnt een blauw bolletje (Geen blauw bolletje? Bekijk het info blok hieronder.) bij `Source Control`{{branch}} die laat weten dat er wijzigingen zijn ten opzichte van de vorige commit. Klik op `Source Control`.
         1. Onder `Changes` staat een lijst met bestanden waar wijzigingen in aan zijn gebracht. Kies welke bestanden je wilt committen door rechts op het +je te klikken. Deze bestanden komen nu op het podium te staan onder `Staged Changes`. Je kunt ook alle bestanden in een keer op het podium zetten door naast het kopje `Changes` op het +je te klikken.
         1. Schrijf een nuttige <q>commit message</q>. Dus niet: <q>opdracht: commit</q>, maar zoiets als: <q>feat: lookup port name for device</q>.[^commit message]
         1. Klik op het vinkje om te committen. Gefeliciteerd! {{feesttoeter}} Je hebt je eerste commit gepleegd!
