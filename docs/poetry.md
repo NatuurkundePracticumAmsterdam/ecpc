@@ -29,7 +29,11 @@ Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. Poetry is 
     1. Maak een nieuwe environment en installeer pipx via pip
         ```ps1 title="Terminal"
         conda create --name pipx python
+        ```
+        ```ps1 title="Terminal"
         conda activate pipx
+        ```
+        ```ps1 title="Terminal"
         python -m pip install --user pipx
         ```
     1. Zorg ervoor dat de map waarin pipx apps opslaat, is opgenomen in je PATH omgevingsvariabele.
