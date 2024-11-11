@@ -1,12 +1,12 @@
 # Poetry
 
-In de vorige hoofdstukken heb je gewerkt met een eigen conda environment zodat je jouw pythonomgeving mooi gescheiden kan houden van andere studenten die op dezelfde computer werken. Dit is echt _de_ oplossing voor alle problemen waarbij volledige Pythoninstallaties onbruikbaar kunnen worden &mdash; waarna je alles opnieuw moet installeren.
+In de vorige hoofdstukken heb je gewerkt met een eigen conda environment zodat je jouw pythonomgeving mooi gescheiden kan houden van andere studenten die op dezelfde computer werken en voor het isoleren van de verschillende projecten waar je aan werkt. Dit is echt _de_ oplossing voor alle problemen waarbij volledige Pythoninstallaties onbruikbaar kunnen worden &mdash; waarna je alles opnieuw moet installeren.
 
 Opnieuw beginnen of nieuwe environments aanmaken heeft wel een nadeel: je moet alle packages die je nodig hebt opnieuw installeren. Welke waren dat ook alweer? Vast `numpy`, en `matplotlib`, en&hellip;? Niet handig. Als je code gaat delen met elkaar krijg je regelmatig te maken met een `#!py ImportError` waarna je _weer_ één of ander package moet installeren.
 
 Nu pythondaq netjes is uitgesplitst in een MVC-structuur en de wijzigingen met Git worden bijgehouden, ga je er een package van maken zodat je het ook met anderen kan delen.
 
-Packages op PyPI geven altijd hun _dependencies_ op. Dat zijn de packages die verder nog nodig zijn om alles te laten werken. Installeer je `matplotlib`, dan krijg je er `six, python-dateutil, pyparsing, pillow, numpy, kiwisolver, cycler` automatisch bij. Maar dat is niet genoeg. Welke versies van `numpy` werken met de huidige versie van `matplotlib`? Allemaal zaken die je &mdash; als je een package schrijft &mdash; zelf moet bijhouden. Het voordeel is dat jouw gebruikers alleen maar _jouw_ pakket hoeven te installeren &mdash; de rest gaat vanzelf.
+Packages op PyPI (de standaardplek waar Python packages gepubliceerd worden) geven altijd hun _dependencies_ op. Dat zijn de packages die verder nog nodig zijn om alles te laten werken. Installeer je `matplotlib`, dan krijg je er `six, python-dateutil, pyparsing, pillow, numpy, kiwisolver, cycler` automatisch bij. Maar alleen de namen van packages zijn niet genoeg. Welke versies van `numpy` werken met de huidige versie van `matplotlib`? Allemaal zaken die je &mdash; als je een package schrijft &mdash; zelf moet bijhouden. Het voordeel is dat jouw gebruikers alleen maar _jouw_ pakket hoeven te installeren &mdash; de rest gaat vanzelf.
 
 En&hellip; hoe test je je package zodat je zeker weet dat hij het bij een ander ook doet? Heel vaak werkt het bij jou wel, maar vergeet je een bestand mee te sturen dat wel echt nodig is.[^missende bestanden] Of: bij jou werkt `#!py import my_new_cool_app.gui` wel, maar bij een ander geeft hij een `#!py ImportError`. De bestanden zijn er wel, maar worden verkeerd geïmporteerd.
 
@@ -60,8 +60,8 @@ We gaan Poetry bedienen door commando's te geven in de terminal van Visual Studi
 <pre><code>(ecpc) > poetry about <button type="button" name="filename_suffix" onclick="runScript('filename_suffix')">{{ enter }}</button><button type="button" name="filename_suffix" onclick="runScript('filename_suffix')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="filename_suffix">Poetry - Package Management for Python
 
-Version: 1.7.0
-Poetry-Core Version: 1.8.1
+Version: 1.8.4
+Poetry-Core Version: 1.9.1
 
 Poetry is a dependency manager tracking local dependencies of your projects and libraries.
 See https://github.com/python-poetry/poetry for more information.</span>
@@ -81,7 +81,20 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
     === "opdracht"
         Een project stop je altijd in een map {{folder}} , als je aan Poetry vraagt om een project te maken zal er een _nieuwe_ (project)map worden aangemaakt.
         Je denkt na over een geschikte locatie en besluit dat de projectmap in de {{folder}}`ECPC` map moet komen te staan. Je opent Visual Studio Code en opent de map {{folder}}`ECPC`. Je opent een terminal en controleert dat de terminal ook in de map {{folder}}`ECPC` is. 
-        Je geeft Poetry de opdracht om een nieuw project met de naam {{folder}}`easystat` aan te maken in de src-layout[@srclayout] met het commando `poetry new --src easystat`. Je bekijkt de nieuw gemaakte mappenstructuur en ziet dat het overeenkomt met de mappenstructuur zoals hieronder weergegeven.
+        Je geeft Poetry de opdracht om een nieuw project met de naam {{folder}}`easystat` aan te maken in de src-layout[@srclayout] met het commando `poetry new --src easystat`. Je bekijkt de nieuw gemaakte mappenstructuur en ziet dat het overeenkomt met de mappenstructuur zoals hieronder weergegeven:
+
+        {{folder}} `ECPC`  
+        {{T}} {{github}} `oefenopdrachten`  
+        {{T}} {{github}} `pythondaq`  
+        {{T}} {{new_folder}} `easystat`  
+        {{tab}} {{T}} {{new_folder}} `src`  
+        {{tab}} {{tab}} {{L}} {{new_folder}} `easystat`  
+        {{tab}} {{tab}} {{tab}} {{L}} {{new_file}} `__init__.py`  
+        {{tab}} {{T}} {{new_folder}} `tests`  
+        {{tab}} {{tab}} {{L}} {{new_file}} `__init__.py`  
+        {{tab}} {{T}} {{new_file_lines}} `pyproject.toml`  
+        {{tab}} {{L}} {{new_file_lines}} `readme.md`  
+        {{L}} {{folder}} {{dots}}  
 
         !!! info "src-layout"
             Door het project in een source layout (src-layout) te bouwen maken we het _expres_ iets moeilijker om vanuit een script je package te importeren. Je kunt dat dan alleen nog maar doen door het package zelf ook te _installeren_ (zoals andere gebruikers ook moeten doen) en daardoor loop je zelf tegen eventuele problemen aan. Werkt het uiteindelijk bij jou? Dan werkt het _ook_ bij andere mensen.
@@ -108,22 +121,7 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
         - [ ] Easystat dependencies toevoegen
 
 
-Er is nu de volgende structuur aangemaakt:
-
-{{folder}} `ECPC`  
-{{T}} {{github}} `oefenopdrachten`  
-{{T}} {{github}} `pythondaq`  
-{{T}} {{new_folder}} `easystat`  
-{{tab}} {{T}} {{new_folder}} `src`  
-{{tab}} {{tab}} {{L}} {{new_folder}} `easystat`  
-{{tab}} {{tab}} {{tab}} {{L}} {{new_file}} `__init__.py`  
-{{tab}} {{T}} {{new_folder}} `tests`  
-{{tab}} {{tab}} {{L}} {{new_file}} `__init__.py`  
-{{tab}} {{T}} {{new_file_lines}} `pyproject.toml`  
-{{tab}} {{L}} {{new_file_lines}} `readme.md`  
-{{L}} {{folder}} {{dots}}  
-
-Allereerst is er een projectmap `easystat` (waar de map {{folder}}`src` in staat) aangemaakt . Je kunt nu in GitHub Desktop deze map toevoegen als nieuwe repository, zoals we gedaan hebben in [opdracht _Repository toevoegen_](github.md#opd:add_repository).
+Bekijk nog eens de mappenstructuur. Allereerst is er een projectmap {{folder}}`easystat` (waar de map {{folder}}`src` in staat) aangemaakt . Je kunt nu in GitHub Desktop deze map {{folder}}`easystat` toevoegen als nieuwe repository, zoals we gedaan hebben in [opdracht _Repository toevoegen_](github.md#opd:add_repository).
 
 Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaakt. We zien een {{file_lines}}`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van ons project.[^README]
 
@@ -158,7 +156,7 @@ build-backend = "poetry.core.masonry.api"
 
 [^setup.py]: Vroeger was er een `setup.py` maar Python schakelt nu langzaam over naar dit nieuwe bestand.
 
-Het bestand is in het TOML-formaat.[@TOML] Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. Overal zie je `poetry` terugkomen, want dat is de tool die wij gebruiken. In de eerste sectie staat informatie over ons project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. De tweede sectie bevat de _dependencies_. Dit zijn alle Pythonpackages die ons project nodig heeft. Op dit moment is dat alleen maar Python. Ook het versienummer van Python is belangrijk. Hier is dat 3.13 en het dakje geeft aan dat nieuwere versies 3.14, enz. ook prima zijn, maar 3.12 (te oud) 4.0 (te nieuw) _niet_. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python &mdash; bijvoorbeeld versie 3.11 &mdash; kunnen nu het package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.13 nodig hebt kun je aangeven dat een iets oudere versie van Python ook prima is. Op dit moment &mdash; herfst 2024 &mdash; is Python 3.13 de nieuwste versie. Het is dus prima om minimaal 3.12 te vragen &mdash; die versie is inmiddels een jaar oud.
+Het bestand is in het TOML-formaat.[@TOML] Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. Overal zie je `poetry` terugkomen, want dat is de tool die wij gebruiken. In de eerste sectie staat informatie over ons project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. De tweede sectie bevat de _dependencies_. Dit zijn alle Pythonpackages die ons project nodig heeft. Op dit moment is dat alleen maar Python. Ook het versienummer van Python is belangrijk. Hier is dat 3.13 en het dakje geeft aan dat nieuwere versies 3.14, 3.15, enz. ook prima zijn, maar 3.12 (te oud) en 4.0 (te nieuw) _niet_. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python &mdash; bijvoorbeeld versie 3.11 &mdash; kunnen nu het package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.13 nodig hebt kun je aangeven dat een iets oudere versie van Python ook prima is. Op dit moment &mdash; herfst 2024 &mdash; is Python 3.13 de nieuwste versie. Het is dus prima om minimaal 3.12 te vragen &mdash; die versie is inmiddels een jaar oud.
 
 
 ### Conda environment aanmaken
@@ -212,7 +210,7 @@ Bij het schrijven van een nieuw package is het zéker belangrijk om een conda en
 
 
 ### Maken van de easystat-package
-We starten met onze package. Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige <q>shortcut</q> in {{file}}`shortcuts.py`. Nu willen we deze shortcut ook in een ander script gebruiken. Dit kunnen we doen door package `easystat` te importeren in dit nieuwe script zodat we de functie `stdev_of_mean` daar ook kunnen gebruiken. We maken een script {{file}}`try_shortcuts.py` om dit te testen.[^tests]
+We starten met ons package. Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige <q>shortcut</q> in {{file}}`shortcuts.py`. Nu willen we deze shortcut ook in een ander script gebruiken. Dit kunnen we doen door package `easystat` te importeren in dit nieuwe script zodat we de functie `stdev_of_mean` daar ook kunnen gebruiken. We maken een script {{file}}`try_shortcuts.py` om dit te testen.
 
 !!! opdracht-basis "Easystat shortcuts.py en try_shortcuts.py aanmaken"
     Maak zoals hieronder aangegeven de bestanden {{new_file}}`shortcuts.py` en {{new_file}}`try_shortcuts.py` aan:
@@ -249,8 +247,6 @@ We starten met onze package. Stel, we berekenen vaak de standaarddeviatie van he
     !!! info "`Import numpy could not be resolved`"
         Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee en dat gaan we *straks* ook doen.
 
-
-[^tests]: Niet formeel. Dus hoewel we een script gaan plaatsen in de {{folder}}`tests`-folder is het hier niet een test die automatisch gerund kan worden.
 
 In de eerste regel van {{file}}`test_shortcuts.py` importeren we de functie uit het nieuwe package om uit te proberen. In de laatste regel gebruiken we een handige functie van f-strings.[^f-string-=]
 
@@ -308,7 +304,7 @@ Poetry is even bezig en ons package is geïnstalleerd.
 
 !!! opdracht-basis "Easystat Poetry install"
     === "opdracht"
-        Je gaat het project `easystat` installeren in de conda environment `easystat` met het commando `poetry install`. Waarschijnlijk krijg je een error maar door rustig te lezen los je die op. Je installeert alsnog het project `easystat` draai je opnieuw {{file}}`tests/try_shortcuts.py` en zie je een nieuwe error verschijnen `ModuleNotFoundError: No module named 'numpy'`. Hoera {{feesttoeter}} de vorige error is met succes opgelost.
+        Je gaat het project `easystat` installeren in de conda environment `easystat` met het commando `poetry install`. Waarschijnlijk krijg je een error (zie info-blok hieronder) maar door rustig te lezen los je die op. Je installeert alsnog het project `easystat` draai je opnieuw {{file}}`tests/try_shortcuts.py` en zie je een nieuwe error verschijnen `ModuleNotFoundError: No module named 'numpy'`. Hoera {{feesttoeter}} de eerste error is met succes opgelost en je kunt door met de volgende opdracht.
 
         !!! info "Current Python version is not allowed by the project"
             Waarschijnlijk krijg je in dikke rode letters de error:
@@ -490,7 +486,7 @@ Fijn! Het verwijderen van dependency `PACKAGE` gaat met `poetry remove PACKAGE`.
 
 ## Poetry gebruiken voor een bestaand project
 
-Met `poetry new` start je een _nieuw_ project en maakt Poetry voor jou bestanden en mappen aan waarmee je aan de slag kunt. Maar vaak ben je al bezig met een project en wil je dat niet overschrijven. Ook is het een gedoe om een nieuw project te maken en daar je bestaande code in te kopieëren. Gelukkig kun je Poetry ook vertellen dat je al bezig bent en dat Poetry _alleen_ een {{file}}`pyproject.toml`-bestand moet aanmaken. Dat doe je met:
+Met `poetry new` start je een _nieuw_ project en maakt Poetry voor jou bestanden en mappen aan waarmee je aan de slag kunt. Maar vaak ben je al bezig met een project en wil je dat niet overschrijven. Ook is het een gedoe om een nieuw project te maken en daar je bestaande code in te kopieëren. Gelukkig kun je Poetry ook vertellen dat je al bezig bent en dat Poetry _alleen_ een {{file}}`pyproject.toml`-bestand moet aanmaken. Run dan _in de map van je project_:
 ``` ps1 title="Terminal"
 poetry init --no-interaction
 ```
@@ -728,7 +724,7 @@ python script.py
 ```
 Je moet dan wel de juiste map geopend hebben zodat python het bestand kan vinden. En als je de `run`-knop gebruikt moet wel het bestandje open hebben staan dat je wilt runnen. Kortom, best een beetje gedoe. Maar als we programma's zoals Poetry, Conda of Python willen gebruiken hoeven we helemaal niet het juiste bestandje op te zoeken en te runnen. We hoeven alleen maar een commando in de terminal te geven &mdash; bijvoorbeeld `python` of `conda` &mdash; en de computer start automatisch het juiste programma op.
 
-Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan een commando toevoegen om de module uit te voeren waarvan je de code in [paragraaf _Modules_](vervolg-python.md#modules) kunt vinden. De twee bestanden {{file}}`square.py` en {{file}}`count_count.py` hebben we voor jullie netjes in een package geplaats in de repository {{github}}`AnneliesVlaar/just_count` met de volgende structuur:
+Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan even in een andere test-repository een commando toevoegen om de module uit te voeren waarvan je de code in [paragraaf _Modules_](vervolg-python.md#modules) kunt vinden. De twee bestanden {{file}}`square.py` en {{file}}`count_count.py` hebben we voor jullie netjes in een package geplaats in de repository {{github}}`AnneliesVlaar/just_count` met de volgende structuur:
 
     just_count/
         src/
@@ -898,4 +894,4 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
         - [x] Pythondaq: applicatie
 
 ???+ meer-leren "Versie 2.0.0"
-    In de {{file}}`pyproject.toml` kan je ook de versie aangeven van je package. Maar wanneer hoog je nu welk cijfertje op? Wanneer wordt iets _versie 2.0.0_? Daar zijn conventies voor. Kleine wijzigingen gaan op het rechter cijfer, grotere wijzigingen en bugfixes gaan op het middelste cijfer. Wanneer de applicatie dusdanig verandert dat je bijvoorbeeld bestanden die je met oude versie hebt gemaakt niet met de nieuwe versie kunt openen, dan verander je het linker cijfer.
+    In de {{file}}`pyproject.toml` kan je ook de versie aangeven van je package. Maar wanneer hoog je nu welk cijfertje op? Wanneer wordt iets _versie 2.0.0_? Daar zijn conventies voor. Bug fixes gaan op het laatste cijfer, wijzigingen en nieuwe features gaan op het middelste cijfer. Wanneer de applicatie dusdanig verandert dat je bijvoorbeeld bestanden die je met oude versie hebt gemaakt niet met de nieuwe versie kunt openen, dan verander je het eerste cijfer. Je start vaak met versie 0.1.0 en blijft tijdens het bouwen van je project ophogen naar 0.2.0 en soms zelfs 0.83.0. Wanneer je project min of meer klaar is voor eerste gebruik, dan kies je er vaak voor om versie 1.0.0 te releasen.
