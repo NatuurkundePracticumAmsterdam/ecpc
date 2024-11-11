@@ -638,6 +638,8 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
     === "check"
         **Checkpunten:**
     
+        - [ ] Je hebt Poetry geïnitialiseerd in de Pythondaq project map.
+        - [ ] Na het initialiseren van Poetry is er een {{file}}`pyproject.toml` in de projectmap aangemaakt.
         - [ ] Wanneer met `poetry install` in een nieuwe conda environment met alleen python=3.12 het pakket wordt geïnstalleerd werkt {{file}}`view.py` daarna in die nieuwe omgeving naar behoren. 
 
         **Projecttraject**
