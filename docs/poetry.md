@@ -615,7 +615,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
 
 !!! opdracht-inlever "Pythondaq: poetry"
     === "opdracht"
-        Nu de repository {{github}}`pythondaq` in de src-layout staat voeg je Poetry toe om het project te beheren. Nadat alles gelukt is test je het project door een nieuwe conda environment aan te maken met de naam `pythondaq` met daarin alleen `python=3.12` {{lightbulb}}. Daarna installeer je het Poetry project {{lightbulb}} en wanneer je `view.py` runt zie je als vanouds een lampje branden en een plot verschijnen. 
+        Nu de repository {{github}}`pythondaq` in de src-layout staat voeg je Poetry toe om het project te beheren {{lightbulb}}. Nadat alles gelukt is test je het project door een nieuwe conda environment aan te maken met de naam `pythondaq` met daarin alleen `python=3.12` {{lightbulb}}. Daarna installeer je het Poetry project {{lightbulb}} en wanneer je `view.py` runt zie je als vanouds een lampje branden en een plot verschijnen. 
     === "code"
         **Pseudo-code**
         <pre><code>(ecpc) > poetry install <button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')">{{ enter }}</button><button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')" class="invisible">{{ reload }}</button>
