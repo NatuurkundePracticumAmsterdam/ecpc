@@ -165,7 +165,7 @@ Bij het schrijven van een nieuw package is het zéker belangrijk om een conda en
 
 !!! opdracht-basis "Easystat conda environment aanmaken"
     === "opdracht"
-        Je voegt de projectmap {{folder}}`easystat` toe als repository in GitHub {{lightbulb}}. Vanuit GitHub Desktop open je de repository {{github}}`easystat` in Visual Studio Code. Je maakt een nieuwe conda environment aan met de naam `easystat` en daarin `python=3.12` {{lightbulb}}. Uiteraard selecteer je het nieuwe environment in Visual Studio Code. 
+        Je voegt de projectmap {{folder}}`easystat` toe als existing/local repository in GitHub {{lightbulb}}. Vanuit GitHub Desktop open je de repository {{github}}`easystat` in Visual Studio Code. Je maakt in Anaconda Prompt een nieuwe conda environment aan met de naam `easystat` en daarin `python=3.12` {{lightbulb}}. Uiteraard selecteer je het nieuwe environment in Visual Studio Code. 
     === "code"
         **Testcode**
         <pre><code>(easystat) > conda list <button type="button" name="conda list" onclick="runScript('conda list')">{{ enter }}</button><button type="button" name="conda list" onclick="runScript('conda list')" class="invisible">{{ reload }}</button>
