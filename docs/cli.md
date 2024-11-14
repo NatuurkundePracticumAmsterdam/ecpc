@@ -563,7 +563,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 
         <div class="grid-tree" markdown>
             <div>
-            Je cloned het Poetry project {{github}}`smallangle` van {{github}}`AnneliesVlaar/smallangle` door [de repository in GitHub desktop te openen](x-github-client://openRepo/https://github.com/AnneliesVlaar/smallangle). Daarna open je het project in Visual Studio Code. Na het installeren van het project in een nieuwe conda environment run je het bestand {{file}}`smallangle.py` en krijg je een lijst van 10 punten tussen 0 en 2 $\pi$ en de sinus van deze punten. 
+            Je cloned het Poetry project {{github}}`smallangle` van {{github}}`AnneliesVlaar/smallangle` door [de repository in GitHub desktop te openen](x-github-client://openRepo/https://github.com/AnneliesVlaar/smallangle). Daarna open je het project in Visual Studio Code. Na het installeren van het poetry project {{lightbulb}} in een nieuwe conda environment {{lightbulb}} run je het bestand {{file}}`smallangle.py` en krijg je een lijst van 10 punten tussen 0 en 2 $\pi$ en de sinus van deze punten. 
             </div>
             <div>
             {{folder}} `ECPC`  
