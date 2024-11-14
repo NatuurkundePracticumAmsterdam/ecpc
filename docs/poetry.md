@@ -516,7 +516,10 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
     
         <div class="grid-tree" markdown>
             <div>
-            Je gaat een bestaand project maken zodat je kunt oefenen om daar Poetry aan toe te voegen. Omdat de [opdracht _flashingLED_](communicatie.md#opd:flashingLED) een oefenopdracht was voor `Pythondaq` besluit je deze als oefenpackage te gebruiken. Je maakt een nieuwe repository {{github}}`flasher` aan {{lightbulb}} en opent deze in Visual Studio Code. Je maakt zelf in de repository {{github}}`flasher` de src-layout van mappen en bestanden, zoals hier rechts is weergegeven. Het bestand {{file}}`flashingLED` heb je gekopieerd uit je repository {{github}}`oefenopdrachten`. Nu het oefenpackage klaar staat (commit{{feesttoeter}}) maak je een nieuwe conda environment met de naam `flasher` met daarin `python=3.12` {{lightbulb}}. Je activeert de environment `flasher` en voegt Poetry toe {{lightbulb}}. Je installeert het pakket en daarna voeg je de benodigde dependencies toe (in ieder geval `pyvisa-py` maar wat nog meer?) net zolang tot het scriptje weer werkt {{lightbulb}}. 
+            Je gaat een bestaand project maken zodat je kunt oefenen om daar Poetry aan toe te voegen. Omdat de [opdracht _flashingLED_](communicatie.md#opd:flashingLED) een oefenopdracht was voor `Pythondaq` besluit je deze als oefenpackage te gebruiken. Je maakt een nieuwe repository {{github}}`flasher` aan {{lightbulb}} en opent deze in Visual Studio Code. Je maakt zelf in de repository {{github}}`flasher` de src-layout van mappen en bestanden, zoals hier rechts is weergegeven. Het bestand {{file}}`flashingLED` heb je gekopieerd uit je repository {{github}}`oefenopdrachten`. 
+            </br>
+            </br>
+            Nu het oefenpackage klaar staat (commit{{feesttoeter}}) maak je een nieuwe conda environment met de naam `flasher` met daarin `python=3.12` {{lightbulb}}. Je activeert de environment `flasher` en voegt Poetry toe {{lightbulb}} aan de bestaande projectmap {{folder}}`flasher`. Je installeert het pakket in de `flasher` conda environment en daarna voeg je de benodigde dependencies toe (in ieder geval `pyvisa-py` maar wat nog meer?) net zolang tot het scriptje weer werkt {{lightbulb}}. 
             </div>
             <div>
             {{folder}} `ECPC`  
