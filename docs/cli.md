@@ -407,7 +407,7 @@ Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
 
 !!! opdracht-basis "Argumenten en opties"
     === "opdracht"
-        Je opent met Github Desktop de {{github}}`just_count` in Visual Studio Code. Je hebt ooit een environment voor deze repository aangemaakt maar je hebt geen idee of die in de tussentijd niet per ongeluk stuk is gegaan. Daarom maak je een nieuwe environment `just_count` met daarin Python {{lightbulb}} en gebruik je Poetry om het pakket `just_count` in de nieuwe omgeving te installeren {{lightbulb}}. 
+        Je opent met Github Desktop de {{github}}`just_count` in Visual Studio Code. Je hebt ooit een environment voor deze repository aangemaakt maar je hebt geen idee of die in de tussentijd niet per ongeluk stuk is gegaan. Daarom maak je een nieuwe environment `just_count` met daarin Python {{lightbulb}} en gebruik je Poetry om het pakket `just_count` in de nieuwe omgeving te installeren {{lightbulb}}. Je test of je de applicatie nog kunt aanroepen met het commando `square`.
 
         Je activeert het juiste conda environment en past de code aan zodat met het commando `square 6` het kwadraat van 6 in de terminal wordt geprint.
 
@@ -438,7 +438,7 @@ Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
 
         - [ ] Je hebt `poetry install` in een schone environment (met alleen Python) gedaan.
         - [ ] Je hebt de juiste omgeving geactiveerd.
-        - [ ] Je kan zelf het getal kiezen met het commando en krijgt het verwachte antwoord terug
+        - [ ] Na het commando `square` kan je een getal meegeven en krijg je het verwachte antwoord terug.
 
         **Projecttraject**
         
