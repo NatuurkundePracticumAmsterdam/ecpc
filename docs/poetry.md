@@ -613,6 +613,8 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
         {{tab}}{{tab}}{{T}}{{file}}`arduino_device.py`  
         {{tab}}{{tab}}{{T}}{{file}}`diode_experiment.py`  
         {{tab}}{{tab}}{{L}}{{file}}`view.py`  
+        {{T}}{{file_lines}}`.gitattributes`  
+        {{T}}{{file_lines}}`.gitignore`  
         {{L}}{{file_lines}}`README.md`  
         </div>
     </div>
