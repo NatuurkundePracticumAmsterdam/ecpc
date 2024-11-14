@@ -299,22 +299,23 @@ Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de len
 
 !!! opdracht-basis "oefenen met zip"
     === "opdracht"
+        Je hebt een lijst met krachten en een lijst met afstanden. Loop over de lijsten en print voor iedere iteratie de kracht $F$, de afstand $s$ en de arbeid $W$.
         Je hebt een lijst met spanningen en een lijst met stroomsterktes. Je loopt over de lijsten en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
     === "code"
         **Pseudo-code**
         ``` py
-        U = [1.2, 1.8, 2.4, 2.7, 3.1] # V
-        I = [0.3, 0.4, 0.6, 0.8, 1.0] # A 
+        F = [1.2, 1.8, 2.4, 2.7, 3.1] # N
+        s = [0.3, 0.4, 0.6, 0.8, 1.0] # m 
 
         # repeat
-        #   print U, I, R
+        #   print F, s, W
         ```
     === "check"
         **Checkpunten:**
 
         - [ ] De for-loop gebruikt `#!py zip()` om de elementen uit de lijst op te vragen
-        - [ ] De variabele hebben logische namen zoals `u` en `i`
-        - [ ] De weerstandswaarde is fysisch correct
+        - [ ] De variabele hebben logische namen en niet `a` en `b`
+        - [ ] De gegeven arbeid is fysisch correct
 
         **Projecttraject:**
 
