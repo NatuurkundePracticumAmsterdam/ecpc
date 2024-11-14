@@ -125,7 +125,7 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
 
 !!! opdracht-inlever "Pythondaq: Controller implementeren"
     === "opdracht"
-        Je hebt een Python script die hetzelfde doet als in de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting), maar de code is aangepast zodat er gebruik wordt gemaakt van de class `#!py ArduinoVISADevice` en de bijbehorende methods. 
+        Je hebt een Python script die hetzelfde doet als in de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting) en [opdracht _CSV_](basisscript.md#opd:quickndirty-csv), maar de code is aangepast zodat er gebruik wordt gemaakt van de class `#!py ArduinoVISADevice` en de bijbehorende methods. 
     === "code"
         **Pseudo-code**
         ``` py
@@ -141,13 +141,14 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
             # calculate LED current
 
         # plot current vs voltage
+        # create csv-file
         ```        
     === "check"
         **Checkpunten:**
 
         - [ ] In een script staan `#!py list_resources()`, `#!py ArduinoVISADevice()` en de code om de LED te laten branden, metingen te doen en het resultaat te laten zien.
-        - [ ] Wanneer de class `#!py ArduinoVISADevice()` uit het script wordt geknipt, werkt de <q>quick 'n dirty</q> niet meer.
-        - [ ] Het script voldoet nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting).
+        - [ ] Wanneer de class `#!py ArduinoVISADevice()` uit het script wordt geknipt, werkt {{file}}`basisscript.py` niet meer.
+        - [ ] Het script voldoet nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting) en [opdracht _CSV_](basisscript.md#opd:quickndirty-csv).
 
 
         **Projecttraject:**
@@ -204,13 +205,14 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
             # calculate LED current
 
         # plot current vs voltage
+        # create csv-file
         ```        
     === "check"
         **Checkpunten:**
 
         - [ ] Alle directe communicatie met de Arduino, firmwarecommando's en pyvisacommando's, staan in de controller
         - [ ] Runnen van {{file}}`basisscript.py` zorgt ervoor dat een meting start
-        - [ ] Het {{file}}`basisscript` voldoet nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting).
+        - [ ] Het script voldoet nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting) en [opdracht _CSV_](basisscript.md#opd:quickndirty-csv).
 
 
         **Projecttraject:**
@@ -255,6 +257,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
             # calculate LED current
 
         # plot current vs voltage
+        # create csv-file
         ```     
     === "check"
         **Checkpunten:**
@@ -306,6 +309,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         # get current and voltage from scan(start, stop)
 
         # plot current vs voltage
+        # create csv-file
         ```      
     === "check"
         **Checkpunten:**
@@ -315,7 +319,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         - [ ] Het model bevat een class `DiodeExperiment`
         - [ ] De view communiceert alleen met het model. 
         - [ ] Runnen van {{file}}`view.py` zorgt ervoor dat een meting start
-        - [ ] De bestanden {{file}}`diode_experiment.py` en {{file}}`view.py` voldoen samen nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting).
+        - [ ] De bestanden {{file}}`diode_experiment.py` en {{file}}`view.py` voldoen samen nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting) en [opdracht _CSV_](basisscript.md#opd:quickndirty-csv).
         - [ ] De bestanden bevatten alle code die nodig is en niet meer dan dat. 
 
 
@@ -367,6 +371,8 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
         # get current and voltage with errors from scan(start, stop, measurements)
 
         # plot current vs voltage with errorbars
+        # create csv-file
+
         ```      
     === "check"
         **Checkpunten:**
