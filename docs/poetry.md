@@ -56,7 +56,10 @@ Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. Poetry is 
         ```ps1 title="Terminal"
         poetry
         ```
-    1. Activeer een _andere_ environment en test of Poetry ook daar werkt.
+    1. Activeer een _andere_ environment en test of Poetry ook daar werkt. 
+
+    !!! info "Poetry doet het niet in Visual Studio Code"
+        Werkt Poetry niet in een terminal in Visual Studio code? Gooi de oude terminals weg, sluit Visual Studio Code en GitHub Desktop af. Open Visual Studio Code weer via GitHub Desktop, open een nieuwe terminal en kijk of het nu wel werkt.
 
 
 We gaan Poetry bedienen door commando's te geven in de terminal van Visual Studio Code. We laten de terminal weten welk programma wij willen gaan besturen, door `poetry` in te typen. En daarachter wat we willen dat Poetry gaat doen. We kunnen informatie over Poetry opvragen met het commando `about`.
