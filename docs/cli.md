@@ -820,7 +820,7 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
         
     === "code"
         **Pseudo-code**
-        ```py
+        ```py title="cli.py"
         # subcommando list
             # print Work in progress, list devices
         # subcommando scan
