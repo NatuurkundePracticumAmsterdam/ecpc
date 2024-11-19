@@ -698,6 +698,9 @@ import click
 
 @click.group()
 def cmd_group():
+    """
+    Fake the installation and removal of packages in fake conda environments.
+    """
     pass
 
 
@@ -726,6 +729,8 @@ if __name__ == "__main__":
 Als we vervolgens de help functie aanroepen zien we de eerste regel van de docstrings verschijnen voor alle subcommando's:
 <pre><code>(ecpc) > python fake_conda.py --help <button type="button" name="python fake_conda --help" onclick="runScript('python fake_conda --help')">{{ enter }}</button><button type="button" name="python fake_conda --help" onclick="runScript('python fake_conda --help')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python fake_conda --help">Usage: fake_conda.py [OPTIONS] COMMAND [ARGS]...
+
+Fake the installation and removal of packages in fake conda environments.
 
 Options:
   --help  Show this message and exit.
