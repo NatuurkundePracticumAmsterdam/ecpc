@@ -487,7 +487,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 
         <div class="grid-tree" markdown>
             <div>
-            Nu je hebt geleerd om met Click subcommando's te maken wil je deze uittesten in combinatie met het commando wat je met Poetry kan aanmaken om een functie uit een script uit te voeren. Je maakt in de map {{folder}}`ECPC` een nieuw Poetry project aan voor {{folder}}`fake_conda` {{lightbulb}} en zet daarin de code uit het bestand {{file}}`fake_conda.py`. Je past de {{file_lines}}`pyproject.toml` aan zodat je met het commando `fake_conda install scipy` zogenaamd `scipy` kunt installeren {{lightbulb}}. 
+            Nu je hebt geleerd om met Click subcommando's te maken wil je deze uittesten in combinatie met het commando wat je met Poetry kan aanmaken om een functie uit een script uit te voeren. Je maakt in de map {{folder}}`ECPC` een nieuw Poetry project aan voor {{folder}}`fake_conda` {{lightbulb}} en zet daarin de code uit het bestand {{file}}`fake_conda.py`. Je maakt een nieuw conda environment `fake_conda` met daarin de benodigde packages {{lightbulb}}. Je installeert het Poetry project in de nieuwe conda environment {{lightbulb}}. Je past de {{file_lines}}`pyproject.toml` aan zodat je met het commando `fake_conda install scipy` zogenaamd `scipy` kunt installeren {{lightbulb}}. 
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -519,7 +519,9 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
     === "check"
         **Checkpunten:**
 
-        - [ ] In de pyproject.toml verwijst `[tool.poetry.scripts]` naar een functie zodat `install` en `remove` subcommando's zijn.
+        - [ ] Het Poetry project is in het nieuwe conda environement geïnstalleerd. 
+        - [ ] Na het wijzigen van de {{file_lines}}`pyproject.toml` is het Poetry project opnieuw geïnstalleerd.
+        - [ ] In de {{file_lines}}`pyproject.toml` verwijst `[tool.poetry.scripts]` naar een functie zodat `install` en `remove` subcommando's zijn.
         - [ ] Het commando `fake_conda install scipy` print de tekst `Installing scipy...` als output in de terminal. 
 
         **Projecttraject**
