@@ -254,7 +254,6 @@ We starten met ons package. Stel, we berekenen vaak de standaarddeviatie van het
     !!! info "`Import numpy could not be resolved`"
         Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee en dat gaan we *straks* ook doen.
 
-
 In de eerste regel van {{file}}`test_shortcuts.py` importeren we de functie uit het nieuwe package om uit te proberen. In de laatste regel gebruiken we een handige functie van f-strings.[^f-string-=]
 
 [^f-string-=]: In f-strings kunnen tussen de accolades variabelen of functieaanroepen staan. Voeg daar het `=`-teken aan toe en je krijgt niet alleen de _waarde_, maar ook de variabele of aanroep zelf te zien. Bijvoorbeeld: als je definieert `#!py name = "Alice"`, dan geeft `#!py print(f"{name}")` als uitkomst `#!py Alice`. Maar voeg je het `=`-teken toe zoals in `#!py print(f"{name=")}` wordt de uitvoer `#!py name='Alice'`. Je ziet dan dus ook meteen de naam van de variabele en dat kan handig zijn.
@@ -522,7 +521,10 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
             Je gaat een bestaand project maken zodat je kunt oefenen om daar Poetry aan toe te voegen. Omdat de [opdracht _flashingLED_](communicatie.md#opd:flashingLED) een oefenopdracht was voor `Pythondaq` besluit je deze als oefenpackage te gebruiken. Je maakt een nieuwe repository {{github}}`flasher` aan {{lightbulb}} en opent deze in Visual Studio Code. Je maakt zelf in de repository {{github}}`flasher` de src-layout van mappen en bestanden, zoals hier rechts is weergegeven. Het bestand {{file}}`flashingLED` heb je gekopieerd uit je repository {{github}}`oefenopdrachten`. 
             </br>
             </br>
-            Nu het oefenpackage klaar staat (commit{{feesttoeter}}) maak je een nieuwe conda environment met de naam `flasher` met daarin `python=3.12` {{lightbulb}}. Je activeert de environment `flasher` en voegt Poetry toe {{lightbulb}} aan de bestaande projectmap {{folder}}`flasher`. Je installeert het pakket in de `flasher` conda environment en daarna voeg je de benodigde dependencies toe (in ieder geval `pyvisa-py` maar wat nog meer?) net zolang tot het scriptje weer werkt {{lightbulb}}. 
+            Nu het oefenpackage klaar staat (commit{{feesttoeter}}) maak je een nieuwe conda environment met de naam `flasher` met daarin `python=3.12` {{lightbulb}}. Je activeert de environment `flasher` en voegt Poetry toe {{lightbulb}} aan de bestaande projectmap {{folder}}`flasher`. Je installeert het Poetry pakket in de `flasher` conda environment en daarna voeg je de benodigde dependencies toe (in ieder geval `pyvisa-py` maar wat nog meer?) net zolang tot het scriptje weer werkt {{lightbulb}}. 
+            </br>
+            </br>
+            Tot slot wil je testen of het nu ook werkt in een nieuwe conda environment. Dus je maakt weer een nieuwe conda environment met de naam `flasher` met daarin `python=3.12` {{lightbulb}}. Je installeert het Poetry pakket in de `flasher` conda environment {{lightbulb}}. Dan test je of het scriptje nog werkt.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -594,7 +596,8 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
         - [ ] Je hebt de juiste conda environment geactiveerd.
         - [ ] Poetry is toegevoegd aan het project.
         - [ ] Alle benodigde dependencies staan in het {{file_lines}}`pyproject.toml` _en_ zijn geïnstalleerd in de conda environment.
-        - [ ] Het runnen van {{file}}`flashingLED` laat het LED knipperen.
+        - [ ] Het runnen van {{file}}`flashingLED.py` laat het LED knipperen.
+        - [ ] Als het Poetry project wordt geïnstalleerd in een nieuwe conda environement met alleen Python=3.12 gaat het LED weer knipperen als {{file}}`flashingLED.py` wordt uitgevoerd. 
 
         **Projecttraject**
     
