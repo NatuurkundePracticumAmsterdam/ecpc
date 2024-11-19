@@ -161,6 +161,7 @@ python hello.py --help
         - [ ] Test hello
         - [ ] Helptekst toevoegen
         - [ ] Pauze optie
+        - [ ] Vlag
 
 In de code hieronder geven we met de regel `#!py @click.argument("name")` aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie `hello`:
 
@@ -213,7 +214,7 @@ if __name__ == "__main__":
         - [ ] Test hello
         - [ ] Helptekst toevoegen
         - [ ] Pauze optie
-
+        - [ ] Vlag
 
 !!! warning
     Let er op dat je bij `#!py @click.argument` de naam meegeeft die overeenkomt met de namen van de parameters van je functie. In ons geval hebben we een argument `#!py "name"`. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name)`.
@@ -288,6 +289,7 @@ if __name__ == "__main__":
         - [x] Test hello
         - [ ] Helptekst toevoegen
         - [ ] Pauze optie
+        - [ ] Vlag        
 
 
 
@@ -396,13 +398,17 @@ Hello Alice!</span>
         - [x] Test hello
         - [x] Helptekst toevoegen
         - [x] Pauze optie
+        - [ ] Vlag
 
 
 Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
 [^flag]: Zie voor meer informatie over flags de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
 
-???+ opdracht-meer "Vlag"
+!!! opdracht-basis "Vlag"
     Gebruik een optie als vlag om de gebruiker te laten kiezen tussen het wel (<q>tea</q>) of niet (<q>no tea</q>) aanbieden van een kopje thee. Zorg dat er standaard <q>tea</q> wordt aangeboden.
+    
+    !!! info "boolean flags"
+            Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
 
 
 !!! opdracht-basis "Argumenten en opties"
@@ -1064,8 +1070,6 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
     === "opdracht"
         Natuurlijk wil je ook een grafiek maken van de metingen. Je geeft met een _boolean flag_ `--graph` aan dat er een grafiek getoond moet worden. De optie `--no-graph` zorgt ervoor dat er geen grafiek getoond wordt. 
 
-        !!! info "boolean flags"
-            Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
     === "check"
         **Checkpunten:**
 
