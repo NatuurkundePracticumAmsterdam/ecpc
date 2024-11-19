@@ -937,6 +937,10 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
         - [ ] Pythondaq: `--help`
         - [ ] Pythondaq: Grafiek
 
+???+ opdracht-meer "Pythondaq: stapgrootte"
+    Soms wil je snel een meting uitvoeren over het hele bereik, dan is het handig om minder punten te meten dan 1023 punten. Breid de applicatie uit zodat de gebruiker de stapgrootte kan aanpassen. 
+
+
 ### Het meetinstrument kiezen
 
 We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan heeft toegekend. Helaas kan &mdash; ook afhankelijk van het besturingssysteem &mdash; die naam veranderen als we de Arduino in een andere poort van onze computer steken of soms zelfs als we een andere Arduino op dezelfde poort koppelen. Met het commando `list` laten we alle apparaten zien die gevonden worden door de VISA drivers.
