@@ -796,6 +796,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
     === "check"
         **Checkpunten:**
     
+        - [ ] Het import statement in {{file}}`count_count.py` is genoteerd vanuit de map {{folder}}`src`.
         - [ ] Het commando `square` werkt als het juiste conda environment is geactiveerd.
         - [ ] Het commando `square` werkt nog steeds nadat je met het commando `cd..` naar een bovenliggende map bent gegaan.
         - [ ] Het commando `square` werkt niet als een andere conda environment is geactiveerd.
@@ -827,7 +828,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
     <span class="invisible" name="naam_commando">Area of the kitchen table is: 1.8386 ± 0.0049 m</span>
     </code></pre>
 
-    
+
 !!! opdracht-inlever "Pythondaq: test imports"
     === "opdracht"
         <div class="grid-tree" markdown>
