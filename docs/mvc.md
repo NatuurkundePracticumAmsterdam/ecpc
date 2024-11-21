@@ -139,7 +139,7 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
             ...
 
         # get list resources
-        # connect to Arduino
+        # connect to Arduino via ArduinoVISADevice
         
         # set output voltage from 0 to max
             # measure voltages
@@ -175,20 +175,20 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
 
 Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de precieze commando's zijn die je naar de hardware moet sturen. Als je de Arduino in de opstelling vervangt voor een ander meetinstrument moet je de class aanpassen, maar kan alle code die met het experiment zelf te maken heeft hetzelfde blijven.
 
-Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een stukje code over. Het laatste stuk waar de plot gemaakt kunnen we beschouwen als een _view_ en de rest van de code &mdash; waar de metingen worden uitgevoerd en de stroomsterkte $I$ wordt berekend &mdash; is een _model_. We gaan de code nog wat verder opsplitsen om dat duidelijk te maken én onderbrengen in verschillende bestanden &mdash; dat is uiteindelijk beter voor het overzicht.
+Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een stukje code over. Het laatste stuk waar de plot en het CSV-bestand gemaakt worden kunnen we beschouwen als een _view_ en de rest van de code &mdash; waar de metingen worden uitgevoerd en de stroomsterkte $I$ wordt berekend &mdash; is een _model_. We gaan de code nog wat verder opsplitsen om dat duidelijk te maken én onderbrengen in verschillende bestanden &mdash; dat is uiteindelijk beter voor het overzicht.
 
 !!! opdracht-inlever "Pythondaq: Controller afsplitsen"
     === "opdracht"
 
         <div class="grid-tree" markdown>
             <div>
-            Omdat je het basisscript later gaat uitbreiden om het gebruiksvriendelijker te maken ga je alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten. Het bestand {{file}}`#!py arduino_device.py` bevat de class `#!py ArduinoVISADevice` en de functie `#!py list_resources()`. In {{file}}`diode-experiment.py` importeer je de class en de functie uit de module {{file}}`arduino_device.py` zodat je ze daar kunt gebruiken.
+            In latere opdrachten ga je een command-line interface en een grafische user interface maken voor het experiment. Daarom is het handig om alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten. Het bestand {{file}}`#!py arduino_device.py` bevat de class `#!py ArduinoVISADevice` en de functie `#!py list_resources()`. Deze class en functie importeer je in het bestand {{file}}`diode-experiment.py`.
             </div>
             <div>
             {{folder}} `ECPC`   
             {{T}} {{github}} `pythondaq`  
-            {{tab}} {{T}} {{file}} `diode-experiment.py`  
             {{tab}} {{T}} {{new_file}} `arduino_device.py`  
+            {{tab}} {{T}} {{file}} `diode-experiment.py`  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{dots}}  
             </div>
@@ -208,6 +208,9 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         ``` py title="diode-experiment.py"
         from arduino_device import ArduinoVISADevice, list_resources
         
+        # get list resources
+        # connect to Arduino via ArduinoVISADevice
+        
         # set output voltage from 0 to max
             # measure voltages
             # calculate LED voltage
@@ -219,9 +222,12 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
     === "check"
         **Checkpunten:**
 
-        - [ ] Alle directe communicatie met de Arduino, firmwarecommando's en pyvisacommando's, staan in de controller
-        - [ ] Runnen van {{file}}`diode-experiment.py` zorgt ervoor dat een meting start
-        - [ ] Het script voldoet nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting) en [opdracht _CSV_](basisscript.md#opd:quickndirty-csv).
+        - [ ] Alle directe communicatie met de Arduino, firmwarecommando's en pyvisacommando's, staan in de controller.
+        - [ ] Runnen van {{file}}`diode-experiment.py` zorgt ervoor dat een meting start.
+        - [ ] Er wordt een lijst gegeven van aangesloten instrumenten.
+        - [ ] Er wordt een plot getoond van de spanning over en de stroomsterkte door de LED.
+        - [ ] De spanning over en de stroomsterkte door de LED worden weggeschreven in een CSV-bestand.
+        - [ ] De LED wordt uitgezet na de meting.
 
 
         **Projecttraject:**
@@ -258,7 +264,9 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
         ```
         ``` py title="diode-experiment.py"
-        from arduino_device import ArduinoVISADevice
+        from arduino_device import ArduinoVISADevice, list_resources
+        
+        # connect to Arduino via ArduinoVISADevice
         
         # set output voltage from 0 to max
             # measure voltages
@@ -306,15 +314,21 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         
         # class DiodeExperiment
             ...
-            def scan # with start and stop
+            # connect to Arduino via ArduinoVISADevice
+            ...
+            def scan # with start, stop and number of measurements
                 # set output voltage from 0 to max
                     # measure voltages
                     # calculate LED voltage
                     # calculate LED current
+                # return LED voltage, LED current
         ```      
         ``` py title="run_experiment.py"
-        from diode_experiment import DiodeExperiment
+        from diode_experiment import DiodeExperiment, list_resources
         
+        # get list resources
+        # connect to Arduino via DiodeExperiment
+
         # get current and voltage from scan(start, stop)
 
         # plot current vs voltage
@@ -327,8 +341,11 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         - [ ] Alle communicatie met de controller staan in het model
         - [ ] Het model bevat een class `DiodeExperiment`
         - [ ] De view communiceert alleen met het model. 
-        - [ ] Runnen van {{file}}`run_experiment.py` zorgt ervoor dat een meting start
-        - [ ] De bestanden {{file}}`diode_experiment.py` en {{file}}`run_experiment.py` voldoen samen nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting) en [opdracht _CSV_](basisscript.md#opd:quickndirty-csv).
+        - [ ] Runnen van {{file}}`run_experiment.py` zorgt ervoor dat een meting start.
+        - [ ] Er wordt een lijst gegeven van aangesloten instrumenten.
+        - [ ] Er wordt een plot getoond van de spanning over en de stroomsterkte door de LED.
+        - [ ] De spanning over en de stroomsterkte door de LED worden weggeschreven in een CSV-bestand.
+        - [ ] De LED wordt uitgezet na de meting.
         - [ ] De bestanden bevatten alle code die nodig is en niet meer dan dat. 
 
 
@@ -366,6 +383,8 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
         from arduino_device import ArduinoVISADevice, list_resources
         
         # class DiodeExperiment
+            ...
+            # connect to Arduino via ArduinoVISADevice
             ...
             def scan # with start, stop and number of measurements
                 # set output voltage from 0 to max
