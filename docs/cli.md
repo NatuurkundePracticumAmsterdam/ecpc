@@ -474,8 +474,15 @@ def cmd_group():
 
 @cmd_group.command()
 @click.argument("package")
-def install(package):
-    print(f"Installing {package}...")
+@click.option(
+    "-c",
+    "--channel",
+    default="defaults",
+    help="Additional channel to search for packages.",
+    show_default=True,  # show default in help
+)
+def install(package, channel):
+    print(f"Installing {package} from {channel}...")
 
 @cmd_group.command()
 @click.argument("package")
@@ -519,7 +526,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
         ```
         **Testcode**
         <pre><code>(ecpc) > fake_conda install scipy <button type="button" name="fake_conda install scipy" onclick="runScript('fake_conda install scipy')">{{ enter }}</button><button type="button" name="fake_conda install scipy" onclick="runScript('fake_conda install scipy')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="fake_conda install scipy">Installing scipy...</span>
+        <span class="invisible" name="fake_conda install scipy">Installing scipy from defaults....</span>
         </code></pre>
         
     === "check"
@@ -712,12 +719,19 @@ def cmd_group():
 
 @cmd_group.command()
 @click.argument("package")
-def install(package):
+@click.option(
+    "-c",
+    "--channel",
+    default="defaults",
+    help="Additional channel to search for packages.",
+    show_default=True,  # show default in help
+)
+def install(package, channel):
     """Install a conda PACKAGE.
 
     PACKAGE is the name of the package.
     """
-    print(f"Installing {package}...")
+    print(f"Installing {package} from {channel}...")
 
 
 @cmd_group.command()
@@ -733,8 +747,8 @@ if __name__ == "__main__":
     cmd_group()
 ```
 Als we vervolgens de help functie aanroepen zien we de eerste regel van de docstrings verschijnen voor alle subcommando's:
-<pre><code>(ecpc) > python fake_conda.py --help <button type="button" name="python fake_conda --help" onclick="runScript('python fake_conda --help')">{{ enter }}</button><button type="button" name="python fake_conda --help" onclick="runScript('python fake_conda --help')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="python fake_conda --help">Usage: fake_conda.py [OPTIONS] COMMAND [ARGS]...
+<pre><code>(ecpc) > fake_conda --help <button type="button" name="python fake_conda --help" onclick="runScript('python fake_conda --help')">{{ enter }}</button><button type="button" name="python fake_conda --help" onclick="runScript('python fake_conda --help')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python fake_conda --help">Usage: fake_conda [OPTIONS] COMMAND [ARGS]...
 
 Fake the installation and removal of packages in fake conda environments.
 
@@ -749,15 +763,17 @@ Commands:
 
 Daarna kun je uitleg vragen voor de subcommando's waarbij je de hele docstring te zien krijgt:
 
-<pre><code>(ecpc) > python fake_conda.py install --help <button type="button" name="python fake_conda.py install --help" onclick="runScript('python fake_conda.py install --help')">{{ enter }}</button><button type="button" name="python fake_conda.py install --help" onclick="runScript('python fake_conda.py install --help')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="python fake_conda.py install --help">Usage: fake_conda.py install [OPTIONS] PACKAGE
+<pre><code>(ecpc) > fake_conda install --help <button type="button" name="python fake_conda.py install --help" onclick="runScript('python fake_conda.py install --help')">{{ enter }}</button><button type="button" name="python fake_conda.py install --help" onclick="runScript('python fake_conda.py install --help')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python fake_conda.py install --help">Usage: fake_conda install [OPTIONS] PACKAGE
 
   Install a conda PACKAGE.
 
   PACKAGE is the name of the package.
 
 Options:
-  --help  Show this message and exit.</span>
+  -c, --channel TEXT  Additional channel to search for packages.  [default:
+                      defaults]
+  --help              Show this message and exit.</span>
 </code></pre>
 
 !!! opdracht-inlever "Smallangle docstrings"
