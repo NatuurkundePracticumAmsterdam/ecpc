@@ -896,8 +896,9 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
 
 !!! opdracht-inlever "Pythondaq: `scan`"
     === "opdracht"
-        Je voert het commando `diode scan` uit, met argumenten of opties is het mogelijk om het spanningsbereik (in Volt) aan te passen. Er wordt een meting gestart die binnen het spanningsbereik blijft. De stroomsterkte dóór en de spanning óver de LED worden in de terminal geprint. Het is ook mogelijk om de metingen op te slaan als CSV-bestand. Dit kan met de optie `--output FILENAME`. Wanneer met die optie een bestandsnaam wordt meegegeven worden de metingen opgeslagen en anders niet.
-        
+        Pas het subcommando `scan` aan.
+        </br></br>
+        De gebruiker test het subcommando `scan` met de volgende handelingen. De gebruiker typt het commando `diode scan` in de terminal. Aan de hand van de helptekst weet de gebruiker dat het met argumenten of opties mogelijk is om het spanningsbereik (in Volt) aan te passen. Er wordt een meting gestart die binnen het spanningsbereik blijft. De gebruiker ziet dat de stroomsterkte dóór en de spanning óver de LED in de terminal worden geprint. De gebruiker start een nieuwe meting en geeft ditmaal met de optie `--output FILENAME` een naam voor een CSV-bestand mee. Dit keer worden de metingen ook opgeslagen als CSV-bestand onder de meegegeven bestandsnaam.
     === "code"
         **Pseudo-code**
         ```py
