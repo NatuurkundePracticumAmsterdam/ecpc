@@ -807,7 +807,7 @@ In {{file}}`pyproject.toml` kunnen we nu het commando toe gaan voegen. Met de `s
 [tool.poetry.scripts]
 naam_commando = "package.module:naam_functie"
 ```
-Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package opnieuw installeren.
+Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package opnieuw installeren. Poetry 'kijkt' altijd vanuit de map {{folder}}`src`, de package {{folder}}`package` waar naar verwezen wordt moet dan ook direct in de map {{folder}}`src` zitten (en niet in een submap).
 
 !!! opdracht-basis "commando toevoegen"
     === "opdracht"
@@ -839,11 +839,22 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
 
 !!! opdracht-basis "Commando testen"
     === "opdracht"
-        Nu je het commando `square` hebt aangemaakt ga je deze testen in een terminal je ziet de tekst `The square of 5 is 25` verschijnen. Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `square` en ziet weer de tekst `The square of 5 is 25` verschijnen. Je concludeert dat het commando nu overal werkt zolang het juiste conda environment is geactiveerd. Dat test je uit door een ander conda environment te activeren {{lightbulb}} en het commando `square` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
+        Nu je het commando `square` hebt aangemaakt ga je deze testen in een terminal. Er verschijnt een error `ModuleNotFoundError: No module named 'square'`. Je leest het info-blokje hieronder.
+        </br>
+        </br>
+        Je runt het commando `square` opnieuw en je ziet de tekst `The square of 5 is 25` verschijnen. Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `square` en ziet weer de tekst `The square of 5 is 25` verschijnen. Je concludeert dat het commando nu overal werkt zolang het juiste conda environment is geactiveerd. Dat test je uit door een ander conda environment te activeren {{lightbulb}} en het commando `square` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
+
+        !!! info "ModuleNotFoundError: No module named 'square'"
+            Als je de Traceback leest zie je dat het probleem ontstaat in de module {{file}}`count_count.py`. Omdat Poetry altijd begint met zoeken vanuit de map {{folder}}`src` kan daar de module {{file}}`square.py` niet gevonden worden. Pas het import statement aan naar `#!py import just_count.square as square`.  
     === "code"
         **Pseudo-code**
         <pre><code>(ecpc) > square <button type="button" name="square_test" onclick="runScript('square_test')">{{ enter }}</button><button type="button" name="square_test" onclick="runScript('square_test')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="square_test">The square of 5 is 25</span>
+        <span class="invisible" name="square_test">Traceback (most recent call last):
+        File "/base/envs/just_count/bin/square", line 3, in <module>
+            from just_count.count_count import main
+        File "/just_count/src/just_count/count_count.py", line 1, in <module>
+            import square
+        ModuleNotFoundError: No module named 'square'</span>
         </code></pre>
     === "check"
         **Checkpunten:**
