@@ -131,7 +131,7 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
         Zet je controller code (zonder de testcode) in het bestand {{file}}`diode-experiment.py`. Pas de code die de meting uitvoert aan zodat deze gebruikt maakt van de class `#!py ArduinoVISADevice` en de bijbehorende methods. 
     === "code"
         **Pseudo-code**
-        ``` py
+        ``` py title='diode-experiment.py'
         # def list_resources
         #   ...
 
@@ -284,10 +284,11 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
 !!! opdracht-inlever "Pythondaq: Model afsplitsen"
     === "opdracht"
-
         <div class="grid-tree" markdown>
             <div>
-            Omdat de uitbreidingen om het basisscript gebruiksvriendelijker te maken vooral de view zullen uitbreiden zet je het model en de view ook in aparte bestanden. Wanneer je het bestand {{file}}`run_experiment.py` runt roept deze in het model de method `#!py scan()` van de class `DiodeExperiment` aan welke een meting start. Om gegevens van het naar de Arduino te sturen maakt het model gebruik van de controller. De gegevens die het model terugkrijgt van de Arduino worden volgens de fysische relaties verwerkt tot de benodigde gegevens en doorgestuurd naar de view. De view presenteert de gegevens in een grafiek. Wanneer je in een ander bereik wilt meten pas je in de view het bereik aan, het model gebruikt dit bereik bij het doen van de meting.
+            Omdat je in latere opdrachten een command-line interface en een grafische user interface gaat maken voor het experiment is het handig om alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten. Maak een bestand {{file}}`run_experiment.py` waarin de gebruiker een paar dingen kan aanpassen.
+            </br></br>
+            De gebruiker test de door jou geschreven applicatie (view, model, controller) met de volgende handelingen. Het runnen van het bestand {{file}}`run_experiment.py` geeft een lijst van aangesloten instrumenten. De gebruiker past in het bestand {{file}}`run_experiment.py` de poortnaam aan naar een poort waarop een Arduino is aangesloten. De instance van de class `#!py DiodeExperiment` die uit het model wordt geïmporteerd gebruikt deze poortnaam om de communicatie met de Arduino te openen. De gebruiker roept de method `#!py scan()` aan van de class `#!py DiodeExperiment` waarna een meting wordt gestart. Om gegevens van het naar de Arduino te sturen maakt het model gebruik van de controller. De gegevens die het model terugkrijgt van de Arduino worden volgens de fysische relaties verwerkt tot de benodigde gegevens en doorgestuurd naar de view. De resultaten worden in een plot getoond en naar een CSV-bestand weggeschreven. De gebruiker past het bereik van de meting aan door door de start- en stopparameters, die aan de method `#!py scan()` worden meegegeven, aan te passen.
             </div>
             <div>
             {{folder}} `ECPC`   
@@ -316,7 +317,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
             ...
             # connect to Arduino via ArduinoVISADevice
             ...
-            def scan # with start, stop and number of measurements
+            # def scan with start, stop
                 # set output voltage from 0 to max
                     # measure voltages
                     # calculate LED voltage
