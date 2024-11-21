@@ -128,7 +128,7 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
 
 !!! opdracht-inlever "Pythondaq: Controller implementeren"
     === "opdracht"
-        Je hebt een Python script die hetzelfde doet als in de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting) en [opdracht _CSV_](basisscript.md#opd:quickndirty-csv), maar de code is aangepast zodat er gebruik wordt gemaakt van de class `#!py ArduinoVISADevice` en de bijbehorende methods. 
+        Zet je controller code (zonder de testcode) in het bestand {{file}}`diode-experiment.py`. Pas de code die de meting uitvoert aan zodat deze gebruikt maakt van de class `#!py ArduinoVISADevice` en de bijbehorende methods. 
     === "code"
         **Pseudo-code**
         ``` py
@@ -137,6 +137,9 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
 
         # class ArduinoVISADevice
             ...
+
+        # get list resources
+        # connect to Arduino
         
         # set output voltage from 0 to max
             # measure voltages
@@ -151,7 +154,10 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
 
         - [ ] In een script staan `#!py list_resources()`, `#!py ArduinoVISADevice()` en de code om de LED te laten branden, metingen te doen en het resultaat te laten zien.
         - [ ] Wanneer de class `#!py ArduinoVISADevice()` uit het script wordt geknipt, werkt {{file}}`diode-experiment.py` niet meer.
-        - [ ] Het script voldoet nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting) en [opdracht _CSV_](basisscript.md#opd:quickndirty-csv).
+        - [ ] Er wordt een lijst gegeven van aangesloten instrumenten.
+        - [ ] Er wordt een plot getoond van de spanning over en de stroomsterkte door de LED.
+        - [ ] De spanning over en de stroomsterkte door de LED worden weggeschreven in een CSV-bestand.
+        - [ ] De LED wordt uitgezet na de meting.
 
 
         **Projecttraject:**
