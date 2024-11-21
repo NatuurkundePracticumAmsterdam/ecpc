@@ -140,19 +140,19 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
     
         <div class="grid-tree" markdown>
             <div>
-            Je maakt het bestand {{file}}`basisscript.py` aan in de nieuwe {{github}} `pythondaq` repository, waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de spanning over de weerstand uit. Je print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand.
+            Je maakt het bestand {{file}}`diode-experiment.py` aan in de nieuwe {{github}} `pythondaq` repository, waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de spanning over de weerstand uit. Je print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand.
             </div>
             <div>
             {{folder}} `ECPC`  
             {{T}} {{github}} `oefenopdrachten`  
             {{L}} {{github}} `pythondaq`  
-            {{tab}} {{T}} {{new_file}} `basisscript.py`  
+            {{tab}} {{T}} {{new_file}} `diode-experiment.py`  
             {{tab}} {{L}} {{dots}}  
             </div>
         </div>
     === "code"
         **Pseudo-code**
-        ``` py title="basisscript.py"
+        ``` py title="diode-experiment.py"
         # connect to Arduino
 
         # set output voltage from 0 to max
@@ -197,7 +197,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
         Je code berekent de spanning _over_ en de stroomsterkte _door_ de LED terwijl de spanning over het cirquit oploopt van nul tot de maximale waarde. De resultaten worden geprint en in een grafiek weergegeven.  
     === "code"
         **Pseudo-code**
-        ``` py title="basisscript.py"
+        ``` py title="diode-experiment.py"
         # connect to Arduino
 
         # set output voltage from 0 to max
@@ -356,7 +356,7 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
         Je code schrijft de metingen weg als csv-bestand door gebruik te maken van de `#!py zip()`-functie en de `#!py csv`-module.
     === "code"
         **Pseudo-code**
-        ``` py title="basisscript.py"
+        ``` py title="diode-experiment.py"
         # connect to Arduino
 
         # set output voltage from 0 to max

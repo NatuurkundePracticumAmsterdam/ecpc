@@ -25,10 +25,10 @@ __Controller__
 Het opsplitsen van je programma _hoeft niet in één keer!_ Dit kan stapsgewijs. Je kunt starten met een eenvoudig script &mdash; zoals we hierboven gedaan hebben &mdash; en dat langzaam uitbreiden. Je begint klein, verdeelt je code in lagen en bouwt vervolgens verder.
 
 ## Implementeren van MVC
-Het opsplitsen van het {{file}}`basisscript.py` in MVC gaan we stapsgewijs doen. We gaan een class maken voor de aansturing van de Arduino, deze class valt in de categorie _controller_.
+Het opsplitsen van het {{file}}`diode-experiment.py` in MVC gaan we stapsgewijs doen. We gaan een class maken voor de aansturing van de Arduino, deze class valt in de categorie _controller_.
 
 !!! opdracht-inlever "Pythondaq: open de repository"
-    Open in GitHub Desktop de repository van {{github}}`pythondaq` en open de repository in Visual Studio Code. In de volgende opdrachten ga je het {{file}}`basisscript.py` uitbreiden en opsplitsen in MVC.
+    Open in GitHub Desktop de repository van {{github}}`pythondaq` en open de repository in Visual Studio Code. In de volgende opdrachten ga je het {{file}}`diode-experiment.py` uitbreiden en opsplitsen in MVC.
 
 <div id="opd:meting-class"></div>
 !!! opdracht-inlever "Pythondaq: controller bouwen"
@@ -61,7 +61,7 @@ Het opsplitsen van het {{file}}`basisscript.py` in MVC gaan we stapsgewijs doen.
                 
         ```
         **Testcode:**
-        <div class="code-box"><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="run">{{ run }}</button><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="reload invisible">{{ reload }}</button> basisscript.py
+        <div class="code-box"><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="run">{{ run }}</button><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="reload invisible">{{ reload }}</button> diode-experiment.py
         ``` py
         # get available ports
         print(list_resources())
@@ -89,7 +89,7 @@ Het opsplitsen van het {{file}}`basisscript.py` in MVC gaan we stapsgewijs doen.
         print(f"{ch0_value=}")
         ```
         <pre>
-        <code>(ecpc) > python basisscript.py
+        <code>(ecpc) > python diode-experiment.py
         <span class="invisible" name="basisscript_controller">('ASRL28::INSTR', ) 
         Arduino VISA firmware v1.0.0
         ch2_value=224
@@ -147,7 +147,7 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
         **Checkpunten:**
 
         - [ ] In een script staan `#!py list_resources()`, `#!py ArduinoVISADevice()` en de code om de LED te laten branden, metingen te doen en het resultaat te laten zien.
-        - [ ] Wanneer de class `#!py ArduinoVISADevice()` uit het script wordt geknipt, werkt {{file}}`basisscript.py` niet meer.
+        - [ ] Wanneer de class `#!py ArduinoVISADevice()` uit het script wordt geknipt, werkt {{file}}`diode-experiment.py` niet meer.
         - [ ] Het script voldoet nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting) en [opdracht _CSV_](basisscript.md#opd:quickndirty-csv).
 
 
@@ -173,12 +173,12 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
         <div class="grid-tree" markdown>
             <div>
-            Omdat je het basisscript later gaat uitbreiden om het gebruiksvriendelijker te maken ga je alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten. Het bestand {{file}}`#!py arduino_device.py` bevat de class `#!py ArduinoVISADevice` en de functie `#!py list_resources()`. In {{file}}`basisscript.py` importeer je de class en de functie uit de module {{file}}`arduino_device.py` zodat je ze daar kunt gebruiken.
+            Omdat je het basisscript later gaat uitbreiden om het gebruiksvriendelijker te maken ga je alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten. Het bestand {{file}}`#!py arduino_device.py` bevat de class `#!py ArduinoVISADevice` en de functie `#!py list_resources()`. In {{file}}`diode-experiment.py` importeer je de class en de functie uit de module {{file}}`arduino_device.py` zodat je ze daar kunt gebruiken.
             </div>
             <div>
             {{folder}} `ECPC`   
             {{T}} {{github}} `pythondaq`  
-            {{tab}} {{T}} {{file}} `basisscript.py`  
+            {{tab}} {{T}} {{file}} `diode-experiment.py`  
             {{tab}} {{T}} {{new_file}} `arduino_device.py`  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{dots}}  
@@ -186,7 +186,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         </div>
 
         !!! info "error"
-            Waarschijnlijk krijg je nog een of meerdere errors als je {{file}}`basisscript.py` runt. Lees het error bericht goed door, om welk bestand gaat het {{file}}`arduino_device.py` of {{file}}`basisscript.py`? Wat is er volgens het error bericht niet goed?
+            Waarschijnlijk krijg je nog een of meerdere errors als je {{file}}`diode-experiment.py` runt. Lees het error bericht goed door, om welk bestand gaat het {{file}}`arduino_device.py` of {{file}}`diode-experiment.py`? Wat is er volgens het error bericht niet goed?
     === "code"
         **Pseudo-code**
         ``` py title="arduino_device.py"
@@ -196,7 +196,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         # class ArduinoVISADevice
             ...
         ```
-        ``` py title="basisscript.py"
+        ``` py title="diode-experiment.py"
         from arduino_device import ArduinoVISADevice, list_resources
         
         # set output voltage from 0 to max
@@ -211,7 +211,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         **Checkpunten:**
 
         - [ ] Alle directe communicatie met de Arduino, firmwarecommando's en pyvisacommando's, staan in de controller
-        - [ ] Runnen van {{file}}`basisscript.py` zorgt ervoor dat een meting start
+        - [ ] Runnen van {{file}}`diode-experiment.py` zorgt ervoor dat een meting start
         - [ ] Het script voldoet nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting) en [opdracht _CSV_](basisscript.md#opd:quickndirty-csv).
 
 
@@ -230,7 +230,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
 ???+ opdracht-meer "`#!py if __name__ == '__main__'`"
     === "opdracht"
-        Later wil je de functie `#!py list_resources()` netjes in het hele model-view-controller systeem vlechten zodat je als gebruiker de lijst kunt opvragen, maar voor nu wil je af en toe even zien aan welke poort de Arduino hangt. Wanneer je het script {{file}}`arduino_device.py` runt wordt er een lijst geprint met poorten. Dit gebeurt niet wanneer het bestand {{file}}`basisscript.py` wordt gerund. 
+        Later wil je de functie `#!py list_resources()` netjes in het hele model-view-controller systeem vlechten zodat je als gebruiker de lijst kunt opvragen, maar voor nu wil je af en toe even zien aan welke poort de Arduino hangt. Wanneer je het script {{file}}`arduino_device.py` runt wordt er een lijst geprint met poorten. Dit gebeurt niet wanneer het bestand {{file}}`diode-experiment.py` wordt gerund. 
 
         !!! info "modules"
             Nog niet bekend met `#!py if __name__ == '__main__'`? kijk dan voor meer informatie in de [paragraaf modules](vervolg-python.md#modules).
@@ -248,7 +248,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         # print list ports not if arduino_device.py is imported as a module in another script
 
         ```
-        ``` py title="basisscript.py"
+        ``` py title="diode-experiment.py"
         from arduino_device import ArduinoVISADevice
         
         # set output voltage from 0 to max
@@ -263,21 +263,21 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         **Checkpunten:**
 
         - [ ] Er wordt een lijst met poorten geprint wanneer {{file}}`arduino_device.py` wordt gerund.
-        - [ ] De lijst wordt _niet_ geprint wanneer {{file}}`basisscript.py` wordt gerund.
+        - [ ] De lijst wordt _niet_ geprint wanneer {{file}}`diode-experiment.py` wordt gerund.
 
 !!! opdracht-inlever "Pythondaq: Model afsplitsen"
     === "opdracht"
 
         <div class="grid-tree" markdown>
             <div>
-            Omdat de uitbreidingen om het basisscript gebruiksvriendelijker te maken vooral de view zullen uitbreiden zet je het model en de view ook in aparte bestanden. Wanneer je het bestand {{file}}`view.py` runt roept deze in het model de method `#!py scan()` van de class `DiodeExperiment` aan welke een meting start. Om gegevens van het naar de Arduino te sturen maakt het model gebruik van de controller. De gegevens die het model terugkrijgt van de Arduino worden volgens de fysische relaties verwerkt tot de benodigde gegevens en doorgestuurd naar de view. De view presenteert de gegevens in een grafiek. Wanneer je in een ander bereik wilt meten pas je in de view het bereik aan, het model gebruikt dit bereik bij het doen van de meting. Let op, we hernoemen {{file}} `basisscript.py` naar {{file}} `diode_experiment.py`.
+            Omdat de uitbreidingen om het basisscript gebruiksvriendelijker te maken vooral de view zullen uitbreiden zet je het model en de view ook in aparte bestanden. Wanneer je het bestand {{file}}`run_experiment.py` runt roept deze in het model de method `#!py scan()` van de class `DiodeExperiment` aan welke een meting start. Om gegevens van het naar de Arduino te sturen maakt het model gebruik van de controller. De gegevens die het model terugkrijgt van de Arduino worden volgens de fysische relaties verwerkt tot de benodigde gegevens en doorgestuurd naar de view. De view presenteert de gegevens in een grafiek. Wanneer je in een ander bereik wilt meten pas je in de view het bereik aan, het model gebruikt dit bereik bij het doen van de meting.
             </div>
             <div>
             {{folder}} `ECPC`   
             {{T}} {{github}} `pythondaq`  
-            {{tab}} {{T}} {{file}} `diode_experiment.py`  
             {{tab}} {{T}} {{file}} `arduino_device.py`  
-            {{tab}} {{T}} {{new_file}} `view.py`  
+            {{tab}} {{T}} {{file}} `diode_experiment.py`  
+            {{tab}} {{T}} {{new_file}} `run_experiment.py`  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{dots}}  
             </div>
@@ -303,7 +303,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
                     # calculate LED voltage
                     # calculate LED current
         ```      
-        ``` py title="view.py"
+        ``` py title="run_experiment.py"
         from diode_experiment import DiodeExperiment
         
         # get current and voltage from scan(start, stop)
@@ -318,8 +318,8 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         - [ ] Alle communicatie met de controller staan in het model
         - [ ] Het model bevat een class `DiodeExperiment`
         - [ ] De view communiceert alleen met het model. 
-        - [ ] Runnen van {{file}}`view.py` zorgt ervoor dat een meting start
-        - [ ] De bestanden {{file}}`diode_experiment.py` en {{file}}`view.py` voldoen samen nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting) en [opdracht _CSV_](basisscript.md#opd:quickndirty-csv).
+        - [ ] Runnen van {{file}}`run_experiment.py` zorgt ervoor dat een meting start
+        - [ ] De bestanden {{file}}`diode_experiment.py` en {{file}}`run_experiment.py` voldoen samen nog steeds aan de checkpunten van de [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting) en [opdracht _CSV_](basisscript.md#opd:quickndirty-csv).
         - [ ] De bestanden bevatten alle code die nodig is en niet meer dan dat. 
 
 
@@ -342,7 +342,7 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
 
 !!! opdracht-inlever "Pythondaq: Onzekerheid"
     === "opdracht"
-        Omdat je never nooit je conclusies gaat baseren op een enkele meetserie ga je de meting herhalen en foutenvlaggen toevoegen. Je moet weer even hard nadenken over hoe je dat bepaalt en hoe je dat in je code gaat verwerken. Daarom pak je pen en papier, stoot je je buurmens aan en samen gaan jullie nadenken over hoe jullie in dit experiment de onzekerheid kunnen bepalen. Daarna kijken jullie naar de opbouw van de code en maken jullie aantekeningen over wat er waar en hoe in de code aangepast moet worden. Je kijkt naar je repository en ziet dat je de nu-nog-werkende-code hebt gecommit vervolgens ga je stap voor stap (commit voor commit) aan de slag om de aanpassingen te maken. Als het klaar is run je {{file}}`view.py` met het aantal herhaalmetingen op 3 en ziet in de grafiek foutenvlaggen op de metingen voor stroom en spanningen staan. Je kijkt op het beeldscherm van je buurmens en ziet daar ook foutenvlaggen verschijnen. Met een grijns kijken jullie elkaar aan en geven een high five {{feesttoeter}}.
+        Omdat je never nooit je conclusies gaat baseren op een enkele meetserie ga je de meting herhalen en foutenvlaggen toevoegen. Je moet weer even hard nadenken over hoe je dat bepaalt en hoe je dat in je code gaat verwerken. Daarom pak je pen en papier, stoot je je buurmens aan en samen gaan jullie nadenken over hoe jullie in dit experiment de onzekerheid kunnen bepalen. Daarna kijken jullie naar de opbouw van de code en maken jullie aantekeningen over wat er waar en hoe in de code aangepast moet worden. Je kijkt naar je repository en ziet dat je de nu-nog-werkende-code hebt gecommit vervolgens ga je stap voor stap (commit voor commit) aan de slag om de aanpassingen te maken. Als het klaar is run je {{file}}`run_experiment.py` met het aantal herhaalmetingen op 3 en ziet in de grafiek foutenvlaggen op de metingen voor stroom en spanningen staan. Je kijkt op het beeldscherm van je buurmens en ziet daar ook foutenvlaggen verschijnen. Met een grijns kijken jullie elkaar aan en geven een high five {{feesttoeter}}.
 
     === "code"
         **Pseudo-code**
@@ -365,7 +365,7 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
                     # calculate LED current
                 # return LED voltage, LED current and errors
         ```      
-        ``` py title="view.py"
+        ``` py title="run_experiment.py"
         from diode_experiment import DiodeExperiment
         
         # get current and voltage with errors from scan(start, stop, measurements)
@@ -400,4 +400,4 @@ Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger gewor
     De gebruiker moet in de view het script aanpassen om een andere meting te doen. Kun je `#!py input()` gebruiken om van de gebruiker input te vragen voor de start, stop en aantal metingen?
 
 ???+ opdracht-meer "Error!"
-    Als de gebruiker in de {{file}}`view.py` per ongeluk een negatieve startwaarde of negatieve aantal metingen invult gaat het niet goed. Gebruik [Exceptions](vervolg-python.md#exceptions) om dergelijke gevallen af te vangen en een duidelijke error af te geven. 
+    Als de gebruiker in de {{file}}`run_experiment.py` per ongeluk een negatieve startwaarde of negatieve aantal metingen invult gaat het niet goed. Gebruik [Exceptions](vervolg-python.md#exceptions) om dergelijke gevallen af te vangen en een duidelijke error af te geven. 

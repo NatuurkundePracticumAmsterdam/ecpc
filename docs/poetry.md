@@ -621,7 +621,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
         {{tab}}{{tab}}{{T}}{{new_file}}`__init__.py`  
         {{tab}}{{tab}}{{T}}{{file}}`arduino_device.py`  
         {{tab}}{{tab}}{{T}}{{file}}`diode_experiment.py`  
-        {{tab}}{{tab}}{{L}}{{file}}`view.py`  
+        {{tab}}{{tab}}{{L}}{{file}}`run_experiment.py`  
         {{T}}{{file_lines}}`.gitattributes`  
         {{T}}{{file_lines}}`.gitignore`  
         {{L}}{{file_lines}}`README.md`  
@@ -630,7 +630,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
 
 !!! opdracht-inlever "Pythondaq: poetry"
     === "opdracht"
-        Nu de repository {{github}}`pythondaq` in de src-layout staat voeg je Poetry toe om het project te beheren {{lightbulb}}. Nadat alles gelukt is test je het project door een nieuwe conda environment aan te maken met de naam `pythondaq` met daarin alleen `python=3.12` {{lightbulb}}. Daarna installeer je het Poetry project {{lightbulb}} en wanneer je `view.py` runt zie je als vanouds een lampje branden en een plot verschijnen. 
+        Nu de repository {{github}}`pythondaq` in de src-layout staat voeg je Poetry toe om het project te beheren {{lightbulb}}. Nadat alles gelukt is test je het project door een nieuwe conda environment aan te maken met de naam `pythondaq` met daarin alleen `python=3.12` {{lightbulb}}. Daarna installeer je het Poetry project {{lightbulb}} en wanneer je `run_experiment.py` runt zie je als vanouds een lampje branden en een plot verschijnen. 
     === "code"
         **Pseudo-code**
         <pre><code>(ecpc) > poetry install <button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')">{{ enter }}</button><button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')" class="invisible">{{ reload }}</button>
@@ -651,7 +651,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
     
         - [ ] Je hebt Poetry geïnitialiseerd in de Pythondaq project map.
         - [ ] Na het initialiseren van Poetry is er een {{file}}`pyproject.toml` in de projectmap aangemaakt.
-        - [ ] Wanneer met `poetry install` in een nieuwe conda environment met alleen python=3.12 het pakket wordt geïnstalleerd werkt {{file}}`view.py` daarna in die nieuwe omgeving naar behoren. 
+        - [ ] Wanneer met `poetry install` in een nieuwe conda environment met alleen python=3.12 het pakket wordt geïnstalleerd werkt {{file}}`run_experiment.py` daarna in die nieuwe omgeving naar behoren. 
 
         **Projecttraject**
     
@@ -847,7 +847,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
             {{tab}}{{tab}}{{T}}{{file}}`__init__.py`  
             {{tab}}{{tab}}{{T}}{{file}}`arduino_device.py`  
             {{tab}}{{tab}}{{T}}{{file}}`diode_experiment.py`  
-            {{tab}}{{tab}}{{L}}{{file}}`view.py`  
+            {{tab}}{{tab}}{{L}}{{file}}`run_experiment.py`  
             {{T}}{{new_folder}}`tests`  
             {{tab}}{{T}}{{new_file}}`__init__.py`  
             {{tab}}{{L}}{{new_file}}`test_imports.py`  
@@ -858,7 +858,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
         
     === "code"
         **Pseudocode**
-        ```py title="view.py"
+        ```py title="run_experiment.py"
         # define from which package the module diode_experiment should be imported
         ...
 
@@ -873,7 +873,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
         <span class="invisible" name="test_imports_pythondaq">Traceback (most recent call last):
             File "c:\pythondaq\tests\test_imports.py", line 1, in < module >
                 import pythondaq.view
-            File "C:\pythondaq\src\pythondaq\view.py", line 4, in < module >
+            File "C:\pythondaq\src\pythondaq\run_experiment.py", line 4, in < module >
                 from diode_experiment import DiodeExperiment
             ModuleNotFoundError: No module named 'diode_experiment'</span>
         </code></pre></div>
@@ -895,10 +895,10 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
     
 !!! opdracht-inlever "Pythondaq: applicatie"
     === "opdracht"
-        Je maakt een commando om het script {{file}}`view.py` uit de repository {{github}}`pythondaq` te starten {{lightbulb}}. Wanneer je het commando aanroept gaat het LED-lampje branden, en verschijnt er even later een IU-plot op het scherm. Je test of het commando ook buiten Visual Studio Code werkt door een `Anaconda prompt` te openen. Je activeert het juiste conda environment {{lightbulb}} en ziet dat ook dan het commando werkt. Wat een feest! {{feesttoeter}} Je hebt nu een applicatie geschreven die een Arduino aanstuurt om een ledje te laten branden. En je kunt je applicatie gewoon vanuit de terminal aanroepen! {{feesttoeter}}
+        Je maakt een commando om het script {{file}}`run_experiment.py` uit de repository {{github}}`pythondaq` te starten {{lightbulb}}. Wanneer je het commando aanroept gaat het LED-lampje branden, en verschijnt er even later een IU-plot op het scherm. Je test of het commando ook buiten Visual Studio Code werkt door een `Anaconda prompt` te openen. Je activeert het juiste conda environment {{lightbulb}} en ziet dat ook dan het commando werkt. Wat een feest! {{feesttoeter}} Je hebt nu een applicatie geschreven die een Arduino aanstuurt om een ledje te laten branden. En je kunt je applicatie gewoon vanuit de terminal aanroepen! {{feesttoeter}}
     === "code"
         **Pseudo-code**
-        ``` py title="view.py"
+        ``` py title="run_experiment.py"
         # import statements
 
         # def function
@@ -911,8 +911,8 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
     === "check"
         **Checkpunten:**
     
-        - [ ] De functie in {{file}}`view.py` bevat alle code die uitgevoerd moet worden om een meting te starten.
-        - [ ] Het commando in de {{file_lines}}`pyproject.toml` verwijst op de correcte manier naar de functie in {{file}}`view.py`.
+        - [ ] De functie in {{file}}`run_experiment.py` bevat alle code die uitgevoerd moet worden om een meting te starten.
+        - [ ] Het commando in de {{file_lines}}`pyproject.toml` verwijst op de correcte manier naar de functie in {{file}}`run_experiment.py`.
         - [ ] Het aanroepen van het commando zorgt ervoor dat een meting gestart wordt. 
         - [ ] Het commando werkt ook in een `Anaconda prompt` zolang het juiste conda environment actief is.
 

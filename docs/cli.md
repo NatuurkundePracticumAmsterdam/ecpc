@@ -812,14 +812,14 @@ Options:
 
 ## Command-line interface voor ons experiment
 
-In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals {{file}}`view.py`, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand {{file}}`cli.py` aanmaken en dat langzaam opbouwen.
+In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals {{file}}`run_experiment.py`, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand {{file}}`cli.py` aanmaken en dat langzaam opbouwen.
 
 !!! opdracht-inlever "Pythondaq: commando's"
     === "opdracht"
 
         <div class="grid-tree" markdown>
             <div>
-            Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand {{new_file}}`src/pythondaq/cli.py` een opzetje maken waar je stap voor stap functionaliteit aan toevoegt. De oude {{file}}`view.py` maakte eerst een lijst van aangesloten apparaten en daarna werd een scan uitgevoerd. Daarom zet je in {{file}}`cli.py` de subcommando's `list` en `scan`. Je test de subcommando's en je ziet dat ze werken omdat ze een stukje tekst printen. 
+            Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand {{new_file}}`src/pythondaq/cli.py` een opzetje maken waar je stap voor stap functionaliteit aan toevoegt. De oude {{file}}`run_experiment.py` maakte eerst een lijst van aangesloten apparaten en daarna werd een scan uitgevoerd. Daarom zet je in {{file}}`cli.py` de subcommando's `list` en `scan`. Je test de subcommando's en je ziet dat ze werken omdat ze een stukje tekst printen. 
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -828,7 +828,7 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
             {{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
             {{tab}} {{tab}} {{T}} {{file}} `arduino_device.py`  
             {{tab}} {{tab}} {{T}} {{file}} `diode_experiment.py`  
-            {{tab}} {{tab}} {{T}} {{file}} `view.py`  
+            {{tab}} {{tab}} {{T}} {{file}} `run_experiment.py`  
             {{tab}} {{tab}} {{L}} {{new_file}} `cli.py`  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{dots}}  
