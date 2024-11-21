@@ -33,11 +33,13 @@ Het opsplitsen van het {{file}}`diode-experiment.py` in MVC gaan we stapsgewijs 
 <div id="opd:meting-class"></div>
 !!! opdracht-inlever "Pythondaq: controller bouwen"
     === "opdracht"
-        Een gebruiker moet het volgende kunnen doen:
-        Je vraagt een lijst met beschikbare poorten op met de functie `#!py list_resources()`. Wanneer je weet welke poort de Arduino is gebruik je deze poortnaam om een instance aan te maken van de class `ArduinoVISADevice`. Met deze class kan je met de Arduino te communiceren. Met de method `#!py get_identification()` vraag je de identificatiestring op te zien welke firmware op de Arduino staat. Je gebruikt de method `#!py set_output_value()` om een waarde van 828 op het uitvoerkanaal 0 te zetten, omdat de LED gaat branden weet je dat het werkt. Je test de spanningsmeters door met de method `#!py get_input_value()` eerst van kanaal 1 en daarna van kanaal 2 de waarde op te vragen. Je ziet waardes die overeenkomen met je verwachting. Je rekent de waardes om naar spanningen in volt en controleert daarna de method `#!py get_input_voltage()` om te zien of deze dezelfde waardes terug geeft voor kanaal 1 en 2. Om te controleren of de waarde die je op het uitvoerkanaal gezet hebt nog steeds gelijk is aan wat je hebt ingesteld vraag je deze waarde op met `#!py get_output_value()`. 
+        Je schrijft een script waarmee je de Arduino aanstuurt. 
+        </br></br>
+        Een gebruiker test de door jou geschreven controller met de volgende handelingen. De gebruiker vraag een lijst met beschikbare poorten op met de functie `#!py list_resources()`. De gebruiker weet aan welke poort de Arduino hangt en gebruikt deze poortnaam om een instance aan te maken van de class `ArduinoVISADevice`. Met deze class kan de gebruiker met de Arduino communiceren. Met de method `#!py get_identification()` vraagt de gebruiker de identificatiestring op. De gebruiker zet met de method `#!py set_output_value()` om een waarde van 828 op het uitvoerkanaal 0, de gebruiker zit de LED branden en weet daarom dat de method werkt. De gebruiker vraag met de method `#!py get_input_value()` de spanning op kanaal 1 op, dit herhaald de gebruiker vervolgens voor kanaal 2. Met de method `#!py get_input_voltage()` vraagt de gebruiker de spanning op in volt. De gebruiker rekent de gegeven waarde van `#!py get_input_value()` op kanaal 1 om naar volt en ziet dat deze overeenkomt met de gegeven spanning door de method `#!py get_input_voltage()` op kanaal 1. 
+
     === "code"
         **Pseudo-code**
-        ``` py
+        ``` py title='test-controller.py'
         # def list_resources
         #    return list of available ports
 
@@ -61,7 +63,7 @@ Het opsplitsen van het {{file}}`diode-experiment.py` in MVC gaan we stapsgewijs 
                 
         ```
         **Testcode:**
-        <div class="code-box"><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="run">{{ run }}</button><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="reload invisible">{{ reload }}</button> diode-experiment.py
+        <div class="code-box"><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="run">{{ run }}</button><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="reload invisible">{{ reload }}</button> test-controller.py
         ``` py
         # get available ports
         print(list_resources())
@@ -89,7 +91,7 @@ Het opsplitsen van het {{file}}`diode-experiment.py` in MVC gaan we stapsgewijs 
         print(f"{ch0_value=}")
         ```
         <pre>
-        <code>(ecpc) > python diode-experiment.py
+        <code>(ecpc) > python test-controller.py
         <span class="invisible" name="basisscript_controller">('ASRL28::INSTR', ) 
         Arduino VISA firmware v1.0.0
         ch2_value=224
@@ -101,7 +103,8 @@ Het opsplitsen van het {{file}}`diode-experiment.py` in MVC gaan we stapsgewijs 
         **Checkpunten:**
 
         - [ ] `#!py list_resources()` is een functie die buiten de class staat.
-        - [ ] De `#!py __init__()` method verlangt een poortnaam en opent de communicatie met deze poort.
+        - [ ] Aan de `#!py __init__()` method moet een poortnaam worden meegeven.
+        - [ ] De `#!py __init__()` method opent de communicatie met de meegegeven poortnaam.
         - [ ] Er is een method `#!py get_identification()` die de identificatiestring teruggeeft.
         - [ ] De `set_output_value()` en `get_output_value()` communiceren standaard met kanaal 0.
         - [ ] Bij `get_input_value` en `get_input_voltage` moet een kanaal opgegeven worden.
