@@ -819,7 +819,9 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
 
         <div class="grid-tree" markdown>
             <div>
-            Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand {{new_file}}`src/pythondaq/cli.py` een opzetje maken waar je stap voor stap functionaliteit aan toevoegt. De oude {{file}}`run_experiment.py` maakte eerst een lijst van aangesloten apparaten en daarna werd een scan uitgevoerd. Daarom zet je in {{file}}`cli.py` de subcommando's `list` en `scan`. Je test de subcommando's en je ziet dat ze werken omdat ze een stukje tekst printen. 
+            Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand {{new_file}}`src/pythondaq/cli.py` een opzetje maken waar je stap voor stap functionaliteit aan toevoegt. De oude {{file}}`run_experiment.py` maakte eerst een lijst van aangesloten apparaten en daarna werd een scan uitgevoerd. Daarom zet je in {{file}}`cli.py` de subcommando's `list` en `scan`. En zorg je dat ze voor nu alleen een stukje tekst printen.
+            </br></br>
+            De gebruiker test de test-subcommmando's met de volgende handelingen. De gebruiker typt in de terminal het commando `diode` met daarachter het subcommando `list` en ziet een tekst verschijnen: `Work in progress, list devices`. De gebruiker test vervolgens het subcommando `scan` en ziet de tekst `Work in progress, scan LED` verschijnen.
             </div>
             <div>
             {{folder}} `ECPC`  
