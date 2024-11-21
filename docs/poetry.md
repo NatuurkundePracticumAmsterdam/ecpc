@@ -630,7 +630,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
 
 !!! opdracht-inlever "Pythondaq: poetry"
     === "opdracht"
-        Nu de repository {{github}}`pythondaq` in de src-layout staat voeg je Poetry toe om het project te beheren {{lightbulb}}. Nadat alles gelukt is test je het project door een nieuwe conda environment aan te maken met de naam `pythondaq` met daarin alleen `python=3.12` {{lightbulb}}. Daarna installeer je het Poetry project {{lightbulb}} en wanneer je `view.py` runt zie je als vanouds een lampje branden en een plot verschijnen. 
+        Nu de repository {{github}}`pythondaq` in de src-layout staat voeg je Poetry toe om het project te beheren {{lightbulb}}. Nadat alles gelukt is test je het project door een nieuwe conda environment aan te maken met de naam `pythondaq` met daarin alleen `python=3.12` {{lightbulb}}. Daarna installeer je het Poetry project {{lightbulb}} maar wanneer je `view.py` runt zie je een error verschijnen en ga je door naar de volgende opdracht.
     === "code"
         **Pseudo-code**
         <pre><code>(ecpc) > poetry install <button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')">{{ enter }}</button><button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')" class="invisible">{{ reload }}</button>
@@ -651,7 +651,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
     
         - [ ] Je hebt Poetry geïnitialiseerd in de Pythondaq project map.
         - [ ] Na het initialiseren van Poetry is er een {{file}}`pyproject.toml` in de projectmap aangemaakt.
-        - [ ] Wanneer met `poetry install` in een nieuwe conda environment met alleen python=3.12 het pakket wordt geïnstalleerd werkt {{file}}`view.py` daarna in die nieuwe omgeving naar behoren. 
+        - [ ] Met `poetry install` in een nieuwe conda environment met alleen python=3.12 wordt het project `pythondaq` geïnstalleerd.
 
         **Projecttraject**
     
@@ -659,6 +659,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
         - [x] Pythondaq: src-layout
         - [x] Pythondaq: poetry    
         - [ ] Pythondaq: test imports
+        - [ ] Pythondaq: test poetry
         - [ ] Pythondaq: applicatie
 
 !!! opdracht-inlever "Pythondaq: test imports"
@@ -723,8 +724,41 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
         - [x] Pythondaq: src-layout
         - [x] Pythondaq: poetry    
         - [x] Pythondaq: test imports
+        - [ ] Pythondaq: test poetry
         - [ ] Pythondaq: applicatie
 
+!!! opdracht-inlever "Pythondaq: test poetry"
+    === "opdracht"
+        Omdat je wilt weten of iemand anders jouw project gemakkelijk kan installeren met Poetry, maak je een nieuwe conda-omgeving aan met de naam `pythondaq`, waarin alleen `python=3.12` is opgenomen {{lightbulb}}. Vervolgens installeer je het Poetry-project {{lightbulb}}, en wanneer je view.py runt, zie je het lampje als vanouds branden.
+    === "code"
+        **Pseudo-code**
+        <pre><code>(ecpc) > poetry install <button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')">{{ enter }}</button><button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="poetry install_pythondaq"><span>Installing dependencies from lock file</span>
+        <span></span>
+        <span>Package operations: x installs, 0 updates, 0 removals</span>
+        <span></span>
+        - Installing xxx (1.2.3)
+        - Installing xxx (1.2.3)
+        - Installing xxx (1.2.3): Pending...
+        - Installing xxx (1.2.3): Installing...
+        - Installing xxx (1.2.3)
+        <span></span>
+        Installing the current project: pythondaq (0.1.0)</span>
+        </code></pre>
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Met `poetry install` in een nieuwe conda environment met alleen python=3.12 wordt het project `pythondaq` geïnstalleerd.
+        - [ ] Het bestand {{file}}`view.py` geeft de gewenste output. 
+
+        **Projecttraject**
+    
+        - [x] Pythondaq: Docstring
+        - [x] Pythondaq: src-layout
+        - [x] Pythondaq: poetry    
+        - [x] Pythondaq: test imports
+        - [x] Pythondaq: test poetry
+        - [ ] Pythondaq: applicatie
 
 ???+ opdracht-meer "Model, view, controller packages"
     In grotere projecten is het gebruikelijk om model, view, controller niet alleen uit te splitsen in verschillende scripts, maar ook in aparte packages te zetten.
@@ -908,6 +942,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
         - [x] Pythondaq: src-layout
         - [x] Pythondaq: poetry    
         - [x] Pythondaq: test imports
+        - [x] Pythondaq: test poetry        
         - [x] Pythondaq: applicatie
 
 ???+ meer-leren "Versie 2.0.0"

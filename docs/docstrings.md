@@ -122,6 +122,7 @@ Zo kunnen we gemakkelijk alles gaan invullen. Zo lang je niet op ++escape++ druk
         - [ ] Pythondaq: src-layout
         - [ ] Pythondaq: poetry    
         - [ ] Pythondaq: test imports
+        - [ ] Pythondaq: test poetry
         - [ ] Pythondaq: applicatie
 
 
