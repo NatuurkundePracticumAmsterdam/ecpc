@@ -929,7 +929,7 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
 
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
     === "opdracht"
-        Je kunt met een optie het aantal herhaalmetingen kiezen. Je test de optie met 1, 3 en 10 metingen en ziet de onzekerheid op de stroomsterkte en de onzekerheid op de spanning over de LED afnemen wanneer het aantal metingen toenneemt. 
+        Je kunt met een optie het aantal herhaalmetingen kiezen. Je test de optie met 5, 10 en 20 metingen en ziet de onzekerheid op de stroomsterkte en de onzekerheid op de spanning over de LED afnemen wanneer het aantal metingen toenneemt. 
     === "code"
         **Pseudo-code**
         ```py
