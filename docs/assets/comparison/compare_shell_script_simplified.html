@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Span Event Listener Example</title>
+    <style>
+        /* the highlight class is added on mouseover to the span by javascript */
+        .highlight {
+            background-color: yellow;
+        }
+        /* differentiate color to see nested spans */
+        /* highlight span within another highlight span */
+        .highlight .highlight {
+           background-color: red !important;
+        }
+        /* highlight spans following after another highlighted span */
+        /* Note: the second part is always red, potentially wrong if the syntaxt is reversed and corresponding word is first. */
+        /* solutions: ignore order and just make yellow, or expand js with .nested class and use class="nest1" for nested highlights. */
+        .highlight ~ .highlight {
+           background-color: red !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" style="overflow:scroll">
+        <div style="width: 55%; float: left;">
+            <pre>
+                <code>
+                    <span class="hl1">PS> pyvisa-shell <span class="hl2">-b py</span></span>
+    
+                    Welcome to the VISA shell. Type help or ? to list commands.
+    
+                    <span class="hl3">(visa) list</span>
+                    <span class="hl4">( 0) ASRL3::INSTR
+                    ( 1) ASRL5::INSTR
+                    ( 2) ASRL28::INSTR</span>
+                    <span class="hl5">(visa) <span class="hl6">open</span> <span class="hl7">0</span>
+                    ASRL3::INSTR has been opened.
+                    You can talk to the device using "write", "read" or "query".
+                    The default end of message is added to each message.</span>
+                    <span class="hl8">(open) termchar <span class="hl9">CRLF</span> <span class="hl10">LF</span>
+                    Done</span>
+                    <span class="hl11">(open) <span class="hl12">query</span> <span class="hl13">*IDN?</span></span>
+                    <span class="hl14">Response: Arduino VISA firmware v1.0.0</span>
+                </code>
+            </pre>
+        </div>
+    
+        <div style="width: 40%; float: right;">
+            <pre>
+                <code>
+                    <span class="hl1">import pyvisa</span>
+    
+                    rm = pyvisa.ResourceManager(<span class="hl2">"@py"</span>)
+                    <span class="hl3">ports = rm.list_resources()</span>
+                    <span class="hl4">print(ports)</span>
+    
+                    device = <span class="hl5"><span class="hl6">rm.open_resource</span>(
+                    <span class="hl7">"ASRL3::INSTR"</span>,</span>
+                    <span class="hl8">read_termination=<span class="hl9">"\r\n"</span>, 
+                    write_termination=<span class="hl10">"\n"</span></span>
+                    )
+                    <span class="hl11">identification = device.<span class="hl12">query</span>(<span class="hl13">"*IDN?"</span>)</span>
+                    <span class="hl14">print(identification)</span>
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <script>
+        // Get all span elements with a class starting with 'hl'
+        const spans = document.querySelectorAll('span[class^="hl"]');
+
+        // Function to add highlight class
+        function addHighlight() {
+            const classes = this.classList;
+            classes.forEach(cls => {
+                if (cls.startsWith('hl')) {
+                    document.querySelectorAll(`.${cls}`).forEach(el => el.classList.add('highlight'));
+                }
+            });
+        }
+
+        // Function to remove highlight class
+        function removeHighlight() {
+            const classes = this.classList;
+            classes.forEach(cls => {
+                if (cls.startsWith('hl')) {
+                    document.querySelectorAll(`.${cls}`).forEach(el => el.classList.remove('highlight'));
+                }
+            });
+        }
+
+        // Add event listeners to each span
+        spans.forEach(span => {
+            span.addEventListener('mouseover', addHighlight);
+            span.addEventListener('mouseout', removeHighlight);
+        });
+    </script>
+</body>
+</html>
