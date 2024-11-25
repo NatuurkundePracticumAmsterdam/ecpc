@@ -570,6 +570,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#compacte-pyside6-documentatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compacte PySide6 documentatie
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#functieplotter" class="md-nav__link">
     <span class="md-ellipsis">
       Functieplotter
@@ -590,15 +599,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compacte-pyside6-documentatie" class="md-nav__link">
-    <span class="md-ellipsis">
-      Compacte PySide6 documentatie
-    </span>
-  </a>
   
 </li>
       
@@ -1567,6 +1567,42 @@ Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog ma
 <li>Copy/paste nu de <a href="#code:designer">voorbeeldcode</a> in een nieuw script, fix eventuele importerrors en test de applicatie.</li>
 </ol>
 </div>
+<div id="info:widgets"></div>
+<h2 id="compacte-pyside6-documentatie">Compacte PySide6 documentatie<a class="headerlink" href="#compacte-pyside6-documentatie" title="Permanent link">&para;</a></h2>
+<p>De <a href="https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes">documentatie van PySide6</a> is niet super-intuïtief. Daarom hebben we speciaal voor jullie een <a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/">Compacte PySide6 documentatie📄</a> geschreven. Daarin kan je een lijst van widgets vinden met de meest handige methods en signals. De documentatie is dus niet compleet maar genoeg voor een simpele GUI. Een overzicht van alle classes gedocumenteerd in de compacte documentatie vind je hieronder.</p>
+<p><strong>Classes:</strong>
+- <a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QApplication/"><code>QApplication</code></a>: Beheert de controleflow en hoofdinstellingen van de GUI-applicatie.
+- <a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QLayout/"><code>QLayout</code></a>: Basisclass van alle layout-objecten in <code>QtWidgets</code>.<br />
+- <a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QWidget/"><code>QWidget</code></a>: Basisclass van alle widget-objecten in <code>QtWidgets</code>.
+<br></p>
+<ul>
+<li>
+<p><strong>Subclasses van <code>QLayout</code>:</strong></p>
+<ul>
+<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QHBoxLayout/"><code>QHBoxLayout</code></a>: Beheert een horizontale indeling van widgets. </li>
+<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QVBoxLayout/"><code>QVBoxLayout</code></a>: Beheert een verticale indeling van widgets. </li>
+<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QGridLayout/"><code>QGridLayout</code></a>: Beheert een roosterindeling waarbij de ruimte wordt verdeeld in rijen en kolommen.</li>
+<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QFormLayout/"><code>QFormLayout</code></a>: Beheert een indeling waarbij de ruimte wordt verdeeld in een linker kolom met labels en een rechter kolom met widgets.
+<br></li>
+</ul>
+</li>
+<li>
+<p><strong>Subclasses van <code>QWidget</code>:</strong></p>
+<ul>
+<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QMainWindow/"><code>QMainWindow</code></a>: Biedt een framework voor het bouwen van de gebruikersinterface van een applicatie.</li>
+<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QGroupBox/"><code>QGroupBox</code></a>: Biedt een frame, een titel erboven, en kan verschillende andere widgets binnen zichzelf weergeven.</li>
+<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QTextEdit/"><code>QTextEdit</code></a>: Geeft tekst weer en stelt de gebruiker in staat om deze te bewerken.</li>
+<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QCheckBox/"><code>QCheckBox</code></a>: Schakelknop met een checkbox-indicator.  </li>
+<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QLabel/"><code>QLabel</code></a>: Een widget die tekst weergeeft.</li>
+<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QComboBox/"><code>QComboBox</code></a>: Een widget waarmee de gebruiker een keuze kan maken uit een lijst met opties.</li>
+<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QSpinBox/"><code>QSpinBox</code></a>: Een widget waarmee de gebruiker een geheel nummer kan kiezen uit een bereik.</li>
+<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QDoubleSpinBox/"><code>QDoubleSpinBox</code></a>: Een widget waarmee de gebruiker een komma getal kan kiezen uit een bereik.</li>
+<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QPushButton/"><code>QPushButton</code></a>: Een knop die door de gebruiker kan worden ingedrukt.</li>
+<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QLineEdit/"><code>QLineEdit</code></a>: Een widget waarmee de gebruiker een enkele regel platte tekst kan invoeren en bewerken.</li>
+<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QFileDialog/"><code>QFileDialog</code></a>: Biedt een dialoogvenster waarmee de gebruiker bestanden of mappen kan selecteren.</li>
+</ul>
+</li>
+</ul>
 <h2 id="functieplotter">Functieplotter<a class="headerlink" href="#functieplotter" title="Permanent link">&para;</a></h2>
 <p>Je hebt nu twee manieren gezien om een interface te bouwen: programmeren of Designer gebruiken. Let er wel op dat er dus een subtiel verschil is in het benaderen van de widgets. Je kunt bij zelf programmeren bijvoorbeeld <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">add_button</span></code> gebruiken, maar als je Designer gebruikt moet dat <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">add_button</span></code> zijn.</p>
 <p>In de eindopracht willen we data weergeven op een scherm. We zullen dus nog moeten plotten. In de volgende opdrachten gaan we daarmee aan de slag.</p>
@@ -1597,48 +1633,6 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
 <p>De stappen zijn weergegeven in onderstaand screenshot. Bij de rode pijl vind je <em>Graphics View</em> en in het rode kader staat wat je moet invullen om te promoten:</p>
 <p><img alt="Screenshot promote widget" src="../figures/screenshot-promote-widget.png" /></p>
 <p>Nu je dit een keer gedaan hebt kun je voortaan op een Graphics View meteen kiezen voor <strong>Promote to &gt; PlotWidget</strong> en hoef je niets meer in te typen. Vergeet niet je widget nog even een handige naam te geven, bijvoorbeeld <code>plot_widget</code>.</p>
-</div>
-<div id="info:widgets"></div>
-<div class="admonition info">
-<p class="admonition-title">PySide6 documentatie</p>
-<p>De <a href="https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes">documentatie van PySide6</a> is niet super-intuïtief. Daarom hebben we speciaal voor jullie een <a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/">compacte documentatie📄</a> geschreven. Daarin kan je een lijst van widgets vinden met de meest handige methods en signals. De documentatie is dus niet compleet maar genoeg voor een simpele GUI. Een overzicht van alle classes gedocumenteerd in de compacte documentatie vind je hieronder.</p>
-<hr>
-<h2 id="compacte-pyside6-documentatie"><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/">Compacte PySide6 documentatie</a><a class="headerlink" href="#compacte-pyside6-documentatie" title="Permanent link">&para;</a></h2>
-<p><strong>Classes:</strong></p>
-<ul>
-<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QApplication/"><code>QApplication</code></a>: Beheert de controleflow en hoofdinstellingen van de GUI-applicatie.</li>
-<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QLayout/"><code>QLayout</code></a>: Basisclass van alle layout-objecten in <code>QtWidgets</code>.  </li>
-<li>
-<p><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QWidget/"><code>QWidget</code></a>: Basisclass van alle widget-objecten in <code>QtWidgets</code>.
-<br></p>
-</li>
-<li>
-<p><strong>Subclasses van <code>QLayout</code>:</strong></p>
-<ul>
-<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QHBoxLayout/"><code>QHBoxLayout</code></a>: Beheert een horizontale indeling van widgets. </li>
-<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QVBoxLayout/"><code>QVBoxLayout</code></a>: Beheert een verticale indeling van widgets. </li>
-<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QGridLayout/"><code>QGridLayout</code></a>: Beheert een roosterindeling waarbij de ruimte wordt verdeeld in rijen en kolommen.</li>
-<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QFormLayout/"><code>QFormLayout</code></a>: Beheert een indeling waarbij de ruimte wordt verdeeld in een linker kolom met labels en een rechter kolom met widgets.
-<br></li>
-</ul>
-</li>
-<li>
-<p><strong>Subclasses van <code>QWidget</code>:</strong></p>
-<ul>
-<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QMainWindow/"><code>QMainWindow</code></a>: Biedt een framework voor het bouwen van de gebruikersinterface van een applicatie.</li>
-<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QGroupBox/"><code>QGroupBox</code></a>: Biedt een frame, een titel erboven, en kan verschillende andere widgets binnen zichzelf weergeven.</li>
-<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QTextEdit/"><code>QTextEdit</code></a>: Geeft tekst weer en stelt de gebruiker in staat om deze te bewerken.</li>
-<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QCheckBox/"><code>QCheckBox</code></a>: Schakelknop met een checkbox-indicator.  </li>
-<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QLabel/"><code>QLabel</code></a>: Een widget die tekst weergeeft.</li>
-<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QComboBox/"><code>QComboBox</code></a>: Een widget waarmee de gebruiker een keuze kan maken uit een lijst met opties.</li>
-<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QSpinBox/"><code>QSpinBox</code></a>: Een widget waarmee de gebruiker een geheel nummer kan kiezen uit een bereik.</li>
-<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QDoubleSpinBox/"><code>QDoubleSpinBox</code></a>: Een widget waarmee de gebruiker een komma getal kan kiezen uit een bereik.</li>
-<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QPushButton/"><code>QPushButton</code></a>: Een knop die door de gebruiker kan worden ingedrukt.</li>
-<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QLineEdit/"><code>QLineEdit</code></a>: Een widget waarmee de gebruiker een enkele regel platte tekst kan invoeren en bewerken.</li>
-<li><a href="https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QFileDialog/"><code>QFileDialog</code></a>: Biedt een dialoogvenster waarmee de gebruiker bestanden of mappen kan selecteren.</li>
-</ul>
-</li>
-</ul>
 </div>
 <p>Om daadwerkelijk een functie te plotten kun je deze code aanpassen:</p>
 <p><div class="language-py highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
