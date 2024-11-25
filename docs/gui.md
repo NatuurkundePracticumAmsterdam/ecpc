@@ -499,8 +499,8 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 !!! opdracht-basis "Designer opstarten"
     <iframe src="https://drive.google.com/file/d/16MJDQXXHG0KjVa3AIXC_pP__7zI73vXL/preview" width="620" height="349" style="border:none;"></iframe>
 
-!!! info 
-    Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op vanuit een terminal. Activeer je `test-qt` conda environment als dat nog nodig is en type `pyside6-designer`.
+    !!! info 
+        Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op vanuit een terminal. Activeer je `test-qt` conda environment als dat nog nodig is en type `pyside6-designer`.
 
 !!! opdracht-basis "De GUI ontwerpen in Designer"
     Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Laten we eerst kijken hoe we widgets toevoegen en positioneren in Designer:
@@ -516,6 +516,8 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 
     <iframe src="https://drive.google.com/file/d/1cMTtI9-mgCRjYCvZYSsZ9lsZfU5KpOE2/preview" width="620" height="349" style="border:none;"></iframe>
 
+    !!! info
+        In het filmpje wordt verwezen naar de Compacte Pyside6 Documentatie. Zie het [overzicht hieronder](#compacte-pyside6-documentatie).
 
 De volledige class van het [vorige voorbeeld](#code:layout) kan dan vervangen worden door:
 <div id="code:designer"></div>
