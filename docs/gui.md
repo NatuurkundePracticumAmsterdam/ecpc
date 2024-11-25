@@ -493,10 +493,31 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 
 ### De interface ontwerpen met Qt Designer
 
-!!! info "Designer opstarten"
+!!! info
+    Druk in de video's op het vierkant rechtsboven om ze in volledig scherm te bekijken.
+
+!!! opdracht-basis "Designer opstarten"
+    <iframe src="https://drive.google.com/file/d/16MJDQXXHG0KjVa3AIXC_pP__7zI73vXL/preview" width="620" height="349" style="border:none;"></iframe>
+
+!!! info 
     Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op vanuit een terminal. Activeer je `test-qt` conda environment als dat nog nodig is en type `pyside6-designer`.
 
-Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Je bewaart dat als een `.ui`-bestand. Vervolgens vertaal je het `.ui`-bestand naar een Pythonbestand dat je importeert in je eigen programma. De volledige class van het [vorige voorbeeld](#code:layout) kan dan vervangen worden door:
+!!! opdracht-basis "De GUI ontwerpen in Designer"
+    Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Laten we eerst kijken hoe we widgets toevoegen en positioneren in Designer:
+
+    <iframe src="https://drive.google.com/file/d/1cEzuZU069ArgAc9rmMuRA1hBz2HwJ87Z/preview" width="620" height="349" style="border:none;"></iframe>
+    
+    En hoe je de eigenschappen van widgets aanpast:
+
+    <iframe src="https://drive.google.com/file/d/1u57a2wILXmXewVYjCDTSqxG6dD2B42vl/preview" width="620" height="349" style="border:none;"></iframe>
+
+!!! opdracht-basis "De GUI vertalen naar Python"
+    Je bewaart dat als een `.ui`-bestand. Vervolgens vertaal je het `.ui`-bestand naar een Pythonbestand dat je importeert in je eigen programma:
+
+    <iframe src="https://drive.google.com/file/d/1cMTtI9-mgCRjYCvZYSsZ9lsZfU5KpOE2/preview" width="620" height="349" style="border:none;"></iframe>
+
+
+De volledige class van het [vorige voorbeeld](#code:layout) kan dan vervangen worden door:
 <div id="code:designer"></div>
 
 ``` py
