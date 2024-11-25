@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../figures/ECPC_logo_simple.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.38">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
       
       
 
@@ -1492,10 +1492,34 @@ Allereerst definiëren we een <code>__init__()</code>. Helaas gaat dat niet zoma
 </div>
 <h3 id="de-interface-ontwerpen-met-qt-designer">De interface ontwerpen met Qt Designer<a class="headerlink" href="#de-interface-ontwerpen-met-qt-designer" title="Permanent link">&para;</a></h3>
 <div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Druk in de video's op het vierkant rechtsboven om ze in volledig scherm te bekijken.</p>
+</div>
+<div class="admonition opdracht-basis">
 <p class="admonition-title">Designer opstarten</p>
+<p><iframe src="https://drive.google.com/file/d/16MJDQXXHG0KjVa3AIXC_pP__7zI73vXL/preview" width="620" height="349" style="border:none;"></iframe></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>Qt Designer wordt geïnstalleerd met het <code>qt</code> package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je <code>PySide6</code> installeert. Je start hem het makkelijkst op vanuit een terminal. Activeer je <code>test-qt</code> conda environment als dat nog nodig is en type <code>pyside6-designer</code>.</p>
 </div>
-<p>Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Je bewaart dat als een <code>.ui</code>-bestand. Vervolgens vertaal je het <code>.ui</code>-bestand naar een Pythonbestand dat je importeert in je eigen programma. De volledige class van het <a href="#code:layout">vorige voorbeeld</a> kan dan vervangen worden door:</p>
+</div>
+<div class="admonition opdracht-basis">
+<p class="admonition-title">De GUI ontwerpen in Designer</p>
+<p>Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Laten we eerst kijken hoe we widgets toevoegen en positioneren in Designer:</p>
+<p><iframe src="https://drive.google.com/file/d/1cEzuZU069ArgAc9rmMuRA1hBz2HwJ87Z/preview" width="620" height="349" style="border:none;"></iframe></p>
+<p>En hoe je de eigenschappen van widgets aanpast:</p>
+<p><iframe src="https://drive.google.com/file/d/1u57a2wILXmXewVYjCDTSqxG6dD2B42vl/preview" width="620" height="349" style="border:none;"></iframe></p>
+</div>
+<div class="admonition opdracht-basis">
+<p class="admonition-title">De GUI vertalen naar Python</p>
+<p>Je bewaart dat als een <code>.ui</code>-bestand. Vervolgens vertaal je het <code>.ui</code>-bestand naar een Pythonbestand dat je importeert in je eigen programma:</p>
+<p><iframe src="https://drive.google.com/file/d/1cMTtI9-mgCRjYCvZYSsZ9lsZfU5KpOE2/preview" width="620" height="349" style="border:none;"></iframe></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In het filmpje wordt verwezen naar de Compacte Pyside6 Documentatie. Zie het <a href="#compacte-pyside6-documentatie">overzicht hieronder</a>.</p>
+</div>
+</div>
+<p>De volledige class van het <a href="#code:layout">vorige voorbeeld</a> kan dan vervangen worden door:</p>
 <div id="code:designer"></div>
 
 <p><div class="language-py highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">from</span> <span class="nn">ui_simple_app</span> <span class="kn">import</span> <span class="n">Ui_MainWindow</span>
@@ -2527,7 +2551,7 @@ Je kunt uiteraard spelen met de instellingen zoals <code class="language-py high
     <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "toc.integrate", "navigation.top", "content.code.annotate"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
       
         <script src="../javascripts/katex.js"></script>
       
