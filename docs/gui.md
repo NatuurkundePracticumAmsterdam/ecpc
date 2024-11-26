@@ -575,6 +575,7 @@ Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog ma
 De [documentatie van PySide6](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes) is niet super-intuïtief. Daarom hebben we speciaal voor jullie een [Compacte PySide6 documentatie📄](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/) geschreven. Daarin kan je een lijst van widgets vinden met de meest handige methods en signals. De documentatie is dus niet compleet maar genoeg voor een simpele GUI. Een overzicht van alle classes gedocumenteerd in de compacte documentatie vind je hieronder.
 
 **Classes:**
+
 - [`QApplication`](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QApplication/): Beheert de controleflow en hoofdinstellingen van de GUI-applicatie.
 - [`QLayout`](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QLayout/): Basisclass van alle layout-objecten in `QtWidgets`.  
 - [`QWidget`](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QWidget/): Basisclass van alle widget-objecten in `QtWidgets`.
