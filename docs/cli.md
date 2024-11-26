@@ -998,7 +998,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         Voeg een subcommando `info` toe.
         </br></br>
         De gebruiker test het subcommando `info` met de volgende handelingen. Eerst heeft de gebruiker met het commando `diode list` een lijst van aangesloten devices opgevraagd. De gebruiker wil weten wat de identificatiestring is van het apparaat dat aan een bepaalde poortnaam hangt. De gebruiker geeft daarom de poortnaam mee als argument aan het subcommando `info` waarna de identificatiestring van het instrument in de terminal wordt geprint. 
-        
+
         !!! info "identificatiestring"
             De identificatiestring van onze Arduino was `Arduino VISA firmware v1.0.0`. Je moet natuurlijk niet letterlijk deze string copy/pasten, maar de identificatie opvragen van het instrument. Welk firmwarecommando moest je daarvoor ook alweer gebruiken?
         
@@ -1032,7 +1032,14 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
 !!! opdracht-inlever "Pythondaq: choose device"
     === "opdracht"
-        Nadat je met het subcommando `list` een lijst van aangesloten instrumenten hebt opgevraagd en met het subcommando `info` erachter bent gekomen wat de naam is van de poort waar de Arduino aanhangt. Geef je vervolgens deze poortnaam mee bij het subcommando `scan` om een meting op de (juiste) Arduino uit te voeren. Daarna test je het subcommando `scan` door géén poortnaam mee te geven, je ziet een foutmelding verschijnen. Tot slot leen je de Arduino van je buurmens, kijkt met `list` en `info` aan welke poortnaam die Arduino hangt en voert een scan uit op die Arduino. Je ziet dat het lampje van de Arduino van je buur gaat branden en niet die van jou. 
+
+        Pas het subcommando `scan` aan zodat je kan aangeven met welke Arduino je een meting wilt uitvoeren. 
+        </br></br>
+        De gebruiker test het subcommando `scan` met de volgende handelingen. De gebruiker typt het commando `diode scan` in de terminal en vergeet daarbij een poortnaam mee te geven. De gebruiker ziet een foutmelding verschijnen want een poortnaam opgeven is verplicht.
+        </br></br>
+        De gebruiker vraagt met het subcommando `list` een lijst van aangesloten instrumenten op. Met het subcommando `info` is de gebruiker er achtergekomen wat de naam is van de poort waar de Arduino aanhangt. Vervolgens geeft de gebruiker deze poortnaam mee bij het subcommando `scan` om een meting op de (juiste) Arduino uit te laten voeren.
+        </br></br>
+        Tot slot leent de gebruiker een Arduino van een buurmens. De gebruiker sluit de tweede Arduino aan op de computer. Met `list` en `info` kijkt de gebruiker wat de poortnaam is van de tweede Arduino. Met het subcommando `scan` voert de gebruiker een meting uit en ziet dat het lampje van de tweede Arduino gaat branden en niet het lampje van de eerste Arduino. 
     === "code"
         <pre><code>(ecpc) > diode scan <button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')">{{ enter }}</button><button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode scan_no device">errorUsage: diode [OPTIONS] DEVICE
