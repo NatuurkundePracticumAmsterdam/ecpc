@@ -882,8 +882,8 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
         - [ ] Pythondaq: `list`
         - [ ] Pythondaq: `info`
         - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: Grafiek        
         - [ ] Pythondaq: `--help`
-        - [ ] Pythondaq: Grafiek
     
 
 
@@ -924,8 +924,8 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
         - [ ] Pythondaq: `list`
         - [ ] Pythondaq: `info`
         - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: Grafiek        
         - [ ] Pythondaq: `--help`
-        - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
     === "opdracht"
@@ -955,8 +955,8 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
         - [ ] Pythondaq: `list`
         - [ ] Pythondaq: `info`
         - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: Grafiek        
         - [ ] Pythondaq: `--help`
-        - [ ] Pythondaq: Grafiek
 
 ???+ opdracht-meer "Pythondaq: stapgrootte"
     Soms wil je snel een meting uitvoeren over het hele bereik, dan is het handig om minder punten te meten dan 1023 punten. Breid de applicatie uit zodat de gebruiker de stapgrootte kan aanpassen. 
@@ -990,8 +990,8 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: `list`
         - [ ] Pythondaq: `info`
         - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: Grafiek        
         - [ ] Pythondaq: `--help`
-        - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: `info`"
     === "opdracht"
@@ -1027,8 +1027,8 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: `list`
         - [x] Pythondaq: `info`
         - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: Grafiek        
         - [ ] Pythondaq: `--help`
-        - [ ] Pythondaq: Grafiek
 
 !!! opdracht-inlever "Pythondaq: choose device"
     === "opdracht"
@@ -1061,9 +1061,29 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: `list`
         - [x] Pythondaq: `info`
         - [x] Pythondaq: choose device
-        - [ ] Pythondaq: `--help`
         - [ ] Pythondaq: Grafiek
+        - [ ] Pythondaq: `--help`
 
+
+!!! opdracht-inlever "Pythondaq: Grafiek"
+    === "opdracht"
+        Natuurlijk wil je ook een grafiek maken van de metingen. Je geeft met een _boolean flag_ `--graph` aan dat er een grafiek getoond moet worden. De optie `--no-graph` zorgt ervoor dat er geen grafiek getoond wordt. 
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De grafiek wordt alleen getoond wanneer `--graph` wordt meegegeven.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: `list`
+        - [x] Pythondaq: `info`
+        - [x] Pythondaq: choose device
+        - [x] Pythondaq: Grafiek
+        - [ ] Pythondaq: `--help`
 
 !!! opdracht-inlever "Pythondaq: `--help`"
     === "opdracht"
@@ -1101,28 +1121,8 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: `list`
         - [x] Pythondaq: `info`
         - [x] Pythondaq: choose device
-        - [x] Pythondaq: `--help`
-        - [ ] Pythondaq: Grafiek
-
-!!! opdracht-inlever "Pythondaq: Grafiek"
-    === "opdracht"
-        Natuurlijk wil je ook een grafiek maken van de metingen. Je geeft met een _boolean flag_ `--graph` aan dat er een grafiek getoond moet worden. De optie `--no-graph` zorgt ervoor dat er geen grafiek getoond wordt. 
-
-    === "check"
-        **Checkpunten:**
-
-        - [ ] De grafiek wordt alleen getoond wanneer `--graph` wordt meegegeven.
-
-        **Projecttraject:**
-
-        - [x] Pythondaq: commando's
-        - [x] Pythondaq: `scan`
-        - [x] Pythondaq: herhaalmetingen
-        - [x] Pythondaq: `list`
-        - [x] Pythondaq: `info`
-        - [x] Pythondaq: choose device
-        - [x] Pythondaq: `--help`
         - [x] Pythondaq: Grafiek
+        - [x] Pythondaq: `--help`
 
 ???+ opdracht-meer "Pythondaq: `list --search`"
     Breid het commando `list` uit met een optie `--search` waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
