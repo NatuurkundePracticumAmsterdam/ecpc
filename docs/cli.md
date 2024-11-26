@@ -929,7 +929,9 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
 
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
     === "opdracht"
-        Je kunt met een optie het aantal herhaalmetingen kiezen. Je test de optie met 5, 10 en 20 metingen en ziet de onzekerheid op de stroomsterkte en de onzekerheid op de spanning over de LED afnemen wanneer het aantal metingen toenneemt. 
+        Pas het subcommando `scan` aan zodat je met een optie het aantal herhaalmetingen kan kiezen.
+        </br></br>
+        De gebruiker test de optie om het aantal herhaalmetingen te kiezen met de volgende handelingen. Met het subcommando `scan` voert de gebruiker een meting uit in het bereik 2.8V tot 3.3V. Met een optie zet de gebruiker het aantal herhaalmetingen op 5. De gebruiker ziet dat het resultaat van de metingen met onzekerheden worden geprint in de terminal. De gebruiker bekijkt de grootte van de onzekerheden en voert nogmaals een scan uit maar dan met 10 metingen en daarna met 20 metingen. De gebruiker ziet dat de onzekerheden afnemen wanneer het aantal metingen toeneem.t
     === "code"
         **Pseudo-code**
         ```py
