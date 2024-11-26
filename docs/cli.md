@@ -408,7 +408,7 @@ Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
     Gebruik een optie als vlag om de gebruiker te laten kiezen tussen het wel (<q>tea</q>) of niet (<q>no tea</q>) aanbieden van een kopje thee. Zorg dat er standaard <q>tea</q> wordt aangeboden.
     
     !!! info "boolean flags"
-            Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
+        Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
 
 
 !!! opdracht-basis "Argumenten en opties"
@@ -1032,7 +1032,6 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
 !!! opdracht-inlever "Pythondaq: choose device"
     === "opdracht"
-
         Pas het subcommando `scan` aan zodat je kan aangeven met welke Arduino je een meting wilt uitvoeren. 
         </br></br>
         De gebruiker test het subcommando `scan` met de volgende handelingen. De gebruiker typt het commando `diode scan` in de terminal en vergeet daarbij een poortnaam mee te geven. De gebruiker ziet een foutmelding verschijnen want een poortnaam opgeven is verplicht.
@@ -1067,8 +1066,9 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
 !!! opdracht-inlever "Pythondaq: Grafiek"
     === "opdracht"
-        Natuurlijk wil je ook een grafiek maken van de metingen. Je geeft met een _boolean flag_ `--graph` aan dat er een grafiek getoond moet worden. De optie `--no-graph` zorgt ervoor dat er geen grafiek getoond wordt. 
-
+        Pas het subcommando `scan` aan zodat je met een _boolean flag_ kan aangeven of er wel of niet een grafiek wordt getoond.
+        </br></br>
+        De gebruiker test het subcommando `scan` met de volgende handelingen. De gebruiker start een meting en geeft ook de optie `--graph` na afloop ziet de gebruiker een grafiek met daarin de metingen. Daarna start de gebruiker opnieuwe een meting en geeft dit keer de optie `--no-graph` mee, na afloopt van de meting ziet de gebruiker _geen_ grafiek verschijnen. Tot slot start de gebruiker een meting en geeft daarbij geen van beide opties (`--graph/--no-graph) wederom ziet de gebruiker na afloop van de meting geen grafiek verschijnen.
     === "check"
         **Checkpunten:**
 
