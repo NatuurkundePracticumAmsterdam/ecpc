@@ -968,7 +968,9 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
 !!! opdracht-inlever "Pythondaq: `list`"
     === "opdracht"
-        Met het subcommando `list` wordt een lijst gegeven van aangesloten instrumenten.
+        Pas het subcommando `list` aan.
+        </br></br>
+        De gebruiker test het subcommando `list` met de volgende handelingen. De gebruiker typt het commando `diode list` in de terminal. Daarna verschijnt in de terminal een lijst van aangesloten instrumenten.
         
     === "code"
         <pre><code>(ecpc) > diode list <button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')">{{ enter }}</button><button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')" class="invisible">{{ reload }}</button>
