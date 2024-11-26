@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../figures/ECPC_logo_simple.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.38">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
       
       
 
@@ -657,7 +657,7 @@
         
   
   <span class="md-ellipsis">
-    Eindopdracht
+    Eindfeest
   </span>
   
 
@@ -1928,7 +1928,9 @@ De gebruiker test het subcommando <code>list</code> met de volgende handelingen.
 <div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">opdracht</label><label for="__tabbed_14_2">code</label><label for="__tabbed_14_3">check</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Nadat je met het subcommando <code>list</code> een lijst hebt van aangesloten devices wil je weten of de Arduino aan een bepaalde poortnaam is gekoppeld. Je voert het subcommando <code>info DEVICE</code> uit waarna de identificatiestring van het instrument wordt geprint.</p>
+<p>Voeg een subcommando <code>info</code> toe.
+</br></br>
+De gebruiker test het subcommando <code>info</code> met de volgende handelingen. Eerst heeft de gebruiker met het commando <code>diode list</code> een lijst van aangesloten devices opgevraagd. De gebruiker wil weten wat de identificatiestring is van het apparaat dat aan een bepaalde poortnaam hangt. De gebruiker geeft daarom de poortnaam mee als argument aan het subcommando <code>info</code> waarna de identificatiestring van het instrument in de terminal wordt geprint. </p>
 <div class="admonition info">
 <p class="admonition-title">identificatiestring</p>
 <p>De identificatiestring van onze Arduino was <code>Arduino VISA firmware v1.0.0</code>. Je moet natuurlijk niet letterlijk deze string copy/pasten, maar de identificatie opvragen van het instrument. Welk firmwarecommando moest je daarvoor ook alweer gebruiken?</p>
@@ -1970,7 +1972,13 @@ De gebruiker test het subcommando <code>list</code> met de volgende handelingen.
 <div class="tabbed-set tabbed-alternate" data-tabs="15:3"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><input id="__tabbed_15_3" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">opdracht</label><label for="__tabbed_15_2">code</label><label for="__tabbed_15_3">check</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Nadat je met het subcommando <code>list</code> een lijst van aangesloten instrumenten hebt opgevraagd en met het subcommando <code>info</code> erachter bent gekomen wat de naam is van de poort waar de Arduino aanhangt. Geef je vervolgens deze poortnaam mee bij het subcommando <code>scan</code> om een meting op de (juiste) Arduino uit te voeren. Daarna test je het subcommando <code>scan</code> door géén poortnaam mee te geven, je ziet een foutmelding verschijnen. Tot slot leen je de Arduino van je buurmens, kijkt met <code>list</code> en <code>info</code> aan welke poortnaam die Arduino hangt en voert een scan uit op die Arduino. Je ziet dat het lampje van de Arduino van je buur gaat branden en niet die van jou. </p>
+<p>Pas het subcommando <code>scan</code> aan zodat je kan aangeven met welke Arduino je een meting wilt uitvoeren. 
+</br></br>
+De gebruiker test het subcommando <code>scan</code> met de volgende handelingen. De gebruiker typt het commando <code>diode scan</code> in de terminal en vergeet daarbij een poortnaam mee te geven. De gebruiker ziet een foutmelding verschijnen want een poortnaam opgeven is verplicht.
+</br></br>
+De gebruiker vraagt met het subcommando <code>list</code> een lijst van aangesloten instrumenten op. Met het subcommando <code>info</code> is de gebruiker er achtergekomen wat de naam is van de poort waar de Arduino aanhangt. Vervolgens geeft de gebruiker deze poortnaam mee bij het subcommando <code>scan</code> om een meting op de (juiste) Arduino uit te laten voeren.
+</br></br>
+Tot slot leent de gebruiker een Arduino van een buurmens. De gebruiker sluit de tweede Arduino aan op de computer. Met <code>list</code> en <code>info</code> kijkt de gebruiker wat de poortnaam is van de tweede Arduino. Met het subcommando <code>scan</code> voert de gebruiker een meting uit en ziet dat het lampje van de tweede Arduino gaat branden en niet het lampje van de eerste Arduino. </p>
 </div>
 <div class="tabbed-block">
 <p><pre><code>(ecpc) &gt; diode scan <button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
@@ -2198,7 +2206,7 @@ ASRL/dev/cu.usbmodem143401::INSTR </span>
     <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "toc.integrate", "navigation.top", "content.code.annotate"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
       
         <script src="../javascripts/katex.js"></script>
       
