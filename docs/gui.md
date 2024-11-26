@@ -836,7 +836,9 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
             def plot(self):
                 """Clear the plot widget and display experimental data."""
 
-                # Genereer wat data als demo
+                # Genereer wat data als demo.
+                # **Let op:** `x`, `y`, `x_err` en `y_err` *moeten* NumPy arrays zijn *of*,
+                # en dat geldt alleen voor de errors, een vast getal.
                 x = np.linspace(0, 2 * np.pi, 20)
                 y = np.sin(x)
                 x_err = 0.1
@@ -846,12 +848,7 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
                 self.plot_widget.plot(x, y, symbol="o", symbolSize=5, pen=None)
 
                 # nu de foutvlaggen, met 'breedte' en 'hoogte' in plaats van x errors en y
-                # errors let op: als je x_errors *lijsten* zijn, dan kun je niet gewoon 2 *
-                # doen, maar wel als je eerst een NumPy array maakt:
-                #
-                # width = 2 * np.array(x_err)
-                #
-                # (we maken er voor de zekerheid eerst een array van)
+                # errors.
                 error_bars = pg.ErrorBarItem(x=x, y=y, width=2 * x_err, height=2 * y_err)
                 # we moeten de error_bars expliciet toevoegen aan de plot
                 self.plot_widget.addItem(error_bars)
