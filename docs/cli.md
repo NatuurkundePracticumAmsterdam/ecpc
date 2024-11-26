@@ -995,8 +995,10 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
 !!! opdracht-inlever "Pythondaq: `info`"
     === "opdracht"
-        Nadat je met het subcommando `list` een lijst hebt van aangesloten devices wil je weten of de Arduino aan een bepaalde poortnaam is gekoppeld. Je voert het subcommando `info DEVICE` uit waarna de identificatiestring van het instrument wordt geprint.
-
+        Voeg een subcommando `info` toe.
+        </br></br>
+        De gebruiker test het subcommando `info` met de volgende handelingen. Eerst heeft de gebruiker met het commando `diode list` een lijst van aangesloten devices opgevraagd. De gebruiker wil weten wat de identificatiestring is van het apparaat dat aan een bepaalde poortnaam hangt. De gebruiker geeft daarom de poortnaam mee als argument aan het subcommando `info` waarna de identificatiestring van het instrument in de terminal wordt geprint. 
+        
         !!! info "identificatiestring"
             De identificatiestring van onze Arduino was `Arduino VISA firmware v1.0.0`. Je moet natuurlijk niet letterlijk deze string copy/pasten, maar de identificatie opvragen van het instrument. Welk firmwarecommando moest je daarvoor ook alweer gebruiken?
         
