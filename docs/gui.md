@@ -877,7 +877,7 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
 
 !!! opdracht-inlever "Pythondaq: widgets"
     === "opdracht"
-        Na het uitvoeren van het commando start de `pythondaq` applicatie waarin een aantal widgets zijn te zien waarmee de start- en stopwaardes, het aantal metingen kunnen worden ingesteld. Ook is er een startknop waarmee een nieuwe meting wordt uitgevoerd. Je vult verschillende (logische en niet logische) waardes in voor de start- en stopwaardes en het aantal metingen en ziet dat de applicatie naar verwachting werkt. 
+        Na het uitvoeren van het commando start de `pythondaq` applicatie waarin een lege plot en een aantal widgets zijn te zien waarmee de start- en stopwaardes, het aantal metingen kunnen worden ingesteld. Ook is er een startknop waarmee een (nieuwe) meting wordt uitgevoerd. Je vult verschillende (logische en niet logische) waardes in voor de start- en stopwaardes en het aantal metingen en ziet dat de applicatie naar verwachting werkt. 
     === "code"
         **Pseudo-code**
         ```
