@@ -111,7 +111,12 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
 !!! opdracht-basis "Arduino pins"
     <iframe src="https://drive.google.com/file/d/1PTzd6aY-yCLK-ubxJ1is0g58YeJrD-PL/preview" width="620" height="349" style="border:none;"></iframe>
     
-    Kijk aan de onderkant van de Arduino of je de pinnentjes A0, A1, A2 en GND kan vinden.
+    Kijk aan de onderkant van de Arduino[^bronArduino] of je de pinnentjes A0, A1, A2 en GND kan vinden.
+    ??? info "Klik hier als je geen Arduino bij de hand hebt"
+        <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+            <model-viewer id="model" style="width: 100%; height: 700px;" alt="Arduino" src="../assets/circuit/Arduino.glb" ar shadow-intensity="1" camera-controls touch-action="pan-y" poster="../assets/circuit/Arduino_top_view.png" camera-orbit="0rad 0.39269908169872414rad 4.718948223475571m" autoplay exposure="0.6"></model-viewer>
+
+    [^bronArduino]: Dit model bevat een 3D model die is gecreëerd door AppliedSBC en is gedeeld onder CC-BY-SA licentie. Het originele model is te vinden via [Arduino Nano 33 IoT](https://sketchfab.com/3d-models/arduino-nano-33-iot-f57fd7f5485a47a8b71f8604872fd78c). Het model is voorzien van een Arduino texture. Dit 3D model heeft een CC-BY-SA licentie.
 
 !!! opdracht-basis "Breadboard"
     <iframe src="https://drive.google.com/file/d/1n98Q6s0T8YfBO2xoTT5t0Os98hUwNwSh/preview" width="620" height="349" style="border:none;"></iframe>
