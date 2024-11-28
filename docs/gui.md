@@ -891,8 +891,9 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
     === "check"
         **Checkpunten:**
     
-        - [ ] In de applicatie kan de startwaarde worden aangepast.
-        - [ ] In de applicatie kan de stopwaarde worden aangepast.
+        - [ ] De applicatie start op met een lege plot.
+        - [ ] In de applicatie kan de startwaarde in volt worden aangepast.
+        - [ ] In de applicatie kan de stopwaarde in volt worden aangepast.
         - [ ] In de applicatie kan het aantal metingen worden aangepast.
         - [ ] Druk op de startknop laat een meting starten.
         - [ ] De applicatie werkt naar verwachting bij het invullen van logische en niet logische waardes voor start, stop en aantal metingen.
