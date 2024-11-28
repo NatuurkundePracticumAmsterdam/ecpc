@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../figures/ECPC_logo_simple.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
       
       
 
@@ -1000,7 +1000,12 @@
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Arduino pins</p>
 <p><iframe src="https://drive.google.com/file/d/1PTzd6aY-yCLK-ubxJ1is0g58YeJrD-PL/preview" width="620" height="349" style="border:none;"></iframe></p>
-<p>Kijk aan de onderkant van de Arduino of je de pinnentjes A0, A1, A2 en GND kan vinden.</p>
+<p>Kijk aan de onderkant van de Arduino<sup id="fnref:bronArduino"><a class="footnote-ref" href="#fn:bronArduino">4</a></sup> of je de pinnentjes A0, A1, A2 en GND kan vinden.</p>
+<details class="info">
+<summary>Klik hier als je geen Arduino bij de hand hebt</summary>
+<p><script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <model-viewer id="model" style="width: 100%; height: 700px;" alt="Arduino" src="../assets/circuit/Arduino.glb" ar shadow-intensity="1" camera-controls touch-action="pan-y" poster="../assets/circuit/Arduino_top_view.png" camera-orbit="0rad 0.39269908169872414rad 4.718948223475571m" autoplay exposure="0.6"></model-viewer></p>
+</details>
 </div>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Breadboard</p>
@@ -1157,9 +1162,9 @@
 </span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>9.0,396.90000000000003
 </span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>10.0,490.00000000000006
 </span></code></pre></div>
-<p>Het CSV-bestand heeft kolommen $t$ en $s$. De getallen hebben een punt als decimaal scheidingsteken en de komma wordt gebruikt om de kolommen te scheiden. Je kunt CSV-bestanden schrijven en lezen met de modules <code class="language-py highlight"><span class="n">csv</span></code>, <code class="language-py highlight"><span class="n">numpy</span></code> of <code class="language-py highlight"><span class="n">pandas</span></code>. De eerste is altijd meegeleverd met Python en is speciaal geschreven voor het bestandsformaat,<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">8</a></sup> maar NumPy<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">9</a></sup><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">10</a></sup> en Pandas<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">11</a></sup><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">12</a></sup> bevatten veel meer functionaliteit op het gebied van wiskunde en data-analyse. Als je die modules toch al gebruikt hoef je niet te kiezen voor de <q>kale</q> csv module.</p>
+<p>Het CSV-bestand heeft kolommen $t$ en $s$. De getallen hebben een punt als decimaal scheidingsteken en de komma wordt gebruikt om de kolommen te scheiden. Je kunt CSV-bestanden schrijven en lezen met de modules <code class="language-py highlight"><span class="n">csv</span></code>, <code class="language-py highlight"><span class="n">numpy</span></code> of <code class="language-py highlight"><span class="n">pandas</span></code>. De eerste is altijd meegeleverd met Python en is speciaal geschreven voor het bestandsformaat,<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">9</a></sup> maar NumPy<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">10</a></sup><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">11</a></sup> en Pandas<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">12</a></sup><sup id="fnref:5"><a class="footnote-ref" href="#fn:5">13</a></sup> bevatten veel meer functionaliteit op het gebied van wiskunde en data-analyse. Als je die modules toch al gebruikt hoef je niet te kiezen voor de <q>kale</q> csv module.</p>
 <h4 id="de-functie-zip">De functie <code class="language-py highlight"><span class="nb">zip</span><span class="p">()</span></code><a class="headerlink" href="#de-functie-zip" title="Permanent link">&para;</a></h4>
-<p>Het viel je misschien op dat in bovenstaand CSV-bestand iedere regel een $t$-waarde en een $s$-waarde heeft. Als je een lijst met $t$'s en een lijst met $s$'en hebt dan bevat de eerste regel het eerste element uit beide lijsten, de tweede regel het tweede element, etc. Je kunt dan een for-loop schrijven die Python's indexnotatie gebruikt: <code class="language-py highlight"><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span></code>, <code class="language-py highlight"><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span></code>, etc. Het kan óók, makkelijker, met de <code class="language-py highlight"><span class="nb">zip</span><span class="p">()</span></code>-functie. Beide methodes kun je als volgt gebruiken in het geval van twee<sup id="fnref:meer-dan-twee"><a class="footnote-ref" href="#fn:meer-dan-twee">4</a></sup> lijsten A en B:
+<p>Het viel je misschien op dat in bovenstaand CSV-bestand iedere regel een $t$-waarde en een $s$-waarde heeft. Als je een lijst met $t$'s en een lijst met $s$'en hebt dan bevat de eerste regel het eerste element uit beide lijsten, de tweede regel het tweede element, etc. Je kunt dan een for-loop schrijven die Python's indexnotatie gebruikt: <code class="language-py highlight"><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span></code>, <code class="language-py highlight"><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span></code>, etc. Het kan óók, makkelijker, met de <code class="language-py highlight"><span class="nb">zip</span><span class="p">()</span></code>-functie. Beide methodes kun je als volgt gebruiken in het geval van twee<sup id="fnref:meer-dan-twee"><a class="footnote-ref" href="#fn:meer-dan-twee">5</a></sup> lijsten A en B:
  ```</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">with_zip.py</label><label for="__tabbed_4_2">with_indexing.py</label></div>
 <div class="tabbed-content">
@@ -1231,7 +1236,7 @@ Je hebt een lijst met spanningen en een lijst met stroomsterktes. Je loopt over 
 </div>
 </div>
 <h4 id="het-gebruik-van-de-csv-module">Het gebruik van de <code class="language-py highlight"><span class="n">csv</span></code>-module<a class="headerlink" href="#het-gebruik-van-de-csv-module" title="Permanent link">&para;</a></h4>
-<p>Wanneer je de <code class="language-py highlight"><span class="n">csv</span></code>-module wilt gebruiken moet je éérst een bestand openen om in te schrijven, daarna een <q>writer</q> object aanmaken, en dat object gebruiken om regels te schrijven. Daarna moet het bestand netjes afgesloten worden zodat het ook echt naar schijf weggeschreven wordt. Het openen en sluiten van een bestand kun je Python het beste laten doen met het <code class="language-py highlight"><span class="k">with</span></code>-statement:<sup id="fnref:context-manager"><a class="footnote-ref" href="#fn:context-manager">5</a></sup></p>
+<p>Wanneer je de <code class="language-py highlight"><span class="n">csv</span></code>-module wilt gebruiken moet je éérst een bestand openen om in te schrijven, daarna een <q>writer</q> object aanmaken, en dat object gebruiken om regels te schrijven. Daarna moet het bestand netjes afgesloten worden zodat het ook echt naar schijf weggeschreven wordt. Het openen en sluiten van een bestand kun je Python het beste laten doen met het <code class="language-py highlight"><span class="k">with</span></code>-statement:<sup id="fnref:context-manager"><a class="footnote-ref" href="#fn:context-manager">6</a></sup></p>
 <div class="language-py highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="hll"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;metingen.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
 </span></span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="c1"># csvfile is nu een bestandsobject</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="o">...</span>
@@ -1311,8 +1316,8 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.</p>
 <details class="meer-leren" open="open">
 <summary>HDF5, PyTables</summary>
 <h3 id="hdf5-pytables">HDF5, PyTables<a class="headerlink" href="#hdf5-pytables" title="Permanent link">&para;</a></h3>
-<p>Een populair binair formaat in de wetenschappelijke wereld is HDF5.<sup id="fnref:HDF5"><a class="footnote-ref" href="#fn:HDF5">6</a></sup> <sup id="fnref:6"><a class="footnote-ref" href="#fn:6">13</a></sup> Je kunt hiermee verschillende datasets bewaren in één bestand. Je kunt een soort boomstructuur aanbrengen en zo verschillende datasets groeperen en er ook nog extra informatie (metadata) aanhangen zoals datum van de meting, beschrijving van de condities, etc. Je kunt een meetserie opslaan als reeks die in één keer in en uit het bestand wordt geladen maar ook als tabel. Die laatste biedt de mogelijkheid om &mdash; net als in een database &mdash; data te selecteren en alleen die data in te laden uit het bestand. Op die manier is het mogelijk om met datasets te werken die groter zijn dan het geheugen van je computer.<sup id="fnref:HDF-blog"><a class="footnote-ref" href="#fn:HDF-blog">7</a></sup> Meer informatie lees je in de <a href="http://www.pytables.org/usersguide/tutorials.html">tutorial</a> van PyTables<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">14</a></sup>.</p>
-<p>PyTables<sup id="fnref2:7"><a class="footnote-ref" href="#fn:7">14</a></sup> is een Python bibliotheek die het werken met HDF5-bestanden makkelijker maakt. Er zijn uiteraard functies om de bestanden aan te maken en uit te lezen maar ook om <em>queries</em> uit te voeren. Pandas kan &mdash; via PyTables &mdash; ook werken met HDF5-bestanden. </p>
+<p>Een populair binair formaat in de wetenschappelijke wereld is HDF5.<sup id="fnref:HDF5"><a class="footnote-ref" href="#fn:HDF5">7</a></sup> <sup id="fnref:6"><a class="footnote-ref" href="#fn:6">14</a></sup> Je kunt hiermee verschillende datasets bewaren in één bestand. Je kunt een soort boomstructuur aanbrengen en zo verschillende datasets groeperen en er ook nog extra informatie (metadata) aanhangen zoals datum van de meting, beschrijving van de condities, etc. Je kunt een meetserie opslaan als reeks die in één keer in en uit het bestand wordt geladen maar ook als tabel. Die laatste biedt de mogelijkheid om &mdash; net als in een database &mdash; data te selecteren en alleen die data in te laden uit het bestand. Op die manier is het mogelijk om met datasets te werken die groter zijn dan het geheugen van je computer.<sup id="fnref:HDF-blog"><a class="footnote-ref" href="#fn:HDF-blog">8</a></sup> Meer informatie lees je in de <a href="http://www.pytables.org/usersguide/tutorials.html">tutorial</a> van PyTables<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">15</a></sup>.</p>
+<p>PyTables<sup id="fnref2:7"><a class="footnote-ref" href="#fn:7">15</a></sup> is een Python bibliotheek die het werken met HDF5-bestanden makkelijker maakt. Er zijn uiteraard functies om de bestanden aan te maken en uit te lezen maar ook om <em>queries</em> uit te voeren. Pandas kan &mdash; via PyTables &mdash; ook werken met HDF5-bestanden. </p>
 <div class="admonition opdracht-meer">
 <p class="admonition-title">HDF5 tutorial</p>
 <p>Download de <a href="hdf5_tutorial.ipynb">HDF5 tutorial</a>. Open de tutorial in Visual Studio Code en bestudeer de stappen die daar staan beschreven nauwkeurig.</p>
@@ -1334,38 +1339,41 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.</p>
 <li id="fn:analoog">
 <p>Totdat je het domein van de kwantummechanica betreedt, dan blijkt de natuur ook een discrete kant te hebben.&#160;<a class="footnote-backref" href="#fnref:analoog" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
+<li id="fn:bronArduino">
+<p>Dit model bevat een 3D model die is gecreëerd door AppliedSBC en is gedeeld onder CC-BY-SA licentie. Het originele model is te vinden via <a href="https://sketchfab.com/3d-models/arduino-nano-33-iot-f57fd7f5485a47a8b71f8604872fd78c">Arduino Nano 33 IoT</a>. Het model is voorzien van een Arduino texture. Dit 3D model heeft een CC-BY-SA licentie.&#160;<a class="footnote-backref" href="#fnref:bronArduino" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
 <li id="fn:meer-dan-twee">
-<p>Je kunt net zoveel lijsten in <code class="language-py highlight"><span class="nb">zip</span><span class="p">()</span></code> gooien als je wilt: <code class="language-py highlight"><span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span></code> is geen probleem.&#160;<a class="footnote-backref" href="#fnref:meer-dan-twee" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>Je kunt net zoveel lijsten in <code class="language-py highlight"><span class="nb">zip</span><span class="p">()</span></code> gooien als je wilt: <code class="language-py highlight"><span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span></code> is geen probleem.&#160;<a class="footnote-backref" href="#fnref:meer-dan-twee" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:context-manager">
-<p>hier is <code class="language-py highlight"><span class="nb">open</span><span class="p">()</span></code> een zogeheten <q>context manager</q>, een functie die je kunt gebruiken met een <code class="language-py highlight"><span class="k">with</span></code>-statement en dat bij de start iets doet &mdash; hier een bestand openen &mdash; en bij het eind iets doet &mdash; hier het bestand weer netjes afsluiten. Je kunt zelf ook context managers schrijven, als je wilt.&#160;<a class="footnote-backref" href="#fnref:context-manager" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>hier is <code class="language-py highlight"><span class="nb">open</span><span class="p">()</span></code> een zogeheten <q>context manager</q>, een functie die je kunt gebruiken met een <code class="language-py highlight"><span class="k">with</span></code>-statement en dat bij de start iets doet &mdash; hier een bestand openen &mdash; en bij het eind iets doet &mdash; hier het bestand weer netjes afsluiten. Je kunt zelf ook context managers schrijven, als je wilt.&#160;<a class="footnote-backref" href="#fnref:context-manager" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:HDF5">
-<p>Hierarchical Data Format Version 5, in gebruik bij bijvoorbeeld de LOFAR radiotelescoop, het IceCube neutrino-observatorium en de LIGO zwaartekrachtsgolvendetector.&#160;<a class="footnote-backref" href="#fnref:HDF5" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>Hierarchical Data Format Version 5, in gebruik bij bijvoorbeeld de LOFAR radiotelescoop, het IceCube neutrino-observatorium en de LIGO zwaartekrachtsgolvendetector.&#160;<a class="footnote-backref" href="#fnref:HDF5" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 <li id="fn:HDF-blog">
-<p>Lees bijvoorbeeld <a href="https://www.hdfgroup.org/2015/03/hdf5-as-a-zero-configuration-ad-hoc-scientific-database-for-python/">deze korte blog post</a> over het gebruik van HDF5.&#160;<a class="footnote-backref" href="#fnref:HDF-blog" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p>Lees bijvoorbeeld <a href="https://www.hdfgroup.org/2015/03/hdf5-as-a-zero-configuration-ad-hoc-scientific-database-for-python/">deze korte blog post</a> over het gebruik van HDF5.&#160;<a class="footnote-backref" href="#fnref:HDF-blog" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 <li id="fn:1">
-<p>Python Software Foundation. Csv – csv file reading and writing. URL: <a href="https://docs.python.org/3/library/csv.html">https://docs.python.org/3/library/csv.html</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<p>Python Software Foundation. Csv – csv file reading and writing. URL: <a href="https://docs.python.org/3/library/csv.html">https://docs.python.org/3/library/csv.html</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 9 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>The NumPy Development Team. Numpy – the fundamental package for scientific computing with python. URL: <a href="https://numpy.org">https://numpy.org</a>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+<p>The NumPy Development Team. Numpy – the fundamental package for scientific computing with python. URL: <a href="https://numpy.org">https://numpy.org</a>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 10 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>Charles R. Harris, K. Jarrod Millman, St'efan J. van der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J. Smith, Robert Kern, Matti Picus, Stephan Hoyer, Marten H. van Kerkwijk, Matthew Brett, Allan Haldane, Jaime Fern'andez del R'ıo, Mark Wiebe, Pearu Peterson, Pierre G'erard-Marchant, Kevin Sheppard, Tyler Reddy, Warren Weckesser, Hameer Abbasi, Christoph Gohlke, and Travis E. Oliphant. Array programming with NumPy. <em>Nature</em>, 585(7825):357–362, September 2020. URL: <a href="https://doi.org/10.1038/s41586-020-2649-2">https://doi.org/10.1038/s41586-020-2649-2</a>, <a href="https://doi.org/10.1038/s41586-020-2649-2">doi:10.1038/s41586-020-2649-2</a>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+<p>Charles R. Harris, K. Jarrod Millman, St'efan J. van der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J. Smith, Robert Kern, Matti Picus, Stephan Hoyer, Marten H. van Kerkwijk, Matthew Brett, Allan Haldane, Jaime Fern'andez del R'ıo, Mark Wiebe, Pearu Peterson, Pierre G'erard-Marchant, Kevin Sheppard, Tyler Reddy, Warren Weckesser, Hameer Abbasi, Christoph Gohlke, and Travis E. Oliphant. Array programming with NumPy. <em>Nature</em>, 585(7825):357–362, September 2020. URL: <a href="https://doi.org/10.1038/s41586-020-2649-2">https://doi.org/10.1038/s41586-020-2649-2</a>, <a href="https://doi.org/10.1038/s41586-020-2649-2">doi:10.1038/s41586-020-2649-2</a>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 11 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p>The pandas development team. Pandas-dev/pandas: pandas 1.0.5. June 2020. URL: <a href="https://doi.org/10.5281/zenodo.3898987">https://doi.org/10.5281/zenodo.3898987</a>, <a href="https://doi.org/10.5281/zenodo.3898987">doi:10.5281/zenodo.3898987</a>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+<p>The pandas development team. Pandas-dev/pandas: pandas 1.0.5. June 2020. URL: <a href="https://doi.org/10.5281/zenodo.3898987">https://doi.org/10.5281/zenodo.3898987</a>, <a href="https://doi.org/10.5281/zenodo.3898987">doi:10.5281/zenodo.3898987</a>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 12 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>Wes McKinney. Data Structures for Statistical Computing in Python. In Stéfan van der Walt and Jarrod Millman, editors, <em>Proceedings of the 9th Python in Science Conference</em>, 56 &ndash; 61. 2010. <a href="https://doi.org/10.25080/Majora-92bf1922-00a">doi:10.25080/Majora-92bf1922-00a</a>.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 12 in the text">&#8617;</a></p>
+<p>Wes McKinney. Data Structures for Statistical Computing in Python. In Stéfan van der Walt and Jarrod Millman, editors, <em>Proceedings of the 9th Python in Science Conference</em>, 56 &ndash; 61. 2010. <a href="https://doi.org/10.25080/Majora-92bf1922-00a">doi:10.25080/Majora-92bf1922-00a</a>.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 13 in the text">&#8617;</a></p>
 </li>
 <li id="fn:6">
-<p>The HDF Group. The hdf5 library and file format. URL: <a href="https://www.hdfgroup.org/solutions/hdf5/">https://www.hdfgroup.org/solutions/hdf5/</a>.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 13 in the text">&#8617;</a></p>
+<p>The HDF Group. The hdf5 library and file format. URL: <a href="https://www.hdfgroup.org/solutions/hdf5/">https://www.hdfgroup.org/solutions/hdf5/</a>.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 14 in the text">&#8617;</a></p>
 </li>
 <li id="fn:7">
-<p>Ivan Vilata Francesc Alted and others. PyTables: hierarchical datasets in Python. URL: <a href="http://www.pytables.org/">http://www.pytables.org/</a>.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 14 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:7" title="Jump back to footnote 14 in the text">&#8617;</a></p>
+<p>Ivan Vilata Francesc Alted and others. PyTables: hierarchical datasets in Python. URL: <a href="http://www.pytables.org/">http://www.pytables.org/</a>.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 15 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:7" title="Jump back to footnote 15 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -1424,7 +1432,7 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.</p>
     <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "toc.integrate", "navigation.top", "content.code.annotate"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
       
         <script src="../javascripts/katex.js"></script>
       
