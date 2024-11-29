@@ -922,7 +922,7 @@ Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder
 
 !!! opdracht-inlever "Pythondaq: save"
     === "opdracht"
-        Breid je code zodanig uit uit dat het volgende werkt: Je opent de applicatie en start een scan. Dan valt je oog op een `Save`-knop, wanneer je op deze knop drukt wordt er een dialoogvenster geopent. Je kiest een locatie en typt een bestandsnaam, je klikt op `Save` (of `Opslaan`). Daarna ben je nieuwsgierig of het gelukt is. Via `File Explorer` (of `Verkenner`) navigeer je op de computer naar de locatie waar je het bestand hebt opgeslagen. Je opent het bestand en ziet de metingen staan. Tevreden sluit je het bestand af en ga je door naar de volgende opdracht.
+        Breid je code zodanig uit dat het volgende werkt: Je opent de applicatie en start een scan. Dan valt je oog op een `Save`-knop, wanneer je op deze knop drukt wordt er een dialoogvenster geopent. Je kiest een locatie en typt een bestandsnaam, je klikt op `Save` (of `Opslaan`). Daarna ben je nieuwsgierig of het gelukt is. Via `File Explorer` (of `Verkenner`) navigeer je op de computer naar de locatie waar je het bestand hebt opgeslagen. Je opent het bestand en ziet de metingen staan. Tevreden sluit je het bestand af en ga je door naar de volgende opdracht.
     === "code"
         **Pseudo-code**
         ```
