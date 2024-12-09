@@ -829,7 +829,9 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
 
 !!! opdracht-inlever "Pythondaq: plot scan"
     === "opdracht"
-        Als het commando wordt uitgevoerd start de applicatie een scan en laat de metingen vervolgens zien in een plot binnen het venster. Voor het gemak heb je de poortnaam, start- en stopwaardes e.d. <q>hard coded</q> in het script gezet. Later ga je er voor zorgen dat een gebruiker die kan instellen, maar dat komt straks wel. 
+        Pas de GUI aan zodat de applicatie een scan uitvoerd en de metingen in een plot laat zien binnen het venster. Voor het gemak mag je de poortnaam, start- en stopwaardes e.d. <q>hard coded</q> in je script zetten. Later ga je ervoor zorgen dat de gebruiker alles kan instellen en zelf een scan kan starten, maar dat komt straks wel. 
+        </br></br>
+        De gebruiker test de GUI met de volgende handelingen. De gebruiker maakt een nieuwe conda environment aan met Python daarin {{lightbulb}}. De gebruiker installeert de `Pythondaq` package met Poetry {{lightbulb}}. De gebruiker kijkt in de {{file_lines}}`pyproject.toml` wat het commando is om de GUI op te starten. De gebruiker typte het commando in de terminal en ziet dat het LEDje gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI. 
 
         !!! info "Foutenvlaggen plotten"
 
