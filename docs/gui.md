@@ -791,14 +791,17 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
 
         <div class="grid-tree" markdown>
             <div>
-            Je wilt een toffe GUI maken voor de `pythondaq` applicatie. Je gaat dit in stapjes opbouwen zodat je tussendoor nog kunt testen of het werkt. Je maakt een {{new_file}}`gui.py` aan waarin een leeg venster wordt gemaakt. Het lege venster wordt getoond zodra je een commando in de terminal intypt. Je sluit het venster. Om te testen of dit bij andere mensen ook zou werken maak je een nieuwe conda environment aan met Python {{lightbulb}}, installeer je de package met Poetry {{lightbulb}} en test je opnieuw het commando, er verschijnt opnieuw een leeg venster. 
+            Je gaat in stapjes een GUI maken voor de `pythondaq` applicatie. Maak daarvoor een {{new_file}}`gui.py` waarin een leeg GUI venster wordt gemaakt. Zorg dat het lege venster ook wordt getoond zodra je een commando in de terminal intypt.
+            </br></br>
+            De gebruiker test de GUI met de volgende handelingen. De gebruiker maakt een nieuwe conda environment aan met Python daarin {{lightbulb}}. De gebruiker installeert de `Pythondaq` package met Poetry {{lightbulb}}. De gebruiker kijkt in de {{file_lines}}`pyproject.toml` wat het commando is om de GUI op te starten. De gebruiker typte het commando in de terminal en ziet een leeg venster verschijnen. 
             </div>
             <div>
             {{folder}} `ECPC`  
             {{T}} {{github}} `pythondaq`  
-            {{tab}} {{T}} {{folder}} `src/pythondaq`  
-            {{tab}} {{tab}} {{T}} {{new_file}} `gui.py`  
-            {{tab}} {{tab}} {{L}} {{dots}}  
+            {{tab}} {{T}} {{folder}} `src`  
+            {{tab}} {{tab}} {{L}} {{folder}} `pythondaq`  
+            {{tab}} {{tab}} {{tab}} {{T}} {{new_file}} `gui.py`  
+            {{tab}} {{tab}} {{tab}} {{L}} {{dots}}  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{dots}}  
             </div>
@@ -806,14 +809,14 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
 
     === "code"
         **Pseudo-code**
-        ```
+        ``` title='gui.py'
         # create empty window
         ```
     === "check"
         **Checkpunten:**
     
         - [ ] Het uitvoeren van een commando zorgt ervoor dat een leeg venster wordt getoond. 
-        - [ ] Het commando werkt ook na het installeren van de package `pythondaq` met Poetry in een nieuwe conda environment met Python. 
+        - [ ] De GUI werkt ook na het installeren van de package `pythondaq` met Poetry in een nieuwe conda environment met Python. 
 
         **Projecttraject**
     
