@@ -3,6 +3,7 @@
 We hebben voor deze cursus de volgende onderdelen gebruikt:
 
 - Arduino Nano 33 IoT
+- Firmware voor in de Arduino: [visa_firmware.ino](https://github.com/davidfokkema/arduino-visa-firmware/blob/master/visa_firmware/visa_firmware.ino)
 - micro-USB kabel
 - 400-punt breadboard
 - jumperwires (M/M)
