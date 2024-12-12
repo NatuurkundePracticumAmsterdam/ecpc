@@ -2,39 +2,19 @@
 
 Voor een snelle meting is het script dat je geschreven hebt bij [opdracht _quick 'n dirty_ meting](basisscript.md#opd:quickndirty-meting) en [opdracht _Pythondaq: CSV_](basisscript.md#opd:quickndirty-csv) prima! Maar als de meetapparatuur ingewikkelder wordt (meer verschillende commando's) of je wilt meer aanpassingen doen, dan is het wel lastig dat je op allerlei plekken de commando's opnieuw moet programmeren &mdash; en eerst moet opzoeken. Als je een nieuw script schrijft moet je opnieuw goed opletten dat je de goede _terminator characters_ gebruikt, etc. Het is wat werk, maar toch heel handig, om je code op te splitsen en een _class_ te schrijven.
 
-Een class is eigenlijk een groep functies die je bij elkaar pakt en die met elkaar gegevens kunnen delen. Zodra een programma wat complexer wordt merk je dat het fijn kan zijn om variabelen op te sluiten in geïsoleerde omgevingen. 
-
-
-## Aanmaken van een class
-Een class is een verzameling functies. Hieronder staat een versimpelde weergave van de class `Turtle`. Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van functies &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods)), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
-
-[^ClassTitle]: Wanneer je de Google Style Guide[@google_style_guide] volgt schrijf je de naam van de class in CapWords of CamelCase. 
-
-``` py
-class Turtle:
-    def __init__(self, shape):
-        # transform turtle into shape
-
-    def forward(self, distance):
-        # move turtle by distance
-
-    def left(self, angle):
-        # turn turtle counterclockwise
-        # by angle in degrees
-```
-
-De eerste parameter van de `#!py __init__()`-method en van alle andere methods, is `#!py self`, daarna komen &mdash;indien nodig&mdash; andere parameters die in de method nodig zijn. Later meer over [de speciale parameter self](classes.md#de-speciale-parameter-self), eerst gaan we kijken hoe je een class gebruikt. 
+Een class is eigenlijk een groep functies die je bij elkaar pakt en die met elkaar gegevens kunnen delen. Zodra een programma wat complexer wordt merk je dat het fijn kan zijn om variabelen op te sluiten in geïsoleerde omgevingen. We gaan eerst kijken hoe we een class gebruiken met behulp van de gezellige class `Turtle`.
 
 ## Aanroepen van een class
 
 Het aanroepen van een class lijkt veel op het aanroepen van een functie:
 
---8<-- "docs/assets/comparison/compare_function_class.html"
+--8<-- "docs/assets/comparison/compare_function_class_instance.html"
 
-Stel we hebben de functie `#!py calculate_squares_up_to(max_number)`. Dan roep je die aan met `#!py result = calculate_squares_up_to(5)`. Hierbij is `calculate_squares_up_to(5)` de naam van de functie en `result` de variabele waar de uitkomst heen gaat. Bij het aanroepen van een class doe je iets soortgelijks. In de variabele `master_oogway` gaat de 'uitkomst' van de class, dat is in dit geval een collectie van methods (en variabelen). De variabele `master_oogway` noemen we een _instance_ van de class `Turtle`. Net zoals je een functie vaker kunt aanroepen, kan je ook meerdere instances van een class aanmaken. Achter de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan de  `#!py __init__()`-method (`#!py self` niet meegerekend), de parameter `#!py shape` krijgt dus de variabele `#!py "turtle"` toegewezen.
+Stel we hebben de functie `#!py calculate_squares_up_to(max_number)`. Dan roep je die aan met `#!py result = calculate_squares_up_to(5)`. Hierbij is `calculate_squares_up_to(5)` de naam van de functie en `result` de variabele waar de uitkomst heen gaat. Bij het aanroepen van een class doe je iets soortgelijks. In de variabele `master_oogway` gaat de 'uitkomst' van de class, dat is in dit geval een collectie van functies (en variabelen). De variabele `master_oogway` noemen we een _instance_ van de class `Turtle`. Achter de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan class.
 
 
 ???+ meer-leren "Meerdere instances"
+    Net zoals je een functie vaker kunt aanroepen, kan je ook meerdere instances van een class aanmaken.
     Je kunt meerdere instances hebben van dezelfde class, bijvoorbeeld voor verschillende schildpadden:
     ``` py
     class Turtle:
@@ -46,25 +26,6 @@ Stel we hebben de functie `#!py calculate_squares_up_to(max_number)`. Dan roep j
     ...
     ```
 
-!!! opdracht-basis-thuis "`#!py __init__(self)`"
-    Stel dat de init-method geen extra parameters mee krijgt, zoals in het volgende geval:
-    ```py
-    class Turtle:
-        def __init__(self):
-            # initialiseer class
-        
-        def forward(self, distance):
-            # move turtle by distance
-
-        def left(self, angle):
-            # turn turtle counterclockwise
-            # by angle in degrees
-    ```
-    hoe maak je dan een instance aan van de class?
-    ??? uitwerkingen
-        ```py
-        master_oogway = Turtle()
-        ```
 
 Omdat de instance `master_oogway` alle methods bevat kunnen we deze methods aanroepen:
 ```py
@@ -117,6 +78,48 @@ master_oogway.forward(50)
         **Projecttraject:**
 
         - [x] turtle
+
+!!! opdracht-basis-thuis "`#!py __init__(self)`"
+    Achter de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan de  `#!py __init__()`-method (`#!py self` niet meegerekend), de parameter `#!py shape` krijgt dus de variabele `#!py "turtle"` toegewezen.
+    Stel dat de init-method geen extra parameters mee krijgt, zoals in het volgende geval:
+    ```py
+    class Turtle:
+        def __init__(self):
+            # initialiseer class
+        
+        def forward(self, distance):
+            # move turtle by distance
+
+        def left(self, angle):
+            # turn turtle counterclockwise
+            # by angle in degrees
+    ```
+    hoe maak je dan een instance aan van de class?
+    ??? uitwerkingen
+        ```py
+        master_oogway = Turtle()
+        ```
+        
+## Aanmaken van een class
+Een class is een verzameling functies. Hieronder staat een versimpelde weergave van de class `Turtle`. Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van functies &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods)), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
+
+[^ClassTitle]: Wanneer je de Google Style Guide[@google_style_guide] volgt schrijf je de naam van de class in CapWords of CamelCase. 
+
+``` py
+class Turtle:
+    def __init__(self, shape):
+        # transform turtle into shape
+
+    def forward(self, distance):
+        # move turtle by distance
+
+    def left(self, angle):
+        # turn turtle counterclockwise
+        # by angle in degrees
+```
+
+De eerste parameter van de `#!py __init__()`-method en van alle andere methods, is `#!py self`, daarna komen &mdash;indien nodig&mdash; andere parameters die in de method nodig zijn. Later meer over [de speciale parameter self](classes.md#de-speciale-parameter-self). eerst gaan we kijken hoe je een class gebruikt. 
+
 
 ## De speciale parameter `#!py self`
 Een class method is vrijwel gelijk aan een normale functie, behalve dat een class method als eerste de parameter `#!py self` verwacht. Aan deze parameter wordt de eigen instance van de class meegegeven wanneer je de method aanroept. 
