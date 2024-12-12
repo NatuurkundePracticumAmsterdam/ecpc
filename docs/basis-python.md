@@ -3,7 +3,7 @@
 Bij de cursus inleiding programmeren heb je de basis van het programmeren in Python geleerd. Bij inleiding programmeren mocht je kiezen om je code in het Nederlands of Engels te schrijven. Omdat wij jullie voorbereiden om in een onderzoeksgroep je bachelor project te gaan doen waar je hoogstwaarschijnlijk internationale collega's gaat treffen vragen we jou om bij ECPC alles in het Engels te schrijven. In deze paragraaf nemen we de hoofdlijnen van inleiding programmeren met je door in een aantal opdrachten. 
 
 ## Visual Studio Code
-!!! opdracht-basis "Open VSCode en maak de map ECPC"
+!!! opdracht-basis-thuis "Open VSCode en maak de map ECPC"
     1. Open Visual Studio Code.
     1. Ga naar **File > Open folder**.
     1. Navigeer naar een geschikte map, bijvoorbeeld OneDrive.
@@ -12,7 +12,7 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
 
 ## F-strings, variabelen en input()
 
-!!! opdracht-basis "f-strings, variabelen en input"
+!!! opdracht-basis-thuis "f-strings, variabelen en input"
     1. Maak een bestand {{new_file}}`diameter-ball.py` in de map {{folder}}`ECPC`.  
     {{new_folder}} `ECPC`  
     {{L}} {{new_file}} `diameter.py`  
@@ -29,7 +29,7 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
 ## If-statement en operatoren
 
 
-!!! opdracht-basis "if-statement en operatoren"
+!!! opdracht-basis-thuis "if-statement en operatoren"
     Met een `#!py if`-statement kan je een conditie testen door operatoren te gebruiken. 
 
     1. Schrijf de operatoren op voor:
@@ -67,7 +67,7 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
 
 ## For-loop, while-loop en break
 
-!!! opdracht-basis "For-loop, while-loop en break"
+!!! opdracht-basis-thuis "For-loop, while-loop en break"
     1. Beschouw de volgende code:
     ``` py
     voltage = 0  # mV
@@ -108,7 +108,7 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
         
 ## Functie
 
-!!! opdracht-basis "functies"
+!!! opdracht-basis-thuis "functies"
     1. Maak uit de onderstaande code de functie _exponentiation_ werkend. 
     ``` py
     def exponentiation():
@@ -137,7 +137,7 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
 
 ## List
 
-!!! opdracht-basis "lijsten"
+!!! opdracht-basis-thuis "lijsten"
     1. Schrijf een python script waarin je een lijst definieert met de namen van de maanden.
     1. Print de negende maand.
     1. Voeg een dertiende maand toe aan de lijst.
@@ -169,7 +169,7 @@ Ook heb je geleerd om functies uit andere (python) modules te importeren, meer h
 
 ## Plotten
 
-!!! opdracht-basis "Grafieken"
+!!! opdracht-basis-thuis "Grafieken"
     Gebruik matplotlib om een scatterplot te maken van twee lijsten die hieronder zijn weergegeven. Zet de grootheden en eenheden bij beide assen en sla het figuur op als .png-bestand.
     ``` py 
     time = [0, 0.5, 1, 1.5, 2, 2.5, 3] #seconds
@@ -182,7 +182,7 @@ Ook heb je geleerd om functies uit andere (python) modules te importeren, meer h
 
 ## Bestanden inlezen
 
-!!! opdracht-basis "txt-bestanden lezen"
+!!! opdracht-basis-thuis "txt-bestanden lezen"
     Hieronder vind je een verhaal, kopieer de inhoud naar een .txt-bestand en sla deze op een handige plek op.
     ```
     "Do you have a favourite
