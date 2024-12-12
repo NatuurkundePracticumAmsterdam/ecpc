@@ -25,7 +25,7 @@ _Bemonsteren_ of _sampling_ is het proces waarbij een analoog signaal wordt <q>u
 </select></div>
 <br>
 
-!!! opdracht-basis "ADC resolutie"
+!!! opdracht-basis-thuis "ADC resolutie"
     De schuifjes hierboven zijn aan elkaar gekoppeld. Het bovenste schuifje laat de analoge waarde zien. Het onderste schuifje is de bijbehorende digitale waarde. 
 
     1. Zet het digitale signaal op een resolutie van 4-bit (16 stapjes). Stel je meet een waarde van 6, wat zijn dan de mogelijke voltages die daarbij horen? Wat is dan de nauwkeurigheid?
@@ -42,7 +42,7 @@ De omzetting van een analoog signaal naar een digitaal signaal gebeurt als volgt
 
 De digitale metingen die je programma krijgt van de ADC is hierboven weergegeven. De onzekerheid is gelijk aan de halve afstand tot het volgende niveau. In lichtgrijs zie je het oorspronkelijke analoge signaal. De meting benadert het signaal dus maar gedeeltelijk. De Arduino die we gebruiken heeft een bereik van 0 V tot 3.3 V en &mdash; in tegenstelling tot het voorbeeld hierboven &mdash; een resolutie van 10 bits, dus $2^{10} = 1024$ stapjes. Als je een experiment ontwerpt is het dus van belang te weten dat je nooit kunt meten met een nauwkeurigheid kleiner dan de stapgrootte. Voor ons is deze resolutie prima.
 
-!!! opdracht-basis "Volt naar ADC"
+!!! opdracht-basis-thuis "Volt naar ADC"
     === "opdracht"
         Je hebt gezien dat de Arduino werkt met getallen van 0 t/m 1023 en dat de Arduino een bereik heeft van 0 V tot 3.3 V. Je schrijft de formule op om de ruwe ADC waarde naar een spanning in Volt om te rekenen en omgekeerd. Je controleert of je formules logische antwoorden geven door de spanning te berekenen die bij een ruwe waarde van 700 hoort en de ruwe waarde die hoort bij 2.28 V. 
     === "code"
@@ -98,17 +98,17 @@ Je hebt op de middelbare school ongetwijfeld de $I,U$-karakteristiek van een ohm
 
 Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ anders. Met de schakeling die we hebben gebouwd kunnen we de $I,U$-karakteristiek van een LED bepalen. Voor meer informatie over de fysica achter diodes, zie de [appendix Diodes](diodes.md).
 
-!!! opdracht-basis "I,U-karakteristiek van een LED"
+!!! opdracht-basis-thuis "I,U-karakteristiek van een LED"
     <iframe src="https://drive.google.com/file/d/1BcYJaCm3Er1hQyqQtCRx9umI5d2Q3V-m/preview" width="620" height="349" style="border:none;"></iframe>
     
     Maak een schets van hoe je denkt dat de grafiek van de stroom tegen de spanning van een LED eruit zal zien.
 
-!!! opdracht-basis "Arduino heeft geen stroommeter"
+!!! opdracht-basis-thuis "Arduino heeft geen stroommeter"
     <iframe src="https://drive.google.com/file/d/10FwUnWe7CPjygzoRhVIJLE44qlwUo78Z/preview" width="620" height="349" style="border:none;"></iframe>
     
     Schrijf op hoe je de spanning over de LED en de stroom door de LED berekent in termen van de spanningsmeters U1 en U2 en de bekende weerstand R.
 
-!!! opdracht-basis "Arduino pins"
+!!! opdracht-basis-thuis "Arduino pins"
     <iframe src="https://drive.google.com/file/d/1PTzd6aY-yCLK-ubxJ1is0g58YeJrD-PL/preview" width="620" height="349" style="border:none;"></iframe>
     
     Kijk aan de onderkant van de Arduino[^bronArduino] of je de pinnentjes A0, A1, A2 en GND kan vinden.
@@ -118,12 +118,12 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
 
     [^bronArduino]: Dit model bevat een 3D model die is gecreëerd door AppliedSBC en is gedeeld onder CC-BY-SA licentie. Het originele model is te vinden via [Arduino Nano 33 IoT](https://sketchfab.com/3d-models/arduino-nano-33-iot-f57fd7f5485a47a8b71f8604872fd78c). Het model is voorzien van een Arduino texture. Dit 3D model heeft een CC-BY-SA licentie.
 
-!!! opdracht-basis "Breadboard"
+!!! opdracht-basis-thuis "Breadboard"
     <iframe src="https://drive.google.com/file/d/1n98Q6s0T8YfBO2xoTT5t0Os98hUwNwSh/preview" width="620" height="349" style="border:none;"></iframe>
     
     Kijk terug naar de theoretische schakeling, welke lijnen komen daar overeen met de vier draadjes (rood, blauw, groen, oranje) in de echte schakeling?
 
-!!! opdracht-basis "Channels"
+!!! opdracht-basis-thuis "Channels"
     <iframe src="https://drive.google.com/file/d/1K2KiB21YAMYnVWdrEgYUB_x8v6ikK_9i/preview" width="620" height="349" style="border:none;"></iframe>
     
     Bekijk de documentatie over de firmware en schrijf het commando op om de maximale uitvoerspanning op kanaal 0 te zetten. Schrijf daarna de commando's op om de waardes van U1 en U2 uit te lezen.
