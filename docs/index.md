@@ -99,7 +99,9 @@ In de handleiding staan verschillende opgaves. De meeste zijn bedoeld als oefeni
         - [x] Of het is de opdracht waar je nu mee bezig bent
         - [ ] Opdrachten zonder vinkje maak je later in het huidige hoofdstuk
         - [ ] of in een volgend hoofdstuk
-    
+
+!!! opdracht-basis-thuis "Voorbereidende opdrachten"
+    Sommige opdrachten hebben een icoontje met een huis en een laptop voor de titel. Deze opdrachten zijn voorbereidende opdrachten die je voorafgaand aan de sessie maakt. Vragen over deze opdrachten kun je dan in de les stellen. 
 
 !!! opdracht-inlever "Inleveropdracht"
     Deze opgave moet worden ingeleverd voor feedback en een beoordeling. Je herkent ze aan de groene kleur. De opgaven bouwen voort op elkaar, dus er zijn meerdere opgaven. Je levert ze niet los in, maar als geheel. Kijk goed bij het projecttraject in het tabblad **check** welke groene opdrachten je gemaakt moet hebben voordat je het inlevert. 
