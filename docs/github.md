@@ -32,7 +32,7 @@ Er zijn tegenwoordig veel websites die een plek bieden voor Git repositories. De
 
 Wij gaan werken met GitHub, je moet dan wel een (gratis) account aanmaken. Als student kom je ook nog in aanmerking voor een educatiekorting op een pro-account. Je betaalt dan nog steeds niets.
 
-!!! opdracht-basis "Account aanmaken"
+!!! opdracht-basis-thuis "Account aanmaken"
     Ga naar [https://github.com/](https://github.com/) en klik rechtsboven op `Sign Up`. Maak een account aan onder je _privé-emailadres_. Op deze manier blijf je toegang houden tot je account ook nadat je afgestudeerd bent.
 
 
