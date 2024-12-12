@@ -46,7 +46,7 @@ Stel we hebben de functie `#!py calculate_squares_up_to(max_number)`. Dan roep j
     ...
     ```
 
-!!! opdracht-basis "`#!py __init__(self)`"
+!!! opdracht-basis-thuis "`#!py __init__(self)`"
     Stel dat de init-method geen extra parameters mee krijgt, zoals in het volgende geval:
     ```py
     class Turtle:
@@ -75,7 +75,7 @@ master_oogway.left(30)
 master_oogway.forward(50)
 ```
    
-!!! opdracht-basis "turtle"
+!!! opdracht-basis-thuis "turtle"
     === "opdracht"
 
         <div class="grid-tree" markdown>
@@ -179,7 +179,7 @@ print(master_oogway.quote)
 <span class="invisible" name="turtle_quote">"Yesterday is history, Tomorrow is a mystery, but Today is a gift. That is why it is called the present"</span>
 </code></pre></div>
 
-!!! opdracht-basis "Opbouw van een class"
+!!! opdracht-basis-thuis "Opbouw van een class"
     1. Beschouw de onderstaande code
     1. Bespreek met elkaar wat de code precies doet en verplaast de onderdelen naar de juiste plek in de code. 
     Twijfel je of je nog weet wat een module is kijk dan voor meer informatie in de [paragraaf modules](vervolg-python.md#modules).
