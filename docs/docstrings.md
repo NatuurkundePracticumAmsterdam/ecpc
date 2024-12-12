@@ -48,7 +48,7 @@ Je zult niet altijd de `#!py help()` functie gebruiken misschien, maar gebruik z
 
 Om het gemakkelijker te maken om docstrings ook écht te gaan schrijven, zijn er docstring generators ontwikkeld. Voor Visual Studio Code is er de extensie _autoDocstring - Python Docstring Generator_.[@AutoDocstring]
 
-!!! opdracht-basis "Autodocstring"
+!!! opdracht-basis-thuis "Autodocstring"
     Kijk in Visual Studio Code bij extensions hoe je AutoDocstring kunt gebruiken. Kies daarvoor in de linkerkantlijn het goede icoon voor _extensions_ en selecteer dan de `autoDocstring` extensie. Zoek in de documentatie naar hoe je automatisch (een deel van) de docstring genereert.
 
 
@@ -71,7 +71,7 @@ else:
 
 Zo kunnen we gemakkelijk alles gaan invullen. Zo lang je niet op ++escape++ drukt maar gewoon je tekst typt kun je met ++tab++ naar het volgende veld en zo de docstring snel invullen. Het is mooi als je daarna onder de _summary_ nog een uitgebreidere uitleg geeft van een paar zinnen. Vergeet ook niet om de docstring zonodig weer bij te werken als je een functie aanpast.
 
-!!! opdracht-inlever "Pythondaq: docstring"
+!!! opdracht-inlever-thuis "Pythondaq: docstring"
     === "opdracht"
          Alle code van je `pythondaq`applicatie zijn voorzien van docstrings. Je bent aan het werk in je _model_ script en ziet dat er gebruik wordt gemaakt van een method `#!py get_input_voltage()` die in de _controller_ staat. Je vraagt je ineens af wat deze method ook al weer doet. Voorheen ging je dan naar de controller en scrolde je naar`#!py get_input_voltage()`. Maar tegenwoordig heb je overal docstrings geschreven, je blijft in het model-script, houd je muis bij `#!py get_input_voltage()` en ziet daar je  fantastische omschrijving van de method die in de _controller_ staat! 
 
