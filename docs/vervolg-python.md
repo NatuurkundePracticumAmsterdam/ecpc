@@ -43,7 +43,7 @@ Python is niet C (of iedere willekeurige andere programmeertaal). Er zit een ged
 
 Je kunt het lezen middels een _easter egg_ in Python zelf: `#!py import this`.
 
-!!! opdracht-basis "zen"
+!!! opdracht-basis-thuis "zen"
     1. Open Visual Studio Code.
     1. Open de map {{folder}}`ECPC`).
     1. Maak een bestand {{file}}`zen-of-python.py` met daarin de onderstaande code:
@@ -108,7 +108,7 @@ for name in names:
 ```
 Deze code is bovendien veel korter en gebruikt minder variabelen.
 
-!!! opdracht-basis "Itereren op de python-manier"
+!!! opdracht-basis-thuis "Itereren op de python-manier"
 
     1. Neem het onderstaande script over.
     1. Itereer over de lijst `#!py voltages` op de python-manier.
@@ -161,7 +161,7 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
 
 ### List
 
-!!! opdracht-basis "list"
+!!! opdracht-basis-thuis "list"
     Schrijf een kort scriptje.
     
       1. Maak een `#!py list` van de wortels van de getallen 1 tot en met 10. Dus de rij $\left(\sqrt{1}, \sqrt{2}, \sqrt{3}, \ldots, \sqrt{10}\right)$.
@@ -233,7 +233,7 @@ Je kunt op verschillende manieren een NumPy array maken (na `#!py import numpy a
     y = np.sin(x)
     ```
 
-!!! opdracht-basis "np.array"
+!!! opdracht-basis-thuis "np.array"
     Doe hetzelfde als de vorige opdracht met lists, maar nu met NumPy arrays:
 
     1. Maak een `#!py np.array` van de wortels van de getallen 1 tot en met 10. Dus de rij $\left(\sqrt{1}, \sqrt{2}, \sqrt{3}, \ldots, \sqrt{10}\right)$.
@@ -412,7 +412,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
 
 [^{}]: Notatie hetzelfde, maar gebruik nu `#!py {`}-haakjes.
 
-!!! opdracht-basis "array, for-loops en comprehensions"
+!!! opdracht-basis-thuis "array, for-loops en comprehensions"
     Voer, door een script te schrijven, de volgende opdrachten uit:
     
     1. Maak een lijst van de getallen 1 tot en met 10.
@@ -861,7 +861,7 @@ De uitvoer is zoals verwacht. Maar nu willen we in een nieuw script, {{file}}`co
 The square of 5 is 25</span>
 </code></pre></div>
 
-!!! opdracht-basis "square.square"
+!!! opdracht-basis-thuis "square.square"
     Waarom staat er in bovenstaande code nu opeens `#!py square.square()` in plaats van gewoon `#!py square()`?
     ??? uitwerkingen
         Omdat je uit de _module_ {{file}}`square.py` de _functie_ `#!py square()` gebruikt.
@@ -888,7 +888,7 @@ Wanneer je een python script runt is de speciale variabele `#!py __name__` gelij
 
 Het `#!py if __name__ == '__main__'`-statement wordt heel veel gebruikt in Python modules.
 
-!!! opdracht-basis "modules"
+!!! opdracht-basis-thuis "modules"
     1. Maak zelf de bestanden {{file}}`square.py` en {{file}}`just_count.py` aan.  
     {{folder}} `ECPC`  
     {{T}} {{new_file}} `square.py`  
@@ -954,7 +954,7 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 
 
 <div id="opd:test_package"></div>
-!!! opdracht-basis "Packages"
+!!! opdracht-basis-thuis "Packages"
     In deze opdracht ga je oefenen met het aanmaken van packages, modules en het importeren en aanroepen daarvan.
     
     1. Maak in de map {{folder}}`ECPC` een package {{folder}}`models` met twee modules: {{file}}`polynomials.py` en {{file}}`tests.py`.
@@ -1019,7 +1019,7 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
     
     Voor Python zijn ontzettend veel bibliotheken beschikbaar die het leven een stuk aangenamer maken. Voor een gedeelte daarvan geldt dat ze altijd aanwezig zijn als je Python geïnstalleerd hebt. Deze set vormt de _standard library_ [@python-standard-library]. Om te voorkomen dat je zelf het wiel uitvindt is het goed om af en toe door de lijst te bladeren zodat je een idee krijgt wat er allemaal beschikbaar is. Ziet het er bruikbaar uit? Lees dan vooral de documentatie! Tip: vergeet de _built-in functions_ niet.
 
-    !!! opdracht-basis "Standard Library"
+    !!! opdracht-basis-thuis "Standard Library"
 
         1. Zoek de The Python Standard Library lijst op in bijvoorbeeld de Python documentatie. 
         1. Welke bibliotheken heb je al eerder gebruik van gemaakt?
@@ -1028,7 +1028,7 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 
     Verder zijn er nog eindeloos veel packages beschikbaar gesteld door programmeurs, van hobbyist tot multinational. Deze kunnen centraal gepubliceerd worden in de _Python Package Index_ [@pypi]. Je kunt daar vaak ook zien hoe populair een package is. Dit is een belangrijke indicatie voor de kwaliteit en bruikbaarheid van een package. 
 
-    !!! opdracht-basis "PyPI"
+    !!! opdracht-basis-thuis "PyPI"
         Later in de cursus leren jullie werken met [Poetry](poetry.md) daarmee is het gemakkelijk om je eigen project op PyPI te zetten. Andere studenten gingen jullie al voor:
 
         1. Ga naar <a href="https://pypi.org/" target="_blank">pypi.org</a> en zoek naar het project *gammaspotter*.
@@ -1072,7 +1072,7 @@ AttributeError: 'str' object has no attribute 'upler'. Did you mean: 'upper'?</s
 
 Merk op dat je een exception met traceback meestal van onder naar boven leest. Onderaan staat de foutmelding (exception) en daar boven een _traceback_: een kruimelpad van wáár in de code het probleem optrad; onderaan de regel waarin het echt fout ging, en naar boven toe alle tussenliggende functies en bibliotheken met bovenaan het hoofdprogramma.
 
-!!! opdracht-basis "Exception"
+!!! opdracht-basis-thuis "Exception"
 
     ``` py title="number_input.py"
     number_input = input("Give a number: ")
