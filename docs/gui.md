@@ -977,9 +977,13 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
 
 !!! opdracht-inlever "Pythondaq: selecteer Arduino"
     === "opdracht"
-        Je opent de applicatie en ziet een keuzemenu (`#!py QComboBox`) waarmee je de Arduino kunt selecteren. Je selecteert de juiste Arduino, start een meting en ziet het LED lampje branden. Je sluit de applicatie af en bent benieuwd wat er gebeurt als je meerdere Arduino's aansluit. Dus vraag je een (of twee, of drie) Arduino('s) van je buren, sluit deze aan op je computer en start opnieuw de applicatie. Je ziet dat er meerdere apparaten in het keuzemenu staan. Je kiest een Arduino, start een meting en ziet een lampje branden. Daarna selecteer je een andere Arduino, start een meting en ziet een ander lampje branden, hoe leuk {{feesttoeter}}.
+         Pas de GUI aan zodat het mogelijk is om een device te selecteren.
+        </br></br>
+        De gebruiker test de GUI met de volgende handelingen. De gebruiker typte het commando in de terminal en er verschijnt een GUI met daarin een lege plot. De gebruiker ziet ook een keuzemenu (`#!py QComboBox`), de gebruiker klikt op het keuzemenu en ziet een lijstje van poorten verschijnen. De gebruiker selecteert de poort waarop de Arduino is aangesloten. De gebruiker start een meting en ziet het LEDje branden.
+        </br></br>
+        De gebruiker leent een (of twee, of drie) Arduino('s) bij de buren en sluit deze aan op de computer en start opnieuw de applicatie. Ditmaal ziet de gebruiker veel meer poorten in het keuzemenu staan. De gebruiker kiest een Arduino, start een meting en ziet een lampje branden. De gebruiker selecteert daarna een andere Arduino, start een meting en ziet een ander lampje branden, hoe leuk {{feesttoeter}}.
 
-        !!! info "Arduino afsluiten"
+        !!! meer-leren "Arduino afsluiten"
             Als je met meerdere Arduino's werkt kan het handig zijn om na afloop van de scan de communicatie met de Arduino weer te sluiten. In de [_opdracht Pyvisa in terminal_](communicatie.md#opd:pyvisaterminal) heb je al eens gewerkt met het commando `close`. Dit werkt ook voor pyvisa in een script. Je hebt in de controller de communicatie geopend met `#!py self.device = rm.open_resource(port, read_termination="\r\n", write_termination="\n")`, je kunt de communicatie met `self.device` in de controller sluiten met `self.device.close()`. Je kunt een method in de controller toevoegen die de communicatie sluit. Via het model kun je deze method aanroepen in de gui.
 
     === "code"
@@ -990,7 +994,6 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
         # method start scan
             # open communication with selected Arduino
             # start scan
-            # close communication with selected Arduino
         ```
     === "check"
         **Checkpunten:**
