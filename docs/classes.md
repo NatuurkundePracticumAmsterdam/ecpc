@@ -26,8 +26,7 @@ Stel we hebben de functie `#!py calculate_squares_up_to(max_number)`. Dan roep j
     ...
     ```
 
-
-Omdat de instance `master_oogway` alle methods bevat kunnen we deze methods aanroepen:
+De class `#!py Turtle` is een verzameling van functies waaronder `#!py forward()` en `#!py left()`. Zoals hierboven staat beschreven zijn deze functies als 'uitkomst' van de class meegegeven aan de instance `master_oogway`. We kunnen daarom de functies aanroepen met de instance `master_oogway`:
 ```py
 master_oogway = Turtle("turtle")
 
@@ -35,6 +34,8 @@ master_oogway.forward(50)
 master_oogway.left(30)
 master_oogway.forward(50)
 ```
+
+Hierin is `50` het aantal stappen en `30` de hoek in graden die de schildpad tegen de klok in draait. 
    
 !!! opdracht-basis-thuis "turtle"
     === "opdracht"
@@ -99,7 +100,7 @@ master_oogway.forward(50)
         ```py
         master_oogway = Turtle()
         ```
-        
+
 ## Aanmaken van een class
 Een class is een verzameling functies. Hieronder staat een versimpelde weergave van de class `Turtle`. Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van functies &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods)), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
 
