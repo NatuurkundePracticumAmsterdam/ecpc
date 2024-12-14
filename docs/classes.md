@@ -10,7 +10,7 @@ Het aanroepen van een class lijkt veel op het aanroepen van een functie:
 
 --8<-- "docs/assets/comparison/compare_function_class_instance.html"
 
-Stel we hebben de functie `#!py calculate_squares_up_to(max_number)`. Dan roep je die aan met `#!py result = calculate_squares_up_to(5)`. Hierbij is `calculate_squares_up_to(5)` de naam van de functie en `result` de variabele waar de uitkomst heen gaat. Bij het aanroepen van een class doe je iets soortgelijks. In de variabele `master_oogway` gaat de 'uitkomst' van de class, dat is in dit geval een collectie van functies (en variabelen). De variabele `master_oogway` noemen we een _instance_ van de class `Turtle`. Achter de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan class.
+Stel we hebben de functie `#!py calculate_squares_up_to(max_number)`. Dan roep je die aan met `#!py result = calculate_squares_up_to(5)`. Hierbij is `calculate_squares_up_to(5)` de naam van de functie en `result` de variabele waar de uitkomst heen gaat. Bij het aanroepen van een class doe je iets soortgelijks. In de variabele `master_oogway` gaat de 'uitkomst' van de class, dat is in dit geval een collectie van functies (en variabelen). De variabele `master_oogway` noemen we een _instance_ van de class `Turtle`. Achter de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan class, in dit geval `#!py "turtle"` hierdoor heeft de pen de vorm van een schildpad in plaats van een pijl.
 
 
 ???+ meer-leren "Meerdere instances"
