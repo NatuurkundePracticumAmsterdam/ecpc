@@ -81,6 +81,7 @@ Hierin is `50` het aantal stappen en `30` de hoek in graden die de schildpad teg
 
         - [x] turtle
         - [ ] fake-turtle
+        - [ ] dezelfde turtle
 
 ## Het maken van een class
 De class `Turtle` is behoorlijk complex en het gaat te ver om de class hier helemaal te gaan bespreken. Voor een goed begrip van classes gaan we daarom kijken naar een versimpelde weergave van de class `Turtle`.
@@ -192,6 +193,7 @@ Het aanmaken van een class lijkt in een aantal opzichten op het aanmaken van een
 
         - [x] turtle
         - [x] fake-turtle
+        - [ ] dezelfde turtle
 
 ## De speciale parameter `#!py self`
 Een class method is vrijwel gelijk aan een normale functie, behalve dat een class method als eerste de parameter `#!py self` verwacht. Aan deze parameter wordt de eigen instance van de class meegegeven wanneer je de method aanroept. 
@@ -227,6 +229,70 @@ class Turtle:
 ```
 
 Als we de method `#!py do_kungfu_move` aanroepen met `#!py master_oogway.do_kungfu_move()` geeft python automatisch de instance `#!py master_oogway` mee aan de method. De parameter `#!py self` is dus nu gelijk aan de instance `#!py master_oogway`, daarmee doet `#!py self.forward(130)` hetzelfde als `#!py master_oogway.forward(130)`. 
+
+!!! opdracht-basis-thuis "dezelfde turtle"
+    === "opdracht"
+        Het begrip `self` is een vaag begrip, maar we kunnen met print-statements zien wat `self` is. Voeg aan {{file}}`fake_turtle.py` de method `do_kungfu_move()` toe. En voeg aan de method ook een print-statement toe om de variabele `self` te printen `#!py print(f"{self=}")`. 
+        </br></br>
+        Gebruik de instance `master_oogway` om de method `do_kungfu_move` aan te roepen. De variabele `self` is, als het goed is, gelijk aan de instance `master_oogway`. Voeg daarom ook een print-statement toe om `master_oogway` te printen: `#!py print(f"{master_oogway=}")`.
+        </br></br>
+        Je hebt nu twee keer een object geprint, dat ziet er misschien wat gek uit, maar we kunnen er wel nuttige informatie uithalen. Aan het eind zie je getallen met letters staan, dat is het geheugenadres waar het object is opgeslagen. Als je het geheugenadres van `master_oogway` vergelijkt met die van `self` dan zie je dat die hetzelfde is. Dat betekent dat de objecten ook dezelfde objecten zijn, `self` is dus gelijk aan `master_oogway`!
+        </br></br>
+        `self` is de instance zelf, met andere woorden: als we een andere instance gebruiken veranderd `self` mee. Maak een tweede instance aan `toby`. Roep de method `do_kungfu_move` aan met `toby`. Je ziet dat het geheugenadres van `self` anders is dan de vorige `self`.
+    === "code"
+        **Pseudo-code**
+        ``` py
+        class Turtle:
+            def __init__(self, shape):
+                # transform turtle into shape
+                ...
+
+            def forward(self, distance):
+                # move turtle by distance
+                ...
+
+            def left(self, angle):
+                # turn turtle counterclockwise
+                # by angle in degrees
+                ...
+
+            def do_kungfu_move(self):
+                # Do kungfu move
+                self.forward(130)
+                self.left(350)
+                self.forward(60)
+                # print self
+                print(f"{self=}")
+        ```
+        **Testcode**
+        <div class="code-box"><button type="button" name="fake_turtle_self" onclick="runScript('fake_turtle_self')" class="run">{{ run }}</button><button type="button" name="fake_turtle_self" onclick="runScript('fake_turtle_self')" class="reload invisible">{{ reload }}</button> fake_turtle.py
+        ``` py
+        master_oogway = Turtle("turtle")
+        print(f"{master_oogway=}")
+        master_oogway.do_kungfu_move()
+
+        toby = Turtle("turlte")
+        toby.do_kungfu_move()
+        ```
+        <pre>
+        <code>(ecpc) > python fake_turtle.py
+        <span class="invisible" name="fake_turtle_self">master_oogway=<\__main__.Turtle object at 0x10530b890>
+        self=<\__main__.Turtle object at 0x10530b890>
+        self=<\__main__.Turtle object at 0x103377980></span>
+        </code></pre></div>
+        
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] het geugenadres van `master_oogway` is gelijk aan het geheugenadres van `self`.
+        - [ ] `master_oogway` is niet gelijk aan `self` als een method met een andere instance wordt aangeroepen.
+
+        **Projecttraject:**
+
+        - [x] turtle
+        - [x] fake-turtle
+        - [x] dezelfde turtle
 
 
 ### Instance attribute
