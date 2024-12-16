@@ -151,8 +151,11 @@ class UserInterface(QtWidgets.QMainWindow):
         central_widget = QtWidgets.QWidget()
         self.setCentralWidget(central_widget)
 
+        # geef de central widget een verticale layout
+        vbox = QtWidgets.QVBoxLayout()
+        central_widget.setLayout(vbox)
+
         # voeg geneste layouts en widgets toe
-        vbox = QtWidgets.QVBoxLayout(central_widget)
         self.textedit = QtWidgets.QTextEdit()
         vbox.addWidget(self.textedit)
         hbox = QtWidgets.QHBoxLayout()
@@ -268,11 +271,11 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
 
 !!! opdracht-basis-thuis "textbox toevoegen"
     === "opdracht"
-        Omdat je de textbox en de knoppen onder elkaar wilt uitlijnen voeg je een verticale layout toe. Door de `#!py central_widget` mee te geven tijdens het aanmaken van de verticale layout is de layout automatisch onderdeel van de central widget en zal deze in het venster verschijnen. Je maakt een textbox aan en voegt deze toe aan de verticale layout. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen, je typt een vrolijke tekst en sluit het venster. 
+        Omdat je de textbox en de knoppen onder elkaar wilt uitlijnen voeg je een verticale layout toe aan de `central_widget`. Je maakt een textbox aan en voegt deze toe aan de verticale layout. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen, je typt een vrolijke tekst en sluit het venster. 
 
     === "code"
         **Pseudo-code**
-        ``` py hl_lines="12 13"
+        ``` py hl_lines="11 12 13 14"
         import sys
 
         from PySide6 import QtWidgets
@@ -283,7 +286,8 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
                 # create central widget with QtWidgets.QWidget()
                 # set central widget
 
-                # create vertical layout as part of central widget
+                # create vertical layout
+                # set layout of central widget as vertical layout
                 # create textbox
                 # add textbox to vertical layout
 
@@ -299,9 +303,10 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
     === "check"
         **Checkpunten:**
 
-        - [ ] Bij het aanmaken van de verticale layout is de `#!py central_widget` als parameter meegegeven ([regel 18](#__codelineno-3-18)).
-        - [ ] Er is een tekstbox gemaakt ([regel 19](#__codelineno-3-19)).
-        - [ ] De tekstbox (`#!py QTextEdit`) is toegevoegd aan de verticale layout ([regel 20](#__codelineno-3-20)).
+        - [ ] Er is een verticale layout gemaakt ([regel 18](#__codelineno-3-18)).
+        - [ ] De `#!py central_widget` krijgt als layout een verticale layout ([regel 19](#__codelineno-3-19))
+        - [ ] Er is een tekstbox gemaakt ([regel 22](#__codelineno-3-22)).
+        - [ ] De tekstbox (`#!py QTextEdit`) is toegevoegd aan de verticale layout ([regel 23](#__codelineno-3-23)).
         - [ ] Er verschijnt een venster met textbox waar je in kan typen {{feesttoeter}}.
 
         **Projecttraject:**
@@ -323,7 +328,7 @@ De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we 
         [^knop-stuk]: Waarom doen de knoppen niets als je er op klikt?
     === "code"
         **Pseudo-code**
-        ``` py hl_lines="15-21"
+        ``` py hl_lines="16-22"
         import sys
 
         from PySide6 import QtWidgets
@@ -334,7 +339,8 @@ De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we 
                 # create central widget with QtWidgets.QWidget()
                 # set central widget
 
-                # create vertical layout as part of central widget
+                # create vertical layout
+                # set layout of central widget as vertical layout
                 # create textbox
                 # add textbox to vertical layout
 
@@ -358,10 +364,10 @@ De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we 
     === "check"
         **Checkpunten:**
     
-        - [ ] Er is een horizontale layout aangemaakt ([regel 21](#__codelineno-3-21)).
-        - [ ] De horizontale layout is toegevoegd aan de verticale layout ([regel 22](#__codelineno-3-22)).
-        - [ ] Er is een `clear_button` en `add_text_button` aan gemaakt met daarop de tekst "Clear" en "Add text" respectievelijk ([regels 24 en 26](#__codelineno-3-24)).
-        - [ ] De buttons zijn toegevoegd aan de horizontale layout ([regel 25 en 27](#__codelineno-3-25)).
+        - [ ] Er is een horizontale layout aangemaakt ([regel 24](#__codelineno-3-24)).
+        - [ ] De horizontale layout is toegevoegd aan de verticale layout ([regel 25](#__codelineno-3-25)).
+        - [ ] Er is een `clear_button` en `add_text_button` aan gemaakt met daarop de tekst "Clear" en "Add text" respectievelijk ([regels 27 en 29](#__codelineno-3-27)).
+        - [ ] De buttons zijn toegevoegd aan de horizontale layout ([regel 28 en 30](#__codelineno-3-28)).
         - [ ] Als je op de knoppen drukt gebeurt er niets.
 
         **Projecttraject**
@@ -377,7 +383,7 @@ De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we 
 !!! info
     Widgets zoals knoppen voeg je toe met `#!py addWidget()`. Layouts voeg je toe aan andere layouts met `#!py addLayout()`.
 
-De horizontale layout (voor de knoppen) moeten we expliciet toevoegen aan de verticale layout zodat hij netjes verticaal onder het tekstvenster verschijnt. Merk op dat de verticale layout `#!py vbox` _niet_ expliciet wordt toegevoegd (aan de centrale widget). De centrale widget (en _alleen_ de centrale widget) krijgt een layout door bij het aanmaken van de layout de parent `#!py central_widget` op te geven, dus: `#!py QtWidgets.QVBoxLayout(central_widget)`. Alle andere widgets en layouts worden expliciet toegevoegd en daarvoor hoef je dus geen parent op te geven.
+De horizontale layout (voor de knoppen) moeten we expliciet toevoegen aan de verticale layout zodat hij netjes verticaal onder het tekstvenster verschijnt. 
 
 Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wordt er een zogeheten _signal_ afgegeven. Die kun je verbinden met een _slot_. Er zijn ook verschillende soorten signalen. Het drukken op een knop zorgt voor een _clicked signal_, het veranderen van een getal in een keuzevenster geeft een _changed signal_. Wij verbinden één knop direct met een al bestaande method van het tekstvenster `#!py clear()` en de andere knop met een eigen method `#!py add_button_clicked()`. De naam is geheel vrij te kiezen, maar boven de functiedefinitie moet je wel de `#!py @Slot()`-decorator gebruiken (voor meer informatie over decorators zie [paragraaf Decorators](vervolg-python.md#decorators)). PySide kan dan net wat efficiënter werken.
    
@@ -386,10 +392,10 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
         Je gaat functionaliteit aan de knoppen verbinden. Je verbint de `clear_button` aan de `clear()` method van `textedit`. Je maakt een eigen `Slot` met de naam `add_text_button_clicked` die een tekst aan de textbox toegevoegd. Je vind de tekst "You clicked me." maar suf en bedenkt zelf een andere leuke tekst. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen met daaronder twee knoppen. Je drukt op "Add text" en er verschijnt tekst in de textbox, daarna druk je op "Clear" en de tekst verdwijnt.
 
         !!! info "() ontbreken bij `clear` en `add_text_button_clicked`"
-            Bij het verbinden van het `#!py clicked`-signaal met `#!py clicked.connect()` geef je aan connect de methods `clear` en `add_text_button_clicked` mee _zonder_ deze aan te roepen (dat gebeurt later). Concreet betekent dit dat je de haakjes weglaat ([regel 30 en 31](#__codelineno-3-30)).
+            Bij het verbinden van het `#!py clicked`-signaal met `#!py clicked.connect()` geef je aan connect de methods `clear` en `add_text_button_clicked` mee _zonder_ deze aan te roepen (dat gebeurt later). Concreet betekent dit dat je de haakjes weglaat ([regel 33 en 34](#__codelineno-3-33)).
     === "code"
         **Pseudo-code**
-        ``` py hl_lines="23 24 26 27 28"
+        ``` py hl_lines="26 27 29 30 31"
         import sys
 
         from PySide6.QtCore import Slot
@@ -402,7 +408,8 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
                 # create central widget with QtWidgets.QWidget()
                 # set central widget
 
-                # create vertical layout as part of central widget
+                # create vertical layout
+                # set layout of central widget as vertical layout
                 # create textbox
                 # add textbox to vertical layout
 
@@ -433,11 +440,11 @@ Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wor
     === "check"
         **Checkpunten:**
         
-        - [ ] Het `clicked` signaal van `clear_button` is met `connect` verbonden met de `clear()`method van `textedit` ([regel 30](#__codelineno-3-30)). 
-        - [ ] Het clicked signaal van `add_text_button` is met `connect` verbonden met een eigen method `add_text_button_clicked` ([regel 31](#__codelineno-3-31)). 
-        - [ ] De method `add_text_button_clicked` is voorzien van een decorator `@Slot()` met Slot met een hoofdletter en ronde haakjes erachter omdat Slot een functie is ([regel 33](#__codelineno-3-33)).
+        - [ ] Het `clicked` signaal van `clear_button` is met `connect` verbonden met de `clear()`method van `textedit` ([regel 33](#__codelineno-3-33)). 
+        - [ ] Het clicked signaal van `add_text_button` is met `connect` verbonden met een eigen method `add_text_button_clicked` ([regel 34](#__codelineno-3-34)). 
+        - [ ] De method `add_text_button_clicked` is voorzien van een decorator `@Slot()` met Slot met een hoofdletter en ronde haakjes erachter omdat Slot een functie is ([regel 36](#__codelineno-3-36)).
         - [ ] De `Slot` functie is geïmporteerd vanuit de `#!py PySide6.QtCore`.
-        - [ ] De method `add_text_button_clicked` voegt met `append` een tekst toe aan `textedit` ([regel 35](#__codelineno-3-35)). 
+        - [ ] De method `add_text_button_clicked` voegt met `append` een tekst toe aan `textedit` ([regel 38](#__codelineno-3-38)). 
         - [ ] Druk op de knop "Add text" zorgt voor het verschijnen van tekst in de textbox.
         - [ ] Druk op de knop "Clear" zorgt ervoor dat alle tekst in de textbox verdwijnt.
 
@@ -1058,7 +1065,8 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
                 central_widget = QtWidgets.QWidget()
                 self.setCentralWidget(central_widget)
 
-                vbox = QtWidgets.QVBoxLayout(central_widget)
+                vbox = QtWidgets.QVBoxLayout()
+                central_widget.setLayout(vbox)
                 self.plot_widget = pg.PlotWidget()
                 vbox.addWidget(self.plot_widget)
                 start_button = QtWidgets.QPushButton("Start")
