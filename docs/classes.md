@@ -80,9 +80,12 @@ Hierin is `50` het aantal stappen en `30` de hoek in graden die de schildpad teg
         **Projecttraject:**
 
         - [x] turtle
+        - [ ] fake-turtle
 
 ## Het maken van een class
-Een class is een verzameling functies. Hieronder staat een versimpelde weergave van de class `Turtle`. Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van functies &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods)), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
+De class `Turtle` is behoorlijk complex en het gaat te ver om de class hier helemaal te gaan bespreken. Voor een goed begrip van classes gaan we daarom kijken naar een versimpelde weergave van de class `Turtle`.
+
+Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van functies &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods)), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
 
 [^ClassTitle]: Wanneer je de Google Style Guide[@google_style_guide] volgt schrijf je de naam van de class in CapWords of CamelCase. 
 
@@ -100,6 +103,10 @@ class Turtle:
 ```
 
 De eerste parameter van de `#!py __init__()`-method en van alle andere methods, is `#!py self`, daarna komen &mdash;indien nodig&mdash; andere parameters die in de method nodig zijn. Later meer over [de speciale parameter self](classes.md#de-speciale-parameter-self).
+
+Het aanmaken van een class lijkt in een aantal opzichten op het aanmaken van een functie:
+
+--8<-- "docs/assets/comparison/compare_function_class.html"
 
 !!! opdracht-basis-thuis "`#!py __init__(self)`"
     Achter de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan de  `#!py __init__()`-method (`#!py self` niet meegerekend), de parameter `#!py shape` krijgt dus de variabele `#!py "turtle"` toegewezen.
@@ -121,6 +128,70 @@ De eerste parameter van de `#!py __init__()`-method en van alle andere methods, 
         ```py
         master_oogway = Turtle()
         ```
+
+!!! opdracht-basis-thuis "fake-turtle"
+    === "opdracht"
+
+        <div class="grid-tree" markdown>
+            <div>
+            Laten we de versimpelde weergave van de `Turtle` class gebruiken om een werkende class te maken die weliswaar geen schildpad laat lopen maar wel tekst print!
+            </br></br>
+            Maak een bestand {{new_file}} `fake-turtle.py` waarin je zelf een class `Turtle` maakt. Wanneer de methods `forward` en `left` worden aangeroepen print je een tekst die aangeeft hoeveel stappen de turtle zet of hoeveel graden het draait.
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{tab}} {{T}} {{new_file}} `fake_turtle.py`  
+            {{tab}} {{T}} {{file}} `Feynman.py`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{github}} `pythondaq`  
+            {{tab}} {{L}} {{dots}}  
+            </div>
+        </div>
+    === "code"
+        **Pseudo-code**
+        ``` py
+        class Turtle:
+            def __init__(self, shape):
+                # print the shape of the turtle
+
+            def forward(self, distance):
+                # print the distance that the turtle moves
+
+            def left(self, angle):
+                # print the angle that the turtle turns counterclockwise
+        ```
+        **Testcode**
+        <div class="code-box"><button type="button" name="fake_turtle" onclick="runScript('fake_turtle')" class="run">{{ run }}</button><button type="button" name="fake_turtle" onclick="runScript('fake_turtle')" class="reload invisible">{{ reload }}</button> fake_turtle.py
+        ``` py
+        master_oogway = Turtle("turtle")
+
+        master_oogway.forward(50)
+        master_oogway.left(30)
+        master_oogway.forward(50)
+        ```
+        <pre>
+        <code>(ecpc) > python fake_turtle.py
+        <span class="invisible" name="fake_turtle">transform shape to... turtle
+        move with 50 steps
+        turn turtle counterclockwise by 30 degrees
+        move with 50 steps</span>
+        </code></pre></div>
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Wanneer je een instance aanmaakt van de class `Turtle` moet je een parameter meegeven.
+        - [ ] Wanneer je een instance aanmaakt van de class wordt in de terminal geprint welke vorm de turtle heeft.
+        - [ ] Wanneer de method `#!py forward()` wordt aangeroepen moet je een parameter meegeven.
+        - [ ] Wanneer je de method `#!py forward()` aanroept wordt in de terminal geprint hoeveel stappen de turtle zet.
+        - [ ] Wanneer de method `#!py left()` wordt aangeroepen moet je een parameter meegeven.
+        - [ ] Wanneer je de method `#!py left()` aanroept wordt in de terminal geprint hoeveel graden de turtle draait.
+
+        **Projecttraject:**
+
+        - [x] turtle
+        - [x] fake-turtle
 
 ## De speciale parameter `#!py self`
 Een class method is vrijwel gelijk aan een normale functie, behalve dat een class method als eerste de parameter `#!py self` verwacht. Aan deze parameter wordt de eigen instance van de class meegegeven wanneer je de method aanroept. 
