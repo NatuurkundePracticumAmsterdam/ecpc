@@ -10,7 +10,9 @@ Het aanroepen van een class lijkt veel op het aanroepen van een functie:
 
 --8<-- "docs/assets/comparison/compare_function_class_instance.html"
 
-Stel we hebben de functie `#!py calculate_squares_up_to(max_number)`. Dan roep je die aan met `#!py result = calculate_squares_up_to(5)`. Hierbij is `calculate_squares_up_to(5)` de naam van de functie en `result` de variabele waar de uitkomst heen gaat. Bij het aanroepen van een class doe je iets soortgelijks. In de variabele `master_oogway` gaat de 'uitkomst' van de class, dat is in dit geval een collectie van functies (en variabelen). De variabele `master_oogway` noemen we een _instance_ van de class `Turtle`. Achter de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan class, in dit geval `#!py "turtle"` hierdoor heeft de pen de vorm van een schildpad in plaats van een pijl.
+Stel we hebben de functie `#!py def calculate_squares_up_to(max_number):`. Dan roep je die aan met `#!py result = calculate_squares_up_to(5)`. Hierbij is `calculate_squares_up_to` de naam van de functie en `result` de variabele waar de uitkomst heen gaat. Achter de naam van de functie: `calculate_squares_up_to`, komen tussen ronde haakjes de variabelen die worden meegegeven aan de functie, in dit geval `#!py 5` hierdoor wordt het kwadraat to het getal 5 uitgerekend.
+<br/>
+Bij het aanroepen van een class doe je iets soortgelijks. In de variabele `master_oogway` gaat de 'uitkomst' van de class, dat is in dit geval een collectie van functies (en variabelen). De variabele `master_oogway` noemen we een _instance_ van de class `Turtle`. Achter de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan class, in dit geval `#!py "turtle"` hierdoor heeft de pen de vorm van een schildpad in plaats van een pijl.
 
 
 ???+ meer-leren "Meerdere instances"
@@ -42,12 +44,12 @@ Hierin is `50` het aantal stappen en `30` de hoek in graden die de schildpad teg
 
         <div class="grid-tree" markdown>
             <div>
-            Je bent inmiddels nieuwsgierig geworden naar de schildpad. De class `#!py Turtle` zit standaard in Python, daarom kan je die importeren met `#!py from turtle import Turtle`. Maak een bestand {{new_file}} `turtles.py` waarin je een schildpad met de instancenaam `master_oogway` laat lopen en draaien.
+            Je bent inmiddels nieuwsgierig geworden naar de schildpad. De class `#!py Turtle` zit standaard in Python, daarom kan je die importeren met `#!py from turtle import Turtle`. Maak een bestand {{new_file}} `Feynman.py` waarin je met een schildpad met de instancenaam `master_oogway` een Feynman diagram tekent.
             </div>
             <div>
             {{folder}} `ECPC`  
             {{T}} {{github}} `oefenopdrachten`  
-            {{tab}} {{T}} {{new_file}} `turtles.py`  
+            {{tab}} {{T}} {{new_file}} `Feynman.py`  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{github}} `pythondaq`  
             {{tab}} {{L}} {{dots}}  
@@ -64,11 +66,10 @@ Hierin is `50` het aantal stappen en `30` de hoek in graden die de schildpad teg
         # create instance of class Turtle
         master_oogway = Turtle("turtle")
 
-        # move turtle forward with 50 steps
-        ...
-        # turn turtle left with 30 degrees
-        ...
+        # use forward() and left() to create a Feynman diagram
         ```
+        **Voorbeeld uitkomst**  
+        ![screenshot Feynman diagram turtle](figures/feynman.svg)
     === "check"
         **Checkpunten:**
 
@@ -79,6 +80,26 @@ Hierin is `50` het aantal stappen en `30` de hoek in graden die de schildpad teg
         **Projecttraject:**
 
         - [x] turtle
+
+## Het maken van een class
+Een class is een verzameling functies. Hieronder staat een versimpelde weergave van de class `Turtle`. Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van functies &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods)), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
+
+[^ClassTitle]: Wanneer je de Google Style Guide[@google_style_guide] volgt schrijf je de naam van de class in CapWords of CamelCase. 
+
+``` py
+class Turtle:
+    def __init__(self, shape):
+        # transform turtle into shape
+
+    def forward(self, distance):
+        # move turtle by distance
+
+    def left(self, angle):
+        # turn turtle counterclockwise
+        # by angle in degrees
+```
+
+De eerste parameter van de `#!py __init__()`-method en van alle andere methods, is `#!py self`, daarna komen &mdash;indien nodig&mdash; andere parameters die in de method nodig zijn. Later meer over [de speciale parameter self](classes.md#de-speciale-parameter-self).
 
 !!! opdracht-basis-thuis "`#!py __init__(self)`"
     Achter de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan de  `#!py __init__()`-method (`#!py self` niet meegerekend), de parameter `#!py shape` krijgt dus de variabele `#!py "turtle"` toegewezen.
@@ -100,27 +121,6 @@ Hierin is `50` het aantal stappen en `30` de hoek in graden die de schildpad teg
         ```py
         master_oogway = Turtle()
         ```
-
-## Aanmaken van een class
-Een class is een verzameling functies. Hieronder staat een versimpelde weergave van de class `Turtle`. Een class maak je aan met de regel `#!py class Turtle:` [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van functies &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is speciaal (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods)), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
-
-[^ClassTitle]: Wanneer je de Google Style Guide[@google_style_guide] volgt schrijf je de naam van de class in CapWords of CamelCase. 
-
-``` py
-class Turtle:
-    def __init__(self, shape):
-        # transform turtle into shape
-
-    def forward(self, distance):
-        # move turtle by distance
-
-    def left(self, angle):
-        # turn turtle counterclockwise
-        # by angle in degrees
-```
-
-De eerste parameter van de `#!py __init__()`-method en van alle andere methods, is `#!py self`, daarna komen &mdash;indien nodig&mdash; andere parameters die in de method nodig zijn. Later meer over [de speciale parameter self](classes.md#de-speciale-parameter-self). eerst gaan we kijken hoe je een class gebruikt. 
-
 
 ## De speciale parameter `#!py self`
 Een class method is vrijwel gelijk aan een normale functie, behalve dat een class method als eerste de parameter `#!py self` verwacht. Aan deze parameter wordt de eigen instance van de class meegegeven wanneer je de method aanroept. 
