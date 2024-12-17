@@ -5,7 +5,7 @@
 Als je een grafische applicatie schrijft roep je functies aan van het besturingssysteem om vensters, knoppen, menu's e.d. te laten tekenen en te reageren op muisklikken en het toetsenbord. Het lastige daaraan is dat een applicatie voor MacOS heel anders geschreven moet worden dan één voor Linux of Windows. Om die reden zijn er verschillende _cross-platform_ bibliotheken ontwikkeld die als het ware tussen het besturingssysteem en je applicatie komen te staan. Je kunt dezelfde applicatie maken voor alle besturingssystemen en de bibliotheek kiest welke functies aangeroepen moeten worden om een venster te tekenen. Het voordeel is duidelijk: je hoeft maar één applicatie te schrijven die overal werkt. Het nadeel is dat je niet écht gebruik kunt maken van alle functies en opties die het besturingssysteem biedt. Hier kiezen we voor de voordelen en gaan we gebruik maken van misschien wel de meest populaire optie: Qt.[^uitspraak-Qt] De bibliotheek `PySide6` is de officiële Pythonbibliotheek.
 
 [^uitspraak-Qt]: Uitspraak: het Engelse _cute_.
-
+<div id="info:test-qt"></div>
 !!! info
     Maak voor de oefeningen een nieuw conda environment `test-qt` met:
     ``` ps1 title="Terminal"
@@ -506,8 +506,7 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 !!! opdracht-basis "Designer opstarten"
     <iframe src="https://drive.google.com/file/d/16MJDQXXHG0KjVa3AIXC_pP__7zI73vXL/preview" width="620" height="349" style="border:none;"></iframe>
 
-    !!! info 
-        Qt Designer wordt geïnstalleerd met het `qt` package, dat standaard aanwezig is in Anaconda én geïnstalleerd wordt als je `PySide6` installeert. Je start hem het makkelijkst op vanuit een terminal. Activeer je `test-qt` conda environment als dat nog nodig is en type `pyside6-designer`.
+    Activeer het conda environment `test-qt` die je [eerder hebt aangemaakt](#info:test-qt) {{lightbulb}}. Type het commando `pyside6-designer` om de applicatie Designer te openen. Kies bij **templates/forms** voor `#!py MainWindow` en klik op **Create**. Controlleer dat bij jou in de `object inspector` dezelfde widgets staan als in het filmpje hierboven.
 
 !!! opdracht-basis "De GUI ontwerpen in Designer"
     Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Laten we eerst kijken hoe we widgets toevoegen en positioneren in Designer:
@@ -551,14 +550,7 @@ Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog ma
 
 !!! opdracht-basis "Designer gebruiken"
 
-    1. Open Designer en kies bij **templates/forms** voor `#!py MainWindow`. Klik dan op **Create**. Ontwerp de user interface van [het screenshot](#fig:screenshot-ui-prog) en gebruik dezelfde namen voor de widgets als het voorbeeld. Dus een `#!py add_button` knop, een `#!py clear_button` knop en een `#!py textedit` tekstveld. Het is niet erg als je venster niet dezelfde grootte heeft. Qt Designer kiest een andere standaardafmeting.
-    1. Bewaar het bestand als {{file_lines}}`simple_app.ui`.  
-    {{folder}} `ECPC`  
-    {{T}} {{github}} `oefenopdrachten`  
-    {{tab}} {{T}} {{new_file_lines}} `simple_app.ui`  
-    {{tab}} {{T}} {{file}} `example-gui.py`  
-    {{tab}} {{L}} {{dots}}  
-    {{L}} {{dots}}  
+    
     1. In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan[^overleg-navigeren] en type in:
             ``` ps1 title="Terminal"
             pyside6-uic simple_app.ui --output ui_simple_app.py  
