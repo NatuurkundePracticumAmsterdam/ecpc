@@ -503,75 +503,264 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 !!! info
     Druk in de video's op het vierkant rechtsboven om ze in volledig scherm te bekijken.
 
-!!! opdracht-basis "Designer opstarten"
-    <iframe src="https://drive.google.com/file/d/16MJDQXXHG0KjVa3AIXC_pP__7zI73vXL/preview" width="620" height="349" style="border:none;"></iframe>
 
-    - [ ] Activeer het conda environment `test-qt` die je [eerder hebt aangemaakt](#info:test-qt) {{lightbulb}}. Type het commando `pyside6-designer` om de applicatie Designer te openen. Kies bij **templates/forms** voor `#!py MainWindow` en klik op **Create**. Controlleer dat bij jou in de `object inspector` dezelfde widgets staan als in het filmpje hierboven.
+!!! opdracht-basis "Designer: opstarten"
+    === "opdracht"
+        <iframe src="https://drive.google.com/file/d/16MJDQXXHG0KjVa3AIXC_pP__7zI73vXL/preview" width="620" height="349" style="border:none;"></iframe>
 
-!!! opdracht-basis "De GUI ontwerpen in Designer"
-    Laten we kijken hoe we widgets toevoegen en positioneren in Designer:
+        Bekijk de bovenstaande video. Activeer het conda environment `test-qt` die je [eerder hebt aangemaakt](#info:test-qt) {{lightbulb}} en start designer op. Open een template voor een `#!py MainWindow` en ontrolleer dat bij jou in de `object inspector` dezelfde widgets staan als in het filmpje hierboven.
+    === "code"
+        **Test-code**
+        <pre><code>(test-qt) > pyside6-designer <button type="button" name="pyside6-designer_start" onclick="runScript('pyside6-designer_start')">{{ enter }}</button><button type="button" name="pyside6-designer_start" onclick="runScript('pyside6-designer_start')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="pyside6-designer_start">start Designer app</span>
+        </code></pre>
+        
+    === "check"
+        **Checkpunten:**
+        
+        - [ ] De MainWindow bevat een centralwidget, menubar en statusbar.
 
-    <iframe src="https://drive.google.com/file/d/1cEzuZU069ArgAc9rmMuRA1hBz2HwJ87Z/preview" width="620" height="349" style="border:none;"></iframe>
-
-    - [ ] Voeg zelf ook een `TextEdit` toe geef de `central widget` een verticale layout. Voeg _onder_ de `TextEdit` een horizontale layout toe.
+        **Projecttraject**
     
-    In het volgende filmpje kun je zien hoe je gemakkelijk een widget aan de horizontale layout toevoegd en hoe je de eigenschappen van de widgets aanpast.
+        - [x] Designer: opstarten
+        - [ ] Designer: layout toevoegen aan centralwidget
+        - [ ] Designer: eigenschappen widgets aanpassen
+        - [ ] Designer: De .ui vertalen naar .py
+        - [ ] Designer: ontwerp importeren
+        - [ ] Designer: slots en signals toevoegen
 
-    <iframe src="https://drive.google.com/file/d/1u57a2wILXmXewVYjCDTSqxG6dD2B42vl/preview" width="620" height="349" style="border:none;"></iframe>
+Laten we kijken hoe we widgets toevoegen en de centralwidget een layout geven in Designer:
 
-    - [ ] Voeg een `PushButton` en een `SpinBox` toe aan de horizontale layout. Pas de tekst op de `PushButton` aan en zorg dat de `SpinBox` alleen waardes tussen 0 en 20 laat zien. Pas de `objectName` aan van de `TextEdit` naar `textedit`, van `PushButton` naar `add_value_button` en van `SpinBox` naar `value`. 
+!!! opdracht-basis "Designer: layout toevoegen aan centralwidget"
+    === "opdracht"
+        <iframe src="https://drive.google.com/file/d/1cEzuZU069ArgAc9rmMuRA1hBz2HwJ87Z/preview" width="620" height="349" style="border:none;"></iframe>
 
-!!! opdracht-basis "De GUI vertalen naar Python"
-    Je bewaart dat als een `.ui`-bestand. Vervolgens vertaal je het `.ui`-bestand naar een Pythonbestand dat je importeert in je eigen programma:
+        Bekijk de bovenstaande video. Voeg zelf ook een `TextEdit` toe geef de `central widget` een verticale layout. Voeg _onder_ de `TextEdit` een horizontale layout toe.
+    === "check"
+        **Checkpunten:**
+        
+        - [ ] In de object inspector heeft de `centralwidget` _geen_ rood rondje in het icoon ervoor staan.
+        - [ ] Er is een `TextEdit` en een horizontale layout aan de `centralwidget` toegevoegd.
+        - [ ] In het ontwerp staat de horizontale layout _onder_ de `TextEdit`.
 
-    <iframe src="https://drive.google.com/file/d/1cMTtI9-mgCRjYCvZYSsZ9lsZfU5KpOE2/preview" width="620" height="349" style="border:none;"></iframe>
-
-    !!! info
-        In het filmpje wordt verwezen naar de Compacte Pyside6 Documentatie. Zie het [overzicht hieronder](#compacte-pyside6-documentatie).
-
-De volledige class van het [vorige voorbeeld](#code:layout) kan dan vervangen worden door:
-<div id="code:designer"></div>
-
-``` py
-from ui_simple_app import Ui_MainWindow
-
-
-class UserInterface(QtWidgets.QMainWindow):
-    def __init__(self):
-        super().__init__()
-
-        self.ui = Ui_MainWindow()
-        self.ui.setupUi(self)
-
-        self.ui.clear_button.clicked.connect(self.ui.textedit.clear)
-        self.ui.add_button.clicked.connect(self.add_button_clicked)
-
-    @Slot()
-    def add_button_clicked(self):
-        self.ui.textedit.append("You clicked me.")
-```
-Waarbij de gebruikersinterface geladen wordt uit het bestand en we alleen nog maar de signals aan de slots hoeven te koppelen. In deze code definiëren we niet `#!py self.ui.clear_button` of `#!py self.ui.add_button`; die namen geven we aan de knoppen die we maken in Designer. De namen van alle objecten in Designer zijn daarna beschikbaar in onze code om bijvoorbeeld de signalen te koppelen. Merk op dat we nu niet meer `#!py self.clear_button` gebruiken maar `#!py self.ui.clear_button`. Alle widgets komen op deze manier onder een `#!py .ui`-object te hangen.
-
-!!! opdracht-basis "Designer gebruiken"
-
+        **Projecttraject**
     
-    1. In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin je je script uit de vorige opdracht hebt staan[^overleg-navigeren] en type in:
-            ``` ps1 title="Terminal"
-            pyside6-uic simple_app.ui --output ui_simple_app.py  
-            ```
-            Deze stap moet je doen elke keer als je in Designer iets wijzigt. Gebruik de ++up++-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met Poetry, zullen we dit eenvoudiger maken.  
-    {{folder}} `ECPC`  
-    {{T}} {{github}} `oefenopdrachten`  
-    {{tab}} {{T}} {{file_lines}} `simple_app.ui`  
-    {{tab}} {{T}} {{new_file}} `simple_app.py`  
-    {{tab}} {{T}} {{file}} `example-gui.py`  
-    {{tab}} {{L}} {{dots}}  
-    {{L}} {{dots}} 
-    1. Copy/paste nu de [voorbeeldcode](#code:designer) in een nieuw script, fix eventuele importerrors en test de applicatie.
+        - [x] Designer: opstarten
+        - [x] Designer: layout toevoegen aan centralwidget
+        - [ ] Designer: eigenschappen widgets aanpassen
+        - [ ] Designer: De .ui vertalen naar .py
+        - [ ] Designer: ontwerp importeren
+        - [ ] Designer: slots en signals toevoegen
 
-[^overleg-navigeren]: Overleg met elkaar of met de assistent als je niet weet hoe dat moet.
+In het volgende filmpje kun je zien hoe je gemakkelijk een widget aan de horizontale layout toevoegd en hoe je de eigenschappen van de widgets aanpast.
 
-<div id="info:widgets"></div>
+!!! opdracht-basis "Designer: eigenschappen widgets aanpassen"
+    === "opdracht"
+        <iframe src="https://drive.google.com/file/d/1u57a2wILXmXewVYjCDTSqxG6dD2B42vl/preview" width="620" height="349" style="border:none;"></iframe>
+
+        Bekijk de bovenstaande video. Voeg zelf ook een `PushButton` en een `SpinBox` toe aan de horizontale layout. Pas de tekst op de `PushButton` aan naar `add value`. Zorg dat de `SpinBox` alleen waardes tussen 0 en 20 laat zien. Pas de `objectName` aan van de `TextEdit` naar `textedit`, van `PushButton` naar `add_value_button` en van `SpinBox` naar `value`. 
+    === "check"
+        **Checkpunten:**
+        
+        - [ ] In het ontwerp staan de PushButton en de SpinBox _onder_ het tekstveld en _naast_ elkaar.
+        - [ ] Op de `PushButton` staat de tekst `add value`.
+        - [ ] De minimale waarde van de SpinBox staat ingesteld op 1, de maximale waarde op 19.
+        - [ ] De `objectName` van de `TextEdit` is `textedit`, met kleine letters.
+        - [ ] De `objectName` van de `PushButton` is `add_value_button`.
+        - [ ] De `objectName` van de `SpinBox` is `value`.
+
+
+        **Projecttraject**
+    
+        - [x] Designer: opstarten
+        - [x] Designer: layout toevoegen aan centralwidget
+        - [x] Designer: eigenschappen widgets aanpassen
+        - [ ] Designer: De .ui vertalen naar .py
+        - [ ] Designer: ontwerp importeren
+        - [ ] Designer: slots en signals toevoegen
+
+Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar een Pythonbestand met een class die je importeert in je eigen programma.
+
+!!! opdracht-basis "Designer: De .ui vertalen naar .py"
+    === "opdracht"
+        <iframe src="https://drive.google.com/file/d/1cMTtI9-mgCRjYCvZYSsZ9lsZfU5KpOE2/preview" width="620" height="349" style="border:none;"></iframe>
+        <div class="grid-tree" markdown>
+            <div>
+            Bekijk de bovenstaande video. Sla het ontwerp op als {{new_file_lines}}`simple_app.ui`. In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin {{file_lines}}`simple_app.ui` staat.[^overleg-navigeren] Gebruik de optie `--output` van `pyside6-uic` om het bestand {{file_lines}}`simple_app.ui` om te zetten naar het bestand {{file_lines}}`ui_simple_app.py`.
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{tab}} {{T}} {{file}} `example-gui.py`  
+            {{tab}} {{T}} {{new_file_lines}} `simple_app.ui`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{dots}} 
+            </div>
+        </div>
+        !!! info "Wijzigingen in het ontwerp"
+            Het omzetten van het .ui-bestand naar een .py bestand moet je doen elke keer als je in Designer iets wijzigt (en opslaat). Gebruik de ++up++-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met Poetry, zullen we dit eenvoudiger maken.
+        [^overleg-navigeren]: Overleg met elkaar of met de assistent als je niet weet hoe dat moet.
+    === "code"
+        **Test-code**
+        <pre><code>(ecpc) > pyside6-uic simple_app.ui --output ui_simple_app.py <button type="button" name="pyside6-uic simple_app.ui --output ui_simple_app.py" onclick="runScript('pyside6-uic simple_app.ui --output ui_simple_app.py')">{{ enter }}</button><button type="button" name="pyside6-uic simple_app.ui --output ui_simple_app.py" onclick="runScript('pyside6-uic simple_app.ui --output ui_simple_app.py')" class="invisible">{{ reload }}</button>
+        </code><span class="invisible" name="pyside6-uic simple_app.ui --output ui_simple_app.py">
+        {{folder}} `ECPC`
+        {{T}} {{github}} `oefenopdrachten`
+        &nbsp;&nbsp;&nbsp; {{T}} {{file}} `example-gui.py`
+        &nbsp;&nbsp;&nbsp; {{T}} {{file_lines}} `simple_app.ui`
+        &nbsp;&nbsp;&nbsp; {{T}} {{new_file}} `ui_simple_app.py`
+        &nbsp;&nbsp;&nbsp; {{L}} {{dots}}
+        {{L}} {{dots}}
+        </span>
+        </pre>
+    === "check"
+        **Checkpunten:**
+        
+        - [ ] Er is een bestand {{file}}`ui_simple_app.py` bijgekomen.
+        - [ ] In het bestand {{file}}`ui_simple_app.py` staat een class `#!py Ui_MainWindow`
+
+        **Projecttraject**
+    
+        - [x] Designer: opstarten
+        - [x] Designer: layout toevoegen aan centralwidget
+        - [x] Designer: eigenschappen widgets aanpassen
+        - [x] Designer: De .ui vertalen naar .py
+        - [ ] Designer: ontwerp importeren
+        - [ ] Designer: slots en signals toevoegen
+
+!!! opdracht-basis "Designer: ontwerp importeren"
+    === "opdracht"
+        Maak een nieuw pythonbestand {{new_file}}`example-gui-designer.py`, kopieer de code van het [vorige voorbeeld](#code:layout) en vervang de volledige class door:
+
+        <div id="code:designer"></div>
+
+        ``` py hl_lines="1"
+        from ui_simple_app import Ui_MainWindow
+
+
+        class UserInterface(QtWidgets.QMainWindow):
+            def __init__(self):
+                super().__init__()
+
+                self.ui = Ui_MainWindow()
+                self.ui.setupUi(self)
+
+                self.ui.add_value_button.clicked.connect(self.add_button_clicked)
+
+            @Slot()
+            def add_button_clicked(self):
+                self.ui.textedit.append("You clicked me.")
+        ```
+        In deze code definiëren we niet `#!py self.ui.add_value_button`; die naam hebben we in Designer aan de knop gegeven. De namen van alle objecten in Designer zijn daarna beschikbaar in onze code om bijvoorbeeld de signalen te koppelen.
+
+        !!! info "self.add_value_button wordt self.ui.add_value_button"
+            Merk op dat we nu niet meer `#!py self.add_value_button` gebruiken maar `#!py self.ui.add_value_button`. Alle widgets komen op deze manier onder een `#!py .ui`-object te hangen.
+
+    === "code"
+        **Pseudo-code**
+        ``` py hl_lines="7 13 14 16 18-20"
+        import sys
+
+        from PySide6.QtCore import Slot
+
+        from PySide6 import QtWidgets
+
+        from ui_simple_app import Ui_MainWindow
+
+        # create subclass of QtWidgets.QMainWindow
+            # def __init__()
+                # initialise the parent class Qtwidgets.QMainWindow
+
+                # create an instance of the class Ui_MainWindow
+                # Setup the UI with the method setupUi(self) from the class Ui_MainWindow
+
+                # connect add_value_button to add_button_clicked
+
+            # decorate method with Slot function
+            # def add_button_clicked
+                # add text to textedit
+
+        def main():
+            # create instance of QtWidgets.QApplication with arguments from sys.argv
+            # create instance of subclass
+            # call show method of subclass
+            # get exit code with exec method of QApplication instance and give exit code to sys.exit()
+
+        # when run this script:
+            # run main function  
+        ```
+    === "check"
+        **Checkpunten:**
+        
+        - [ ] De class `#!py Ui_MainWindow` wordt geimporteerd uit {{file}}`ui_simple_app.py`
+        - [ ] De widgets worden aangeroepen met `#!py self.ui` ervoor.
+
+        **Projecttraject**
+    
+        - [x] Designer: opstarten
+        - [x] Designer: layout toevoegen aan centralwidget
+        - [x] Designer: eigenschappen widgets aanpassen
+        - [x] Designer: De .ui vertalen naar .py
+        - [x] Designer: ontwerp importeren
+        - [ ] Designer: slots en signals toevoegen
+
+!!! opdracht-basis "Designer: slots en signals toevoegen"
+    === "opdracht"
+        Pas de code aan zodat de waarde van de SpinBox aan de textedit wordt toegevoegd in plaats van de tekst "You clicked me." Voeg daarna in Designer een knop `Quit` toe onder de SpinBox en de PushButton. Zorg dat het venster sluit wanneer je op de knop `Quit` drukt.
+
+    === "code"
+        **Pseudo-code**
+        ``` py hl_lines="17 21"
+        import sys
+
+        from PySide6.QtCore import Slot
+
+        from PySide6 import QtWidgets
+
+        from ui_simple_app import Ui_MainWindow
+
+        # create subclass of QtWidgets.QMainWindow
+            # def __init__()
+                # initialise the parent class Qtwidgets.QMainWindow
+
+                # create an instance of the class Ui_MainWindow
+                # Setup the UI with the method setupUi(self) from the class Ui_MainWindow
+
+                # connect add_value_button to add_button_clicked
+                # connect Quit button to self.close()
+
+            # decorate method with Slot function
+            # def add_button_clicked
+                # add value to textedit
+
+        def main():
+            # create instance of QtWidgets.QApplication with arguments from sys.argv
+            # create instance of subclass
+            # call show method of subclass
+            # get exit code with exec method of QApplication instance and give exit code to sys.exit()
+
+        # when run this script:
+            # run main function  
+        ```
+    === "check"
+        **Checkpunten:**
+        
+        - [ ] Wanneer je op de knop `add value` drukt wordt de waarde uit de SpinBox aan de textedit toegevoegd.
+        - [ ] Wanneer je het getal in de SpinBox veranderd naar 14 en daarna op `add value` drukt wordt het getal 14 toegevoegd aan de textedit.
+        - [ ] Onder de SpinBox en de knop `add value` staat een knop `Quit`.
+        - [ ] Wanneer je op de knop `Quit` drukt sluit de applicatie.
+
+        **Projecttraject**
+    
+        - [x] Designer: opstarten
+        - [x] Designer: layout toevoegen aan centralwidget
+        - [x] Designer: eigenschappen widgets aanpassen
+        - [x] Designer: De .ui vertalen naar .py
+        - [x] Designer: ontwerp importeren
+        - [x] Designer: slots en signals toevoegen
+
+
+<div id="info:PySide6CD"></div>
 ## Compacte PySide6 documentatie
 De documentatie van PySide6[^officialPySide6Doc] is niet super-intuïtief. Daarom hebben we speciaal voor jullie een [Compacte PySide6 documentatie📄](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/) geschreven. Daarin kan je een lijst van widgets vinden met de meest handige methods en signals. De documentatie is dus niet compleet maar genoeg voor een simpele GUI. Een overzicht van alle classes gedocumenteerd in de compacte documentatie vind je hieronder.
 
