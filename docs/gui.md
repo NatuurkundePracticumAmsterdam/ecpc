@@ -506,16 +506,20 @@ Er zijn veel verschillende widgets met eigen methods en signals. Je vindt de lij
 !!! opdracht-basis "Designer opstarten"
     <iframe src="https://drive.google.com/file/d/16MJDQXXHG0KjVa3AIXC_pP__7zI73vXL/preview" width="620" height="349" style="border:none;"></iframe>
 
-    Activeer het conda environment `test-qt` die je [eerder hebt aangemaakt](#info:test-qt) {{lightbulb}}. Type het commando `pyside6-designer` om de applicatie Designer te openen. Kies bij **templates/forms** voor `#!py MainWindow` en klik op **Create**. Controlleer dat bij jou in de `object inspector` dezelfde widgets staan als in het filmpje hierboven.
+    - [ ] Activeer het conda environment `test-qt` die je [eerder hebt aangemaakt](#info:test-qt) {{lightbulb}}. Type het commando `pyside6-designer` om de applicatie Designer te openen. Kies bij **templates/forms** voor `#!py MainWindow` en klik op **Create**. Controlleer dat bij jou in de `object inspector` dezelfde widgets staan als in het filmpje hierboven.
 
 !!! opdracht-basis "De GUI ontwerpen in Designer"
-    Zodra interfaces wat ingewikkelder worden is het een hoop werk om ze te programmeren. Daarom kun je met Qt Designer de interface ook visueel ontwerpen. Laten we eerst kijken hoe we widgets toevoegen en positioneren in Designer:
+    Laten we kijken hoe we widgets toevoegen en positioneren in Designer:
 
     <iframe src="https://drive.google.com/file/d/1cEzuZU069ArgAc9rmMuRA1hBz2HwJ87Z/preview" width="620" height="349" style="border:none;"></iframe>
+
+    - [ ] Voeg zelf ook een `TextEdit` toe geef de `central widget` een verticale layout. Voeg _onder_ de `TextEdit` een horizontale layout toe.
     
-    En hoe je de eigenschappen van widgets aanpast:
+    In het volgende filmpje kun je zien hoe je gemakkelijk een widget aan de horizontale layout toevoegd en hoe je de eigenschappen van de widgets aanpast.
 
     <iframe src="https://drive.google.com/file/d/1u57a2wILXmXewVYjCDTSqxG6dD2B42vl/preview" width="620" height="349" style="border:none;"></iframe>
+
+    - [ ] Voeg een `PushButton` en een `SpinBox` toe aan de horizontale layout. Pas de tekst op de `PushButton` aan en zorg dat de `SpinBox` alleen waardes tussen 0 en 20 laat zien. Pas de `objectName` aan van de `TextEdit` naar `textedit`, van `PushButton` naar `add_value_button` en van `SpinBox` naar `value`. 
 
 !!! opdracht-basis "De GUI vertalen naar Python"
     Je bewaart dat als een `.ui`-bestand. Vervolgens vertaal je het `.ui`-bestand naar een Pythonbestand dat je importeert in je eigen programma:
