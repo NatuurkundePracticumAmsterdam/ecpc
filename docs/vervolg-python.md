@@ -13,6 +13,23 @@ Een punt wat vaak onderschoven blijft is _documentatie_. Als je software schrijf
 
 Als je niet zo heel veel in Python geprogrammeerd hebt kan het helpen om de [paragraaf _Basiskennis Python_](basis-python.md#basiskennis-python)[@inl_prog] door te nemen. Een boek dat zeker bij natuurkundigen in de smaak kan vallen is _Effective Computation in Physics_[@eff_comp_physics], maar deze is niet gratis verkrijgbaar. Een boek dat zowel op papier te bestellen is als in de vorm van een pdf of webpagina is te lezen is _Think Python_.[@think_python]
 
+## Visual Studio Code
+Om Python scripts te schrijven maken we gebruik van Visual Studio Code.
+
+!!! opdracht-basis-thuis "Visual Studio Code"
+    Visual Studio Code heeft heel veel opties, maar zorg ervoor dat je in ieder geval weet hoe je een map moet aanmaken en openen [zie opdracht "Open VSCode en maak de map ECPC"](basis-python.md#Visual Studio Code) en hoe je een bestand aanmaakt en opent. Daarnaast zullen we veel met de ingebouwde terminal in Visual Studio Code werken. Zorg dat je weet waar je die terminal kunt vinden, hoe je een nieuwe opent (**Terminal > New Terminal**) en hoe je een terminal weggooit (klik op de {{trash}}). 
+
+!!! opdracht-meer "Keyboard Shortcuts"
+    Er zijn heel veel toetscombinaties die je kunt gebruiken om sneller te werken (maar dan moet je ze natuurlijk wel onthouden). We hebben 8 handige toetscombinaties in de handleiding verstopt achter kleine ECPC paaseieren ![Klik hier](assets/eastereggs/ECPC-green.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst! kun jij ze alle acht vinden?"}. Kijk hieronder welke je al hebt gevonden.
+    
+    - [ ] ++select+ctrl+slash++
+    - [ ] ++ctrl+shift+n++
+    - [ ] ++alt+arrow-up++
+    - [ ] ++arrow-up++
+    - [ ] ++alt+left-button++
+    - [ ] ++select+f2++
+    - [ ] ++ctrl+shift+a++
+    - [ ] ++select+ctrl+d++
 
 ## Zen of Python
 

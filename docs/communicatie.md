@@ -272,7 +272,7 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
     Ga opnieuw naar de [Termchar-demo](https://textual-web.io/natuurkundepracticum-amsterdam/termchar-demo) en lees de laatste stappen van de _Introduction_ tab. Open de _Advanced_ tab en voer de stappen uit. 
 
 
-We gaan nu het gebruik van de karakters instellen in Pyvisa:
+![Klik hier](assets/eastereggs/ECPC-silver.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met '↑' (pijltje omhoog) kun je in een terminal de vorige commando's terughalen. Probeer maar eens!"} We gaan nu het gebruik van de karakters instellen in Pyvisa:
 
 !!! opdracht-basis "Pyvisa regeleindes"
     === "opdracht"

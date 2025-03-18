@@ -140,6 +140,8 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
     1. Kies bij `Git ignore` voor <q>Python</q>.
     1. Ga naar **Repository > Open in Visual Studio Code** en ga aan de slag. Vergeet niet regelmatig te committen!
 
+![Klik hier](assets/eastereggs/ECPC-blue.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met 'CTRL' + 'SHIFT' + 'A'  kun je vanuit GitHub Desktop de repository in Visual Studio Code openen. Probeer maar eens!"}
+
 !!! opdracht-inlever "Pythondaq: start script"
     === "opdracht"
     

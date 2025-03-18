@@ -805,7 +805,7 @@ De documentatie van PySide6[^officialPySide6Doc] is niet super-intuïtief. Daaro
 
 Je hebt nu twee manieren gezien om een interface te bouwen: programmeren of Designer gebruiken. Let er wel op dat er dus een subtiel verschil is in het benaderen van de widgets. Je kunt bij zelf programmeren bijvoorbeeld `#!py self.add_button` gebruiken, maar als je Designer gebruikt moet dat `#!py self.ui.add_button` zijn.
 
-In de eindopracht willen we data weergeven op een scherm. We zullen dus nog moeten plotten. In de volgende opdrachten gaan we daarmee aan de slag.
+In de eindopracht willen we data weergeven op een scherm. We zullen dus nog moeten plotten. In de volgende opdrachten gaan we daarmee aan de slag. ![Klik hier](assets/eastereggs/ECPC-purple.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst als je een stukje code selecteert en op 'CTRL' + 'd' drukt, selecteert VS Code automatisch het volgende dezelfde stukje code. Zo kun je meerdere cursors tegelijk aanmaken en op meerdere plekken tegelijk iets wijzigen. Superhandig voor snelle aanpassingen! Probeer maar eens!"}
 
 Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties. Helaas is matplotlib voor het gebruik in interactieve interfaces nogal traag zodra we te maken krijgen met meer data. We kiezen daarom voor een populair alternatief: PyQtGraph. Eén nadeel: [de documentatie](https://pyqtgraph.readthedocs.io/en/latest/) is niet fantastisch. Het geeft dus niets als je ergens niet uitkomt en je hulp nodig hebt van de assistent of een staflid.
 

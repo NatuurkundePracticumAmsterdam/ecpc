@@ -22,7 +22,7 @@ __Model__
 __Controller__
 : De code die via pyvisa praat met de Arduino. Opdrachten worden omgezet in firmwarecommando's en doorgestuurd naar het apparaat.
 
-Het opsplitsen van je programma _hoeft niet in één keer!_ Dit kan stapsgewijs. Je kunt starten met een eenvoudig script &mdash; zoals we hierboven gedaan hebben &mdash; en dat langzaam uitbreiden. Je begint klein, verdeelt je code in lagen en bouwt vervolgens verder.
+Het opsplitsen van je programma _hoeft niet in één keer!_ Dit kan stapsgewijs. Je kunt starten met een eenvoudig script &mdash; zoals we hierboven gedaan hebben &mdash; en dat langzaam uitbreiden. ![Klik hier](assets/eastereggs/ECPC-purple.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met 'CTRL' + '/?' kun je stukken geselecteerde code uitcommentariëren en weer decommentariëren. Probeer maar eens!"} Je begint klein, verdeelt je code in lagen en bouwt vervolgens verder.
 
 ## Implementeren van MVC
 Het opsplitsen van het {{file}}`diode-experiment.py` in MVC gaan we stapsgewijs doen. We gaan een class maken voor de aansturing van de Arduino, deze class valt in de categorie _controller_.

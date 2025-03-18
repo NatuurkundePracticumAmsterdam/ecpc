@@ -69,7 +69,8 @@ else:
     return []
 ```
 
-Zo kunnen we gemakkelijk alles gaan invullen. Zo lang je niet op ++escape++ drukt maar gewoon je tekst typt kun je met ++tab++ naar het volgende veld en zo de docstring snel invullen. Het is mooi als je daarna onder de _summary_ nog een uitgebreidere uitleg geeft van een paar zinnen. Vergeet ook niet om de docstring zonodig weer bij te werken als je een functie aanpast.
+Zo kunnen we gemakkelijk alles gaan invullen. Zo lang je niet op ++escape++ drukt maar gewoon je tekst typt kun je met ++tab++ naar het volgende veld en zo de docstring snel invullen. Het is mooi als je daarna onder de _summary_ nog een uitgebreidere uitleg geeft van een paar zinnen. Vergeet ook niet om de docstring zonodig weer bij te werken als je een functie aanpast. ![Klik hier](assets/eastereggs/ECPC-silver.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst als je variabele selecteert en op 'F2' drukt, kun je de naam aanpassen en dit wordt automatisch toegepast op alle plekken waar de variabele voorkomt. Probeer maar eens!"}
+
 
 !!! opdracht-inlever-thuis "Pythondaq: docstring"
     === "opdracht"

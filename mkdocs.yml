@@ -55,6 +55,7 @@ extra_javascript:
   - assets/ADC_slider/ADC_slider.js
   - assets/run_button/run_button.js
   - assets/cheatsheets/cheatsheets.js
+  - assets/eastereggs/eastereggs.js
 
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
@@ -66,6 +67,7 @@ extra_css:
   - assets/run_button/run_button.css
   - assets/cheatsheets/cheatsheets.css
   - assets/particle-spin-flip/spin-flip.css
+  - stylesheets/eastereggs.css
 
 nav:
   - index.md

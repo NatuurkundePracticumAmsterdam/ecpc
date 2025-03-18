@@ -513,6 +513,8 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
     
     Je overschrijft dus je huidige environment met een nieuwe, lege. Je kunt daarna met `poetry add` packages toevoegen net zo lang tot je geen `#!py ImportError` meer krijgt.
 
+![Klik hier](assets/eastereggs/ECPC-green.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met 'CTRL' + 'SHIFT' + 'N'je kunt meerdere vensters van Visual Studio Code openen en naast elkaar zetten, dan kan je makkelijk terug kijken. Probeer maar eens!"}
+
 !!! opdracht-basis "Poetry flashingLED"
     === "opdracht"
     

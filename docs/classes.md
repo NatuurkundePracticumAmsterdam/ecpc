@@ -37,7 +37,7 @@ master_oogway.left(30)
 master_oogway.forward(50)
 ```
 
-Hierin is `50` het aantal stappen en `30` de hoek in graden die de schildpad tegen de klok in draait. 
+Hierin is `50` het aantal stappen en `30` de hoek in graden die de schildpad tegen de klok in draait. ![Klik hier](assets/eastereggs/ECPC-green.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met 'ALT' + '↑' (pijltje omhoog) kun je stukken geselecteerde code omhoog en met '↓' naar beneden verplaatsen. Probeer maar eens!"}
    
 !!! opdracht-basis-thuis "turtle"
     === "opdracht"

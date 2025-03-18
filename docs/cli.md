@@ -884,10 +884,9 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
         - [ ] Pythondaq: choose device
         - [ ] Pythondaq: Grafiek        
         - [ ] Pythondaq: `--help`
-    
+ 
 
-
-### Het uitvoeren van een meetserie
+### Het uitvoeren van een meetserie ![Klik hier](assets/eastereggs/ECPC-silver.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met 'ALT' ingedrukt kun je met je linkermuisknop meerdere cursors creeëren. Handig als je op meer plekken tegelijk hetzelfde wil typen of wehalen! Probeer maar eens!"}
 
 We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het tonen van de resultaten daarvan aan de gebruiker.
 
