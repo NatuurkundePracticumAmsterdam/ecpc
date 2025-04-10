@@ -21,6 +21,7 @@ markdown_extensions:
   - attr_list
   - footnotes
   - md_in_html
+  - pymdownx.blocks.caption
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
@@ -67,7 +68,6 @@ extra_css:
   - assets/run_button/run_button.css
   - assets/cheatsheets/cheatsheets.css
   - assets/particle-spin-flip/spin-flip.css
-  - stylesheets/eastereggs.css
 
 nav:
   - index.md
@@ -86,12 +86,13 @@ nav:
   - gui.md
   - eindfeest.md
   - Appendices:
-      - software-tools.md
       - cheatsheets.md
       - firmware.md
       - kleurcodes.md
       - diodes.md
       - terminal-adventure-game.md
+      - virtual_environments.md
+      - black.md
       - zonnecel.md
       
 

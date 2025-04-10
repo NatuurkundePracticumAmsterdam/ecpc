@@ -17,7 +17,7 @@ Als je niet zo heel veel in Python geprogrammeerd hebt kan het helpen om de [par
 Om Python scripts te schrijven maken we gebruik van Visual Studio Code.
 
 !!! opdracht-basis-thuis "Visual Studio Code"
-    Visual Studio Code heeft heel veel opties, maar zorg ervoor dat je in ieder geval weet hoe je een map moet aanmaken en openen [zie opdracht "Open VSCode en maak de map ECPC"](basis-python.md#Visual Studio Code) en hoe je een bestand aanmaakt en opent. Daarnaast zullen we veel met de ingebouwde terminal in Visual Studio Code werken. Zorg dat je weet waar je die terminal kunt vinden, hoe je een nieuwe opent (**Terminal > New Terminal**) en hoe je een terminal weggooit (klik op de {{trash}}). 
+    Visual Studio Code heeft heel veel opties, maar zorg ervoor dat je in ieder geval weet hoe je een map moet aanmaken en openen [zie opdracht "Open VSCode en maak de map ECPC"](basis-python.md#visual-studio-code) en hoe je een bestand aanmaakt en opent. Daarnaast zullen we veel met de ingebouwde terminal in Visual Studio Code werken. Zorg dat je weet waar je die terminal kunt vinden, hoe je een nieuwe opent (**Terminal > New Terminal**) en hoe je een terminal weggooit (klik op de {{trash}}). 
 
 !!! opdracht-meer "Keyboard Shortcuts"
     Er zijn heel veel toetscombinaties die je kunt gebruiken om sneller te werken (maar dan moet je ze natuurlijk wel onthouden). We hebben 8 handige toetscombinaties in de handleiding verstopt achter kleine ECPC paaseieren ![Klik hier](assets/eastereggs/ECPC-green.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst! kun jij ze alle acht vinden?"}. Kijk hieronder welke je al hebt gevonden.
