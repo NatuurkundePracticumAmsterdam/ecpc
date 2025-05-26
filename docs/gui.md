@@ -505,9 +505,9 @@ Er zijn veel verschillende widgets met eigen methods en signals. We hebben de ha
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Maak aan de hand van de onderstaande schets een grafische interface. Kijk in de [Compacte Pyside6 documentatie](gui.md#compacte-pyside6-documentatie) welke widgets je daarvoor nodig hebt. Het getal moet met de pijltjes kunnen worden aangepast. Zorg dat de het getal alleen waardes tussen 1 en 28 kan aannemen.  Wanneer je op de knop 'Add value' drukt wordt het getal in de textedit toegevoegd.
+            Maak aan de hand van de onderstaande schets een grafische interface. Kijk in de [Compacte Pyside6 documentatie](gui.md#compacte-pyside6-documentatie) welke widgets je daarvoor nodig hebt. Het getal moet met de pijltjes kunnen worden aangepast. Zorg dat de het getal alleen waardes tussen 1 en 28 kan aannemen.  Wanneer je op de knop 'Add value' drukt wordt het getal in de textbox toegevoegd.
             <br></br>
-            ![Een venster met een textedit, daaronder een spinbox met daarnaast een knop waarop staat 'Add value'](figures/Numberdisplay-schematic.svg){: style="width:50%"}
+            ![Een venster met een textbox, daaronder een spinbox met daarnaast een knop waarop staat 'Add value'](figures/Numberdisplay-schematic.svg){: style="width:50%"}
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -541,10 +541,10 @@ Er zijn veel verschillende widgets met eigen methods en signals. We hebben de ha
 
         - [ ] In het ontwerp staan de PushButton en de SpinBox _onder_ het tekstveld en _naast_ elkaar.
         - [ ] Op de `PushButton` staat de tekst `Add value`.
-        - [ ] Wanneer je op de knop `Add value` drukt wordt de waarde uit de SpinBox aan de textedit toegevoegd.
-        - [ ] Wanneer je het getal in de SpinBox veranderd naar 14 en daarna op `Add value` drukt wordt het getal 14 toegevoegd aan de textedit.
+        - [ ] Wanneer je op de knop `Add value` drukt wordt de waarde uit de SpinBox aan de textbox toegevoegd.
+        - [ ] Wanneer je het getal in de SpinBox veranderd naar 14 en daarna op `Add value` drukt wordt het getal 14 toegevoegd aan de textbox.
         - [ ] De minimale waarde van de SpinBox staat ingesteld op 1, de maximale waarde op 28.
-        - [ ] Wanneer het venster wordt vergroot schalen de textedit en de knoppen mee. 
+        - [ ] Wanneer het venster wordt vergroot schalen de textbox en de knoppen mee. 
         
         **Projecttracject**
         
