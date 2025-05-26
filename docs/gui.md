@@ -47,7 +47,7 @@ Eerst importeren we een paar bibliotheken. Het draait uiteindelijk om de `#!py U
 Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn strikt genomen niet noodzakelijk, maar wel _good practice_. Ook het schrijven van een `#!py main()` functie is niet strikt noodzakelijk, maar het maakt het wel makkelijk om straks een zogeheten _entry point_ te hebben als we weer een applicatie willen schrijven. In de {{file}}`pyproject.toml` geven we dan aan dat we de `#!py main()` functie willen aanroepen. Dat komt later.
 
 <div id="opd:minimal-gui"></div>
-!!! opdracht-basis-thuis "Minimale GUI"
+!!! opdracht-basis "Minimale GUI"
     === "opdracht"
 
         <div class="grid-tree" markdown>
@@ -180,9 +180,9 @@ De oplossing is gelukkig vrij eenvoudig: we kunnen de `__init__()` van de parent
 
 In de volgende opdrachten ga je zelf de hele applicatie opbouwen, zodat je precies weet wat in de code hierboven staat. 
 
-!!! opdracht-basis-thuis "Parent class initialiseren"
+!!! opdracht-basis "Parent class initialiseren"
     === "opdracht"
-        Je hebt geleerd hoe je widgets aan de applicatie kunt toevoegen. Omdat het veel stappen in een keer zijn ga je de instructies stap voor stap volgen en steeds tussendoor testen. Je begint met het maken van een `#!py __init__()` method voor de `#!py class UserInterface` en zorgt ervoor dat de parent class (`#!py QtWidgets.QMainWindow`) volledig wordt geïnitialiseerd. Je runt {{file}}`example-gui.py` en ziet dat er nog steeds een leeg venster wordt gestart. Je bent benieuwd of het initialiseren écht nodig is, daarom haal je de `#!py super()`-aanroep weg en kijkt wat er gebeurd als je {{file}}`example-gui.py` runt. Je zet `#!py super()`-aanroep heel gauw weer terug.
+        Je hebt gezien hoe je widgets aan de applicatie kunt toevoegen. Maar omdat het veel stappen in een keer zijn ga je de instructies stap voor stap volgen en steeds tussendoor testen. Je begint met het maken van een `#!py __init__()` method voor de `#!py class UserInterface` en zorgt ervoor dat de parent class (`#!py QtWidgets.QMainWindow`) volledig wordt geïnitialiseerd. Je runt {{file}}`example-gui.py` en ziet dat er nog steeds een leeg venster wordt gestart. Je bent benieuwd of het initialiseren écht nodig is, daarom haal je de `#!py super()`-aanroep weg en kijkt wat er gebeurd als je {{file}}`example-gui.py` runt. Je zet `#!py super()`-aanroep heel gauw weer terug.
 
     === "code"
         **Pseudo-code**
@@ -223,7 +223,7 @@ In de volgende opdrachten ga je zelf de hele applicatie opbouwen, zodat je preci
     
 Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets zijn bijvoorbeeld een menubalk, knoppenbalk of statusbalk.
 
-!!! opdracht-basis-thuis "Central widget toevoegen"
+!!! opdracht-basis "Central widget toevoegen"
     === "opdracht"
         Nu de parent class wordt geïnitialiseerd kan je een widget aanmaken met `#!py QtWidgets.QWidget()`, je noemt deze widget `#!py central_widget`. En stelt deze in als centrale widget met de method `#!py setCentralWidget()` van de class `#!py QtWidgets.QMainWindow`. Je runt {{file}}`example-gui.py` en ziet dat er nog steeds een leeg venster wordt gestart. 
 
@@ -269,7 +269,7 @@ Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets 
 
 Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen netjes uitgelijnd worden. We willen het tekstvenster en de knoppen onder elkaar zetten en maken dus eerst een verticale layout. Aan die layout voegen we een textbox toe.
 
-!!! opdracht-basis-thuis "textbox toevoegen"
+!!! opdracht-basis "textbox toevoegen"
     === "opdracht"
         Omdat je de textbox en de knoppen onder elkaar wilt uitlijnen voeg je een verticale layout toe aan de `central_widget`. Je maakt een textbox aan en voegt deze toe aan de verticale layout. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen, je typt een vrolijke tekst en sluit het venster. 
 
@@ -321,7 +321,7 @@ Daarna gaan we layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen
     
 De knoppen zelf plaatsen we straks in een horizontale layout, dus die voegen we ook toe aan de `#!py vbox`. En we maken de layout compleet door knoppen toe te voegen aan de `#!py hbox`.
 
-!!! opdracht-basis-thuis "Knoppen toevoegen"
+!!! opdracht-basis "Knoppen toevoegen"
     === "opdracht"
         Omdat de knoppen naast elkaar moeten komen te staan voeg je een horizontale layout toe aan de verticale layout. Je maakt een `clear button` en een `add button` en voegt deze toe aan de horizontale layout. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen met daaronder twee knoppen, je drukt verwoed op de knoppen maar er gebeurt niets[^knop-stuk]. 
 
@@ -387,7 +387,7 @@ De horizontale layout (voor de knoppen) moeten we expliciet toevoegen aan de ver
 
 Als laatste verbinden we de knoppen aan functies. Zodra je op een knop drukt wordt er een zogeheten _signal_ afgegeven. Die kun je verbinden met een _slot_. Er zijn ook verschillende soorten signalen. Het drukken op een knop zorgt voor een _clicked signal_, het veranderen van een getal in een keuzevenster geeft een _changed signal_. Wij verbinden één knop direct met een al bestaande method van het tekstvenster `#!py clear()` en de andere knop met een eigen method `#!py add_button_clicked()`. De naam is geheel vrij te kiezen, maar boven de functiedefinitie moet je wel de `#!py @Slot()`-decorator gebruiken (voor meer informatie over decorators zie [paragraaf Decorators](vervolg-python.md#decorators)). PySide kan dan net wat efficiënter werken.
    
-!!! opdracht-basis-thuis "Slots en signals toevoegen"
+!!! opdracht-basis "Slots en signals toevoegen"
     === "opdracht"
         Je gaat functionaliteit aan de knoppen verbinden. Je verbint de `clear_button` aan de `clear()` method van `textedit`. Je maakt een eigen `Slot` met de naam `add_text_button_clicked` die een tekst aan de textbox toegevoegd. Je vind de tekst "You clicked me." maar suf en bedenkt zelf een andere leuke tekst. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen met daaronder twee knoppen. Je drukt op "Add text" en er verschijnt tekst in de textbox, daarna druk je op "Clear" en de tekst verdwijnt.
 
@@ -465,7 +465,7 @@ Er zijn veel verschillende widgets met eigen methods en signals. We hebben de ha
 ???+ opdracht-meer "Volgorde layout aanpassen"
     De volgorde waarin je layout en widgets toevoegt bepaalt het uiterlijk van de grafische interface. Verander de code om de layout aan te passen (zet bijvoorbeeld de knoppen boven de textbox of zet de knoppen onder elkaar en naast de textbox).
 
-!!! opdracht-basis-thuis "'Hello world' en Quit knoppen toevoegen"
+!!! opdracht-basis "'Hello world' en Quit knoppen toevoegen"
     === "opdracht"
         Nu de minimale GUI werkt wil je meer knoppen toevoegen. Je begint met een knop `Hello, world` die de tekst "Hello, world" aan de textbox toevoegd. Je runt {{file}}`example-gui.py` en ziet dat de knop werkt. Daarna voeg je een `Quit`-knop toe die _onder_ de andere knoppen staat. Het signaal van deze knop verbind je met de method `#!py self.close()` zodat de applicatie wordt afgesloten. Je runt {{file}}`example-gui.py` drukt nog een paar keer op de `Hello, world`-knop en daarna op de knop  `Quit`, het venster is gesloten de opdracht is voltooid {{feesttoeter}}.
     === "code"
