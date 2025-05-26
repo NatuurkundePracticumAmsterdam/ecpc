@@ -990,10 +990,21 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
         - [x] Designer: ontwerp importeren
         - [x] Designer: slots en signals toevoegen
 
-## Designer opmerkingen die nog ergens in verwerkt moeten worden
-Je hebt nu twee manieren gezien om een interface te bouwen: programmeren of Designer gebruiken. Let er wel op dat er dus een subtiel verschil is in het benaderen van de widgets. Je kunt bij zelf programmeren bijvoorbeeld `#!py self.add_button` gebruiken, maar als je Designer gebruikt moet dat `#!py self.ui.add_button` zijn.
+## Een grafische interface voor ons experiment
 
-__Als je je GUI het liefst ontwerpt met Designer__ voegen we als volgt een plot widget toe:
+In het vorige hoofdstuk hebben we een _tekst_-interface geschreven voor ons experiment. We gaan nu een _grafische_ interface schrijven voor hetzelfde experiment.
+
+We hebben tot nu toe veel moeite gedaan om onze code te splitsen volgens het MVC-model: werken in laagjes, goed nadenken over wat waar hoort. Als dat netjes gelukt is kunnen we relatief makkelijk één van die laagjes vervangen. We kunnen de `#!py ArduinoVISADevice` vervangen door een `#!py RaspberryPiDevice` of een `#!py PicoScopeDevice` [^nieuwe-controller]. Ook kunnen we een nieuwe applicatie schrijven voor ons bestaande experiment. We hoeven dan alleen een extra view te schrijven (de interface met de gebruiker) en de rest kunnen we hergebruiken. Misschien dat we hier en daar iets willen aanpassen maar zorg er dan voor dat je oude applicatie nog steeds werkt!
+
+[^nieuwe-controller]: Je moet dan wel eerst nieuwe controllers schrijven (of krijgen van een collega) om deze nieuwe instrumenten aan te sturen. Maar als je die hebt kun je vrij eenvoudig wisselen.
+
+We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor ons experiment.
+
+!!! info "Ga je programmeren of gebruik je Designer?"
+    Je mag zelf kiezen of je de grafische interface gaat ontwerpen met Designer of dat je hem volledig programmeert. Als je kiest om Designer te gebruiken, staan hieronder een paar handige tips en trucs.
+
+    ### Plotwidget toevoegen in Designer
+    Voeg als volgt een plot widget toe in Designer:
 
     1. Voeg aan je interface een _Graphics View_ toe;
     1. Klik er op om hem te selecteren en klik daarna op de rechtermuistoets;
@@ -1007,21 +1018,7 @@ __Als je je GUI het liefst ontwerpt met Designer__ voegen we als volgt een plot 
     
     Nu je dit een keer gedaan hebt kun je voortaan op een Graphics View meteen kiezen voor **Promote to > PlotWidget** en hoef je niets meer in te typen. Vergeet niet je widget nog even een handige naam te geven, bijvoorbeeld `plot_widget`.
 
-
-## Een grafische interface voor ons experiment
-
-In het vorige hoofdstuk hebben we een _tekst_-interface geschreven voor ons experiment. We gaan nu een _grafische_ interface schrijven voor hetzelfde experiment.
-
-We hebben tot nu toe veel moeite gedaan om onze code te splitsen volgens het MVC-model: werken in laagjes, goed nadenken over wat waar hoort. Als dat netjes gelukt is kunnen we relatief makkelijk één van die laagjes vervangen. We kunnen de `#!py ArduinoVISADevice` vervangen door een `#!py RaspberryPiDevice` of een `#!py PicoScopeDevice` [^nieuwe-controller]. Ook kunnen we een nieuwe applicatie schrijven voor ons bestaande experiment. We hoeven dan alleen een extra view te schrijven (de interface met de gebruiker) en de rest kunnen we hergebruiken. Misschien dat we hier en daar iets willen aanpassen maar zorg er dan voor dat je oude applicatie nog steeds werkt!
-
-[^nieuwe-controller]: Je moet dan wel eerst nieuwe controllers schrijven (of krijgen van een collega) om deze nieuwe instrumenten aan te sturen. Maar als je die hebt kun je vrij eenvoudig wisselen.
-
-We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor ons experiment.
-
-!!! info
-    Je mag zelf kiezen of je de grafische interface gaat ontwerpen met Designer of dat je hem volledig programmeert.
-
-!!! info
+    ### Commando toevoegen om .ui te vertalen naar .py
     Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met Poetry taken aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. Doe dit als volgt:
 
     1. Installeer _Poe the Poet_ &mdash; een zogeheten _task runner_ &mdash; als _development dependency_ met:
