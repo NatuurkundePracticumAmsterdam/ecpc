@@ -103,7 +103,7 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
 Elke keer als je een nieuwe Qt applicatie gaat schrijven kun je bovenstaand stukje code copy/pasten. Als we dit programma draaien hebben we echter een klein leeg venster op het scherm, zonder elementen. Die elementen kunnen we op twee manieren toevoegen: door ze te programmeren of door het gebruik van een visueel ontwerp met Qt Designer. Beide zullen in de volgende secties toegelicht worden.
 
 
-### De interface programmeren
+## Een interface programmeren met PySide6
 
 We gaan de eenvoudige interface programmeren die hieronder is weergegeven:
 
@@ -498,9 +498,183 @@ Er zijn veel verschillende widgets met eigen methods en signals. We hebben de ha
         - [x] knoppen toevoegen
         - [x] Slots en signals toevoegen
         - [x] 'Hello world' en Quit knoppen toevoegen
-    
 
-### De interface ontwerpen met Qt Designer
+
+<div id="info:PySide6CD"></div>
+## Compacte PySide6 documentatie
+De documentatie van PySide6[^officialPySide6Doc] is niet super-intuïtief. Daarom hebben we speciaal voor jullie een [Compacte PySide6 documentatie📄](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/) geschreven. Daarin kan je een lijst van widgets vinden met de meest handige methods en signals. De documentatie is dus niet compleet maar genoeg voor een simpele GUI. Een overzicht van alle classes gedocumenteerd in de compacte documentatie vind je hieronder.
+
+[^officialPySide6Doc]: [https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes)
+
+**Subclasses van `QLayout`:**
+
+- `QHBoxLayout`: Beheert een horizontale indeling van widgets. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QHBoxLayout/)
+
+- `QVBoxLayout`: Beheert een verticale indeling van widgets. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QVBoxLayout/)
+
+- `QFormLayout`: Beheert een indeling waarbij de ruimte wordt verdeeld in een linker kolom met labels en een rechter kolom met widgets. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QFormLayout/)
+<br>
+
+**Subclasses van `QWidgets`:**
+
+- `QApplication`: Beheert de controleflow en hoofdinstellingen van de GUI-applicatie. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QApplication/)
+
+- `QMainWindow`: Biedt een framework voor het bouwen van de gebruikersinterface van een applicatie. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QMainWindow/)
+
+- `QGroupBox`: Biedt een frame, een titel erboven, en kan verschillende andere widgets binnen zichzelf weergeven. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QGroupBox/)
+
+- `QTextEdit`: Geeft tekst weer en stelt de gebruiker in staat om deze te bewerken. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QTextEdit/)
+
+- `QCheckBox`: Schakelknop met een checkbox-indicator. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QCheckBox/)
+
+- `QLabel`: Een widget die tekst weergeeft. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QLabel/)
+
+- `QComboBox`: Een widget waarmee de gebruiker een keuze kan maken uit een lijst met opties. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QComboBox/)
+
+- `QSpinBox`: Een widget waarmee de gebruiker een geheel nummer kan kiezen uit een bereik. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QSpinBox/)
+
+- `QDoubleSpinBox`: Een widget waarmee de gebruiker een komma getal kan kiezen uit een bereik. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QDoubleSpinBox/)
+
+- `QPushButton`: Een knop die door de gebruiker kan worden ingedrukt. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QPushButton/)
+
+- `QLineEdit`: Een widget waarmee de gebruiker een enkele regel platte tekst kan invoeren en bewerken. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QLineEdit/)
+
+- `QFileDialog`: Biedt een dialoogvenster waarmee de gebruiker bestanden of mappen kan selecteren. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QFileDialog/)
+
+## Functieplotter
+
+In de eindopracht willen we data weergeven op een scherm. We zullen dus nog moeten plotten. In de volgende opdrachten gaan we daarmee aan de slag. ![Klik hier](assets/eastereggs/ECPC-purple.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst als je een stukje code selecteert en op 'CTRL' + 'd' drukt, selecteert VS Code automatisch het volgende dezelfde stukje code. Zo kun je meerdere cursors tegelijk aanmaken en op meerdere plekken tegelijk iets wijzigen. Superhandig voor snelle aanpassingen! Probeer maar eens!"}
+
+Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties. Helaas is matplotlib voor het gebruik in interactieve interfaces nogal traag zodra we te maken krijgen met meer data. We kiezen daarom voor een populair alternatief: PyQtGraph. Eén nadeel: [de documentatie](https://pyqtgraph.readthedocs.io/en/latest/) is niet fantastisch. Het geeft dus niets als je ergens niet uitkomt en je hulp nodig hebt van de assistent of een staflid.
+
+### De plotter als script
+
+Om PyQtGraph te importeren en globale opties in te stellen moeten we bovenaan ons programma het volgende schrijven:
+
+``` py
+import pyqtgraph as pg
+
+
+# PyQtGraph global options
+pg.setConfigOption("background", "w")
+pg.setConfigOption("foreground", "k")
+```
+Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en dan krijg je de standaardinstelling: grijze letters op een zwarte achtergrond. Het is maar wat je fijn vindt.
+
+Gebruik de volgende regel om een plot widget te krijgen in de `#!py __init__()`:
+``` py
+self.plot_widget = pg.PlotWidget()
+```
+    
+Om daadwerkelijk een functie te plotten kun je deze code aanpassen:
+
+``` py
+import numpy as np
+
+class UserInterface(QtWidgets.QMainWindow):
+
+    ...
+
+    def plot(self):
+        x = np.linspace(-pi, pi, 100)
+        self.plot_widget.plot(x, np.sin(x), symbol=None, pen={"color": "m", "width": 5})
+        self.plot_widget.setLabel("left", "y-axis [units]")
+        self.plot_widget.setLabel("bottom", "x-axis [units]")
+```
+Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` om te zien wat ze doen. Leeg maken kan met `#!py self.plot_widget.clear()`.
+
+!!! opdracht-inlever "Functionplotter: plot"
+    === "opdracht"
+
+        <div class="grid-tree" markdown>
+            <div>
+            We gaan een nieuwe repository aanmaken in de {{folder}}`ECPC` map (zie hiernaast). Maak een Poetry project {{github}}`functionplotter`, voeg die toe aan GitHub Desktop {{lightbulb}} en open hem in Visual Studio Code. Bekijk {{file_lines}}`pyproject.toml` en zorg dat er een commando is aangemaakt om de applicatie te starten. Je maakt een nieuw conda environment aan met alleen Python daarin {{lightbulb}}. Gebruik `poetry install` om het project te installeren {{lightbulb}} en voer het commando uit om de applicatie te starten. Als je applicatie af is verschijnt er een scherm met een plot waarin de functie $\sin(x)$ plot in het domein $(0, 2\pi)$ is weergegeven. Een golfje van trots gaat door je heen en je gaat door naar de volgende opdracht.
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `pythondaq`  
+            {{T}} {{github}} `functionplotter`  
+            {{tab}} {{T}} {{new_file_lines}} `pyproject.toml`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{dots}}  
+            </div>
+        </div>
+
+    === "code"
+        **Pseudo-code**
+        ```
+        # import statements
+
+        # class UserInterface(QtWidgets.QMainWindow):
+            ...
+            # when app starts plot sin function
+
+        # create application
+        # show UserInterface
+        # close properly
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Er is een repository {{github}}`functionplotter`
+        - [ ] Er is een commando om de applicatie te starten
+        - [ ] De applicatie laat een $\sin(x)$ plot zien in het domein $(0, 2\pi)$
+        - [ ] De applicatie werkt ook na `poetry install` in een nieuwe conda environment.
+
+        **Projecttraject**
+    
+        - [x] Functionplotter: plot
+        - [ ] Functionplotter: widgets
+
+!!! opdracht-inlever "Functionplotter: widgets"
+    === "opdracht"
+        Voer opnieuw het commando uit om de applicatie `functionplotter` te starten. Dit keer zorg je dat de applicatie de mogelijkheid krijgt om het domein van de plot aan te passen. Je ziet dan de sinusplot veranderen wanneer je de startwaarde verhoogd. Je kunt de startwaarde ook naar beneden aanpassen. Hetzelfde geldt voor de stopwaarde. Dan maak je nog een widget om het aantal punten (`num`) te kiezen waarmee de sinus wordt geplot. Speel eens met de widget en zie de sinus van hoekig naar mooi glad veranderen. Steeds als je een waarde aanpast moet de functie automatisch opnieuw geplot geworden.
+    === "code"
+        **Pseudo-code**
+        ```
+        # import statements
+
+        # class UserInterface(QtWidgets.QMainWindow):
+            ...
+            # when app starts plot sin function
+
+            # create widgets for start, stop and num
+            # connect widgets to methods
+
+            # methods for start stop and num
+
+        # create application
+        # show UserInterface
+        # close properly
+        ```
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Het is mogelijk om de start waarde aan te passen.
+        - [ ] Het is mogelijk om de stop waarde aan te passen.
+        - [ ] Het is mogelijk om het aantal punten te kiezen waarmee de sinus functie wordt geplot.
+        - [ ] Na het aanpassen van een waarde wordt de plot automatisch opnieuw geplot.
+
+        **Projecttraject**
+    
+        - [x] Functionplotter: plot
+        - [x] Functionplotter: widgets
+
+???+ opdracht-meer "Functieplotter: functie kiezen drop-down menu"
+    Gebruik een `#!py QComboBox` om de functie te kunnen kiezen. Je moet hem _leeg_ toevoegen aan je interface en vult hem vanuit je programma. Zoek de widget op in de documentatie om uit te zoeken welke functie je moet gebruiken om keuzemogelijkheden toe te voegen en welk signaal je moet koppelen om te zorgen dat de plot opnieuw wordt uitgevoerd als je de functie aanpast. Geef de gebruiker de keuzes $\sin(x)$, $\cos(x)$, $\tan(x)$ en $\exp(x)$.
+
+
+???+ opdracht-meer "Functieplotter: meer functies"
+    Voeg aan de functiekiezer de functies $x$, $x^2$, $x^3$, en $\frac{1}{x}$ toe. Je kunt daarvoor _lambda functions_ gebruiken, maar dat is niet per se nodig.
+
+
+???+ opdracht-meer "Functieplotter: functies typen"
+    Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals `x ** 2`, `sin(x)` of `1 / sqrt(x + 1)`. Gebruik daarvoor het `asteval` package.[@asteval] Documentatie vind je op [https://newville.github.io/asteval/](https://newville.github.io/asteval/).
+
+    !!! waarschuwing 
+        Gebruik _nooit_ zomaar `#!py eval()` op een string die iemand anders aanlevert. Anders kan iemand met typen in een tekstveld of het inlezen van een tekstbestand je computer wissen bijvoorbeeld, of malware installeren. Als je `#!py eval()` wilt gebruiken, lees dan de sectie _Minimizing the Security Issues of eval()_ in _Python eval(): Evaluate Expressions Dynamically_.[@eval] Maar _veel makkelijker_ is om `asteval` te gebruiken.
+
+## Een interface ontwerpen met Qt Designer
 
 !!! info
     Druk in de video's op het vierkant rechtsboven om ze in volledig scherm te bekijken.
@@ -761,76 +935,10 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
         - [x] Designer: ontwerp importeren
         - [x] Designer: slots en signals toevoegen
 
-
-<div id="info:PySide6CD"></div>
-## Compacte PySide6 documentatie
-De documentatie van PySide6[^officialPySide6Doc] is niet super-intuïtief. Daarom hebben we speciaal voor jullie een [Compacte PySide6 documentatie📄](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/) geschreven. Daarin kan je een lijst van widgets vinden met de meest handige methods en signals. De documentatie is dus niet compleet maar genoeg voor een simpele GUI. Een overzicht van alle classes gedocumenteerd in de compacte documentatie vind je hieronder.
-
-[^officialPySide6Doc]: [https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes)
-
-**Subclasses van `QLayout`:**
-
-- `QHBoxLayout`: Beheert een horizontale indeling van widgets. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QHBoxLayout/)
-
-- `QVBoxLayout`: Beheert een verticale indeling van widgets. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QVBoxLayout/)
-
-- `QFormLayout`: Beheert een indeling waarbij de ruimte wordt verdeeld in een linker kolom met labels en een rechter kolom met widgets. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QFormLayout/)
-<br>
-
-**Subclasses van `QWidgets`:**
-
-- `QApplication`: Beheert de controleflow en hoofdinstellingen van de GUI-applicatie. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QApplication/)
-
-- `QMainWindow`: Biedt een framework voor het bouwen van de gebruikersinterface van een applicatie. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QMainWindow/)
-
-- `QGroupBox`: Biedt een frame, een titel erboven, en kan verschillende andere widgets binnen zichzelf weergeven. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QGroupBox/)
-
-- `QTextEdit`: Geeft tekst weer en stelt de gebruiker in staat om deze te bewerken. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QTextEdit/)
-
-- `QCheckBox`: Schakelknop met een checkbox-indicator. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QCheckBox/)
-
-- `QLabel`: Een widget die tekst weergeeft. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QLabel/)
-
-- `QComboBox`: Een widget waarmee de gebruiker een keuze kan maken uit een lijst met opties. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QComboBox/)
-
-- `QSpinBox`: Een widget waarmee de gebruiker een geheel nummer kan kiezen uit een bereik. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QSpinBox/)
-
-- `QDoubleSpinBox`: Een widget waarmee de gebruiker een komma getal kan kiezen uit een bereik. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QDoubleSpinBox/)
-
-- `QPushButton`: Een knop die door de gebruiker kan worden ingedrukt. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QPushButton/)
-
-- `QLineEdit`: Een widget waarmee de gebruiker een enkele regel platte tekst kan invoeren en bewerken. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QLineEdit/)
-
-- `QFileDialog`: Biedt een dialoogvenster waarmee de gebruiker bestanden of mappen kan selecteren. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QFileDialog/)
-
-## Functieplotter
-
+## Designer opmerkingen die nog ergens in verwerkt moeten worden
 Je hebt nu twee manieren gezien om een interface te bouwen: programmeren of Designer gebruiken. Let er wel op dat er dus een subtiel verschil is in het benaderen van de widgets. Je kunt bij zelf programmeren bijvoorbeeld `#!py self.add_button` gebruiken, maar als je Designer gebruikt moet dat `#!py self.ui.add_button` zijn.
 
-In de eindopracht willen we data weergeven op een scherm. We zullen dus nog moeten plotten. In de volgende opdrachten gaan we daarmee aan de slag. ![Klik hier](assets/eastereggs/ECPC-purple.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst als je een stukje code selecteert en op 'CTRL' + 'd' drukt, selecteert VS Code automatisch het volgende dezelfde stukje code. Zo kun je meerdere cursors tegelijk aanmaken en op meerdere plekken tegelijk iets wijzigen. Superhandig voor snelle aanpassingen! Probeer maar eens!"}
-
-Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties. Helaas is matplotlib voor het gebruik in interactieve interfaces nogal traag zodra we te maken krijgen met meer data. We kiezen daarom voor een populair alternatief: PyQtGraph. Eén nadeel: [de documentatie](https://pyqtgraph.readthedocs.io/en/latest/) is niet fantastisch. Het geeft dus niets als je ergens niet uitkomt en je hulp nodig hebt van de assistent of een staflid.
-
-### De plotter als script
-
-Om PyQtGraph te importeren en globale opties in te stellen moeten we bovenaan ons programma het volgende schrijven:
-
-``` py
-import pyqtgraph as pg
-
-
-# PyQtGraph global options
-pg.setConfigOption("background", "w")
-pg.setConfigOption("foreground", "k")
-```
-Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en dan krijg je de standaardinstelling: grijze letters op een zwarte achtergrond. Het is maar wat je fijn vindt.
-
-!!! info
-    __Als je je GUI het liefst programmeert__, gebruik dan de volgende regel om een plot widget te krijgen in de `#!py __init__()`:
-    ``` py
-    self.plot_widget = pg.PlotWidget()
-    ```
-    __Als je je GUI het liefst ontwerpt met Designer__ voegen we als volgt een plot widget toe:
+__Als je je GUI het liefst ontwerpt met Designer__ voegen we als volgt een plot widget toe:
 
     1. Voeg aan je interface een _Graphics View_ toe;
     1. Klik er op om hem te selecteren en klik daarna op de rechtermuistoets;
@@ -844,114 +952,6 @@ Dit geeft zwarte letters op een witte achtergrond. Je kunt de opties weglaten en
     
     Nu je dit een keer gedaan hebt kun je voortaan op een Graphics View meteen kiezen voor **Promote to > PlotWidget** en hoef je niets meer in te typen. Vergeet niet je widget nog even een handige naam te geven, bijvoorbeeld `plot_widget`.
 
-
-Om daadwerkelijk een functie te plotten kun je deze code aanpassen:
-
-``` py
-import numpy as np
-
-class UserInterface(QtWidgets.QMainWindow):
-
-    ...
-
-    def plot(self):
-        x = np.linspace(-pi, pi, 100)
-        self.plot_widget.plot(x, np.sin(x), symbol=None, pen={"color": "m", "width": 5})
-        self.plot_widget.setLabel("left", "y-axis [units]")
-        self.plot_widget.setLabel("bottom", "x-axis [units]")
-```
-Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` om te zien wat ze doen. Leeg maken kan met `#!py self.plot_widget.clear()`.
-
-!!! opdracht-inlever "Functionplotter: plot"
-    === "opdracht"
-
-        <div class="grid-tree" markdown>
-            <div>
-            We gaan een nieuwe repository aanmaken in de {{folder}}`ECPC` map (zie hiernaast). Maak een Poetry project {{github}}`functionplotter`, voeg die toe aan GitHub Desktop {{lightbulb}} en open hem in Visual Studio Code. Bekijk {{file_lines}}`pyproject.toml` en zorg dat er een commando is aangemaakt om de applicatie te starten. Je maakt een nieuw conda environment aan met alleen Python daarin {{lightbulb}}. Gebruik `poetry install` om het project te installeren {{lightbulb}} en voer het commando uit om de applicatie te starten. Als je applicatie af is verschijnt er een scherm met een plot waarin de functie $\sin(x)$ plot in het domein $(0, 2\pi)$ is weergegeven. Een golfje van trots gaat door je heen en je gaat door naar de volgende opdracht.
-            </div>
-            <div>
-            {{folder}} `ECPC`  
-            {{T}} {{github}} `pythondaq`  
-            {{T}} {{github}} `functionplotter`  
-            {{tab}} {{T}} {{new_file_lines}} `pyproject.toml`  
-            {{tab}} {{L}} {{dots}}  
-            {{L}} {{dots}}  
-            </div>
-        </div>
-
-    === "code"
-        **Pseudo-code**
-        ```
-        # import statements
-
-        # class UserInterface(QtWidgets.QMainWindow):
-            ...
-            # when app starts plot sin function
-
-        # create application
-        # show UserInterface
-        # close properly
-        ```
-    === "check"
-        **Checkpunten:**
-    
-        - [ ] Er is een repository {{github}}`functionplotter`
-        - [ ] Er is een commando om de applicatie te starten
-        - [ ] De applicatie laat een $\sin(x)$ plot zien in het domein $(0, 2\pi)$
-        - [ ] De applicatie werkt ook na `poetry install` in een nieuwe conda environment.
-
-        **Projecttraject**
-    
-        - [x] Functionplotter: plot
-        - [ ] Functionplotter: widgets
-
-!!! opdracht-inlever "Functionplotter: widgets"
-    === "opdracht"
-        Voer opnieuw het commando uit om de applicatie `functionplotter` te starten. Dit keer zorg je dat de applicatie de mogelijkheid krijgt om het domein van de plot aan te passen. Je ziet dan de sinusplot veranderen wanneer je de startwaarde verhoogd. Je kunt de startwaarde ook naar beneden aanpassen. Hetzelfde geldt voor de stopwaarde. Dan maak je nog een widget om het aantal punten (`num`) te kiezen waarmee de sinus wordt geplot. Speel eens met de widget en zie de sinus van hoekig naar mooi glad veranderen. Steeds als je een waarde aanpast moet de functie automatisch opnieuw geplot geworden.
-    === "code"
-        **Pseudo-code**
-        ```
-        # import statements
-
-        # class UserInterface(QtWidgets.QMainWindow):
-            ...
-            # when app starts plot sin function
-
-            # create widgets for start, stop and num in designer or in the script
-            # connect widgets to methods
-
-            # methods for start stop and num
-
-        # create application
-        # show UserInterface
-        # close properly
-        ```
-    === "check"
-        **Checkpunten:**
-    
-        - [ ] Het is mogelijk om de start waarde aan te passen.
-        - [ ] Het is mogelijk om de stop waarde aan te passen.
-        - [ ] Het is mogelijk om het aantal punten te kiezen waarmee de sinus functie wordt geplot.
-        - [ ] Na het aanpassen van een waarde wordt de plot automatisch opnieuw geplot.
-
-        **Projecttraject**
-    
-        - [x] Functionplotter: plot
-        - [x] Functionplotter: widgets
-
-???+ opdracht-meer "Functieplotter: functie kiezen drop-down menu"
-    Gebruik een `#!py QComboBox` om de functie te kunnen kiezen. Je moet hem _leeg_ toevoegen aan je interface en vult hem vanuit je programma. Zoek de widget op in de documentatie om uit te zoeken welke functie je moet gebruiken om keuzemogelijkheden toe te voegen en welk signaal je moet koppelen om te zorgen dat de plot opnieuw wordt uitgevoerd als je de functie aanpast. Geef de gebruiker de keuzes $\sin(x)$, $\cos(x)$, $\tan(x)$ en $\exp(x)$.
-
-
-???+ opdracht-meer "Functieplotter: meer functies"
-    Voeg aan de functiekiezer de functies $x$, $x^2$, $x^3$, en $\frac{1}{x}$ toe. Je kunt daarvoor _lambda functions_ gebruiken, maar dat is niet per se nodig.
-
-
-???+ opdracht-meer "Functieplotter: functies typen"
-    Vervang de functiekiezer door een tekstveld waarin de gebruiker zelf functies kan typen zoals `x ** 2`, `sin(x)` of `1 / sqrt(x + 1)`. Gebruik daarvoor het `asteval` package.[@asteval] Documentatie vind je op [https://newville.github.io/asteval/](https://newville.github.io/asteval/).
-
-    !!! waarschuwing 
-        Gebruik _nooit_ zomaar `#!py eval()` op een string die iemand anders aanlevert. Anders kan iemand met typen in een tekstveld of het inlezen van een tekstbestand je computer wissen bijvoorbeeld, of malware installeren. Als je `#!py eval()` wilt gebruiken, lees dan de sectie _Minimizing the Security Issues of eval()_ in _Python eval(): Evaluate Expressions Dynamically_.[@eval] Maar _veel makkelijker_ is om `asteval` te gebruiken.
 
 ## Een grafische interface voor ons experiment
 
