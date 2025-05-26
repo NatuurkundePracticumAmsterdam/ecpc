@@ -499,6 +499,54 @@ Er zijn veel verschillende widgets met eigen methods en signals. We hebben de ha
         - [x] Slots en signals toevoegen
         - [x] 'Hello world' en Quit knoppen toevoegen
 
+!!! opdracht-basis "Number display"
+    === "opdracht"
+        <div class="grid-tree" markdown>
+            <div>
+            Maak aan de hand van de onderstaande schets een grafische interface. Het getal moet met de pijltjes kunnen worden aangepast. Kijk in de [Compacte Pyside6 documentatie](gui.md#compacte-pyside6-documentatie) welke widget je daarvoor nodig hebt. Wanneer je op de knop 'Press me!' drukt wordt het getal in de textedit toegevoegd.
+            <br></br>
+            ![Een venster met een textedit, daaronder een spinbox met daarnaast een knop waarop staat 'Press me!'](figures/Numberdisplay-schematic.svg){: style="width:50%"}
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `pythondaq`  
+            {{T}} {{github}} `oefenopdrachten`    
+            {{tab}} {{T}} {{new_file}} `number-display-gui.py`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{dots}}  
+            </div>
+        </div>   
+    === "code"
+        **Pseudo-code**
+        ``` py
+        # import statements
+
+        # class UserInterface(QtWidgets.QMainWindow):
+            ...
+
+            # create widgets for textedit, spinbox and button
+            # connect widget to method
+
+            # method for button
+                # add value of spinbox to textedit
+
+        # create application
+        # show UserInterface
+        # close properly
+        ```        
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De 'Press me!' knop zorgt ervoor dat het getal in de spinbox in de textedit wordt toegevoegd.
+        - [ ] Als het getal in de spinbox is aangepast wordt dit nieuwe getal toegevoegd in de textedit wanneer op 'Press me!' gedrukt wordt.
+        - [ ] De spinbox staat naast de 'Press me!' knop.
+        - [ ] De spinbox en de 'Press me!' knop staan onder de textedit.
+        - [ ] Wanneer het venster wordt vergroot schalen de textedit en de knoppen mee. 
+
+        **Projecttracject**
+        
+        - [x] Number display
+
 
 <div id="info:PySide6CD"></div>
 ## Compacte PySide6 documentatie
