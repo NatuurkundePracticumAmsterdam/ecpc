@@ -499,13 +499,15 @@ Er zijn veel verschillende widgets met eigen methods en signals. We hebben de ha
         - [x] Slots en signals toevoegen
         - [x] 'Hello world' en Quit knoppen toevoegen
 
+<div id="opdracht:number-display"></div>
+
 !!! opdracht-basis "Number display"
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Maak aan de hand van de onderstaande schets een grafische interface. Het getal moet met de pijltjes kunnen worden aangepast. Kijk in de [Compacte Pyside6 documentatie](gui.md#compacte-pyside6-documentatie) welke widget je daarvoor nodig hebt. Wanneer je op de knop 'Press me!' drukt wordt het getal in de textedit toegevoegd.
+            Maak aan de hand van de onderstaande schets een grafische interface. Kijk in de [Compacte Pyside6 documentatie](gui.md#compacte-pyside6-documentatie) welke widgets je daarvoor nodig hebt. Het getal moet met de pijltjes kunnen worden aangepast. Zorg dat de het getal alleen waardes tussen 1 en 28 kan aannemen.  Wanneer je op de knop 'Add value' drukt wordt het getal in de textedit toegevoegd.
             <br></br>
-            ![Een venster met een textedit, daaronder een spinbox met daarnaast een knop waarop staat 'Press me!'](figures/Numberdisplay-schematic.svg){: style="width:50%"}
+            ![Een venster met een textedit, daaronder een spinbox met daarnaast een knop waarop staat 'Add value'](figures/Numberdisplay-schematic.svg){: style="width:50%"}
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -528,7 +530,7 @@ Er zijn veel verschillende widgets met eigen methods en signals. We hebben de ha
             # connect widget to method
 
             # method for button
-                # add value of spinbox to textedit
+                # Add value of spinbox to textedit
 
         # create application
         # show UserInterface
@@ -537,12 +539,13 @@ Er zijn veel verschillende widgets met eigen methods en signals. We hebben de ha
     === "check"
         **Checkpunten:**
 
-        - [ ] De 'Press me!' knop zorgt ervoor dat het getal in de spinbox in de textedit wordt toegevoegd.
-        - [ ] Als het getal in de spinbox is aangepast wordt dit nieuwe getal toegevoegd in de textedit wanneer op 'Press me!' gedrukt wordt.
-        - [ ] De spinbox staat naast de 'Press me!' knop.
-        - [ ] De spinbox en de 'Press me!' knop staan onder de textedit.
+        - [ ] In het ontwerp staan de PushButton en de SpinBox _onder_ het tekstveld en _naast_ elkaar.
+        - [ ] Op de `PushButton` staat de tekst `Add value`.
+        - [ ] Wanneer je op de knop `Add value` drukt wordt de waarde uit de SpinBox aan de textedit toegevoegd.
+        - [ ] Wanneer je het getal in de SpinBox veranderd naar 14 en daarna op `Add value` drukt wordt het getal 14 toegevoegd aan de textedit.
+        - [ ] De minimale waarde van de SpinBox staat ingesteld op 1, de maximale waarde op 28.
         - [ ] Wanneer het venster wordt vergroot schalen de textedit en de knoppen mee. 
-
+        
         **Projecttracject**
         
         - [x] Number display
@@ -724,6 +727,10 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
 
 ## Een interface ontwerpen met Qt Designer
 
+Bij het ontwerpen van een grafische interface kan het fijn zijn om het ontwerp steeds voor je te zien als je iets wilt aanpassen. Misschien wil je de knoppen toch onder elkaar, of een slider gebruiken in plaats van een spinbox. Je kunt natuurlijk steeds je code aanpassen en opnieuw runnen, maar PySide6 heeft ook een drag-and-drop applicatie 'Designer' gemaakt. Je gebruikt Designer om het uiterlijk van je applicatie vorm te geven, de functionaliteit voeg je vervolgens toe in je code. 
+
+Designer kan (bijna) alles wat je ook met programmeren kan, daarom kan het programma op het eerste gezicht wat onoverzichtelijk overkomen. In de onderstaande video's nemen we je stap voor stap mee op een tour door Designer. Aan het eind heb je de basis informatie over Designer en kan je de minimale gui die je eerder geprogrameerd hebt, ook maken met Designer. 
+
 !!! info
     Druk in de video's op het vierkant rechtsboven om ze in volledig scherm te bekijken.
 
@@ -782,13 +789,13 @@ In het volgende filmpje kun je zien hoe je gemakkelijk een widget aan de horizon
     === "opdracht"
         <iframe src="https://drive.google.com/file/d/1u57a2wILXmXewVYjCDTSqxG6dD2B42vl/preview" width="620" height="349" style="border:none;"></iframe>
 
-        Bekijk de bovenstaande video. Voeg zelf ook een `PushButton` en een `SpinBox` toe aan de horizontale layout. Pas de tekst op de `PushButton` aan naar `add value`. Zorg dat de `SpinBox` alleen waardes tussen 0 en 20 laat zien. Pas de `objectName` aan van de `TextEdit` naar `textedit`, van `PushButton` naar `add_value_button` en van `SpinBox` naar `value`. 
+        Bekijk de bovenstaande video. Voeg zelf ook een `PushButton` en een `SpinBox` toe aan de horizontale layout. Pas de tekst op de `PushButton` aan naar `Add value`. Zorg dat de `SpinBox` alleen waardes tussen 1 en 28 kan aannemen. Pas de `objectName` aan van de `TextEdit` naar `textedit`, van `PushButton` naar `add_value_button` en van `SpinBox` naar `value`. 
     === "check"
         **Checkpunten:**
         
         - [ ] In het ontwerp staan de PushButton en de SpinBox _onder_ het tekstveld en _naast_ elkaar.
-        - [ ] Op de `PushButton` staat de tekst `add value`.
-        - [ ] De minimale waarde van de SpinBox staat ingesteld op 1, de maximale waarde op 19.
+        - [ ] Op de `PushButton` staat de tekst `Add value`.
+        - [ ] De minimale waarde van de SpinBox staat ingesteld op 1, de maximale waarde op 28.
         - [ ] De `objectName` van de `TextEdit` is `textedit`, met kleine letters.
         - [ ] De `objectName` van de `PushButton` is `add_value_button`.
         - [ ] De `objectName` van de `SpinBox` is `value`.
@@ -810,13 +817,13 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
         <iframe src="https://drive.google.com/file/d/1cMTtI9-mgCRjYCvZYSsZ9lsZfU5KpOE2/preview" width="620" height="349" style="border:none;"></iframe>
         <div class="grid-tree" markdown>
             <div>
-            Bekijk de bovenstaande video. Sla het ontwerp op als {{new_file_lines}}`simple_app.ui`. In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin {{file_lines}}`simple_app.ui` staat.[^overleg-navigeren] Gebruik de optie `--output` van `pyside6-uic` om het bestand {{file_lines}}`simple_app.ui` om te zetten naar het bestand {{file_lines}}`ui_simple_app.py`.
+            Bekijk de bovenstaande video. Sla het ontwerp op als {{new_file_lines}}`number_display_app.ui`. In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin {{file_lines}}`number_display_app.ui` staat.[^overleg-navigeren] Gebruik de optie `--output` van `pyside6-uic` om het bestand {{file_lines}}`number_display_app.ui` om te zetten naar het bestand {{file_lines}}`ui_number_display_app.py`.
             </div>
             <div>
             {{folder}} `ECPC`  
             {{T}} {{github}} `oefenopdrachten`  
-            {{tab}} {{T}} {{file}} `example-gui.py`  
-            {{tab}} {{T}} {{new_file_lines}} `simple_app.ui`  
+            {{tab}} {{T}} {{file}} `number-display-gui.py`  
+            {{tab}} {{T}} {{new_file_lines}} `number_display_app.ui`  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{dots}} 
             </div>
@@ -826,13 +833,13 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
         [^overleg-navigeren]: Overleg met elkaar of met de assistent als je niet weet hoe dat moet.
     === "code"
         **Test-code**
-        <pre><code>(ecpc) > pyside6-uic simple_app.ui --output ui_simple_app.py <button type="button" name="pyside6-uic simple_app.ui --output ui_simple_app.py" onclick="runScript('pyside6-uic simple_app.ui --output ui_simple_app.py')">{{ enter }}</button><button type="button" name="pyside6-uic simple_app.ui --output ui_simple_app.py" onclick="runScript('pyside6-uic simple_app.ui --output ui_simple_app.py')" class="invisible">{{ reload }}</button>
-        </code><span class="invisible" name="pyside6-uic simple_app.ui --output ui_simple_app.py">
+        <pre><code>(ecpc) > pyside6-uic number_display_app.ui --output ui_number_display_app.py <button type="button" name="pyside6-uic number_display_app.ui --output ui_number_display_app.py" onclick="runScript('pyside6-uic number_display_app.ui --output ui_number_display_app.py')">{{ enter }}</button><button type="button" name="pyside6-uic number_display_app.ui --output ui_number_display_app.py" onclick="runScript('pyside6-uic number_display_app.ui --output ui_number_display_app.py')" class="invisible">{{ reload }}</button>
+        </code><span class="invisible" name="pyside6-uic number_display_app.ui --output ui_number_display_app.py">
         {{folder}} `ECPC`
         {{T}} {{github}} `oefenopdrachten`
-        &nbsp;&nbsp;&nbsp; {{T}} {{file}} `example-gui.py`
-        &nbsp;&nbsp;&nbsp; {{T}} {{file_lines}} `simple_app.ui`
-        &nbsp;&nbsp;&nbsp; {{T}} {{new_file}} `ui_simple_app.py`
+        &nbsp;&nbsp;&nbsp; {{T}} {{file}} `number-display-gui.py`
+        &nbsp;&nbsp;&nbsp; {{T}} {{file_lines}} `number_display_app.ui`
+        &nbsp;&nbsp;&nbsp; {{T}} {{new_file}} `ui_number_display_app.py`
         &nbsp;&nbsp;&nbsp; {{L}} {{dots}}
         {{L}} {{dots}}
         </span>
@@ -840,8 +847,8 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
     === "check"
         **Checkpunten:**
         
-        - [ ] Er is een bestand {{file}}`ui_simple_app.py` bijgekomen.
-        - [ ] In het bestand {{file}}`ui_simple_app.py` staat een class `#!py Ui_MainWindow`
+        - [ ] Er is een bestand {{file}}`ui_number_display_app.py` bijgekomen.
+        - [ ] In het bestand {{file}}`ui_number_display_app.py` staat een class `#!py Ui_MainWindow`
 
         **Projecttraject**
     
@@ -854,12 +861,12 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
 
 !!! opdracht-basis "Designer: ontwerp importeren"
     === "opdracht"
-        Maak een nieuw pythonbestand {{new_file}}`example-gui-designer.py`, kopieer de code van het [vorige voorbeeld](#code:layout) en vervang de volledige class door:
+        Maak een nieuw pythonbestand {{new_file}}`number-display-gui-designer.py`, kopieer de code van de vorige [opdracht number display](gui.md#opdracht:number-display) en vervang de volledige class door:
 
         <div id="code:designer"></div>
 
         ``` py hl_lines="1"
-        from ui_simple_app import Ui_MainWindow
+        from ui_number_display_app import Ui_MainWindow
 
 
         class UserInterface(QtWidgets.QMainWindow):
@@ -869,11 +876,11 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
                 self.ui = Ui_MainWindow()
                 self.ui.setupUi(self)
 
-                self.ui.add_value_button.clicked.connect(self.add_button_clicked)
+                self.ui.add_value_button.clicked.connect(self.add_value_button_clicked)
 
             @Slot()
-            def add_button_clicked(self):
-                self.ui.textedit.append("You clicked me.")
+            def add_value_button_clicked(self):
+                self.ui.textedit.append("You've clicked the 'Add value' button")
         ```
         In deze code definiëren we niet `#!py self.ui.add_value_button`; die naam hebben we in Designer aan de knop gegeven. De namen van alle objecten in Designer zijn daarna beschikbaar in onze code om bijvoorbeeld de signalen te koppelen.
 
@@ -889,7 +896,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
 
         from PySide6 import QtWidgets
 
-        from ui_simple_app import Ui_MainWindow
+        from ui_number_display_app import Ui_MainWindow
 
         # create subclass of QtWidgets.QMainWindow
             # def __init__()
@@ -898,7 +905,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
                 # create an instance of the class Ui_MainWindow
                 # Setup the UI with the method setupUi(self) from the class Ui_MainWindow
 
-                # connect add_value_button to add_button_clicked
+                # connect add_value_button to add_value_button_clicked
 
             # decorate method with Slot function
             # def add_button_clicked
@@ -916,7 +923,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
     === "check"
         **Checkpunten:**
         
-        - [ ] De class `#!py Ui_MainWindow` wordt geimporteerd uit {{file}}`ui_simple_app.py`
+        - [ ] De class `#!py Ui_MainWindow` wordt geimporteerd uit {{file}}`ui_number_display_app.py`
         - [ ] De widgets worden aangeroepen met `#!py self.ui` ervoor.
 
         **Projecttraject**
@@ -930,7 +937,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
 
 !!! opdracht-basis "Designer: slots en signals toevoegen"
     === "opdracht"
-        Pas de code aan zodat de waarde van de SpinBox aan de textedit wordt toegevoegd in plaats van de tekst "You clicked me." Voeg daarna in Designer een knop `Quit` toe onder de SpinBox en de PushButton. Zorg dat het venster sluit wanneer je op de knop `Quit` drukt.
+        Pas de code aan zodat de waarde van de SpinBox aan de textedit wordt toegevoegd. Voeg daarna in Designer een knop `Quit` toe onder de SpinBox en de PushButton. Zorg dat het venster sluit wanneer je op de knop `Quit` drukt.
 
     === "code"
         **Pseudo-code**
@@ -941,7 +948,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
 
         from PySide6 import QtWidgets
 
-        from ui_simple_app import Ui_MainWindow
+        from ui_number_display_app import Ui_MainWindow
 
         # create subclass of QtWidgets.QMainWindow
             # def __init__()
@@ -950,12 +957,12 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
                 # create an instance of the class Ui_MainWindow
                 # Setup the UI with the method setupUi(self) from the class Ui_MainWindow
 
-                # connect add_value_button to add_button_clicked
+                # connect add_value_button to add_value_button_clicked
                 # connect Quit button to self.close()
 
             # decorate method with Slot function
-            # def add_button_clicked
-                # add value to textedit
+            # def add_value_button_clicked
+                # Add value to textedit
 
         def main():
             # create instance of QtWidgets.QApplication with arguments from sys.argv
@@ -969,9 +976,9 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
     === "check"
         **Checkpunten:**
         
-        - [ ] Wanneer je op de knop `add value` drukt wordt de waarde uit de SpinBox aan de textedit toegevoegd.
-        - [ ] Wanneer je het getal in de SpinBox veranderd naar 14 en daarna op `add value` drukt wordt het getal 14 toegevoegd aan de textedit.
-        - [ ] Onder de SpinBox en de knop `add value` staat een knop `Quit`.
+        - [ ] Wanneer je op de knop `Add value` drukt wordt de waarde uit de SpinBox aan de textedit toegevoegd.
+        - [ ] Wanneer je het getal in de SpinBox veranderd naar 14 en daarna op `Add value` drukt wordt het getal 14 toegevoegd aan de textedit.
+        - [ ] Onder de SpinBox en de knop `Add value` staat een knop `Quit`.
         - [ ] Wanneer je op de knop `Quit` drukt sluit de applicatie.
 
         **Projecttraject**
