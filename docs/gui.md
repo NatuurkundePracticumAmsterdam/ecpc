@@ -766,7 +766,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
 ## Compacte PySide6 documentatie
 De documentatie van PySide6[^officialPySide6Doc] is niet super-intuïtief. Daarom hebben we speciaal voor jullie een [Compacte PySide6 documentatie📄](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/) geschreven. Daarin kan je een lijst van widgets vinden met de meest handige methods en signals. De documentatie is dus niet compleet maar genoeg voor een simpele GUI. Een overzicht van alle classes gedocumenteerd in de compacte documentatie vind je hieronder.
 
-[^officialPySide6Doc]: https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes
+[^officialPySide6Doc]: [https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes)
 
 **Subclasses van `QLayout`:**
 
