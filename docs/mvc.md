@@ -367,64 +367,6 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
 Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger geworden. Als het goed is gaat nu (vrijwel) het volledige script alleen maar over het starten van een meting en het weergeven en bewaren van de meetgegevens. In het <q>view</q> script komen verder geen berekeningen voor of details over welk kanaal van de Arduino op welke elektronische component is aangesloten. Ook staat hier niets over welke commando's de Arduino firmware begrijpt. Dit maakt het veel makkelijker om in de vervolghoofdstukken een gebruiksvriendelijke applicatie te ontwikkelen waarmee je snel en eenvoudig metingen kunt doen.
 
-!!! opdracht-inlever "Pythondaq: Onzekerheid"
-    === "opdracht"
-        Omdat je never nooit je conclusies gaat baseren op een enkele meetserie ga je de meting herhalen en foutenvlaggen toevoegen. Je moet weer even hard nadenken over hoe je dat bepaalt en hoe je dat in je code gaat verwerken. Daarom pak je pen en papier, stoot je je buurmens aan en samen gaan jullie nadenken over hoe jullie in dit experiment de onzekerheid kunnen bepalen. Daarna kijken jullie naar de opbouw van de code en maken jullie aantekeningen over wat er waar en hoe in de code aangepast moet worden. Je kijkt naar je repository en ziet dat je de nu-nog-werkende-code hebt gecommit vervolgens ga je stap voor stap (commit voor commit) aan de slag om de aanpassingen te maken. Als het klaar is run je {{file}}`run_experiment.py` met het aantal herhaalmetingen op 3 en ziet in de grafiek foutenvlaggen op de metingen voor stroom en spanningen staan. Je kijkt op het beeldscherm van je buurmens en ziet daar ook foutenvlaggen verschijnen. Met een grijns kijken jullie elkaar aan en geven een high five {{feesttoeter}}.
-
-    === "code"
-        **Pseudo-code**
-        ``` py title="arduino_device.py"
-        # def list_resources
-        #   ...
-
-        # class ArduinoVISADevice
-            ...
-        ```
-        ``` py title="diode_experiment.py"
-        from arduino_device import ArduinoVISADevice, list_resources
-        
-        # class DiodeExperiment
-            ...
-            # connect to Arduino via ArduinoVISADevice
-            ...
-            def scan # with start, stop and number of measurements
-                # set output voltage from 0 to max
-                    # measure voltages
-                    # calculate LED voltage
-                    # calculate LED current
-                # return LED voltage, LED current and errors
-        ```      
-        ``` py title="run_experiment.py"
-        from diode_experiment import DiodeExperiment
-        
-        # get current and voltage with errors from scan(start, stop, measurements)
-
-        # plot current vs voltage with errorbars
-        # create csv-file
-
-        ```      
-    === "check"
-        **Checkpunten:**
-
-        - [ ] Het aantal herhaalmetingen kan worden aangepast in de view.
-        - [ ] De onzekerheid wordt in het model op de correcte manier bepaald.
-        - [ ] De onzekerheid wordt vanuit het model doorgegeven aan de view.
-        - [ ] In de view wordt de onzekerheid geplot behorende bij de juiste grootheid.
-
-
-        **Projecttraject:**
-
-        - [x] Pythondaq: Repository
-        - [x] Pythondaq: Start script
-        - [x] Pythondaq: Quick 'n dirty meting
-        - [x] Pythondaq: CSV
-        - [x] Pythondaq: open de repository
-        - [x] Pythondaq: Controller bouwen
-        - [x] Pythondaq: Controller implementeren
-        - [x] Pythondaq: Controller afsplitsen
-        - [x] Pythondaq: Model afsplitsen
-        - [x] Pythondaq: Onzekerheid
-
 ???+ opdracht-meer "User input"
     De gebruiker moet in de view het script aanpassen om een andere meting te doen. Kun je `#!py input()` gebruiken om van de gebruiker input te vragen voor de start, stop en aantal metingen?
 

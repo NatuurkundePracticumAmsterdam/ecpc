@@ -241,6 +241,63 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
         - [ ] Pythondaq: Model afsplitsen
         - [ ] Pythondaq: Onzekerheid
 
+!!! opdracht-inlever "Pythondaq: Onzekerheid"
+    === "opdracht"
+        Omdat je never nooit je conclusies gaat baseren op een enkele meetserie ga je de meting herhalen en foutenvlaggen toevoegen. Je moet weer even hard nadenken over hoe je dat bepaalt en hoe je dat in je code gaat verwerken. Daarom pak je pen en papier, stoot je je buurmens aan en samen gaan jullie nadenken over hoe jullie in dit experiment de onzekerheid kunnen bepalen. Daarna kijken jullie naar de opbouw van de code en maken jullie aantekeningen over wat er waar en hoe in de code aangepast moet worden. Je kijkt naar je repository en ziet dat je de nu-nog-werkende-code hebt gecommit vervolgens ga je stap voor stap (commit voor commit) aan de slag om de aanpassingen te maken. Als het klaar is run je {{file}}`run_experiment.py` met het aantal herhaalmetingen op 3 en ziet in de grafiek foutenvlaggen op de metingen voor stroom en spanningen staan. Je kijkt op het beeldscherm van je buurmens en ziet daar ook foutenvlaggen verschijnen. Met een grijns kijken jullie elkaar aan en geven een high five {{feesttoeter}}.
+
+    === "code"
+        **Pseudo-code**
+        ``` py title="arduino_device.py"
+        # def list_resources
+        #   ...
+
+        # class ArduinoVISADevice
+            ...
+        ```
+        ``` py title="diode_experiment.py"
+        from arduino_device import ArduinoVISADevice, list_resources
+        
+        # class DiodeExperiment
+            ...
+            # connect to Arduino via ArduinoVISADevice
+            ...
+            def scan # with start, stop and number of measurements
+                # set output voltage from 0 to max
+                    # measure voltages
+                    # calculate LED voltage
+                    # calculate LED current
+                # return LED voltage, LED current and errors
+        ```      
+        ``` py title="run_experiment.py"
+        from diode_experiment import DiodeExperiment
+        
+        # get current and voltage with errors from scan(start, stop, measurements)
+
+        # plot current vs voltage with errorbars
+        # create csv-file
+
+        ```      
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Het aantal herhaalmetingen kan worden aangepast in de view.
+        - [ ] De onzekerheid wordt in het model op de correcte manier bepaald.
+        - [ ] De onzekerheid wordt vanuit het model doorgegeven aan de view.
+        - [ ] In de view wordt de onzekerheid geplot behorende bij de juiste grootheid.
+
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: Repository
+        - [x] Pythondaq: Start script
+        - [x] Pythondaq: Quick 'n dirty meting
+        - [x] Pythondaq: CSV
+        - [x] Pythondaq: open de repository
+        - [x] Pythondaq: Controller bouwen
+        - [x] Pythondaq: Controller implementeren
+        - [x] Pythondaq: Controller afsplitsen
+        - [x] Pythondaq: Model afsplitsen
+        - [x] Pythondaq: Onzekerheid
 
 ## Bewaren van meetgegevens
 
