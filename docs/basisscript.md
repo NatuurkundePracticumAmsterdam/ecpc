@@ -179,16 +179,11 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
 
         **Projecttraject:**
 
-        - [x] Pythondaq: Repository
-        - [x] Pythondaq: Start script
-        - [ ] Pythondaq: Quick 'n dirty meting
+        - [x] Pythondaq: repository
+        - [x] Pythondaq: start script
+        - [ ] Pythondaq: quick 'n dirty meting
+        - [ ] Pythondaq: onzekerheid
         - [ ] Pythondaq: CSV
-        - [ ] Pythondaq: open de repository
-        - [ ] Pythondaq: Controller bouwen
-        - [ ] Pythondaq: Controller implementeren
-        - [ ] Pythondaq: Controller afsplitsen
-        - [ ] Pythondaq: Model afsplitsen
-        - [ ] Pythondaq: Onzekerheid
 
 Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma of Python notebook o.i.d. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment hebben we ook alleen nog maar _ruwe_ metingen. We gaan hier voorbij aan het feit dat we graag de stroomsterkte door de LED $I$ zouden willen uitzetten tegen de spanning over de LED $U_\mathrm{LED}$.
 
@@ -199,7 +194,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
     ```
 
 <div id="opd:quickndirty-meting"></div>
-!!! opdracht-inlever "Pythondaq: Quick 'n dirty meting"
+!!! opdracht-inlever "Pythondaq: quick 'n dirty meting"
     === "opdracht"
         Je code berekent de spanning _over_ en de stroomsterkte _door_ de LED terwijl de spanning over het cirquit oploopt van nul tot de maximale waarde. De resultaten worden geprint en in een grafiek weergegeven.  
     === "code"
@@ -230,18 +225,13 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
 
         **Projecttraject:**
 
-        - [x] Pythondaq: Repository
-        - [x] Pythondaq: Start script
-        - [x] Pythondaq: Quick 'n dirty meting
+        - [x] Pythondaq: repository
+        - [x] Pythondaq: start script
+        - [x] Pythondaq: quick 'n dirty meting
+        - [ ] Pythondaq: onzekerheid
         - [ ] Pythondaq: CSV
-        - [ ] Pythondaq: open de repository
-        - [ ] Pythondaq: Controller bouwen
-        - [ ] Pythondaq: Controller implementeren
-        - [ ] Pythondaq: Controller afsplitsen
-        - [ ] Pythondaq: Model afsplitsen
-        - [ ] Pythondaq: Onzekerheid
-
-!!! opdracht-inlever "Pythondaq: Onzekerheid"
+ 
+!!! opdracht-inlever "Pythondaq: onzekerheid"
     === "opdracht"
         Omdat je never nooit je conclusies gaat baseren op een enkele meetserie ga je de meting herhalen en foutenvlaggen toevoegen. Je moet weer even hard nadenken over hoe je dat bepaalt en hoe je dat in je code gaat verwerken. Daarom pak je pen en papier, stoot je je buurmens aan en samen gaan jullie nadenken over hoe jullie in dit experiment de onzekerheid kunnen bepalen. Daarna kijken jullie naar de opbouw van de code en maken jullie aantekeningen over wat er waar en hoe in de code aangepast moet worden. Je kijkt naar je repository en ziet dat je de nu-nog-werkende-code hebt gecommit vervolgens ga je stap voor stap (commit voor commit) aan de slag om de aanpassingen te maken. Als het klaar is run je {{file}}`run_experiment.py` met het aantal herhaalmetingen op 3 en ziet in de grafiek foutenvlaggen op de metingen voor stroom en spanningen staan. Je kijkt op het beeldscherm van je buurmens en ziet daar ook foutenvlaggen verschijnen. Met een grijns kijken jullie elkaar aan en geven een high five {{feesttoeter}}.
 
@@ -288,16 +278,11 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
 
         **Projecttraject:**
 
-        - [x] Pythondaq: Repository
-        - [x] Pythondaq: Start script
-        - [x] Pythondaq: Quick 'n dirty meting
-        - [x] Pythondaq: CSV
-        - [x] Pythondaq: open de repository
-        - [x] Pythondaq: Controller bouwen
-        - [x] Pythondaq: Controller implementeren
-        - [x] Pythondaq: Controller afsplitsen
-        - [x] Pythondaq: Model afsplitsen
-        - [x] Pythondaq: Onzekerheid
+        - [x] Pythondaq: repository
+        - [x] Pythondaq: start script
+        - [x] Pythondaq: quick 'n dirty meting
+        - [x] Pythondaq: onzekerheid
+        - [ ] Pythondaq: CSV
 
 ## Bewaren van meetgegevens
 
@@ -361,7 +346,7 @@ Het viel je misschien op dat in bovenstaand CSV-bestand iedere regel een $t$-waa
 
 Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de lengte van de lijst op te zoeken en krijg je meteen de losse elementen zonder dat je ze zelf uit de lijst moet plukken met indexnotatie.
 
-!!! opdracht-basis "oefenen met zip"
+!!! opdracht-basis "Oefenen met zip"
     === "opdracht"
         Je hebt een lijst met krachten en een lijst met afstanden. Loop over de lijsten en print voor iedere iteratie de kracht $F$, de afstand $s$ en de arbeid $W$.
         Je hebt een lijst met spanningen en een lijst met stroomsterktes. Je loopt over de lijsten en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
@@ -383,7 +368,7 @@ Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de len
 
         **Projecttraject:**
 
-        - [x] oefenen met zip
+        - [x] Oefenen met zip
 
 
 #### Het gebruik van de `#!py csv`-module
@@ -439,16 +424,11 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
 
         **Projecttraject:**
 
-        - [x] Pythondaq: Repository
-        - [x] Pythondaq: Start script
-        - [x] Pythondaq: Quick 'n dirty meting
+        - [x] Pythondaq: repository
+        - [x] Pythondaq: start script
+        - [x] Pythondaq: quick 'n dirty meting
+        - [x] Pythondaq: onzekerheid
         - [x] Pythondaq: CSV
-        - [ ] Pythondaq: open de repository
-        - [ ] Pythondaq: Controller bouwen
-        - [ ] Pythondaq: Controller implementeren
-        - [ ] Pythondaq: Controller afsplitsen
-        - [ ] Pythondaq: Model afsplitsen
-        - [ ] Pythondaq: Onzekerheid
 
 ???+ opdracht-meer "Git ignore"
     Het kan wenselijk zijn om niet alle bestanden mee te nemen voor versiebeheer in je repository. Soms wil je een bestand uitsluiten, of bepaalde bestand-types.  Om GitHub te laten weten welke bestanden niet gecommit hoeven te worden is er een bestand {{file_lines}}`.gitignore` . Let op de punt voor de bestandsnaam, dit betekent dat het een verborgen bestand is en mogelijk zie je het niet in je repository staan.
@@ -456,9 +436,9 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
     Stel je wilt alle csv-bestanden uitsluiten van versiebeheer, dat kan als volgt:
 
     1. Ga naar GitHub Desktop.
-    1. Ga naar het tabblad Changes. 
-    1. Rechtermuisklik op het bestand wat je wilt negeren
-    1. Maak een keuze tussen *Ignore file*, *Ignore folder* of *Ignore all .csv files* 
+    2. Ga naar het tabblad Changes. 
+    3. Rechtermuisklik op het bestand wat je wilt negeren
+    4. Maak een keuze tussen *Ignore file*, *Ignore folder* of *Ignore all .csv files* 
 
 ???+ opdracht-meer "CSV bestandsnaam"
     Pas de code zodanig aan dat een CSV-bestand nooit wordt overschreven. Je kunt bijvoorbeeld controleren of het bestand al bestaat en aan de bestandsnaam een oplopend getal toevoegen (`data-001.csv`, `data-002.csv`, etc.) totdat je uitkomt bij een bestandsnaam die nog niet bestaat. Controleer dat je programma ook echt geen data overschrijft.
