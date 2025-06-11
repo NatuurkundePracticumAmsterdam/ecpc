@@ -27,7 +27,7 @@ Het opsplitsen van je programma _hoeft niet in één keer!_ Dit kan stapsgewijs.
 ## Implementeren van MVC
 Het opsplitsen van het {{file}}`diode-experiment.py` in MVC gaan we stapsgewijs doen. We gaan een class maken voor de aansturing van de Arduino, deze class valt in de categorie _controller_.
 
-!!! opdracht-inlever "Pythondaq: open de repository"
+!!! opdracht-inlever "Pythondaq: open repository"
     Open in GitHub Desktop de repository van {{github}}`pythondaq` en open de repository in Visual Studio Code. In de volgende opdrachten ga je het {{file}}`diode-experiment.py` uitbreiden en opsplitsen in MVC.
 
 <div id="opd:meting-class"></div>
@@ -112,21 +112,15 @@ Het opsplitsen van het {{file}}`diode-experiment.py` in MVC gaan we stapsgewijs 
 
         **Projecttraject:**
 
-        - [x] Pythondaq: Repository
-        - [x] Pythondaq: Start script
-        - [x] Pythondaq: Quick 'n dirty meting
-        - [x] Pythondaq: CSV
-        - [x] Pythondaq: open de repository
-        - [x] Pythondaq: Controller bouwen
-        - [ ] Pythondaq: Controller implementeren
-        - [ ] Pythondaq: Controller afsplitsen
-        - [ ] Pythondaq: Model afsplitsen
-        - [ ] Pythondaq: Onzekerheid
-
+        - [x] Pythondaq: open repository
+        - [x] Pythondaq: controller bouwen
+        - [ ] Pythondaq: controller implementeren
+        - [ ] Pythondaq: controller afsplitsen
+        - [ ] Pythondaq: model afsplitsen
 
 Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experiment. 
 
-!!! opdracht-inlever "Pythondaq: Controller implementeren"
+!!! opdracht-inlever "Pythondaq: controller implementeren"
     === "opdracht"
         Zet je controller code (zonder de testcode) in het bestand {{file}}`diode-experiment.py`. Pas de code die de meting uitvoert aan zodat deze gebruikt maakt van de class `#!py ArduinoVISADevice` en de bijbehorende methods. 
     === "code"
@@ -162,22 +156,17 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
 
         **Projecttraject:**
 
-        - [x] Pythondaq: Repository
-        - [x] Pythondaq: Start script
-        - [x] Pythondaq: Quick 'n dirty meting
-        - [x] Pythondaq: CSV
-        - [x] Pythondaq: open de repository
-        - [x] Pythondaq: Controller bouwen
-        - [x] Pythondaq: Controller implementeren
-        - [ ] Pythondaq: Controller afsplitsen
-        - [ ] Pythondaq: Model afsplitsen
-        - [ ] Pythondaq: Onzekerheid
+        - [x] Pythondaq: open repository
+        - [x] Pythondaq: controller bouwen
+        - [x] Pythondaq: controller implementeren
+        - [ ] Pythondaq: controller afsplitsen
+        - [ ] Pythondaq: model afsplitsen
 
 Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de precieze commando's zijn die je naar de hardware moet sturen. Als je de Arduino in de opstelling vervangt voor een ander meetinstrument moet je de class aanpassen, maar kan alle code die met het experiment zelf te maken heeft hetzelfde blijven.
 
 Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een stukje code over. Het laatste stuk waar de plot en het CSV-bestand gemaakt worden kunnen we beschouwen als een _view_ en de rest van de code &mdash; waar de metingen worden uitgevoerd en de stroomsterkte $I$ wordt berekend &mdash; is een _model_. We gaan de code nog wat verder opsplitsen om dat duidelijk te maken én onderbrengen in verschillende bestanden &mdash; dat is uiteindelijk beter voor het overzicht.
 
-!!! opdracht-inlever "Pythondaq: Controller afsplitsen"
+!!! opdracht-inlever "Pythondaq: controller afsplitsen"
     === "opdracht"
 
         <div class="grid-tree" markdown>
@@ -232,16 +221,11 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
         **Projecttraject:**
 
-        - [x] Pythondaq: Repository
-        - [x] Pythondaq: Start script
-        - [x] Pythondaq: Quick 'n dirty meting
-        - [x] Pythondaq: CSV
-        - [x] Pythondaq: open de repository
-        - [x] Pythondaq: Controller bouwen
-        - [x] Pythondaq: Controller implementeren
-        - [x] Pythondaq: Controller afsplitsen
-        - [ ] Pythondaq: Model afsplitsen
-        - [ ] Pythondaq: Onzekerheid
+        - [x] Pythondaq: open repository
+        - [x] Pythondaq: controller bouwen
+        - [x] Pythondaq: controller implementeren
+        - [x] Pythondaq: controller afsplitsen
+        - [ ] Pythondaq: model afsplitsen
 
 ???+ opdracht-meer "`#!py if __name__ == '__main__'`"
     === "opdracht"
@@ -282,7 +266,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         - [ ] Er wordt een lijst met poorten geprint wanneer {{file}}`arduino_device.py` wordt gerund.
         - [ ] De lijst wordt _niet_ geprint wanneer {{file}}`diode-experiment.py` wordt gerund.
 
-!!! opdracht-inlever "Pythondaq: Model afsplitsen"
+!!! opdracht-inlever "Pythondaq: model afsplitsen"
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
@@ -352,18 +336,11 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
         **Projecttraject:**
 
-        - [x] Pythondaq: Repository
-        - [x] Pythondaq: Start script
-        - [x] Pythondaq: Quick 'n dirty meting
-        - [x] Pythondaq: CSV
-        - [x] Pythondaq: open de repository
-        - [x] Pythondaq: Controller bouwen
-        - [x] Pythondaq: Controller implementeren
-        - [x] Pythondaq: Controller afsplitsen
-        - [x] Pythondaq: Model afsplitsen
-        - [ ] Pythondaq: Onzekerheid
-    
-
+        - [x] Pythondaq: open repository
+        - [x] Pythondaq: controller bouwen
+        - [x] Pythondaq: controller implementeren
+        - [x] Pythondaq: controller afsplitsen
+        - [x] Pythondaq: model afsplitsen
 
 Het oorspronkelijke script dat je gebruikte voor je meting is steeds leger geworden. Als het goed is gaat nu (vrijwel) het volledige script alleen maar over het starten van een meting en het weergeven en bewaren van de meetgegevens. In het <q>view</q> script komen verder geen berekeningen voor of details over welk kanaal van de Arduino op welke elektronische component is aangesloten. Ook staat hier niets over welke commando's de Arduino firmware begrijpt. Dit maakt het veel makkelijker om in de vervolghoofdstukken een gebruiksvriendelijke applicatie te ontwikkelen waarmee je snel en eenvoudig metingen kunt doen.
 
