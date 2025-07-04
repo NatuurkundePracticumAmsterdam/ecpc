@@ -183,6 +183,8 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         - [x] Pythondaq: start script
         - [ ] Pythondaq: quick 'n dirty meting
         - [ ] Pythondaq: onzekerheid
+        - [ ] Pythondaq: Schildpad of raket?
+        - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
 
 Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma of Python notebook o.i.d. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment hebben we ook alleen nog maar _ruwe_ metingen. We gaan hier voorbij aan het feit dat we graag de stroomsterkte door de LED $I$ zouden willen uitzetten tegen de spanning over de LED $U_\mathrm{LED}$.
@@ -229,11 +231,28 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
         - [x] Pythondaq: start script
         - [x] Pythondaq: quick 'n dirty meting
         - [ ] Pythondaq: onzekerheid
+        - [ ] Pythondaq: Schildpad of raket?
+        - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
- 
+
+
 !!! opdracht-inlever "Pythondaq: onzekerheid"
+    Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga je de meting herhalen en foutenvlaggen toevoegen. Je moet weer even hard nadenken over hoe je dat bepaalt en hoe je dat in je code gaat verwerken. Daarom pak je pen en papier, stoot je je buurmens aan en samen gaan jullie nadenken over hoe jullie in dit experiment de onzekerheid kunnen bepalen. <br></br>Bekijk daarvoor het onderstaande filmpje. 
+    Een meting van de spanning wordt $x_n$ keer herhaald, de groene rechthoek geeft de onzekerheid op een individuele meting weer. Het gemiddelde van alle metingen wordt weergegeven met een roze lijn en de roze rechthoek geeft de onzekerheid op het gemiddelde. 
+
+    <iframe src="https://drive.google.com/file/d/1-26rnvYwTZ_I7PgUX85Don21qevgHLv0/preview" width="620" height="349" style="border:none;"></iframe>
+
+    Wat gebeurt er met de onzekerheid op een individuele meting als je vaker meet? Waarom? Wat gebeurt er met de onzekerheid op het gemiddelde als je vaker meet? Waarom? En hoe bepaal je de onzekerheid op het gemiddelde?
+
+!!! opdracht-inlever "Pythondaq: Schildpad of raket?"
+    Omdat je voor het LED experiment een reeks aan metingen doet over de hele voltage range zijn er twee manieren om herhaalmetingen uit te voeren. De eerste manier is als een schildpad stap voor stap, bij elk voltage meet je een x aantal keer. De andere manier is als een raket: je vliegt over alle voltages heen en herhaald dat een x aantal keer. 
+    
+    Bespreek samen de voor- en nadelen van beide manieren, zowel op experimenteel gebied als op codeer gebied. 
+
+
+!!! opdracht-inlever "Pythondaq: herhaalmetingen"
     === "opdracht"
-        Omdat je never nooit je conclusies gaat baseren op een enkele meetserie ga je de meting herhalen en foutenvlaggen toevoegen. Je moet weer even hard nadenken over hoe je dat bepaalt en hoe je dat in je code gaat verwerken. Daarom pak je pen en papier, stoot je je buurmens aan en samen gaan jullie nadenken over hoe jullie in dit experiment de onzekerheid kunnen bepalen. Daarna kijken jullie naar de opbouw van de code en maken jullie aantekeningen over wat er waar en hoe in de code aangepast moet worden. Je kijkt naar je repository en ziet dat je de nu-nog-werkende-code hebt gecommit vervolgens ga je stap voor stap (commit voor commit) aan de slag om de aanpassingen te maken. Als het klaar is run je {{file}}`run_experiment.py` met het aantal herhaalmetingen op 3 en ziet in de grafiek foutenvlaggen op de metingen voor stroom en spanningen staan. Je kijkt op het beeldscherm van je buurmens en ziet daar ook foutenvlaggen verschijnen. Met een grijns kijken jullie elkaar aan en geven een high five {{feesttoeter}}.
+        Kijk nu naar de opbouw van de code en maak aantekeingen over wat er waar en hoe in de docde aangepast moet worden. Je kijkt naar je repository en ziet dat je de nu-nog-werkende-code hebt gecommit vervolgens ga je stap voor stap (commit voor commit) aan de slag om de aanpassingen te maken. Als het klaar is run je {{file}}`run_experiment.py` met het aantal herhaalmetingen op 3 en ziet in de grafiek foutenvlaggen op de metingen voor stroom en spanningen staan. Je kijkt op het beeldscherm van je buurmens en ziet daar ook foutenvlaggen verschijnen. Met een grijns kijken jullie elkaar aan en geven een high five {{feesttoeter}}.
 
     === "code"
         **Pseudo-code**
@@ -271,7 +290,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
         **Checkpunten:**
 
         - [ ] Het aantal herhaalmetingen kan worden aangepast in de view.
-        - [ ] De onzekerheid wordt in het model op de correcte manier bepaald.
+        - [ ] De onzekerheid wordt in het model correcte bepaald.
         - [ ] De onzekerheid wordt vanuit het model doorgegeven aan de view.
         - [ ] In de view wordt de onzekerheid geplot behorende bij de juiste grootheid.
 
@@ -282,6 +301,8 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
         - [x] Pythondaq: start script
         - [x] Pythondaq: quick 'n dirty meting
         - [x] Pythondaq: onzekerheid
+        - [x] Pythondaq: Schildpad of raket?
+        - [x] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
 
 ## Bewaren van meetgegevens
@@ -428,6 +449,8 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
         - [x] Pythondaq: start script
         - [x] Pythondaq: quick 'n dirty meting
         - [x] Pythondaq: onzekerheid
+        - [x] Pythondaq: Schildpad of raket?
+        - [x] Pythondaq: herhaalmetingen
         - [x] Pythondaq: CSV
 
 ???+ opdracht-meer "Git ignore"
