@@ -1,124 +1,142 @@
 # Communicatie met een meetinstrument
 
-Het hart van ieder experiment wordt gevormd door de _metingen_ die worden uitgevoerd. Meetinstrumenten vervullen daarom een belangrijke rol bij het automatiseren van een experiment. De eerste stap die we zullen zetten tijdens het ontwikkelen van een applicatie is het communiceren met ons meetinstrument. We hebben gekozen voor een Arduino Nano 33 IoT,[@arduino_device] een zeer compact stukje elektronica rondom een ARM-microcontroller. Naast het uitvoeren van analoge spanningsmetingen kan dit model ook analoge spanningen afgeven dat voor ons heel nuttig gaat blijken. We hebben, speciaal voor dit vak, een stukje _firmware_[^firmware] ontwikkeld.[@arduino_visa_firmware]
+Het hart van ieder experiment wordt gevormd door de _metingen_ die worden uitgevoerd. Meetinstrumenten vervullen daarom een belangrijke rol bij het automatiseren van een experiment. De eerste stap die je zult zetten tijdens het ontwikkelen van een applicatie is het communiceren met het meetinstrument. We hebben gekozen voor een Arduino Nano 33 IoT,[@arduino_device] een zeer compact stukje elektronica rondom een ARM-microcontroller. Naast het uitvoeren van analoge spanningsmetingen kan dit model ook analoge spanningen afgeven dat voor het experiment heel nuttig gaat blijken te zijn. We hebben &mdash; speciaal voor deze cursus &mdash; een stukje _firmware_[^firmware] ontwikkeld.[@arduino_visa_firmware]
 
 [^firmware]: Firmware is software die in hardware is geprogrammeerd. Bijvoorbeeld het <q>computerprogramma</q> dat ervoor zorgt dat je magnetron reageert op de knoppen en je eten verwarmd.
 
-
 ## Microcontrollers
 
-Computers &mdash; zoals de meesten van ons die kennen &mdash; zijn zeer krachtig en ontworpen om zo flexibel mogelijk te zijn. Ze draaien games, e-mail of rekenen klimaatmodellen door. Ze komen in veel vormen: desktops, laptops, tablets en <q>telefoons</q>. Ze bevatten daarom veel losse componenten: snelle processor (CPU), veel geheugen (RAM), veel permanente opslag (SSD), complexe interfaces (HDMI, USB) en een besturingssysteem waarmee je verschillende programma's kunt opstarten en de computer kunt beheren. Computers zijn behoorlijk prijzig.
+Computers &mdash; zoals de meesten van ons die kennen &mdash; zijn zeer krachtig en ontworpen om zo flexibel mogelijk te zijn. Ze draaien games, e-mail of rekenen klimaatmodellen door. Ze komen in veel vormen: desktops, laptops, tablets en <q>telefoons</q>. Ze bevatten veel losse componenten: snelle processor (CPU), veel geheugen (RAM), veel permanente opslag (SSD), complexe interfaces (HDMI, USB) en een besturingssysteem waarmee je verschillende programma's kunt opstarten en de computer kunt beheren. Computers zijn behoorlijk prijzig.
 
 Een microcontroller daarentegen is veel eenvoudiger. Ze zijn ontworpen voor een beperkte en specifieke taak. Ze hebben veel verschijningsvormen &mdash; de meeste onherkenbaar. Je vindt microcontrollers in de vaatwasser, de magnetron, een draadloos toetsenbord en auto's (letterlijk tientallen verspreid over de hele auto). Ze hebben dan een beperkte taak: ze reageren op de knopjes op je dashboard om het klimaat te regelen of een raam te openen en ze sturen de kleppen in een verbrandingsmotor aan. Microcontrollers bevatten CPU, RAM en <q>SSD</q> vaak in één chip en hebben beperkte interfaces (vaak letterlijk losse pinnetjes die je moet verbinden). De CPU is relatief gezien traag en de hoeveelheid geheugen klein. Voor de beperkte taak is dat niet erg. Een besturingssysteem is niet nodig: als je hem aanzet draait hij meteen het enige programma dat ooit ingeladen is (dit heet dan _firmware_). Microcontrollers zijn goedkoop en daarom ook uitermate geschikt voor hobbyprojecten.
 
 Een Arduino is zo'n microcontroller. Vaak wordt een Arduino vergeleken met een Raspberry Pi &mdash; een andere goedkope computer. Maar een Raspberry Pi is écht een computer (en daarmee ook complex). Daarmee is een Raspberry Pi veel veelzijdiger, maar ook duurder en is het complexer om een eenvoudig programma te draaien. Apparatuur zoals frequentiegeneratoren en oscilloscopen hebben vaak een microcontroller ingebouwd, maar soms ook een microcomputer analoog aan een Raspberry Pi. Dat maakt voor ons weinig verschil zolang we maar weten hoe we het instrument kunnen aansturen.
 
-
 ## Communicatieprotocol
 
 Hoe praat je eigenlijk met hardware? Voor fabrikanten zijn er een paar opties:
 
-1. Je maakt gebruik van een al bestaand protocol (een bestaande _standaard_ en je schrijft vervolgens documentatie specifiek voor jouw instrument (bijvoorbeeld de VISA-standaard [@VISA], o.a. gebruikt door _Tektronix_ digitale oscilloscopen [@tektronix])
-1. Je schrijft een _proprietary_[^proprietary] protocol en een bijbehorende bibliotheek die software-ontwikke\-laars moeten gebruiken.[^drivers] Voorbeelden zijn instrumenten van _National Instruments_ [@national_instruments] of de _PicoScope_ digitale oscilloscopen[^picoscope] [@picoscope].
+1. Je maakt gebruik van een al bestaand protocol (een bestaande _standaard_) en je schrijft vervolgens documentatie specifiek voor jouw instrument (bijvoorbeeld de VISA-standaard[@VISA], onder andere gebruikt door _Tektronix_ digitale oscilloscopen[@tektronix]).
+1. Je schrijft een _proprietary_[^proprietary] protocol en een bijbehorende bibliotheek die softwareontwikkelaars moeten gebruiken.[^drivers] Voorbeelden zijn instrumenten van _National Instruments_[@national_instruments] of de _PicoScope_ digitale oscilloscopen[^picoscope_footnote] [@picoscope].
 
-[^proprietary]: _Proprietary_ betekent dat een bedrijf of individu exclusieve de rechten heeft over het protocol of de software en anderen geen toegang geeft tot de details.
-[^drivers]: Niet zelden zijn dergelijke bibliotheken maar op een paar besturingssystemen beschikbaar als _driver_. Gebruik je MacOS in plaats van Windows en het wordt alleen op Windows ondersteund? Dan kun je je dure meetinstrument dus niet gebruiken totdat je overstapt.
-[^picoscope]: Die overigens op vrijwel alle platforms en voor veel programmeertalen bibliotheken leveren.
+[^proprietary]: _Proprietary_ betekent dat een bedrijf of een individu exclusief de rechten heeft over het protocol of de software en anderen geen toegang geeft tot de details.
+[^drivers]: Niet zelden zijn dergelijke bibliotheken maar op een paar besturingssystemen beschikbaar als _driver_. Wordt een driver alleen op Windows ondersteund en gebruik jij MacOS in plaats van Windows? Dan kun je je dure meetinstrument dus niet gebruiken totdat je overstapt.
+[^picoscope_footnote]: Die overigens op vrijwel alle platforms en voor veel programmeertalen bibliotheken leveren.
 
-De VISA-standaard is veelgebruikt, maar helaas komen _proprietary_ protocollen veel voor. Dat is jammer, want in het laatste geval moet je het doen met de software die geleverd wordt door de fabrikant. Als die jouw besturingssysteem of favoriete programmeertaal niet ondersteunt heb je simpelweg pech.
+De VISA-standaard is veelgebruikt, maar helaas komen _proprietary_ protocollen veel voor. Dat is jammer, want in het laatste geval moet je het doen met de software die geleverd wordt door de fabrikant. Als die jouw besturingssysteem of jouw favoriete programmeertaal niet ondersteunt, heb je simpelweg pech.
 
-Wij gaan gebruik maken van de VISA-standaard. VISA staat voor _Virtual Instrument Software Architecture_ en is héél breed en definieert protocollen om te communiceren via allerlei verouderde computerpoorten en kabels. Hieronder zie je een voorbeeld van verschillende poorten zoals RS232 en GPIB aan de achterkant van een Tektronix TDS210 oscilloscoop.
+Wij gaan gebruik maken van de VISA-standaard. VISA staat voor _Virtual Instrument Software Architecture_ en is héél breed en definieert ook protocollen om te communiceren via allerlei verouderde computerpoorten en kabels. Hieronder zie je een voorbeeld van verschillende poorten zoals RS232 en GPIB aan de achterkant van een Tektronix TDS210 oscilloscoop. De VISA-standaard communiceert gelukkig ook via internet en USB, waarvan wij gebruik zullen maken.
 
 ![Poorten op oscilloscoop](figures/Digitaloszilloskop_Schnittstellen_IMGP1974_WP.jpg)
 Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszilloskop_Schnittstellen_IMGP1974_WP.jpg).
 
-Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Commands for Programmable Instruments_. Dit onderdeel definieert een bepaald formaat voor commando's die we naar ons instrument zullen sturen. De lijst met commando's die door de firmware van onze Arduino worden ondersteund is gegeven in de [appendix](firmware.md).
+ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Commands for Programmable Instruments_. Dit onderdeel definieert een bepaald formaat voor commando's die we naar ons instrument zullen sturen. De lijst met commando's die door de firmware van onze Arduino worden ondersteund is gegeven in de [appendix](firmware.md).
 
 
 ## Eerste stappen
 
 !!! waarschuwing
-    Let op dat je de weerstand van 220 Ω gebruikt! Een te grote weerstand zorgt ervoor dat je nauwelijks iets kunt meten, maar een te kleine weerstand zorgt ervoor dat de stroomsterkte door de Arduino te groot wordt. In dat geval zul je de Arduino onherstelbaar beschadigen. De kleurcodes voor weerstanden vind je in de [appendix](kleurcodes.md).
+    Let op dat je de weerstand van 220 &Omega;  gebruikt! Een te grote weerstand zorgt ervoor dat je nauwelijks iets kunt meten, maar een te kleine weerstand zorgt ervoor dat de stroomsterkte door de Arduino te groot wordt. In dat geval zul je de Arduino onherstelbaar beschadigen. De kleurcodes voor weerstanden vind je in de [appendix](kleurcodes.md).
 
 !!! opdracht-basis "Schakeling bouwen"
     === "opdracht"
-        Je maakt een schakeling om de spanning over en de stroom door een LED te meten. Hiervoor maak je gebruik van een Arduino en een breadboard. Om de stroomsterkte te beperken zet je de LED in serie met een weerstand van 220 Ω. Je sluit twee spanningsmeters aan, spanningsmeter 1 staat over de LED en de weerstand samen. Spanningsmeter 2 staat over de weerstand.
+        Je maakt een schakeling om de spanning over en de stroom door een LED te meten. Hiervoor maak je gebruik van een Arduino en een breadboard. Om de stroomsterkte te beperken zet je de LED in serie met een weerstand van 220 &Omega;. Je sluit twee spanningsmeters aan. Spanningsmeter 1 staat over de LED en de weerstand samen. Spanningsmeter 2 staat alleen over de weerstand.
 
     === "bouwtekening"
         **Theoretische schakeling**
 
-        Het circuit zoals je dat zou bouwen met twee losse voltmeters is hieronder weergegeven. De cijfers 0, 1 en 2 bij $U_0$, $U_1$ en $U_2$ zijn de _kanalen_ waarmee de Arduino spanningen kan sturen of uitlezen. Dat wordt zometeen belangrijk.
+        Het circuit zoals je dat zou bouwen met twee losse voltmeters is hieronder weergegeven. De subscripts 0, 1 en 2 bij $U_0$, $U_1$ en $U_2$ verwijzen naar de _kanalen_ waarmee de Arduino spanningen kan sturen of uitlezen. Deze kanalen worden in de volgende opgaves belangrijk.
 
         <div id="fig:LED-schakeling"></div>
         ![LED schakelschema](figures/LED-schakeling.svg){: style="width:75%"}
 
         **Praktische schakeling**
 
-        In het 3D-model[^bronLED] hieronder is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld met een LED en een weerstand van 220 &Omega;. In een breadboard zijn in iedere rij alle kolommen A t/m E met elkaar verbonden (zo ook kolommen F t/m J). Draadjes die naast elkaar zijn geprikt zijn dus met elkaar verbonden. 
-        De Arduino is geprikt in kolom D t/m H en van rij 1 t/m 15. De pin van de Arduino in rij 4 is verbonden middels het rode draadje (De kleur van de draden is niet belangrijk. Kies altijd draden met een handige lengte.) met het pootje van de LED. De platte zijde in de onderste ring van de LED wordt richting aarde geschakeld. Het ander pootje van de LED is verbonden met de weerstand. De kleurcodes voor weerstanden vind je in de [appendix](kleurcodes.md). Van de weerstand loopt een draadje naar de aarde van de Arduino (rij 12, kolom H). Zo kan de Arduino een variabele spanning zetten over de LED en de weerstand. 
+        In het 3D-model[^bronLED] hieronder is een Arduino Nano 33 IoT op een 400-punt breadboard geschakeld met een LED en een weerstand van 220 &Omega;. In een breadboard zijn in iedere rij alle kolommen A t/m E met elkaar verbonden (zo ook kolommen F t/m J). Draadjes en/of componenten die naast elkaar zijn geprikt zijn dus met elkaar verbonden. De Arduino is geprikt in kolom D t/m H en van rij 1 t/m 15. De pin van de Arduino in rij 4 is verbonden middels het rode draadje met het pootje van de LED (de kleur van de draden is niet belangrijk, kies daarom altijd draden met een handige lengte). De platte zijde in de onderste ring van de LED wordt richting aarde geschakeld. Het ander pootje van de LED is verbonden met de weerstand. De kleurcodes voor weerstanden vind je in de [appendix](kleurcodes.md). Van de weerstand loopt een draadje naar de aarde van de Arduino (rij 12, kolom H). Met dit deel van de schakeling kan de Arduino een variabele spanning zetten over de LED en de weerstand. 
         
         De pin van de Arduino in rij 5 is verbonden met de LED en meet de spanning over de LED en de weerstand. De pin van de Arduino in rij 6 is verbonden met de weerstand en meet alleen de spanning over weerstand.
 
         <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
         <model-viewer id="model" style="width: 100%; height: 700px;" alt="Schakelschema LED" src="../assets/circuit/Breadboard_LED.glb" ar shadow-intensity="1" camera-controls touch-action="pan-y" poster="../assets/circuit/breadboard_led_top_view.png" camera-orbit="0rad 0.39269908169872414rad 4.718948223475571m" autoplay exposure="0.6"></model-viewer>
 
-        [^bronLED]: Dit model bevat twee 3D modellen die zijn gecreëerd door Lara Sophie Schütt en AppliedSBC en zijn gedeeld onder respectievelijk een CC-BY en CC-BY-SA licentie. De originele modellen zijn te vinden via [[CC0] Set of Electronic Components](https://sketchfab.com/3d-models/cc0-set-of-electronic-components-f4cb777b4ea3490587008e24b61bcf75) en [Arduino Nano 33 IoT](https://sketchfab.com/3d-models/arduino-nano-33-iot-f57fd7f5485a47a8b71f8604872fd78c). De modellen zijn samengevoegd en Voorzien van een Arduino texture een aangepaste LED texture en draden. Dit 3D model heeft een CC-BY-SA licentie.
+        [^bronLED]: Dit model bevat twee 3D modellen die zijn gecreëerd door Lara Sophie Schütt en AppliedSBC en zijn gedeeld onder respectievelijk een CC-BY en CC-BY-SA licentie. De originele modellen zijn te vinden via [[CC0] Set of Electronic Components](https://sketchfab.com/3d-models/cc0-set-of-electronic-components-f4cb777b4ea3490587008e24b61bcf75) en [Arduino Nano 33 IoT](https://sketchfab.com/3d-models/arduino-nano-33-iot-f57fd7f5485a47a8b71f8604872fd78c). De modellen zijn samengevoegd en voorzien van een Arduino texture een aangepaste LED texture en draden. Dit 3D model heeft een CC-BY-SA licentie.
 
-        !!! info "3D besturing"
-            Door de linkermuisknop ingedrukt te houden en te slepen kan je de het 3D model draaien, met rechtermuisknop kan je hem verplaatsen en door te scrollen kan je in- en uitzoomen.
+        !!! info "Besturing 3D-model"
+            Door de linkermuisknop ingedrukt te houden en te slepen kan je het 3D-model draaien. Met de rechtermuisknop kan je het model verplaatsen en door te scrollen kan je in- en uitzoomen.
 
 
 
     === "check"
         **Checkpunten:**
 
-        - [ ] Je hebt een weerstand van 220 Ω gebruikt.
-        - [ ] De platte kant in de dikkere ring onderaan de plastic behuizing van de LED staat richting de aarde geschakeld. (Als de pootjes van de LED niet afgeknipt zijn, dan zit het korte pootje aan de platte zijde van de LED)
-        - [ ] De andere kant van de LED is met een draadje verbonden met de 4de rij.
-        - [ ] Er loopt een draadje van de 5de rij naar de LED.
-        - [ ] Er loopt een draadje van de 6de rij naar de weerstand.
-        - [ ] Er loopt een draadje van de andere kant van de weerstand naar de 12de rij (naar dat pinnetje met bovenop een wit vlakje).
+        - [ ] Je hebt een weerstand van 220 &Omega; gebruikt.
+        - [ ] De platte kant in de dikkere ring onderaan de plastic behuizing van de LED staat richting de aarde geschakeld. Als de pootjes van de LED niet afgeknipt zijn, dan zit het korte pootje aan de platte zijde van de LED.
+        - [ ] De andere kant van de LED is met een draadje verbonden met rij 4.
+        - [ ] Er loopt een draadje van rij 5 naar de LED.
+        - [ ] Er loopt een draadje van rij 6 naar de weerstand.
+        - [ ] Er loopt een draadje van de andere kant van de weerstand naar rij 12 (naar het pinnetje met bovenop een wit vlakje).
 
         **Projecttraject:**
 
         - [x] Schakeling bouwen
+        - [ ] Environment aanmaken
         - [ ] Pyvisa in terminal
-        - [ ] Pyvisa `list` en `open`
-        - [ ] Pyvisa `query`
+        - [ ] Pyvisa commando's `list` en `open`
+        - [ ] Pyvisa commando `query`
         - [ ] Terminator characters demo
         - [ ] Pyvisa regeleindes
         - [ ] Pyvisa LED laten branden
 
 
 !!! info
-    Om met Python via het VISA-protocol te kunnen communiceren met apparaten hebben we specifieke packages nodig. Die gaan we installeren in een _conda environment_. Voor meer informatie over conda environments zie [paragraaf _Conda environments_](software-tools.md#conda-environments).
+    Om met Python via het VISA-protocol te kunnen communiceren met apparaten heb je specifieke packages nodig. Die ga je installeren in een _conda environment_. Voor meer informatie over conda environments zie [paragraaf _Conda environments_](virtual_environments.md#conda-environments).
 
 <div id="opd:condaenv"></div>
 !!! opdracht-basis "Environment aanmaken"
-    Open een `Anaconda Prompt` die je kunt vinden via de zoekbalk van Windows. Maak de environment en installeer de juiste packages door in te typen:
+    === "opdracht"
+        Open een `Anaconda Prompt`, die je kunt vinden via de zoekbalk van Windows. Maak de conda environment `pythondaq` aan en installeer de benodigde packages. Gebruik hiervoor het volgende commando:
 
-    ``` ps1 title="Terminal"
-    conda create --name pythondaq --channel conda-forge python pyvisa-py
-    ```
-    Om de conda environment daadwerkelijk te gebruiken moet je die altijd eerst _activeren_ met:
-    ``` ps1 title="Terminal"
-    conda activate pythondaq
-    ```
+        ``` ps1 title="Terminal"
+        conda create --name pythondaq --channel conda-forge python pyvisa-py
+        ```
+        Om een conda environment daadwerkelijk te gebruiken moet je die altijd eerst _activeren_. Voor het activeren van de environment `pythondaq` gebruik je het volgende commando:
+        ``` ps1 title="Terminal"
+        conda activate pythondaq
+        ```
+    === "check"
+        **Checkpunten:**
+
+        - [ ] Je hebt een conda environment met de naam `pythondaq` aangemaakt.
+        - [ ] De environment bevat de packages `python` en `pyvisa-py`. 
+        - [ ] De environment is geactiveerd.
+
+        **Projecttraject:**
+
+        - [x] Schakeling bouwen
+        - [x] Environment aanmaken
+        - [ ] Pyvisa in terminal
+        - [ ] Pyvisa commando's `list` en `open`
+        - [ ] Pyvisa commando `query`
+        - [ ] Terminator characters demo
+        - [ ] Pyvisa regeleindes
+        - [ ] Pyvisa LED laten branden
+
+
 <div id="opd:pyvisaterminal"></div>
 !!! opdracht-basis "Pyvisa in terminal"
     === "opdracht"
-        Je sluit de Arduino met een USB-kabel aan op de computer. In een `Anaconda Prompt` open je het goede conda environment en open je een `pyvisa-shell` met een python _backend_. Om erachter te komen hoe de `pyvisa-shell` werkt type je het commando `help`. Je ziet een reeks aan commando's en bekijkt de helptekst van de commando's waarmee je denkt de `pyvisa-shell` te kunnen afsluiten. Wanneer je het afsluit commando hebt gevonden sluit je daarmee de `pyvisa-shell` af. 
+        Je sluit de Arduino met een USB-kabel aan op de computer. In een `Anaconda Prompt` open je de goede conda environment. Daarna open je een `pyvisa-shell` met een python _backend_. Om erachter te komen hoe de `pyvisa-shell` werkt type je het commando `help`. Je ziet een reeks aan commando's en bekijkt de helptekst van de commando's waarmee je denkt de `pyvisa-shell` te kunnen afsluiten. Wanneer je dit commando hebt gevonden sluit je daarmee de `pyvisa-shell` af. 
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
         # open pyvisa-shell with python backend
         # check help of pyvisa-shell
         # check help of exit command
-        # shut down the pyvis-shell
+        # shut down the pyvisa-shell
 
         ```
         **Testcode**
-        <pre><code>(ecpc) > pyvisa-shell -b py <button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')">{{ enter }}</button><button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')" class="invisible">{{ reload }}</button>
+        <pre><code>(ecpc) > pyvisa-shell --backend py <button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')">{{ enter }}</button><button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="pyvisa-shell">
         Welcome to the VISA shell. Type help or ? to list commands.    
         (visa)
@@ -135,34 +153,35 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
     === "check"
         **Checkpunten:**
 
-        - [ ] Na het openen van een `pyvisa-shell` staat er (visa) tussen haakjes.
-        - [ ] Als je `help` intypt verschijnt een heel rijtje met commando's.
+        - [ ] Na het openen van een `pyvisa-shell` staat er op een nieuwe regel `(visa)`.
+        - [ ] Als je `help` intypt verschijnt er een heel rijtje met commando's.
         - [ ] Als je `help exit` intypt krijg je de hulpvaardige tekst: `Exit the shell session.`
-        - [ ] Als je de pyvisa-shell met een commando afsluit staat de naam van het conda environment weer tussen haakjes (en niet visa).
+        - [ ] Als je de pyvisa-shell met een commando afsluit staat daarna de naam van de conda environment weer tussen haakjes op een nieuwe regel (en niet `(visa)`).
        
         **Projecttraject:**
 
         - [x] Schakeling bouwen
+        - [x] Environment aanmaken
         - [x] Pyvisa in terminal
-        - [ ] Pyvisa `list` en `open`
-        - [ ] Pyvisa `query`
+        - [ ] Pyvisa commando's `list` en `open`
+        - [ ] Pyvisa commando `query`
         - [ ] Terminator characters demo
         - [ ] Pyvisa regeleindes
         - [ ] Pyvisa LED laten branden
 
 !!! info
-    We maken hier gebruik van de optie `-b py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er, naast `pyvisa-py`, ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. Maar de verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle types apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
+    We maken hier gebruik van de optie `--backend py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er naast `pyvisa-py` ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. De verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle type apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
 
 
-!!! opdracht-basis "Pyvisa `list` en `open`"
+!!! opdracht-basis "Pyvisa commando's `list` en `open`"
     === "opdracht"
-        Je bekijkt het lijstje met aangesloten apparaten door in de `pyvisa-shell` het commando `list` te typen. Je haalt de USB-kabel waarmee de Arduino aan de computer is aangesloten uit de computer en vraagt nogmaals de lijst met aangesloten apparaten op. Nu weet je welke poort de Arduino is. Je bekijkt de help tekst van het commando `open`, daarna open je de communicatie met de Arduino.
+        Je bekijkt het lijstje met aangesloten apparaten door in de `pyvisa-shell` het commando `list` te typen. Je haalt de USB-kabel waarmee de Arduino aan de computer is aangesloten uit de computer en vraagt nogmaals de lijst met aangesloten apparaten op. Nu weet je welke poort de Arduino is. Je bekijkt daarna de helptekst van het commando `open`, waarna je de communicatie met de Arduino opent.
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
-        # open pyvisa-shell
-        # list
-        # help open
+        # open pyvisa-shell with python backend
+        # check list of connected devices
+        # check help of open command
         # open Arduino
 
         ```
@@ -192,21 +211,22 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
         **Projecttraject:**
 
         - [x] Schakeling bouwen
+        - [x] Environment aanmaken
         - [x] Pyvisa in terminal
-        - [x] Pyvisa `list` en `open`
-        - [ ] Pyvisa `query`
+        - [x] Pyvisa commando's `list` en `open`
+        - [ ] Pyvisa commando `query`
         - [ ] Terminator characters demo
         - [ ] Pyvisa regeleindes
         - [ ] Pyvisa LED laten branden
 
 <div id="opd:pyvisa_query"></div>
-!!! opdracht-basis "Pyvisa `query`"
+!!! opdracht-basis "Pyvisa commando `query`"
     === "opdracht"
-        Je stuurt een commando naar de Arduino met `query COMMANDO`. In de [documentatie van de firmware](firmware.md) heb je het commando opgezocht om de identificatiestring uit te lezen. Nadat je dit commando naar de Arduino stuurt krijg je een error. Je leest de handleiding rustig verder om erachter te komen hoe je dit moet oplossen.
+        Je stuurt een commando naar de Arduino met `query COMMANDO`. In de [documentatie van de firmware](firmware.md) heb je het commando opgezocht om de identificatiestring uit te lezen. Nadat je dit commando naar de Arduino stuurt krijg je een error. Je leest rustig verder in het hoofdstuk om erachter te komen hoe je dit moet oplossen.
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
-        # send query to get identificationstring 
+        # send query to get identification string 
         ```
         **Testcode**
         <pre><code>(open) query gappie <button type="button" name="query gappie" onclick="runScript('query gappie')">{{ enter }}</button><button type="button" name="query gappie" onclick="runScript('query gappie')" class="invisible">{{ reload }}</button>
@@ -217,29 +237,31 @@ Maar gelukkig ook via internet en USB, waarvan wij gebruik zullen maken. Onderde
 
         - [ ] Je hebt het woord `query` goed geschreven en met kleine letters.
         - [ ] Na het commando `query` volgt een spatie.
-        - [ ] Na de spatie staat het commando om de identificatiestring uit te lezen, met hoofdletters (en dat `*` en dat `?` horen er ook bij!).
-        - [ ] Als je het commando verstuurt hebt verschijnt er een error `Response: ERROR: UNKNOWN COMMAND .....`
+        - [ ] Na de spatie staat het volledige commando om de identificatiestring uit te lezen, in hoofdletters (dus met `*` en `?`, want deze horen er ook bij!).
+        - [ ] Als je het commando verstuurt, verschijnt er de error:
+        ``` consolecode
+        Response: ERROR: UNKNOWN COMMAND .....
+        ```
 
         **Projecttraject:**
 
         - [x] Schakeling bouwen
+        - [x] Environment aanmaken
         - [x] Pyvisa in terminal
-        - [x] Pyvisa `list` en `open`
-        - [x] Pyvisa `query`
+        - [x] Pyvisa commando's `list` en `open`
+        - [x] Pyvisa commando `query`
         - [ ] Terminator characters demo
         - [ ] Pyvisa regeleindes
         - [ ] Pyvisa LED laten branden
 
-Niet helemaal wat we hadden gehoopt! Als je goed kijkt in de [documentatie van de firmware](firmware.md) dan zie je dat er bepaalde _terminator characters_ nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een <q>enter</q> aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een _carriage return_ (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een _line feed_ (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van _carriage return + line feed_ (CRLF). 
+Een error, niet helemaal wat je had gehoopt! Als je goed kijkt in de [documentatie van de firmware](firmware.md) dan zie je dat er bepaalde _terminator characters_ (regeleindes) nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een <q>enter</q> aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een _carriage return_ (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een _line feed_ (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. 
 
-!!! info "Carriage Return Line Feed: Typewriter Demonstration"
+!!! info "Carriage return line feed: typewriter demonstration"
     <iframe title="Carriage Return Line Feed: Typewriter Demonstration" src="https://drive.google.com/file/d/16jcQcI2o8i3dh3z7TLnK1Qb9OLnF5g20/preview" width="540" height="304" style="border:none;"></iframe>
 
-    
+Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van _carriage return + line feed_ (CRLF). Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer heb je nodig? Af en toe is dat lastig, vooral wanneer er elektronica in het spel is want dan willen de regeleindes voor schrijven en lezen nog wel eens verschillend zijn.[^regeleindes]
 
-Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer heb je nodig? Af en toe is dat lastig, vooral wanneer er elektronica in het spel is want dan willen de regeleindes voor schrijven en lezen nog wel eens verschillend zijn.[^regeleindes]
-
-[^regeleindes]: De regeleindes voor de Arduinofirmware zijn verschillend voor lezen en schrijven. Dit heeft een oninteressante reden: bij het ontvangen van commando's is het makkelijk om alles te lezen totdat je één bepaald karakter (LF) tegenkomt. Bij het schrijven gebruikt de standaard `println`-functie een Windows-stijl regeleinde (CRLF).
+[^regeleindes]: De regeleindes voor de Arduino firmware zijn verschillend voor lezen en schrijven. Dit heeft een oninteressante reden: bij het ontvangen van commando's is het makkelijk om alles te lezen totdat je één bepaald karakter (LF) tegenkomt. Bij het schrijven gebruikt de standaard `println`-functie een Windows-stijl regeleinde (CRLF).
 
 !!! opdracht-basis "Terminator characters demo"
     === "opdracht"
@@ -261,34 +283,35 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
         **Projecttraject**
     
         - [x] Schakeling bouwen
+        - [x] Environment aanmaken
         - [x] Pyvisa in terminal
-        - [x] Pyvisa `list` en `open`
-        - [x] Pyvisa `query`
+        - [x] Pyvisa commando's `list` en `open`
+        - [x] Pyvisa commando `query`
         - [x] Terminator characters demo
         - [ ] Pyvisa regeleindes
         - [ ] Pyvisa LED laten branden
 
-???+ opdracht-meer "Input buffer en timeout"
+???+ opdracht-meer "Terminator characters demo: input buffer en timeout"
     Ga opnieuw naar de [Termchar-demo](https://textual-web.io/natuurkundepracticum-amsterdam/termchar-demo) en lees de laatste stappen van de _Introduction_ tab. Open de _Advanced_ tab en voer de stappen uit. 
 
 
-![Klik hier](assets/eastereggs/ECPC-silver.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met '↑' (pijltje omhoog) kun je in een terminal de vorige commando's terughalen. Probeer maar eens!"} We gaan nu het gebruik van de karakters instellen in Pyvisa:
+![Klik hier](assets/eastereggs/ECPC-silver.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met '↑' (pijltje omhoog) kun je in een terminal de vorige commando's terughalen. Probeer maar eens!"} Je gaat nu de regeleindes instellen in Pyvisa:
 
 !!! opdracht-basis "Pyvisa regeleindes"
     === "opdracht"
-        Je gaat weer terug naar de Anaconda prompt. Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je dit moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige regeleinde instellingen op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Je bekijkt nog een keer de regeleinde instellingen om te controleren of ze nu wel goed staan. Je gaat terug naar de [opdracht Pyvisa `query`](#opd:pyvisa_query) en krijgt een response in plaats van een error. 
+        Je gaat weer terug naar de `Anaconda prompt`. Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je deze moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige instellingen van de regeleindes op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Je bekijkt nog een keer de instellingen om te controleren of de regeleindes nu wel goed staan. Je gaat terug naar de [opdracht Pyvisa commando `query`](#opd:pyvisa_query) en krijgt een response in plaats van een error. 
 
         !!! info "\r\n en CRLF"
-            Bij de _Termination Characters demo_ maakten we gebruik van `\r\n` dat is de programmeertaal equivalent van `CRLF`.
+            Bij de _Termination characters demo_ maakte je gebruik van `\r\n`, dat is de programmeertaal equivalent van `CRLF`.
 
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
-        # get help text of termchar
-        # what are the termchar settings?
-        # make read = CRLF and write = LF
-        # check if termchar settings are correct
-        # send query to get identificationstring
+        # get help of termchar command
+        # check current termchar settings
+        # adjust termchar settings in read = CRLF and write = LF
+        # check new termchar settings
+        # send query to get identification string
         ```
         **Testcode**
         <pre><code>(open) help termchar <button type="button" name="help termchar" onclick="runScript('help termchar')">{{ enter }}</button><button type="button" name="help termchar" onclick="runScript('help termchar')" class="invisible">{{ reload }}</button>
@@ -303,18 +326,15 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
     === "check"
         **Checkpunten:**
 
-        - [ ] De regeleindes zijn ingesteld met het commando `termchar` daarna een spatie, vervolgens de karakters voor de read thermchar, dan weer een spatie en daarachter de karakters voor de write termchar. 
-        - [ ] De _read_ regeleindes staan ingesteld op CRLF.
-        - [ ] De _write_ regeleinds staan ingesteld op LF.
-        - [ ] Als je met het commando `termchar` de instellingen van de regeleindes opvraag staat er:
-
+        - [ ] De regeleindes zijn ingesteld met het commando `termchar`. Na dit commando volgt een spatie. Daarachter volgen de karakters voor de read termchar, opnieuw gevolgd door een spatie met daarachter de karakters voor de write termchar. 
+        - [ ] De _read_ regeleinde staat ingesteld op CRLF.
+        - [ ] De _write_ regeleind staat ingesteld op LF.
+        - [ ] Als je met het commando `termchar` de instellingen van de regeleindes opvraagt, staat er:
         ``` consolecode
         Termchar read: CRLF write: LF
         use CR, LF, CRLF, NUL or None to set termchar
         ```
-
-        - [ ] Als je met behulp van `query` het commando om de identificatiestring uit te lezen naar de Arduino verstuurt verschijnt de tekst:
-
+        - [ ] Als je het commando `query` verstuurt om de identificatiestring uit te lezen, verschijnt er:  
         ``` consolecode
         Response: Arduino VISA firmware v1.0.0
         ```
@@ -322,24 +342,29 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
         **Projecttraject:**
 
         - [x] Schakeling bouwen
+        - [x] Environment aanmaken
         - [x] Pyvisa in terminal
-        - [x] Pyvisa `list` en `open`
-        - [x] Pyvisa `query`
+        - [x] Pyvisa commando's `list` en `open`
+        - [x] Pyvisa commando `query`
         - [x] Terminator characters demo
         - [x] Pyvisa regeleindes
         - [ ] Pyvisa LED laten branden
 
 !!! info "Onzichtbare regeleindes"
-    Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het eind van de <q>zin</q>) krijgen we antwoord! Dat antwoord heeft dan juist weer een CRLF aan het eind dus `pyvisa-shell` weet wanneer het kan stoppen met luisteren en print het antwoord op het scherm. De karakters CRLF en LF _zelf_ blijven onzichtbaar voor ons.
+    Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het eind van de <q>zin</q>), krijg je antwoord! Dat antwoord heeft dan juist weer een CRLF aan het einde, dus `pyvisa-shell` weet wanneer het kan stoppen met luisteren en print het antwoord op het scherm. De karakters CRLF en LF _zelf_ blijven onzichtbaar voor ons.
 
 !!! opdracht-basis "Pyvisa LED laten branden"
     === "opdracht"
-        Je zoekt in de [documentatie van de firmware](firmware.md) op hoe je een spanning op het uitvoerkanaal zet. Je leest dat er een maximale waarde is voor de spanning en zet deze waarde op het uitvoerkanaal. Je ziet dat het LEDje brandt en er verschijnt een glimlach op je gezicht. Je bent benieuwd naar wat er gebeurt als je over de maximale spanning heen gaat en zet de maximale waarde + 1 op het uitvoerkanaal. Je denkt na over een verklaring voor wat je ziet gebeuren. Je weet dat een LED een drempelspanning nodig heeft om te branden, je vult een paar waardes in tussen de minimale en maximale waarde om erachter te komen wat deze drempelspanning is. 
+        Je zoekt in de [documentatie van de firmware](firmware.md) op hoe je een spanning op het uitvoerkanaal zet. Je leest dat er een maximale waarde is voor de spanning en zet deze waarde op het uitvoerkanaal. Je ziet dat de LED brandt en er verschijnt een glimlach op je gezicht. 
+        
+        Je bent benieuwd naar wat er gebeurt als je over de maximale spanning heen gaat en zet de maximale waarde + 1 op het uitvoerkanaal. Je denkt na over een verklaring voor wat je ziet gebeuren. 
+        
+        Je weet dat een LED een drempelspanning nodig heeft om te branden. Je vult een paar waardes in tussen de minimale en maximale waarde om erachter te komen wat deze drempelspanning is. 
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
-        # set max voltage
-        # set max voltage + 1
+        # set maximum voltage
+        # set maximum voltage + 1
         # set threshold voltage
         ```
         **Testcode**      
@@ -359,9 +384,10 @@ Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer he
         **Projecttraject:**
 
         - [x] Schakeling bouwen
+        - [x] Environment aanmaken
         - [x] Pyvisa in terminal
-        - [x] Pyvisa `list` en `open`
-        - [x] Pyvisa `query`
+        - [x] Pyvisa commando's `list` en `open`
+        - [x] Pyvisa commando `query`
         - [x] Terminator characters demo
         - [x] Pyvisa regeleindes
         - [x] Pyvisa LED laten branden
