@@ -80,12 +80,12 @@ Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszillo
 
         - [x] Schakeling bouwen
         - [ ] Environment aanmaken
-        - [ ] Pyvisa in terminal
-        - [ ] Pyvisa commando's `list` en `open`
-        - [ ] Pyvisa commando `query`
+        - [ ] PyVISA in terminal
+        - [ ] PyVISA commando's `list` en `open`
+        - [ ] PyVISA commando `query`
         - [ ] Terminator characters demo
-        - [ ] Pyvisa regeleindes
-        - [ ] Pyvisa LED laten branden
+        - [ ] PyVISA regeleindes
+        - [ ] PyVISA LED laten branden
 
 
 !!! info
@@ -114,16 +114,16 @@ Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszillo
 
         - [x] Schakeling bouwen
         - [x] Environment aanmaken
-        - [ ] Pyvisa in terminal
-        - [ ] Pyvisa commando's `list` en `open`
-        - [ ] Pyvisa commando `query`
+        - [ ] PyVISA in terminal
+        - [ ] PyVISA commando's `list` en `open`
+        - [ ] PyVISA commando `query`
         - [ ] Terminator characters demo
-        - [ ] Pyvisa regeleindes
-        - [ ] Pyvisa LED laten branden
+        - [ ] PyVISA regeleindes
+        - [ ] PyVISA LED laten branden
 
 
 <div id="opd:pyvisaterminal"></div>
-!!! opdracht-basis "Pyvisa in terminal"
+!!! opdracht-basis "PyVISA in terminal"
     === "opdracht"
         Je sluit de Arduino met een USB-kabel aan op de computer. In een `Anaconda Prompt` open je de goede conda environment. Daarna open je een `pyvisa-shell` met een python _backend_. Om erachter te komen hoe de `pyvisa-shell` werkt type je het commando `help`. Je ziet een reeks aan commando's en bekijkt de helptekst van de commando's waarmee je denkt de `pyvisa-shell` te kunnen afsluiten. Wanneer je dit commando hebt gevonden sluit je daarmee de `pyvisa-shell` af. 
     === "code"
@@ -156,24 +156,24 @@ Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszillo
         - [ ] Na het openen van een `pyvisa-shell` staat er op een nieuwe regel `(visa)`.
         - [ ] Als je `help` intypt verschijnt er een heel rijtje met commando's.
         - [ ] Als je `help exit` intypt krijg je de hulpvaardige tekst: `Exit the shell session.`
-        - [ ] Als je de pyvisa-shell met een commando afsluit staat daarna de naam van de conda environment weer tussen haakjes op een nieuwe regel (en niet `(visa)`).
+        - [ ] Als je de `pyvisa-shell` met een commando afsluit staat daarna de naam van de conda environment weer tussen haakjes op een nieuwe regel (en niet `(visa)`).
        
         **Projecttraject:**
 
         - [x] Schakeling bouwen
         - [x] Environment aanmaken
-        - [x] Pyvisa in terminal
-        - [ ] Pyvisa commando's `list` en `open`
-        - [ ] Pyvisa commando `query`
+        - [x] PyVISA in terminal
+        - [ ] PyVISA commando's `list` en `open`
+        - [ ] PyVISA commando `query`
         - [ ] Terminator characters demo
-        - [ ] Pyvisa regeleindes
-        - [ ] Pyvisa LED laten branden
+        - [ ] PyVISA regeleindes
+        - [ ] PyVISA LED laten branden
 
 !!! info
     We maken hier gebruik van de optie `--backend py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er naast `pyvisa-py` ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. De verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle type apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
 
 
-!!! opdracht-basis "Pyvisa commando's `list` en `open`"
+!!! opdracht-basis "PyVISA commando's `list` en `open`"
     === "opdracht"
         Je bekijkt het lijstje met aangesloten apparaten door in de `pyvisa-shell` het commando `list` te typen. Je haalt de USB-kabel waarmee de Arduino aan de computer is aangesloten uit de computer en vraagt nogmaals de lijst met aangesloten apparaten op. Nu weet je welke poort de Arduino is. Je bekijkt daarna de helptekst van het commando `open`, waarna je de communicatie met de Arduino opent.
     === "code"
@@ -212,15 +212,15 @@ Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszillo
 
         - [x] Schakeling bouwen
         - [x] Environment aanmaken
-        - [x] Pyvisa in terminal
-        - [x] Pyvisa commando's `list` en `open`
-        - [ ] Pyvisa commando `query`
+        - [x] PyVISA in terminal
+        - [x] PyVISA commando's `list` en `open`
+        - [ ] PyVISA commando `query`
         - [ ] Terminator characters demo
-        - [ ] Pyvisa regeleindes
-        - [ ] Pyvisa LED laten branden
+        - [ ] PyVISA regeleindes
+        - [ ] PyVISA LED laten branden
 
 <div id="opd:pyvisa_query"></div>
-!!! opdracht-basis "Pyvisa commando `query`"
+!!! opdracht-basis "PyVISA commando `query`"
     === "opdracht"
         Je stuurt een commando naar de Arduino met `query COMMANDO`. In de [documentatie van de firmware](firmware.md) heb je het commando opgezocht om de identificatiestring uit te lezen. Nadat je dit commando naar de Arduino stuurt krijg je een error. Je leest rustig verder in het hoofdstuk om erachter te komen hoe je dit moet oplossen.
     === "code"
@@ -247,12 +247,12 @@ Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszillo
 
         - [x] Schakeling bouwen
         - [x] Environment aanmaken
-        - [x] Pyvisa in terminal
-        - [x] Pyvisa commando's `list` en `open`
-        - [x] Pyvisa commando `query`
+        - [x] PyVISA in terminal
+        - [x] PyVISA commando's `list` en `open`
+        - [x] PyVISA commando `query`
         - [ ] Terminator characters demo
-        - [ ] Pyvisa regeleindes
-        - [ ] Pyvisa LED laten branden
+        - [ ] PyVISA regeleindes
+        - [ ] PyVISA LED laten branden
 
 Een error, niet helemaal wat je had gehoopt! Als je goed kijkt in de [documentatie van de firmware](firmware.md) dan zie je dat er bepaalde _terminator characters_ (regeleindes) nodig zijn. Dit zijn karakters die gebruikt worden om het einde van een commando te markeren. Het is, zogezegd, een <q>enter</q> aan het eind van een zin. Dit mag je heel letterlijk nemen. Oude printers voor computeruitvoer gebruikten een _carriage return_ (CR) om de wagen met papier (typemachine) of de printerkop weer aan het begin van een regel te plaatsen en een _line feed_ (LF) om het papier een regel verder te schuiven. Nog steeds is het zo dat in tekstbestanden deze karakters gebruikt worden om een nieuwe regel aan te geven. 
 
@@ -284,22 +284,22 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
     
         - [x] Schakeling bouwen
         - [x] Environment aanmaken
-        - [x] Pyvisa in terminal
-        - [x] Pyvisa commando's `list` en `open`
-        - [x] Pyvisa commando `query`
+        - [x] PyVISA in terminal
+        - [x] PyVISA commando's `list` en `open`
+        - [x] PyVISA commando `query`
         - [x] Terminator characters demo
-        - [ ] Pyvisa regeleindes
-        - [ ] Pyvisa LED laten branden
+        - [ ] PyVISA regeleindes
+        - [ ] PyVISA LED laten branden
 
 ???+ opdracht-meer "Terminator characters demo: input buffer en timeout"
     Ga opnieuw naar de [Termchar-demo](https://textual-web.io/natuurkundepracticum-amsterdam/termchar-demo) en lees de laatste stappen van de _Introduction_ tab. Open de _Advanced_ tab en voer de stappen uit. 
 
 
-![Klik hier](assets/eastereggs/ECPC-silver.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met '↑' (pijltje omhoog) kun je in een terminal de vorige commando's terughalen. Probeer maar eens!"} Je gaat nu de regeleindes instellen in Pyvisa:
+![Klik hier](assets/eastereggs/ECPC-silver.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met '↑' (pijltje omhoog) kun je in een terminal de vorige commando's terughalen. Probeer maar eens!"} Je gaat nu de regeleindes instellen in PyVISA:
 
-!!! opdracht-basis "Pyvisa regeleindes"
+!!! opdracht-basis "PyVISA regeleindes"
     === "opdracht"
-        Je gaat weer terug naar de `Anaconda prompt`. Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je deze moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige instellingen van de regeleindes op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Je bekijkt nog een keer de instellingen om te controleren of de regeleindes nu wel goed staan. Je gaat terug naar de [opdracht Pyvisa commando `query`](#opd:pyvisa_query) en krijgt een response in plaats van een error. 
+        Je gaat weer terug naar de `Anaconda prompt`. Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je deze moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige instellingen van de regeleindes op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Je bekijkt nog een keer de instellingen om te controleren of de regeleindes nu wel goed staan. Je gaat terug naar de [opdracht PyVISA commando `query`](#opd:pyvisa_query) en krijgt een response in plaats van een error. 
 
         !!! info "\r\n en CRLF"
             Bij de _Termination characters demo_ maakte je gebruik van `\r\n`, dat is de programmeertaal equivalent van `CRLF`.
@@ -343,17 +343,17 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
 
         - [x] Schakeling bouwen
         - [x] Environment aanmaken
-        - [x] Pyvisa in terminal
-        - [x] Pyvisa commando's `list` en `open`
-        - [x] Pyvisa commando `query`
+        - [x] PyVISA in terminal
+        - [x] PyVISA commando's `list` en `open`
+        - [x] PyVISA commando `query`
         - [x] Terminator characters demo
-        - [x] Pyvisa regeleindes
-        - [ ] Pyvisa LED laten branden
+        - [x] PyVISA regeleindes
+        - [ ] PyVISA LED laten branden
 
 !!! info "Onzichtbare regeleindes"
     Omdat de Arduino nu weet wanneer het commando voorbij is (door de LF aan het eind van de <q>zin</q>), krijg je antwoord! Dat antwoord heeft dan juist weer een CRLF aan het einde, dus `pyvisa-shell` weet wanneer het kan stoppen met luisteren en print het antwoord op het scherm. De karakters CRLF en LF _zelf_ blijven onzichtbaar voor ons.
 
-!!! opdracht-basis "Pyvisa LED laten branden"
+!!! opdracht-basis "PyVISA LED laten branden"
     === "opdracht"
         Je zoekt in de [documentatie van de firmware](firmware.md) op hoe je een spanning op het uitvoerkanaal zet. Je leest dat er een maximale waarde is voor de spanning en zet deze waarde op het uitvoerkanaal. Je ziet dat de LED brandt en er verschijnt een glimlach op je gezicht. 
         
@@ -373,51 +373,51 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
     === "check"
         **Checkpunten:**
 
-        - [ ] Je stuurt een commando naar de Arduino met behulp van `query`.
-        - [ ] Je hebt `query` goed geschreven en met kleine letters.
+        - [ ] Je stuurt een commando naar de Arduino met behulp van het commando `query`.
+        - [ ] Je hebt woord `query` goed geschreven en met kleine letters.
         - [ ] Je hebt het commando om een spanning op het uitvoerkanaal te zetten geschreven met hoofdletters.
-        - [ ] Je zet een spanning op het uitvoerkanaal `0`.
+        - [ ] Je zet een spanning op uitvoerkanaal `0`.
         - [ ] Achter het kanaalnummer staat een spatie.
-        - [ ] Na de spatie staat een geheel getal tussen de 0 en de 1023.
-        - [ ] Als je de waarde 828 naar het uitvoerkanaal 0 stuurt gaat de LED branden.
+        - [ ] Na de spatie staat een geheel getal tussen 0 en 1023.
+        - [ ] Als je de waarde 828 naar uitvoerkanaal 0 stuurt gaat de LED branden.
 
         **Projecttraject:**
 
         - [x] Schakeling bouwen
         - [x] Environment aanmaken
-        - [x] Pyvisa in terminal
-        - [x] Pyvisa commando's `list` en `open`
-        - [x] Pyvisa commando `query`
+        - [x] PyVISA in terminal
+        - [x] PyVISA commando's `list` en `open`
+        - [x] PyVISA commando `query`
         - [x] Terminator characters demo
-        - [x] Pyvisa regeleindes
-        - [x] Pyvisa LED laten branden
+        - [x] PyVISA regeleindes
+        - [x] PyVISA LED laten branden
 
 
 ## Een eenvoudig script
 
-We hebben via de shell contact gelegd met de hardware. Nu wordt het tijd om, met de documentatie[@pyvisa] in de aanslag, hetzelfde vanuit Python te doen. Als je met een nieuw project begint is het helemaal geen gek idee om een kort script te schrijven waarin je wat dingen uitprobeert. Als alles lijkt te werken kun je het netjes gaan maken en gaan uitbreiden. We beginnen hier met een eenvoudig script en zullen dat daarna gaan verfijnen.
+Je hebt via de shell contact gelegd met de hardware. Nu wordt het tijd om, met de documentatie[@pyvisa] in de aanslag, hetzelfde vanuit Python te doen. Als je met een nieuw project begint is het helemaal geen gek idee om een kort script te schrijven waarin je wat dingen uitprobeert. Als alles lijkt te werken kun je het netjes gaan maken en gaan uitbreiden. We beginnen hier met een eenvoudig script en zullen dat daarna gaan verfijnen.
 
-We lopen het voorbeeldscript eerst regel voor regel door en geven het volledige script aan het eind. Allereerst importeren we de `pyvisa`-bibliotheek met
+We lopen het voorbeeldscript eerst regel voor regel door en geven het volledige script aan het eind. Allereerst importeer je de `pyvisa`-bibliotheek met:
 ``` py
 import pyvisa
 ```
-Binnen pyvisa wordt alles geregeld met behulp van een _Resource Manager_. Die krijgen we met
+Binnen PyVISA wordt alles geregeld met behulp van een _Resource Manager_. Die krijg je met:
 ``` py
 rm = pyvisa.ResourceManager("@py")
 ```
-Die kunnen we bijvoorbeeld gebruiken om een lijst van alle beschikbare poorten te krijgen:
+Die kun je bijvoorbeeld gebruiken om een lijst van alle beschikbare poorten te krijgen:
 ``` py
 ports = rm.list_resources()
 
 # Bijvoorbeeld: ("ASRL28::INSTR",)
 ```
-Om nu daadwerkelijk verbinding te gaan maken met de Arduino moeten we die _openen_. Daarvoor geven we de poortnaam op en vertellen we meteen wat de instellingen moeten zijn voor de regeleindes bij het lezen (CRLF, `#!py "\r\n"`) en het schrijven (LF, `#!py "\n"`):
+Om nu daadwerkelijk verbinding te gaan maken met de Arduino moet je die _openen_. Daarvoor geef je de poortnaam op en vertel je meteen wat de instellingen moeten zijn voor de regeleindes bij het lezen (CRLF, `#!py "\r\n"`) en bij het schrijven (LF, `#!py "\n"`):
 ``` py
 device = rm.open_resource(
     "ASRL28::INSTR", read_termination="\r\n", write_termination="\n"
 )
 ```
-Ten slotte sturen we een query naar de Arduino:
+Tenslotte stuur je een query naar de Arduino:
 ``` py
 device.query("*IDN?")
 ```
@@ -445,17 +445,30 @@ Arduino VISA firmware v1.0.0</span>
 
 De output van het script is afhankelijk van het systeem en het aantal apparaten dat verbonden is.
 
-!!! opdracht-basis "Vergelijk pyvisa-shell met Python code"
-    Je hebt nu precies hetzelfde gedaan in Python als in de pyvisa shell. Vergelijk de verschillende stappen hieronder met elkaar door met de muis over de tekst heen te gaan.
+!!! opdracht-basis "Vergelijk script met `pyvisa-shell`"
+    === "opdracht"
+        Met bovenstaande code heb je precies hetzelfde gedaan in Python als in de `pyvisa-shell`. Vergelijk de verschillende stappen hieronder met elkaar door met de muis over de tekst heen te gaan.
+    
+    === "check"
+        **Projecttraject**
+
+        - [x] Vergelijk script met `pyvisa-shell`
+        - [ ] PyVISA in Pythonscript
+        - [ ] LED laten branden
+        - [ ] flashingLED
+        - [ ] Account aanmaken
+        - [ ] Van bestaande map repository maken
+        - [ ] Commit 
+        - [ ] Push en pull
 
 --8<-- "docs/assets/comparison/compare_shell_script.html"
 
 <div id="opd:test_arduino"></div>
-!!! opdracht-basis "Pyvisa in pythonscript"
+!!! opdracht-basis "PyVISA in Pythonscript"
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Je gaat de gegeven Python code testen daarom open je in Visual Studio Code de map {{folder}}`ECPC` en maakt een bestand {{new_file}}`test_arduino.py` aan. Je kopieert de Python code in het bestand. Je ziet dat de code gebruikt maakt van de package `pyvisa` daarom selecteer je de environment die je bij [opdracht Environment aanmaken](#opd:condaenv) hebt gemaakt. Je slaat het bestand op en runt het bestand.
+            Je gaat de gegeven Pythoncode testen. Hiervoor open je in Visual Studio Code de map {{folder}}`ECPC` en maak je een bestand {{new_file}}`test_arduino.py` aan. Je kopieert de gegeven Pythoncode in dit bestand. Je ziet dat de code gebruik maakt van de package `pyvisa` daarom selecteer je de environment die je bij [opdracht Environment aanmaken](#opd:condaenv) hebt gemaakt. Je slaat het bestand op en runt het bestand.
             </div>
             <div>
             {{folder}}`ECPC`  
@@ -465,20 +478,20 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         </div>
 
         !!! info "could not open port 'COM28': FileNotFoundError"
-            Krijg je een `#!py FileNotFoundError`? Dan kan het zijn dat het script een poort probeert te openen die bij jou een andere naam heeft. Probeer met het lijstje instrumenten te raden welke de Arduino is en pas het script aan totdat het werkt.[^tip-aansluiten]
+            Krijg je een `#!py FileNotFoundError`? Dan kan het zijn dat het script een poort probeert te openen die bij jou een andere naam heeft. Probeer met het lijstje instrumenten te raden welke poort de Arduino is en pas het script aan totdat het werkt.[^tip-aansluiten]
 
         [^tip-aansluiten]: Tip: als je de Arduino loshaalt en weer aansluit is het de nieuwe regel in het lijstje.
 
         !!! info "could not open port 'COM3': PermissionError"
-            Krijg je een `#!py PermissionError`? Dan heb je vast nog een terminal openstaan waarin `pyvisa-shell` actief is. 
+            Krijg je een `#!py PermissionError`? Dan heb je vast nog een terminal openstaan waarin `pyvisa-shell` actief is. Sluit deze eerste af.
     === "code"
         **Pseudo-code**
         ``` py
         # import pyvisa package
-        # create resourcemanager
+        # create resource manager
         # get list resources
         # open device
-        # send query
+        # send query to get identification string
         ```
         **Testcode**      
         <div class="code-box"><button type="button" name="test_arduino_test_code" onclick="runScript('test_arduino_test_code')" class="run">{{ run }}</button><button type="button" name="test_arduino_test_code" onclick="runScript('test_arduino_test_code')" class="reload invisible">{{ reload }}</button> test_arduino.py
@@ -496,15 +509,18 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "check"
         **Checkpunten:**
 
-        - [ ] Je hebt het juiste conda environment geselecteerd (zie ook [paragraaf _Conda environments_](software-tools.md#conda-environments)).
-        - [ ] Je hebt het de juiste naam van de Arduino in het script aangepast (als jouw Arduino niet 'ASRL28::INSTR' heet).
-        - [ ] Je hebt alle terminals (ook Anaconda Prompt) gesloten waarin communicatie met de Arduino open stond. 
+        - [ ] Je hebt het juiste conda environment geselecteerd (zie ook [paragraaf _Conda environments_](virtual_environments.md#conda-environments)).
+        - [ ] Je opent de poort met de naam van jouw Arduino (in het geval dat jouw Arduino niet 'ASRL28::INSTR' heet). 
+        - [ ] Je hebt alle terminals (ook de `Anaconda Prompt`) gesloten waarin communicatie met de Arduino openstond. 
+        - [ ] Je krijgt een lijst met poorten en de identificatiestring terug als je het script runt.
 
         **Projecttraject:**
 
-        - [x] Pyvisa in pythonscript
+        - [x] Vergelijk script met `pyvisa-shell`
+        - [x] PyVISA in Pythonscript
         - [ ] LED laten branden
         - [ ] flashingLED
+        - [ ] Account aanmaken
         - [ ] Van bestaande map repository maken
         - [ ] Commit 
         - [ ] Push en pull
@@ -513,7 +529,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Omdat je straks de IU-karakteristiek van de LED wilt gaan bepalen ga je een reeks aan spanningen naar de LED sturen waardoor de LED gaat branden. Je maakt daarvoor een bestand {{new_file}}`test_LED.py` aan in de map {{folder}}`ECPC`. Je schrijft eerst een regel code waarmee je een commando naar de Arduino stuurt waardoor de LED gaat branden. Daarna schrijf je de code om zodat de spanning oploopt van de minimale waarde tot aan de maximale waarde.
+            Om straks de $IU$-karakteristiek van een LED te kunnen bepalen, ga je nu eerst een reeks spanningen naar de LED sturen. Hierdoor gaat de LED branden. Je maakt hiervoor een bestand {{new_file}}`test_LED.py` aan in de map {{folder}}`ECPC`. Je schrijft eerst een regel code waarmee je een commando naar de Arduino stuurt waardoor de LED gaat branden. Daarna schrijf je de code om zodat de spanning oploopt van de minimale waarde tot aan de maximale waarde.
             </div>
             <div>
             {{folder}}`ECPC`  
@@ -529,12 +545,13 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Pseudo-code**
         ``` py
         # import pyvisa package
-        # create resourcemanager
+        # create resource manager
         # get list resources
         # open device
+        # send query to get identifaction string
         #
         # for value in min to max
-        #   send query set output channel to value
+        #   send query to set output channel to value
         ```
         **Testcode**      
         <div class="code-box"><button type="button" name="test_LED" onclick="runScript('test_LED')" class="run">{{ run }}</button><button type="button" name="test_LED" onclick="runScript('test_LED')" class="reload invisible">{{ reload }}</button> test_LED.py
@@ -550,18 +567,21 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "check"
         **Checkpunten:**
 
-        - [ ] Je hebt het juiste conda environment geselecteerd (zie ook [paragraaf _Conda environments_](software-tools.md#conda-environments)).
-        - [ ] Je hebt het de juiste naam van de Arduino in het script aangepast (als jouw Arduino niet 'ASRL28::INSTR' heet).
-        - [ ] Je hebt alle terminals (ook Anaconda Prompt) gesloten waarin communicatie met de Arduino open stond. 
+        - [ ] Je hebt het juiste conda environment geselecteerd (zie ook [paragraaf _Conda environments_](virtual_environments.md#conda-environments)).
+        - [ ] Je opent de poort met de naam van jouw Arduino (in het geval dat jouw Arduino niet 'ASRL28::INSTR' heet). 
+        - [ ] Je hebt alle terminals (ook de `Anaconda Prompt`) gesloten waarin communicatie met de Arduino openstond. 
+        - [ ] Je krijgt een lijst met poorten en de identificatiestring terug als je het script runt.
         - [ ] Je laat de spanning oplopen van de minimale tot de maximale waarde. 
         - [ ] Als je goed kijkt zie je de LED vertraagd oplichten.
-        - [ ] Als je de waarde op kanaal 0 opvraagd aan het eind van de reeks met `OUT:CH0?` krijg je `1023` terug.
+        - [ ] Als je de waarde op kanaal 0 opvraagt aan het eind van de reeks met `OUT:CH0?` krijg je `1023` terug.
 
         **Projecttraject:**
 
-        - [x] Pyvisa in pythonscript
+        - [x] Vergelijk script met `pyvisa-shell`
+        - [x] PyVISA in Pythonscript
         - [x] LED laten branden
         - [ ] flashingLED
+        - [ ] Account aanmaken
         - [ ] Van bestaande map repository maken
         - [ ] Commit 
         - [ ] Push en pull
@@ -572,7 +592,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Om bekend te raken met de code maak je een nieuw bestand {{new_file}}`flashingLED.py` aan in de map {{folder}}`ECPC` waarin je code schrijft die de LED in een regelmatig tempo laat knipperen.
+            Om bekend te raken met de code maak je een nieuw bestand {{new_file}}`flashingLED.py` aan in de map {{folder}}`ECPC`. Hierin schrijf je code om de LED in een regelmatig tempo te laten knipperen.
             </div>
             <div>
             {{folder}}`ECPC`  
@@ -584,7 +604,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         </div>
         
         !!! info
-            Je kan hiervoor gebruik maken van de module _time_ die standaard met Python meekomt[^standard-library]. Met de functie `#! sleep()` kun je de executie van de volgende regel in het script met een aantal seconden uitstellen.
+            Je kan hiervoor gebruik maken van de module _time_ die standaard met Python meekomt.[^standard-library] Met de functie `#! sleep()` kun je de executie van de volgende regel in het script met een aantal seconden uitstellen.
 
             ``` py
             import time
@@ -597,9 +617,10 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Pseudo-code**
         ``` py
         # import pyvisa package
-        # create resourcemanager
+        # create resource manager
         # get list resources
         # open device
+        # send query to get identification string
         #
         # repeat:
         #   send query set output channel to max
@@ -614,21 +635,23 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Checkpunten:**
 
         - [ ] De LED staat een tijd aan en een tijd uit.
-        - [ ] Het aan en uitgaan van de LED herhaald zich enkele keren.
+        - [ ] Het aan- en uitgaan van de LED herhaald zich enkele keren.
 
         **Projecttraject:**
 
-        - [x] Pyvisa in pythonscript
+        - [x] Vergelijk script met `pyvisa-shell`
+        - [x] PyVISA in Pythonscript
         - [x] LED laten branden
         - [x] flashingLED
+        - [ ] Account aanmaken
         - [ ] Van bestaande map repository maken
         - [ ] Commit 
         - [ ] Push en pull
 
 !!! opdracht-meer "Meer knipperritmes"
-    Breid het bestand {{file}}`flashingLED.py` uit met meer knipperritmes, bijvoorbeeld:
+    Breid het bestand {{file}}`flashingLED.py` uit met meer knipperritmes. Bijvoorbeeld:
 
     * Maak een _SOS light_ &mdash; een lamp die in morsecode het signaal SOS uitzendt.
-    * Maak een _breathing light_ &mdash; een lamp die langzaam aan en uit gaat gevolgd door een pauze in het tempo dat iemand in- en uitademt.
+    * Maak een _breathing light_ &mdash; een lamp die langzaam aan- en uitgaat gevolgd door een pauze in het tempo dat iemand in- en uitademt.
     * Maak een _heartbeat light_ &mdash; een lamp die twee keer kort na elkaar flitst gevolgd door een pauze in het tempo van een hartslag.
     * Bedenk je eigen knipperritme.
