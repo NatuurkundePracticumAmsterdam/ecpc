@@ -1,17 +1,20 @@
 # Basisscript voor het experiment
 
-Het experiment wat we gaan uitvoeren is het bepalen van de $I,U$-karakteristiek van een LED. Omdat de Arduino alleen getallen tussen 0 en 1023 kan sturen en ontvangen moeten we nadenken over de Analoog-digitaalconversie voordat we een zinnige $I,U$-karakteristiek kunnen maken. 
+Het experiment wat je gaat uitvoeren is het bepalen van de $I,U$-karakteristiek van een LED. Omdat de Arduino alleen getallen tussen 0 en 1023 kan sturen en ontvangen moet je nadenken over de analoog-digitaalconversie voordat je een zinnige $I,U$-karakteristiek kunt maken. 
 
 ## Analoog-digitaalconversie (ADC)
 
-We hebben tot nu toe gewerkt met getallen van 0-1023 sturen en ontvangen. Wat is precies de betekenis van deze getallen? Daarvoor moeten we dieper ingaan op hoe de Arduino &mdash; en computers in het algemeen &mdash; getallen omzet in een spanning en hoe spanningen door de Arduino worden gemeten.
+De Arduino kan getallen tussen 0 en 1023 sturen en ontvangen. Wat is precies de betekenis van deze getallen? Daarvoor moeten we dieper ingaan op hoe de Arduino &mdash; en computers in het algemeen &mdash; getallen omzet in een spanning en hoe spanningen door de Arduino worden gemeten.
 
-Een _analoog_ signaal is continu in zowel de tijd als de waardes die het signaal aan kan nemen. Een _digitaal_ signaal is echter discreet: op vaste tijdstippen is er een waarde bekend en het signaal kan maar een beperkt aantal verschillende waardes aannemen.[^discreet] 
+Een _analoog_ signaal is continu in zowel de tijd als de waardes die het signaal aan kan nemen.[^analoog] Een _digitaal_ signaal is echter discreet: op vaste tijdstippen is er een waarde bekend en het signaal kan maar een beperkt aantal verschillende waardes aannemen.[^discreet] 
 
-[^discreet]: Een vallende bal is een continu proces. De bal heeft op elk willekeurig moment een positie. Je zou de positie kunnen meten op het tijdstip $t$ = 2.0 s, maar ook op $t$ = 2.1, 2.01, 2.001 of 2.0001 s. Ook kun je de positie net zo nauwkeurig bepalen als je wilt.[^nauwkeurigheid] De natuur is analoog,[^analoog] maar moderne computers zijn digitaal en dus discreet. Als je een foto op je computer te ver inzoomt zie je blokjes. Je kunt verder inzoomen, maar je gaat niet meer detail zien. De hoeveelheid informatie is beperkt.
+[^analoog]: Een vallende bal is een continu proces. De bal heeft op elk willekeurig moment een positie. Je zou de positie kunnen meten op het tijdstip $t$ = 2.0 s, maar ook op $t$ = 2.1, 2.01, 2.001 of 2.0001 s. Ook kun je de positie net zo nauwkeurig bepalen als je wilt.[^nauwkeurigheid]
 
 [^nauwkeurigheid]: Uiteraard afhankelijk van de nauwkeurigheid van je meetinstrument.
-[^analoog]: Totdat je het domein van de kwantummechanica betreedt, dan blijkt de natuur ook een discrete kant te hebben.
+
+[^discreet]: De natuur is analoog,[^natuur] maar moderne computers zijn digitaal en dus discreet. Als je een foto op je computer te ver inzoomt zie je blokjes. Je kunt verder inzoomen, maar je gaat niet meer detail zien. De hoeveelheid informatie is beperkt.
+
+[^natuur]: Totdat je het domein van de kwantummechanica betreedt, dan blijkt de natuur ook een discrete kant te hebben.
 
 _Bemonsteren_ of _sampling_ is het proces waarbij een analoog signaal wordt <q>uitgelezen</q> en wordt omgezet in een digitaal signaal. Zo wordt een audiosignaal al sinds eind jaren '70 van de vorige eeuw gewoonlijk bemonsterd met een frequentie van 44.1 kHz en een resolutie van 16 bits. Dus 44100 keer per seconde wordt er gekeken wat de waarde van het geluidssignaal is en dat wordt opgeslagen als een getal van 16 bits en kan dus $2^{16} = 65536$ verschillende waardes aannemen. Dit is nauwkeuriger dan het menselijk gehoor kan onderscheiden.
 
@@ -26,25 +29,37 @@ _Bemonsteren_ of _sampling_ is het proces waarbij een analoog signaal wordt <q>u
 <br>
 
 !!! opdracht-basis-thuis "ADC resolutie"
-    De schuifjes hierboven zijn aan elkaar gekoppeld. Het bovenste schuifje laat de analoge waarde zien. Het onderste schuifje is de bijbehorende digitale waarde. 
+    === "opdracht"
+        De schuifjes hierboven zijn aan elkaar gekoppeld, zij laten de koppeling zien tussen analoge voltages en digitale waardes en visa versa. Het bovenste schuifje laat het analoge voltage zien. Het onderste schuifje is de bijbehorende digitale waarde. 
 
-    1. Zet het digitale signaal op een resolutie van 4-bit (16 stapjes). Stel je meet een waarde van 6, wat zijn dan de mogelijke voltages die daarbij horen? Wat is dan de nauwkeurigheid?
-    1. Zet het digitale signaal op een resolutie van 6-bit (64 stapjes). Stel je meet een waarde van 28, wat zijn dan de mogelijke voltages die daarbij horen? Wat is dan de nauwkeurigheid?
-    1. Zet het digitale signaal op een resolutie van 10-bit resolutie (1024 stapjes). Stel je meet een waarde van 768, wat zijn dan de mogelijke voltages die daarbij horen? Wat is dan de nauwkeurigheid?
+        1. Zet het digitale signaal op een resolutie van 4-bit (16 stapjes). Stel je meet een digitale waarde van 6, wat zijn dan de mogelijke voltages die daarbij horen? Wat is dan de nauwkeurigheid?
+        2. Zet het digitale signaal op een resolutie van 6-bit (64 stapjes). Stel je meet een digitale waarde van 28, wat zijn dan de mogelijke voltages die daarbij horen? Wat is dan de nauwkeurigheid?
+        3. Zet het digitale signaal op een resolutie van 10-bit (1024 stapjes). Stel je meet een digitale waarde van 768, wat zijn dan de mogelijke voltages die daarbij horen? Wat is dan de nauwkeurigheid?
 
-De conversie van een analoog signaal naar een digitaal signaal (en andersom!) is de reden dat de spanningen die we kiezen en de metingen die we doen niet alle mogelijke waardes kunnen aannemen, maar <q>stapjes</q> maken.
+        Je ziet dat naarmate het aantal bits omhoog gaat de resolutie beter wordt en daarmee ook de nauwkeurigheid. 
+    
+    === "check"
+        **Projecttraject:**
+
+        - [x] ADC resolutie
+        - [ ] ADC conversie
+
+De conversie van een analoog signaal naar een digitaal signaal (en andersom!) is de reden dat de spanningen die je kiest en de metingen die je doet niet alle mogelijke waardes kunnen aannemen, maar <q>stapjes</q> maken.
 
 ![Omzetting van analoog naar digitaal signaal](figures/adc-process.svg){: style="width:75%"}
 
-De omzetting van een analoog signaal naar een digitaal signaal gebeurt als volgt. De ADC (_analog-to-digital converter_) _in dit voorbeeld_ ondersteunt 16 niveau's (4-bits) in een bereik van 0 V tot 3.3 V (groen gearceerd). Lagere of hogere spanningen kunnen niet gemeten worden (rood gearceerd). Op gezette tijden wordt een meting gedaan (rode punten) waarbij de uitkomst van de meting het discrete niveau is dat het dichtst bij de analoge waarde ligt. Als het signaal te groot wordt kan de ADC als het ware <q>vastlopen</q> op het hoogste niveau. In de rechterflank is waar te nemen dat als het analoge signaal langzaam verandert dat het digitale signaal duidelijk sprongsgewijs verandert. Hoe meer niveau's een ADC heeft en hoe vaker het signaal bemonsterd kan worden, hoe nauwkeuriger het digitale signaal het analoge signaal benadert.
+De omzetting van een analoog signaal naar een digitaal signaal gebeurt als volgt. De ADC (_analog-to-digital converter_) in dit voorbeeld ondersteunt 16 niveaus (4-bits) in een bereik van 0 V tot 3.3 V (groen gearceerd). Lagere of hogere spanningen kunnen niet gemeten worden (rood gearceerd). Op gezette tijden wordt een meting gedaan (rode punten), waarbij de uitkomst van de meting het discrete niveau is dat het dichtst bij de analoge waarde ligt. Als het signaal te groot wordt kan de ADC als het ware <q>vastlopen</q> op het hoogste niveau. In de rechterflank is waar te nemen dat als het analoge signaal langzaam verandert, het digitale signaal duidelijk sprongsgewijs verandert. Hoe meer niveau's een ADC heeft en hoe vaker het signaal bemonsterd kan worden, hoe nauwkeuriger het digitale signaal het analoge signaal benadert.
 
 ![Het digitale signaal](figures/adc-process_p2.svg){: style="width:75%"}
 
-De digitale metingen die je programma krijgt van de ADC is hierboven weergegeven. De onzekerheid is gelijk aan de halve afstand tot het volgende niveau. In lichtgrijs zie je het oorspronkelijke analoge signaal. De meting benadert het signaal dus maar gedeeltelijk. De Arduino die we gebruiken heeft een bereik van 0 V tot 3.3 V en &mdash; in tegenstelling tot het voorbeeld hierboven &mdash; een resolutie van 10 bits, dus $2^{10} = 1024$ stapjes. Als je een experiment ontwerpt is het dus van belang te weten dat je nooit kunt meten met een nauwkeurigheid kleiner dan de stapgrootte. Voor ons is deze resolutie prima.
+De digitale metingen die je programma krijgt van de ADC is hierboven weergegeven. De onzekerheid is gelijk aan de halve afstand tot het volgende niveau. In lichtgrijs zie je het oorspronkelijke analoge signaal. De meting benadert het signaal dus maar gedeeltelijk. 
 
-!!! opdracht-basis-thuis "Volt naar ADC"
+De Arduino die je gebruikt heeft een bereik van 0 V tot 3.3 V en &mdash; in tegenstelling tot het voorbeeld hierboven &mdash; een resolutie van 10 bits, dus $2^{10} = 1024$ niveaus. Als je een experiment ontwerpt is het van belang te weten dat je nooit kunt meten met een nauwkeurigheid kleiner dan de stapgrootte. Voor het experiment dat je gaat uitvoeren is deze resolutie prima.
+
+!!! opdracht-basis-thuis "ADC conversie"
     === "opdracht"
-        Je hebt gezien dat de Arduino werkt met getallen van 0 t/m 1023 en dat de Arduino een bereik heeft van 0 V tot 3.3 V. Je schrijft de formule op om de ruwe ADC waarde naar een spanning in Volt om te rekenen en omgekeerd. Je controleert of je formules logische antwoorden geven door de spanning te berekenen die bij een ruwe waarde van 700 hoort en de ruwe waarde die hoort bij 2.28 V. 
+        Je hebt gezien dat de Arduino werkt met getallen van 0 tot en met 1023 én dat de Arduino een bereik heeft van 0 V tot 3.3 V. Je schrijft de formule op om een ADC waarde naar een spanning in Volt om te rekenen en omgekeerd. Je controleert of je formules logische antwoorden geven door de spanning te berekenen die hoort bij een ADC waarde van 700. Ook bereken je de ADC waarde behorende bij 2.28 V. 
+
     === "code"
         **Pseudo-code**
         ``` py
@@ -57,20 +72,23 @@ De digitale metingen die je programma krijgt van de ADC is hierboven weergegeven
     === "check"
         **Checkpunten:**
 
-        - [ ] Ruwe waarde 0 geeft spanning 0 en vice versa 
-        - [ ] Ruwe waarde 1023 geeft spanning 3.3 en vice versa
-        - [ ] Ruwe waarde 700 is ongeveer 2/3 van 1023 dus geeft een spanning in de buurt van 2.2 V
-        - [ ] Spanning van 2.28 V is ongeveer 2/3 van 3.3 dus geeft een ruwe waarde in de buurt van 680
+        - [ ] Een ADC waarde van 0 geeft een spanning van 0 V en omgekeerd.  
+        - [ ] Een ADC waarde van 1023 geeft een spanning van 3.3 V en omgekeerd.
+        - [ ] Een ADC waarde van 700 is ongeveer tweederde van 1023, dus dat moet een spanning geven in de buurt van 2.2 V.
+        - [ ] Een spanning van 2.28 V is ongeveer 70% van 3.3 V, dus dat moet een ADC waarde geven in de buurt van 720.
 
         **Projecttraject:**
 
-        - [x] Volt naar ADC
+        - [x] ADC resolutie
+        - [x] ADC conversie
 
 ???+ meer-leren "Binair Talstelsel"
 
     ### Binair Talstelsel
 
-    Wij schrijven onze getallen op in een _decimaal_ (tientallig) talstelsel. We hebben tien verschillende cijfers (0 t/m 9) en plakken bij grotere getallen de tientallen, honderdtallen, etc. aan elkaar. Computers werken met _binaire_ getallen &mdash; een tweetallig talstelsel. Dat betekent dat computers het getal 0 en 1 zonder problemen kunnen opslaan, maar bij het getal 2 wordt het al lastig. Zij moeten dan al met <q>tientallen</q> werken en schrijven het getal 2 op als 10. Het getal 3 is dan 11. Voor 4 zijn de cijfers alweer op en moeten we overschakelen naar <q>honderdtallen</q>, dus 4 is 100, 5 is 101, enz. Zie onderstaande tabel voor nog een paar voorbeelden. De cijfers noem je _bits_ en het getal 5 (101 binair) bestaat dus uit 3 bits. Als je maar 3 bits tot je beschikking hebt kun je $2^3 = 8$ verschillende getallen opslaan, dus 0 t/m 7. Een groepje van 8 bits (256 mogelijkheden) bleek een handige hoeveelheid en kun je op computers individueel opslaan. Zo'n groepje noem je een _byte_. Bestanden bestaan uit bytes, kilobytes (duizend bytes), megabytes (miljoen bytes) of gigabytes (miljard bytes). Wanneer je een signaal nauwkeurig wilt verwerken met een computer dan is het belangrijk om zoveel mogelijk bits tot je beschikking te hebben. Hoe meer bits, hoe meer verschillende waardes je kunt opslaan en hoe nauwkeuriger je signaal wordt bewaard.
+    Wij schrijven onze getallen op in een _decimaal_ (tientallig) talstelsel. We hebben tien verschillende cijfers (0 t/m 9) en plakken bij grotere getallen de tientallen, honderdtallen, etcetera aan elkaar. Computers werken met _binaire_ getallen &mdash; een tweetallig talstelsel. Dat betekent dat computers het getal 0 en 1 zonder problemen kunnen opslaan, maar bij het getal 2 wordt het al lastig. Zij moeten dan al met <q>tientallen</q> werken en schrijven het getal 2 op als 10. Het getal 3 is dan 11. Voor het getal 4 zijn de cijfers alweer op en moet je overschakelen naar <q>honderdtallen</q>, dus 4 is 100, 5 is 101, enzovoorts. Zie onderstaande tabel voor nog een paar voorbeelden. 
+    
+    De cijfers noem je _bits_ en het getal 5 (101 binair) bestaat dus uit 3 bits. Als je maar 3 bits tot je beschikking hebt, kun je $2^3 = 8$ verschillende getallen opslaan, dus 0 t/m 7. Een groepje van 8 bits (256 mogelijkheden) bleek een handige hoeveelheid en kun je op computers individueel opslaan. Zo'n groepje noem je een _byte_. Bestanden bestaan uit bytes, kilobytes (duizend bytes), megabytes (miljoen bytes) of gigabytes (miljard bytes). Wanneer je een signaal nauwkeurig wilt verwerken met een computer dan is het belangrijk om zoveel mogelijk bits tot je beschikking te hebben. Hoe meer bits, hoe meer verschillende waardes je kunt opslaan en hoe nauwkeuriger je signaal wordt bewaard.
 
     Voorbeelden van het binair talstelsel:
 
@@ -90,55 +108,125 @@ De digitale metingen die je programma krijgt van de ADC is hierboven weergegeven
     | 205            | 11001101     |
 
 
-## De I,U-karakteristiek van een LED
+## De $I,U$-karakteristiek van een LED
 
-Je hebt op de middelbare school ongetwijfeld de $I,U$-karakteristiek van een ohmse weerstand onderzocht. Je neemt een <q>gewone</q> weerstand en zet daar een steeds hogere spanning op. Je meet de stroomsterkte en ook die neemt toe &mdash; rechtevenredig zelfs! Door $I$ tegen $U$ uit te zetten in een grafiek en de beste lijn door je metingen te trekken vind je met de richtingscoëfficiënt de inverse van de weerstand $R^{-1}$:
+Je hebt op de middelbare school ongetwijfeld de $I,U$-karakteristiek van een ohmse weerstand onderzocht. Je neemt een <q>gewone</q> weerstand en zet daar een steeds hogere spanning op. Je meet de stroomsterkte en ook die neemt toe &mdash; rechtevenredig zelfs! Door $I$ tegen $U$ uit te zetten in een grafiek en de beste lijn door je metingen te trekken vind je met de richtingscoëfficiënt de inverse van de weerstand, $R^{-1}$, zie onderstaand figuur.
 
 ![I,U-curve van een weerstand](figures/I,U-curve-resistor.svg){: style="width:75%"}
 
-Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ anders. Met de schakeling die we hebben gebouwd kunnen we de $I,U$-karakteristiek van een LED bepalen. Voor meer informatie over de fysica achter diodes, zie de [appendix Diodes](diodes.md).
+Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ anders. Met de schakeling die je hebt gebouwd in de [opdracht Schakeling bouwen](communicatie.md#opd:schakeling), kun je de $I,U$-karakteristiek van een LED bepalen. Voor meer informatie over de fysica achter diodes, zie de [appendix Diodes](diodes.md).
 
-!!! opdracht-basis-thuis "I,U-karakteristiek van een LED"
-    <iframe src="https://drive.google.com/file/d/1BcYJaCm3Er1hQyqQtCRx9umI5d2Q3V-m/preview" width="620" height="349" style="border:none;"></iframe>
+!!! opdracht-basis-thuis "$I,U$-karakteristiek van een LED"
+    === "opdracht"
+        <iframe src="https://drive.google.com/file/d/1BcYJaCm3Er1hQyqQtCRx9umI5d2Q3V-m/preview" width="620" height="349" style="border:none;"></iframe>
     
-    Maak een schets van hoe je denkt dat de grafiek van de stroom tegen de spanning van een LED eruit zal zien.
+        Maak een schets van hoe je denkt dat de grafiek van de stroom $I$ tegen de spanning $U$ van een LED eruit zal zien.
+
+    === "check"
+        **Projecttraject:**
+
+        - [x] $I,U$-karakteristiek van een LED
+        - [ ] Arduino heeft geen stroommeter
+        - [ ] Arduino pinnetjes
+        - [ ] Arduino op breadboard
+        - [ ] Kanalen van de Arduino
 
 !!! opdracht-basis-thuis "Arduino heeft geen stroommeter"
-    <iframe src="https://drive.google.com/file/d/10FwUnWe7CPjygzoRhVIJLE44qlwUo78Z/preview" width="620" height="349" style="border:none;"></iframe>
+    === "opdracht"
+        <iframe src="https://drive.google.com/file/d/10FwUnWe7CPjygzoRhVIJLE44qlwUo78Z/preview" width="620" height="349" style="border:none;"></iframe>
     
-    Schrijf op hoe je de spanning over de LED en de stroom door de LED berekent in termen van de spanningsmeters U1 en U2 en de bekende weerstand R.
+        Schrijf op hoe je de spanning $U$ over de LED en de stroom $I$ door de LED berekent in termen van de spanningsmeters $U_1$ en $U_2$ en de bekende weerstand $R$.
+    
+    === "check"
+        **Projecttraject:**
 
-!!! opdracht-basis-thuis "Arduino pins"
-    <iframe src="https://drive.google.com/file/d/1PTzd6aY-yCLK-ubxJ1is0g58YeJrD-PL/preview" width="620" height="349" style="border:none;"></iframe>
+        - [x] $I,U$-karakteristiek van een LED
+        - [x] Arduino heeft geen stroommeter
+        - [ ] Arduino pinnetjes
+        - [ ] Arduino op breadboard
+        - [ ] Kanalen van de Arduino
+
+!!! opdracht-basis-thuis "Arduino pinnetjes"
+    === "opdracht"
+        <iframe src="https://drive.google.com/file/d/1PTzd6aY-yCLK-ubxJ1is0g58YeJrD-PL/preview" width="620" height="349" style="border:none;"></iframe>
     
-    Kijk aan de onderkant van de Arduino[^bronArduino] of je de pinnentjes A0, A1, A2 en GND kan vinden.
-    ??? info "Klik hier als je geen Arduino bij de hand hebt"
-        <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+        Kijk aan de onderkant van de Arduino of je de pinnetjes A0, A1, A2 en GND kan vinden.
+        
+        ??? info "Klik hier als je geen Arduino[^bronArduino] bij de hand hebt"
+            <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
             <model-viewer id="model" style="width: 100%; height: 700px;" alt="Arduino" src="../assets/circuit/Arduino.glb" ar shadow-intensity="1" camera-controls touch-action="pan-y" poster="../assets/circuit/Arduino_top_view.png" camera-orbit="0rad 0.39269908169872414rad 4.718948223475571m" autoplay exposure="0.6"></model-viewer>
 
-    [^bronArduino]: Dit model bevat een 3D model die is gecreëerd door AppliedSBC en is gedeeld onder CC-BY-SA licentie. Het originele model is te vinden via [Arduino Nano 33 IoT](https://sketchfab.com/3d-models/arduino-nano-33-iot-f57fd7f5485a47a8b71f8604872fd78c). Het model is voorzien van een Arduino texture. Dit 3D model heeft een CC-BY-SA licentie.
-
-!!! opdracht-basis-thuis "Breadboard"
-    <iframe src="https://drive.google.com/file/d/1n98Q6s0T8YfBO2xoTT5t0Os98hUwNwSh/preview" width="620" height="349" style="border:none;"></iframe>
+        [^bronArduino]: Dit model bevat een 3D model die is gecreëerd door AppliedSBC en is gedeeld onder CC-BY-SA licentie. Het originele model is te vinden via [Arduino Nano 33 IoT](https://sketchfab.com/3d-models/arduino-nano-33-iot-f57fd7f5485a47a8b71f8604872fd78c). Het model is voorzien van een Arduino texture. Dit 3D model heeft een CC-BY-SA licentie.
     
-    Kijk terug naar de theoretische schakeling, welke lijnen komen daar overeen met de vier draadjes (rood, blauw, groen, oranje) in de echte schakeling?
+    === "check"
+        **Projecttraject:**
 
-!!! opdracht-basis-thuis "Channels"
-    <iframe src="https://drive.google.com/file/d/1K2KiB21YAMYnVWdrEgYUB_x8v6ikK_9i/preview" width="620" height="349" style="border:none;"></iframe>
+        - [x] $I,U$-karakteristiek van een LED
+        - [x] Arduino heeft geen stroommeter
+        - [x] Arduino pinnetjes
+        - [ ] Arduino op breadboard
+        - [ ] Kanalen van de Arduino
+
+!!! opdracht-basis-thuis "Arduino op breadboard"
+    === "opdracht"
+        <iframe src="https://drive.google.com/file/d/1n98Q6s0T8YfBO2xoTT5t0Os98hUwNwSh/preview" width="620" height="349" style="border:none;"></iframe>
     
-    Bekijk de documentatie over de firmware en schrijf het commando op om de maximale uitvoerspanning op kanaal 0 te zetten. Schrijf daarna de commando's op om de waardes van U1 en U2 uit te lezen.
+        Vergelijk de schakeling op het breadboard met de theoretische schakeling. Welke lijnen in de theoretische schakeling komen overeen met de vier draadjes (rood, blauw, groen, oranje) op het breadboard?
+
+    === "check"
+        **Projecttraject:**
+
+        - [x] $I,U$-karakteristiek van een LED
+        - [x] Arduino heeft geen stroommeter
+        - [x] Arduino pinnetjes
+        - [x] Arduino op breadboard
+        - [ ] Kanalen van de Arduino
+
+!!! opdracht-basis-thuis "Kanalen van de Arduino"
+    === "opdracht"
+        <iframe src="https://drive.google.com/file/d/1K2KiB21YAMYnVWdrEgYUB_x8v6ikK_9i/preview" width="620" height="349" style="border:none;"></iframe>
+    
+        Bekijk de [documentatie van de firmware](firmware.md) en schrijf het commando op om de maximale uitvoerspanning op kanaal 0 te zetten. Schrijf ook de commando's op om de waardes van $U_1$ en $U_2$ uit te lezen.
+
+    === "check"
+        **Projecttraject:**
+
+        - [x] $I,U$-karakteristiek van een LED
+        - [x] Arduino heeft geen stroommeter
+        - [x] Arduino pinnetjes
+        - [x] Arduino op breadboard
+        - [x] Kanalen van de Arduino
 
 !!! opdracht-inlever "Pythondaq: repository"
-    Omdat we met een belangrijk project aan de slag gaan, namelijk een inleveropdracht, gaan we gelijk goed beginnen door een repository aan te maken. 
+    === "opdracht"
+        Omdat je met een belangrijk project aan de slag gaat, namelijk een inleveropdracht, ga je gelijk goed beginnen door een repository aan te maken. 
 
-    1. Open Github Desktop en ga naar **File > New repository ...**. Geef de repository een naam (`pythondaq`) en kies onderstaande locatie. Let er op dat je mappenstructuur er als volgt uit ziet:   
-    {{folder}} ECPC  
-    {{T}} {{github}} pythondaq  
-    {{tab}} {{L}} {{dots}}  
-    {{L}} {{dots}}  
-    1. Vink `Initialize this repository with a README` aan.
-    1. Kies bij `Git ignore` voor <q>Python</q>.
-    1. Ga naar **Repository > Open in Visual Studio Code** en ga aan de slag. Vergeet niet regelmatig te committen!
+        1. Open Github Desktop en ga naar het dropdownmenu **File**. Kies hier voor `New repository ...`. Geef de repository de naam `pythondaq` en zet de repository in de map {{folder}}`ECPC`. De mappenstructuur ziet er dan als volgt uit:   
+        {{folder}} ECPC  
+        {{T}} {{github}} pythondaq  
+        {{tab}} {{L}} {{dots}}  
+        {{L}} {{dots}}  
+        2. Vink `Initialize this repository with a README` aan.
+        3. Kies bij `Git ignore` voor <q>Python</q>.
+        4. Open de repository {{github}}`pythondaq` via GitHub Desktop. Ga hiervoor naar het dropdownmenu **Repository** en kies voor `Open in Visual Studio Code`.
+        5. Nu kun je aan de slag. Vergeet tijdens het werken niet regelmatig te committen!
+
+    === "check"
+        **Checkpunten:**
+
+        - [ ] De repository {{github}}`pythondaq` zit in de map {{folder}}`ECPC`.
+        - [ ] In de repository {{github}}`pythondaq` bevinden zich de bestanden {{file}}`README.md`, {{file}}`.gitattributes` en {{file}}`.gitignore`.
+        - [ ] De repository {{github}}`pythondaq` is geopend in Visual Studio Code.
+
+        **Projecttraject:**
+
+        - [x] Pythondaq: repository
+        - [ ] Pythondaq: start script
+        - [ ] Pythondaq: quick 'n dirty meting
+        - [ ] Pythondaq: onzekerheid
+        - [ ] Pythondaq: schildpad of raket?
+        - [ ] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: CSV
 
 ![Klik hier](assets/eastereggs/ECPC-blue.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met 'CTRL' + 'SHIFT' + 'A'  kun je vanuit GitHub Desktop de repository in Visual Studio Code openen. Probeer maar eens!"}
 
@@ -147,7 +235,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
     
         <div class="grid-tree" markdown>
             <div>
-            Je maakt het bestand {{file}}`diode-experiment.py` aan in de nieuwe {{github}} `pythondaq` repository, waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de spanning over de weerstand uit. Je print steeds een regel met: ruwe waarde spanning op LED, voltage op LED, ruwe waarde spanning over weerstand, voltage weerstand.
+            Je maakt een bestand {{file}}`diode-experiment.py` aan in de nieuwe repository {{github}} `pythondaq`, waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de verschillende spanningen uit. Je print steeds een regel met: ruwe waarde spanning over LED, voltage over LED, ruwe waarde spanning over weerstand, voltage over weerstand.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -171,11 +259,13 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
     === "check"
         **Checkpunten:**
 
-        - [ ] Spanning over LED loopt van nul tot maximale waarde
-        - [ ] LED lampje brandt steeds feller
-        - [ ] Commit {{feesttoeter}}
-        - [ ] Ruwe waardes en voltages zijn zoals verwacht
-        - [ ] Commit {{feesttoeter}}
+        - [ ] Je laat de spanning oplopen van nul tot de maximale waarde.
+        - [ ] De LED licht vertraagd op en gaat dus steeds feller branden. 
+        - [ ] Commit! {{feesttoeter}}
+        - [ ] De ruwe waardes over de LED en de weerstand zijn zoals verwacht.
+        - [ ] Commit! {{feesttoeter}}
+        - [ ] De omrekening van ruwe waardes naar voltages levert uitkomsten op die je kunt verwachten.
+        - [ ] Commit! {{feesttoeter}}
 
         **Projecttraject:**
 
@@ -183,14 +273,14 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         - [x] Pythondaq: start script
         - [ ] Pythondaq: quick 'n dirty meting
         - [ ] Pythondaq: onzekerheid
-        - [ ] Pythondaq: Schildpad of raket?
+        - [ ] Pythondaq: schildpad of raket?
         - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
 
-Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma of Python notebook o.i.d. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment hebben we ook alleen nog maar _ruwe_ metingen. We gaan hier voorbij aan het feit dat we graag de stroomsterkte door de LED $I$ zouden willen uitzetten tegen de spanning over de LED $U_\mathrm{LED}$.
+Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma, Python notebook of iets dergelijks. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment heb je ook alleen nog maar _ruwe_ metingen. En je gaat nog voorbij aan het feit dat je graag de stroomsterkte $I$ door de LED wilt uitzetten tegen de spanning $U$ over de LED.
 
 !!! info
-    In de volgende opdracht gaan we een grafiek maken. Installeer Matplotlib in je conda environment (zorg dat die geactiveerd is! {{lightbulb}}):
+    In de volgende opdracht ga je een grafiek maken. Installeer Matplotlib in de conda environment `pythondaq`. Belangrijk: zorg dat deze geactiveerd is! {{lightbulb}}
     ``` ps1 title="Terminal"
     conda install --channel conda-forge matplotlib
     ```
@@ -198,7 +288,8 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
 <div id="opd:quickndirty-meting"></div>
 !!! opdracht-inlever "Pythondaq: quick 'n dirty meting"
     === "opdracht"
-        Je code berekent de spanning _over_ en de stroomsterkte _door_ de LED terwijl de spanning over het cirquit oploopt van nul tot de maximale waarde. De resultaten worden geprint en in een grafiek weergegeven.  
+        Je code berekent de spanning over en de stroomsterkte door de LED terwijl de spanning over het circuit oploopt van nul tot de maximale waarde. De resultaten worden geprint én in een grafiek weergegeven. Aan het einde van alle metingen wordt de LED uitgezet.
+
     === "code"
         **Pseudo-code**
         ``` py title="diode-experiment.py"
@@ -206,24 +297,27 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
 
         # set output voltage from 0 to max
             # measure voltages
-            # calculate LED voltage
-            # calculate LED current
-            # print voltage: raw_voltage_LED (voltage_LED V) current: raw_current_LED (current_LED V)
-        
-        # plot current vs voltage
+            # calculate voltage LED
+            # calculate current LED
+            # print voltage: voltage_LED V (raw_voltage_LED) current: current_LED A
+
+        # plot current_LED vs voltage_LED
         ```
+
     === "check"
         **Checkpunten:**
 
-        - [ ] Bereken spanning over LED
-        - [ ] Bereken stroomsterkte door LED
-        - [ ] Lijst met spanningen
-        - [ ] Lijst met stroomsterkte
-        - [ ] Print spanningen en stroomsterktes
-        - [ ] Plot stroomsterke tegen spanning
-        - [ ] Vergelijk met resultaat van iemand anders
-        - [ ] Meting is fysisch correct
-        - [ ] LED wordt uitgezet na de meting
+        - [ ] Je laat de spanning oplopen van nul tot de maximale waarde.
+        - [ ] De spanning $U$ over de LED wordt berekend.
+        - [ ] De stroom $I$ door de LED wordt berekend. 
+        - [ ] De spanning $U$ en de stroom $I$ worden geprint in de terminal. 
+        - [ ] De waardes zijn fysisch correct.
+        - [ ] De verschillende waardes voor de spanning worden in een lijst gezet.
+        - [ ] De verschillende waardes voor de stroom worden in een lijst gezet.
+        - [ ] De stroomsterkte $I$ wordt tegen de spanning $U$ uitgezet in een grafiek.
+        - [ ] Je vergelijkt het resultaat met een buurmens. Je bespreekt of de verkregen grafiek fysisch correct is. 
+        - [ ] De LED wordt uitgezet na de meting.
+        - [ ] Tussendoor heb je gecommit!
 
         **Projecttraject:**
 
@@ -231,28 +325,57 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
         - [x] Pythondaq: start script
         - [x] Pythondaq: quick 'n dirty meting
         - [ ] Pythondaq: onzekerheid
-        - [ ] Pythondaq: Schildpad of raket?
+        - [ ] Pythondaq: schildpad of raket?
+        - [ ] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: CSV
+
+Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga je de meting herhalen en foutenvlaggen toevoegen. Je moet misschien wel weer even hard nadenken over hoe je deze foutenvlaggen bepaald. Pak daarom eerst pen en papier (voordat je verder code gaat toevoegen), stoot je buurmens aan en ga samen nadenken over hoe jullie in dit experiment de onzekerheid kunnen bepalen.
+
+!!! opdracht-basis "Pythondaq: onzekerheid"
+    === "opdracht"
+        <iframe src="https://drive.google.com/file/d/1-26rnvYwTZ_I7PgUX85Don21qevgHLv0/preview" width="620" height="349" style="border:none;"></iframe>
+    
+        Bekijk bovenstaande video. In deze video wordt een meting van de spanning $x_n$ keer herhaald. De groene rechthoek geeft de onzekerheid op een individuele meting weer. Het gemiddelde van alle metingen wordt weergegeven met een roze lijn. De roze rechthoek geeft de onzekerheid op het gemiddelde weer.  
+
+        1. Wat gebeurt er met de onzekerheid op een individuele meting als je de meting vaker herhaalt?
+        2. Wat gebeurt er met de onzekerheid op het gemiddelde als je een meting vaker herhaalt? 
+        3. Heb je voor jouw experiment straks de onzekerheid op een individuele meting nodig? Of de onzekerheid op het gemiddelde? Hoe bepaal je deze onzekerheid?
+
+    === "check"
+        **Projecttraject:**
+
+        - [x] Pythondaq: repository
+        - [x] Pythondaq: start script
+        - [x] Pythondaq: quick 'n dirty meting
+        - [x] Pythondaq: onzekerheid
+        - [ ] Pythondaq: schildpad of raket?
+        - [ ] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: CSV
+
+!!! opdracht-basis "Pythondaq: schildpad of raket?"
+    === "opdracht"
+        In het experiment ga je straks de metingen een aantal keer herhalen. Je kunt dan op twee manieren het gemiddelde van de benodigde grootheden bepalen en de bijbehorende onzekerheden. 
+        
+        1. Je kunt dit stap voor stap doen, als een schildpad. Bij elke waarde van $U_0$ meet je een aantal keer de waardes van $U_1$ en $U_2$, waarna je een gemiddelde en de bijbehorende onzekerheid berekent. Daarna doe je hetzelfde voor de volgende waarde van $U_0$. 
+        2. Je kunt ook eerst voor het hele bereik van $U_0$ de waardes van $U_1$ en $U_2$ bepalen, als een raket. Dit herhaal je daarna een aantal keer. Pas nadat je álle metingen gedaan hebt, ga je een gemiddelde en de bijbehorende onderzekerheid berekenen.
+        
+        Bespreek met je buurmens de voor- en nadelen van beide manieren. Maak hierin onderscheid tussen het experimentele gebied en het programmeergebied.
+
+    === "check"
+        **Projecttraject:**
+
+        - [x] Pythondaq: repository
+        - [x] Pythondaq: start script
+        - [x] Pythondaq: quick 'n dirty meting
+        - [x] Pythondaq: onzekerheid
+        - [x] Pythondaq: schildpad of raket?
         - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
 
 
-!!! opdracht-inlever "Pythondaq: onzekerheid"
-    Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga je de meting herhalen en foutenvlaggen toevoegen. Je moet weer even hard nadenken over hoe je dat bepaalt en hoe je dat in je code gaat verwerken. Daarom pak je pen en papier, stoot je je buurmens aan en samen gaan jullie nadenken over hoe jullie in dit experiment de onzekerheid kunnen bepalen. <br></br>Bekijk daarvoor het onderstaande filmpje. 
-    Een meting van de spanning wordt $x_n$ keer herhaald, de groene rechthoek geeft de onzekerheid op een individuele meting weer. Het gemiddelde van alle metingen wordt weergegeven met een roze lijn en de roze rechthoek geeft de onzekerheid op het gemiddelde. 
-
-    <iframe src="https://drive.google.com/file/d/1-26rnvYwTZ_I7PgUX85Don21qevgHLv0/preview" width="620" height="349" style="border:none;"></iframe>
-
-    Wat gebeurt er met de onzekerheid op een individuele meting als je vaker meet? Waarom? Wat gebeurt er met de onzekerheid op het gemiddelde als je vaker meet? Waarom? En hoe bepaal je de onzekerheid op het gemiddelde?
-
-!!! opdracht-inlever "Pythondaq: Schildpad of raket?"
-    Omdat je voor het LED experiment een reeks aan metingen doet over de hele voltage range zijn er twee manieren om herhaalmetingen uit te voeren. De eerste manier is als een schildpad stap voor stap, bij elk voltage meet je een x aantal keer. De andere manier is als een raket: je vliegt over alle voltages heen en herhaald dat een x aantal keer. 
-    
-    Bespreek samen de voor- en nadelen van beide manieren, zowel op experimenteel gebied als op codeer gebied. 
-
-
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
     === "opdracht"
-        Kijk nu naar de opbouw van de code en maak aantekeingen over wat er waar en hoe in de docde aangepast moet worden. Je kijkt naar je repository en ziet dat je de nu-nog-werkende-code hebt gecommit vervolgens ga je stap voor stap (commit voor commit) aan de slag om de aanpassingen te maken. Als het klaar is run je {{file}}`run_experiment.py` met het aantal herhaalmetingen op 3 en ziet in de grafiek foutenvlaggen op de metingen voor stroom en spanningen staan. Je kijkt op het beeldscherm van je buurmens en ziet daar ook foutenvlaggen verschijnen. Met een grijns kijken jullie elkaar aan en geven een high five {{feesttoeter}}.
+        Je gaat nu de code zo aanpassen dat je daadwerkelijk iets kunt zeggen over de onzekerheid op de spanning over de LED en de stroom door de LED. Dit doe je door een meting meerdere keren te herhalen. Je kijkt eerst naar de opbouw van de code en maakt aantekeningen over wat er waar en hoe in de code aangepast moet worden. Daarna kijk je naar je repository {{github}}`pythondaq` en controleer je dat de nu-nog-werkende-code gecommit is. Vervolgens ga je stap voor stap &mdash; en commit na commit &mdash; de code aanpassen. Als je klaar bent, run je {{file}}`diode-experiment.py` met het aantal herhaalmetingen op 3 en zie je in de grafiek foutenvlaggen op de metingen voor de stroom en de spanning staan. Je kijkt op het beeldscherm van je buurmens en ziet daar ook foutenvlaggen verschijnen. Met een grijs kijken jullie elkaar aan en geven jullie elkaar een high five {{feesttoeter}}
 
     === "code"
         **Pseudo-code**
@@ -301,7 +424,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
         - [x] Pythondaq: start script
         - [x] Pythondaq: quick 'n dirty meting
         - [x] Pythondaq: onzekerheid
-        - [x] Pythondaq: Schildpad of raket?
+        - [x] Pythondaq: schildpad of raket?
         - [x] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
 
@@ -449,7 +572,7 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
         - [x] Pythondaq: start script
         - [x] Pythondaq: quick 'n dirty meting
         - [x] Pythondaq: onzekerheid
-        - [x] Pythondaq: Schildpad of raket?
+        - [x] Pythondaq: schildpad of raket?
         - [x] Pythondaq: herhaalmetingen
         - [x] Pythondaq: CSV
 

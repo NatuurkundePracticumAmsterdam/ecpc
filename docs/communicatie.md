@@ -38,6 +38,7 @@ Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszillo
 !!! waarschuwing
     Let op dat je de weerstand van 220 &Omega;  gebruikt! Een te grote weerstand zorgt ervoor dat je nauwelijks iets kunt meten, maar een te kleine weerstand zorgt ervoor dat de stroomsterkte door de Arduino te groot wordt. In dat geval zul je de Arduino onherstelbaar beschadigen. De kleurcodes voor weerstanden vind je in de [appendix](kleurcodes.md).
 
+<div id="opd:schakeling"></div>
 !!! opdracht-basis "Schakeling bouwen"
     === "opdracht"
         Je maakt een schakeling om de spanning over en de stroom door een LED te meten. Hiervoor maak je gebruik van een Arduino en een breadboard. Om de stroomsterkte te beperken zet je de LED in serie met een weerstand van 220 &Omega;. Je sluit twee spanningsmeters aan. Spanningsmeter 1 staat over de LED en de weerstand samen. Spanningsmeter 2 staat alleen over de weerstand.
@@ -64,8 +65,6 @@ Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszillo
         !!! info "Besturing 3D-model"
             Door de linkermuisknop ingedrukt te houden en te slepen kan je het 3D-model draaien. Met de rechtermuisknop kan je het model verplaatsen en door te scrollen kan je in- en uitzoomen.
 
-
-
     === "check"
         **Checkpunten:**
 
@@ -86,7 +85,6 @@ Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszillo
         - [ ] Terminator characters demo
         - [ ] PyVISA regeleindes
         - [ ] PyVISA LED laten branden
-
 
 !!! info
     Om met Python via het VISA-protocol te kunnen communiceren met apparaten heb je specifieke packages nodig. Die ga je installeren in een _conda environment_. Voor meer informatie over conda environments zie [paragraaf _Conda environments_](virtual_environments.md#conda-environments).
@@ -529,7 +527,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Om straks de $IU$-karakteristiek van een LED te kunnen bepalen, ga je nu eerst een reeks spanningen naar de LED sturen. Hierdoor gaat de LED branden. Je maakt hiervoor een bestand {{new_file}}`test_LED.py` aan in de map {{folder}}`ECPC`. Je schrijft eerst een regel code waarmee je een commando naar de Arduino stuurt waardoor de LED gaat branden. Daarna schrijf je de code om zodat de spanning oploopt van de minimale waarde tot aan de maximale waarde.
+            Om straks de $I,U$-karakteristiek van een LED te kunnen bepalen, ga je nu eerst een reeks spanningen naar de LED sturen. Hierdoor gaat de LED branden. Je maakt hiervoor een bestand {{new_file}}`test_LED.py` aan in de map {{folder}}`ECPC`. Je schrijft eerst een regel code waarmee je een commando naar de Arduino stuurt waardoor de LED gaat branden. Daarna schrijf je de code om zodat de spanning oploopt van de minimale waarde tot aan de maximale waarde.
             </div>
             <div>
             {{folder}}`ECPC`  
