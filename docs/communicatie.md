@@ -30,8 +30,7 @@ Wij gaan gebruik maken van de VISA-standaard. VISA staat voor _Virtual Instrumen
 ![Poorten op oscilloscoop](figures/Digitaloszilloskop_Schnittstellen_IMGP1974_WP.jpg)
 Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszilloskop_Schnittstellen_IMGP1974_WP.jpg).
 
- Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Commands for Programmable Instruments_. Dit onderdeel definieert een bepaald formaat voor commando's die we naar ons instrument zullen sturen. De lijst met commando's die door de firmware van onze Arduino worden ondersteund is gegeven in de [appendix](firmware.md).
-
+Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Commands for Programmable Instruments_. Dit onderdeel definieert een bepaald formaat voor commando's die we naar ons instrument zullen sturen. De lijst met commando's die door de firmware van onze Arduino worden ondersteund is gegeven in de [appendix](firmware.md).
 
 ## Eerste stappen
 
@@ -66,7 +65,7 @@ Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszillo
             Door de linkermuisknop ingedrukt te houden en te slepen kan je het 3D-model draaien. Met de rechtermuisknop kan je het model verplaatsen en door te scrollen kan je in- en uitzoomen.
 
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] Je hebt een weerstand van 220 &Omega; gebruikt.
         - [ ] De platte kant in de dikkere ring onderaan de plastic behuizing van de LED staat richting de aarde geschakeld. Als de pootjes van de LED niet afgeknipt zijn, dan zit het korte pootje aan de platte zijde van de LED.
@@ -75,7 +74,7 @@ Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszillo
         - [ ] Er loopt een draadje van rij 6 naar de weerstand.
         - [ ] Er loopt een draadje van de andere kant van de weerstand naar rij 12 (naar het pinnetje met bovenop een wit vlakje).
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Schakeling bouwen
         - [ ] Environment aanmaken
@@ -102,13 +101,13 @@ Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszillo
         conda activate pythondaq
         ```
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] Je hebt een conda environment met de naam `pythondaq` aangemaakt.
         - [ ] De environment bevat de packages `python` en `pyvisa-py`. 
         - [ ] De environment is geactiveerd.
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Schakeling bouwen
         - [x] Environment aanmaken
@@ -149,14 +148,14 @@ Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszillo
         </span>
         </code></pre>   
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] Na het openen van een `pyvisa-shell` staat er op een nieuwe regel `(visa)`.
         - [ ] Als je `help` intypt verschijnt er een heel rijtje met commando's.
         - [ ] Als je `help exit` intypt krijg je de hulpvaardige tekst: `Exit the shell session.`
         - [ ] Als je de `pyvisa-shell` met een commando afsluit staat daarna de naam van de conda environment weer tussen haakjes op een nieuwe regel (en niet `(visa)`).
        
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Schakeling bouwen
         - [x] Environment aanmaken
@@ -194,7 +193,7 @@ Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszillo
         <span class="invisible" name="help open">Open resource by number, resource name or alias: open 3</span>
         </code></pre>    
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] Na het commando `list` verschijnt er een lijst met een of meerdere apparaten.
         - [ ] Als de Arduino niet op de computer is aangesloten is er een apparaat uit het lijstje verdwenen. 
@@ -206,7 +205,7 @@ Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszillo
         The default end of message is added to each message.
         ```
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Schakeling bouwen
         - [x] Environment aanmaken
@@ -231,7 +230,7 @@ Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszillo
         <span class="invisible" name="query gappie">Response: ERROR: UNKNOWN COMMAND gappie</span>
         </code></pre>        
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] Je hebt het woord `query` goed geschreven en met kleine letters.
         - [ ] Na het commando `query` volgt een spatie.
@@ -241,7 +240,7 @@ Bron: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Digitaloszillo
         Response: ERROR: UNKNOWN COMMAND .....
         ```
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Schakeling bouwen
         - [x] Environment aanmaken
@@ -271,7 +270,7 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
 
         In het _Input_ veld van de Client staan twee antwoorden van de Arduino, als je nu op _Read_ drukt blijven de termination characters in de antwoorden staan en moet je ze handmatig uit elkaar gaan halen. Dat is niet handig, daarom vul je bij de _Read Termination Characters_ van de Client `\r\n`(CRLF) in. Daarna druk je op _Read_ en merk je dat de twee antwoorden apart uitgelezen worden, super handig!
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
         - [ ] De Client _Write Termination Characters_ is ingesteld op `\n`.
         - [ ] De Client _Read Termination Characters_ is ingesteld op `\r\n`.
@@ -322,7 +321,7 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
             termchar `<termchar>` [`<termchar>`]</span>
         </code></pre>
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] De regeleindes zijn ingesteld met het commando `termchar`. Na dit commando volgt een spatie. Daarachter volgen de karakters voor de read termchar, opnieuw gevolgd door een spatie met daarachter de karakters voor de write termchar. 
         - [ ] De _read_ regeleinde staat ingesteld op CRLF.
@@ -337,7 +336,7 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
         Response: Arduino VISA firmware v1.0.0
         ```
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Schakeling bouwen
         - [x] Environment aanmaken
@@ -369,7 +368,7 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
         Zie [documentatie van de firmware](firmware.md).  
         
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] Je stuurt een commando naar de Arduino met behulp van het commando `query`.
         - [ ] Je hebt woord `query` goed geschreven en met kleine letters.
@@ -379,7 +378,7 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
         - [ ] Na de spatie staat een geheel getal tussen 0 en 1023.
         - [ ] Als je de waarde 828 naar uitvoerkanaal 0 stuurt gaat de LED branden.
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Schakeling bouwen
         - [x] Environment aanmaken
@@ -389,7 +388,6 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
         - [x] Terminator characters demo
         - [x] PyVISA regeleindes
         - [x] PyVISA LED laten branden
-
 
 ## Een eenvoudig script
 
@@ -505,14 +503,14 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         Arduino VISA firmware v1.0.0</span>
         </code></pre></div>
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] Je hebt het juiste conda environment geselecteerd (zie ook [paragraaf _Conda environments_](virtual_environments.md#conda-environments)).
         - [ ] Je opent de poort met de naam van jouw Arduino (in het geval dat jouw Arduino niet 'ASRL28::INSTR' heet). 
         - [ ] Je hebt alle terminals (ook de `Anaconda Prompt`) gesloten waarin communicatie met de Arduino openstond. 
         - [ ] Je krijgt een lijst met poorten en de identificatiestring terug als je het script runt.
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
         - [x] PyVISA in Pythonscript
@@ -563,7 +561,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         <span class="invisible" name="test_LED">1023</span>
         </code></pre></div>        
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] Je hebt het juiste conda environment geselecteerd (zie ook [paragraaf _Conda environments_](virtual_environments.md#conda-environments)).
         - [ ] Je opent de poort met de naam van jouw Arduino (in het geval dat jouw Arduino niet 'ASRL28::INSTR' heet). 
@@ -573,7 +571,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         - [ ] Als je goed kijkt zie je de LED vertraagd oplichten.
         - [ ] Als je de waarde op kanaal 0 opvraagt aan het eind van de reeks met `OUT:CH0?` krijg je `1023` terug.
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
         - [x] PyVISA in Pythonscript
@@ -630,12 +628,12 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
 
         <iframe src="https://drive.google.com/file/d/1GdP3-9LTCSW_UGF708GlX0rKdhoNS5_G/preview" width="500" height="281" style="border:none;" align="left"></iframe>
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] De LED staat een tijd aan en een tijd uit.
         - [ ] Het aan- en uitgaan van de LED herhaald zich enkele keren.
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
         - [x] PyVISA in Pythonscript

@@ -23,6 +23,7 @@ Git werkt in principe via de command-line. Je geeft opdrachten in de map waar je
 
 In deze cursus zul je gebruik maken van een grafische applicatie die eenvoudiger werkt. Je kunt daarna &mdash; als je dat wilt &mdash; de stap maken naar de command-line, waarmee je veel meer mogelijkheden tot je beschikking krijgt. Zie het boek _Pro Git_[@gitpro] voor meer informatie over Git en het gebruik via de command-line.
 
+
 ### GitHub
 
 Git is een _distributed version control system (DVCS)_, wat wil zeggen dat er geen centrale server hoeft te zijn. Je kunt volledig offline werken in je eigen repository en je wijzigingen af en toe committen. Als je daar zin in hebt kun je je wijzigingen naar een collega sturen (_pushen_) en je kunt een collega toestemming geven om de wijzigingen op te halen (_pullen_). Je bouwt dan aan één grote versiegeschiedenis met kopieën op meerdere computers. Je bent zo volledig onafhankelijk van bedrijven die servers in de lucht houden of bepalen wie er wel en niet toegang krijgt. Dat is fijn, maar een centrale plek om repositories neer te zetten heeft weer het grote voordeel dat je de wereld kunt laten zien wat voor moois je gemaakt hebt én het vermakkelijkt samenwerking. Daarnaast is iedereen uit je team up-to-date als iedereen regelmatig commits pusht naar een centrale server.
@@ -41,12 +42,12 @@ In deze cursus ga je werken met GitHub. Je moet hiervoor wel een (gratis) accoun
             Mogelijk heb je eerder al eens een account aangemaakt bij GitHub, bijvoorbeeld bij de cursus Project natuurkunde/sterrenkunde 1. Maak voor ECPC dan ook gebruik van dit account. Controleer wel nog even of je voor dit account je _privé-emailadres_ gebruikt.
 
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] Je hebt een account aangemaakt op [https://github.com/](https://github.com/). 
         - [ ] Je hebt dit account aangemaakt onder je privé-emailadres. 
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
         - [x] PyVISA in Pythonscript
@@ -56,7 +57,6 @@ In deze cursus ga je werken met GitHub. Je moet hiervoor wel een (gratis) accoun
         - [ ] Van bestaande map repository maken
         - [ ] Commit 
         - [ ] Push en pull        
-
 
 
 ### GitHub Desktop
@@ -89,7 +89,7 @@ Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een d
         !!! info "Git ignore Python"
             Waarom zou je bij `Git ignore` voor Python kiezen, je gaat toch juist Python bestanden maken? De `Git ignore` zorgt ervoor dat allerlei _hulpbestanden_ van Python niet bewaard worden als commit. Maar de Pythoncode zelf wordt wel bewaard.
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
         - [ ] De repository {{github}}`oefenopdrachten` zit in de map {{folder}}`ECPC`.
         - [ ] In de repository {{github}}`oefenopdrachten` bevinden zich de Python-bestanden die je tot nu toe hebt gemaakt.
@@ -108,6 +108,7 @@ Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een d
         - [x] Van bestaande map repository maken
         - [ ] Commit 
         - [ ] Push en pull
+
 
 ### Commit
 Alle wijzigingen aan bestanden in de repository kun je vanaf nu bijhouden door regelmatig een commit te maken. Met een commit maak je als het ware een snapshot van alle bestanden en hang je daar een labeltje aan.
@@ -147,7 +148,7 @@ Hieronder zie je een aantal voorbeelden van commit messages. De titel (_summary_
             Zie je geen bolletje verschijnen? Kijk of je het bestand zeker weten hebt opgeslagen. Nog steeds geen blauw bolletje? Ga naar [{{github}} GitHub Dekstop](#__tabbed_3_1) en ga verder met stap 5.
     
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
         - [ ] In GitHub Desktop is aan het tabblad *History* een nieuw commit message toegevoegd, de commit message die jij zojuist geschreven hebt.
         - [ ] De commit message bevat in ieder geval een kort en krachtige titel.
@@ -178,7 +179,7 @@ In GitHub Desktop zie je nu bij _History_ de commit staan, met in één oogopsla
     
         Om je wijzigen ook in de cloud op te slaan kun je commits `pushen` naar [github.com](https://github.com/) met de knop `Push origin`. Als je op een andere computer gaat werken kun je de repository vanuit de cloud naar de computer halen door op `Fetch origin` te klikken en daarna op `Pull origin`.
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
         - [ ] De repository {{github}}`oefenopdrachten` is één van jouw repositories op [github.com](https://github.com/). 
         - [ ] Alle bijbehorende commit messages zijn ook te vinden op [github.com](https://github.com/).

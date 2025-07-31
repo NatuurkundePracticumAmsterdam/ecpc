@@ -2,6 +2,7 @@
 
 Het experiment wat je gaat uitvoeren is het bepalen van de $I,U$-karakteristiek van een LED. Omdat de Arduino alleen getallen tussen 0 en 1023 kan sturen en ontvangen moet je nadenken over de analoog-digitaalconversie voordat je een zinnige $I,U$-karakteristiek kunt maken. 
 
+
 ## Analoog-digitaalconversie (ADC)
 
 De Arduino kan getallen tussen 0 en 1023 sturen en ontvangen. Wat is precies de betekenis van deze getallen? Daarvoor moeten we dieper ingaan op hoe de Arduino &mdash; en computers in het algemeen &mdash; getallen omzet in een spanning en hoe spanningen door de Arduino worden gemeten.
@@ -39,7 +40,7 @@ _Bemonsteren_ of _sampling_ is het proces waarbij een analoog signaal wordt <q>u
         Je ziet dat naarmate het aantal bits omhoog gaat de resolutie beter wordt en daarmee ook de nauwkeurigheid. 
     
     === "check"
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] ADC resolutie
         - [ ] ADC conversie
@@ -70,7 +71,7 @@ De Arduino die je gebruikt heeft een bereik van 0 V tot 3.3 V en &mdash; in tege
         # raw_value = something with voltage
         ```
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] Een ADC waarde van 0 geeft een spanning van 0 V en omgekeerd.  
         - [ ] Een ADC waarde van 1023 geeft een spanning van 3.3 V en omgekeerd.
@@ -123,7 +124,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         Maak een schets van hoe je denkt dat de grafiek van de stroom $I$ tegen de spanning $U$ van een LED eruit zal zien.
 
     === "check"
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] $I,U$-karakteristiek van een LED
         - [ ] Arduino heeft geen stroommeter
@@ -138,7 +139,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         Schrijf op hoe je de spanning $U$ over de LED en de stroom $I$ door de LED berekent in termen van de spanningsmeters $U_1$ en $U_2$ en de bekende weerstand $R$.
     
     === "check"
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] $I,U$-karakteristiek van een LED
         - [x] Arduino heeft geen stroommeter
@@ -159,7 +160,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         [^bronArduino]: Dit model bevat een 3D model die is gecreëerd door AppliedSBC en is gedeeld onder CC-BY-SA licentie. Het originele model is te vinden via [Arduino Nano 33 IoT](https://sketchfab.com/3d-models/arduino-nano-33-iot-f57fd7f5485a47a8b71f8604872fd78c). Het model is voorzien van een Arduino texture. Dit 3D model heeft een CC-BY-SA licentie.
     
     === "check"
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] $I,U$-karakteristiek van een LED
         - [x] Arduino heeft geen stroommeter
@@ -174,7 +175,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         Vergelijk de schakeling op het breadboard met de theoretische schakeling. Welke lijnen in de theoretische schakeling komen overeen met de vier draadjes (rood, blauw, groen, oranje) op het breadboard?
 
     === "check"
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] $I,U$-karakteristiek van een LED
         - [x] Arduino heeft geen stroommeter
@@ -189,7 +190,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         Bekijk de [documentatie van de firmware](firmware.md) en schrijf het commando op om de maximale uitvoerspanning op kanaal 0 te zetten. Schrijf ook de commando's op om de waardes van $U_1$ en $U_2$ uit te lezen.
 
     === "check"
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] $I,U$-karakteristiek van een LED
         - [x] Arduino heeft geen stroommeter
@@ -212,13 +213,13 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         5. Nu kun je aan de slag. Vergeet tijdens het werken niet regelmatig te committen!
 
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] De repository {{github}}`pythondaq` zit in de map {{folder}}`ECPC`.
         - [ ] In de repository {{github}}`pythondaq` bevinden zich de bestanden {{file}}`README.md`, {{file}}`.gitattributes` en {{file}}`.gitignore`.
         - [ ] De repository {{github}}`pythondaq` is geopend in Visual Studio Code.
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Pythondaq: repository
         - [ ] Pythondaq: start script
@@ -257,7 +258,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
             # print LED: raw_voltage_LED (voltage_LED V) Resistor: raw_voltage_resistor (voltage_resistor V)
         ```
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] Je laat de spanning oplopen van nul tot de maximale waarde.
         - [ ] De LED licht vertraagd op en gaat dus steeds feller branden. 
@@ -267,7 +268,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         - [ ] De omrekening van ruwe waardes naar voltages levert uitkomsten op die je kunt verwachten.
         - [ ] Commit! {{feesttoeter}}
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Pythondaq: repository
         - [x] Pythondaq: start script
@@ -305,7 +306,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
         ```
 
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] Je laat de spanning oplopen van nul tot de maximale waarde.
         - [ ] De spanning $U$ over de LED wordt berekend.
@@ -319,7 +320,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
         - [ ] De LED wordt uitgezet na de meting.
         - [ ] Tussendoor heb je gecommit!
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Pythondaq: repository
         - [x] Pythondaq: start script
@@ -342,7 +343,7 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
         3. Heb je voor jouw experiment straks de onzekerheid op een individuele meting nodig? Of de onzekerheid op het gemiddelde? Hoe bepaal je deze onzekerheid?
 
     === "check"
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Pythondaq: repository
         - [x] Pythondaq: start script
@@ -362,7 +363,7 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
         Bespreek met je buurmens de voor- en nadelen van beide manieren. Maak hierin onderscheid tussen het experimentele gebied en het programmeergebied.
 
     === "check"
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Pythondaq: repository
         - [x] Pythondaq: start script
@@ -372,53 +373,45 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
         - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
 
-
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
     === "opdracht"
         Je gaat nu de code zo aanpassen dat je daadwerkelijk iets kunt zeggen over de onzekerheid op de spanning over de LED en de stroom door de LED. Dit doe je door een meting meerdere keren te herhalen. Je kijkt eerst naar de opbouw van de code en maakt aantekeningen over wat er waar en hoe in de code aangepast moet worden. Daarna kijk je naar je repository {{github}}`pythondaq` en controleer je dat de nu-nog-werkende-code gecommit is. Vervolgens ga je stap voor stap &mdash; en commit na commit &mdash; de code aanpassen. Als je klaar bent, run je {{file}}`diode-experiment.py` met het aantal herhaalmetingen op 3 en zie je in de grafiek foutenvlaggen op de metingen voor de stroom en de spanning staan. Je kijkt op het beeldscherm van je buurmens en ziet daar ook foutenvlaggen verschijnen. Met een grijs kijken jullie elkaar aan en geven jullie elkaar een high five {{feesttoeter}}
 
     === "code"
         **Pseudo-code**
-        ``` py title="arduino_device.py"
-        # def list_resources
-        #   ...
+        ```py title="diode-experiment.py"
+        # connect to Arduino
 
-        # class ArduinoVISADevice
-            ...
-        ```
-        ``` py title="diode_experiment.py"
-        from arduino_device import ArduinoVISADevice, list_resources
-        
-        # class DiodeExperiment
-            ...
-            # connect to Arduino via ArduinoVISADevice
-            ...
-            def scan # with start, stop and number of measurements
-                # set output voltage from 0 to max
-                    # measure voltages
-                    # calculate LED voltage
-                    # calculate LED current
-                # return LED voltage, LED current and errors
+        # set output voltage from 0 to max
+            # set number of repeated measurements
+                # measure voltages
+                # calculate voltage LED
+                # calculate current LED
+                
+            # calculate average voltage LED and uncertainty
+            # calculate average current LED and uncertainty
+
+            # print average voltage: average_voltage_LED +/- err_average_voltage_LED V  average current: average_current_LED +/- err_average_current_LED A
+
+        # plot average_current_LED vs average_voltage_LED
         ```      
-        ``` py title="run_experiment.py"
-        from diode_experiment import DiodeExperiment
-        
-        # get current and voltage with errors from scan(start, stop, measurements)
 
-        # plot current vs voltage with errorbars
-        # create csv-file
-
-        ```      
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
-        - [ ] Het aantal herhaalmetingen kan worden aangepast in de view.
-        - [ ] De onzekerheid wordt in het model correcte bepaald.
-        - [ ] De onzekerheid wordt vanuit het model doorgegeven aan de view.
-        - [ ] In de view wordt de onzekerheid geplot behorende bij de juiste grootheid.
+        - [ ] Er worden herhaalmetingen gedaan.
+        - [ ] De gemiddelde spanning $U_{avg}$ over de LED wordt berekend.
+        - [ ] De bijbehorende onzekerheid wordt correct bepaald.
+        - [ ] De gemiddelde stroom $I_{avg}$ door de LED wordt berekend. 
+        - [ ] De bijbehorende onzekerheid wordt correct bepaald. 
+        - [ ] De gemiddelde spanning $U_{avg}$ en de gemiddelde stroom $I_{avg}$ worden met de bijbehorende onzekerheden geprint in de terminal. 
+        - [ ] De gemiddelde stroom $I_{avg}$ wordt tegen de gemiddelde spanning $U_{avg}$ uitgezet in een grafiek.
+        - [ ] Op de datapunten zijn foutenvlaggen zichtbaar.
+        - [ ] De foutenvlaggen zijn gekoppeld aan de juiste grootheid.
+        - [ ] De LED wordt uitgezet na de meting.
+        - [ ] Tussendoor heb je gecommit!
 
-
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Pythondaq: repository
         - [x] Pythondaq: start script
