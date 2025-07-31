@@ -373,6 +373,7 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
         - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
 
+<div id="opd:herhaalmetingen"></div>
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
     === "opdracht"
         Je gaat nu de code zo aanpassen dat je daadwerkelijk iets kunt zeggen over de onzekerheid op de spanning over de LED en de stroom door de LED. Dit doe je door een meting meerdere keren te herhalen. Je kijkt eerst naar de opbouw van de code en maakt aantekeningen over wat er waar en hoe in de code aangepast moet worden. Daarna kijk je naar je repository {{github}}`pythondaq` en controleer je dat de nu-nog-werkende-code gecommit is. Vervolgens ga je stap voor stap &mdash; en commit na commit &mdash; de code aanpassen. Als je klaar bent, run je {{file}}`diode-experiment.py` met het aantal herhaalmetingen op 3 en zie je in de grafiek foutenvlaggen op de metingen voor de stroom en de spanning staan. Je kijkt op het beeldscherm van je buurmens en ziet daar ook foutenvlaggen verschijnen. Met een grijs kijken jullie elkaar aan en geven jullie elkaar een high five {{feesttoeter}}
@@ -383,15 +384,15 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
         # connect to Arduino
 
         # set output voltage from 0 to max
-            # set number of repeated measurements
-                # measure voltages
-                # calculate voltage LED
-                # calculate current LED
+          # set number of repeated measurements
+            # measure voltages
+            # calculate voltage LED
+            # calculate current LED
                 
-            # calculate average voltage LED and uncertainty
-            # calculate average current LED and uncertainty
+          # calculate average voltage LED and uncertainty
+          # calculate average current LED and uncertainty
 
-            # print average voltage: average_voltage_LED +/- err_average_voltage_LED V  average current: average_current_LED +/- err_average_current_LED A
+          # print average voltage: average_voltage_LED +/- err_average_voltage_LED V  average current: average_current_LED +/- err_average_current_LED A
 
         # plot average_current_LED vs average_voltage_LED
         ```      
@@ -423,14 +424,14 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
 
 ## Bewaren van meetgegevens
 
-Het is fijn dat je script de meetgegevens op het scherm kan printen en een grafiek maakt, maar als je echt bezig bent met een onderzoek is een grafiek niet genoeg. Je wilt dat de data bewaard blijft zodat je die later nog kunt gebruiken voor nieuwe analyses. Ook is het zo dat data steeds vaker beschikbaar moet zijn voor andere wetenschappers die jouw onderzoek willen controleren. Steeds meer wetenschappelijke tijdschriften vragen auteurs niet alleen hun grafieken, maar ook hun onderliggende data beschikbaar te maken en te publiceren. Op die manier is het veel moeilijker om fraude te plegen; iets dat in de wetenschap helaas soms nog voor komt.
+Het is fijn dat je script de meetgegevens op het scherm kan printen en er een grafiek van maakt, maar als je echt bezig bent met een onderzoek is een grafiek alleen niet voldoende. Je wilt dat de data bewaard blijft, zodat je die later nog kunt gebruiken voor nieuwe analyses. Ook is het zo dat data steeds vaker beschikbaar moet zijn voor andere wetenschappers die jouw onderzoek willen controleren. Steeds meer wetenschappelijke tijdschriften vragen auteurs niet alleen hun grafieken, maar ook hun onderliggende data beschikbaar te maken en te publiceren. Op die manier is het veel moeilijker om fraude te plegen; iets dat in de wetenschap helaas soms nog voor komt.
 
-Er zijn ontzettend veel verschillende bestandsformaten waarin je data kunt bewaren. Er zijn grofweg twee categoriën: tekstbestanden en binaire bestanden. De eerste zijn te lezen met ieder willekeurig programma. Sommige zijn heel eenvoudig (b.v. CSV), andere kunnen complexe datastructuren en extra informatie opslaan (b.v. JSON, XML). Binaire bestanden bevatten alle mogelijke karakters &mdash; niet alleen letters, cijfers, leestekens, maar ook _stuurcodes_ zoals _carriage return_ en de _line feed_, oorspronkelijk opdrachten voor bijvoorbeeld printers. Ze hebben vaak een strak formaat: zoveel bytes voor dit stukje informatie, zoveel bytes voor dat stukje, enzovoort. Met binaire karakters hoef je je dus niet te beperken tot letters, cijfers en leestekens en kunnen de bestanden wat kleiner zijn. Ook zorgen de vaste afspraken ervoor dat de lees- en schrijfroutines eenvoudiger kunnen zijn. Getallen worden in het interne geheugen van de computers ook binair opgeslagen dus het is vaak copy/paste vanuit of naar het bestand. Wel leiden kleine fouten vaak tot onbruikbare bestanden. Voor grote databestanden wordt vrijwel altijd gekozen voor een binair formaat, of het nou gaat om audio/video, databases of klimaatmodellen. Het uitwisselen van kleinere bestanden gebeurt echter vaak in een tekstformaat.
+Er zijn ontzettend veel verschillende bestandsformaten waarin je data kunt bewaren. Er zijn grofweg twee categorieën: tekstbestanden en binaire bestanden. De eerste zijn te lezen met ieder willekeurig programma. Sommige zijn heel eenvoudig (bijvoorbeeld CSV), andere kunnen complexe datastructuren en extra informatie opslaan (bijvoorbeeld JSON en XML). Binaire bestanden bevatten alle mogelijke karakters &mdash; niet alleen letters, cijfers, leestekens, maar ook _stuurcodes_ zoals _carriage return_ en de _line feed_, oorspronkelijk opdrachten voor bijvoorbeeld printers. Ze hebben vaak een strak formaat: zoveel bytes voor dit stukje informatie, zoveel bytes voor dat stukje, enzovoorts. Met binaire karakters hoef je je dus niet te beperken tot letters, cijfers en leestekens en kunnen de bestanden wat kleiner zijn. Ook zorgen de vaste afspraken ervoor dat de lees- en schrijfroutines eenvoudiger kunnen zijn. Getallen worden in het interne geheugen van de computers ook binair opgeslagen dus het is vaak copy/paste vanuit of naar het bestand. Wel leiden kleine fouten vaak tot onbruikbare bestanden. Voor grote databestanden wordt vrijwel altijd gekozen voor een binair formaat, of het nou gaat om audio/video, databases of klimaatmodellen. Het uitwisselen van kleinere bestanden gebeurt echter vaak in een tekstformaat.
 
 
 ### Comma-separated values (CSV)
 
-Het CSV-bestand is het werkpaard van de wetenschap. Als je data van het ene in het andere programma moet krijgen of je download wetenschappelijke gegevens van een website dan is het CSV-bestand vaak de beste keuze. Het formaat bestaat uit kolommen met getallen, gescheiden door een komma. De eerste regels kunnen commentaar bevatten (uitleg over de kolommen, bijvoorbeeld) en de namen van de kolommen bevatten. Een voorbeeld voor de afstand die een vallend voorwerp aflegt in 10 s, gegeven door $s = \frac{1}{2} g t^2$, is hieronder weergegeven:
+Het CSV-bestand is het werkpaard van de wetenschap. Als je data wilt overzetten van het ene naar het andere programma of wanneer je wetenschappelijke gegevens van een website wilt downloaden, dan is het CSV-bestand vaak de beste keuze. Het formaat bestaat uit kolommen met getallen, gescheiden door een komma. De eerste regels kunnen commentaar (bijvoorbeeld uitleg over de kolommen) en de namen van de kolommen bevatten. Een voorbeeld van een CSV-bestand is hieronder gegeven. In dit voorbeeld wordt de afstand $s$ van een vallend voorwerp gedurende 10 s opgeslagen, welke gegeven wordt door $s = \frac{1}{2} g t^2$. Het CSV-bestand heeft kolommen $t$ en $s$. De getallen hebben een punt als decimaal scheidingsteken en de komma wordt gebruikt om de kolommen te scheiden.
 
 ```
 t,s
@@ -447,13 +448,11 @@ t,s
 10.0,490.00000000000006
 ```
 
-Het CSV-bestand heeft kolommen $t$ en $s$. De getallen hebben een punt als decimaal scheidingsteken en de komma wordt gebruikt om de kolommen te scheiden. Je kunt CSV-bestanden schrijven en lezen met de modules `#!py csv`, `#!py numpy` of `#!py pandas`. De eerste is altijd meegeleverd met Python en is speciaal geschreven voor het bestandsformaat,[@csv-module] maar NumPy[@numpy;@numpy-paper] en Pandas[@pandas;@pandas-paper] bevatten veel meer functionaliteit op het gebied van wiskunde en data-analyse. Als je die modules toch al gebruikt hoef je niet te kiezen voor de <q>kale</q> csv module.
+ Je kunt CSV-bestanden schrijven en lezen met de modules `#!py csv`, `#!py numpy` of `#!py pandas`. De eerste is altijd meegeleverd met Python en is speciaal geschreven voor het bestandsformaat,[@csv-module] maar NumPy[@numpy;@numpy-paper] en Pandas[@pandas;@pandas-paper] bevatten veel meer functionaliteiten op het gebied van wiskunde en data-analyse. Als je deze modules toch al gebruikt, hoef je niet te kiezen voor de <q>kale</q> `csv`-module.
 
 #### De functie `#!py zip()`
 
-Het viel je misschien op dat in bovenstaand CSV-bestand iedere regel een $t$-waarde en een $s$-waarde heeft. Als je een lijst met $t$'s en een lijst met $s$'en hebt dan bevat de eerste regel het eerste element uit beide lijsten, de tweede regel het tweede element, etc. Je kunt dan een for-loop schrijven die Python's indexnotatie gebruikt: `#!py t[i]`, `#!py s[i]`, etc. Het kan óók, makkelijker, met de `#!py zip()`-functie. Beide methodes kun je als volgt gebruiken in het geval van twee[^meer-dan-twee] lijsten A en B:
- ```
-
+Het viel je misschien op dat in bovenstaand CSV-bestand op iedere regel een waarde voor de tijd en voor de afstand staat. Als je een lijst met tijden en een lijst met afstanden hebt dan bevat de eerste regel het eerste element uit beide lijsten, de tweede regel het tweede element, etcetera. Je kunt een `#!py for`-loop schrijven die Python's indexnotatie gebruikt om de twee lijsten om te zetten naar een CSV-formaat: `#!py t[i]`, `#!py s[i]`. Het kan óók &mdash; makkelijker &mdash; met de `#!py zip()`-functie. Hieronder vind je een voorbeeld waarin beide methodes gebruikt worden. In het voorbeeld wordt uitgegaan van een lijst `A` en een lijst `B`[^meer-dan-twee].
 === "with_zip.py"
     <div class="code-box"><button type="button" name="with_zip.py_suffix" onclick="runScript('with_zip.py_suffix')" class="run">{{ run }}</button><button type="button" name="with_zip.py_suffix" onclick="runScript('with_zip.py_suffix')" class="reload invisible">{{ reload }}</button> with_zip.py
     ``` py
@@ -478,15 +477,14 @@ Het viel je misschien op dat in bovenstaand CSV-bestand iedere regel een $t$-waa
     3 9
     4 16</span>
     </code></pre></div>
+Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de lengte van de lijst op te zoeken en krijg je meteen de losse elementen zonder dat je ze zelf uit de lijst hoeft te plukken met indexnotatie.
 
-[^meer-dan-twee]: Je kunt net zoveel lijsten in `#!py zip()` gooien als je wilt: `#!py for a, b, c, d, e in zip(A, B, C, D, E)` is geen probleem.
+[^meer-dan-twee]: Je kunt net zoveel lijsten in `#!py zip()` gooien als je wilt: `#!py for a, b, c, d, e in zip(A, B, C, D, E)` is bijvoorbeeld geen probleem.
 
-Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de lengte van de lijst op te zoeken en krijg je meteen de losse elementen zonder dat je ze zelf uit de lijst moet plukken met indexnotatie.
-
-!!! opdracht-basis "Oefenen met zip"
+!!! opdracht-basis "Oefenen met `#!py zip()`"
     === "opdracht"
-        Je hebt een lijst met krachten en een lijst met afstanden. Loop over de lijsten en print voor iedere iteratie de kracht $F$, de afstand $s$ en de arbeid $W$.
-        Je hebt een lijst met spanningen en een lijst met stroomsterktes. Je loopt over de lijsten en print voor iedere iteratie de spanning $U$, de stroomsterkte $I$ en de weerstand $R$.
+        Je hebt een lijst met krachten en een lijst met afstanden, zie het [tabblad code](#__tabbed_15_2). Loop over de lijsten heen en print voor iedere iteratie de kracht $F$, de afstand $s$ en de arbeid $W$. Maak hierbij gebruik van de `#!py zip`-functie.
+
     === "code"
         **Pseudo-code**
         ``` py
@@ -496,21 +494,22 @@ Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de len
         # repeat
         #   print F, s, W
         ```
+
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
-        - [ ] De for-loop gebruikt `#!py zip()` om de elementen uit de lijst op te vragen
-        - [ ] De variabele hebben logische namen en niet `a` en `b`
-        - [ ] De gegeven arbeid is fysisch correct
+        - [ ] De `#!py for`-loop maakt gebruik van `#!py zip()` om de elementen uit de lijst op te vragen.
+        - [ ] De variabelen hebben logische namen (en dus niet `a` en `b`). 
+        - [ ] De gegeven arbeid is correct berekend.
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Oefenen met zip
 
 
 #### Het gebruik van de `#!py csv`-module
 
-Wanneer je de `#!py csv`-module wilt gebruiken moet je éérst een bestand openen om in te schrijven, daarna een <q>writer</q> object aanmaken, en dat object gebruiken om regels te schrijven. Daarna moet het bestand netjes afgesloten worden zodat het ook echt naar schijf weggeschreven wordt. Het openen en sluiten van een bestand kun je Python het beste laten doen met het `#!py with`-statement:[^context-manager]
+Wanneer je de `#!py csv`-module wilt gebruiken moet je éérst een bestand openen om in te schrijven, daarna een <q>writer</q> object aanmaken en dat object daarna gebruiken om regels te schrijven. Als laatste moet het bestand netjes afgesloten worden, zodat het bestand ook echt naar de schijf weggeschreven wordt. Het openen en sluiten van een bestand kun je Python het beste laten doen met het `#!py with`-statement:[^context-manager]
 
 ``` py hl_lines="1"
 with open('metingen.csv', 'w', newline='') as csvfile:
@@ -519,7 +518,7 @@ with open('metingen.csv', 'w', newline='') as csvfile:
     # na dit blok sluit Python automatisch het bestand
 ```
 
-Bij `#!py open()` geef je eerst de naam van een bestand, dan `#!py 'w'` om aan te geven dat het bestand <q>writeable</q> moet zijn (gebruik `#!py 'r'` om te lezen) en `#!py newline=''` om Python niet zelf regeleindes te laten schrijven; dat doet de `#!py csv`-module. Op de volgende manier schrijven we dan de CSV-data weg:
+Bij `#!py open()` geef je eerst de naam van het bestand, dan `#!py 'w'` om aan te geven dat het bestand <q>writeable</q> moet zijn (gebruik `#!py 'r'` om te lezen) en `#!py newline=''` om Python niet zelf regeleindes te laten schrijven &mdash; dat doet de `#!py csv`-module. Op de volgende manier schrijf je dan de CSV-data weg:
 
 ``` py hl_lines="1 4-8"
 import csv
@@ -532,34 +531,45 @@ with open('metingen.csv', 'w', newline='') as csvfile:
     writer.writerow([2.0, 19.6])
     ...
 ```
-Je kunt het wegschrijven van de regels vervangen door een for-loop.
+Je kunt het wegschrijven van de regels natuurlijk vervangen door een `#!py for`-loop.
 
-[^context-manager]: hier is `#!py open()` een zogeheten <q>context manager</q>, een functie die je kunt gebruiken met een `#!py with`-statement en dat bij de start iets doet &mdash; hier een bestand openen &mdash; en bij het eind iets doet &mdash; hier het bestand weer netjes afsluiten. Je kunt zelf ook context managers schrijven, als je wilt.
+[^context-manager]: Hier is `#!py open()` een zogeheten <q>context manager</q>: een functie die je kunt gebruiken met een `#!py with`-statement en dat bij de start iets doet &mdash; hier een bestand openen &mdash; en bij het eind iets doet &mdash; hier het bestand weer netjes afsluiten. Je kunt zelf ook context managers schrijven, als je wilt.
 
 <div id="opd:quickndirty-csv"></div>
 !!! opdracht-inlever "Pythondaq: CSV"
     === "opdracht"
-        Je code schrijft de metingen weg als csv-bestand door gebruik te maken van de `#!py zip()`-functie en de `#!py csv`-module.
+        Je breidt je code verder uit. De metingen worden nu ook als CSV-bestand weggeschreven. In de code wordt hiervoor gebruik gemaakt van de `#!py zip`-functie en de `csv`-module.
+
     === "code"
         **Pseudo-code**
         ``` py title="diode-experiment.py"
         # connect to Arduino
 
         # set output voltage from 0 to max
+          # set number of repeated measurements
             # measure voltages
-            # calculate LED voltage
-            # calculate LED current
-        
-        # plot current vs voltage
+            # calculate voltage LED
+            # calculate current LED
+                
+          # calculate average voltage LED and uncertainty
+          # calculate average current LED and uncertainty
+
+          # print average voltage: average_voltage_LED +/- err_average_voltage_LED V  average current: average_current_LED +/- err_average_current_LED A
+
         # create csv-file
+        # plot average_current_LED vs average_voltage_LED
         ```
+
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
-        - [ ] CSV-bestand bevat alle metingen
-        - [ ] Waardes in CSV-bestand komen overeen met verwachting
+        - [ ] Je script heeft nog steeds dezelfde functionaliteiten als bij de opdrachten [Pythondaq: quick 'n dirty meting](#opd:quickndirty-meting) en [Pythondaq: herhaalmetingen](#opd:herhaalmetingen). 
+        - [ ] Je loopt over de verschillende lijsten heen met behulp van de `#!py zip`-functie.
+        - [ ] Het CSV-bestand bevat alle belangrijke data.
+        - [ ] De waardes in het CSV-bestand komen overeen met de verwachte waardes.
+        - [ ] Het CSV-bestand heeft op de eerste regel informatie over de kolommen staan (denk aan: grootheid en eenheid).
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Pythondaq: repository
         - [x] Pythondaq: start script
@@ -569,32 +579,32 @@ Je kunt het wegschrijven van de regels vervangen door een for-loop.
         - [x] Pythondaq: herhaalmetingen
         - [x] Pythondaq: CSV
 
-???+ opdracht-meer "Git ignore"
-    Het kan wenselijk zijn om niet alle bestanden mee te nemen voor versiebeheer in je repository. Soms wil je een bestand uitsluiten, of bepaalde bestand-types.  Om GitHub te laten weten welke bestanden niet gecommit hoeven te worden is er een bestand {{file_lines}}`.gitignore` . Let op de punt voor de bestandsnaam, dit betekent dat het een verborgen bestand is en mogelijk zie je het niet in je repository staan.
+???+ meer-leren "`Git ignore`"
+    Het kan wenselijk zijn om niet alle bestanden mee te nemen voor versiebeheer in je repository. Soms wil je een specifiek bestand uitsluiten en soms wil je een bepaald bestandstype uitsluiten. Om GitHub te laten weten welke bestanden niet gecommit hoeven te worden, is er een bestand {{file_lines}}`.gitignore`. Let op de punt voor de bestandsnaam: dit betekent dat het om een verborgen bestand gaat en mogelijk zie je het daarom niet in je repository staan.
     
-    Stel je wilt alle csv-bestanden uitsluiten van versiebeheer, dat kan als volgt:
+    ???+ opdracht-meer "CSV-bestanden uitsluiten van versiebeheer"
+        Stel je wilt alle CSV-bestanden uitsluiten van versiebeheer, dan kun je dat als volgt doen:
 
-    1. Ga naar GitHub Desktop.
-    2. Ga naar het tabblad Changes. 
-    3. Rechtermuisklik op het bestand wat je wilt negeren
-    4. Maak een keuze tussen *Ignore file*, *Ignore folder* of *Ignore all .csv files* 
+        1. Ga naar GitHub Desktop.
+        2. Ga naar het tabblad _Changes_. 
+        3. Rechtermuisklik op het bestand wat je wilt negeren (ervan uitgaande dat je dit bestand nog niet hebt gecommit).
+        4. Maak een keuze tussen `Ignore file` of `Ignore all .csv files`.
+        5. Commit.
 
 ???+ opdracht-meer "CSV bestandsnaam"
-    Pas de code zodanig aan dat een CSV-bestand nooit wordt overschreven. Je kunt bijvoorbeeld controleren of het bestand al bestaat en aan de bestandsnaam een oplopend getal toevoegen (`data-001.csv`, `data-002.csv`, etc.) totdat je uitkomt bij een bestandsnaam die nog niet bestaat. Controleer dat je programma ook echt geen data overschrijft.
-
-
+    Pas de code zodanig aan dat een CSV-bestand nooit wordt overschreven. Je kunt bijvoorbeeld controleren of het bestand al bestaat en aan de bestandsnaam een oplopend getal toevoegen (`data-001.csv`, `data-002.csv`, etcetera), net zo lang totdat je uitkomt bij een bestandsnaam die nog niet bestaat. Wees er zeker van dat je programma ook echt geen data overschrijft.
 
 ???+ meer-leren "HDF5, PyTables"
     
     ### HDF5, PyTables
 
-    Een populair binair formaat in de wetenschappelijke wereld is HDF5.[^HDF5] [@hdf5] Je kunt hiermee verschillende datasets bewaren in één bestand. Je kunt een soort boomstructuur aanbrengen en zo verschillende datasets groeperen en er ook nog extra informatie (metadata) aanhangen zoals datum van de meting, beschrijving van de condities, etc. Je kunt een meetserie opslaan als reeks die in één keer in en uit het bestand wordt geladen maar ook als tabel. Die laatste biedt de mogelijkheid om &mdash; net als in een database &mdash; data te selecteren en alleen die data in te laden uit het bestand. Op die manier is het mogelijk om met datasets te werken die groter zijn dan het geheugen van je computer.[^HDF-blog] Meer informatie lees je in de [tutorial](http://www.pytables.org/usersguide/tutorials.html) van PyTables[@pytables].
+    Een populair binair formaat in de wetenschappelijke wereld is HDF5.[^HDF5] [@hdf5] Je kunt hiermee verschillende datasets bewaren in één bestand. Je kunt een soort boomstructuur aanbrengen en zo verschillende datasets groeperen. Daarnaast kun je er ook nog extra informatie (_metadata_) aanhangen, zoals de datum van de meting, een beschrijving van de condities, etcetera. Je kunt een meetserie opslaan als reeks die in één keer in en uit het bestand wordt geladen, maar ook als tabel. Die laatste biedt de mogelijkheid om &mdash; net als in een database &mdash; data te selecteren en alleen die data in te laden uit het bestand. Op die manier is het mogelijk om met datasets te werken die groter zijn dan het geheugen van je computer.[^HDF-blog] Meer informatie lees je in de [tutorial](http://www.pytables.org/usersguide/tutorials.html) van PyTables.[@pytables]
 
-    [^HDF5]: Hierarchical Data Format Version 5, in gebruik bij bijvoorbeeld de LOFAR radiotelescoop, het IceCube neutrino-observatorium en de LIGO zwaartekrachtsgolvendetector.
+    [^HDF5]: Hierarchical Data Format Version 5 is in gebruik bij bijvoorbeeld de LOFAR radiotelescoop, het IceCube neutrino-observatorium en de LIGO zwaartekrachtsgolvendetector.
 
-    [^HDF-blog]: Lees bijvoorbeeld [deze korte blog post](https://www.hdfgroup.org/2015/03/hdf5-as-a-zero-configuration-ad-hoc-scientific-database-for-python/) over het gebruik van HDF5.
+    [^HDF-blog]: Lees bijvoorbeeld [deze korte blogpost](https://www.hdfgroup.org/2015/03/hdf5-as-a-zero-configuration-ad-hoc-scientific-database-for-python/) over het gebruik van HDF5.
 
-    PyTables[@pytables] is een Python bibliotheek die het werken met HDF5-bestanden makkelijker maakt. Er zijn uiteraard functies om de bestanden aan te maken en uit te lezen maar ook om _queries_ uit te voeren. Pandas kan &mdash; via PyTables &mdash; ook werken met HDF5-bestanden. 
+    PyTables[@pytables] is een Python bibliotheek die het werken met HDF5-bestanden makkelijker maakt. Er zijn uiteraard functies om de bestanden aan te maken en uit te lezen, maar ook om _queries_ uit te voeren. Pandas kan &mdash; via PyTables &mdash; ook werken met HDF5-bestanden. 
 
     !!! opdracht-meer "HDF5 tutorial"
         Download de <a href="hdf5_tutorial.ipynb">HDF5 tutorial</a>. Open de tutorial in Visual Studio Code en bestudeer de stappen die daar staan beschreven nauwkeurig.
