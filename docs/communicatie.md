@@ -86,7 +86,7 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         - [ ] PyVISA LED laten branden
 
 !!! info
-    Om met Python via het VISA-protocol te kunnen communiceren met apparaten heb je specifieke packages nodig. Die ga je installeren in een _conda environment_. Voor meer informatie over conda environments zie [paragraaf _Conda environments_](virtual_environments.md#conda-environments).
+    Om met Python via het VISA-protocol te kunnen communiceren met apparaten heb je specifieke packages nodig. Die ga je installeren in een _conda environment_. Voor meer informatie over conda environments zie [paragraaf _Conda environments_](virtual_environments.md#activeren-en-deactiveren).
 
 <div id="opd:condaenv"></div>
 !!! opdracht-basis "Environment aanmaken"
@@ -505,7 +505,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "check"
         **Checkpunten**
 
-        - [ ] Je hebt het juiste conda environment geselecteerd (zie ook [paragraaf _Conda environments_](virtual_environments.md#conda-environments)).
+        - [ ] Je hebt het juiste conda environment geselecteerd (zie ook [paragraaf _Conda environments_](virtual_environments.md#activeren-en-deactiveren)).
         - [ ] Je opent de poort met de naam van jouw Arduino (in het geval dat jouw Arduino niet 'ASRL28::INSTR' heet). 
         - [ ] Je hebt alle terminals (ook de `Anaconda Prompt`) gesloten waarin communicatie met de Arduino openstond. 
         - [ ] Je krijgt een lijst met poorten en de identificatiestring terug als je het script runt.
@@ -563,7 +563,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "check"
         **Checkpunten**
 
-        - [ ] Je hebt het juiste conda environment geselecteerd (zie ook [paragraaf _Conda environments_](virtual_environments.md#conda-environments)).
+        - [ ] Je hebt het juiste conda environment geselecteerd (zie ook [paragraaf _Conda environments_](virtual_environments.md#activeren-en-deactiveren)).
         - [ ] Je opent de poort met de naam van jouw Arduino (in het geval dat jouw Arduino niet 'ASRL28::INSTR' heet). 
         - [ ] Je hebt alle terminals (ook de `Anaconda Prompt`) gesloten waarin communicatie met de Arduino openstond. 
         - [ ] Je krijgt een lijst met poorten en de identificatiestring terug als je het script runt.
