@@ -148,7 +148,7 @@ En als laatste&hellip; een {{file}}`pyproject.toml`[^setup.py] waarin alle infor
 name = "easystat"
 version = "0.1.0"
 description = ""
-authors = ["David Fokkema <davidfokkema@icloud.com>"]
+authors = ["David Fokkema <davidfokkema @ icloud.com>"]
 readme = "README.md"
 packages = [{include = "easystat", from = "src"}]
 
