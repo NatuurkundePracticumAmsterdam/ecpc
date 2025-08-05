@@ -14,6 +14,7 @@ plugins:
   - search
   - bibtex:
       bib_file: "docs/referenties.bib"
+      enable_inline_citations: false
   - macros
 
 markdown_extensions:
