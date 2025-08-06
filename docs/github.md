@@ -68,7 +68,7 @@ Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een d
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Je gaat een repository maken van een bestaande map. Als je van de map {{folder}}`ECPC` een repository maakt, kun je daar geen andere repositories meer in zetten. Dat is onhandig! Daarom maak je in de map {{folder}}`ECPC` een nieuwe map {{new_folder}}`oefenopdrachten` aan. Hierin zet je alle Python-bestanden die je tot nu toe hebt gemaakt, zoals de opdrachten [_PyVISA in Pythonscript_](communicatie.md#opd:test_arduino) en [_flashingLED_](communicatie.md#opd:flashingLED). 
+            **Zorg dat Visual Studio Code is afgesloten en geen bestanden meer open heeft staan.** Je gaat een repository maken van een bestaande map. Als je van de map {{folder}}`ECPC` een repository maakt, kun je daar geen andere repositories meer in zetten. Dat is onhandig! Daarom maak je in de map {{folder}}`ECPC` een nieuwe map {{new_folder}}`oefenopdrachten` aan. Hierin zet je alle Python-bestanden die je tot nu toe hebt gemaakt, zoals de opdrachten [_PyVISA in Pythonscript_](communicatie.md#opd:test_arduino) en [_flashingLED_](communicatie.md#opd:flashingLED). 
             <br>
             <br>
             Je gaat naar GitHub Desktop en logt in met je eigen account. Je vindt onder het dropdownmenu **File** drie opties:  `New repository...`, `Add local repository...` en `Clone repository...`. Hoewel `New repository...` een goede optie lijkt, is dit niet wat je zoekt. Op het moment dat je een nieuwe repository maakt, wordt er ook een nieuwe map aangemaakt en dat is niet wat je wilt. Daarom kies je voor `Add local repository...`. Je geeft de map {{folder}}`oefenopdrachten` op als locatie en krijgt in rode tekst een waarschuwing. De waarschuwing geeft aan dat de map wel bestaat maar dat het geen `Git repository` is, daarom klik je op de blauwe tekst `create a repository`. Je vinkt `Initialize this repository with a README` aan en kiest bij `Git ignore` voor <q>Python</q>. Daarna klik je op de blauwe knop `Create Repository`. 
@@ -176,7 +176,9 @@ In GitHub Desktop zie je nu bij _History_ de commit staan, met in één oogopsla
 
 !!! opdracht-basis "Push en pull"
     === "opdracht"
-        De repository {{github}}`oefenopdrachten` bestaat alleen nog maar op de computer. Als de computerkabouters 's nachts langskomen kan het zijn dat de computer daarna is gewist en je alles kwijt bent. Daarom is het fijn om de repository ook in de cloud te hebben op [github.com](https://github.com/). 
+        De repository {{github}}`oefenopdrachten` bestaat alleen nog maar op de computer. Als de zaalcomputerkabouters 's nachts langskomen kan het zijn dat de zaalcomputer daarna is gewist en je alles kwijt bent.[^kabouter] Dat zal op je eigen laptop niet zo snel gebeuren gelukkig. Maar het kan dus fijn zijn om de repository ook in de cloud te hebben op [github.com](https://github.com/). Bovendien geeft dat de mogelijkheid je code op andere computers binnen te halen of te delen met anderen.
+
+        [^kabouter]: Dit is geen grap en is al meerdere studenten gebeurd. De zaalcomputers worden om privacy- en efficiëntieredenen met enige regelmaat automatisch opgeschoond. Ok, het zijn waarschijnlijk geen kabouters &mdash; dat is wel een grap, denken we.
         
         In GitHub Desktop vind je een knop `Publish repository; Publish this repository to GitHub`. Als je daar op drukt kun je nog een andere naam aan de repository geven (deze naam bepaalt de url op [github.com](https://github.com/)), een beschrijving toevoegen en aangeven of de code privé moet zijn. Daarna klik je op de blauwe knop `Publish repository`. Als je nu naar [github.com](https://github.com) gaat zie je bij jouw repositories de zojuist gepubliceerde repository staan. 
     
@@ -202,7 +204,7 @@ In GitHub Desktop zie je nu bij _History_ de commit staan, met in één oogopsla
 
 ##  GitHub
 
-Om makkelijk je Git repository te delen met vrienden, collega's en de rest van de wereld kun je er voor kiezen om deze op GitHub te zetten. Je kunt dan je commits pushen naar GitHub en wijzigingen die je vrienden hebben gemaakt pullen, zodat jij er ook weer aan verder kan werken. Van alle repositories die op GitHub staan én openbaar zijn kun je de broncode clonen en er zelf mee aan de slag! Laten we eens een kijkje nemen op GitHub.
+Om makkelijk je Git repository te delen met vrienden, collega's en de rest van de wereld kun je er dus voor kiezen om deze op GitHub te zetten. Je kunt dan je commits pushen naar GitHub en wijzigingen die je vrienden hebben gemaakt pullen, zodat jij er ook weer aan verder kan werken. Van alle repositories die op GitHub staan én openbaar zijn kun je de broncode clonen en er zelf mee aan de slag! Laten we eens een kijkje nemen op GitHub.
 
 !!! opdracht-basis "Tailor"
     Als je nog nooit op GitHub bent geweest dan kunnen de pagina's nogal intimiderend overkomen. De informatiedichtheid is nogal hoog. Na een paar bezoeken weet je meestal wel waar je dingen kunt vinden. David heeft een data-analyse app geschreven dat Tailor heet. Deze app wordt gebruikt bij natuurkundepractica voor studenten Medische natuurwetenschappen en Science, business and innovation. Interessant om eens te kijken wat je hierover kunt vinden op GitHub.
