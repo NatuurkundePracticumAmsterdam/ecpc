@@ -94,7 +94,7 @@ De Arduino die je gebruikt heeft een bereik van 0 V tot 3.3 V en &mdash; in tege
     Voorbeelden van het binair talstelsel:
 
     | decimaal getal | binair getal |
-    |----------------|--------------|
+    | -------------- | ------------ |
     | 0              | 0            |
     | 1              | 1            |
     | 2              | 10           |
@@ -204,6 +204,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
 
         1. Open Github Desktop en ga naar het dropdownmenu **File**. Kies hier voor `New repository ...`. Geef de repository de naam `pythondaq` en zet de repository in de map {{folder}}`ECPC`. De mappenstructuur ziet er dan als volgt uit:   
         {{folder}} ECPC  
+        {{T}} {{github}} oefenopdrachten  
         {{T}} {{github}} pythondaq  
         {{tab}} {{L}} {{dots}}  
         {{L}} {{dots}}  
@@ -236,7 +237,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
     
         <div class="grid-tree" markdown>
             <div>
-            Je maakt een bestand {{file}}`diode-experiment.py` aan in de nieuwe repository {{github}} `pythondaq`, waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Tijdens het oplopen van de spanning over de LED lees je de verschillende spanningen uit. Je print steeds een regel met: ruwe waarde spanning over LED, voltage over LED, ruwe waarde spanning over weerstand, voltage over weerstand.
+            Je maakt een bestand {{file}}`diode-experiment.py` aan in de nieuwe repository {{github}} `pythondaq`, waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Je moet hiervoor ook weer opnieuw een virtual environment aanmaken (zie [opdracht Environment aanmaken](communicatie.md#opd:venv)). Tijdens het oplopen van de spanning over de LED lees je de verschillende spanningen uit. Je print steeds een regel met: ruwe waarde spanning over LED, voltage over LED, ruwe waarde spanning over weerstand, voltage over weerstand.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -260,6 +261,8 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
     === "check"
         **Checkpunten**
 
+        - [ ] Je hebt een virtual environment aangemaakt en die is goed geactiveerd (er staat `(pythondaq)` aan het begin van de prompt).
+        - [ ] Je hebt alle benodigde packages geïnstalleerd in je virtual environment.
         - [ ] Je laat de spanning oplopen van nul tot de maximale waarde.
         - [ ] De LED licht vertraagd op en gaat dus steeds feller branden. 
         - [ ] Commit! {{feesttoeter}}
