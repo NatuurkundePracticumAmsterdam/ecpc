@@ -7,7 +7,7 @@ De nummering van de kanalen volgt de nummering van de Arduino hardware. Dus kana
 
 Bij het versturen van opdrachten naar het apparaat, moet je afsluiten met een linefeed ('\n'). Het apparaat sluit zijn antwoorden af met een carriage return gevolgd door een linefeed ('\r\n').
 
-De code is terug te vinden in de repository {{github}}`/davidfokkema/arduino-visa-firmware`.[@arduino_visa_firmware] Deze documentatie is voor versie~1.1.0. De commando's die geaccepteerd worden door de firmware zijn weergegeven in de tabel hieronder.
+De code is terug te vinden in de repository {{github}}`/davidfokkema/arduino-visa-firmware`.[@arduino_visa_firmware] Deze documentatie is voor versie 1.1.0. De commando's die geaccepteerd worden door de firmware zijn weergegeven in de tabel hieronder.
 
 <div id="tab:firmware"></div>
 | Commando                                                    | Beschrijving                                                                                                                                                                |
