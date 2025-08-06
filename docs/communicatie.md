@@ -86,43 +86,12 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         - [ ] PyVISA LED laten branden
 
 !!! info
-    Om met Python via het VISA-protocol te kunnen communiceren met apparaten heb je specifieke packages nodig. Die ga je installeren in een _conda environment_. Voor meer informatie over conda environments zie [paragraaf _Conda environments_](virtual_environments.md#activeren-en-deactiveren).
-
-<div id="opd:condaenv"></div>
-!!! opdracht-basis "Environment aanmaken"
-    === "opdracht"
-        Open een `Anaconda Prompt`, die je kunt vinden via de zoekbalk van Windows. Maak de conda environment `pythondaq` aan en installeer de benodigde packages. Gebruik hiervoor het volgende commando:
-
-        ``` ps1 title="Terminal"
-        conda create --name pythondaq --channel conda-forge python pyvisa-py
-        ```
-        Om een conda environment daadwerkelijk te gebruiken moet je die altijd eerst _activeren_. Voor het activeren van de environment `pythondaq` gebruik je het volgende commando:
-        ``` ps1 title="Terminal"
-        conda activate pythondaq
-        ```
-    === "check"
-        **Checkpunten**
-
-        - [ ] Je hebt een conda environment met de naam `pythondaq` aangemaakt.
-        - [ ] De environment bevat de packages `python` en `pyvisa-py`. 
-        - [ ] De environment is geactiveerd.
-
-        **Projecttraject**
-
-        - [x] Schakeling bouwen
-        - [x] Environment aanmaken
-        - [ ] PyVISA in terminal
-        - [ ] PyVISA commando's `list` en `open`
-        - [ ] PyVISA commando `query`
-        - [ ] Terminator characters demo
-        - [ ] PyVISA regeleindes
-        - [ ] PyVISA LED laten branden
-
+    Om met Python via het VISA-protocol te kunnen communiceren met apparaten heb je specifieke packages nodig. Die gaan we later installeren in een _virtual environment_. Voor meer informatie over virtual environments zie de [Appendix _Virtual Environments_](virtual_environments.md). Tijdens testen is het vaak niet nodig om packages te installeren, maar je moet dan wel steeds opnieuw intypen wat je nodig hebt. _Tip:_ gebruik in de terminal pijltje omhoog om commando's terug te halen die je eerder hebt ingetypt. Ieder pijltje omhoog laat een ouder commando zien. Dit scheelt veel typewerk!
 
 <div id="opd:pyvisaterminal"></div>
 !!! opdracht-basis "PyVISA in terminal"
     === "opdracht"
-        Je sluit de Arduino met een USB-kabel aan op de computer. In een `Anaconda Prompt` open je de goede conda environment. Daarna open je een `pyvisa-shell` met een python _backend_. Om erachter te komen hoe de `pyvisa-shell` werkt type je het commando `help`. Je ziet een reeks aan commando's en bekijkt de helptekst van de commando's waarmee je denkt de `pyvisa-shell` te kunnen afsluiten. Wanneer je dit commando hebt gevonden sluit je daarmee de `pyvisa-shell` af. 
+        Je sluit de Arduino met een USB-kabel aan op de computer. In een `Terminal` open je een `pyvisa-shell` met een python _backend_. Om erachter te komen hoe de `pyvisa-shell` werkt type je het commando `help`. Je ziet een reeks aan commando's en bekijkt de helptekst van de commando's waarmee je denkt de `pyvisa-shell` te kunnen afsluiten. Wanneer je dit commando hebt gevonden sluit je daarmee de `pyvisa-shell` af. 
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
@@ -133,7 +102,7 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
 
         ```
         **Testcode**
-        <pre><code>(ecpc) > pyvisa-shell --backend py <button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')">{{ enter }}</button><button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')" class="invisible">{{ reload }}</button>
+        <pre><code>(ecpc) > uvx --from pyvisa --with pyvisa-py --with pyserial pyvisa-shell --backend py <button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')">{{ enter }}</button><button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="pyvisa-shell">
         Welcome to the VISA shell. Type help or ? to list commands.    
         (visa)
@@ -167,7 +136,13 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         - [ ] PyVISA LED laten branden
 
 !!! info
-    We maken hier gebruik van de optie `--backend py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er naast `pyvisa-py` ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. De verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle type apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers.
+    We gebruiken `uvx` om Python packages te draaien zonder ze te installeren. We starten `pyvisa-shell`, die afkomstig is uit het package `pyvisa` (`--from pyvisa`). We maken hier gebruik van de optie `--backend py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er naast `pyvisa-py` ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. De verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle type apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers. We moeten dan wel meegeven dat we dat package ook nodig hebben (`--with pyvisa-py`) en omdat de Arduino is aangesloten op een seriële kabel[^USB] hebben we ook de PySerial package nodig (`--with pyserial`). Voluit wordt dan dus:
+    ```shell
+    uvx --from pyvisa --with pyvisa-py --with pyserial pyvisa-shell --backend py
+    ```
+    Dat dit aardig vervelend kan worden met intypen is waarschijnlijk wel duidelijk. Daarom gaan we straks gebruik maken van _virtual environments_.
+
+    [^USB]: USB staat voor _Universal Serial Bus_, oftewel een universele standaard voor seriële communicatie. Dat mag je vergeten.
 
 
 !!! opdracht-basis "PyVISA commando's `list` en `open`"
@@ -458,6 +433,36 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         - [ ] Push en pull
 
 --8<-- "docs/assets/comparison/compare_shell_script.html"
+
+<div id="opd:condaenv"></div>
+!!! opdracht-basis "Environment aanmaken"
+    === "opdracht"
+        Open een `Anaconda Prompt`, die je kunt vinden via de zoekbalk van Windows. Maak de conda environment `pythondaq` aan en installeer de benodigde packages. Gebruik hiervoor het volgende commando:
+
+        ``` ps1 title="Terminal"
+        conda create --name pythondaq --channel conda-forge python pyvisa-py
+        ```
+        Om een conda environment daadwerkelijk te gebruiken moet je die altijd eerst _activeren_. Voor het activeren van de environment `pythondaq` gebruik je het volgende commando:
+        ``` ps1 title="Terminal"
+        conda activate pythondaq
+        ```
+    === "check"
+        **Checkpunten**
+
+        - [ ] Je hebt een conda environment met de naam `pythondaq` aangemaakt.
+        - [ ] De environment bevat de packages `python` en `pyvisa-py`. 
+        - [ ] De environment is geactiveerd.
+
+        **Projecttraject**
+
+        - [x] Schakeling bouwen
+        - [x] Environment aanmaken
+        - [ ] PyVISA in terminal
+        - [ ] PyVISA commando's `list` en `open`
+        - [ ] PyVISA commando `query`
+        - [ ] Terminator characters demo
+        - [ ] PyVISA regeleindes
+        - [ ] PyVISA LED laten branden
 
 <div id="opd:test_arduino"></div>
 !!! opdracht-basis "PyVISA in Pythonscript"
