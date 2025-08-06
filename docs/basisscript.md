@@ -284,9 +284,9 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
 Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma, Python notebook of iets dergelijks. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment heb je ook alleen nog maar _ruwe_ metingen. En je gaat nog voorbij aan het feit dat je graag de stroomsterkte $I$ door de LED wilt uitzetten tegen de spanning $U$ over de LED.
 
 !!! info
-    In de volgende opdracht ga je een grafiek maken. Installeer Matplotlib in de conda environment `pythondaq`. Belangrijk: zorg dat deze geactiveerd is! {{lightbulb}}
+    In de volgende opdracht ga je een grafiek maken. Installeer Matplotlib in de virtual environment. {{lightbulb}}
     ``` ps1 title="Terminal"
-    conda install --channel conda-forge matplotlib
+    uv pip install matplotlib
     ```
 
 <div id="opd:quickndirty-meting"></div>
@@ -304,7 +304,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
             # calculate voltage LED
             # calculate current LED
             # print voltage: voltage_LED V (raw_voltage_LED) current: current_LED A
-
+        # zet LED uit
         # plot current_LED vs voltage_LED
         ```
 
