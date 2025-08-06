@@ -104,7 +104,7 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC gaan we stapsgewijs 
         print(f"{ch0_value=}")
         ```
         <pre>
-        <code>(ecpc) > python test_controller.py
+        <code>(ECPC) > python test_controller.py
         <span class="invisible" name="basisscript_controller">('ASRL28::INSTR', ) 
         Arduino VISA firmware v1.1.0
         ch2_value=224

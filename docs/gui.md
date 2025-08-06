@@ -833,7 +833,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
         [^overleg-navigeren]: Overleg met elkaar of met de assistent als je niet weet hoe dat moet.
     === "code"
         **Test-code**
-        <pre><code>(ecpc) > pyside6-uic number_display_app.ui --output ui_number_display_app.py <button type="button" name="pyside6-uic number_display_app.ui --output ui_number_display_app.py" onclick="runScript('pyside6-uic number_display_app.ui --output ui_number_display_app.py')">{{ enter }}</button><button type="button" name="pyside6-uic number_display_app.ui --output ui_number_display_app.py" onclick="runScript('pyside6-uic number_display_app.ui --output ui_number_display_app.py')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > pyside6-uic number_display_app.ui --output ui_number_display_app.py <button type="button" name="pyside6-uic number_display_app.ui --output ui_number_display_app.py" onclick="runScript('pyside6-uic number_display_app.ui --output ui_number_display_app.py')">{{ enter }}</button><button type="button" name="pyside6-uic number_display_app.ui --output ui_number_display_app.py" onclick="runScript('pyside6-uic number_display_app.ui --output ui_number_display_app.py')" class="invisible">{{ reload }}</button>
         </code><span class="invisible" name="pyside6-uic number_display_app.ui --output ui_number_display_app.py">
         {{folder}} `ECPC`
         {{T}} {{github}} `oefenopdrachten`

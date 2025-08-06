@@ -36,7 +36,7 @@ def my_func(x):
 print(my_func(2))
 ```
 <pre>
-<code>(ecpc) > python python_code.py
+<code>(ECPC) > python python_code.py
 <span class="invisible" name="python_code">4</span>
 </code></pre></div>
 
@@ -46,8 +46,8 @@ Ook zul je soms systeemopdrachten moeten uitvoeren. Je wilt bijvoorbeeld nieuwe 
 ``` ps1 title="Terminal"
 python my-script.py
 ```
-Zoals je ziet hebben we de prompt (bijvoorbeeld `>`) weggelaten zodat je makkelijker commando's kunt kopiëren en plakken. Wanneer we ook de uitvoer van commando's laten zien is het handiger om onderscheid te maken tussen het commando en de uitvoer. Nu geven we _wel_ de prompt weer (`(ecpc) > `). Door op het {{enter}}-icoon te klikken wordt de uitvoer zichtbaar.
-<pre><code>(ecpc) > python --version <button type="button" name="--version_index" onclick="runScript('--version_index')">{{ enter }}</button><button type="button" name="--version_index" onclick="runScript('--version_index')" class="invisible">{{ reload }}</button>
+Zoals je ziet hebben we de prompt (bijvoorbeeld `>`) weggelaten zodat je makkelijker commando's kunt kopiëren en plakken. Wanneer we ook de uitvoer van commando's laten zien is het handiger om onderscheid te maken tussen het commando en de uitvoer. Nu geven we _wel_ de prompt weer (`(ECPC) > `). Door op het {{enter}}-icoon te klikken wordt de uitvoer zichtbaar.
+<pre><code>(ECPC) > python --version <button type="button" name="--version_index" onclick="runScript('--version_index')">{{ enter }}</button><button type="button" name="--version_index" onclick="runScript('--version_index')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="--version_index">Python 3.10.9</span>
 </code></pre>
 
@@ -80,7 +80,7 @@ In de handleiding staan verschillende opgaves. Sommige opgaves zijn bedoeld als 
         # ga daarna naar het tabblad "check"
         ```
         <pre>
-        <code>(ecpc) > python Testcode.py
+        <code>(ECPC) > python Testcode.py
         <span class="invisible" name="Testcode_uitleg">Krijg je (ongeveer) dezelfde output?</span>
         </code></pre></div>
     === "check"

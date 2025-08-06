@@ -14,7 +14,7 @@ Je hebt tot nu toe al heel wat commando's in de terminal getypt. Laten we een pa
 PS> python script.py
 ```
 Als eerste vertel je welke applicatie je wilt gaan starten; in dit geval: `python`. Daarna geef je met het _argument_ `script.py` aan welk Pythonscript je wilt uitvoeren. Vaak kun je ook _opties_ meegeven zoals in:
-<pre><code>(ecpc) > python -V <button type="button" name="python -V" onclick="runScript('python -V')">{{ enter }}</button><button type="button" name="python -V" onclick="runScript('python -V')" class="invisible">{{ reload }}</button>
+<pre><code>(ECPC) > python -V <button type="button" name="python -V" onclick="runScript('python -V')">{{ enter }}</button><button type="button" name="python -V" onclick="runScript('python -V')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python -V">Python 3.10.13</span>
 </code></pre>
 
@@ -58,7 +58,7 @@ import sys
 print(sys.argv)
 ```
 <pre>
-<code>(ecpc) > python cli.py test 123
+<code>(ECPC) > python cli.py test 123
 <span class="invisible" name="cli.py">['cli.py', 'test', '123']</span>
 </code></pre></div>
 
@@ -138,7 +138,7 @@ python hello.py --help
             # run function
         ```
         **Testcode**
-        <pre><code>(ecpc) > python hello.py --help <button type="button" name="python hello.py_help" onclick="runScript('python hello.py_help')">{{ enter }}</button><button type="button" name="python hello.py_help" onclick="runScript('python hello.py_help')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > python hello.py --help <button type="button" name="python hello.py_help" onclick="runScript('python hello.py_help')">{{ enter }}</button><button type="button" name="python hello.py_help" onclick="runScript('python hello.py_help')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="python hello.py_help">Usage: hello.py [OPTIONS]        
         Options:
             --help  Show this message and exit.
@@ -194,7 +194,7 @@ if __name__ == "__main__":
             # run function
         ```
         **Testcode**
-        <pre><code>(ecpc) > python hello.py <button type="button" name="hello.py_name" onclick="runScript('hello.py_name')">{{ enter }}</button><button type="button" name="hello.py_name" onclick="runScript('hello.py_name')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > python hello.py <button type="button" name="hello.py_name" onclick="runScript('hello.py_name')">{{ enter }}</button><button type="button" name="hello.py_name" onclick="runScript('hello.py_name')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="hello.py_name">Usage: hello.py [OPTIONS] NAME
         Try 'hello.py --help' for help.
         Error: Missing argument 'NAME'.
@@ -260,7 +260,7 @@ if __name__ == "__main__":
             # run function
         ```
         **Testcode**
-        <pre><code>(ecpc) > python hello.py David -c 5 <button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')">{{ enter }}</button><button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > python hello.py David -c 5 <button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')">{{ enter }}</button><button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="python hello.py David -c 5">Hello David!
         Hello David!
         Hello David!
@@ -277,7 +277,7 @@ if __name__ == "__main__":
         - [ ] Wanneer de optie `count` wordt weggelaten wordt de naam 1 keer geprint.
         - [ ] Wanneer er geen argument wordt meegegeven met `count` volgt een foutmelding:
 
-            <pre><code>(ecpc) > python hello.py David -c <button type="button" name="python hello.py David -c" onclick="runScript('python hello.py David -c')">{{ enter }}</button><button type="button" name="python hello.py David -c" onclick="runScript('python hello.py David -c')" class="invisible">{{ reload }}</button>
+            <pre><code>(ECPC) > python hello.py David -c <button type="button" name="python hello.py David -c" onclick="runScript('python hello.py David -c')">{{ enter }}</button><button type="button" name="python hello.py David -c" onclick="runScript('python hello.py David -c')" class="invisible">{{ reload }}</button>
             <span class="invisible" name="python hello.py David -c">Error: Option '-c' requires an argument.</span>
             </code></pre>
         
@@ -323,7 +323,7 @@ if __name__ == "__main__":
 
 
 Als je dit script gebruikt ziet dat er zo uit:
-<pre><code>(ecpc) > python hello.py --help <button type="button" name="python hello.py --help" onclick="runScript('python hello.py --help')">{{ enter }}</button><button type="button" name="python hello.py --help" onclick="runScript('python hello.py --help')" class="invisible">{{ reload }}</button>
+<pre><code>(ECPC) > python hello.py --help <button type="button" name="python hello.py --help" onclick="runScript('python hello.py --help')">{{ enter }}</button><button type="button" name="python hello.py --help" onclick="runScript('python hello.py --help')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python hello.py --help">Usage: hello.py [OPTIONS] NAME
 
 Options:
@@ -331,14 +331,14 @@ Options:
   --help               Show this message and exit.
   </span>
 
-(ecpc) > python hello.py Alice <button type="button" name="python hello.py Alice" onclick="runScript('python hello.py Alice')">{{ enter }}</button><button type="button" name="python hello.py Alice" onclick="runScript('python hello.py Alice')" class="invisible">{{ reload }}</button>
+(ECPC) > python hello.py Alice <button type="button" name="python hello.py Alice" onclick="runScript('python hello.py Alice')">{{ enter }}</button><button type="button" name="python hello.py Alice" onclick="runScript('python hello.py Alice')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python hello.py Alice">Hello Alice!</span>
 
-(ecpc) > python hello.py Alice -c 2 <button type="button" name="python hello.py Alice -c 2" onclick="runScript('python hello.py Alice -c 2')">{{ enter }}</button><button type="button" name="python hello.py Alice -c 2" onclick="runScript('python hello.py Alice -c 2')" class="invisible">{{ reload }}</button>
+(ECPC) > python hello.py Alice -c 2 <button type="button" name="python hello.py Alice -c 2" onclick="runScript('python hello.py Alice -c 2')">{{ enter }}</button><button type="button" name="python hello.py Alice -c 2" onclick="runScript('python hello.py Alice -c 2')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python hello.py Alice -c 2">Hello Alice!
 Hello Alice!</span>
 
-(ecpc) > python hello.py Alice --count 3 <button type="button" name="python hello.py Alice --count 3" onclick="runScript('python hello.py Alice --count 3')">{{ enter }}</button><button type="button" name="python hello.py Alice --count 3" onclick="runScript('python hello.py Alice --count 3')" class="invisible">{{ reload }}</button>
+(ECPC) > python hello.py Alice --count 3 <button type="button" name="python hello.py Alice --count 3" onclick="runScript('python hello.py Alice --count 3')">{{ enter }}</button><button type="button" name="python hello.py Alice --count 3" onclick="runScript('python hello.py Alice --count 3')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python hello.py Alice --count 3">Hello Alice!
 Hello Alice!
 Hello Alice!</span>
@@ -377,7 +377,7 @@ Hello Alice!</span>
             # run function
         ```
         **Testcode**
-        <pre><code>(ecpc) > python hello.py David -c 5 <button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')">{{ enter }}</button><button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > python hello.py David -c 5 <button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')">{{ enter }}</button><button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="python hello.py David -c 5">Hello David!
         Hello David!
         Hello David!
@@ -435,7 +435,7 @@ Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
             main()
         ```
         **Testcode**
-        <pre><code>(ecpc) > square 6 <button type="button" name="square 6" onclick="runScript('square 6')">{{ enter }}</button><button type="button" name="square 6" onclick="runScript('square 6')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > square 6 <button type="button" name="square 6" onclick="runScript('square 6')">{{ enter }}</button><button type="button" name="square 6" onclick="runScript('square 6')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="square 6">The square of 6 is 36</span>
         </code></pre>
         
@@ -525,7 +525,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
         naam_commando = "package.module:naam_functie"
         ```
         **Testcode**
-        <pre><code>(ecpc) > fake_conda install scipy <button type="button" name="fake_conda install scipy" onclick="runScript('fake_conda install scipy')">{{ enter }}</button><button type="button" name="fake_conda install scipy" onclick="runScript('fake_conda install scipy')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > fake_conda install scipy <button type="button" name="fake_conda install scipy" onclick="runScript('fake_conda install scipy')">{{ enter }}</button><button type="button" name="fake_conda install scipy" onclick="runScript('fake_conda install scipy')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="fake_conda install scipy">Installing scipy from defaults....</span>
         </code></pre>
         
@@ -611,7 +611,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
             sin(10)
         ```
         <pre>
-        <code>(ecpc) > python smallangle.py
+        <code>(ECPC) > python smallangle.py
         <span class="invisible" name="smallangle">          x       sin (x)
         0  0.000000  0.000000e+00
         1  0.698132  6.427876e-01
@@ -660,7 +660,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
             Dan komt dat doordat je `#!py sin(10)` probeert uit te voeren, terwijl de functie al verClickt is. De functie verwacht een argument vanuit de terminal en geen integer vanuit het pythonscript.
             Pas je script aan zodat `#!py if __name__ == "__main__":` naar de juiste functie verwijst en Click aanroept; niet `#!py sin(10)`.
     === "code"
-        <pre><code>(ecpc) > smallangle sin -n 9 <button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')">{{ enter }}</button><button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > smallangle sin -n 9 <button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')">{{ enter }}</button><button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="smallangle sin -n 9">          x       sin (x)
         0  0.000000  0.000000e+00
         1  0.785398  7.071068e-01
@@ -689,7 +689,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 
 ???+ opdracht-meer "Smallangle (uitdaging)"
     Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\lvert x - \sin(x) \rvert \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over .000, .001 en .002, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
-    <pre><code>(ecpc) > smallangle approx .1 <button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')">{{ enter }}</button><button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > smallangle approx .1 <button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')">{{ enter }}</button><button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="smallangle approx .1">For an accuracy of 0.1, the small-angle approximation holds
     up to x = 0.854.</span>
     </code></pre>
@@ -747,7 +747,7 @@ if __name__ == "__main__":
     cmd_group()
 ```
 Als we vervolgens de help functie aanroepen zien we de eerste regel van de docstrings verschijnen voor alle subcommando's:
-<pre><code>(ecpc) > fake_conda --help <button type="button" name="python fake_conda --help" onclick="runScript('python fake_conda --help')">{{ enter }}</button><button type="button" name="python fake_conda --help" onclick="runScript('python fake_conda --help')" class="invisible">{{ reload }}</button>
+<pre><code>(ECPC) > fake_conda --help <button type="button" name="python fake_conda --help" onclick="runScript('python fake_conda --help')">{{ enter }}</button><button type="button" name="python fake_conda --help" onclick="runScript('python fake_conda --help')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python fake_conda --help">Usage: fake_conda [OPTIONS] COMMAND [ARGS]...
 
 Fake the installation and removal of packages in fake conda environments.
@@ -763,7 +763,7 @@ Commands:
 
 Daarna kun je uitleg vragen voor de subcommando's waarbij je de hele docstring te zien krijgt:
 
-<pre><code>(ecpc) > fake_conda install --help <button type="button" name="python fake_conda.py install --help" onclick="runScript('python fake_conda.py install --help')">{{ enter }}</button><button type="button" name="python fake_conda.py install --help" onclick="runScript('python fake_conda.py install --help')" class="invisible">{{ reload }}</button>
+<pre><code>(ECPC) > fake_conda install --help <button type="button" name="python fake_conda.py install --help" onclick="runScript('python fake_conda.py install --help')">{{ enter }}</button><button type="button" name="python fake_conda.py install --help" onclick="runScript('python fake_conda.py install --help')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python fake_conda.py install --help">Usage: fake_conda install [OPTIONS] PACKAGE
 
   Install a conda PACKAGE.
@@ -788,7 +788,7 @@ Options:
         """
         ```
         **Testcode**
-        <pre><code>(ecpc) > smallangle --help <button type="button" name="smallangle --help" onclick="runScript('smallangle --help')">{{ enter }}</button><button type="button" name="smallangle --help" onclick="runScript('smallangle --help')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > smallangle --help <button type="button" name="smallangle --help" onclick="runScript('smallangle --help')">{{ enter }}</button><button type="button" name="smallangle --help" onclick="runScript('smallangle --help')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="smallangle --help">Usage: smallangle [OPTIONS] COMMAND [ARGS] ...
             Options: 
                 --help Show this message and exit.
@@ -858,11 +858,11 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
             # print Work in progress, scan LED
         ```
         **Testcode**
-        <pre><code>(ecpc) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode list">Work in progress, list devices </span>
         </code></pre>
 
-        <pre><code>(ecpc) > diode scan <button type="button" name="diode scan" onclick="runScript('diode scan')">{{ enter }}</button><button type="button" name="diode scan" onclick="runScript('diode scan')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > diode scan <button type="button" name="diode scan" onclick="runScript('diode scan')">{{ enter }}</button><button type="button" name="diode scan" onclick="runScript('diode scan')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode scan">Work in progress, scan LED</span>
         </code></pre>
         
@@ -972,7 +972,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         De gebruiker test het subcommando `list` met de volgende handelingen. De gebruiker typt het commando `diode list` in de terminal. Daarna verschijnt in de terminal een lijst van aangesloten instrumenten.
         
     === "code"
-        <pre><code>(ecpc) > diode list <button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')">{{ enter }}</button><button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > diode list <button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')">{{ enter }}</button><button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode list_filled_in">('ASRL28::INSTR','ASRL5::INSTR')</span>
         </code></pre>
 
@@ -1008,7 +1008,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
             # print identificationstring of device
         ```
         **Testcode**
-        <pre><code>(ecpc) > diode info ASRL28::INSTR <button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')">{{ enter }}</button><button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > diode info ASRL28::INSTR <button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')">{{ enter }}</button><button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode info ASRL28::INSTR">Arduino VISA firmware v1.1.0</span>
         </code></pre>
 
@@ -1039,7 +1039,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         </br></br>
         Tot slot leent de gebruiker een Arduino van een buurmens. De gebruiker sluit de tweede Arduino aan op de computer. Met `list` en `info` kijkt de gebruiker wat de poortnaam is van de tweede Arduino. Met het subcommando `scan` voert de gebruiker een meting uit en ziet dat het lampje van de tweede Arduino gaat branden en niet het lampje van de eerste Arduino. 
     === "code"
-        <pre><code>(ecpc) > diode scan <button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')">{{ enter }}</button><button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > diode scan <button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')">{{ enter }}</button><button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode scan_no device">errorUsage: diode [OPTIONS] DEVICE
         Try 'diode --help' for help.
         Error: Missing argument 'DEVICE'.</span>
@@ -1098,7 +1098,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         """
         ```
         **Testcode**
-        <pre><code>(ecpc) > diode --help <button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')">{{ enter }}</button><button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > diode --help <button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')">{{ enter }}</button><button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode --help_assignment">Usage: diode [OPTIONS] COMMAND [ARGS] ...
             Options: 
                 --help Show this message and exit.
@@ -1125,7 +1125,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
 ???+ opdracht-meer "Pythondaq: `list --search`"
     Breid het commando `list` uit met een optie `--search` waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
-    <pre><code>(ecpc) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="diode list">The following devices are connected to your computer:                                                                             
     ASRL/dev/cu.SOC::INSTR
     ASRL/dev/cu.MALS::INSTR
@@ -1133,7 +1133,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
     ASRL/dev/cu.Bluetooth-Incoming-Port::INSTR
     ASRL/dev/cu.usbmodem143401::INSTR 
     </span>
-    (ecpc) > diode list -s usbmodem <button type="button" name="diode list -s usbmodem" onclick="runScript('diode list -s usbmodem')">{{ enter }}</button><button type="button" name="diode list -s usbmodem" onclick="runScript('diode list -s usbmodem')" class="invisible">{{ reload }}</button>
+    (ECPC) > diode list -s usbmodem <button type="button" name="diode list -s usbmodem" onclick="runScript('diode list -s usbmodem')">{{ enter }}</button><button type="button" name="diode list -s usbmodem" onclick="runScript('diode list -s usbmodem')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="diode list -s usbmodem">The following devices match your search string:                                                                       
     ASRL/dev/cu.usbmodem143401::INSTR </span>
     </code></pre>

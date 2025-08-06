@@ -16,7 +16,7 @@ Daarom is het handig om voor elke project de packages in een geïsoleerde omgevi
 
 Je kunt een lijst met virtual environments opvragen met
 
-<pre><code>(ecpc) > conda env list <button type="button" name="conda env list" onclick="runScript('conda env list')">{{ enter }}</button><button type="button" name="conda env list" onclick="runScript('conda env list')" class="invisible">{{ reload }}</button>
+<pre><code>(ECPC) > conda env list <button type="button" name="conda env list" onclick="runScript('conda env list')">{{ enter }}</button><button type="button" name="conda env list" onclick="runScript('conda env list')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="conda env list"># conda environments:
 #base                     path\to\environment\with\name\base
 #my_env                   path\to\environment\with\name\my_env
@@ -41,11 +41,11 @@ Om aan te geven welke virtual environment je wilt gebruiken om je scripts uit te
 Om een virtual environment te activeren in een terminal maak je gebruik van de onderstaande code. Je ziet daarna de naam van de geactiveerde environment tussen ronde haakjes staan. 
 
 === "conda"
-    <pre><code>(ecpc) > conda activate my_env <button type="button" name="conda activate my_env_venv" onclick="runScript('conda activate my_env_venv')">{{ enter }}</button><button type="button" name="conda activate my_env_venv" onclick="runScript('conda activate my_env_venv')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > conda activate my_env <button type="button" name="conda activate my_env_venv" onclick="runScript('conda activate my_env_venv')">{{ enter }}</button><button type="button" name="conda activate my_env_venv" onclick="runScript('conda activate my_env_venv')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="conda activate my_env_venv">(my_env) > </span>
     </code></pre>
 === "uv"
-    <pre><code>(ecpc) > .my_env\Scripts\activate <button type="button" name=".my_env\Scripts\activate_venv" onclick="runScript('.my_env\Scripts\activate_venv')">{{ enter }}</button><button type="button" name=".my_env\Scripts\activate_venv" onclick="runScript('.my_env\Scripts\activate_venv')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > .my_env\Scripts\activate <button type="button" name=".my_env\Scripts\activate_venv" onclick="runScript('.my_env\Scripts\activate_venv')">{{ enter }}</button><button type="button" name=".my_env\Scripts\activate_venv" onclick="runScript('.my_env\Scripts\activate_venv')" class="invisible">{{ reload }}</button>
     <span class="invisible" name=".my_env\Scripts\activate_venv">(my_env) > </span>
     </code></pre>
 
@@ -57,12 +57,12 @@ In een terminal wordt tussen ronde haakjes weergegeven welke virtual environment
 Om een virtual environment te deactiveren in een terminal maak je gebruik van de onderstaande code. Je ziet daarna weer de naam van de base environment tussen ronde haakjes staan.
 
 === "Conda"
-    <pre><code>(ecpc) > conda deactivate <button type="button" name="conda deactivate_venv" onclick="runScript('conda deactivate_venv')">{{ enter }}</button><button type="button" name="conda deactivate_venv" onclick="runScript('conda deactivate_venv')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > conda deactivate <button type="button" name="conda deactivate_venv" onclick="runScript('conda deactivate_venv')">{{ enter }}</button><button type="button" name="conda deactivate_venv" onclick="runScript('conda deactivate_venv')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="conda deactivate_venv">(base) > </span>
     </code></pre>
     
 === "uv"
-    <pre><code>(ecpc) > deactivate <button type="button" name="deactivate_venv" onclick="runScript('deactivate_venv')">{{ enter }}</button><button type="button" name="deactivate_venv" onclick="runScript('deactivate_venv')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > deactivate <button type="button" name="deactivate_venv" onclick="runScript('deactivate_venv')">{{ enter }}</button><button type="button" name="deactivate_venv" onclick="runScript('deactivate_venv')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="deactivate_venv">?</span>
     </code></pre>
 
@@ -84,7 +84,7 @@ Het kan ook zijn dat er nog geen environment is geactiveerd dan staat er 'select
 Om een nieuwe virtual environment aan te maken met de naam `my_env ` gebruik je onderstaande code. Er wordt aangegeven op welke locatie de environment wordt aangemaakt en welke packages erin worden geïnstaleerd. Als je tevreden bent met de locatie en inhoud druk je ++y+enter++ om door te gaan.
 
 === "conda"
-    <pre><code>(ecpc) > conda create --name my_env <button type="button" name="conda create --name my_env_venv" onclick="runScript('conda create --name my_env_venv')">{{ enter }}</button><button type="button" name="conda create --name my_env_venv" onclick="runScript('conda create --name my_env_venv')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > conda create --name my_env <button type="button" name="conda create --name my_env_venv" onclick="runScript('conda create --name my_env_venv')">{{ enter }}</button><button type="button" name="conda create --name my_env_venv" onclick="runScript('conda create --name my_env_venv')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="conda create --name my_env_venv">Retrieving notices: ...working... done
     Channels:
     - defaults
@@ -99,7 +99,7 @@ Om een nieuwe virtual environment aan te maken met de naam `my_env ` gebruik je 
     </span></code></pre>
 
 === "uv"
-    <pre><code>(ecpc) > uv venv my_env <button type="button" name="uv venv my_env_venv" onclick="runScript('uv venv my_env_venv')">{{ enter }}</button><button type="button" name="uv venv my_env_venv" onclick="runScript('uv venv my_env_venv')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > uv venv my_env <button type="button" name="uv venv my_env_venv" onclick="runScript('uv venv my_env_venv')">{{ enter }}</button><button type="button" name="uv venv my_env_venv" onclick="runScript('uv venv my_env_venv')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="uv venv my_env_venv">?</span>
     </code></pre>
     
@@ -179,7 +179,7 @@ Nadat je de environment hebt geactiveerd (zie [environment activeren](virtual_en
     
 Je kan ook gelijk bij het [aanmaken van de virtual environment](#virtual-environment-aanmaken) aangeven welke packages je erin wilt hebben.
 
-<pre><code>(ecpc) > conda create --name my_env python=3.10 numpy <button type="button" name="conda create --name my_env python=3.10 numpy_venv" onclick="runScript('conda create --name my_env python=3.10 numpy_venv')">{{ enter }}</button><button type="button" name="conda create --name my_env python=3.10 numpy_venv" onclick="runScript('conda create --name my_env python=3.10 numpy_venv')" class="invisible">{{ reload }}</button>
+<pre><code>(ECPC) > conda create --name my_env python=3.10 numpy <button type="button" name="conda create --name my_env python=3.10 numpy_venv" onclick="runScript('conda create --name my_env python=3.10 numpy_venv')">{{ enter }}</button><button type="button" name="conda create --name my_env python=3.10 numpy_venv" onclick="runScript('conda create --name my_env python=3.10 numpy_venv')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="conda create --name my_env python=3.10 numpy_venv">Channels:
  - defaults
 Platform: osx-arm64
@@ -227,7 +227,7 @@ Om je te laten weten welke packages precies worden geïnstalleerd laat Conda laa
 Het kan gebeuren dat een environment niet goed lijkt te werken. Dan kan je een hele zoektoch starten om erachter te komen waardoor dat komt, maar vaak kun je het oplossen door het environment weg te gooien en een 'schone' aan te maken. Het weggooien doe je als volgt.
 
 === "conda"
-    <pre><code>(ecpc) > conda env remove --name my_env <button type="button" name="conda env remove --name my_env_venv" onclick="runScript('conda env remove --name my_env_venv')">{{ enter }}</button><button type="button" name="conda env remove --name my_env_venv" onclick="runScript('conda env remove --name my_env_venv')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > conda env remove --name my_env <button type="button" name="conda env remove --name my_env_venv" onclick="runScript('conda env remove --name my_env_venv')">{{ enter }}</button><button type="button" name="conda env remove --name my_env_venv" onclick="runScript('conda env remove --name my_env_venv')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="conda env remove --name my_env_venv">Remove all packages in environment path\to\environment\with\name\my_env:
     &nbsp;
     Everything found within the environment (path\to\environment\with\name\my_env), including any conda environment configurations and any non-conda files, will be deleted. Do you wish to continue?
@@ -237,7 +237,7 @@ Het kan gebeuren dat een environment niet goed lijkt te werken. Dan kan je een h
 
 Je kan ook de oude environment overschrijven door een nieuwe aan te maken met dezelfde naam, dan komt er wel een waarschuwing dat er al een environment met dezelfde naam bestaat en of je die wilt overschrijven.
 === "conda"
-    <pre><code>(ecpc) > conda create --name my_env <button type="button" name="conda create --name my_env_suffix" onclick="runScript('conda create --name my_env_suffix')">{{ enter }}</button><button type="button" name="conda create --name my_env_suffix" onclick="runScript('conda create --name my_env_suffix')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > conda create --name my_env <button type="button" name="conda create --name my_env_suffix" onclick="runScript('conda create --name my_env_suffix')">{{ enter }}</button><button type="button" name="conda create --name my_env_suffix" onclick="runScript('conda create --name my_env_suffix')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="conda create --name my_env_suffix">WARNING: A conda environment already exists at 'path\to\environment\with\name\my_env'
     Remove existing environment (y/[n])? </span>
     </code></pre>
@@ -316,7 +316,7 @@ Solving environment: done
 
 Het is ook mogelijk om gelijk bij het aanmaken van een nieuwe virtual environment aan te geven uit welke channel je packages wilt installeren.
 
-<pre><code>(ecpc) > conda create --name my_env --channel conda-forge pandas matplotlib lmfit <button type="button" name="conda create --name my_env --channel conda-forge pandas matplotlib lmfit_venv" onclick="runScript('conda create --name my_env --channel conda-forge pandas matplotlib lmfit_venv')">{{ enter }}</button><button type="button" name="conda create --name my_env --channel conda-forge pandas matplotlib lmfit_venv" onclick="runScript('conda create --name my_env --channel conda-forge pandas matplotlib lmfit_venv')" class="invisible">{{ reload }}</button>
+<pre><code>(ECPC) > conda create --name my_env --channel conda-forge pandas matplotlib lmfit <button type="button" name="conda create --name my_env --channel conda-forge pandas matplotlib lmfit_venv" onclick="runScript('conda create --name my_env --channel conda-forge pandas matplotlib lmfit_venv')">{{ enter }}</button><button type="button" name="conda create --name my_env --channel conda-forge pandas matplotlib lmfit_venv" onclick="runScript('conda create --name my_env --channel conda-forge pandas matplotlib lmfit_venv')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="conda create --name my_env --channel conda-forge pandas matplotlib lmfit_venv">Channels:
  - conda-forge
  - defaults

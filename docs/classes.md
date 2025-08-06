@@ -172,7 +172,7 @@ Het aanmaken van een class lijkt in een aantal opzichten op het aanmaken van een
         master_oogway.forward(50)
         ```
         <pre>
-        <code>(ecpc) > python fake_turtle.py
+        <code>(ECPC) > python fake_turtle.py
         <span class="invisible" name="fake_turtle">transform shape to... turtle
         move with 50 steps
         turn turtle counterclockwise by 30 degrees
@@ -275,7 +275,7 @@ Als we de method `#!py do_kungfu_move` aanroepen met `#!py master_oogway.do_kung
         toby.do_kungfu_move()
         ```
         <pre>
-        <code>(ecpc) > python fake_turtle.py
+        <code>(ECPC) > python fake_turtle.py
         <span class="invisible" name="fake_turtle_self">master_oogway=<\__main__.Turtle object at 0x10530b890>
         self=<\__main__.Turtle object at 0x10530b890>
         self=<\__main__.Turtle object at 0x103377980></span>
@@ -316,7 +316,7 @@ master_oogway = Turtle("turtle")
 print(master_oogway.quote)
 ```
 <pre>
-<code>(ecpc) > python turtles.py
+<code>(ECPC) > python turtles.py
 <span class="invisible" name="turtle_quote">"Yesterday is history, Tomorrow is a mystery, but Today is a gift. That is why it is called the present"</span>
 </code></pre></div>
 
@@ -394,7 +394,7 @@ print(master_oogway.quote)
         print(proton.name)
         ```
         <pre>
-        <code>(ecpc) > python particle.py
+        <code>(ECPC) > python particle.py
         <span class="invisible" name="particle">up
         down
         -0.5
@@ -467,7 +467,7 @@ print(master_oogway.quote)
 
         ```
         <pre>
-        <code>(ecpc) > python water_rocket.py
+        <code>(ECPC) > python water_rocket.py
         <span class="invisible" name="water_rocket">v=[28, 11]
         angles=[68, 15]
         x=[55.51602063607072, 6.167176350662587]

@@ -92,7 +92,7 @@ for num_bytes in [1, 2, 4, 8]:
     )
 ```
 <pre>
-<code>(ecpc) > python zen.py
+<code>(ECPC) > python zen.py
 <span class="invisible" name="zen.py">1 bytes = 8 bits which has 256 possible values.
 2 bytes = 16 bits which has 65536 possible values.
 4 bytes = 32 bits which has 4294967296 possible values.
@@ -141,7 +141,7 @@ Deze code is bovendien veel korter en gebruikt minder variabelen.
         --8<-- "uitwerkingen-on/iterator-on.py"
         ```
         <pre>
-        <code>(ecpc) > python iterator.py
+        <code>(ECPC) > python iterator.py
         <span class="invisible" name="iterator.py">The voltage is set to 0 mV.
         The voltage is set to 50 mV.
         The voltage is set to 100 mV.
@@ -191,7 +191,7 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
         --8<-- "uitwerkingen-on/list-square-on.py"
         ```
         <pre>
-        <code>(ecpc) > python list.py
+        <code>(ECPC) > python list.py
         <span class="invisible" name="list.py">Square of range 1 to 10 with three decimal places: 
         1.000
         1.414
@@ -263,7 +263,7 @@ Je kunt op verschillende manieren een NumPy array maken (na `#!py import numpy a
         --8<-- "uitwerkingen-on/numpy-array-on.py"
         ```
         <pre>
-        <code>(ecpc) > python np_array.py
+        <code>(ECPC) > python np_array.py
         <span class="invisible" name="np_array.py">1.000
         1.414
         1.732
@@ -302,7 +302,7 @@ Je kunt op verschillende manieren een NumPy array maken (na `#!py import numpy a
             --8<-- "uitwerkingen-on/dictionaries-on.py"
             ```
             <pre>
-            <code>(ecpc) > python dictionaries.py
+            <code>(ECPC) > python dictionaries.py
             <span class="invisible" name="dictionaries.py_suffix">dict_keys(['pi','g', 'c', 'e'])
             Gravity of an object with 14kg is: 137.34 N
             The resistance was: 20.00 &#937;</span>
@@ -420,7 +420,7 @@ filenames = ["test.out", "text.pdf", "manual.pdf", "files.zip"]
 pdfs = [name for name in filenames if name.endswith(".pdf")]
 print(f"{pdfs=}")
 ```
-<pre><code>(ecpc) > python pdf.py
+<pre><code>(ECPC) > python pdf.py
 <span class = "invisible" name="pdf">pdfs=['text.pdf', 'manual.pdf']</span>
 </code></pre></div>
 
@@ -443,7 +443,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         --8<-- "uitwerkingen-on/comprehension-on.py"
         ```
         <pre>
-        <code>(ecpc) > python for_loop.py
+        <code>(ECPC) > python for_loop.py
         <span class="invisible" name="for_loop.py">[1.0, 1.2599210498948732, 1.4422495703074083, 1.5874010519681994, 1.7099759466766968, 1.8171205928321397, 1.912931182772389, 2.0, 2.0800838230515904, 2.154434690031884]
         [1.0, 1.2599210498948732, 1.4422495703074083, 1.5874010519681994, 1.7099759466766968, 1.8171205928321397, 1.912931182772389, 2.0, 2.0800838230515904, 2.154434690031884]
         [1.         1.25992105 1.44224957 1.58740105 1.70997595 1.81712059 1.91293118 2.        2.08008382 2.15443469]</span>
@@ -458,7 +458,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     a = ["kiwi", "banana", "apple"]
     print(sorted(a))
     ```
-    <pre><code>(ecpc) > python sort.py <button type="button" name="python sort.py" onclick="runScript('python sort.py')">{{ enter }}</button><button type="button" name="python sort.py" onclick="runScript('python sort.py')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > python sort.py <button type="button" name="python sort.py" onclick="runScript('python sort.py')">{{ enter }}</button><button type="button" name="python sort.py" onclick="runScript('python sort.py')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="python sort.py">['apple', 'banana', 'kiwi']</span>
     </code></pre>
     Dat gaat heel makkelijk met de ingebouwde `#!py sorted()`-functie. Je kunt aan deze functie ook een `key`-parameter meegeven; een ándere functie die gebruikt wordt om te bepalen waarop gesorteerd moet worden. Zo kun je sorteren op de _lengte_ van de fruitnamen door simpelweg de `#!py len()`-functie als parameter mee te geven:
@@ -468,7 +468,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     print(len("apple"))
     print(sorted(a, key=len))
     ```
-    <pre><code>(ecpc) > python length.py <button type="button" name="python length.py" onclick="runScript('python length.py')">{{ enter }}</button><button type="button" name="python length.py" onclick="runScript('python length.py')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > python length.py <button type="button" name="python length.py" onclick="runScript('python length.py')">{{ enter }}</button><button type="button" name="python length.py" onclick="runScript('python length.py')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="python length.py">5
     ['kiwi', 'apple', 'banana']</span>
     </code></pre>
@@ -482,7 +482,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     print(second_letter("lemon"))
     print(sorted(a, key=second_letter))
     ```
-    <pre><code>(ecpc) > python second_letter.py <button type="button" name="python second_letter.py" onclick="runScript('python second_letter.py')">{{ enter }}</button><button type="button" name="python second_letter.py" onclick="runScript('python second_letter.py')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > python second_letter.py <button type="button" name="python second_letter.py" onclick="runScript('python second_letter.py')">{{ enter }}</button><button type="button" name="python second_letter.py" onclick="runScript('python second_letter.py')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="python second_letter.py">e
     ['banana', 'kiwi', 'apple']</span>
     </code></pre>
@@ -496,7 +496,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     second_letter = lambda value: value[1]
     print(sorted(a, key=second_letter))
     ```
-    <pre><code>(ecpc) > python lamda.py <button type="button" name="python lamda.py" onclick="runScript('python lamda.py')">{{ enter }}</button><button type="button" name="python lamda.py" onclick="runScript('python lamda.py')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > python lamda.py <button type="button" name="python lamda.py" onclick="runScript('python lamda.py')">{{ enter }}</button><button type="button" name="python lamda.py" onclick="runScript('python lamda.py')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="python lamda.py">16
     ['banana', 'kiwi', 'apple']</span>
     </code></pre>
@@ -506,7 +506,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
 
     print(sorted(a, key=lambda value: value[1]))
     ```
-    <pre><code>(ecpc) > python one_line.py <button type="button" name="python one_line.py" onclick="runScript('python one_line.py')">{{ enter }}</button><button type="button" name="python one_line.py" onclick="runScript('python one_line.py')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > python one_line.py <button type="button" name="python one_line.py" onclick="runScript('python one_line.py')">{{ enter }}</button><button type="button" name="python one_line.py" onclick="runScript('python one_line.py')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="python one_line.py">['banana', 'kiwi', 'apple']</span>
     </code></pre>
 
@@ -557,7 +557,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
 
     print(calculate_squares_up_to(5))
     ```
-    <pre><code>(ecpc) > python squares.py <button type="button" name="python squares.py" onclick="runScript('python squares.py')">{{ enter }}</button><button type="button" name="python squares.py" onclick="runScript('python squares.py')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > python squares.py <button type="button" name="python squares.py" onclick="runScript('python squares.py')">{{ enter }}</button><button type="button" name="python squares.py" onclick="runScript('python squares.py')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="python squares.py">[0, 1, 4, 9, 16]</span>
     </code></pre>
 
@@ -587,7 +587,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         print("Still calculating...")
         print(square)
     ```
-    <pre><code>(ecpc) > python squares.py <button type="button" name="squares.py_2" onclick="runScript('squares.py_2')">{{ enter }}</button><button type="button" name="squares.py_2" onclick="runScript('squares.py_2')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > python squares.py <button type="button" name="squares.py_2" onclick="runScript('squares.py_2')">{{ enter }}</button><button type="button" name="squares.py_2" onclick="runScript('squares.py_2')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="squares.py_2">Still calculating...
     0
     Still calculating...
@@ -612,7 +612,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
             --8<-- "uitwerkingen-on/generators-on.py"
             ```
             <pre>
-            <code>(ecpc) > python collatz.py
+            <code>(ECPC) > python collatz.py
             <span class="invisible" name="collatz.py">print the values of generator with next:
             3
             10
@@ -819,7 +819,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
             --8<-- "uitwerkingen-on/decorators-on.py"
             ```
             <pre>
-            <code>(ecpc) > python decorators.py.py
+            <code>(ECPC) > python decorators.py.py
             <span class="invisible" name="decorators.py_suffix">----------------------------------------
             Logging function call at year-month-date hours:minutes:seconds
             Function was called as follows:
@@ -849,7 +849,7 @@ print(math.pi)
 print(math.sin(.5 * math.pi))
 ```
 <pre>
-<code>(ecpc) > python math.py
+<code>(ECPC) > python math.py
 <span class="invisible" name="math">1.4142135623730951
 3.141592653589793
 1.0</span>
@@ -863,7 +863,7 @@ Je kunt je eigen code ook importeren, maar hier moet je wel even opletten. Stel,
 --8<-- "scripts/square-1.py"
 ```
 <pre>
-<code>(ecpc) > python square.py
+<code>(ECPC) > python square.py
 <span class="invisible" name="square.py_1">The square of 4 is 16</span>
 </code></pre></div>
 
@@ -873,7 +873,7 @@ De uitvoer is zoals verwacht. Maar nu willen we in een nieuw script, {{file}}`co
 --8<-- "scripts/count_count.py"
 ```
 <pre>
-<code>(ecpc) > python count_count.py
+<code>(ECPC) > python count_count.py
 <span class="invisible" name="count_count.py">The square of 4 is 16
 The square of 5 is 25</span>
 </code></pre></div>
@@ -896,9 +896,9 @@ De eerste oplossing is lang niet altijd wenselijk. Voor de tweede oplossing pas 
 ```
 Wanneer je een python script runt is de speciale variabele `#!py __name__` gelijk aan de string `__main__`. Maar als je een module importeert is
 `#!py __name__` gelijk aan de _naam_ van de module; in dit geval `#!py square`. Met bovenstaande constructie wordt de code alleen uitgevoerd wanneer de module direct gerund wordt:
-<pre><code>(ecpc) > python square.py <button type="button" name="square.py" onclick="runScript('square.py')">{{ enter }}</button><button type="button" name="square.py" onclick="runScript('square.py')" class="invisible">{{ reload }}</button>
+<pre><code>(ECPC) > python square.py <button type="button" name="square.py" onclick="runScript('square.py')">{{ enter }}</button><button type="button" name="square.py" onclick="runScript('square.py')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="square.py">The square of 4 is 16</span>
-(ecpc) > python count_count.py <button type="button" name="count_count_module.py" onclick="runScript('count_count_module.py')">{{ enter }}</button><button type="button" name="count_count_module.py" onclick="runScript('count_count_module.py')" class="invisible">{{ reload }}</button>
+(ECPC) > python count_count.py <button type="button" name="count_count_module.py" onclick="runScript('count_count_module.py')">{{ enter }}</button><button type="button" name="count_count_module.py" onclick="runScript('count_count_module.py')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="count_count_module.py">The square of 5 is 25</span>
 </code></pre>
 
@@ -1061,7 +1061,7 @@ Exceptions zijn de foutmeldingen van Python. Je krijgt ze als je bijvoorbeeld pr
 print(1/0)
 ```
 <pre>
-<code>(ecpc) > python divide.py
+<code>(ECPC) > python divide.py
 <span class="invisible" name="divide_suffix">Traceback (most recent call last):
     File "devide.py", line 1, in < module >
         print(1/0)
@@ -1078,7 +1078,7 @@ s = "particle"
 s.upler()
 ```
 <pre>
-<code>(ecpc) > python particle.py
+<code>(ECPC) > python particle.py
 <span class="invisible" name="particle.py">Traceback (most recent call last):
     File "particle.py", line 2, in < module >
         s.upler()
@@ -1150,7 +1150,7 @@ Merk op dat je een exception met traceback meestal van onder naar boven leest. O
     voltage = get_voltage(2)
     print(voltage)
     ```
-    <pre><code>(ecpc) > get_voltage.py <button type="button" name="get_voltage.py" onclick="runScript('get_voltage.py')">{{ enter }}</button><button type="button" name="get_voltage.py" onclick="runScript('get_voltage.py')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > get_voltage.py <button type="button" name="get_voltage.py" onclick="runScript('get_voltage.py')">{{ enter }}</button><button type="button" name="get_voltage.py" onclick="runScript('get_voltage.py')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="get_voltage.py">Traceback (most recent call last):
     File "get_voltage.py", line 1, in < module >
         get_voltage(2)
@@ -1194,7 +1194,7 @@ Merk op dat je een exception met traceback meestal van onder naar boven leest. O
             --8<-- "uitwerkingen-on/exceptions-on.py"
             ```
             <pre>
-            <code>(ecpc) > python exceptions.py
+            <code>(ECPC) > python exceptions.py
             <span class="invisible" name="exceptions.py">2.0
             Input is empty
             Input is not the correct type

@@ -461,7 +461,7 @@ Het viel je misschien op dat in bovenstaand CSV-bestand op iedere regel een waar
     --8<-- "scripts/with_zip.py"
     ```
     <pre>
-    <code>(ecpc) > python with_zip.py
+    <code>(ECPC) > python with_zip.py
     <span class="invisible" name="with_zip.py_suffix">1 1
     2 4
     3 9
@@ -473,7 +473,7 @@ Het viel je misschien op dat in bovenstaand CSV-bestand op iedere regel een waar
     --8<-- "scripts/with_indexing.py"
     ```
     <pre>
-    <code>(ecpc) > python with_indexing.py
+    <code>(ECPC) > python with_indexing.py
     <span class="invisible" name="with_indexing.py_suffix">1 1
     2 4
     3 9

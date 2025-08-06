@@ -107,7 +107,7 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
             Door het project in een source layout (src-layout) te bouwen maken we het _expres_ iets moeilijker om vanuit een script je package te importeren. Je kunt dat dan alleen nog maar doen door het package zelf ook te _installeren_ (zoals andere gebruikers ook moeten doen) en daardoor loop je zelf tegen eventuele problemen aan. Werkt het uiteindelijk bij jou? Dan werkt het _ook_ bij andere mensen.
     === "code"
         **Testcode**
-        <pre><code>(ecpc) > poetry new --src easystat <button type="button" name="poetry new --src easystat" onclick="runScript('poetry new --src easystat')">{{ enter }}</button><button type="button" name="poetry new --src easystat" onclick="runScript('poetry new --src easystat')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > poetry new --src easystat <button type="button" name="poetry new --src easystat" onclick="runScript('poetry new --src easystat')">{{ enter }}</button><button type="button" name="poetry new --src easystat" onclick="runScript('poetry new --src easystat')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="poetry new --src easystat">Created package easystat in easystat</span>
         </code></pre>
         
@@ -401,7 +401,7 @@ Package operations: 1 install, 0 updates, 0 removals
         print(f"{stdev_of_mean([1, 2, 2, 2, 3])=}")
         ```
         <pre>
-        <code>(ecpc) > python try_shortcuts.py
+        <code>(ECPC) > python try_shortcuts.py
         <span class="invisible" name="try_shortcuts_numpy">stdev_of_mean([1, 2, 2, 2, 3])=np.float64(0.282842712474619)</span>
         </code></pre></div>
         
@@ -463,7 +463,7 @@ Fijn! Het verwijderen van dependency `PACKAGE` gaat met `poetry remove PACKAGE`.
         1. Bekijk de namen van de bestanden in de nieuwe map {{folder}}`easystat/dist`, welke extensie hebben ze?
         
 
-    <pre><code>(ecpc) > poetry build <button type="button" name="poetry build" onclick="runScript('poetry build')">{{ enter }}</button><button type="button" name="poetry build" onclick="runScript('poetry build')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > poetry build <button type="button" name="poetry build" onclick="runScript('poetry build')">{{ enter }}</button><button type="button" name="poetry build" onclick="runScript('poetry build')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="poetry build">Building easystat (0.1.0)
         - Building sdist
         - Built easystat-0.1.0.tar.gz
@@ -505,7 +505,7 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
 
 !!! info
     Als je al bezig bent met een project dan werk je als het goed is al in een conda environment. Daar heb je dan met `conda install` al packages geïnstalleerd die je nodig hebt. Het gebeurt dan makkelijk dat je vergeet om dat aan te geven met `poetry add`. Dat betekent alleen dat als iemand anders je package installeert dat er dependencies missen en dat jouw code dus _niet_ werkt! Dit is makkelijk op te lossen. Zodra je Poetry gaat gebruiken _wis dan je environment en maak een nieuwe aan met alleen Python._ Dat gaat het makkelijkst als volgt. Stel dat je bezig bent in het environment `pythondaq`. We maken dan een nieuw environment met dezelfde naam:
-    <pre><code>(ecpc) > conda create --name pythondaq python=3.12 <button type="button" name="conda create --name pythondaq python=3.12" onclick="runScript('conda create --name pythondaq python=3.12')">{{ enter }}</button><button type="button" name="conda create --name pythondaq python=3.12" onclick="runScript('conda create --name pythondaq python=3.12')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > conda create --name pythondaq python=3.12 <button type="button" name="conda create --name pythondaq python=3.12" onclick="runScript('conda create --name pythondaq python=3.12')">{{ enter }}</button><button type="button" name="conda create --name pythondaq python=3.12" onclick="runScript('conda create --name pythondaq python=3.12')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="conda create --name pythondaq python=3.12">WARNING: A conda environment already exists at '/Users/david/opt/anaconda3/envs/pythondaq'
     Remove existing environment (y/[n])? y                                                                                                                                      
     ...</span>
@@ -572,7 +572,7 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
 
         ```
         <pre>
-        <code>(ecpc) > python flasherLED.py
+        <code>(ECPC) > python flasherLED.py
         <span class="invisible" name="flasherLED_poetry"><span>()</span>
         <span>Traceback (most recent call last):</span>
           File "c:\ECPC\flasher\src\flasher\flashingLED.py", line 8, in <module>
@@ -635,7 +635,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
         Nu de repository {{github}}`pythondaq` in de src-layout staat voeg je Poetry toe om het project te beheren {{lightbulb}}. Nadat alles gelukt is test je het project door een nieuwe conda environment aan te maken met de naam `pythondaq` met daarin alleen `python=3.12` {{lightbulb}}. Daarna installeer je het Poetry project {{lightbulb}} en wanneer je `run_experiment.py` runt zie je als vanouds een lampje branden en een plot verschijnen. 
     === "code"
         **Pseudo-code**
-        <pre><code>(ecpc) > poetry install <button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')">{{ enter }}</button><button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > poetry install <button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')">{{ enter }}</button><button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="poetry install_pythondaq"><span>Installing dependencies from lock file</span>
         <span></span>
         <span>Package operations: x installs, 0 updates, 0 removals</span>
@@ -724,7 +724,7 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
             main()
         ```
         <pre>
-        <code>(ecpc) > python count_count.py
+        <code>(ECPC) > python count_count.py
         <span class="invisible" name="count_count_main function">The square of 5 is 25</span>
         </code></pre></div>
         
@@ -787,7 +787,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
             Als je de Traceback leest zie je dat het probleem ontstaat in de module {{file}}`count_count.py`. Omdat Poetry altijd begint met zoeken vanuit de map {{folder}}`src` kan daar de module {{file}}`square.py` niet gevonden worden. Pas het import statement aan naar `#!py import just_count.square as square`.  
     === "code"
         **Pseudo-code**
-        <pre><code>(ecpc) > square <button type="button" name="square_test" onclick="runScript('square_test')">{{ enter }}</button><button type="button" name="square_test" onclick="runScript('square_test')" class="invisible">{{ reload }}</button>
+        <pre><code>(ECPC) > square <button type="button" name="square_test" onclick="runScript('square_test')">{{ enter }}</button><button type="button" name="square_test" onclick="runScript('square_test')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="square_test">Traceback (most recent call last):
         File "/base/envs/just_count/bin/square", line 3, in <module>
             from just_count.count_count import main
@@ -826,7 +826,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
             ```
             pas de regel aan zodat jouw commando de functie `#!py table()` aanroept in {{file}}`src/erroranalysis/data_analysis.py`. Je mag de naam van het commando zelf kiezen.
     1. Ga naar de terminal en kijk of het werkt!
-    <pre><code>(ecpc) > naam_commando <button type="button" name="naam_commando" onclick="runScript('naam_commando')">{{ enter }}</button><button type="button" name="naam_commando" onclick="runScript('naam_commando')" class="invisible">{{ reload }}</button>
+    <pre><code>(ECPC) > naam_commando <button type="button" name="naam_commando" onclick="runScript('naam_commando')">{{ enter }}</button><button type="button" name="naam_commando" onclick="runScript('naam_commando')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="naam_commando">Area of the kitchen table is: 1.8386 ± 0.0049 m</span>
     </code></pre>
 
@@ -871,7 +871,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
         import pythondaq.view
         ```
         <pre>
-        <code>(ecpc) > python test_imports.py
+        <code>(ECPC) > python test_imports.py
         <span class="invisible" name="test_imports_pythondaq">Traceback (most recent call last):
             File "c:\pythondaq\tests\test_imports.py", line 1, in < module >
                 import pythondaq.view

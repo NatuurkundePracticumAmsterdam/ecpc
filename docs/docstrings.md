@@ -26,7 +26,7 @@ def integers_up_to(number):
 help(integers_up_to)
 ```
 <pre>
-<code>(ecpc) > python integers_up_to.py
+<code>(ECPC) > python integers_up_to.py
 <span class="invisible" name="integers_up_to_help">Help on function integers_up_to in module __main__:
     
 integers_up_to(number)
@@ -94,7 +94,7 @@ Zo kunnen we gemakkelijk alles gaan invullen. Zo lang je niet op ++escape++ druk
             help(ArduinoVISADevice)
         ```
         <pre>
-        <code>(ecpc) > python arduino_device.py
+        <code>(ECPC) > python arduino_device.py
         <span class="invisible" name="arduino_device_help">Help on class ArduinoVISADevice in module __main__:
         class ArduinoVISADevice(builtins.object)
         |  Summary of class here.

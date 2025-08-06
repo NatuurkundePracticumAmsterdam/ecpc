@@ -88,7 +88,7 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
         --8<-- "uitwerkingen-on/break-on.py"
         ```
         <pre>
-        <code>(ecpc) > python print_and_break.py
+        <code>(ECPC) > python print_and_break.py
         <span class="invisible" name="print_and_break.py">The voltage is set to 50 mV.</span>
         </code></pre></div>
 
@@ -97,7 +97,7 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
         --8<-- "uitwerkingen-on/for-loop-on.py"
         ```
         <pre>
-        <code>(ecpc) > python for_loop.py
+        <code>(ECPC) > python for_loop.py
         <span class="invisible" name="for_loop.py">The voltage is set to 0 mV.
         The voltage is set to 50 mV.
         The voltage is set to 100 mV.
@@ -147,7 +147,7 @@ Bij de cursus inleiding programmeren heb je de basis van het programmeren in Pyt
         --8<-- "uitwerkingen-on/lists-on.py"
         ```
         <pre>
-        <code>(ecpc) > python lijsten.py
+        <code>(ECPC) > python lijsten.py
         <span class="invisible" name="lijsten.py">The ninth month is called September.
         ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'trēdecimber']</span>
         </code></pre></div>
@@ -203,7 +203,7 @@ Ook heb je geleerd om functies uit andere (python) modules te importeren, meer h
         --8<-- "uitwerkingen-on/read-txt-on.py"
         ```
         <pre>
-        <code>(ecpc) > python txt_bestanden_lezen.py
+        <code>(ECPC) > python txt_bestanden_lezen.py
         <span class="invisible" name="txt_bestanden_lezen.py">"Do you have a favourite
         saying?" asked the boy.
         "Yes" said the mole
