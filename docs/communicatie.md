@@ -421,6 +421,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
+        - [ ] Environment aanmaken
         - [ ] PyVISA in Pythonscript
         - [ ] LED laten branden
         - [ ] flashingLED
@@ -431,42 +432,60 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
 
 --8<-- "docs/assets/comparison/compare_shell_script.html"
 
-<div id="opd:condaenv"></div>
+<div id="opd:test_arduino"></div>
+!!! opdracht-basis "Pythonscript aanmaken"
+    === "opdracht"
+        <div class="grid-tree" markdown>
+            <div>
+            Je gaat de gegeven Pythoncode testen. Hiervoor open je in Visual Studio Code de map {{folder}}`ECPC` en maak je een bestand {{new_file}}`test_arduino.py` aan. Je kopieert de gegeven Pythoncode in dit bestand. Je ziet dat Visual Studio Code rechtsonder aangeeft dat je nog geen virtual environment hebt geselecteerd (de bruinige waarschuwing _Select Interpreter_). We moeten dus nog een environment aanmaken.
+            </div>
+            <div>
+            {{folder}}`ECPC`  
+            {{T}}{{new_file}}`test_arduino.py`  
+            {{L}}{{dots}}  
+            </div>
+        </div>
+
+<div id="opd:venv"></div>
 !!! opdracht-basis "Environment aanmaken"
     === "opdracht"
-        Open een `Anaconda Prompt`, die je kunt vinden via de zoekbalk van Windows. Maak de conda environment `pythondaq` aan en installeer de benodigde packages. Gebruik hiervoor het volgende commando:
-
+        Open een Terminal in je Visual Studio Code-omgeving (**Menu > Terminal > New Terminal**). Maak de virtual environment aan met:
         ``` ps1 title="Terminal"
-        conda create --name pythondaq --channel conda-forge python pyvisa-py
+        uv venv -p 3.13
         ```
-        Om een conda environment daadwerkelijk te gebruiken moet je die altijd eerst _activeren_. Voor het activeren van de environment `pythondaq` gebruik je het volgende commando:
+        Met `-p 3.13` geven we aan: gebruik Pythonversie 3.13 (released in 2024). Je mag dat weglaten en dan kiest uv op basis van Pythonversies die je al geïnstalleerd hebt staan, maar als je een te oude versie gebruikt werken sommige dingen misschien niet.
+
+        Om een virtual environment daadwerkelijk te gebruiken kun je die _activeren_. Dat kun je doen door in de pop-up "We've noticed that..." te kiezen voor "Yes", of door rechtsonderin op _Select Interpreter_ te klikken en dan te kiezen voor de omgeving (Python 3.13.x (ECPC) `.\.venv\Scripts\python.exe`). Je **moet** de terminal dan sluiten (type `exit` of klik op het prullenbakje) en een nieuwe terminal openen. Als het terminal goed geactiveerd is staat er nu `(ECPC)` aan het begin van de prompt (opdrachtregel waar je je commando's intypt).
+        
+        Installeer de benodigde packages met:
         ``` ps1 title="Terminal"
-        conda activate pythondaq
+        uv pip install pyvisa pyvisa-py pyserial
         ```
     === "check"
         **Checkpunten**
 
-        - [ ] Je hebt een conda environment met de naam `pythondaq` aangemaakt.
-        - [ ] De environment bevat de packages `python` en `pyvisa-py`. 
-        - [ ] De environment is geactiveerd.
+        - [ ] Je hebt een virtual environment aangemaakt.
+        - [ ] De environment bevat de packages `pyvisa`, `pyvisa-py` en `pyserial`. 
+        - [ ] De environment is geactiveerd (er staat `(ECPC)` aan het begin van de prompt).
 
         **Projecttraject**
 
-        - [x] Schakeling bouwen
+        - [x] Vergelijk script met `pyvisa-shell`
         - [x] Environment aanmaken
-        - [ ] PyVISA in terminal
-        - [ ] PyVISA commando's `list` en `open`
-        - [ ] PyVISA commando `query`
-        - [ ] Terminator characters demo
-        - [ ] PyVISA regeleindes
-        - [ ] PyVISA LED laten branden
+        - [ ] PyVISA in Pythonscript
+        - [ ] LED laten branden
+        - [ ] flashingLED
+        - [ ] Account aanmaken
+        - [ ] Van bestaande map repository maken
+        - [ ] Commit 
+        - [ ] Push en pull
 
 <div id="opd:test_arduino"></div>
 !!! opdracht-basis "PyVISA in Pythonscript"
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Je gaat de gegeven Pythoncode testen. Hiervoor open je in Visual Studio Code de map {{folder}}`ECPC` en maak je een bestand {{new_file}}`test_arduino.py` aan. Je kopieert de gegeven Pythoncode in dit bestand. Je ziet dat de code gebruik maakt van de package `pyvisa` daarom selecteer je de environment die je bij [opdracht Environment aanmaken](#opd:condaenv) hebt gemaakt. Je slaat het bestand op en runt het bestand.
+            Je gaat de gegeven Pythoncode testen. Je selecteert het environment dat je bij [opdracht Environment aanmaken](#opd:venv) hebt gemaakt. Je slaat het bestand op en runt het bestand.
             </div>
             <div>
             {{folder}}`ECPC`  
@@ -515,6 +534,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
+        - [x] Environment aanmaken
         - [x] PyVISA in Pythonscript
         - [ ] LED laten branden
         - [ ] flashingLED
@@ -576,6 +596,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
+        - [x] Environment aanmaken
         - [x] PyVISA in Pythonscript
         - [x] LED laten branden
         - [ ] flashingLED
@@ -638,6 +659,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
+        - [x] Environment aanmaken
         - [x] PyVISA in Pythonscript
         - [x] LED laten branden
         - [x] flashingLED
