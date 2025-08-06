@@ -81,7 +81,7 @@ nav:
   - classes.md
   - mvc.md
   - docstrings.md
-  - poetry.md
+  - projects.md
   - cli.md
   - tui.md
   - gui.md

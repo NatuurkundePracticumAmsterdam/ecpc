@@ -329,7 +329,7 @@ Solving environment: done
 </code></pre>
 
 ## Poetry
-Als je Poetry gebruikt als dependencie manager (zie [hoofdstuk Poetry](poetry.md)) dan moet je er rekening mee houden dat Poetry achter de schermen pip gebruikt om packages te installeren. 
+Als je Poetry gebruikt als dependencie manager (zie [hoofdstuk Poetry](projects.md)) dan moet je er rekening mee houden dat Poetry achter de schermen pip gebruikt om packages te installeren. 
 Dus als je eerst met conda een virtual environment aanmaakt en alleen een naam opgeeft, dan zit er niets in de virtual environment. Ook pip zit er niet in, waardoor Poetry niets kan installeren. 
 
 ![Een virtual environment weergegeven als een gereedschapskist met de naam `my_env` welke open staat en leeg is](figures/venv/toolbox-open.svg){ width=500}

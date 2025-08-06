@@ -1,4 +1,4 @@
-# Poetry
+# Python projects met uv
 
 In de vorige hoofdstukken heb je gewerkt met een eigen conda environment zodat je jouw pythonomgeving mooi gescheiden kan houden van andere studenten die op dezelfde computer werken en voor het isoleren van de verschillende projecten waar je aan werkt. Dit is echt _de_ oplossing voor alle problemen waarbij volledige Pythoninstallaties onbruikbaar kunnen worden &mdash; waarna je alles opnieuw moet installeren.
 
