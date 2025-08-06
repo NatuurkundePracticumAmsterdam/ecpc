@@ -339,7 +339,7 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
     === "opdracht"
         <iframe src="https://drive.google.com/file/d/1-26rnvYwTZ_I7PgUX85Don21qevgHLv0/preview" width="620" height="349" style="border:none;"></iframe>
     
-        Bekijk bovenstaande video. In deze video wordt een meting van de spanning $x_n$ keer herhaald. De groene rechthoek geeft de onzekerheid op een individuele meting weer. Het gemiddelde van alle metingen wordt weergegeven met een roze lijn. De roze rechthoek geeft de onzekerheid op het gemiddelde weer.  
+        Bekijk bovenstaande video, eventueel een paar keer. In deze video wordt een meting van de spanning $x_n$ keer herhaald. De groene rechthoek geeft de onzekerheid op een individuele meting weer. Het gemiddelde van alle metingen wordt weergegeven met een roze lijn. De roze rechthoek geeft de onzekerheid op het gemiddelde weer.  
 
         1. Wat gebeurt er met de onzekerheid op een individuele meting als je de meting vaker herhaalt?
         2. Wat gebeurt er met de onzekerheid op het gemiddelde als je een meting vaker herhaalt? 
@@ -386,8 +386,7 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
         ```py title="diode-experiment.py"
         # connect to Arduino
 
-        # set output voltage from 0 to max
-          # set number of repeated measurements
+        # set output voltage from 0 to max <-> set number of repeated measurements
             # measure voltages
             # calculate voltage LED
             # calculate current LED
@@ -395,7 +394,7 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
           # calculate average voltage LED and uncertainty
           # calculate average current LED and uncertainty
 
-          # print average voltage: average_voltage_LED +/- err_average_voltage_LED V  average current: average_current_LED +/- err_average_current_LED A
+        # print a list of average voltage: average_voltage_LED +/- err_average_voltage_LED V  average current: average_current_LED +/- err_average_current_LED A
 
         # plot average_current_LED vs average_voltage_LED
         ```      
