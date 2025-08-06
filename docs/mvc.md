@@ -25,10 +25,10 @@ __Controller__
 Het opsplitsen van je programma _hoeft niet in één keer!_ Dit kan stapsgewijs. Je kunt starten met een eenvoudig script &mdash; zoals we hierboven gedaan hebben &mdash; en dat langzaam uitbreiden. ![Klik hier](assets/eastereggs/ECPC-purple.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met 'CTRL' + '/?' kun je stukken geselecteerde code uitcommentariëren en weer decommentariëren. Probeer maar eens!"} Je begint klein, verdeelt je code in lagen en bouwt vervolgens verder.
 
 ## Implementeren van MVC
-Het opsplitsen van het {{file}}`diode-experiment.py` in MVC gaan we stapsgewijs doen. We gaan een class maken voor de aansturing van de Arduino, deze class valt in de categorie _controller_.
+Het opsplitsen van het {{file}}`diode_experiment.py` in MVC gaan we stapsgewijs doen. We gaan een class maken voor de aansturing van de Arduino, deze class valt in de categorie _controller_.
 
 !!! opdracht-inlever "Pythondaq: open repository"
-    Open in GitHub Desktop de repository van {{github}}`pythondaq` en open de repository in Visual Studio Code. In de volgende opdrachten ga je het {{file}}`diode-experiment.py` uitbreiden en opsplitsen in MVC.
+    Open in GitHub Desktop de repository van {{github}}`pythondaq` en open de repository in Visual Studio Code. In de volgende opdrachten ga je het {{file}}`diode_experiment.py` uitbreiden en opsplitsen in MVC.
 
 <div id="opd:meting-class"></div>
 !!! opdracht-inlever "Pythondaq: controller bouwen"
@@ -39,7 +39,7 @@ Het opsplitsen van het {{file}}`diode-experiment.py` in MVC gaan we stapsgewijs 
 
     === "code"
         **Pseudo-code**
-        ``` py title='test-controller.py'
+        ``` py title='test_controller.py'
         # def list_resources
         #    return list of available ports
 
@@ -64,7 +64,7 @@ Het opsplitsen van het {{file}}`diode-experiment.py` in MVC gaan we stapsgewijs 
                 
         ```
         **Testcode:**
-        <div class="code-box"><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="run">{{ run }}</button><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="reload invisible">{{ reload }}</button> test-controller.py
+        <div class="code-box"><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="run">{{ run }}</button><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="reload invisible">{{ reload }}</button> test_controller.py
         ``` py
         # get available ports
         print(list_resources())
@@ -92,7 +92,7 @@ Het opsplitsen van het {{file}}`diode-experiment.py` in MVC gaan we stapsgewijs 
         print(f"{ch0_value=}")
         ```
         <pre>
-        <code>(ecpc) > python test-controller.py
+        <code>(ecpc) > python test_controller.py
         <span class="invisible" name="basisscript_controller">('ASRL28::INSTR', ) 
         Arduino VISA firmware v1.1.0
         ch2_value=224
@@ -123,10 +123,10 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
 
 !!! opdracht-inlever "Pythondaq: controller implementeren"
     === "opdracht"
-        Zet je controller code (zonder de testcode) in het bestand {{file}}`diode-experiment.py`. Pas de code die de meting uitvoert aan zodat deze gebruikt maakt van de class `#!py ArduinoVISADevice` en de bijbehorende methods. 
+        Zet je controller code (zonder de testcode) in het bestand {{file}}`diode_experiment.py`. Pas de code die de meting uitvoert aan zodat deze gebruikt maakt van de class `#!py ArduinoVISADevice` en de bijbehorende methods. 
     === "code"
         **Pseudo-code**
-        ``` py title='diode-experiment.py'
+        ``` py title='diode_experiment.py'
         # def list_resources
         #   ...
 
@@ -148,7 +148,7 @@ Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experime
         **Checkpunten:**
 
         - [ ] In een script staan `#!py list_resources()`, `#!py ArduinoVISADevice()` en de code om de LED te laten branden, metingen te doen en het resultaat te laten zien.
-        - [ ] Wanneer de class `#!py ArduinoVISADevice()` uit het script wordt geknipt, werkt {{file}}`diode-experiment.py` niet meer.
+        - [ ] Wanneer de class `#!py ArduinoVISADevice()` uit het script wordt geknipt, werkt {{file}}`diode_experiment.py` niet meer.
         - [ ] Er wordt een lijst gegeven van aangesloten instrumenten.
         - [ ] Er wordt een plot getoond van de spanning over en de stroomsterkte door de LED.
         - [ ] De spanning over en de stroomsterkte door de LED worden weggeschreven in een CSV-bestand.
@@ -172,20 +172,20 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
         <div class="grid-tree" markdown>
             <div>
-            In latere opdrachten ga je een command-line interface en een grafische user interface maken voor het experiment. Daarom is het handig om alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten. Het bestand {{file}}`#!py arduino_device.py` bevat de class `#!py ArduinoVISADevice` en de functie `#!py list_resources()`. Deze class en functie importeer je in het bestand {{file}}`diode-experiment.py`. Het (test)script {{file}}`#!py test-controller.py` kun je verwijderen.
+            In latere opdrachten ga je een command-line interface en een grafische user interface maken voor het experiment. Daarom is het handig om alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten. Het bestand {{file}}`#!py arduino_device.py` bevat de class `#!py ArduinoVISADevice` en de functie `#!py list_resources()`. Deze class en functie importeer je in het bestand {{file}}`diode_experiment.py`. Het (test)script {{file}}`#!py test_controller.py` kun je verwijderen.
             </div>
             <div>
             {{folder}} `ECPC`   
             {{T}} {{github}} `pythondaq`  
             {{tab}} {{T}} {{new_file}} `arduino_device.py`  
-            {{tab}} {{T}} {{file}} `diode-experiment.py`  
+            {{tab}} {{T}} {{file}} `diode_experiment.py`  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{dots}}  
             </div>
         </div>
 
         !!! info "error"
-            Waarschijnlijk krijg je nog een of meerdere errors als je {{file}}`diode-experiment.py` runt. Lees het error bericht goed door, om welk bestand gaat het {{file}}`arduino_device.py` of {{file}}`diode-experiment.py`? Wat is er volgens het error bericht niet goed?
+            Waarschijnlijk krijg je nog een of meerdere errors als je {{file}}`diode_experiment.py` runt. Lees het error bericht goed door, om welk bestand gaat het {{file}}`arduino_device.py` of {{file}}`diode_experiment.py`? Wat is er volgens het error bericht niet goed?
     === "code"
         **Pseudo-code**
         ``` py title="arduino_device.py"
@@ -195,7 +195,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         # class ArduinoVISADevice
             ...
         ```
-        ``` py title="diode-experiment.py"
+        ``` py title="diode_experiment.py"
         from arduino_device import ArduinoVISADevice, list_resources
         
         # get list resources
@@ -213,7 +213,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         **Checkpunten:**
 
         - [ ] Alle directe communicatie met de Arduino, firmwarecommando's en pyvisacommando's, staan in de controller.
-        - [ ] Runnen van {{file}}`diode-experiment.py` zorgt ervoor dat een meting start.
+        - [ ] Runnen van {{file}}`diode_experiment.py` zorgt ervoor dat een meting start.
         - [ ] Er wordt een lijst gegeven van aangesloten instrumenten.
         - [ ] Er wordt een plot getoond van de spanning over en de stroomsterkte door de LED.
         - [ ] De spanning over en de stroomsterkte door de LED worden weggeschreven in een CSV-bestand.
@@ -230,7 +230,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
 ???+ opdracht-meer "`#!py if __name__ == '__main__'`"
     === "opdracht"
-        Later wil je de functie `#!py list_resources()` netjes in het hele model-view-controller systeem vlechten zodat je als gebruiker de lijst kunt opvragen, maar voor nu wil je af en toe even zien aan welke poort de Arduino hangt. Wanneer je het script {{file}}`arduino_device.py` runt wordt er een lijst geprint met poorten. Dit gebeurt niet wanneer het bestand {{file}}`diode-experiment.py` wordt gerund. 
+        Later wil je de functie `#!py list_resources()` netjes in het hele model-view-controller systeem vlechten zodat je als gebruiker de lijst kunt opvragen, maar voor nu wil je af en toe even zien aan welke poort de Arduino hangt. Wanneer je het script {{file}}`arduino_device.py` runt wordt er een lijst geprint met poorten. Dit gebeurt niet wanneer het bestand {{file}}`diode_experiment.py` wordt gerund. 
 
         !!! info "modules"
             Nog niet bekend met `#!py if __name__ == '__main__'`? kijk dan voor meer informatie in de [paragraaf modules](vervolg-python.md#modules).
@@ -248,7 +248,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         # print list ports not if arduino_device.py is imported as a module in another script
 
         ```
-        ``` py title="diode-experiment.py"
+        ``` py title="diode_experiment.py"
         from arduino_device import ArduinoVISADevice, list_resources
         
         # connect to Arduino via ArduinoVISADevice
@@ -265,7 +265,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         **Checkpunten:**
 
         - [ ] Er wordt een lijst met poorten geprint wanneer {{file}}`arduino_device.py` wordt gerund.
-        - [ ] De lijst wordt _niet_ geprint wanneer {{file}}`diode-experiment.py` wordt gerund.
+        - [ ] De lijst wordt _niet_ geprint wanneer {{file}}`diode_experiment.py` wordt gerund.
 
 !!! opdracht-inlever "Pythondaq: model afsplitsen"
     === "opdracht"

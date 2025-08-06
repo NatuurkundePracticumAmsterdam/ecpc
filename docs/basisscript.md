@@ -237,19 +237,19 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
     
         <div class="grid-tree" markdown>
             <div>
-            Je maakt een bestand {{file}}`diode-experiment.py` aan in de nieuwe repository {{github}} `pythondaq`, waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Je moet hiervoor ook weer opnieuw een virtual environment aanmaken (zie [opdracht Environment aanmaken](communicatie.md#opd:venv)). Tijdens het oplopen van de spanning over de LED lees je de verschillende spanningen uit. Je print steeds een regel met: ruwe waarde spanning over LED, voltage over LED, ruwe waarde spanning over weerstand, voltage over weerstand.
+            Je maakt een bestand {{file}}`diode_experiment.py` aan in de nieuwe repository {{github}} `pythondaq`, waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Je moet hiervoor ook weer opnieuw een virtual environment aanmaken (zie [opdracht Environment aanmaken](communicatie.md#opd:venv)). Tijdens het oplopen van de spanning over de LED lees je de verschillende spanningen uit. Je print steeds een regel met: ruwe waarde spanning over LED, voltage over LED, ruwe waarde spanning over weerstand, voltage over weerstand.
             </div>
             <div>
             {{folder}} `ECPC`  
             {{T}} {{github}} `oefenopdrachten`  
             {{L}} {{github}} `pythondaq`  
-            {{tab}} {{T}} {{new_file}} `diode-experiment.py`  
+            {{tab}} {{T}} {{new_file}} `diode_experiment.py`  
             {{tab}} {{L}} {{dots}}  
             </div>
         </div>
     === "code"
         **Pseudo-code**
-        ``` py title="diode-experiment.py"
+        ``` py title="diode_experiment.py"
         # connect to Arduino
 
         # set output voltage from 0 to max
@@ -296,7 +296,7 @@ Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetp
 
     === "code"
         **Pseudo-code**
-        ``` py title="diode-experiment.py"
+        ``` py title="diode_experiment.py"
         # connect to Arduino
 
         # set output voltage from 0 to max
@@ -379,11 +379,11 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
 <div id="opd:herhaalmetingen"></div>
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
     === "opdracht"
-        Je gaat nu de code zo aanpassen dat je daadwerkelijk iets kunt zeggen over de onzekerheid op de spanning over de LED en de stroom door de LED. Dit doe je door een meting meerdere keren te herhalen. Je kijkt eerst naar de opbouw van de code en maakt aantekeningen over wat er waar en hoe in de code aangepast moet worden. Daarna kijk je naar je repository {{github}}`pythondaq` en controleer je dat de nu-nog-werkende-code gecommit is. Vervolgens ga je stap voor stap &mdash; en commit na commit &mdash; de code aanpassen. Als je klaar bent, run je {{file}}`diode-experiment.py` met het aantal herhaalmetingen op 3 en zie je in de grafiek foutenvlaggen op de metingen voor de stroom en de spanning staan. Je kijkt op het beeldscherm van je buurmens en ziet daar ook foutenvlaggen verschijnen. Met een grijs kijken jullie elkaar aan en geven jullie elkaar een high five {{feesttoeter}}
+        Je gaat nu de code zo aanpassen dat je daadwerkelijk iets kunt zeggen over de onzekerheid op de spanning over de LED en de stroom door de LED. Dit doe je door een meting meerdere keren te herhalen. Je kijkt eerst naar de opbouw van de code en maakt aantekeningen over wat er waar en hoe in de code aangepast moet worden. Daarna kijk je naar je repository {{github}}`pythondaq` en controleer je dat de nu-nog-werkende-code gecommit is. Vervolgens ga je stap voor stap &mdash; en commit na commit &mdash; de code aanpassen. Als je klaar bent, run je {{file}}`diode_experiment.py` met het aantal herhaalmetingen op 3 en zie je in de grafiek foutenvlaggen op de metingen voor de stroom en de spanning staan. Je kijkt op het beeldscherm van je buurmens en ziet daar ook foutenvlaggen verschijnen. Met een grijs kijken jullie elkaar aan en geven jullie elkaar een high five {{feesttoeter}}
 
     === "code"
         **Pseudo-code**
-        ```py title="diode-experiment.py"
+        ```py title="diode_experiment.py"
         # connect to Arduino
 
         # set output voltage from 0 to max <-> set number of repeated measurements
@@ -544,7 +544,7 @@ Je kunt het wegschrijven van de regels natuurlijk vervangen door een `#!py for`-
 
     === "code"
         **Pseudo-code**
-        ``` py title="diode-experiment.py"
+        ``` py title="diode_experiment.py"
         # connect to Arduino
 
         # set output voltage from 0 to max
