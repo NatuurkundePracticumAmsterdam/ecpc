@@ -86,7 +86,7 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         - [ ] PyVISA LED laten branden
 
 !!! info
-    Om met Python via het VISA-protocol te kunnen communiceren met apparaten heb je specifieke packages nodig. Die gaan we later installeren in een _virtual environment_. Voor meer informatie over virtual environments zie de [Appendix _Virtual Environments_](virtual_environments.md). Tijdens testen is het vaak niet nodig om packages te installeren, maar je moet dan wel steeds opnieuw intypen wat je nodig hebt. _Tip:_ gebruik in de terminal pijltje omhoog om commando's terug te halen die je eerder hebt ingetypt. Ieder pijltje omhoog laat een ouder commando zien. Dit scheelt veel typewerk!
+    Om met Python via het VISA-protocol te kunnen communiceren met apparaten heb je specifieke packages nodig. Die gaan we later installeren in een _virtual environment_. Voor meer informatie over virtual environments zie de [Appendix _Virtual Environments_](virtual_environments.md). Tijdens testen is het vaak niet nodig om packages te installeren, maar je moet dan wel steeds opnieuw intypen wat je nodig hebt.
 
 <div id="opd:pyvisaterminal"></div>
 !!! opdracht-basis "PyVISA in terminal"
