@@ -432,7 +432,6 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
 
 --8<-- "docs/assets/comparison/compare_shell_script.html"
 
-<div id="opd:test_arduino"></div>
 !!! opdracht-basis "Pythonscript aanmaken"
     === "opdracht"
         <div class="grid-tree" markdown>
