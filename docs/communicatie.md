@@ -121,7 +121,7 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         - [ ] Na het openen van een `pyvisa-shell` staat er op een nieuwe regel `(visa)`.
         - [ ] Als je `help` intypt verschijnt er een heel rijtje met commando's.
         - [ ] Als je `help exit` intypt krijg je de hulpvaardige tekst: `Exit the shell session.`
-        - [ ] Als je de `pyvisa-shell` met een commando afsluit staat daarna de naam van de conda environment weer tussen haakjes op een nieuwe regel (en niet `(visa)`).
+        - [ ] Als je de `pyvisa-shell` met een commando afsluit staat daarna de naam (visa) niet meer op de laatste regel.
        
         **Projecttraject**
 
@@ -526,9 +526,9 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "check"
         **Checkpunten**
 
-        - [ ] Je hebt het juiste conda environment geselecteerd (zie ook [paragraaf _Conda environments_](virtual_environments.md#activeren-en-deactiveren)).
+        - [ ] Je hebt het juiste environment geselecteerd (zie ook [paragraaf _Virtual environments_](virtual_environments.md#activeren-en-deactiveren)).
         - [ ] Je opent de poort met de naam van jouw Arduino (in het geval dat jouw Arduino niet 'ASRL28::INSTR' heet). 
-        - [ ] Je hebt alle terminals (ook de `Anaconda Prompt`) gesloten waarin communicatie met de Arduino openstond. 
+        - [ ] Je hebt alle terminals (ook de `Terminal` buiten Visual Studio Code) gesloten waarin communicatie met de Arduino openstond. 
         - [ ] Je krijgt een lijst met poorten en de identificatiestring terug als je het script runt.
 
         **Projecttraject**
@@ -585,9 +585,9 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "check"
         **Checkpunten**
 
-        - [ ] Je hebt het juiste conda environment geselecteerd (zie ook [paragraaf _Conda environments_](virtual_environments.md#activeren-en-deactiveren)).
+        - [ ] Je hebt het juiste environment geselecteerd (zie ook [paragraaf _Virtual environments_](virtual_environments.md#activeren-en-deactiveren)).
         - [ ] Je opent de poort met de naam van jouw Arduino (in het geval dat jouw Arduino niet 'ASRL28::INSTR' heet). 
-        - [ ] Je hebt alle terminals (ook de `Anaconda Prompt`) gesloten waarin communicatie met de Arduino openstond. 
+        - [ ] Je hebt alle terminals (ook de `Terminal` buiten Visual Studio Code) gesloten waarin communicatie met de Arduino openstond. 
         - [ ] Je krijgt een lijst met poorten en de identificatiestring terug als je het script runt.
         - [ ] Je laat de spanning oplopen van de minimale tot de maximale waarde. 
         - [ ] Als je goed kijkt zie je de LED vertraagd oplichten.
