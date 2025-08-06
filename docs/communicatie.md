@@ -365,7 +365,7 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
 
 Je hebt via de shell contact gelegd met de hardware. Nu wordt het tijd om, met de documentatie[@pyvisa] in de aanslag, hetzelfde vanuit Python te doen. Als je met een nieuw project begint is het helemaal geen gek idee om een kort script te schrijven waarin je wat dingen uitprobeert. Als alles lijkt te werken kun je het netjes gaan maken en gaan uitbreiden. We beginnen hier met een eenvoudig script en zullen dat daarna gaan verfijnen.
 
-We lopen het voorbeeldscript eerst regel voor regel door en geven het volledige script aan het eind. Allereerst importeer je de `pyvisa`-bibliotheek met:
+We lopen het voorbeeldscript eerst regel voor regel door en geven het volledige script aan het eind. Je hoeft nu dus alleen maar te lezen en nog geen code uit te voeren. Allereerst importeer je de `pyvisa`-bibliotheek met:
 ``` py
 import pyvisa
 ```
@@ -389,7 +389,7 @@ Tenslotte stuur je een query naar de Arduino:
 ``` py
 device.query("*IDN?")
 ```
-Het volledige script &mdash; met een paar `#!py print`-statements &mdash; ziet er dan als volgt uit:
+Het volledige script &mdash; met een paar `#!py print`-statements &mdash; ziet er dan als volgt uit (bekijk de code, druk op de runknop linksboven de code, maar type het nog niet in):
 
 <div class="code-box"><button type="button" name="test_arduino" onclick="runScript('test_arduino')" class="run">{{ run }}</button><button type="button" name="test_arduino" onclick="runScript('test_arduino')" class="reload invisible">{{ reload }}</button> test_arduino.py
 ``` py
@@ -408,7 +408,7 @@ print(identification)
 <pre>
 <code>(ecpc) > python test_arduino.py
 <span class="invisible" name="test_arduino">('ASRL28::INSTR',)
-Arduino VISA firmware v1.0.0</span>
+Arduino VISA firmware v1.1.0</span>
 </code></pre></div>
 
 De output van het script is afhankelijk van het systeem en het aantal apparaten dat verbonden is.
