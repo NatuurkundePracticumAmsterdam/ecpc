@@ -521,7 +521,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         <pre>
         <code>(ECPC) > python test_arduino.py
         <span class="invisible" name="test_arduino_test_code">('ASRL28::INSTR',)
-        Arduino VISA firmware v1.0.0</span>
+        Arduino VISA firmware v1.1.0</span>
         </code></pre></div>
     === "check"
         **Checkpunten**

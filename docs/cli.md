@@ -999,7 +999,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         De gebruiker test het subcommando `info` met de volgende handelingen. Eerst heeft de gebruiker met het commando `diode list` een lijst van aangesloten devices opgevraagd. De gebruiker wil weten wat de identificatiestring is van het apparaat dat aan een bepaalde poortnaam hangt. De gebruiker geeft daarom de poortnaam mee als argument aan het subcommando `info` waarna de identificatiestring van het instrument in de terminal wordt geprint. 
 
         !!! info "identificatiestring"
-            De identificatiestring van onze Arduino was `Arduino VISA firmware v1.0.0`. Je moet natuurlijk niet letterlijk deze string copy/pasten, maar de identificatie opvragen van het instrument. Welk firmwarecommando moest je daarvoor ook alweer gebruiken?
+            De identificatiestring van onze Arduino was `Arduino VISA firmware v1.1.0`. Je moet natuurlijk niet letterlijk deze string copy/pasten, maar de identificatie opvragen van het instrument. Welk firmwarecommando moest je daarvoor ook alweer gebruiken?
         
     === "code"
         **Pseudo-code**
@@ -1009,7 +1009,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         ```
         **Testcode**
         <pre><code>(ecpc) > diode info ASRL28::INSTR <button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')">{{ enter }}</button><button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="diode info ASRL28::INSTR">Arduino VISA firmware v1.0.0</span>
+        <span class="invisible" name="diode info ASRL28::INSTR">Arduino VISA firmware v1.1.0</span>
         </code></pre>
 
     === "check"
