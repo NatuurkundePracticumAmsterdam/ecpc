@@ -237,7 +237,11 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
 
 !!! opdracht-basis "Terminator characters demo"
     === "opdracht"
-        Je vraagt je misschien af wat het betekent dat er bij het schrijven en lezen regeleindes gebruikt worden. Daarom open je de [Termchar-demo](https://textual-web.io/natuurkundepracticum-amsterdam/termchar-demo). Je gaat naar de _Basic_ tab, daar zie je twee inputvelden voor de client (dat ben jij) en de server (dat is de Arduino).
+        Je vraagt je misschien af wat het betekent dat er bij het schrijven en lezen regeleindes gebruikt worden. Daarom open je de _Termination Character Demo_ door een Terminal te starten en in te typen:
+        ```shell
+        uvx termchar-demo
+        ```
+        Je gaat naar de _Basic_ tab, daar zie je twee inputvelden voor de client (dat ben jij) en de server (dat is de Arduino).
         
         Je schrijft een commando `measure_voltage` naar de Arduino (druk op _Write_). In het _Input_ veld van de Arduino verschijnt jouw commando maar het staat nog niet in de _Application Log_, het is dus nog niet door de Arduino verwerkt. Want de _Read Termination Characters_ van de Arduino zijn `\n`(LF), die gaat dus pas lezen als die tekens zijn verstuurd. Je verstuurt `\n` en ziet dat het commando wordt verwerkt en jij een antwoord krijgt. 
 
@@ -264,7 +268,7 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
         - [ ] PyVISA LED laten branden
 
 ???+ opdracht-meer "Terminator characters demo: input buffer en timeout"
-    Ga opnieuw naar de [Termchar-demo](https://textual-web.io/natuurkundepracticum-amsterdam/termchar-demo) en lees de laatste stappen van de _Introduction_ tab. Open de _Advanced_ tab en voer de stappen uit. 
+    Ga opnieuw naar de Termination Character Demo en lees de laatste stappen van de _Introduction_ tab. Open de _Advanced_ tab en voer de stappen uit. 
 
 
 ![Klik hier](assets/eastereggs/ECPC-silver.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met '↑' (pijltje omhoog) kun je in een terminal de vorige commando's terughalen. Probeer maar eens!"} Je gaat nu de regeleindes instellen in PyVISA:
