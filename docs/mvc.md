@@ -33,7 +33,7 @@ Het opsplitsen van het {{file}}`diode-experiment.py` in MVC gaan we stapsgewijs 
 <div id="opd:meting-class"></div>
 !!! opdracht-inlever "Pythondaq: controller bouwen"
     === "opdracht"
-        Je schrijft een script waarmee je de Arduino aanstuurt. 
+        Je schrijft een script {{file}}`test_controller.py` waarmee je de Arduino aanstuurt. 
         </br></br>
         Een gebruiker test de door jou geschreven controller met de volgende handelingen. De gebruiker vraag een lijst met beschikbare poorten op met de functie `#!py list_resources()`. De gebruiker weet aan welke poort de Arduino hangt en gebruikt deze poortnaam om een instance aan te maken van de class `ArduinoVISADevice`. Met deze class kan de gebruiker met de Arduino communiceren. Met de method `#!py get_identification()` vraagt de gebruiker de identificatiestring op. De gebruiker zet met de method `#!py set_output_value()` om een waarde van 828 op het uitvoerkanaal 0, de gebruiker zit de LED branden en weet daarom dat de method werkt. De gebruiker vraag met de method `#!py get_input_value()` de spanning op kanaal 1 op, dit herhaald de gebruiker vervolgens voor kanaal 2. Met de method `#!py get_input_voltage()` vraagt de gebruiker de spanning op in volt. De gebruiker rekent de gegeven waarde van `#!py get_input_value()` op kanaal 1 om naar volt en ziet dat deze overeenkomt met de gegeven spanning door de method `#!py get_input_voltage()` op kanaal 1. 
 
@@ -43,23 +43,24 @@ Het opsplitsen van het {{file}}`diode-experiment.py` in MVC gaan we stapsgewijs 
         # def list_resources
         #    return list of available ports
 
-        # class ArduinoVISADevice
-        #    def init (ask port from user)
-                ...
+        # class ArduinoVISADevice:
+        #    def __init__ (ask port from user)
+        #        open device
+        #
         #    def get_identification
-        #       return identification string of connected device
+        #        return identification string of connected device
         #
         #   def set_output_value
-        #       set a value on the output channel
+        #        set a value on the output channel
         #
         #   def get_output_value
-        #       get the value of the output channel
+        #        get the value of the output channel
         #      
         #   def get_input_value
-        #       get input value from input channel
+        #        get input value from input channel
         #
         #   def get_input_voltage
-        #       get input value from input channel in Volt
+        #        get input value from input channel in Volt
                 
         ```
         **Testcode:**
@@ -171,7 +172,7 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
 
         <div class="grid-tree" markdown>
             <div>
-            In latere opdrachten ga je een command-line interface en een grafische user interface maken voor het experiment. Daarom is het handig om alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten. Het bestand {{file}}`#!py arduino_device.py` bevat de class `#!py ArduinoVISADevice` en de functie `#!py list_resources()`. Deze class en functie importeer je in het bestand {{file}}`diode-experiment.py`.
+            In latere opdrachten ga je een command-line interface en een grafische user interface maken voor het experiment. Daarom is het handig om alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten. Het bestand {{file}}`#!py arduino_device.py` bevat de class `#!py ArduinoVISADevice` en de functie `#!py list_resources()`. Deze class en functie importeer je in het bestand {{file}}`diode-experiment.py`. Het (test)script {{file}}`#!py test-controller.py` kun je verwijderen.
             </div>
             <div>
             {{folder}} `ECPC`   
