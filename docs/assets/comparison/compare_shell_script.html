@@ -1,7 +1,7 @@
 <div class="container" style="overflow:hidden">
-<div style="width: 55%; float: left;">
-<pre>
-<code><span><span id="shell_pyvisa" class="comparison"><span onmouseover="hoverFunction('shell_pyvisa')" onmouseout="hoverFunction('shell_pyvisa')">PS> pyvisa-shell </span><span onmouseover="hoverFunction('shell_backend')" onmouseout="hoverFunction('shell_backend')"><span id="shell_backend" class="comparison">-b py</span></span><span onmouseover="hoverFunction('shell_pyvisa')" onmouseout="hoverFunction('shell_pyvisa')">
+    <div style="width: 55%; float: left;">
+        <pre>
+<code><span><span id="shell_pyvisa" class="comparison"><span onmouseover="hoverFunction('shell_pyvisa')" onmouseout="hoverFunction('shell_pyvisa')">PS> pyvisa-shell </span><span onmouseover="hoverFunction('shell_backend')" onmouseout="hoverFunction('shell_backend')"><span id="shell_backend" class="comparison">--backend py</span></span><span onmouseover="hoverFunction('shell_pyvisa')" onmouseout="hoverFunction('shell_pyvisa')">
 
 Welcome to the VISA shell. Type help or ? to list commands.</span></span></span>
 
@@ -18,10 +18,10 @@ The default end of message is added to each message.</span></span>
 <span><span class="comparison" id="shell_idn"><span onmouseover="hoverFunction('shell_idn')" onmouseout="hoverFunction('shell_idn')">(open) </span><span onmouseover="hoverFunction('shell_query')" onmouseout="hoverFunction('shell_query')"><span id="shell_query" class="comparison">query</span></span> <span onmouseover="hoverFunction('shell_*IDN?')" onmouseout="hoverFunction('shell_*IDN?')"><span id="shell_*IDN?" class="comparison">*IDN?</span></span></span></span></span>
 <span onmouseover="hoverFunction('shell_printidn')" onmouseout="hoverFunction('shell_printidn')"><span class="comparison" id="shell_printidn">Response: Arduino VISA firmware v1.0.0</span></span>
 </code></pre>
-</div>
+    </div>
 
-<div style="width: 40%; float: right;">
-<pre>
+    <div style="width: 40%; float: right;">
+        <pre>
 <code><span><span id="python_pyvisa" class="comparison"><span onmouseover="hoverFunction('python_pyvisa')" onmouseout="hoverFunction('python_pyvisa')"><span style="color: var(--md-code-hl-keyword-color);">import</span> <span style="color: var(--md-code-hl-function-color);">pyvisa</span>
 
 rm = pyvisa.ResourceManager(</span><span onmouseover="hoverFunction('python_backend')" onmouseout="hoverFunction('python_backend')"><span id="python_backend" class="comparison"><span style="color: var(--md-code-hl-string-color);">"@py"</span></span></span><span onmouseover="hoverFunction('python_pyvisa')" onmouseout="hoverFunction('python_pyvisa')">)</span></span>
@@ -35,6 +35,6 @@ rm = pyvisa.ResourceManager(</span><span onmouseover="hoverFunction('python_back
 )</span></span>
 <span><span class="comparison" id="python_idn"><span onmouseover="hoverFunction('python_idn')" onmouseout="hoverFunction('python_idn')">identification = device.</span><span onmouseover="hoverFunction('python_query')" onmouseout="hoverFunction('python_query')"><span id="python_query" class="comparison">query</span></span>(<span onmouseover="hoverFunction('python_*IDN?')" onmouseout="hoverFunction('python_*IDN?')"><span id="python_*IDN?" class="comparison"><span style="color: var(--md-code-hl-string-color);">"*IDN?"</span></span></span><span onmouseover="hoverFunction('python_idn')" onmouseout="hoverFunction('python_idn')">)</span></span></span></span>
 <span onmouseover="hoverFunction('python_printidn')" onmouseout="hoverFunction('python_printidn')"><span class="comparison" id="python_printidn"><span style="color: var(--md-code-hl-constant-color);">print</span>(identification)</span></span></code></pre>
-</div>
+    </div>
 
 </div>
