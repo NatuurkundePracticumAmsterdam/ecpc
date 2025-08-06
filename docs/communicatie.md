@@ -77,7 +77,6 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         **Projecttraject**
 
         - [x] Schakeling bouwen
-        - [ ] Environment aanmaken
         - [ ] PyVISA in terminal
         - [ ] PyVISA commando's `list` en `open`
         - [ ] PyVISA commando `query`
@@ -127,7 +126,6 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         **Projecttraject**
 
         - [x] Schakeling bouwen
-        - [x] Environment aanmaken
         - [x] PyVISA in terminal
         - [ ] PyVISA commando's `list` en `open`
         - [ ] PyVISA commando `query`
@@ -183,7 +181,6 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         **Projecttraject**
 
         - [x] Schakeling bouwen
-        - [x] Environment aanmaken
         - [x] PyVISA in terminal
         - [x] PyVISA commando's `list` en `open`
         - [ ] PyVISA commando `query`
@@ -218,7 +215,6 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         **Projecttraject**
 
         - [x] Schakeling bouwen
-        - [x] Environment aanmaken
         - [x] PyVISA in terminal
         - [x] PyVISA commando's `list` en `open`
         - [x] PyVISA commando `query`
@@ -259,7 +255,6 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
         **Projecttraject**
     
         - [x] Schakeling bouwen
-        - [x] Environment aanmaken
         - [x] PyVISA in terminal
         - [x] PyVISA commando's `list` en `open`
         - [x] PyVISA commando `query`
@@ -275,7 +270,7 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
 
 !!! opdracht-basis "PyVISA regeleindes"
     === "opdracht"
-        Je gaat weer terug naar de `Anaconda prompt`. Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je deze moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige instellingen van de regeleindes op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Je bekijkt nog een keer de instellingen om te controleren of de regeleindes nu wel goed staan. Je gaat terug naar de [opdracht PyVISA commando `query`](#opd:pyvisa_query) en krijgt een response in plaats van een error. 
+        Je gaat weer terug naar de Terminal, en opent een pyvisa-shell. Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je deze moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige instellingen van de regeleindes op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Je bekijkt nog een keer de instellingen om te controleren of de regeleindes nu wel goed staan. Je gaat terug naar de [opdracht PyVISA commando `query`](#opd:pyvisa_query) en krijgt een response in plaats van een error. 
 
         !!! info "\r\n en CRLF"
             Bij de _Termination characters demo_ maakte je gebruik van `\r\n`, dat is de programmeertaal equivalent van `CRLF`.
@@ -312,13 +307,12 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
         ```
         - [ ] Als je het commando `query` verstuurt om de identificatiestring uit te lezen, verschijnt er:  
         ``` consolecode
-        Response: Arduino VISA firmware v1.0.0
+        Response: Arduino VISA firmware v1.1.0
         ```
 
         **Projecttraject**
 
         - [x] Schakeling bouwen
-        - [x] Environment aanmaken
         - [x] PyVISA in terminal
         - [x] PyVISA commando's `list` en `open`
         - [x] PyVISA commando `query`
@@ -360,7 +354,6 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
         **Projecttraject**
 
         - [x] Schakeling bouwen
-        - [x] Environment aanmaken
         - [x] PyVISA in terminal
         - [x] PyVISA commando's `list` en `open`
         - [x] PyVISA commando `query`
