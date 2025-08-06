@@ -101,7 +101,7 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
 
         ```
         **Testcode**
-        <pre><code>(ecpc) > uvx --from pyvisa --with pyvisa-py --with pyserial pyvisa-shell --backend py <button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')">{{ enter }}</button><button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')" class="invisible">{{ reload }}</button>
+        <pre><code>> uvx --from pyvisa --with pyvisa-py --with pyserial pyvisa-shell --backend py <button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')">{{ enter }}</button><button type="button" name="pyvisa-shell" onclick="runScript('pyvisa-shell')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="pyvisa-shell">
         Welcome to the VISA shell. Type help or ? to list commands.    
         (visa)
@@ -406,7 +406,7 @@ identification = device.query("*IDN?")
 print(identification)
 ```
 <pre>
-<code>(ecpc) > python test_arduino.py
+<code>(ECPC) > python test_arduino.py
 <span class="invisible" name="test_arduino">('ASRL28::INSTR',)
 Arduino VISA firmware v1.1.0</span>
 </code></pre></div>
@@ -519,7 +519,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         print(identification)
         ```
         <pre>
-        <code>(ecpc) > python test_arduino.py
+        <code>(ECPC) > python test_arduino.py
         <span class="invisible" name="test_arduino_test_code">('ASRL28::INSTR',)
         Arduino VISA firmware v1.0.0</span>
         </code></pre></div>
@@ -579,7 +579,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         print(final_value)
         ```
         <pre>
-        <code>(ecpc) > python test_LED.py
+        <code>(ECPC) > python test_LED.py
         <span class="invisible" name="test_LED">1023</span>
         </code></pre></div>        
     === "check"
