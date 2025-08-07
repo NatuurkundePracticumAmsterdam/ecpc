@@ -24,40 +24,47 @@ Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. uv is in k
 !!! opdracht-basis "Werken in een terminal"
     uv is een tool die je enkel en alleen in de terminal kunt gebruiken. Het heeft alleen een command-line interface (CLI). Ben je nog niet zo bekend met het navigeren in een terminal dan kun je als oefening de [Terminal Adventure Game](terminal-adventure-game.md) spelen.
 
-We gaan uv bedienen door commando's te geven in de terminal van Visual Studio Code. We laten de terminal weten welk programma wij willen gaan besturen, door `uv` in te typen. En daarachter wat we willen dat uv gaat doen. We kunnen bijvoorbeeld kijken welke versie van uv we gebruiken met het commando `--version`. Als we helemaal geen commando geven geeft uv (veel) helptekst. Bovenaan die tekst (je moet even terugscrollen met de muis waarschijnlijk) staat een lijst commando's die je kunt gebruiken.
+We gaan uv bedienen door commando's te geven in de terminal van Visual Studio Code. We laten de terminal weten welk programma wij willen gaan besturen, door `uv` in te typen. En daarachter wat we willen dat uv gaat doen. We kunnen bijvoorbeeld kijken welke commando's allemaal beschikbaar zijn met `uv help`. Dat geeft een vrij lange lijst die je terug kunt scrollen in de terminal, maar je kunt ook `uv help | more` intypen om de tekst per pagina weer te geven.[^more]
 
-<pre><code>(ECPC) > uv <button type="button" name="filename_suffix" onclick="runScript('filename_suffix')">{{ enter }}</button><button type="button" name="filename_suffix" onclick="runScript('filename_suffix')" class="invisible">{{ reload }}</button>
+[^more]: `more` is een programma die aangeleverde tekst per pagina laat zien, waar je met ++space++ een volgende pagina te zien krijgt. Met ++enter++ krijg je maar één regel extra en met ++q++ sluit je het programma meteen af. Het `|` karakter stuurt output door. Dus `uv help | more` stuurt de output van `uv help` door naar het programma `more`.
+
+<pre><code>(ECPC) > uv help | more <button type="button" name="filename_suffix" onclick="runScript('filename_suffix')">{{ enter }}</button><button type="button" name="filename_suffix" onclick="runScript('filename_suffix')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="filename_suffix">An extremely fast Python package manager.
 
-Usage: uv.exe [OPTIONS] <COMMAND>
+Usage: uv [OPTIONS] <COMMAND>
 
 Commands:
-  run      Run a command or script
-  init     Create a new project
-  add      Add dependencies to the project
-  remove   Remove dependencies from the project
-  version  Read or update the project's version
-  sync     Update the project's environment
-  lock     Update the project's lockfile
-  export   Export the project's lockfile to an alternate format
-  tree     Display the project's dependency tree
-  tool     Run and install commands provided by Python packages
-  python   Manage Python versions and installations
-  pip      Manage Python packages with a pip-compatible interface
-  venv     Create a virtual environment
-  build    Build Python packages into source distributions and wheels
-  publish  Upload distributions to an index
-  cache    Manage uv's cache
-  self     Manage the uv executable
-  help     Display documentation for a command
+  run                        Run a command or script
+  init                       Create a new project
+  add                        Add dependencies to the project
+  remove                     Remove dependencies from the project
+  version                    Read or update the project's version
+  sync                       Update the project's environment
+  lock                       Update the project's lockfile
+  export                     Export the project's lockfile to an alternate format
+  tree                       Display the project's dependency tree
+  tool                       Run and install commands provided by Python packages
+  python                     Manage Python versions and installations
+  pip                        Manage Python packages with a pip-compatible interface
+  venv                       Create a virtual environment
+  build                      Build Python packages into source distributions and wheels
+  publish                    Upload distributions to an index
+  cache                      Manage uv's cache
+  self                       Manage the uv executable
+  generate-shell-completion  Generate shell completion
+  help                       Display documentation for a command
 
-...(nog veel meer output)...
-
-Use `uv help` for more details.</span>
+Cache options:
+  -n, --no-cache               Avoid reading from or writing to the cache, instead using a temporary directory for the
+                               duration of the operation [env: UV_NO_CACHE=]
+      --cache-dir <CACHE_DIR>  Path to the cache directory [env: UV_CACHE_DIR=]
+-- More  --</span>
 </code></pre>
 
 !!! opdracht-basis "uv help"
-    Open een terminal en vraag informatie over uv op met het commando `uv`. Lees de tekst die uv aan je teruggeeft, waar kan je meer informatie vinden? We hebben het commando `uv pip` al eerder gebruikt (waarvoor ook alweer?). Vraag eens meer informatie over het commando `uv pip`. Hoe kun je een lijst krijgen van alle packages die geïnstalleerd staan in je virtual environment? Voer dat commando uit. Voer ook het commando uit om een 'dependency tree' te krijgen. Wat houdt dat in? Overleg met je buurmens zodat jullie het eens zijn over de antwoorden op deze vragen.
+    Open een terminal en vraag informatie over uv op met het commando `uv`. Lees de tekst die uv aan je teruggeeft vluchtig door tot het eind; waar kan je meer informatie vinden?[^laatsteregel] We hebben het commando `uv pip` al eerder gebruikt (waarvoor ook alweer?). Vraag eens meer informatie over het commando `pip`. Hoe kun je een lijst krijgen van alle packages die geïnstalleerd staan in je virtual environment? Voer dat commando uit. Voer ook het commando uit om een 'dependency tree' te krijgen. Wat houdt dat in? Overleg met je buurmens zodat jullie het eens zijn over de antwoorden op deze vragen.
+
+[^laatsteregel]: Hint: lees de laatste regel.
 
 !!! info
     Zoals je gezien hebt heeft `uv` dus heel veel verschillende commando's. uv is een Zwitsers zakmes: het bevat heel veel tools voor wie dat nodig heeft. Wij hebben lang niet alles nodig dus laat je daardoor niet uit het veld slaan. In de rest van dit hoofdstuk vertellen we precies wat je _wel_ nodig hebt. Als je meer wilt weten kun je het beste [de documentatie](https://docs.astral.sh/uv/) lezen.
