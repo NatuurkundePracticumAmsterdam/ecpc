@@ -70,37 +70,43 @@ Cache options:
     Zoals je gezien hebt heeft `uv` dus heel veel verschillende commando's. uv is een Zwitsers zakmes: het bevat heel veel tools voor wie dat nodig heeft. Wij hebben lang niet alles nodig dus laat je daardoor niet uit het veld slaan. In de rest van dit hoofdstuk vertellen we precies wat je _wel_ nodig hebt. Als je meer wilt weten kun je het beste [de documentatie](https://docs.astral.sh/uv/) lezen.
 
 
-## Nieuw Poetry project
+## Nieuw uv project
 !!! info
     We gaan werken met modules en packages. Ben je daar nog niet zo bekend mee, zorg dan dat je [paragraaf _Modules_](vervolg-python.md#modules) en [paragraaf _packages_](vervolg-python.md#packages) gemaakt hebt.
 
 Stel je wilt een package schrijven met wat handige functies om veelgebruikte statistische berekeningen makkelijk uit te voeren. Je noemt het `easystat`. Het doel is eerst om het in al je eigen analyses makkelijk te kunnen gebruiken (`#!py import easystat`) maar je wilt het ook op GitHub zetten en wie weet vinden anderen het ook handig! Je wilt het dus ook _netjes_ doen. En niet later van anderen horen: <q>leuk, maar bij mij werkt het niet!</q>
 
-!!! opdracht-basis "Easystat Poetry project aanmaken"
+!!! opdracht-basis "Easystat uv project aanmaken"
     === "opdracht"
-        Een project stop je altijd in een map {{folder}} , als je aan Poetry vraagt om een project te maken zal er een _nieuwe_ (project)map worden aangemaakt.
-        Je denkt na over een geschikte locatie en besluit dat de projectmap in de {{folder}}`ECPC` map moet komen te staan. Je opent Visual Studio Code en opent de map {{folder}}`ECPC`. Je opent een terminal en controleert dat de terminal ook in de map {{folder}}`ECPC` is. 
-        Je geeft Poetry de opdracht om een nieuw project met de naam {{folder}}`easystat` aan te maken in de src-layout[@srclayout] met het commando `poetry new --src easystat`. Je bekijkt de nieuw gemaakte mappenstructuur en ziet dat het overeenkomt met de mappenstructuur zoals hieronder weergegeven:
+        1. Open Github Desktop en ga naar het dropdownmenu **File**. Kies hier voor `New repository ...`. Geef de repository de naam `easystat` en zet de repository in de map {{folder}}`ECPC`. Vink `Initialize this repository with a README` aan en kies bij `Git ignore` voor <q>Python</q>.
+        2. Open de repository {{github}} `easystat` in Visual Studio Code.
+        3. Open een Terminal in je Visual Studio Code-omgeving (**Menu > Terminal > New Terminal**). Maak het uv project aan met:
+        ``` ps1 title="Terminal"
+        uv init --package
+        ```
+        4. Je bekijkt de nieuw gemaakte mappenstructuur en ziet dat het overeenkomt met de mappenstructuur zoals hieronder weergegeven:
 
-        {{folder}} `ECPC`  
-        {{T}} {{github}} `oefenopdrachten`  
-        {{T}} {{github}} `pythondaq`  
-        {{T}} {{new_folder}} `easystat`  
-        {{tab}} {{T}} {{new_folder}} `src`  
-        {{tab}} {{tab}} {{L}} {{new_folder}} `easystat`  
-        {{tab}} {{tab}} {{tab}} {{L}} {{new_file}} `__init__.py`  
-        {{tab}} {{T}} {{new_folder}} `tests`  
-        {{tab}} {{tab}} {{L}} {{new_file}} `__init__.py`  
-        {{tab}} {{T}} {{new_file_lines}} `pyproject.toml`  
-        {{tab}} {{L}} {{new_file_lines}} `readme.md`  
-        {{L}} {{folder}} {{dots}}  
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{T}} {{github}} `pythondaq`  
+            {{T}} {{github}} `easystat`  
+            {{tab}} {{T}} {{new_folder}} `src`  
+            {{tab}} {{tab}} {{L}} {{new_folder}} `easystat`  
+            {{tab}} {{tab}} {{tab}} {{L}} {{new_file}} `__init__.py`  
+            {{tab}} {{T}} {{new_file_lines}} `.gitattributes`  
+            {{tab}} {{T}} {{new_file_lines}} `.gitignore`  
+            {{tab}} {{T}} {{new_file_lines}} `.python-version`  
+            {{tab}} {{T}} {{new_file_lines}} `pyproject.toml`  
+            {{tab}} {{L}} {{new_file_lines}} `README.md`  
+            {{L}} {{folder}} {{dots}}  
 
         !!! info "src-layout"
-            Door het project in een source layout (src-layout) te bouwen maken we het _expres_ iets moeilijker om vanuit een script je package te importeren. Je kunt dat dan alleen nog maar doen door het package zelf ook te _installeren_ (zoals andere gebruikers ook moeten doen) en daardoor loop je zelf tegen eventuele problemen aan. Werkt het uiteindelijk bij jou? Dan werkt het _ook_ bij andere mensen.
+            Door het project in een source layout (src-layout) te bouwen (`easystat` zit in een mapje `src`) staat al je Pythoncode netjes bij elkaar weggestopt. Dit maakt het makkelijker om te testen of het installeren goed werkt zodat je zeker weet dat andere mensen met jouw code aan de slag kunnen.
+
     === "code"
         **Testcode**
-        <pre><code>(ECPC) > poetry new --src easystat <button type="button" name="poetry new --src easystat" onclick="runScript('poetry new --src easystat')">{{ enter }}</button><button type="button" name="poetry new --src easystat" onclick="runScript('poetry new --src easystat')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="poetry new --src easystat">Created package easystat in easystat</span>
+        <pre><code>(ECPC) > uv init --package <button type="button" name="uv init --package" onclick="runScript('uv init --package')">{{ enter }}</button><button type="button" name="uv init --package" onclick="runScript('uv init --package')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="uv init --package">Initialized project \`easystat\`</span>
         </code></pre>
         
     === "check"
@@ -119,8 +125,6 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
         - [ ] Easystat Poetry install
         - [ ] Easystat dependencies toevoegen
 
-
-Bekijk nog eens de mappenstructuur. Allereerst is er een projectmap {{folder}}`easystat` (waar de map {{folder}}`src` in staat) aangemaakt . Je kunt nu in GitHub Desktop deze map {{folder}}`easystat` toevoegen als nieuwe repository, zoals we gedaan hebben in [opdracht _Repository toevoegen_](github.md#opd:add_repository).
 
 Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaakt. We zien een {{file_lines}}`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van ons project.[^README]
 
