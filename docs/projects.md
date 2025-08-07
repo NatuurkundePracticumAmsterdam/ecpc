@@ -126,40 +126,42 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
         - [ ] Easystat dependencies toevoegen
 
 
-Laten we één voor één kijken welke mappen en bestanden Poetry heeft aangemaakt. We zien een {{file_lines}}`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van ons project.[^README]
+Laten we één voor één kijken welke mappen en bestanden uv heeft aangemaakt. We hadden al een {{file_lines}}`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van ons project.[^README]
 
 [^README]: Wanneer de repository op GitHub wordt geplaatst wordt deze README automatisch op de hoofdpagina van de repository getoond, onder de code.
 
-Daarna is er een map {{folder}}`tests`. Goede software wordt getest. In deze map komen bestanden te staan die delen van de code runnen en resultaten vergelijken met verwachte resultaten &mdash; zoals je kunt doen in [opdracht _Packages_](vervolg-python.md#opd:test_package).[^unittest]
-
-[^unittest]: Python heeft een ingebouwde module `#!py unittest` die deze tests kan vinden, kan runnen en daarna een handige weergave geeft van welke tests geslaagd zijn en welke faalden. Ook het package `#!py pytest` is erg bekend. Op deze manier weet je altijd zeker dat wanneer je aanpassingen doet in je code, dat de rest van de code nog steeds is blijven werken &mdash; zónder dat je zelf uitvoerig alles hebt hoeven uitproberen. Je draait gewoon even snel alle tests. Helaas, helaas &mdash; in deze cursus is te weinig tijd om het schrijven van tests te behandelen.
-
-Dan komt de {{folder}}`src`-map. Daarin komt ons nieuwe package {{folder}}`easystat`[^projectmap] te staan. Er is alvast voor ons een {{file}}`__init__.py` aangemaakt. Handig!
+Dan komt de {{folder}}`src`-map. Daarin komt ons nieuwe package {{folder}}`easystat`[^projectmap] te staan. Er is alvast voor ons een {{file}}`__init__.py` aangemaakt. Handig! De bestanden {{file}}`.gitattributes` en {{file}}`.gitignore` bewaren wat instellingen voor git, en {{file}}`.python-version` bewaart het versienummer van Python dat uv gebruikt. Vul je daar 3.12 in? Dan installeert uv Python 3.12 in je virtual environment.
 
 [^projectmap]: Ja er is een map {{folder}}`easystat` met daarin een map {{folder}}`src` met daarin weer een map {{folder}}`easystat` &mdash; dat kan nog wel eens verwarrend zijn. Het is conventie om de projectmap dezelfde naam te geven als je package. Het pad is dus eigenlijk {{folder}}`project/src/package` en dat wordt dan, in ons geval, {{folder}}`easystat/src/easystat`.
 
 En als laatste&hellip; een {{file}}`pyproject.toml`[^setup.py] waarin alle informatie over je project wordt bijgehouden. Ook staat er in dit bestand informatie voor de verschillende tools die je kunt gebruiken. De inhoud van het bestand ziet er ongeveer zo uit:
 ``` toml
-[tool.poetry]
+[project]
 name = "easystat"
 version = "0.1.0"
-description = ""
-authors = ["David Fokkema <davidfokkema @ icloud.com>"]
+description = "Add your description here"
 readme = "README.md"
-packages = [{include = "easystat", from = "src"}]
+authors = [
+    { name = "David Fokkema", email = "davidfokkema@icloud.com" }
+]
+requires-python = ">=3.13"
+dependencies = []
 
-[tool.poetry.dependencies]
-python = "^3.13"
-
+[project.scripts]
+easystat = "easystat:main"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["uv_build>=0.8.4,<0.9.0"]
+build-backend = "uv_build"
 ```
 
 [^setup.py]: Vroeger was er een `setup.py` maar Python schakelt nu langzaam over naar dit nieuwe bestand.
 
-Het bestand is in het TOML-formaat.[@TOML] Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. Overal zie je `poetry` terugkomen, want dat is de tool die wij gebruiken. In de eerste sectie staat informatie over ons project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. De tweede sectie bevat de _dependencies_. Dit zijn alle Pythonpackages die ons project nodig heeft. Op dit moment is dat alleen maar Python. Ook het versienummer van Python is belangrijk. Hier is dat 3.13 en het dakje geeft aan dat nieuwere versies 3.14, 3.15, enz. ook prima zijn, maar 3.12 (te oud) en 4.0 (te nieuw) _niet_. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python &mdash; bijvoorbeeld versie 3.11 &mdash; kunnen nu het package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.13 nodig hebt kun je aangeven dat een iets oudere versie van Python ook prima is. Op dit moment &mdash; herfst 2024 &mdash; is Python 3.13 de nieuwste versie. Het is dus prima om minimaal 3.12 te vragen &mdash; die versie is inmiddels een jaar oud.
+Het bestand is in het TOML-formaat.[@TOML] Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. In de eerste sectie staat informatie over ons project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. Ook bevat die sectie de _dependencies_. Dit zijn alle Pythonpackages die ons project nodig heeft. Op dit moment is dat nog niets. Ook het versienummer van Python is belangrijk. Hier is dat groter of gelijk aan 3.13. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python &mdash; bijvoorbeeld versie 3.11 &mdash; kunnen nu het package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.13 nodig hebt kun je aangeven dat een iets oudere versie van Python ook prima is. Op moment van schrijven &mdash; zomer 2025 &mdash; is Python 3.13 de nieuwste versie. Het is dus prima om minimaal 3.12 te vragen &mdash; die versie is inmiddels een jaar oud. Het is handig om als je hier invult 'minstens 3.12', dat je dan in {{file}}`.python-version` _ook_ 3.12 invult omdat je anders niet zeker weet dat je code ook echt werkt met 3.12.
+
+De sectie `[project.scripts]` zorgt ervoor dat we ons script kunnen aanroepen door `easystat` in de terminal in te typen (probeer maar eens!) en de sectie `[build-system]` zorgt ervoor dat we een package kunnen maken en uploaden naar de Python Package Index (PyPI). Dat is nu nog niet belangrijk.
+
+
 
 
 ### Conda environment aanmaken
