@@ -1,10 +1,10 @@
 # Python projects met uv
 
-In de vorige hoofdstukken heb je gewerkt met een eigen conda environment zodat je jouw pythonomgeving mooi gescheiden kan houden van andere studenten die op dezelfde computer werken en voor het isoleren van de verschillende projecten waar je aan werkt. Dit is echt _de_ oplossing voor alle problemen waarbij volledige Pythoninstallaties onbruikbaar kunnen worden &mdash; waarna je alles opnieuw moet installeren.
+In de vorige hoofdstukken heb je gewerkt met een eigen virtual environment zodat je jouw pythonomgeving mooi gescheiden kan houden van andere projecten waar je aan werkt. Dit is echt _de_ oplossing voor alle problemen waarbij volledige Pythoninstallaties onbruikbaar kunnen worden &mdash; waarna je alles opnieuw moet installeren. Dit kan gebeuren als je &mdash; vanwege al je verschillende projecten &mdash; zoveel packages installeert dat die met elkaar in conflict komen.
 
-Opnieuw beginnen of nieuwe environments aanmaken heeft wel een nadeel: je moet alle packages die je nodig hebt opnieuw installeren. Welke waren dat ook alweer? Vast `numpy`, en `matplotlib`, en&hellip;? Niet handig. Als je code gaat delen met elkaar krijg je regelmatig te maken met een `#!py ImportError` waarna je _weer_ één of ander package moet installeren.
+Voor ieder project nieuwe environments aanmaken heeft wel een nadeel: je moet alle packages die je nodig hebt opnieuw installeren. Welke waren dat ook alweer? Vast `numpy`, en `matplotlib`, en&hellip;? Niet handig. Als je code gaat delen met elkaar krijg je regelmatig te maken met een `#!py ImportError` omdat je niet precies weet wat er nodig is, waarna je _weer_ één of ander package moet installeren.
 
-Nu pythondaq netjes is uitgesplitst in een MVC-structuur en de wijzigingen met Git worden bijgehouden, ga je er een package van maken zodat je het ook met anderen kan delen.
+Nu pythondaq netjes is uitgesplitst in een MVC-structuur en de wijzigingen met Git worden bijgehouden, ga je er een package van maken zodat je het ook met anderen kan delen. Daarin staan alle benodigdheden duidelijk omschreven zodat gebruikers daar verder niet over hoeven na te denken.
 
 Packages op PyPI (de standaardplek waar Python packages gepubliceerd worden) geven altijd hun _dependencies_ op. Dat zijn de packages die verder nog nodig zijn om alles te laten werken. Installeer je `matplotlib`, dan krijg je er `six, python-dateutil, pyparsing, pillow, numpy, kiwisolver, cycler` automatisch bij. Maar alleen de namen van packages zijn niet genoeg. Welke versies van `numpy` werken met de huidige versie van `matplotlib`? Allemaal zaken die je &mdash; als je een package schrijft &mdash; zelf moet bijhouden. Het voordeel is dat jouw gebruikers alleen maar _jouw_ pakket hoeven te installeren &mdash; de rest gaat vanzelf.
 
@@ -14,68 +14,53 @@ En&hellip; hoe test je je package zodat je zeker weet dat hij het bij een ander 
 
 Hoe _krijg_ je eigenlijk je code bij iemand anders? Liefst als één bestand, of zelfs met `pip install my_new_cool_app`; dat zou wel mooi zijn.
 
-En daar is _Poetry_.
+Ook daarvoor gebruiken we _uv_.
 
-Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. Poetry is heel populair geworden. Het richt zich op het officiële ecosysteem: standaard Python packages, ofwel PyPI en `pip`; niet `conda` (zie meer hierover in [paragraaf _pip vs conda_](virtual_environments.md#pip-vs-conda)). Jammer, maar dit zorgt er wel voor dat iedereen mét of zónder Anaconda je package kan installeren. Dat is dan wel weer fijn. Wij gaan Anaconda gebruiken om een virtual environment met _alleen_ Python te maken. Vervolgens installeren we alles dat we nodig hebben met `pip`. Dat werkt prima, want we mengen verder geen `conda` met `pip` packages. Het maken van conda packages valt daarmee buiten het bestek van deze cursus, al is dat een relatief kleine stap als je je standaard Python package af hebt.
+!!! info
+    Voorgaande jaren leerden we studenten om _Poetry_ te gebruiken. Heel populair, maar uv is de afgelopen anderhalf jaar nog [_veel populairder_](https://www.star-history.com/#python-poetry/poetry&astral-sh/uv&Date) geworden. En terecht.
+
+Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. uv is in korte tijd heel populair geworden. Het richt zich op het officiële ecosysteem: standaard Python packages, ofwel PyPI en `pip`; niet `conda` (zie meer hierover in [paragraaf _pip vs conda_](virtual_environments.md#pip-vs-conda)). Dit zorgt er voor dat iedereen mét of zónder Anaconda je package kan installeren. Omdat uv ook in staat is zelf verschillende versies van Python te installeren hebben we Anaconda niet meer nodig. De installer van Anaconda is bijna 1 Gb groot en bevat heel veel Python packages die je nooit gebruikt. De installer van uv is nog geen 20 Mb en kun je gebruiken om precies te installeren wat je nodig hebt.
 
 !!! opdracht-basis "Werken in een terminal"
-    Poetry is een tool die je enkel en alleen in de terminal kunt gebruiken. Het heeft alleen een command-line interface (CLI). Ben je nog niet zo bekend met het navigeren in een terminal dan kun je als oefening de [Terminal Adventure Game](terminal-adventure-game.md) spelen.
+    uv is een tool die je enkel en alleen in de terminal kunt gebruiken. Het heeft alleen een command-line interface (CLI). Ben je nog niet zo bekend met het navigeren in een terminal dan kun je als oefening de [Terminal Adventure Game](terminal-adventure-game.md) spelen.
 
-!!! opdracht-inlever "Poetry installeren"
-    Om Poetry te installeren gaan we gebruik maken van `pipx`, zie voor meer informatie [paragraaf _pipx_](virtual_environments.md#pipx).
-    Eerst moeten we `pipx` installeren
+We gaan uv bedienen door commando's te geven in de terminal van Visual Studio Code. We laten de terminal weten welk programma wij willen gaan besturen, door `uv` in te typen. En daarachter wat we willen dat uv gaat doen. We kunnen bijvoorbeeld kijken welke versie van uv we gebruiken met het commando `--version`. Als we helemaal geen commando geven geeft uv (veel) helptekst. Bovenaan die tekst (je moet even terugscrollen met de muis waarschijnlijk) staat een lijst commando's die je kunt gebruiken.
 
-    1. Open een Anaconda Prompt.
-    1. Maak een nieuwe environment en installeer pipx via pip
-        ```ps1 title="Terminal"
-        conda create --name pipx python
-        ```
-        ```ps1 title="Terminal"
-        conda activate pipx
-        ```
-        ```ps1 title="Terminal"
-        python -m pip install --user pipx
-        ```
-    1. Zorg ervoor dat de map waarin pipx apps opslaat, is opgenomen in je PATH omgevingsvariabele.
-        ```ps1 title="Terminal"
-        python -m pipx ensurepath
-        ```
-    1. __Sluit de Anaconda Prompt en open een nieuwe.__
-    1. Test of pipx nu werkt met:
-        ```ps1 title="Terminal"
-        pipx
-        ```
+<pre><code>(ECPC) > uv <button type="button" name="filename_suffix" onclick="runScript('filename_suffix')">{{ enter }}</button><button type="button" name="filename_suffix" onclick="runScript('filename_suffix')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="filename_suffix">An extremely fast Python package manager.
 
-    Nu kunnen we `Poetry` installeren met `pipx`.
+Usage: uv.exe [OPTIONS] <COMMAND>
 
-    1. Installeer Poetry met behulp van pipx. 
-        ```ps1 title="Terminal"
-        pipx install poetry
-        ```
-    1. Test of poetry nu werkt met:
-        ```ps1 title="Terminal"
-        poetry
-        ```
-    1. Activeer een _andere_ environment en test of Poetry ook daar werkt. 
+Commands:
+  run      Run a command or script
+  init     Create a new project
+  add      Add dependencies to the project
+  remove   Remove dependencies from the project
+  version  Read or update the project's version
+  sync     Update the project's environment
+  lock     Update the project's lockfile
+  export   Export the project's lockfile to an alternate format
+  tree     Display the project's dependency tree
+  tool     Run and install commands provided by Python packages
+  python   Manage Python versions and installations
+  pip      Manage Python packages with a pip-compatible interface
+  venv     Create a virtual environment
+  build    Build Python packages into source distributions and wheels
+  publish  Upload distributions to an index
+  cache    Manage uv's cache
+  self     Manage the uv executable
+  help     Display documentation for a command
 
-    !!! info "Poetry doet het niet in Visual Studio Code"
-        Werkt Poetry niet in een terminal in Visual Studio code? Gooi de oude terminals weg, sluit Visual Studio Code en GitHub Desktop af. Open Visual Studio Code weer via GitHub Desktop, open een nieuwe terminal en kijk of het nu wel werkt.
+...(nog veel meer output)...
 
-
-We gaan Poetry bedienen door commando's te geven in de terminal van Visual Studio Code. We laten de terminal weten welk programma wij willen gaan besturen, door `poetry` in te typen. En daarachter wat we willen dat Poetry gaat doen. We kunnen informatie over Poetry opvragen met het commando `about`.
-
-<pre><code>(ecpc) > poetry about <button type="button" name="filename_suffix" onclick="runScript('filename_suffix')">{{ enter }}</button><button type="button" name="filename_suffix" onclick="runScript('filename_suffix')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="filename_suffix">Poetry - Package Management for Python
-
-Version: 1.8.4
-Poetry-Core Version: 1.9.1
-
-Poetry is a dependency manager tracking local dependencies of your projects and libraries.
-See https://github.com/python-poetry/poetry for more information.</span>
+Use `uv help` for more details.</span>
 </code></pre>
 
-!!! opdracht-basis "Poetry about"
-    Open een terminal en vraag informatie over Poetry op met het commando `poetry about`. Lees de tekst die Poetry aan je teruggeeft, waar kan je meer informatie vinden?
+!!! opdracht-basis "uv help"
+    Open een terminal en vraag informatie over uv op met het commando `uv`. Lees de tekst die uv aan je teruggeeft, waar kan je meer informatie vinden? We hebben het commando `uv pip` al eerder gebruikt (waarvoor ook alweer?). Vraag eens meer informatie over het commando `uv pip`. Hoe kun je een lijst krijgen van alle packages die geïnstalleerd staan in je virtual environment? Voer dat commando uit. Voer ook het commando uit om een 'dependency tree' te krijgen. Wat houdt dat in? Overleg met je buurmens zodat jullie het eens zijn over de antwoorden op deze vragen.
+
+!!! info
+    Zoals je gezien hebt heeft `uv` dus heel veel verschillende commando's. uv is een Zwitsers zakmes: het bevat heel veel tools voor wie dat nodig heeft. Wij hebben lang niet alles nodig dus laat je daardoor niet uit het veld slaan. In de rest van dit hoofdstuk vertellen we precies wat je _wel_ nodig hebt. Als je meer wilt weten kun je het beste [de documentatie](https://docs.astral.sh/uv/) lezen.
 
 
 ## Nieuw Poetry project
