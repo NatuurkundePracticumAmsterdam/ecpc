@@ -119,3 +119,4 @@ extra:
     T: '├──'
     tab: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
     trash: ':fontawesome-regular-trash-can:'
+    warning: ':fontawesome-solid-triangle-exclamation:'

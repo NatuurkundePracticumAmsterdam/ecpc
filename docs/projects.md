@@ -28,7 +28,7 @@ We gaan uv bedienen door commando's te geven in de terminal van Visual Studio Co
 
 [^more]: `more` is een programma die aangeleverde tekst per pagina laat zien, waar je met ++space++ een volgende pagina te zien krijgt. Met ++enter++ krijg je maar één regel extra en met ++q++ sluit je het programma meteen af. Het `|` karakter stuurt output door. Dus `uv help | more` stuurt de output van `uv help` door naar het programma `more`.
 
-<pre><code>(ECPC) > uv help | more <button type="button" name="filename_suffix" onclick="runScript('filename_suffix')">{{ enter }}</button><button type="button" name="filename_suffix" onclick="runScript('filename_suffix')" class="invisible">{{ reload }}</button>
+<pre><code>> uv help | more <button type="button" name="filename_suffix" onclick="runScript('filename_suffix')">{{ enter }}</button><button type="button" name="filename_suffix" onclick="runScript('filename_suffix')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="filename_suffix">An extremely fast Python package manager.
 
 Usage: uv [OPTIONS] <COMMAND>
@@ -159,7 +159,23 @@ build-backend = "uv_build"
 
 Het bestand is in het TOML-formaat.[@TOML] Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. In de eerste sectie staat informatie over ons project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. Ook bevat die sectie de _dependencies_. Dit zijn alle Pythonpackages die ons project nodig heeft. Op dit moment is dat nog niets. Ook het versienummer van Python is belangrijk. Hier is dat groter of gelijk aan 3.13. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python &mdash; bijvoorbeeld versie 3.11 &mdash; kunnen nu het package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.13 nodig hebt kun je aangeven dat een iets oudere versie van Python ook prima is. Op moment van schrijven &mdash; zomer 2025 &mdash; is Python 3.13 de nieuwste versie. Het is dus prima om minimaal 3.12 te vragen &mdash; die versie is inmiddels een jaar oud. Het is handig om als je hier invult 'minstens 3.12', dat je dan in {{file}}`.python-version` _ook_ 3.12 invult omdat je anders niet zeker weet dat je code ook echt werkt met 3.12.
 
-De sectie `[project.scripts]` zorgt ervoor dat we ons script kunnen aanroepen door `easystat` in de terminal in te typen (probeer maar eens!) en de sectie `[build-system]` zorgt ervoor dat we een package kunnen maken en uploaden naar de Python Package Index (PyPI). Dat is nu nog niet belangrijk.
+De sectie `[project.scripts]` zorgt ervoor dat we ons script kunnen aanroepen door `easystat` in de terminal in te typen en de sectie `[build-system]` zorgt ervoor dat we een package kunnen maken en uploaden naar de Python Package Index (PyPI). Dat is nu nog niet belangrijk.
+
+!!! opdracht-basis "Synchroniseren van virtual environments"
+    1. Hoewel we hierboven beweerden dat je `easystat` kunt intypen in de terminal en dat er dan een scriptje draait, werkt dan (nog) niet. Probeer maar eens! Het werkt ook niet als je een nieuwe terminal opent. En... er staat niets tussen haakjes aan het begin van de opdrachtprompt. Blijkbaar is er nog geen virtual environment actief.
+    2. Open {{file}}`src/eaystat/__init__.py`. Rechtsonderin zie je inderdaad {{warning}}`Select Interpreter`. Als je daarop klikt zie je alleen niet `Python 3.x.x (easystat)` in het rijtje staan... Druk op ++escape++ om het menu te verlaten.
+    3. In een terminal in VS Code, type in:
+    <pre><code>> uv sync <button type="button" name="uv_sync" onclick="runScript('uv_sync')">{{ enter }}</button><button type="button" name="uv_sync" onclick="runScript('uv_sync')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="uv_sync">Using CPython 3.13.5
+    Creating virtual environment at: .venv
+    Resolved 1 package in 5ms
+    Installed 1 package in 47ms
+    &nbsp;+ easystat==0.1.0 (from file:///C:/Users/David/Documents/ECPC/easystat)</span></code></pre>
+    4. Kies het nieuwe virtual environment.
+    5. Open een _nieuwe_ terminal en type `easystat`. Als het goed is werkt het nu wél!
+
+!!! opdracht-basis "Easystat uv project committen"
+    Commit in GitHub Desktop de wijzigingen die `uv init` heeft gedaan.
 
 
 ### Maken van de easystat-package
