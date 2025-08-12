@@ -118,12 +118,12 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
 
         **Projecttraject**
     
-        - [x] Easystat Poetry project aanmaken
-        - [ ] Easystat conda environment aanmaken
-        - [ ] Easystat shortcuts.py en try_shortcuts.py aanmaken
-        - [ ] Easystat try_shortcuts.py testen
-        - [ ] Easystat Poetry install
+        - [x] Easystat uv project aanmaken
+        - [ ] Easystat virtual environment aanmaken
+        - [ ] Easystat {{file}}`shortcuts.py`, {{file}}`measurements.py` en {{file}}`try_measurements.py` aanmaken
+        - [ ] Easystat {{file}}`shortcuts.py` testen
         - [ ] Easystat dependencies toevoegen
+        - [ ] Easystat package imports fixen
 
 
 Laten we één voor één kijken welke mappen en bestanden uv heeft aangemaakt. We hadden al een {{file_lines}}`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van ons project.[^README]
@@ -180,10 +180,10 @@ De sectie `[project.scripts]` zorgt ervoor dat we ons script kunnen aanroepen do
 
 
 ### Maken van de easystat-package
-We starten met ons package. Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige <q>shortcut</q> in {{file}}`shortcuts.py`. Nu willen we deze shortcut ook in een ander script gebruiken. Dit kunnen we doen door package `easystat` te importeren in dit nieuwe script zodat we de functie `stdev_of_mean` daar ook kunnen gebruiken. We maken een script {{file}}`try_shortcuts.py` om dit te testen.
+We starten met ons package. We gaan een aantal `#!py ImportError`s tegenkomen, maar dat lossen we ook weer op.  Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige <q>shortcut</q> in {{file}}`shortcuts.py`. Nu willen we deze shortcut ook in een ander script {{file}}`measurements.py` gebruiken, die op basis van een aantal metingen het gemiddelde mét een onzekerheid geeft. Dit kunnen we doen door de module te importeren in het nieuwe script zodat we de functie `stdev_of_mean` daar ook kunnen gebruiken. We maken uiteindelijk een script {{file}}`try_measurements.py` om dit allemaal te testen, en die zetten we expres niet _in_ het package, maar in een nieuwe map {{folder}}`tests`. Het testscript hoort immers niet bij de code van het `easystat` package.
 
 !!! opdracht-basis "Easystat shortcuts.py en try_shortcuts.py aanmaken"
-    Maak zoals hieronder aangegeven de bestanden {{new_file}}`shortcuts.py` en {{new_file}}`try_shortcuts.py` aan:
+    Maak zoals hieronder aangegeven de bestanden {{new_file}}`shortcuts.py`, {{new_file}}`measurements.py` en {{new_file}}`try_measurements.py` aan, waarbij je let op in welke map de bestanden moeten staan:
     <div class="grid-tree" markdown>
         <div>
         ``` py title="shortcuts.py"
@@ -194,10 +194,24 @@ We starten met ons package. Stel, we berekenen vaak de standaarddeviatie van het
             """Calculate the standard deviation of the mean"""
             return np.std(values) / np.sqrt(len(values))    
         ```
-        ``` py title="try_shortcuts.py"
-        from easystat.shortcuts import stdev_of_mean
+        ``` py title="measurements.py"
+        import numpy as np
+        from shortcuts import stdev_of_mean
 
-        print(f"{stdev_of_mean([1, 2, 2, 2, 3])=}")
+
+        def result_with_uncertainty(values):
+            """Return result with uncertainty from list of measurements."""
+            return np.mean(values), stdev_of_mean(values)
+
+        ```
+        ``` py title="try_measurements.py"
+        from measurements import result_with_uncertainty
+
+        measurements = [1, 2, 2, 2, 3]
+        result, uncertainty = result_with_uncertainty(measurements)
+
+        print(f"{measurements=}")
+        print(f"Result of measurements is: {result:.2f} +- {uncertainty:.2f}.")
         ```
         </div>
         <div>
@@ -205,135 +219,63 @@ We starten met ons package. Stel, we berekenen vaak de standaarddeviatie van het
         {{T}} {{folder}} `src`  
         {{tab}} {{T}} {{folder}} `easystat`  
         {{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
+        {{tab}} {{tab}} {{L}} {{new_file}} `measurements.py`  
         {{tab}} {{tab}} {{L}} {{new_file}} `shortcuts.py`  
         {{T}} {{folder}} `tests`  
         {{tab}} {{T}} {{file}} `__init__.py`  
-        {{tab}} {{L}} {{new_file}} `try_shortcuts.py`  
+        {{tab}} {{L}} {{new_file}} `try_measurements.py`  
         {{T}} {{file_lines}} `pyproject.toml`  
         {{L}} {{file_lines}} `readme.md`  
         </div>
     </div>
 
     !!! info "`Import numpy could not be resolved`"
-        Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regel. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee en dat gaan we *straks* ook doen.
+        Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regels van twee scripts, en ook onder `shortcuts` en `measurements`. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee en dat gaan we *straks* ook doen.
 
-In de eerste regel van {{file}}`test_shortcuts.py` importeren we de functie uit het nieuwe package om uit te proberen. In de laatste regel gebruiken we een handige functie van f-strings.[^f-string-=]
+In de eerste regel van {{file}}`test_measurements.py` importeren we de functie uit het nieuwe package om uit te proberen. In de eerste `#!py print`-regel gebruiken we een handige functie van f-strings.[^f-string-=]
 
 [^f-string-=]: In f-strings kunnen tussen de accolades variabelen of functieaanroepen staan. Voeg daar het `=`-teken aan toe en je krijgt niet alleen de _waarde_, maar ook de variabele of aanroep zelf te zien. Bijvoorbeeld: als je definieert `#!py name = "Alice"`, dan geeft `#!py print(f"{name}")` als uitkomst `#!py Alice`. Maar voeg je het `=`-teken toe zoals in `#!py print(f"{name=")}` wordt de uitvoer `#!py name='Alice'`. Je ziet dan dus ook meteen de naam van de variabele en dat kan handig zijn.
 
-!!! opdracht-basis "Easystat try_shortcuts.py testen"
+!!! opdracht-basis "Easystat shortcuts.py testen"
     === "opdracht"
-        Je bent heel benieuwd of je package al werkt. Je runt het bestand {{file}}`try_shortcuts.py` en krijgt een foutmelding...
+        Je bent heel benieuwd of je package al werkt. Je runt als eerste het bestand {{file}}`shortcuts.py` en krijgt een foutmelding...
     === "code"
         **Testcode**
-        <div class="code-box"><button type="button" name="try_shortcuts_error" onclick="runScript('try_shortcuts_error')" class="run">{{ run }}</button><button type="button" name="try_shortcuts_error" onclick="runScript('try_shortcuts_error')" class="reload invisible">{{ reload }}</button> try_shortcuts.py
+        <div class="code-box"><button type="button" name="shortcuts_error" onclick="runScript('shortcuts_error')" class="run">{{ run }}</button><button type="button" name="shortcuts_error" onclick="runScript('shortcuts_error')" class="reload invisible">{{ reload }}</button> shortcuts.py
         ``` py
-        from easystat.shortcuts import stdev_of_mean
+        import numpy as np
 
-        print(f"{stdev_of_mean([1, 2, 2, 2, 3])=}")
+
+        def stdev_of_mean(values):
+            """Calculate the standard deviation of the mean"""
+            return np.std(values) / np.sqrt(len(values))
         ```
         <pre>
-        <code>(easystat) > python try_shortcuts.py
-        <span class="invisible" name="try_shortcuts_error">Traceback (most recent call last):
-            File "c:\ECPC\easystat\tests\try_shortcuts.py", line 1, in < module >
-                from easystat.shortcuts import stdev_of_mean
-        ModuleNotFoundError: No module named 'easystat'
+        <code>(easystat) > python .\src\easystat\shortcuts.py
+        <span class="invisible" name="shortcuts_error">Traceback (most recent call last):
+        File "C:\Users\David\Documents\ECPC\easystat\src\easystat\shortcuts.py", line 1, in <module>
+            import numpy as np
+        ModuleNotFoundError: No module named 'numpy'
         </code></pre></div>
         
     === "check"
         **Checkpunten:**
     
-        - [ ] Je hebt de juiste conda environment geactiveerd.
-        - [ ] Je runt het bestand {{file}}`try_shortcuts.py` uit de map {{folder}}`tests`.
-        - [ ] Je krijgt een foutmelding `#!py ModuleNotFoundError: No module named 'easystat'`
+        - [ ] Je hebt de juiste virtual environment geactiveerd.
+        - [ ] Je runt het bestand {{file}}`shortcuts.py`.
+        - [ ] Je krijgt een foutmelding `#!py ModuleNotFoundError: No module named 'NumPy'`
         
         **Projecttraject**
-    
-        - [x] Easystat Poetry project aanmaken
-        - [x] Easystat conda environment aanmaken
-        - [x] Easystat shortcuts.py en try_shortcuts.py aanmaken
-        - [x] Easystat try_shortcuts.py testen
-        - [ ] Easystat Poetry install
+
+        - [x] Easystat uv project aanmaken
+        - [x] Easystat virtual environment aanmaken
+        - [x] Easystat {{file}}`shortcuts.py`, {{file}}`measurements.py` en {{file}}`try_measurements.py` aanmaken
+        - [x] Easystat {{file}}`shortcuts.py` testen
         - [ ] Easystat dependencies toevoegen
+        - [ ] Easystat package imports fixen
 
-Dit konden we verwachten. We hebben onze package immers nog niet geïnstalleerd. Als we onze package gaan delen met andere mensen verwachten wij dat zij onze package ook gaan installeren, door dezelfde stappen te doorlopen als andere gebruikers komen we erachter of alles wel goed werkt.
-
-### Installeren van een package
-Het installeren van de package kan makkelijk met Poetry:
-<pre><code>(easystat) > poetry install <button type="button" name="poetry install_tekst" onclick="runScript('poetry install_tekst')">{{ enter }}</button><button type="button" name="poetry install_tekst" onclick="runScript('poetry install_tekst')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="poetry install_tekst">Updating dependencies
-Resolving dependencies... (0.1s)
-
-Writing lock file
-
-Installing the current project: easystat (0.1.0)</span>
-</code></pre>
-
-Poetry is even bezig en ons package is geïnstalleerd.
-
-!!! opdracht-basis "Easystat Poetry install"
-    === "opdracht"
-        Je opent een terminal in Visual Studio Code. Je gaat het project `easystat` installeren in de conda environment `easystat` met het commando `poetry install`. Waarschijnlijk krijg je een error (zie info-blok hieronder) maar door rustig te lezen los je die op. Je installeert alsnog het project `easystat` draai je opnieuw {{file}}`tests/try_shortcuts.py` en zie je een nieuwe error verschijnen `ModuleNotFoundError: No module named 'numpy'`. Hoera {{feesttoeter}} de eerste error is met succes opgelost en je kunt door met de volgende opdracht.
-
-        !!! info "Current Python version is not allowed by the project"
-            Waarschijnlijk krijg je in dikke rode letters de error:
-            ``` ps1con
-            Current Python version (3.12.7) is not allowed by the project (^3.13).
-            Please change python executable via the "env use" command.
-            ```
-            In de {{file_lines}}`pyproject.toml` staat bij de Python dependency dat er minstens versie 3.13 of hoger (^3.13) nodig is voor dit project[^versie]. En de conda environment `easystat` heeft Python 3.12 geïnstalleerd. Je kunt nu twee dingen doen: 
-            
-            1. Je bedenkt dat voor dit project een lagere versie van Python ook voldoende is en past de Python versie dependency aan in de {{file_lines}}`pyproject.toml` naar ^3.12.
-            1. Je vindt dat het project minstens versie 3.13 moet gebruiken en upgrade Python in de `easystat` environment met `conda install python=3.13`.
-            
-            [^versie]: Dit is bij het aanmaken standaard ingevuld op basis van de Python versie die in de base environment zit, kijk maar met `conda list` in de base environment welke versie van Python daarin zit.
-    === "code"
-        **Testcode**
-        <pre><code>(easystat) > conda list <button type="button" name="conda list_poetry install" onclick="runScript('conda list_poetry install')">{{ enter }}</button><button type="button" name="conda list_poetry install" onclick="runScript('conda list_poetry install')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="conda list_poetry install"><span># packages in environment at C:\easystat:</span>
-        <span>#</span>
-        <span># Name                    Version                   Build  Channel</span>
-        bzip2                     1.0.8                h2bbff1b_6
-        ca-certificates           2024.7.2             haa95532_0
-        **easystat                  0.1.0                    pypi_0    pypi**
-        libffi                    3.4.4                hd77b12b_1
-        openssl                   3.0.15               h827c3e9_0
-        pip                       24.2            py310haa95532_0
-        python                    3.10.14              he1021f5_1
-        setuptools                72.1.0          py310haa95532_0
-        sqlite                    3.45.3               h2bbff1b_0
-        tk                        8.6.14               h0416ee5_0
-        tzdata                    2024a                h04d1e81_0
-        vc                        14.40                h2eaa2aa_1
-        vs2015_runtime            14.40.33807          h98bb1dd_1
-        wheel                     0.43.0          py310haa95532_0
-        xz                        5.4.6                h8cc25b3_1
-        zlib                      1.2.13               h8cc25b3_1</span>
-        </code></pre>
-        
-    === "check"
-        **Checkpunten:**
     
-        - [ ] Je hebt de juiste conda environment geactiveerd.
-        - [ ] Nadat je `poetry install` hebt gedaan krijg je de melding `Installing the current project: easystat (0.1.0)`.
-        - [ ] Je runt het bestand {{file}}`tests/try_shortcuts.py`.
-        - [ ] Je krijgt een foutmelding `#!py ModuleNotFoundError: No module named 'numpy'`
-
-        **Projecttraject**
-    
-        - [x] Easystat Poetry project aanmaken
-        - [x] Easystat conda environment aanmaken
-        - [x] Easystat shortcuts.py en try_shortcuts.py aanmaken
-        - [x] Easystat try_shortcuts.py testen
-        - [x] Easystat Poetry install
-        - [ ] Easystat dependencies toevoegen
-
-
-Als we het testscript nu draaien krijgen we wéér een foutmelding:
-``` py
-ModuleNotFoundError: No module named 'numpy'
-```
-Ons package heeft NumPy nodig en dat hebben we nog niet geïnstalleerd. Dat kunnen we handmatig doen maar dan hebben andere gebruikers een probleem. Veel beter is het om netjes aan te geven dat ons package NumPy nodig heeft &mdash; als _dependency_.
+De beloofde `#!py ImportError`! Ons package heeft NumPy nodig en dat hebben we nog niet geïnstalleerd. Dat kunnen we handmatig doen maar dan hebben andere gebruikers een probleem. Veel beter is het om netjes aan te geven dat ons package NumPy nodig heeft &mdash; als _dependency_.
 
 
 ### Dependencies toevoegen
@@ -372,18 +314,18 @@ Package operations: 1 install, 0 updates, 0 removals
     === "check"
         **Checkpunten:**
     
-        - [ ] Je hebt de juiste conda environment geacitveerd.
+        - [ ] Je hebt de juiste virtual environment geacitveerd.
         - [ ] Je hebt `Numpy` als dependency toegevoegd.
-        - [ ] Je krijgt een uitkomst als je het bestand {{file}}`tests/try_shortcuts.py` runt.
+        - [ ] Je krijgt geen foutmelding als je het bestand {{file}}`shortcuts.py` runt.
 
         **Projecttraject**
     
-        - [x] Easystat Poetry project aanmaken
-        - [x] Easystat conda environment aanmaken
-        - [x] Easystat shortcuts.py en try_shortcuts.py aanmaken
-        - [x] Easystat try_shortcuts.py testen
-        - [x] Easystat Poetry install
+        - [x] Easystat uv project aanmaken
+        - [x] Easystat virtual environment aanmaken
+        - [x] Easystat {{file}}`shortcuts.py`, {{file}}`measurements.py` en {{file}}`try_measurements.py` aanmaken
+        - [x] Easystat {{file}}`shortcuts.py` testen
         - [x] Easystat dependencies toevoegen
+        - [ ] Easystat package imports fixen
 
 
 Fijn! Het verwijderen van dependency `PACKAGE` gaat met `poetry remove PACKAGE`. Poetry heeft Numpy nu toegevoegd aan de environment `easystat`.Gewone package managers als Pip en Conda zullen geen packages toevoegen aan je Poetry project als je `pip/conda install package` aanroept. Gebruik daarom altijd `poetry add package` als je met Poetry aan een package werkt.
