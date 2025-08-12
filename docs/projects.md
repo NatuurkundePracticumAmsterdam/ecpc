@@ -134,7 +134,7 @@ Dan komt de {{folder}}`src`-map. Daarin komt ons nieuwe package {{folder}}`easys
 
 [^projectmap]: Ja er is een map {{folder}}`easystat` met daarin een map {{folder}}`src` met daarin weer een map {{folder}}`easystat` &mdash; dat kan nog wel eens verwarrend zijn. Het is conventie om de projectmap dezelfde naam te geven als je package. Het pad is dus eigenlijk {{folder}}`project/src/package` en dat wordt dan, in ons geval, {{folder}}`easystat/src/easystat`.
 
-En als laatste&hellip; een {{file}}`pyproject.toml`[^setup.py] waarin alle informatie over je project wordt bijgehouden. Ook staat er in dit bestand informatie voor de verschillende tools die je kunt gebruiken. De inhoud van het bestand ziet er ongeveer zo uit:
+En als laatste&hellip; een {{file_lines}}`pyproject.toml`[^setup.py] waarin alle informatie over je project wordt bijgehouden. Ook staat er in dit bestand informatie voor de verschillende tools die je kunt gebruiken. De inhoud van het bestand ziet er ongeveer zo uit:
 ``` toml
 [project]
 name = "easystat"
@@ -171,7 +171,7 @@ De sectie `[project.scripts]` zorgt ervoor dat we ons script kunnen aanroepen do
     Resolved 1 package in 5ms
     Installed 1 package in 47ms
     &nbsp;+ easystat==0.1.0 (from file:///C:/Users/David/Documents/ECPC/easystat)</span></code></pre>
-    Wat dit gedaan heeft is het automatisch aanmaken van het virtual environment op basis van je projectinstellingen. Dus de Pythonversie die in {{file}}`.python-version` staat en eventuele dependencies die gedefinieerd zijn in je {{file}}`pyproject.toml`.
+    Wat dit gedaan heeft is het automatisch aanmaken van het virtual environment op basis van je projectinstellingen. Dus de Pythonversie die in {{file}}`.python-version` staat en eventuele dependencies die gedefinieerd zijn in je {{file_lines}}`pyproject.toml`.
     4. Kies het nieuwe virtual environment.
     5. Open een _nieuwe_ terminal en type `easystat`. Als het goed is werkt het nu wél!
 
@@ -280,42 +280,25 @@ De beloofde `#!py ImportError`! Ons package heeft NumPy nodig en dat hebben we n
 
 ### Dependencies toevoegen
 
-Om een dependency aan te geven vertellen we Poetry dat hij deze moet toevoegen met:
-<pre><code>(easystat) > poetry add numpy <button type="button" name="poetry add numpy" onclick="runScript('poetry add numpy')">{{ enter }}</button><button type="button" name="poetry add numpy" onclick="runScript('poetry add numpy')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="poetry add numpy">Using version ^1.23.2 for numpy
-
-Updating dependencies
-Resolving dependencies...
-
-Writing lock file
-
-Package operations: 1 install, 0 updates, 0 removals
-
-  • Installing numpy (1.23.2)</span>
+Om een dependency aan te geven vertellen we uv dat hij deze moet toevoegen met:
+<pre><code>(easystat) > uv add numpy <button type="button" name="uv add numpy" onclick="runScript('uv add numpy')">{{ enter }}</button><button type="button" name="uv add numpy" onclick="runScript('uv add numpy')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="uv add numpy">Resolved 2 packages in 453ms
+      Built easystat @ file:///C:/Users/David/Documents/ECPC/easystat
+Prepared 1 package in 82ms
+Uninstalled 1 package in 9ms
+Installed 2 packages in 798ms
+ ~ easystat==0.1.0 (from file:///C:/Users/David/Documents/ECPC/easystat)
+ + numpy==2.3.2</span>
 </code></pre>
 
 !!! opdracht-basis "Easystat dependencies toevoegen"
     === "opdracht"
-        Je voegt `Numpy` als dependency toe aan het project `easystat` met het commando `poetry add numpy`. Je kijkt in de {{file_lines}}`pyproject.toml` en warempel daar staat `Numpy` nu bij de dependencies! Je vraagt je af of `Numpy` nu ook in de conda environment `easystat` is geïnstalleerd en controleert dit met `conda list` en waarachtig `Numpy` staat in de lijst {{feesttoeter}}. Weer ga je {{file}}`tests/try_shortcuts.py` draaien en ditmaal krijg je een uitkomst!
-    === "code"
-        **Testcode**
-        <div class="code-box"><button type="button" name="try_shortcuts_numpy" onclick="runScript('try_shortcuts_numpy')" class="run">{{ run }}</button><button type="button" name="try_shortcuts_numpy" onclick="runScript('try_shortcuts_numpy')" class="reload invisible">{{ reload }}</button> try_shortcuts.py
-        ``` py
-        from easystat.shortcuts import stdev_of_mean
-
-        print(f"{stdev_of_mean([1, 2, 2, 2, 3])=}")
-        ```
-        <pre>
-        <code>(ECPC) > python try_shortcuts.py
-        <span class="invisible" name="try_shortcuts_numpy">stdev_of_mean([1, 2, 2, 2, 3])=np.float64(0.282842712474619)</span>
-        </code></pre></div>
-        
-        
+        Je voegt `numpy` als dependency toe aan het project `easystat` met het commando `uv add numpy`. Je kijkt in de {{file_lines}}`pyproject.toml` en warempel daar staat `numpy` nu bij de dependencies! Je vraagt je af of `numpy` nu ook in het virtual environment `easystat` is geïnstalleerd en controleert dit met `uv pip list` en waarachtig `numpy` staat in de lijst {{feesttoeter}}. Weer ga je {{file}}`shortcuts.py` draaien en ditmaal krijg geen foutmelding! Commit de wijzigingen.
     === "check"
         **Checkpunten:**
     
         - [ ] Je hebt de juiste virtual environment geacitveerd.
-        - [ ] Je hebt `Numpy` als dependency toegevoegd.
+        - [ ] Je hebt `numpy` als dependency toegevoegd.
         - [ ] Je krijgt geen foutmelding als je het bestand {{file}}`shortcuts.py` runt.
 
         **Projecttraject**
@@ -328,32 +311,31 @@ Package operations: 1 install, 0 updates, 0 removals
         - [ ] Easystat package imports fixen
 
 
-Fijn! Het verwijderen van dependency `PACKAGE` gaat met `poetry remove PACKAGE`. Poetry heeft Numpy nu toegevoegd aan de environment `easystat`.Gewone package managers als Pip en Conda zullen geen packages toevoegen aan je Poetry project als je `pip/conda install package` aanroept. Gebruik daarom altijd `poetry add package` als je met Poetry aan een package werkt.
+Fijn! Het verwijderen van dependency `PACKAGE` gaat met `uv remove PACKAGE`. uv heeft NumPy nu toegevoegd aan de environment `easystat`. Gewone package managers als Pip en Conda zullen geen packages toevoegen aan je uv project als je `pip/conda install package` aanroept. Gebruik daarom altijd `uv add package` als je met uv aan een package werkt. Sterker nog, als je met Pip handmatig packages extra installeert zal `uv sync` deze packages als overbodig herkennen en ze prompt weer verwijderen.
 
 !!! info
-    Als we de code in ons package aanpassen dan hoeven we het niet opnieuw te installeren met Poetry, maar als we met de hand iets wijzigen in de {{file}}`pyproject.toml` dan moet dat _wel_. Als je een `#!py ImportError` krijgt voor je eigen package &mdash; bijvoorbeeld als je nieuwe mappen of bestanden hebt aangemaakt &mdash; probeer dan _eerst_ voor de zekerheid `poetry install`.
+    Als we de code in ons package aanpassen dan hoeven we het environment niet opnieuw te synchroniseren met `uv sync`, maar als we met de hand iets wijzigen in de {{file_lines}}`pyproject.toml` dan moet dat _wel_. Als je een `#!py ImportError` krijgt voor je eigen package &mdash; bijvoorbeeld als je nieuwe mappen of bestanden hebt aangemaakt &mdash; probeer dan _eerst_ voor de zekerheid `uv sync`.
 
-???+ meer-leren "Poetry.lock"
+???+ meer-leren "uv.lock"
 
-    ### Poetry.lock
+    ### uv.lock
 
-    Na het toevoegen van Numpy is er ook een bestand {{file_lines}}`poetry.lock` bijgekomen. Hierin staan de exacte versies van alle geïnstalleerde packages. Vaak wordt dit bestand gecommit zodat collega-ontwikkelaars exact dezelfde versies installeren zodra ze `poetry install` aanroepen. Om dat te proberen maken we even een schone conda environment:
+    Na het toevoegen van NumPy is er ook een grote wijziging in het bestand {{file_lines}}`uv.lock` bijgekomen. Hierin staan de exacte versies van alle geïnstalleerde packages. Vaak wordt dit bestand gecommit zodat collega-ontwikkelaars exact dezelfde versies installeren zodra ze `uv sync` aanroepen. Ook als er nieuwere versies van NumPy bijkomen blijven alle ontwikkelaars precies dezelfde NumPy-versie gebruiken totdat {{file_lines}}`uv.lock` geüpdatet wordt. Om dat te proberen maken we even een schone virtual environment:
 
     !!! opdracht-meer "Schone environment"
 
-        1. Maak een schone conda environment met `conda create --name easystat python=3.12`
-        1. Kies voor ja als Conda een waarschuwing geeft dat deze environment al bestaat en vraagt of je het bestaande environment wilt verwijderen.
-        1. Draai {{file}}`tests/try_shortcuts.py` en bekijk de foutmelding.
-        
-
+        1. Maak een schone virtual environment met `uv venv`
+        2. Kies voor ja als uv een waarschuwing geeft dat deze environment al bestaat en vraagt of je het bestaande environment wilt verwijderen.
+        3. Draai {{file}}`tests/try_shortcuts.py` en bekijk de foutmelding.
 
     We krijgen meteen foutmeldingen. Immers, we hebben nog niets geïnstalleerd.
 
-    !!! opdracht-meer "Poetry.lock"
+    !!! opdracht-meer "uv.lock"
 
-        1. Installeer de `easystat` package met `poetry`.
-        1. Waarvoor gebruikt Poetry de lock file ({{file_lines}}`poetry.lock)`?
-        1. Draai {{file}}`tests/try_shortcuts.py` en bekijk de uitkomst.
+        4. Installeer de dependencies met uv, met `uv sync`.
+        5. Waarvoor gebruikt uv de lock file ({{file_lines}}`uv.lock)`?
+        6. Draai {{file}}`shortcuts.py` en bekijk de uitkomst.
+        7. Als je nieuwere versies wilt gebruiken die passen bij wat er in de {{file_lines}}`pyproject.toml` staat, dan kun je de lockfile updaten met `uv lock --upgrade`. Als er nieuwere versies beschikbaar zijn van dependencies dan worden die geïnstalleerd en verwerkt in de lockfile. Je college-ontwikkelaars installeren die nu ook automatisch zodra ze `uv sync` gebruiken.
 
 
 ???+ meer-leren "Wheels"
@@ -397,13 +379,13 @@ Fijn! Het verwijderen van dependency `PACKAGE` gaat met `poetry remove PACKAGE`.
 
 ## Poetry gebruiken voor een bestaand project
 
-Met `poetry new` start je een _nieuw_ project en maakt Poetry voor jou bestanden en mappen aan waarmee je aan de slag kunt. Maar vaak ben je al bezig met een project en wil je dat niet overschrijven. Ook is het een gedoe om een nieuw project te maken en daar je bestaande code in te kopieëren. Gelukkig kun je Poetry ook vertellen dat je al bezig bent en dat Poetry _alleen_ een {{file}}`pyproject.toml`-bestand moet aanmaken. Run dan _in de map van je project_:
+Met `poetry new` start je een _nieuw_ project en maakt Poetry voor jou bestanden en mappen aan waarmee je aan de slag kunt. Maar vaak ben je al bezig met een project en wil je dat niet overschrijven. Ook is het een gedoe om een nieuw project te maken en daar je bestaande code in te kopieëren. Gelukkig kun je Poetry ook vertellen dat je al bezig bent en dat Poetry _alleen_ een {{file_lines}}`pyproject.toml`-bestand moet aanmaken. Run dan _in de map van je project_:
 ``` ps1 title="Terminal"
 poetry init --no-interaction
 ```
 Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--no-interaction` voorkomt je dat je eerst honderd vragen krijgt over je project. Meestal kies je toch de standaardantwoorden.[^poetry-init]
 
-[^poetry-init]: Het is eenvoudig om zelf de {{file}}`pyproject.toml` te openen en daar wat in aan te passen voor zover nodig.
+[^poetry-init]: Het is eenvoudig om zelf de {{file_lines}}`pyproject.toml` te openen en daar wat in aan te passen voor zover nodig.
 
 !!! info
     Vergeet niet &mdash; waar nodig &mdash; de {{file}}`__init__.py` bestanden toe te voegen aan de packages. Meer informatie over de {{file}}`__init__.py` bestanden vind je in [paragraaf _packages_](vervolg-python.md#packages).
@@ -557,7 +539,7 @@ Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten 
         **Checkpunten:**
     
         - [ ] Je hebt Poetry geïnitialiseerd in de Pythondaq project map.
-        - [ ] Na het initialiseren van Poetry is er een {{file}}`pyproject.toml` in de projectmap aangemaakt.
+        - [ ] Na het initialiseren van Poetry is er een {{file_lines}}`pyproject.toml` in de projectmap aangemaakt.
         - [ ] Wanneer met `poetry install` in een nieuwe conda environment met alleen python=3.12 het pakket wordt geïnstalleerd werkt {{file}}`run_experiment.py` daarna in die nieuwe omgeving naar behoren. 
 
         **Projecttraject**
@@ -646,16 +628,16 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
         - [ ] commando testen
     
 
-In {{file}}`pyproject.toml` kunnen we nu het commando toe gaan voegen. Met de `scripts`-tool van Poetry kunnen we aangeven met welk commando een functie uit een script wordt uitgevoerd. Om een commando toe te voegen ga je naar {{file}}`pyproject.toml` en voeg je een extra kopje toe:
+In {{file_lines}}`pyproject.toml` kunnen we nu het commando toe gaan voegen. Met de `scripts`-tool van Poetry kunnen we aangeven met welk commando een functie uit een script wordt uitgevoerd. Om een commando toe te voegen ga je naar {{file_lines}}`pyproject.toml` en voeg je een extra kopje toe:
 ``` toml
 [tool.poetry.scripts]
 naam_commando = "package.module:naam_functie"
 ```
-Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package opnieuw installeren. Poetry 'kijkt' altijd vanuit de map {{folder}}`src`, de package {{folder}}`package` waar naar verwezen wordt moet dan ook direct in de map {{folder}}`src` zitten (en niet in een submap).
+Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je de package opnieuw installeren. Poetry 'kijkt' altijd vanuit de map {{folder}}`src`, de package {{folder}}`package` waar naar verwezen wordt moet dan ook direct in de map {{folder}}`src` zitten (en niet in een submap).
 
 !!! opdracht-basis "commando toevoegen"
     === "opdracht"
-        Je voegt in de {{file}}`pyproject.toml` het kopje `[tool.poetry.scripts]` toe. Je voegt vervolgens het commando `square` toe. Deze verwijst naar de functie `#!py main()` welke in de module {{file}}`count_count.py` staat die ondergebracht is in de package {{folder}}`just_count`. Omdat je handmatig het toml-bestand hebt aangepast installeer je het package opnieuw met Poetry {{lightbulb}}.
+        Je voegt in de {{file_lines}}`pyproject.toml` het kopje `[tool.poetry.scripts]` toe. Je voegt vervolgens het commando `square` toe. Deze verwijst naar de functie `#!py main()` welke in de module {{file}}`count_count.py` staat die ondergebracht is in de package {{folder}}`just_count`. Omdat je handmatig het toml-bestand hebt aangepast installeer je het package opnieuw met Poetry {{lightbulb}}.
     === "code"
         **Pseudo-code**
         ``` toml title="pyproject.toml"
@@ -724,7 +706,7 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
     
     Om erachter te komen of de problemen die we hierboven hadden écht zijn opgelost maak je een nieuwe Conda environment aan {{lightbulb}}, installeer je het package en run je het script. Werkt alles? Mooi! Dan gaan we nu een commando aanmaken om de functie `#!py table()` aan te roepen.
 
-    1. Open {{file}}`pyproject.toml` en voeg een kopje toe voor scripts.
+    1. Open {{file_lines}}`pyproject.toml` en voeg een kopje toe voor scripts.
             ``` toml
             [tool.poetry.scripts]
             naam_commando = "package.module:naam_functie"
@@ -832,4 +814,4 @@ Om de wijzigingen aan {{file}}`pyproject.toml` door te voeren moet je de package
         - [x] Pythondaq: applicatie
 
 ???+ meer-leren "Versie 2.0.0"
-    In de {{file}}`pyproject.toml` kan je ook de versie aangeven van je package. Maar wanneer hoog je nu welk cijfertje op? Wanneer wordt iets _versie 2.0.0_? Daar zijn conventies voor. Bug fixes gaan op het laatste cijfer, wijzigingen en nieuwe features gaan op het middelste cijfer. Wanneer de applicatie dusdanig verandert dat je bijvoorbeeld bestanden die je met oude versie hebt gemaakt niet met de nieuwe versie kunt openen, dan verander je het eerste cijfer. Je start vaak met versie 0.1.0 en blijft tijdens het bouwen van je project ophogen naar 0.2.0 en soms zelfs 0.83.0. Wanneer je project min of meer klaar is voor eerste gebruik, dan kies je er vaak voor om versie 1.0.0 te releasen.
+    In de {{file_lines}}`pyproject.toml` kan je ook de versie aangeven van je package. Maar wanneer hoog je nu welk cijfertje op? Wanneer wordt iets _versie 2.0.0_? Daar zijn conventies voor. Bug fixes gaan op het laatste cijfer, wijzigingen en nieuwe features gaan op het middelste cijfer. Wanneer de applicatie dusdanig verandert dat je bijvoorbeeld bestanden die je met oude versie hebt gemaakt niet met de nieuwe versie kunt openen, dan verander je het eerste cijfer. Je start vaak met versie 0.1.0 en blijft tijdens het bouwen van je project ophogen naar 0.2.0 en soms zelfs 0.83.0. Wanneer je project min of meer klaar is voor eerste gebruik, dan kies je er vaak voor om versie 1.0.0 te releasen.
