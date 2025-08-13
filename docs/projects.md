@@ -337,6 +337,64 @@ Fijn! Het verwijderen van dependency `PACKAGE` gaat met `uv remove PACKAGE`. uv 
         6. Draai {{file}}`shortcuts.py` en bekijk de uitkomst.
         7. Als je nieuwere versies wilt gebruiken die passen bij wat er in de {{file_lines}}`pyproject.toml` staat, dan kun je de lockfile updaten met `uv lock --upgrade`. Als er nieuwere versies beschikbaar zijn van dependencies dan worden die geïnstalleerd en verwerkt in de lockfile. Je college-ontwikkelaars installeren die nu ook automatisch zodra ze `uv sync` gebruiken.
 
+### Absolute imports
+
+We hebben een uv project, dependencies toegevoegd maar nog niet alle code getest. Dat gaan we nu doen!
+
+!!! opdracht-basis "Easystat package testen"
+    === "opdracht"
+        Je probeert nog een keer {{file}}`shortcuts.py` te runnen en ziet dat dat gewoon werkt. Daarna probeer je {{file}}`measurements.py`. Werkt ook, maar wel gek dat er golfjes onder `#!py from measurements import result_with_uncertainty` staan, hij doet het toch gewoon? Je kijkt even welke waarschuwing daarbij gegeven wordt door je muiscursor op de golfjes te schuiven. Daarna probeer je {{file}}`try_measurements.py`. Hier gaan dingen mis.
+    === "code"
+        **Testcode**
+        <pre><code>(easystat) > python tests/try_measurements.py <button type="button" name="try_measurements" onclick="runScript('try_measurements')">{{ enter }}</button><button type="button" name="try_measurements" onclick="runScript('try_measurements')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="try_measurements">Traceback (most recent call last):
+        File "c:\Users\David\Documents\ECPC\easystat\tests\try_measurements.py", line 1, in <module>
+            from measurements import result_with_uncertainty
+        ModuleNotFoundError: No module named 'measurements'</span>
+        </code></pre>
+
+We willen dus de module `measurements` importeren, maar Python kan hem niet vinden. Dat is ook wel een klein beetje logisch, want {{file}}`try_measurements.py` staat in de map {{folder}}`tests` maar {{file}}`measurements.py` staat in de map {{folder}}`src/easystat`. Dus we moeten Python vertellen wáár hij die module kan vinden, namelijk in ons nieuwe package `easystat`. Doordat we een package gemaakt hebben hoeven we dus niet precies te vertellen in welke _map_ alles te vinden is, maar hoeven we alleen de naam van het package te gebruiken. Dus _niet_ `map.op.computer.easystat.src.easystat` maar gewoon `easystat`. Wel zo makkelijk.
+
+!!! opdracht-basis "Import aanpassen: easystat package gebruiken"
+    === "opdracht"
+        Je past `#!py from measurements ...` aan naar `#!py from easystat.measurements ...`. Je test de code opnieuw. Verdorie, weer een error. Overleg met elkaar wat deze error betekent. Waarom kregen wie error niet toen we {{file}}`measurements.py` testten?
+    === "code"
+        **Testcode**
+        <pre><code>(easystat) > python tests/try_measurements.py <button type="button" name="try_measurements2" onclick="runScript('try_measurements2')">{{ enter }}</button><button type="button" name="try_measurements2" onclick="runScript('try_measurements2')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="try_measurements2">Traceback (most recent call last):
+        File "c:\Users\David\Documents\ECPC\easystat\tests\try_measurements.py", line 1, in <module>
+            from easystat.measurements import result_with_uncertainty
+        File "C:\Users\David\Documents\ECPC\easystat\src\easystat\measurements.py", line 2, in <module>
+            from shortcuts import stdev_of_mean
+        ModuleNotFoundError: No module named 'shortcuts'</span>
+        </code></pre>
+
+Het probleem is dat wanneer je met Python een script runt en je importeert iets, dat Python eerst in de map kijkt waar het script staat (hier {{folder}}`tests`) en daarna zoekt in de lijst met geïnstalleerde packages. De module `shortcuts` staat _niet_ in {{folder}}`tests`. Toen we {{file}}`measurements.py` draaiden kon hij die wél vinden want {{file}}`measurements.py` en {{file}}`shortcuts.py` staan in _dezelfde_ map. Dus afhankelijk van welk script we draaien kan hij de modules soms wel vinden, soms niet. Dat is natuurlijk niet zo handig. De oplossing: _absolute imports_: geef bij alle imports _altijd_ de naam van je package op.
+
+!!! opdracht-basis "Import aanpassen: absolute imports"
+    === "opdracht"
+        Je past `#!py from shortcuts ...` aan door de naam van het package toe te voegen. Je test de code opnieuw. Gelukt! {{feesttoeter}}
+    === "code"
+        **Testcode**
+        <pre><code>(easystat) > python tests/try_measurements.py <button type="button" name="try_measurements3" onclick="runScript('try_measurements3')">{{ enter }}</button><button type="button" name="try_measurements3" onclick="runScript('try_measurements3')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="try_measurements3">measurements=[1, 2, 2, 2, 3]
+        Result of measurements is: 2.00 +- 0.28.</span>
+        </code></pre>
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Je hebt de import in {{file}}`try_measurements.py` aangepast.
+        - [ ] Je hebt de import in {{file}}`measurements.py` aangepast.
+        - [ ] Je krijgt geen foutmelding als je het bestand {{file}}`try_measurements.py` runt.
+
+        **Projecttraject**
+    
+        - [x] Easystat uv project aanmaken
+        - [x] Easystat virtual environment aanmaken
+        - [x] Easystat {{file}}`shortcuts.py`, {{file}}`measurements.py` en {{file}}`try_measurements.py` aanmaken
+        - [x] Easystat {{file}}`shortcuts.py` testen
+        - [x] Easystat dependencies toevoegen
+        - [x] Easystat package imports fixen
 
 ???+ meer-leren "Wheels"
 
@@ -346,31 +404,25 @@ Fijn! Het verwijderen van dependency `PACKAGE` gaat met `uv remove PACKAGE`. uv 
 
     !!! opdracht-meer "Bouw een wheel"
         
-        1. Bouw het wheel van easystat met `poetry build`.
-        1. Bekijk de namen van de bestanden in de nieuwe map {{folder}}`easystat/dist`, welke extensie hebben ze?
+        1. Bouw het wheel van easystat met `uv build`.
+        2. Bekijk de namen van de bestanden in de nieuwe map {{folder}}`easystat/dist`, welke extensie hebben ze?
         
 
-    <pre><code>(ECPC) > poetry build <button type="button" name="poetry build" onclick="runScript('poetry build')">{{ enter }}</button><button type="button" name="poetry build" onclick="runScript('poetry build')" class="invisible">{{ reload }}</button>
-    <span class="invisible" name="poetry build">Building easystat (0.1.0)
-        - Building sdist
-        - Built easystat-0.1.0.tar.gz
-        - Building wheel
-        - Built easystat-0.1.0-py3-none-any.whl</span>
+    <pre><code>(easystat) > uv build <button type="button" name="uv build" onclick="runScript('uv build')">{{ enter }}</button><button type="button" name="uv build" onclick="runScript('uv build')" class="invisible">{{ reload }}</button>
+    <span class="invisible" name="uv build">Building source distribution (uv build backend)...
+    Building wheel from source distribution (uv build backend)...
+    Successfully built dist\easystat-0.1.0.tar.gz
+    Successfully built dist\easystat-0.1.0-py3-none-any.whl</span>
     </code></pre>
-    Een <q>sdist</q> is een _source distribution_. Een `.tar.gz`-bestand is een soort zipbestand met daarin de broncode van ons pakket. De tests worden daar niet in meegenomen. Een <q>wheel</q> is een soort bestand dat direct geïnstalleerd kan worden met `pip`. Zogenaamde _pure-python_ packages bevatten alleen Pythoncode &mdash; en geen C-code die gecompileerd moet worden voor verschillende besturingssystemen of hardwareplatforms. Je herkent ze aan `none-any` in de bestandsnaam. <q>None</q> voor <q>niet-OS-specifiek</q> en <q>any</q> voor <q>draait op elk hardwareplatform</q>. We kunnen dit bestand als download neerzetten op een website of aan anderen mailen.
+    Een `.tar.gz`-bestand is een soort zipbestand met daarin de broncode van ons pakket (een _source distribution_). De tests worden daar niet in meegenomen. Een <q>wheel</q> is een soort bestand dat direct geïnstalleerd kan worden met `pip`. Zogenaamde _pure-python_ packages bevatten alleen Pythoncode &mdash; en geen C-code die gecompileerd moet worden voor verschillende besturingssystemen of hardwareplatforms. Je herkent ze aan `none-any` in de bestandsnaam. <q>None</q> voor <q>niet-OS-specifiek</q> en <q>any</q> voor <q>draait op elk hardwareplatform</q>. We kunnen dit bestand als download neerzetten op een website of aan anderen mailen. Zij kunnen het dan installeren met `pip install`.
 
     !!! opdracht-meer "Test wheel"
         Laten we het wheel uitproberen. We gaan straks een nieuwe conda environment aanmaken, installeren het wheel en proberen het testscript te runnen &mdash; één keer vóór het installeren van het wheel en één keer ná het installeren, als volgt:
 
-        1. Maak een nieuwe conda environment aan met de naam `test-wheel` en activeer deze.
-                ``` ps1con title="Terminal"
-                PS> conda create --name test-wheel python=3.12
-                ...
-                PS> conda activate test-wheel
-                ```
-        1. Draai {{file}}`tests/try_shortcuts.py` en bekijk de foutmelding.
-        1. Installeer het wheel met `pip install dist/easystat-0.1.0-py3-none-any.whl`.
-        1. Draai {{file}}`tests/try_shortcuts.py` en bekijk de uitkomst.
+        3. Maak een nieuw, leeg, virtual environment.
+        4. Draai {{file}}`tests/try_measurements.py` en bekijk de foutmelding.
+        5. Installeer het wheel met `uv pip install .\dist\easystat-0.1.0-py3-none-any.whl`.
+        6. Draai {{file}}`tests/try_measurements.py` en bekijk de uitkomst.
         
     Het werkt! Je ziet dat `pip install` niet alleen ons package `easystat` installeert, maar _ook de dependency_ `numpy`. Dat is precies wat we willen.
     
