@@ -417,7 +417,7 @@ Het probleem is dat wanneer je met Python een script runt en je importeert iets,
     Een `.tar.gz`-bestand is een soort zipbestand met daarin de broncode van ons pakket (een _source distribution_). De tests worden daar niet in meegenomen. Een <q>wheel</q> is een soort bestand dat direct geïnstalleerd kan worden met `pip`. Zogenaamde _pure-python_ packages bevatten alleen Pythoncode &mdash; en geen C-code die gecompileerd moet worden voor verschillende besturingssystemen of hardwareplatforms. Je herkent ze aan `none-any` in de bestandsnaam. <q>None</q> voor <q>niet-OS-specifiek</q> en <q>any</q> voor <q>draait op elk hardwareplatform</q>. We kunnen dit bestand als download neerzetten op een website of aan anderen mailen. Zij kunnen het dan installeren met `pip install`.
 
     !!! opdracht-meer "Test wheel"
-        Laten we het wheel uitproberen. We gaan straks een nieuwe conda environment aanmaken, installeren het wheel en proberen het testscript te runnen &mdash; één keer vóór het installeren van het wheel en één keer ná het installeren, als volgt:
+        Laten we het wheel uitproberen. We gaan straks een nieuw virtual environment aanmaken, installeren het wheel en proberen het testscript te runnen &mdash; één keer vóór het installeren van het wheel en één keer ná het installeren, als volgt:
 
         3. Maak een nieuw, leeg, virtual environment.
         4. Draai {{file}}`tests/try_measurements.py` en bekijk de foutmelding.
@@ -627,7 +627,7 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
         Nu je het commando `square` hebt aangemaakt ga je deze testen in een terminal. Er verschijnt een error `ModuleNotFoundError: No module named 'square'`. Je leest het info-blokje hieronder.
         </br>
         </br>
-        Je runt het commando `square` opnieuw en je ziet de tekst `The square of 5 is 25` verschijnen. Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `square` en ziet weer de tekst `The square of 5 is 25` verschijnen. Je concludeert dat het commando nu overal werkt zolang het juiste conda environment is geactiveerd. Dat test je uit door het virtual environment te deactiveren {{lightbulb}} en het commando `square` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
+        Je runt het commando `square` opnieuw en je ziet de tekst `The square of 5 is 25` verschijnen. Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `square` en ziet weer de tekst `The square of 5 is 25` verschijnen. Je concludeert dat het commando nu overal werkt zolang het juiste virtual environment is geactiveerd. Dat test je uit door het virtual environment te deactiveren {{lightbulb}} en het commando `square` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
 
         !!! info "ModuleNotFoundError: No module named 'square'"
             Als je de Traceback leest zie je dat het probleem ontstaat in de module {{file}}`count_count.py`. Zoiets hebben we al eerder gezien toen we werkten met het easystat package... Pas het import statement aan naar `#!py from just_count import square`.  
