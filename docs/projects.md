@@ -685,9 +685,9 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
         <div class="grid-tree" markdown>
             <div>
             Bij het uitbouwen van de applicatie ga je mogelijk onderdelen uit de pythonpackage importeren. Daarom is het verstandig om, net als met de [opdracht _Packages_](vervolg-python.md#opd:test_package), het importeren uit de package te testen.
-            Maak daarvoor een {{folder}}`tests`-map met {{file}}`__init__.py` en {{file}}`test_imports.py` in de repository {{github}}`pythondaq`. 
+            Maak daarvoor een {{folder}}`tests`-map met {{file}}`test_imports.py` in de repository {{github}}`pythondaq`. 
             ```py title="test_imports.py"
-            import pythondaq.view
+            import pythondaq.run_experiment
             ```
             Je runt het bestand {{file}}`test_imports.py` en lost de errors op. Daarna  werkt je package ook als je het aanroept van buiten de map met broncode. Je {{github}}`pythondaq`-repository is nu een volledig project dat je met andere gebruikers van Python kunt delen, bijvoorbeeld via een _wheel_.
             </div>
@@ -700,10 +700,11 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
             {{tab}}{{tab}}{{T}}{{file}}`diode_experiment.py`  
             {{tab}}{{tab}}{{L}}{{file}}`run_experiment.py`  
             {{T}}{{new_folder}}`tests`  
-            {{tab}}{{T}}{{new_file}}`__init__.py`  
             {{tab}}{{L}}{{new_file}}`test_imports.py`  
+            {{T}}{{file_lines}}`.python-version`  
             {{T}}{{file_lines}}`pyproject.toml`  
-            {{L}}{{file_lines}}`README.md`  
+            {{T}}{{file_lines}}`README.md`  
+            {{L}}{{file_lines}}`uv.lock`  
             </div>
         </div>
         
@@ -722,31 +723,30 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
         <pre>
         <code>(ECPC) > python test_imports.py
         <span class="invisible" name="test_imports_pythondaq">Traceback (most recent call last):
-            File "c:\pythondaq\tests\test_imports.py", line 1, in < module >
-                import pythondaq.view
-            File "C:\pythondaq\src\pythondaq\run_experiment.py", line 4, in < module >
-                from diode_experiment import DiodeExperiment
-            ModuleNotFoundError: No module named 'diode_experiment'</span>
+        File "c:\Users\David\Documents\ECPC\pythondaq\tests\test_imports.py", line 1, in <module>
+            import pythondaq.run_experiment
+        File "C:\Users\David\Documents\ECPC\pythondaq\src\pythondaq\run_experiment.py", line 5, in <module>
+            from diode_experiment import DiodeExperiment, list_resources
+        ModuleNotFoundError: No module named 'diode_experiment'</span>
         </code></pre></div>
         
     === "check"
         **Checkpunten:**
     
         - [ ] Er is een map {{folder}}`tests` in de repository {{github}}`pythondaq`.
-        - [ ] Er is een bestand {{file}}`__init__.py` in de map {{folder}}`tests`.
         - [ ] De import statements in de modules in het package {{folder}}`pythondaq` zijn aangepast zodat het bestand {{file}}`test_imports` runt zonder problemen.
 
         **Projecttraject**
 
         - [x] Pythondaq: Docstring
         - [x] Pythondaq: src-layout
-        - [x] Pythondaq: poetry    
+        - [x] Pythondaq: uv
         - [x] Pythondaq: test imports
         - [ ] Pythondaq: applicatie
     
 !!! opdracht-inlever "Pythondaq: applicatie"
     === "opdracht"
-        Je maakt een commando om het script {{file}}`run_experiment.py` uit de repository {{github}}`pythondaq` te starten {{lightbulb}}. Wanneer je het commando aanroept gaat het LED-lampje branden, en verschijnt er even later een IU-plot op het scherm. Je test of het commando ook buiten Visual Studio Code werkt door een `Anaconda prompt` te openen. Je activeert het juiste conda environment {{lightbulb}} en ziet dat ook dan het commando werkt. Wat een feest! {{feesttoeter}} Je hebt nu een applicatie geschreven die een Arduino aanstuurt om een ledje te laten branden. En je kunt je applicatie gewoon vanuit de terminal aanroepen! {{feesttoeter}}
+        Je maakt een commando om het script {{file}}`run_experiment.py` uit de repository {{github}}`pythondaq` te starten {{lightbulb}}. Wanneer je het commando aanroept gaat het LED-lampje branden, en verschijnt er even later een IU-plot op het scherm. Je test of het commando ook buiten Visual Studio Code werkt door vanuit GitHub **Menu > Repository > Open in Command Prompt** een nieuwe terminal te openen. Je test het commando met `uv run` {{lightbulb}} en ook door het juiste virtual environment te activeren {{lightbulb}}. Je ziet dat ook dan het commando werkt, _zonder_ `uv run`. Wat een feest! {{feesttoeter}} Je hebt nu een applicatie geschreven die een Arduino aanstuurt om een ledje te laten branden. En je kunt je applicatie gewoon vanuit de terminal aanroepen! {{feesttoeter}}
     === "code"
         **Pseudo-code**
         ``` py title="run_experiment.py"
@@ -756,7 +756,7 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
             # code to start a measurement
         ```
         ``` toml title="pyproject.toml"
-        [tool.poetry.scripts]
+        [project.scripts]
         naam_commando = "package.module:naam_functie"
         ```
     === "check"
@@ -765,13 +765,13 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
         - [ ] De functie in {{file}}`run_experiment.py` bevat alle code die uitgevoerd moet worden om een meting te starten.
         - [ ] Het commando in de {{file_lines}}`pyproject.toml` verwijst op de correcte manier naar de functie in {{file}}`run_experiment.py`.
         - [ ] Het aanroepen van het commando zorgt ervoor dat een meting gestart wordt. 
-        - [ ] Het commando werkt ook in een `Anaconda prompt` zolang het juiste conda environment actief is.
+        - [ ] Het commando werkt ook in een <q>losse</q> zolang het juiste virtual environment actief is, óf `uv run` wordt gebruikt.
 
         **Projecttraject**
     
         - [x] Pythondaq: Docstring
         - [x] Pythondaq: src-layout
-        - [x] Pythondaq: poetry    
+        - [x] Pythondaq: uv
         - [x] Pythondaq: test imports
         - [x] Pythondaq: applicatie
 
