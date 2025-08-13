@@ -659,23 +659,23 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
         - [x] commando testen
 
 ???+ opdracht-meer "Error analysis"
-    Als extra oefening gaan we met Poetry een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script {{file}}`data_analysis.py` te laten runnen.
+    Als extra oefening gaan we met uv een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script {{file}}`data_analysis.py` te laten runnen.
 
     1. Ga naar GitHub en clone {{github}}[`AnneliesVlaar/erroranalysis`](https://github.com/AnneliesVlaar/erroranalysis) in GitHub Desktop en open de repository daarna in Visual Studio Code.
-    1. Natuurlijk maak je gelijk een nieuwe Conda environment aan {{lightbulb}}, voordat we dit package gaan testen.
-    1. Snuffel door de bestanden en mappen, en open {{file}}`src/erroranalysis/data_analysis.py`. Dit is het script wat moet kunnen runnen.
-    1. Run het script {{file}}`data_analysis.py` en los de errors één voor één op.
+    2. Natuurlijk maak je gelijk een nieuw virtual environment aan {{lightbulb}}, voordat we dit package gaan testen.
+    3. Snuffel door de bestanden en mappen, en open {{file}}`src/erroranalysis/data_analysis.py`. Dit is het script wat moet kunnen runnen.
+    4. Run het script {{file}}`data_analysis.py` en los de errors één voor één op.
     
-    Om erachter te komen of de problemen die we hierboven hadden écht zijn opgelost maak je een nieuwe Conda environment aan {{lightbulb}}, installeer je het package en run je het script. Werkt alles? Mooi! Dan gaan we nu een commando aanmaken om de functie `#!py table()` aan te roepen.
+    Om erachter te komen of de problemen die we hierboven hadden écht zijn opgelost maak je een nieuw leeg virtual environment aan {{lightbulb}} en test je dat het script _niet werkt_. Dan installeer je het package en run je het script opnieuw. Werkt alles? Mooi! Dan gaan we nu een commando aanmaken om de functie `#!py table()` aan te roepen.
 
-    1. Open {{file_lines}}`pyproject.toml` en voeg een kopje toe voor scripts.
+    5. Open {{file_lines}}`pyproject.toml` en zoek het kopje voor scripts. Het formaat was:
             ``` toml
-            [tool.poetry.scripts]
+            [project.scripts]
             naam_commando = "package.module:naam_functie"
             ```
             pas de regel aan zodat jouw commando de functie `#!py table()` aanroept in {{file}}`src/erroranalysis/data_analysis.py`. Je mag de naam van het commando zelf kiezen.
-    1. Ga naar de terminal en kijk of het werkt!
-    <pre><code>(ECPC) > naam_commando <button type="button" name="naam_commando" onclick="runScript('naam_commando')">{{ enter }}</button><button type="button" name="naam_commando" onclick="runScript('naam_commando')" class="invisible">{{ reload }}</button>
+    6. Ga naar de terminal en kijk of het werkt!
+    <pre><code>(erroranalysis) > naam_commando <button type="button" name="naam_commando" onclick="runScript('naam_commando')">{{ enter }}</button><button type="button" name="naam_commando" onclick="runScript('naam_commando')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="naam_commando">Area of the kitchen table is: 1.8386 ± 0.0049 m</span>
     </code></pre>
 
