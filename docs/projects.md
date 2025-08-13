@@ -2,13 +2,13 @@
 
 In de vorige hoofdstukken heb je gewerkt met een eigen virtual environment zodat je jouw pythonomgeving mooi gescheiden kan houden van andere projecten waar je aan werkt. Dit is echt _de_ oplossing voor alle problemen waarbij volledige Pythoninstallaties onbruikbaar kunnen worden &mdash; waarna je alles opnieuw moet installeren. Dit kan gebeuren als je &mdash; vanwege al je verschillende projecten &mdash; zoveel packages installeert dat die met elkaar in conflict komen.
 
-Voor ieder project nieuwe environments aanmaken heeft wel een nadeel: je moet alle packages die je nodig hebt opnieuw installeren. Welke waren dat ook alweer? Vast `numpy`, en `matplotlib`, en&hellip;? Niet handig. Als je code gaat delen met elkaar krijg je regelmatig te maken met een `#!py ImportError` omdat je niet precies weet wat er nodig is, waarna je _weer_ één of ander package moet installeren.
+Voor ieder project nieuwe environments aanmaken heeft wel een nadeel: je moet alle packages die je nodig hebt opnieuw installeren. Welke waren dat ook alweer? Vast `numpy`, en `matplotlib`, en&hellip;? Niet handig. Als je code gaat delen met elkaar krijg je regelmatig te maken met een `#!py ImportError` of `#!py ModuleNotFoundError` omdat je niet precies weet wat er nodig is, waarna je _weer_ één of ander package moet installeren.
 
 Nu pythondaq netjes is uitgesplitst in een MVC-structuur en de wijzigingen met Git worden bijgehouden, ga je er een package van maken zodat je het ook met anderen kan delen. Daarin staan alle benodigdheden duidelijk omschreven zodat gebruikers daar verder niet over hoeven na te denken.
 
 Packages op PyPI (de standaardplek waar Python packages gepubliceerd worden) geven altijd hun _dependencies_ op. Dat zijn de packages die verder nog nodig zijn om alles te laten werken. Installeer je `matplotlib`, dan krijg je er `six, python-dateutil, pyparsing, pillow, numpy, kiwisolver, cycler` automatisch bij. Maar alleen de namen van packages zijn niet genoeg. Welke versies van `numpy` werken met de huidige versie van `matplotlib`? Allemaal zaken die je &mdash; als je een package schrijft &mdash; zelf moet bijhouden. Het voordeel is dat jouw gebruikers alleen maar _jouw_ pakket hoeven te installeren &mdash; de rest gaat vanzelf.
 
-En&hellip; hoe test je je package zodat je zeker weet dat hij het bij een ander ook doet? Heel vaak werkt het bij jou wel, maar vergeet je een bestand mee te sturen dat wel echt nodig is.[^missende bestanden] Of: bij jou werkt `#!py import my_new_cool_app.gui` wel, maar bij een ander geeft hij een `#!py ImportError`. De bestanden zijn er wel, maar worden verkeerd geïmporteerd.
+En&hellip; hoe test je je package zodat je zeker weet dat hij het bij een ander ook doet? Heel vaak werkt het bij jou wel, maar vergeet je een bestand mee te sturen dat wel echt nodig is.[^missende bestanden] Of: bij jou werkt `#!py import my_new_cool_app.gui` wel, maar bij een ander geeft hij een `#!py ImportError` of `#!py ModuleNotFoundError`. De bestanden zijn er wel, maar worden verkeerd geïmporteerd.
 
 [^missende bestanden]: Echt gebeurd: meerdere studenten leverden hun grafische applicatie in voor een beoordeling. We konden het niet draaien, want er misten bestanden. Bij de student werkte het wel, maar bij ons _echt_ niet.
 
@@ -180,7 +180,7 @@ De sectie `[project.scripts]` zorgt ervoor dat we ons script kunnen aanroepen do
 
 
 ### Maken van de easystat-package
-We starten met ons package. We gaan een aantal `#!py ImportError`s tegenkomen, maar dat lossen we ook weer op.  Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige <q>shortcut</q> in {{file}}`shortcuts.py`. Nu willen we deze shortcut ook in een ander script {{file}}`measurements.py` gebruiken, die op basis van een aantal metingen het gemiddelde mét een onzekerheid geeft. Dit kunnen we doen door de module te importeren in het nieuwe script zodat we de functie `stdev_of_mean` daar ook kunnen gebruiken. We maken uiteindelijk een script {{file}}`try_measurements.py` om dit allemaal te testen, en die zetten we expres niet _in_ het package, maar in een nieuwe map {{folder}}`tests`. Het testscript hoort immers niet bij de code van het `easystat` package.
+We starten met ons package. We gaan een aantal `#!py ModuleNotFoundError`s tegenkomen, maar dat lossen we ook weer op.  Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige <q>shortcut</q> in {{file}}`shortcuts.py`. Nu willen we deze shortcut ook in een ander script {{file}}`measurements.py` gebruiken, die op basis van een aantal metingen het gemiddelde mét een onzekerheid geeft. Dit kunnen we doen door de module te importeren in het nieuwe script zodat we de functie `stdev_of_mean` daar ook kunnen gebruiken. We maken uiteindelijk een script {{file}}`try_measurements.py` om dit allemaal te testen, en die zetten we expres niet _in_ het package, maar in een nieuwe map {{folder}}`tests`. Het testscript hoort immers niet bij de code van het `easystat` package.
 
 !!! opdracht-basis "Easystat shortcuts.py en try_shortcuts.py aanmaken"
     Maak zoals hieronder aangegeven de bestanden {{new_file}}`shortcuts.py`, {{new_file}}`measurements.py` en {{new_file}}`try_measurements.py` aan, waarbij je let op in welke map de bestanden moeten staan:
@@ -275,7 +275,7 @@ In de eerste regel van {{file}}`test_measurements.py` importeren we de functie u
         - [ ] Easystat package imports fixen
 
     
-De beloofde `#!py ImportError`! Ons package heeft NumPy nodig en dat hebben we nog niet geïnstalleerd. Dat kunnen we handmatig doen maar dan hebben andere gebruikers een probleem. Veel beter is het om netjes aan te geven dat ons package NumPy nodig heeft &mdash; als _dependency_.
+De beloofde `#!py ModuleNotFoundError`! Ons package heeft NumPy nodig en dat hebben we nog niet geïnstalleerd. Dat kunnen we handmatig doen maar dan hebben andere gebruikers een probleem. Veel beter is het om netjes aan te geven dat ons package NumPy nodig heeft &mdash; als _dependency_.
 
 
 ### Dependencies toevoegen
@@ -314,7 +314,7 @@ Installed 2 packages in 798ms
 Fijn! Het verwijderen van dependency `PACKAGE` gaat met `uv remove PACKAGE`. uv heeft NumPy nu toegevoegd aan de environment `easystat`. Gewone package managers als Pip en Conda zullen geen packages toevoegen aan je uv project als je `pip/conda install package` aanroept. Gebruik daarom altijd `uv add package` als je met uv aan een package werkt. Sterker nog, als je met Pip handmatig packages extra installeert zal `uv sync` deze packages als overbodig herkennen en ze prompt weer verwijderen.
 
 !!! info
-    Als we de code in ons package aanpassen dan hoeven we het environment niet opnieuw te synchroniseren met `uv sync`, maar als we met de hand iets wijzigen in de {{file_lines}}`pyproject.toml` dan moet dat _wel_. Als je een `#!py ImportError` krijgt voor je eigen package &mdash; bijvoorbeeld als je nieuwe mappen of bestanden hebt aangemaakt &mdash; probeer dan _eerst_ voor de zekerheid `uv sync`.
+    Als we de code in ons package aanpassen dan hoeven we het environment niet opnieuw te synchroniseren met `uv sync`, maar als we met de hand iets wijzigen in de {{file_lines}}`pyproject.toml` dan moet dat _wel_. Als je een `#!py ImportError` of `#!py ModuleNotFoundError` krijgt voor je eigen package &mdash; bijvoorbeeld als je nieuwe mappen of bestanden hebt aangemaakt &mdash; probeer dan _eerst_ voor de zekerheid `uv sync`.
 
 ???+ meer-leren "uv.lock"
 
@@ -326,13 +326,13 @@ Fijn! Het verwijderen van dependency `PACKAGE` gaat met `uv remove PACKAGE`. uv 
 
         1. Maak een schone virtual environment met `uv venv`
         2. Kies voor ja als uv een waarschuwing geeft dat deze environment al bestaat en vraagt of je het bestaande environment wilt verwijderen.
-        3. Draai {{file}}`tests/try_shortcuts.py` en bekijk de foutmelding.
+        3. Draai {{file}}`shortcuts.py` en bekijk de foutmelding.
 
-    We krijgen meteen foutmeldingen. Immers, we hebben nog niets geïnstalleerd.
+    We krijgen meteen foutmeldingen. Immers, het virtual environment is nog leeg en we hebben geen dependencies geïnstalleerd.
 
     !!! opdracht-meer "uv.lock"
 
-        4. Installeer de dependencies met uv, met `uv sync`.
+        4. Installeer de dependencies in één keer met `uv sync`.
         5. Waarvoor gebruikt uv de lock file ({{file_lines}}`uv.lock)`?
         6. Draai {{file}}`shortcuts.py` en bekijk de uitkomst.
         7. Als je nieuwere versies wilt gebruiken die passen bij wat er in de {{file_lines}}`pyproject.toml` staat, dan kun je de lockfile updaten met `uv lock --upgrade`. Als er nieuwere versies beschikbaar zijn van dependencies dan worden die geïnstalleerd en verwerkt in de lockfile. Je college-ontwikkelaars installeren die nu ook automatisch zodra ze `uv sync` gebruiken.
@@ -398,7 +398,7 @@ Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--n
     ...</span>
     </code></pre>
     
-    Je overschrijft dus je huidige environment met een nieuwe, lege. Je kunt daarna met `poetry add` packages toevoegen net zo lang tot je geen `#!py ImportError` meer krijgt.
+    Je overschrijft dus je huidige environment met een nieuwe, lege. Je kunt daarna met `poetry add` packages toevoegen net zo lang tot je geen `#!py ImportError` of `#!py ModuleNotFoundError` meer krijgt.
 
 ![Klik hier](assets/eastereggs/ECPC-green.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met 'CTRL' + 'SHIFT' + 'N'je kunt meerdere vensters van Visual Studio Code openen en naast elkaar zetten, dan kan je makkelijk terug kijken. Probeer maar eens!"}
 
