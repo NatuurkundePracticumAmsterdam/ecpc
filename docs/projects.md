@@ -219,7 +219,7 @@ We starten met ons package. We gaan een aantal `#!py ModuleNotFoundError`s tegen
         {{T}} {{folder}} `src`  
         {{tab}} {{T}} {{folder}} `easystat`  
         {{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
-        {{tab}} {{tab}} {{L}} {{new_file}} `measurements.py`  
+        {{tab}} {{tab}} {{T}} {{new_file}} `measurements.py`  
         {{tab}} {{tab}} {{L}} {{new_file}} `shortcuts.py`  
         {{T}} {{folder}} `tests`  
         {{tab}} {{T}} {{file}} `__init__.py`  
@@ -429,187 +429,71 @@ Het probleem is dat wanneer je met Python een script runt en je importeert iets,
     Het is belangrijk om de wheels _niet_ in je GitHub repository te committen. Je repository is voor _broncode_, waarmee wheels gebouwd kunnen worden. Als je de stappen voor het aanmaken van de repository netjes gevolgd hebt dan heb je een {{file_lines}}`.gitignore` toegevoegd met Python-specifieke bestandsnamen en directories die genegeerd worden door Git en GitHub.
 
 
-## Poetry gebruiken voor een bestaand project
+## uv gebruiken voor een bestaand project: pythondaq
+Natuurlijk willen we uv ook gaan gebruiken bij `pythondaq`. We maken nu alleen geen _nieuw_ project, maar gaan uv toevoegen aan een bestaand project. Daarvoor moeten we twee dingen doen. Als eerste gaan we uv initialiseren in de `pythondaq` repository en dan moeten we de code in de `src`-structuur plaatsen.
 
-Met `poetry new` start je een _nieuw_ project en maakt Poetry voor jou bestanden en mappen aan waarmee je aan de slag kunt. Maar vaak ben je al bezig met een project en wil je dat niet overschrijven. Ook is het een gedoe om een nieuw project te maken en daar je bestaande code in te kopieëren. Gelukkig kun je Poetry ook vertellen dat je al bezig bent en dat Poetry _alleen_ een {{file_lines}}`pyproject.toml`-bestand moet aanmaken. Run dan _in de map van je project_:
-``` ps1 title="Terminal"
-poetry init --no-interaction
-```
-Je geeft met `poetry init` de opdracht om Poetry alleen te initialiseren en `--no-interaction` voorkomt je dat je eerst honderd vragen krijgt over je project. Meestal kies je toch de standaardantwoorden.[^poetry-init]
-
-[^poetry-init]: Het is eenvoudig om zelf de {{file_lines}}`pyproject.toml` te openen en daar wat in aan te passen voor zover nodig.
-
-!!! info
-    Vergeet niet &mdash; waar nodig &mdash; de {{file}}`__init__.py` bestanden toe te voegen aan de packages. Meer informatie over de {{file}}`__init__.py` bestanden vind je in [paragraaf _packages_](vervolg-python.md#packages).
-
-!!! info
-    Als je al bezig bent met een project dan werk je als het goed is al in een conda environment. Daar heb je dan met `conda install` al packages geïnstalleerd die je nodig hebt. Het gebeurt dan makkelijk dat je vergeet om dat aan te geven met `poetry add`. Dat betekent alleen dat als iemand anders je package installeert dat er dependencies missen en dat jouw code dus _niet_ werkt! Dit is makkelijk op te lossen. Zodra je Poetry gaat gebruiken _wis dan je environment en maak een nieuwe aan met alleen Python._ Dat gaat het makkelijkst als volgt. Stel dat je bezig bent in het environment `pythondaq`. We maken dan een nieuw environment met dezelfde naam:
-    <pre><code>(ECPC) > conda create --name pythondaq python=3.12 <button type="button" name="conda create --name pythondaq python=3.12" onclick="runScript('conda create --name pythondaq python=3.12')">{{ enter }}</button><button type="button" name="conda create --name pythondaq python=3.12" onclick="runScript('conda create --name pythondaq python=3.12')" class="invisible">{{ reload }}</button>
-    <span class="invisible" name="conda create --name pythondaq python=3.12">WARNING: A conda environment already exists at '/Users/david/opt/anaconda3/envs/pythondaq'
-    Remove existing environment (y/[n])? y                                                                                                                                      
-    ...</span>
-    </code></pre>
-    
-    Je overschrijft dus je huidige environment met een nieuwe, lege. Je kunt daarna met `poetry add` packages toevoegen net zo lang tot je geen `#!py ImportError` of `#!py ModuleNotFoundError` meer krijgt.
-
-![Klik hier](assets/eastereggs/ECPC-green.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met 'CTRL' + 'SHIFT' + 'N'je kunt meerdere vensters van Visual Studio Code openen en naast elkaar zetten, dan kan je makkelijk terug kijken. Probeer maar eens!"}
-
-!!! opdracht-basis "Poetry flashingLED"
+!!! opdracht-inlever "Pythondaq: uv"
     === "opdracht"
-    
-        <div class="grid-tree" markdown>
-            <div>
-            Je gaat een bestaand project maken zodat je kunt oefenen om daar Poetry aan toe te voegen. Omdat de [opdracht _flashingLED_](communicatie.md#opd:flashingLED) een oefenopdracht was voor `Pythondaq` besluit je deze als oefenpackage te gebruiken. Je maakt een nieuwe repository {{github}}`flasher` aan {{lightbulb}} en opent deze in Visual Studio Code. Je maakt zelf in de repository {{github}}`flasher` de src-layout van mappen en bestanden, zoals hier rechts is weergegeven. Het bestand {{file}}`flashingLED` heb je gekopieerd uit je repository {{github}}`oefenopdrachten`. 
-            </br>
-            </br>
-            Nu het oefenpackage klaar staat (commit{{feesttoeter}}) maak je een nieuwe conda environment met de naam `flasher` met daarin `python=3.12` {{lightbulb}}. Je activeert de environment `flasher` en voegt Poetry toe {{lightbulb}} aan de bestaande projectmap {{folder}}`flasher`. Je installeert het Poetry pakket in de `flasher` conda environment en daarna voeg je de benodigde dependencies toe (in ieder geval `pyvisa-py` maar wat nog meer?) net zolang tot het scriptje weer werkt {{lightbulb}}. 
-            </br>
-            </br>
-            Tot slot wil je testen of het nu ook werkt in een nieuwe conda environment. Dus je maakt weer een nieuwe conda environment met de naam `flasher` met daarin `python=3.12` {{lightbulb}}. Je installeert het Poetry pakket in de `flasher` conda environment {{lightbulb}}. Dan test je of het scriptje nog werkt.
-            </div>
-            <div>
-            {{folder}} `ECPC`  
-            {{T}} {{github}} `oefenopdrachten`  
-            {{T}} {{github}} `pythondaq`  
-            {{T}} {{github}} `flasher`  
-            {{tab}} {{L}} {{folder}} `src`  
-            {{tab}} {{tab}} {{L}} {{folder}} `flasher`  
-            {{tab}} {{tab}} {{tab}} {{T}} {{new_file_lines}}`__init__.py`  
-            {{tab}} {{tab}} {{tab}} {{L}} {{file}} `flashingLED.py`  
-            {{L}} {{dots}}  
-            </div>
-        </div>
-        !!! info "No module named 'serial'"
-            Waarschijnlijk krijg je onder andere de foutmelding:
-            ``` ps1con
-                ValueError: Please install PySerial (>=3.0) to use this resource type.
-                No module named 'serial'
-            ```
-            Super handig dat iemand daarboven heeft opgeschreven wat je moet doen om dit probleem op te lossen. Maar waarom moeten we nu ineens `PySerial` installeren[^pyserial]? Dat komt omdat we eerst `pyvisa-py` met conda uit de conda-forge channel installeerde en daar komt `PySerial` als dependencie mee. Nu installeerd Poetry met behulp van pip `pyvisa-py` en daar komt `PySerial` niet automatisch mee. En dus moeten we het nu zelf handmatig toevoegen.
-
-            [^pyserial]: PySerial is een package die we gebruiken om te communiceren over USB poorten.
-    === "code"
-        **Testcode**
-        <div class="code-box"><button type="button" name="flasherLED_poetry" onclick="runScript('flasherLED_poetry')" class="run">{{ run }}</button><button type="button" name="flasherLED_poetry" onclick="runScript('flasherLED_poetry')" class="reload invisible">{{ reload }}</button> flasherLED.py
-        ``` py
-        import pyvisa
-        import numpy as np
-        import time
-
-        rm = pyvisa.ResourceManager("@py")
-        ports = rm.list_resources()
-        print(ports)
-        device = rm.open_resource(
-            "ASRL3::INSTR", read_termination="\r\n", write_termination="\n"
-        )
-
-        for value in np.arange(0, 10):
-            device.query(f"OUT:CH0 {0}")
-            time.sleep(1)
-            device.query(f"OUT:CH0 {1023}")
-            time.sleep(1)
-
-        ```
-        <pre>
-        <code>(ECPC) > python flasherLED.py
-        <span class="invisible" name="flasherLED_poetry"><span>()</span>
-        <span>Traceback (most recent call last):</span>
-          File "c:\ECPC\flasher\src\flasher\flashingLED.py", line 8, in <module>
-              device = rm.open_resource(
-          File "C:\envs\flasher\lib\site-packages\pyvisa\highlevel.py", line 3292, in open_resource
-              res.open(access_mode, open_timeout)
-          File "C:\envs\flasher\lib\site-packages\pyvisa\resources\resource.py", line 281, in open
-              self.session, status = self._resource_manager.open_bare_resource(
-          File "C:\envs\flasher\lib\site-packages\pyvisa\highlevel.py", line 3217, in open_bare_resource
-              return self.visalib.open(self.session, resource_name, access_mode, open_timeout)
-          File "C:\envs\flasher\lib\site-packages\pyvisa_py\highlevel.py", line 168, in open
-              sess = cls(session, resource_name, parsed, open_timeout)
-          File "C:\envs\flasher\lib\site-packages\pyvisa_py\sessions.py", line 861, in __init__
-              raise ValueError(self.session_issue)
-        **ValueError: Please install PySerial (>=3.0) to use this resource type.**
-        No module named 'serial'</span>
-        </code></pre></div>
-        
+        1. Je project {{github}}`pythondaq` is zo tof aan het worden dat je het met uv gaat beheren zodat jij en anderen het gemakkelijk kunnen installeren en gebruiken. Als eerste open je de repository in GitHub Desktop en Visual Studio Code en open je een nieuwe terminal. Je test voor de zekerheid {{file}}`run_experiment.py` nog even uit zodat je zeker weet dat alles nu nog werkt. Vervolgens maak je een uv project {{lightbulb}}. Dan kies je op _twee plaatsen_ dat je Python 3.12 wilt gebruiken. Dan synchroniseer je je virtual environment en commit je je wijzigingen.
+        2. Test {{file}}`run_experiment.py` en voeg alle benodigde dependencies toe {{lightbulb}} totdat alles werkt en je opnieuw het lampje ziet gaan branden en de resultaten van je experiment krijgt. Commit je wijzigingen.
     === "check"
         **Checkpunten:**
     
-        - [ ] Je hebt een repository {{github}}`flasher` met daarin een src-layout.
-        - [ ] Je hebt de juiste conda environment geactiveerd.
-        - [ ] Poetry is toegevoegd aan het project.
-        - [ ] Alle benodigde dependencies staan in het {{file_lines}}`pyproject.toml` _en_ zijn geïnstalleerd in de conda environment.
-        - [ ] Het runnen van {{file}}`flashingLED.py` laat het LED knipperen.
-        - [ ] Als het Poetry project wordt geïnstalleerd in een nieuwe conda environement met alleen Python=3.12 gaat het LED weer knipperen als {{file}}`flashingLED.py` wordt uitgevoerd. 
-
-        **Projecttraject**
-    
-        - [x] Communicatie met een meetinstrument: flashingLED
-        - [x] Versiebeheer met GitHub: Repository toevoegen
-        - [x] Poetry flashingLED
-
-## Poetry gebruiken voor pythondaq
-Natuurlijk willen we Poetry ook gaan gebruiken bij `pythondaq`. Daarvoor moeten we twee dingen doen. Als eerste gaan we de `pythondaq` repository in een `src`-structuur zetten en daarna gaan we Poetry initialiseren.
-
-
-!!! opdracht-inlever "Pythondaq: src-layout"
-    <div class="grid-tree" markdown>
-        <div>
-        Je project {{github}}`pythondaq` is zo tof aan het worden dat je het met Poetry gaat beheren zodat jij en andere het gemakkelijk kunnen installeren en gebruiken. Om te beginnen zet je de repository om in een src-layout zoals hiernaast:
-        </div>
-        <div>
-        {{github}}`pythondaq`  
-        {{T}}{{new_folder}}`src`  
-        {{tab}}{{L}}{{new_folder}}`pythondaq`  
-        {{tab}}{{tab}}{{T}}{{new_file}}`__init__.py`  
-        {{tab}}{{tab}}{{T}}{{file}}`arduino_device.py`  
-        {{tab}}{{tab}}{{T}}{{file}}`diode_experiment.py`  
-        {{tab}}{{tab}}{{L}}{{file}}`run_experiment.py`  
-        {{T}}{{file_lines}}`.gitattributes`  
-        {{T}}{{file_lines}}`.gitignore`  
-        {{L}}{{file_lines}}`README.md`  
-        </div>
-    </div>
-
-!!! opdracht-inlever "Pythondaq: poetry"
-    === "opdracht"
-        Nu de repository {{github}}`pythondaq` in de src-layout staat voeg je Poetry toe om het project te beheren {{lightbulb}}. Nadat alles gelukt is test je het project door een nieuwe conda environment aan te maken met de naam `pythondaq` met daarin alleen `python=3.12` {{lightbulb}}. Daarna installeer je het Poetry project {{lightbulb}} en wanneer je `run_experiment.py` runt zie je als vanouds een lampje branden en een plot verschijnen. 
-    === "code"
-        **Pseudo-code**
-        <pre><code>(ECPC) > poetry install <button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')">{{ enter }}</button><button type="button" name="poetry install_pythondaq" onclick="runScript('poetry install_pythondaq')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="poetry install_pythondaq"><span>Installing dependencies from lock file</span>
-        <span></span>
-        <span>Package operations: x installs, 0 updates, 0 removals</span>
-        <span></span>
-        - Installing xxx (1.2.3)
-        - Installing xxx (1.2.3)
-        - Installing xxx (1.2.3): Pending...
-        - Installing xxx (1.2.3): Installing...
-        - Installing xxx (1.2.3)
-        <span></span>
-        Installing the current project: pythondaq (0.1.0)</span>
-        </code></pre>
-    === "check"
-        **Checkpunten:**
-    
-        - [ ] Je hebt Poetry geïnitialiseerd in de Pythondaq project map.
-        - [ ] Na het initialiseren van Poetry is er een {{file_lines}}`pyproject.toml` in de projectmap aangemaakt.
-        - [ ] Wanneer met `poetry install` in een nieuwe conda environment met alleen python=3.12 het pakket wordt geïnstalleerd werkt {{file}}`run_experiment.py` daarna in die nieuwe omgeving naar behoren. 
+        - [ ] Je hebt uv geïnitialiseerd in de Pythondaq projectmap.
+        - [ ] Na het initialiseren van uv is er een {{file_lines}}`pyproject.toml` en een {{file_lines}}`.python-version` in de projectmap aangemaakt.
+        - [ ] Wanneer met `uv sync` een nieuwe virtual environment met Python 3.12 wordt aangemaakt werkt {{file}}`run_experiment.py` daarna in die nieuwe omgeving naar behoren. 
 
         **Projecttraject**
     
         - [x] Pythondaq: Docstring
         - [x] Pythondaq: src-layout
-        - [x] Pythondaq: poetry    
+        - [ ] Pythondaq: uv
         - [ ] Pythondaq: test imports
         - [ ] Pythondaq: applicatie
 
+!!! opdracht-inlever "Pythondaq: src-layout"
+    <div class="grid-tree" markdown>
+        <div>
+        Nu de code in principe werkt, gaan we die in een src-layout zetten zoals hiernaast. Je test {{file}}`run_experiment.py` en die moet werken.
+        </div>
+        <div>
+        {{github}}`pythondaq`  
+        {{T}}{{folder}}`src`  
+        {{tab}}{{L}}{{folder}}`pythondaq`  
+        {{tab}}{{tab}}{{T}}{{file}}`__init__.py`  
+        {{tab}}{{tab}}{{T}}{{new_file}}`arduino_device.py`  
+        {{tab}}{{tab}}{{T}}{{new_file}}`diode_experiment.py`  
+        {{tab}}{{tab}}{{L}}{{new_file}}`run_experiment.py`  
+        {{T}}{{file_lines}}`.gitattributes`  
+        {{T}}{{file_lines}}`.gitignore`  
+        {{T}}{{file_lines}}`.python-version`  
+        {{T}}{{file_lines}}`pyproject.toml`  
+        {{T}}{{file_lines}}`README.md`  
+        {{L}}{{file_lines}}`uv.lock`  
+        </div>
+    </div>
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Je 'oude' code staat nu allemaan in {{folder}}`src/pythondaq`.
+        - [ ] {{file}}`run_experiment.py` draait zonder problemen.
+
+
+        **Projecttraject**
+    
+        - [x] Pythondaq: Docstring
+        - [x] Pythondaq: src-layout
+        - [x] Pythondaq: uv
+        - [ ] Pythondaq: test imports
+        - [ ] Pythondaq: applicatie
 
 
 ???+ opdracht-meer "Model, view, controller packages"
     In grotere projecten is het gebruikelijk om model, view, controller niet alleen uit te splitsen in verschillende scripts, maar ook in aparte packages te zetten.
 
     1. Maak 3 extra packages in de {{folder}}`pythondaq` package. {{folder}}`models`, {{folder}}`views` en {{folder}}`controllers`.
-    1. Zet de modules in de juiste packages.
-    1. Test je code zodat alle imports weer werken.
+    2. Zet de modules in de juiste packages.
+    3. Test je code zodat alle imports weer werken.
 
 
 ## Van script naar applicatie
