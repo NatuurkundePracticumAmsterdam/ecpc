@@ -501,9 +501,9 @@ Om onze python code te testen heb je tot nu toe waarschijnlijk op de `run`-knop 
 ``` ps1 title="Terminal"
 python script.py
 ```
-Je moet dan wel de juiste map geopend hebben zodat python het bestand kan vinden. En als je de `run`-knop gebruikt moet wel het bestandje open hebben staan dat je wilt runnen. Kortom, best een beetje gedoe. Maar als we programma's zoals Poetry, Conda of Python willen gebruiken hoeven we helemaal niet het juiste bestandje op te zoeken en te runnen. We hoeven alleen maar een commando in de terminal te geven &mdash; bijvoorbeeld `python` of `conda` &mdash; en de computer start automatisch het juiste programma op.
+Je moet dan wel in Visual Studio Code de juiste map geopend hebben zodat Python het bestand kan vinden. En als je de `run`-knop gebruikt moet wel het bestandje open staan dat je wilt runnen. Kortom, best een beetje gedoe. Maar als we programma's zoals uv, Conda of Python willen gebruiken hoeven we helemaal niet het juiste bestandje op te zoeken en te runnen. We hoeven alleen maar een commando in de terminal te geven &mdash; bijvoorbeeld `python` of `conda` &mdash; en de computer start automatisch het juiste programma op.
 
-Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we dat heel eenvoudig doen. We gaan even in een andere test-repository een commando toevoegen om de module uit te voeren waarvan je de code in [paragraaf _Modules_](vervolg-python.md#modules) kunt vinden. De twee bestanden {{file}}`square.py` en {{file}}`count_count.py` hebben we voor jullie netjes in een package geplaats in de repository {{github}}`AnneliesVlaar/just_count` met de volgende structuur:
+Dat willen wij ook voor onze programma's! En omdat we uv gebruiken kunnen we dat heel eenvoudig doen. We gaan even in een andere test-repository een commando toevoegen om de module uit te voeren waarvan je de code in [paragraaf _Modules_](vervolg-python.md#modules) kunt vinden. De twee bestanden {{file}}`square.py` en {{file}}`count_count.py` hebben we voor jullie netjes in een package geplaats in de repository {{github}}`AnneliesVlaar/just_count` met de volgende structuur:
 
     just_count/
         src/
@@ -511,10 +511,10 @@ Dat willen wij ook voor onze programma's! En omdat we Poetry gebruiken kunnen we
                 __init__.py
                 square.py
                 count_count.py
-        tests/
-            __init__.py
+        .python-version
         pyproject.toml
         README.md
+        uv.lock
 
 De bestanden {{file}}`square.py` en {{file}}`count_count.py` zien er hetzelfde uit als in [paragraaf _Modules_](vervolg-python.md#modules):
 === "square.py"
@@ -529,11 +529,28 @@ De bestanden {{file}}`square.py` en {{file}}`count_count.py` zien er hetzelfde u
     ```
 
 
-We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie uit te voeren.
-   
+We kunnen uv niet vragen om een script te runnen, maar wel om een functie in een module uit te voeren. Een nieuw uv project krijgt automatisch al een voorbeeldscript. Daar gaan we even naar kijken en daarna passen we het aan voor eigen gebruik.
+
+!!! opdracht-basis "Voorbeeldscript"
+    === "opdracht"
+        Je [cloned de repository just_count in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en opent het daarna vanuit GitHub Desktop in Visual Studio Code. Je ziet een {{file_lines}}`pyproject.toml` en een {{file}}`uv.lock` in de repository staan, dus je maakt meteen een virtual environment aan {{lightbulb}}. Je opent een terminal en voert de opdracht `just-count` uit. De code hiervoor staat in {{file}}`src/just_count/__init__.py`. Dit is overigens niet de beste plek, maar werkt prima als eenvoudig voorbeeld. Je bekijkt de code en ziet dat de bewuste code in een functie `#!py main()` staat.
+    === "code"
+        **Testcode**
+        <div class="code-box"><button type="button" name="uv voorbeeldscript" onclick="runScript('uv voorbeeldscript')" class="run">{{ run }}</button><button type="button" name="uv voorbeeldscript" onclick="runScript('uv voorbeeldscript')" class="reload invisible">{{ reload }}</button> \_\_init\_\_.py
+        ``` py
+        def main() -> None:
+            print("Hello from just-count!")
+        ```
+        <pre>
+        <code>(just_count) > just-count
+        <span class="invisible" name="uv voorbeeldscript">Hello from just-count!</span>
+        </code></pre></div>        
+
+Als wij willen dat onze eigen code draait als we `just-count` intypen, dan moeten we zorgen dat onze code _ook_ in een functie gezet wordt.
+
 !!! opdracht-basis "Main functie toevoegen"
     === "opdracht"
-        Je [cloned de repository just_count in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en opent het daarna vanuit GitHub Desktop in Visual Studio Code. Je ziet een {{file_lines}}`pyproject.toml` in de repository staan. Dus installeer je het pakket met Poetry in een nieuwe conda environment (met alleen python=3.12) {{lightbulb}}. Je opent het hoofdbestand {{file}}`count_count.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Daarna pas je het bestand aan zodat de functie nog steeds wordt uitgevoerd wanneer je het bestand {{file}}`count_count.py` runt. 
+         Je opent het hoofdbestand {{file}}`count_count.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Daarna pas je het bestand aan zodat de functie nog steeds wordt uitgevoerd wanneer je het bestand {{file}}`count_count.py` runt. 
     === "code"
         **Testcode**
         <div class="code-box"><button type="button" name="count_count_main function" onclick="runScript('count_count_main function')" class="run">{{ run }}</button><button type="button" name="count_count_main function" onclick="runScript('count_count_main function')" class="reload invisible">{{ reload }}</button> count_count.py
@@ -547,7 +564,7 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
             main()
         ```
         <pre>
-        <code>(ECPC) > python count_count.py
+        <code>(just_count) > python .\src\just_count\count_count.py
         <span class="invisible" name="count_count_main function">The square of 5 is 25</span>
         </code></pre></div>
         
@@ -564,20 +581,26 @@ We kunnen Poetry niet vragen om een script te runnen, maar wel om een functie ui
         - [ ] commando testen
     
 
-In {{file_lines}}`pyproject.toml` kunnen we nu het commando toe gaan voegen. Met de `scripts`-tool van Poetry kunnen we aangeven met welk commando een functie uit een script wordt uitgevoerd. Om een commando toe te voegen ga je naar {{file_lines}}`pyproject.toml` en voeg je een extra kopje toe:
+In {{file_lines}}`pyproject.toml` kunnen we nu het commando toe gaan voegen. In de `scripts`-sectie kunnen we aangeven met welk commando een functie uit een module wordt uitgevoerd. In {{file_lines}}`pyproject.toml` staat al zo'n kopje:
 ``` toml
-[tool.poetry.scripts]
+[project.scripts]
+just-count = "just_count:main"
+```
+De vorm van die laatste regel is als volgt:
+``` toml
 naam_commando = "package.module:naam_functie"
 ```
-Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je de package opnieuw installeren. Poetry 'kijkt' altijd vanuit de map {{folder}}`src`, de package {{folder}}`package` waar naar verwezen wordt moet dan ook direct in de map {{folder}}`src` zitten (en niet in een submap).
+Hier is `naam_commando` het commando dat je in moet typen in de terminal, `package` is de naam van het Python package waar de code staat, `module` is de naam van de module waar de code staat, en `naam_functie` is de naam van de functie waarin de code staat. Als je `module` weglaat, dan kijkt uv in {{file}}`__init__.py`.
+
+Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je virtual environment wel opnieuw synchroniseren. uv installeert dan jouw package ook opnieuw.
 
 !!! opdracht-basis "commando toevoegen"
     === "opdracht"
-        Je voegt in de {{file_lines}}`pyproject.toml` het kopje `[tool.poetry.scripts]` toe. Je voegt vervolgens het commando `square` toe. Deze verwijst naar de functie `#!py main()` welke in de module {{file}}`count_count.py` staat die ondergebracht is in de package {{folder}}`just_count`. Omdat je handmatig het toml-bestand hebt aangepast installeer je het package opnieuw met Poetry {{lightbulb}}.
+        Je voegt in de {{file_lines}}`pyproject.toml` onder het kopje `[project.scripts]` een nieuw commando `square` toe. Deze verwijst naar de functie `#!py main()` welke in de module {{file}}`count_count.py` staat die ondergebracht is in de package {{folder}}`just_count`. Omdat je handmatig het toml-bestand hebt aangepast synchroniseer je je virtual environment opnieuw {{lightbulb}}.
     === "code"
         **Pseudo-code**
         ``` toml title="pyproject.toml"
-        [tool.poetry.scripts]
+        [project.scripts]
         square = "just_count.count_count:main"
         ```
     === "check"
@@ -597,34 +620,37 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je de p
         - [ ] commando testen
 
 
-<div id="opd:Poetry_commando"></div>
+<div id="opd:uv_commando"></div>
 
 !!! opdracht-basis "Commando testen"
     === "opdracht"
         Nu je het commando `square` hebt aangemaakt ga je deze testen in een terminal. Er verschijnt een error `ModuleNotFoundError: No module named 'square'`. Je leest het info-blokje hieronder.
         </br>
         </br>
-        Je runt het commando `square` opnieuw en je ziet de tekst `The square of 5 is 25` verschijnen. Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `square` en ziet weer de tekst `The square of 5 is 25` verschijnen. Je concludeert dat het commando nu overal werkt zolang het juiste conda environment is geactiveerd. Dat test je uit door een ander conda environment te activeren {{lightbulb}} en het commando `square` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
+        Je runt het commando `square` opnieuw en je ziet de tekst `The square of 5 is 25` verschijnen. Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `square` en ziet weer de tekst `The square of 5 is 25` verschijnen. Je concludeert dat het commando nu overal werkt zolang het juiste conda environment is geactiveerd. Dat test je uit door het virtual environment te deactiveren {{lightbulb}} en het commando `square` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
 
         !!! info "ModuleNotFoundError: No module named 'square'"
-            Als je de Traceback leest zie je dat het probleem ontstaat in de module {{file}}`count_count.py`. Omdat Poetry altijd begint met zoeken vanuit de map {{folder}}`src` kan daar de module {{file}}`square.py` niet gevonden worden. Pas het import statement aan naar `#!py import just_count.square as square`.  
+            Als je de Traceback leest zie je dat het probleem ontstaat in de module {{file}}`count_count.py`. Zoiets hebben we al eerder gezien toen we werkten met het easystat package... Pas het import statement aan naar `#!py from just_count import square`.  
     === "code"
         **Pseudo-code**
-        <pre><code>(ECPC) > square <button type="button" name="square_test" onclick="runScript('square_test')">{{ enter }}</button><button type="button" name="square_test" onclick="runScript('square_test')" class="invisible">{{ reload }}</button>
+        <pre><code>(just-count) > square <button type="button" name="square_test" onclick="runScript('square_test')">{{ enter }}</button><button type="button" name="square_test" onclick="runScript('square_test')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="square_test">Traceback (most recent call last):
-        File "/base/envs/just_count/bin/square", line 3, in <module>
-            from just_count.count_count import main
-        File "/just_count/src/just_count/count_count.py", line 1, in <module>
+        File "C:\Users\David\AppData\Roaming\uv\python\cpython-3.10.18-windows-x86_64-none\lib\runpy.py", line 196, in _run_module_as_main
+            return _run_code(code, main_globals, None,
+        File "C:\Users\David\AppData\Roaming\uv\python\cpython-3.10.18-windows-x86_64-none\lib\runpy.py", line 86, in _run_code
+            exec(code, run_globals)
+        File "C:\Users\David\Documents\ECPC\just_count\.venv\Scripts\square.exe\__main__.py", line 4, in <module>
+        File "C:\Users\David\Documents\ECPC\just_count\src\just_count\count_count.py", line 1, in <module>
             import square
         ModuleNotFoundError: No module named 'square'</span>
         </code></pre>
     === "check"
         **Checkpunten:**
     
-        - [ ] Het import statement in {{file}}`count_count.py` is genoteerd vanuit de map {{folder}}`src`.
-        - [ ] Het commando `square` werkt als het juiste conda environment is geactiveerd.
+        - [ ] Het import statement in {{file}}`count_count.py` is genoteerd beginnend vanuit de map {{folder}}`src`.
+        - [ ] Het commando `square` werkt als het juiste virtual environment is geactiveerd.
         - [ ] Het commando `square` werkt nog steeds nadat je met het commando `cd..` naar een bovenliggende map bent gegaan.
-        - [ ] Het commando `square` werkt niet als een andere conda environment is geactiveerd.
+        - [ ] Het commando `square` werkt niet als het virtual environment is gedeactiveerd.
 
         **Projecttraject**
     
