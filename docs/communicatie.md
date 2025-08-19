@@ -85,7 +85,10 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         - [ ] PyVISA LED laten branden
 
 !!! info
-    Om met Python via het VISA-protocol te kunnen communiceren met apparaten heb je specifieke packages nodig. Die gaan we later installeren in een _virtual environment_. Voor meer informatie over virtual environments zie de [Appendix _Virtual Environments_](virtual_environments.md). Tijdens testen is het vaak niet nodig om packages te installeren, maar je moet dan wel steeds opnieuw intypen wat je nodig hebt.
+    Om met Python via het VISA-protocol te kunnen communiceren met apparaten heb je specifieke packages nodig. Die gaan we later installeren in een _virtual environment_. Voor meer informatie over virtual environments zie de [Appendix _Virtual Environments_](virtual_environments.md). Tijdens testen is het vaak niet nodig om packages te installeren, maar je moet dan wel steeds opnieuw intypen wat je nodig hebt. Dat kun je misschien het beste copy/pasten vanuit het `code`-tabblad die in de opdracht staat. Voordat je de volgende opdracht kunt doen, zorg dat je [uv](https://docs.astral.sh/uv/getting-started/installation/#winget) geïnstalleerd hebt. Voor Windowscomputers, open een Terminal en type in (zonder het `>`-symbool):
+    ``` ps1 title="Terminal"
+    > winget install -e astral-sh.uv
+    ```
 
 <div id="opd:pyvisaterminal"></div>
 !!! opdracht-basis "PyVISA in terminal"
