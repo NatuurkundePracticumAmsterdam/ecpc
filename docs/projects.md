@@ -1,4 +1,4 @@
-# Python projects met uv
+# Pythonprojecten met uv
 
 In de vorige hoofdstukken heb je gewerkt met een eigen virtual environment zodat je jouw pythonomgeving mooi gescheiden kan houden van andere projecten waar je aan werkt. Dit is echt _de_ oplossing voor alle problemen waarbij volledige Pythoninstallaties onbruikbaar kunnen worden &mdash; waarna je alles opnieuw moet installeren. Dit kan gebeuren als je &mdash; vanwege al je verschillende projecten &mdash; zoveel packages installeert dat die met elkaar in conflict komen.
 
