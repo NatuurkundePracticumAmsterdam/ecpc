@@ -2,9 +2,12 @@
 function showCheatsheet() {
     elem = document.getElementById("cheatsheet_div");
     elem.classList.toggle("invisible");
+    is_open = !is_open;
 }
 
 var currentUrl = window.location.href; // get url
+
+var is_open = false;
 
 if (currentUrl.includes("cheatsheets")) {
     // remove header if cheatsheet page is viewed
@@ -40,4 +43,12 @@ if (currentUrl.includes("cheatsheets")) {
 
     // add wrapper to header
     header.appendChild(wrapper_div);
+
+    // collapse cheatsheet when clicked on main page
+    const page = document.getElementsByClassName("md-container")[0];
+    page.addEventListener("click", function() {
+        if (is_open) {
+            showCheatsheet();
+        }
+    })
 }
