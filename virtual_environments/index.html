@@ -1,0 +1,1528 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../terminal-adventure-game/">
+      
+      
+        <link rel="next" href="../black/">
+      
+      
+      <link rel="icon" href="../figures/ECPC_logo_simple.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Virtual environments - Experiment Control with Python Course</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/opdrachten.css">
+    
+      <link rel="stylesheet" href="../assets/folder_tree/folder_tree.css">
+    
+      <link rel="stylesheet" href="../assets/comparison/comparison.css">
+    
+      <link rel="stylesheet" href="../assets/ADC_slider/ADC_slider.css">
+    
+      <link rel="stylesheet" href="../assets/run_button/run_button.css">
+    
+      <link rel="stylesheet" href="../assets/cheatsheets/cheatsheets.css">
+    
+      <link rel="stylesheet" href="../assets/particle-spin-flip/spin-flip.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#virtual-environments" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Experiment Control with Python Course" class="md-header__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
+      
+  <img src="../figures/ECPC_logo_plain.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Experiment Control with Python Course
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Virtual environments
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Experiment Control with Python Course" class="md-nav__button md-logo" aria-label="Experiment Control with Python Course" data-md-component="logo">
+      
+  <img src="../figures/ECPC_logo_plain.svg" alt="logo">
+
+    </a>
+    Experiment Control with Python Course
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introductie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Voorkennis
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Voorkennis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basis-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basiskennis Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vervolg-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uitgebreidere Python kennis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../communicatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Communicatie met een meetinstrument
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Versiebeheer met GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basisscript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basisscript voor het experiment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mvc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model-View-Controller
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docstrings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docstrings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pythonprojecten met uv
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Command-line interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Text-based user interfaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Graphical user interfaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eindfeest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Eindfeest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Appendices
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Appendices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cheatsheets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firmware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Firmware
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kleurcodes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kleurcodes voor weerstanden
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diodes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    De diode: een p-n-overgang
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terminal-adventure-game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terminal Adventure Game
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Virtual environments
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virtual environments
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lijst-van-bestaande-environments-bekijken" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lijst van bestaande environments bekijken
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activeren-en-deactiveren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activeren en deactiveren
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Activeren en deactiveren">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-studio-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Studio Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-environment-aanmaken" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual environment aanmaken
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#de-inhoud-van-een-virtual-environment-bekijken" class="md-nav__link">
+    <span class="md-ellipsis">
+      De inhoud van een virtual environment bekijken
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages-installeren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages installeren
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Packages installeren">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependencies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-weggooien" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment weggooien
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-updaten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package updaten
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pip-vs-conda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pip vs Conda
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pip vs Conda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installeren-uit-een-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installeren uit een channel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poetry
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipx
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pipx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pipx-installeren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipx installeren
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apps-installeren-met-pipx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apps installeren met pipx
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../black/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Black
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zonnecel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zonnecel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../benodigdheden/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lijst van benodigdheden
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="virtual-environments">Virtual environments<a class="headerlink" href="#virtual-environments" title="Permanent link">&para;</a></h1>
+<p>Een virtual environment is een map waarin packages staan. De virtual environment geef je een naam bijvoorbeeld <code>my_env</code>. Je kunt een virtual environment vergelijken met een gereedschapskist. Wanneer je een environment activeert kies je een gereedschapskist om de klus te klaren. welke gereedschapskist je kiest bepaald welke packages je tot je beschikking hebt.</p>
+<figure>
+<p><img alt="Een virtual environment weergegeven als een gereedschapskist met de naam my_env" src="../figures/venv/toolbox%20rechtop.svg" width="500" /></p>
+<figcaption>
+<p>Een virtual environment met de naam <code>my_env</code>. Een virtual environment is als een gereedschapskist met daarin packages.</p>
+</figcaption>
+</figure>
+<h3 id="lijst-van-bestaande-environments-bekijken">Lijst van bestaande environments bekijken<a class="headerlink" href="#lijst-van-bestaande-environments-bekijken" title="Permanent link">&para;</a></h3>
+<p>Door gebruik te maken van virtual environments kan je voorkomen dat er een package conflict ontstaat. Packages zijn vaak afhankelijk van andere packages en daarbij kan het uitmaken welke versie van het package je gebruikt. </p>
+<p>Stel package A heeft package B nodig met versie &gt;= 1.1, maar package C heeft package B nodig met versie 1.0. Nu kunnen packages A en C dus niet tegelijkertijd geïnstalleerd worden.</p>
+<p>Daarom is het handig om voor elke project de packages in een geïsoleerde omgeving te installeren. Een virtual environment is zo'n geïsoleerde omgeving. Je kan dan niet alleen verschillende packages en versies uit elkaar houden maar zelfs verschillende Python versies.</p>
+<p>Je kunt een lijst met virtual environments opvragen met</p>
+<pre><code>(ECPC) > conda env list <button type="button" name="conda env list" onclick="runScript('conda env list')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="conda env list" onclick="runScript('conda env list')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="conda env list"># conda environments:
+#base                     path\to\environment\with\name\base
+#my_env                   path\to\environment\with\name\my_env
+#project_a                path\to\environment\with\name\project_a
+#project_b                path\to\environment\with\name\project_b</span>
+    </code></pre>
+
+<figure>
+<p><img alt="Drie verschillende virtual environments weergegeven als drie op elkaar gestapelde gereedschapskisten met elk een andere naam: my_env, project_a en project_b" src="../figures/venv/toolbox%203%20op%20elkaar.svg" width="500" /></p>
+<figcaption>
+<p>Je kan meerdere virtual environments aanmaken. In elke environment zitten packages specifiek voor een project. Hier zijn 3 verschillende virtual environments weergegeven met elk een andere naam: <code>my_env</code>, <code>project_a</code> en <code>project_b</code>.</p>
+</figcaption>
+</figure>
+<p>Zoals je ziet is <code>base</code> ook een virtual environment. Daarin zitten standaard een aantal handige packages in, maar wanneer je een package nodig hebt die er niet inzit is het handig om voor dat project een eigen virtual environment aan te maken. Daarmee voorkom je package conflicten in je base environment. 
+Het kan natuurlijk gebeuren dat je alsnog een package conflict krijgt in je project environment of dat de packages ineens niet meer werken. Dan kun je heel gemakkelijk de virtual environment weggooien en een nieuwe aan schaffen. Om weer een werkende base environment te krijgen is het vaak nodig om heel Anaconda opnieuw te installeren. Gebruik de base daarom alleen voor de basis en maak een nieuw environment voor al je projecten!</p>
+<h3 id="activeren-en-deactiveren">Activeren en deactiveren<a class="headerlink" href="#activeren-en-deactiveren" title="Permanent link">&para;</a></h3>
+<p>Om aan te geven welke virtual environment je wilt gebruiken om je scripts uit te voeren moet je de virtual environment activeren. </p>
+<h4 id="terminal">Terminal<a class="headerlink" href="#terminal" title="Permanent link">&para;</a></h4>
+<p>Om een virtual environment te activeren in een terminal maak je gebruik van de onderstaande code. Je ziet daarna de naam van de geactiveerde environment tussen ronde haakjes staan. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">conda</label><label for="__tabbed_1_2">uv</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><pre><code>(ECPC) &gt; conda activate my_env <button type="button" name="conda activate my_env_venv" onclick="runScript('conda activate my_env_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="conda activate my_env_venv" onclick="runScript('conda activate my_env_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="conda activate my_env_venv">(my_env) &gt; </span>
+</code></pre></p>
+</div>
+<div class="tabbed-block">
+<p><pre><code>(ECPC) &gt; .my_env\Scripts\activate <button type="button" name=".my_env\Scripts\activate_venv" onclick="runScript('.my_env\Scripts\activate_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name=".my_env\Scripts\activate_venv" onclick="runScript('.my_env\Scripts\activate_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name=".my_env\Scripts\activate_venv">(my_env) &gt; </span>
+</code></pre></p>
+</div>
+</div>
+</div>
+<figure>
+<p><img alt="Een terminal met tussen ronde haakjes de actieve virtual environmnent weergegeven, in dit geval is my_env actief" src="../figures/venv/toolbox%20terminal.svg" width="500" /></p>
+<figcaption>
+<p>In een terminal wordt tussen ronde haakjes weergegeven welke virtual environment actief is.</p>
+</figcaption>
+</figure>
+<p>Om een virtual environment te deactiveren in een terminal maak je gebruik van de onderstaande code. Je ziet daarna weer de naam van de base environment tussen ronde haakjes staan.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Conda</label><label for="__tabbed_2_2">uv</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><pre><code>(ECPC) &gt; conda deactivate <button type="button" name="conda deactivate_venv" onclick="runScript('conda deactivate_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="conda deactivate_venv" onclick="runScript('conda deactivate_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="conda deactivate_venv">(base) &gt; </span>
+</code></pre></p>
+</div>
+<div class="tabbed-block">
+<p><pre><code>(ECPC) &gt; deactivate <button type="button" name="deactivate_venv" onclick="runScript('deactivate_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="deactivate_venv" onclick="runScript('deactivate_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="deactivate_venv">?</span>
+</code></pre></p>
+</div>
+</div>
+</div>
+<h4 id="visual-studio-code">Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permanent link">&para;</a></h4>
+<p>In Visual Studio Code zit ook een terminal maar wanneer je een environment in deze terminal activeerd betekend dit niet dat Visual Studio Code ook van dat environment gebruik maakt. Om een environment in Visual Studio Code te activeren moet je een python bestand openen en daarna rechtsonder, in de statusbalk, kijken welke environment geactiveerd is. </p>
+<p><img alt="Python environment" src="../figures/screenshot-vscode-python-env.png" /></p>
+<p>Het kan ook zijn dat er nog geen environment is geactiveerd dan staat er 'select Python interperter'. In beide gevallen kan je daarop klikken<sup id="fnref:Python interpreter"><a class="footnote-ref" href="#fn:Python interpreter">1</a></sup> er verschijnt dan bovenaan het scherm in het midden een lijst met Python environments.<sup id="fnref:Python environment"><a class="footnote-ref" href="#fn:Python environment">2</a></sup>  Kies de omgeving die je wilt gebruiken. <em>Let op:</em> als je het environment net hebt aangemaakt dan staat hij er nog niet tussen. Klik dan rechtsbovenin eerst op het <strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M436.7 74.7 448 85.4V32c0-17.7 14.3-32 32-32s32 14.3 32 32v128c0 17.7-14.3 32-32 32H352c-17.7 0-32-14.3-32-32s14.3-32 32-32h47.9l-7.6-7.2-.6-.6c-75-75-196.5-75-271.5 0s-75 196.5 0 271.5 196.5 75 271.5 0q12.3-12.3 21.9-26.1c10.1-14.5 30.1-18 44.6-7.9s18 30.1 7.9 44.6c-8.5 12.2-18.2 23.8-29.1 34.7-100 100-262.1 100-362 0S-25 175 75 75c99.9-99.9 261.7-100 361.7-.3"/></svg></span> Refresh Interpeter list</strong>-knopje.</p>
+<h3 id="virtual-environment-aanmaken">Virtual environment aanmaken<a class="headerlink" href="#virtual-environment-aanmaken" title="Permanent link">&para;</a></h3>
+<p>Om een nieuwe virtual environment aan te maken met de naam <code>my_env</code> gebruik je onderstaande code. Er wordt aangegeven op welke locatie de environment wordt aangemaakt en welke packages erin worden geïnstaleerd. Als je tevreden bent met de locatie en inhoud druk je <span class="keys"><kbd class="key-y">Y</kbd><span>+</span><kbd class="key-enter">Enter</kbd></span> om door te gaan.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">conda</label><label for="__tabbed_3_2">uv</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><pre><code>(ECPC) &gt; conda create --name my_env <button type="button" name="conda create --name my_env_venv" onclick="runScript('conda create --name my_env_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="conda create --name my_env_venv" onclick="runScript('conda create --name my_env_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="conda create --name my_env_venv">Retrieving notices: ...working... done
+Channels:
+- defaults
+Platform: osx-arm64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+&nbsp;
+<span>## Package Plan ##</span>
+&nbsp;environment location: path\to\environment\with\name\my_env
+&nbsp;
+Proceed ([y]/n)?
+</span></code></pre></p>
+</div>
+<div class="tabbed-block">
+<p><pre><code>(ECPC) &gt; uv venv my_env <button type="button" name="uv venv my_env_venv" onclick="runScript('uv venv my_env_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="uv venv my_env_venv" onclick="runScript('uv venv my_env_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="uv venv my_env_venv">?</span>
+</code></pre></p>
+</div>
+</div>
+</div>
+<figure>
+<p><img alt="Een virtual environment weergegeven als een gereedschapskist met de naam my_env" src="../figures/venv/toolbox%20closed.svg" width="500" /></p>
+<figcaption>
+<p>Een virtual environment is als een gereedschapskist met een label waarop de naam is weergegeven.  </p>
+</figcaption>
+</figure>
+<h3 id="de-inhoud-van-een-virtual-environment-bekijken">De inhoud van een virtual environment bekijken<a class="headerlink" href="#de-inhoud-van-een-virtual-environment-bekijken" title="Permanent link">&para;</a></h3>
+<p>Nadat je de environment hebt geactiveerd (zie <a href="./#activeren-en-deactiveren">environment activeren</a>) kun je met de onderstaande code zien wat er in zit.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">conda</label><label for="__tabbed_4_2">uv</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><pre><code>(my_env) &gt; conda list <button type="button" name="conda list_venv" onclick="runScript('conda list_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="conda list_venv" onclick="runScript('conda list_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="conda list_venv"><span># packages in environment at path\to\environment\with\name\my_env:</span>
+<span>#</span>
+<span># Name                    Version                   Build  Channel</span>
+</span>
+</code></pre></p>
+<p>Er staat daadwerkelijk niets, de environment is helemaal leeg. Om de environment te vullen met packages moet je <a href="#packages-installeren">package installeren</a></p>
+<figure>
+<p><img alt="Een virtual environment weergegeven als een gereedschapskist met de naam my_env welke open staat en leeg is" src="../figures/venv/toolbox-open.svg" width="500" /></p>
+<figcaption>
+<p>Wanneer je met conda een virtual environment aanmaakt en alleen de naam meegeeft, is de environment helemaal leeg.</p>
+</figcaption>
+</figure>
+</div>
+<div class="tabbed-block">
+<p><pre><code>(my_env) &gt; uv pip list (?) <button type="button" name="uv pip list (?)_venv" onclick="runScript('uv pip list (?)_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="uv pip list (?)_venv" onclick="runScript('uv pip list (?)_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="uv pip list (?)_venv">?</span>
+</code></pre></p>
+<p>Er zit alleen python en pip in.</p>
+<figure>
+<p><img alt="Een virtual environment weergegeven als een gereedschapskist met de naam my_env welke open staat en twee objecten bevat" src="../figures/venv/toolbox%20fill-venv.svg" width="500" /></p>
+<figcaption>
+<p>Wanneer je met venv een virtual environment aanmaakt en alleen de naam meegeeft, zit alleen Python en pip erin.</p>
+</figcaption>
+</figure>
+<p>of?</p>
+<figure>
+<p><img alt="Een virtual environment weergegeven als een gereedschapskist met de naam my_env welke open staat en een object bevat" src="../figures/venv/toolbox%20fill-pip.svg" width="500" /></p>
+<figcaption>
+<p>Wanneer je met venv een virtual environment aanmaakt en alleen de naam meegeeft, zit alleen pip erin.</p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<h3 id="packages-installeren">Packages installeren<a class="headerlink" href="#packages-installeren" title="Permanent link">&para;</a></h3>
+<p>Nadat je de environment hebt geactiveerd (zie <a href="./#activeren-en-deactiveren">environment activeren</a>) kun je packages in de virtual environment installeren, dit kun je met de onderstaande code doen. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">conda</label><label for="__tabbed_5_2">uv</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Merk op dat je meerdere packages tegelijk kunt installeren, in dit geval installeren we Python en SciPy tegelijkertijd. Ook is het mogelijk om een specifieke versie aan te geven, bijvoorbeeld Python=3.10
+<pre><code>(my_env) &gt; conda install python=3.10 scipy <button type="button" name="conda install python scipy_venv" onclick="runScript('conda install python scipy_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="conda install python scipy_venv" onclick="runScript('conda install python scipy_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="conda install python scipy_venv">Retrieving notices: ...working... done
+Channels:
+- defaults
+Platform: osx-arm64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+&nbsp;
+<span>## Package Plan ##</span>
+&nbsp;
+environment location: path\to\environment\with\name\my_env
+&nbsp;
+added / updated specs:
+    - python=3.10
+    - scipy
+...</span>
+</code></pre></p>
+</div>
+<div class="tabbed-block">
+<p>Merk op dat je meerdere packages tegelijk kunt installeren, in dit geval installeren we SciPy en Lmfit tegelijkertijd. 
+<pre><code>(my_env) &gt; uv pip install scipy lmfit<button type="button" name="uv pip install scipy_venv" onclick="runScript('uv pip install scipy_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="uv pip install scipy_venv" onclick="runScript('uv pip install scipy_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="uv pip install scipy_venv">????</span>
+</code></pre></p>
+</div>
+</div>
+</div>
+<p>Je kan ook gelijk bij het <a href="#virtual-environment-aanmaken">aanmaken van de virtual environment</a> aangeven welke packages je erin wilt hebben.</p>
+<pre><code>(ECPC) > conda create --name my_env python=3.10 numpy <button type="button" name="conda create --name my_env python=3.10 numpy_venv" onclick="runScript('conda create --name my_env python=3.10 numpy_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="conda create --name my_env python=3.10 numpy_venv" onclick="runScript('conda create --name my_env python=3.10 numpy_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="conda create --name my_env python=3.10 numpy_venv">Channels:
+ - defaults
+Platform: osx-arm64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+&nbsp;
+<span>## Package Plan ##</span>
+&nbsp;
+  environment location: path\to\environment\with\name\my_env
+&nbsp;
+  added / updated specs:
+    - numpy
+    - python=3.10
+...</span>
+</code></pre>
+
+<p>Daarna kun je de nieuwe virtual <a href="./#activeren-en-deactiveren">environment activeren</a> om te gebruiken. </p>
+<p>Wanneer je nu opnieuw kijkt wat er <a href="#de-inhoud-van-een-virtual-environment-bekijken">in de virtual environment zit</a> dan zie je dat er naast Python nog vanalles is meegenomen waaronder pip en andere dingen. </p>
+<figure>
+<p><img alt="Een virtual environment weergegeven als een gereedschapskist met de naam my_env welke open staat waarin package worden weergegeven als blokken en cilinders" src="../figures/venv/toolbox%20fill-conda.svg" width="500" /></p>
+<figcaption>
+<p>Bij het installeren van Python met <code>conda</code> in een virtual environment komen er meerder package mee waaronder <code>pip</code>. </p>
+</figcaption>
+</figure>
+<h4 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h4>
+<p>Packages hebben vaak andere packages nodig om goed te werken, ze zijn dus afhankelijk van andere packages. Bij het installeren komen deze <code>depencies</code> mee en worden ze ook in de virtual environment geïnstalleerd. Als je bijvoorbeeld scipy installeerd komt NumPy mee. </p>
+<figure>
+<p><img alt="Een virtual environment weergegeven als een gereedschapskist met de naam my_env welke open staat waarin package worden weergegeven als blokken en cilinders. Er is een cilinder met de naam SciPy en een donut met de naam NumPy" src="../figures/venv/toolbox%20fill-scipy.svg" width="500" /></p>
+<figcaption>
+<p>Bij het installeren van SciPy in een virtual environment komt onder andere NumPy mee.</p>
+</figcaption>
+</figure>
+<p>Maar andersom komt SciPy niet mee met NumPy.</p>
+<figure>
+<p><img align="right" alt="en virtual environment weergegeven als een gereedschapskist met de naam my_env welke open staat waarin package worden weergegeven als blokken en cilinders. Er is een donut met de naam NumPy" src="../figures/venv/toolbox%20fill-numpy.svg" width="500" /></p>
+<figcaption>
+<p>Bij het installeren van NumPy in een virtual environment komt SciPy niet mee. </p>
+</figcaption>
+</figure>
+<p>Om je te laten weten welke packages precies worden geïnstalleerd laat Conda laat altijd een lijstje zien van dingen die geïnstalleerd worden. Vervolgens moet jij aangeven of je door wilt gaan. </p>
+<h3 id="environment-weggooien">Environment weggooien<a class="headerlink" href="#environment-weggooien" title="Permanent link">&para;</a></h3>
+<p>Het kan gebeuren dat een environment niet goed lijkt te werken. Dan kan je een hele zoektoch starten om erachter te komen waardoor dat komt, maar vaak kun je het oplossen door het environment weg te gooien en een 'schone' aan te maken. Het weggooien doe je als volgt.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">conda</label><label for="__tabbed_6_2">uv</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><pre><code>(ECPC) &gt; conda env remove --name my_env <button type="button" name="conda env remove --name my_env_venv" onclick="runScript('conda env remove --name my_env_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="conda env remove --name my_env_venv" onclick="runScript('conda env remove --name my_env_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="conda env remove --name my_env_venv">Remove all packages in environment path\to\environment\with\name\my_env:
+&nbsp;
+Everything found within the environment (path\to\environment\with\name\my_env), including any conda environment configurations and any non-conda files, will be deleted. Do you wish to continue?
+(y/[n])? </span>
+</code></pre></p>
+</div>
+<div class="tabbed-block"></div>
+</div>
+</div>
+<p>Je kan ook de oude environment overschrijven door een nieuwe aan te maken met dezelfde naam, dan komt er wel een waarschuwing dat er al een environment met dezelfde naam bestaat en of je die wilt overschrijven.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">conda</label><label for="__tabbed_7_2">uv</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><pre><code>(ECPC) &gt; conda create --name my_env <button type="button" name="conda create --name my_env_suffix" onclick="runScript('conda create --name my_env_suffix')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="conda create --name my_env_suffix" onclick="runScript('conda create --name my_env_suffix')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="conda create --name my_env_suffix">WARNING: A conda environment already exists at 'path\to\environment\with\name\my_env'
+Remove existing environment (y/[n])? </span>
+</code></pre></p>
+</div>
+<div class="tabbed-block"></div>
+</div>
+</div>
+<h3 id="package-updaten">Package updaten<a class="headerlink" href="#package-updaten" title="Permanent link">&para;</a></h3>
+<p>Heb je net gister een nieuwe virtual environment aangemaakt zie je dat er vandaag een update is uitgekomen met een functie die jij nu nodig hebt. Gelukkig hoef je dan niet gelijk de environment weg te gooien en een nieuwe aan te maken maar kan je ook de package updaten. Nadat je de environment hebt geactiveerd (zie <a href="./#activeren-en-deactiveren">environment activeren</a>) kun je een package in de virtual environment updaten met de onderstaande code doen.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">conda</label><label for="__tabbed_8_2">uv</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>In dit voorbeeld updaten we de package NumPy.
+<pre><code>(my_env) &gt; conda update numpy <button type="button" name="conda update numpy_venv" onclick="runScript('conda update numpy_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="conda update numpy_venv" onclick="runScript('conda update numpy_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="conda update numpy_venv">Channels:
+- defaults
+Platform: osx-arm64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+&nbsp;
+<span>## Package Plan ##</span>
+&nbsp;
+environment location: path\to\environment\with\name\my_env
+&nbsp;
+added / updated specs:
+    - numpy
+&nbsp;
+&nbsp;
+The following packages will be UPDATED:
+&nbsp;
+numpy                               2.0.2-py312h7f4fdc5_0 --&gt; 2.2.4-py312hcef5695_0 
+numpy-base                          2.0.2-py312he047099_0 --&gt; 2.2.4-py312hb71ad10_0 
+&nbsp;
+&nbsp;
+Proceed ([y]/n)?</span>
+</code></pre></p>
+</div>
+<div class="tabbed-block"></div>
+</div>
+</div>
+<h2 id="pip-vs-conda">Pip vs Conda<a class="headerlink" href="#pip-vs-conda" title="Permanent link">&para;</a></h2>
+<p>De officiële Package Installer for Python is <code>pip</code>.</p>
+<details class="meer-leren" open="open">
+<summary>pip</summary>
+<p>Je kunt met pip alle Python packages installeren die bestaan uit <em>Python</em> code. NumPy bijvoorbeeld bevat echter ook veel code geschreven in C. Die code moet eerst gecompileerd worden. Dat kan <code>pip</code> óók doen, mits er een C compiler op je computer geïnstalleerd is. Via de Python package index kunnen gelukkig ook zogeheten <em>binary packages</em> verspreid worden waarin de code al is gecompileerd. Er zijn dan losse packages voor Windows, MacOS en Linux. Meestal gaat dit goed, maar helaas niet altijd. Historisch waren NumPy maar vooral ook SciPy een flink probleem. Ook het gebruik van grafische bibliotheken ging vaak moeizaam. Dan was het package wel geïnstalleerd, maar riep hij dat hij systeembibliotheken niet kon vinden. Heel vervelend.</p>
+<p>Een ander probleem van <code>pip</code> is dat deze &mdash; tot voor kort &mdash; geen controle deed op de versies van al geïnstalleerde pakketten. Je kon dus packages installeren die nieuwe versies binnenhaalden van andere packages, waarna al <em>eerder</em> geïnstalleerde packages soms stopten met werken.</p>
+</details>
+<p>Omdat pip wat beperkt werkte en vooral bij NumPy en SciPy problemen opleverde is <code>conda</code> ontwikkeld die vooral populair geworden is in de wetenschappelijke wereld. </p>
+<details class="meer-leren" open="open">
+<summary>conda</summary>
+<p>Conda installeert alleen binary packages, kan naast Python packages ook systeembibliotheken installeren als dat nodig is én doet een uitgebreide controle op alle versies van te installeren en al eerder geïnstalleerde packages zodat alles altijd blijft werken. Nadeel is dat die controle nogal lang kan duren als je al veel geïnstalleerd hebt. Omdat je met <code>conda</code> dus <em>wel</em> heel makkelijk uitgebreide wetenschappelijke packages kon installeren met een mix van Python-, C-, of zelfs Fortrancode is <code>conda</code> (en Anaconda, de distributie) heel populair geworden in de wetenschappelijke wereld.</p>
+</details>
+<p>Pip installeerd packages uit de <a href="https:/pypi.org">Python Package Index (PyPI)</a>. Conda installeerd packages uit channels. Standaard haalt conda packages uit de <code>default channel</code>, maar je kan ook aangeven dat je packages uit een andere channel wilt halen bijvoorbeeld uit de <code>conda-forge</code> channel. </p>
+<p>Het installeren met behulp van pip of conda is te vergelijken met het winkelen bij verschillende winkelketens. Het assortiment is deels hetzelfde maar niet helemaal gelijk. Ook is de services verschillend, zo krijg je er bij Conda gratis systeembibliotheken bij. De conda-forge channel is een winkel die door een community beheerd wordt, een grote groep contributors bepalen samen welke packager er te halen zijn en welke dependencies je er gratis bij krijgt. </p>
+<details class="meer-leren" open="open">
+<summary>conda-forge</summary>
+<p>Conda installeert packages vanuit verschillende <em>channels</em>. De <code>defaults</code> channel bevat packages die af en toe door Anaconda worden getest en samengenomen tot een distributie (versie <code>2021.05</code> bijvoorbeeld). Er zijn weinig updates. De <code>conda-forge</code> channel bevat alle nieuwste versies van die packages en bevat ook software die (nog) niet in de <code>defaults</code> channel terecht is gekomen. De conda-forge channel is daarom erg populair, maar er gaat ook regelmatig iets stuk.</p>
+</details>
+<figure>
+<p><img align="right" alt="Drie winkels: PyPI, conda en conda-forge" src="../figures/venv/winkels.svg" width="500" /></p>
+<figcaption>
+<p>PyPI (Python Package Index), conda default channel en conda-forge channel kun je zien als verschillende winkels waar je packages vandaan kunt halen. Het aanbod en de service verschilt per channel. <code>pip</code> haalt de packages altijd bij PyPI, bij conda kun je aangeven uit welke channel je de packages wilt installeren.</p>
+</figcaption>
+</figure>
+<h3 id="installeren-uit-een-channel">Installeren uit een channel<a class="headerlink" href="#installeren-uit-een-channel" title="Permanent link">&para;</a></h3>
+<p>Je kunt packages uit de conda-forge channel in je virtual environment installeren, nadat je de environment hebt geactiveerd (zie <a href="./#activeren-en-deactiveren">environment activeren</a>), door dit specifiek aan te geven. </p>
+<pre><code>(my_env) > conda install --channel conda-forge lmfit <button type="button" name="conda install --channel conda-forge lmfit_venv" onclick="runScript('conda install --channel conda-forge lmfit_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="conda install --channel conda-forge lmfit_venv" onclick="runScript('conda install --channel conda-forge lmfit_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="conda install --channel conda-forge lmfit_venv">Channels:
+ - conda-forge
+ - defaults
+Platform: osx-arm64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+&nbsp;
+## Package Plan ##
+...</span>
+</code></pre>
+
+<p>Het is ook mogelijk om gelijk bij het aanmaken van een nieuwe virtual environment aan te geven uit welke channel je packages wilt installeren.</p>
+<pre><code>(ECPC) > conda create --name my_env --channel conda-forge pandas matplotlib lmfit <button type="button" name="conda create --name my_env --channel conda-forge pandas matplotlib lmfit_venv" onclick="runScript('conda create --name my_env --channel conda-forge pandas matplotlib lmfit_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="conda create --name my_env --channel conda-forge pandas matplotlib lmfit_venv" onclick="runScript('conda create --name my_env --channel conda-forge pandas matplotlib lmfit_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="conda create --name my_env --channel conda-forge pandas matplotlib lmfit_venv">Channels:
+ - conda-forge
+ - defaults
+Platform: osx-arm64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+&nbsp;
+## Package Plan ##
+...</span>
+</code></pre>
+
+<h2 id="poetry">Poetry<a class="headerlink" href="#poetry" title="Permanent link">&para;</a></h2>
+<p>Als je Poetry gebruikt als dependencie manager (zie <a href="../projects/">hoofdstuk Poetry</a>) dan moet je er rekening mee houden dat Poetry achter de schermen pip gebruikt om packages te installeren. 
+Dus als je eerst met conda een virtual environment aanmaakt en alleen een naam opgeeft, dan zit er niets in de virtual environment. Ook pip zit er niet in, waardoor Poetry niets kan installeren. </p>
+<figure>
+<p><img alt="Een virtual environment weergegeven als een gereedschapskist met de naam my_env welke open staat en leeg is" src="../figures/venv/toolbox-open.svg" width="500" /></p>
+<figcaption>
+<p>Wanneer je met conda een virtual environment aanmaakt en alleen de naam meegeeft, is de environment helemaal leeg. Er zit ook geen pip in de environment waardoor Poetry geen packages met pip kan installeren.</p>
+</figcaption>
+</figure>
+<h2 id="pipx">Pipx<a class="headerlink" href="#pipx" title="Permanent link">&para;</a></h2>
+<p>Sommige packages zijn niet meer een stukje gereedschap wat je gebruikt bij je eigen werk maar eerder een volledige applicatie die je opzich zelf kan gebruiken. Een voorbeeld hiervan is <a href="https://pypi.org/project/gammaspotter/">gammaspotter</a> een applicatie gemaakt door studenten tijdens het <a href="../eindfeest/">eindfeest</a>. </p>
+<p>Je kan zelf een virtual environment aanmaken en de package daarin installeren. Maar omdat het meer een applicatie is zal je bij het gebruik ervan steeds de environment moeten activeren en daarna de applicatie aanroepen. Als je vervolgens een andere environment activeert is de applicatie niet meer beschikbaar. Ook kan het gebeuren dat je packages update of verwijdert waardoor de applicatie niet meer werkt. Met <code>pipx</code> is het mogelijk om dit soort applicaties in een <em>eigen</em> virtual environment te installeren. Je loopt geen risico dat je ze stukmaakt <em>en</em> ze zijn beschikbaar vanuit andere virtual environments.</p>
+<figure>
+<p><img align="right" alt="application in virtual environment with pipx" src="../figures/venv/pipx.svg" width="500" /></p>
+<figcaption>
+<p>Wanneer je met <code>pipx</code> een Python applicatie instaleerd wordt deze in een eigen virtual environment geplaatst.</p>
+</figcaption>
+</figure>
+<h3 id="pipx-installeren">Pipx installeren<a class="headerlink" href="#pipx-installeren" title="Permanent link">&para;</a></h3>
+<p>Om Pipx te kunnen gebruiken moet je het eerst installeren met behulp van pip. </p>
+<pre><code> > python -m pip install --user pipx <button type="button" name="python -m pip install --user pipx_venv" onclick="runScript('python -m pip install --user pipx_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="python -m pip install --user pipx_venv" onclick="runScript('python -m pip install --user pipx_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="python -m pip install --user pipx_venv">collecting pipx
+...
+Successfully installed argcomplete-3.6.2 click-8.1.8 colorama-0.4.6 packaging-24.2 pipx-1.7.1 platformdirs-4.3.7 userpath-1.9.2
+</span>
+</code></pre>
+
+<p>Zorg ervoor dat de map waarin pipx apps opslaat, is opgenomen in je PATH omgevingsvariabele. Dit zorgt ervoor dat je deze apps altijd vanuit de terminal kunt aanroepen. Dit doe je met onderstaande code.</p>
+<pre><code> > python -m pipx ensurepath <button type="button" name="python -m pipx ensurepath_venv" onclick="runScript('python -m pipx ensurepath_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="python -m pipx ensurepath_venv" onclick="runScript('python -m pipx ensurepath_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="python -m pipx ensurepath_venv">Success! Added C:\Path\to\.local\bin to the PATH environment variable.
+Success! Added C:\Path\to\Python\Python313-arm64\Scripts to the PATH environment variable.
+&nbsp;
+Consider adding shell completions for pipx. Run 'pipx completions' for instructions.
+&nbsp;
+You will need to open a new terminal or re-login for the PATH changes to take effect. Alternatively, you can source your shell's config file with e.g. 'source ~/.bashrc'.
+&nbsp;
+Otherwise pipx is ready to go! ✨ 🌟 ✨</span>
+</code></pre>
+
+<p>De laatste zin is opvallend <q>Otherwise pipx is ready to go! ✨ 🌟 ✨</q>, blijkbaar moet er nog iets gebeuren voordat we pipx kunnen gebruiken. Als we alle informatie doorlezen zien we een paar suggesties maar ook een dwingend advies <q>You will need to open a new terminal or re-login for the PATH changes to take effect.</q></p>
+<p>Herstart je terminal en test of het commando <code>pipx</code> werkt. Als je in een terminal in Visual Studio Code werkt moet je dat ook herstarten en als je VS Code gestart hebt vanuit GitHub Desktop moet je óók dat herstarten. Werkt het nog steeds niet, dan zul je volledig uit moeten loggen en weer in moeten loggen om de shellomgeving opnieuw te laden en/of vraag om hulp.</p>
+<h3 id="apps-installeren-met-pipx">Apps installeren met pipx<a class="headerlink" href="#apps-installeren-met-pipx" title="Permanent link">&para;</a></h3>
+<p>Wanneer een applicatie als package beschikbaar is op <a href="https:/pypi.org">PyPI</a> kun je deze als volgt met pipx installeren:</p>
+<div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">pipx</span> <span class="n">install</span> <span class="n">PACKAGE</span>
+</span></code></pre></div>
+<p>Raadpleeg de documentatie van de applicatie om erachter te komen hoe je de applicatie vanuit de temrinal kunt starten.</p>
+<p>Je kunt een lijstje krijgen van alle applicaties die je met pipx hebt geïnstalleerd met</p>
+<pre><code> > pipx list <button type="button" name="pipx list_venv" onclick="runScript('pipx list_venv')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="pipx list_venv" onclick="runScript('pipx list_venv')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<span class="invisible" name="pipx list_venv">venvs are in /Path/to/.local/pipx/venvs
+apps are exposed on your $PATH at /Path/to/.local/bin
+manual pages are exposed at /Path/to/.local/share/man
+   package canvas-course-tools 0.10.3, installed using Python 3.13.0
+    - canvas
+   package ecpcgrading 1.3.0, installed using Python 3.13.0
+    - ecpcgrading
+   package feat-feedback-tool 1.0.0, installed using Python 3.12.4
+    - ft.
+   package poetry 1.8.4, installed using Python 3.13.0
+    - poetry
+   package prune-envs 1.1.0, installed using Python 3.13.0
+    - prune-envs</span>
+</code></pre>
+
+<p>Daar zie je ook meteen welke versie is geïnstalleerd. Wil je de nieuwste versie installeren gebruik dan:</p>
+<div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">pipx</span> <span class="n">upgrade</span> <span class="n">PACKAGE</span>
+</span></code></pre></div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:Python interpreter">
+<p>Of: <strong>View &gt; Command Palette &gt; Python: Select Interpreter</strong>.&#160;<a class="footnote-backref" href="#fnref:Python interpreter" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:Python environment">
+<p>Visual Studio Code zoekt naar virtual environments waar Python in staat. Environments zonder Python staat waarschijnlijk niet in het lijstje.&#160;<a class="footnote-backref" href="#fnref:Python environment" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "toc.integrate", "navigation.top", "content.code.annotate"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+        <script src="../javascripts/model.js"></script>
+      
+        <script src="../assets/comparison/comparison.js"></script>
+      
+        <script src="../assets/ADC_slider/ADC_slider.js"></script>
+      
+        <script src="../assets/run_button/run_button.js"></script>
+      
+        <script src="../assets/cheatsheets/cheatsheets.js"></script>
+      
+        <script src="../assets/eastereggs/eastereggs.js"></script>
+      
+    
+  </body>
+</html>

@@ -6,6 +6,7 @@ hoverbool = false; // interaction flag
 var targetindex = 0; // index for idle animation
 
 // targets for idle animation
+const target_list_function_instance = ["func_instance","func_call","func_input"]
 const target_list_function_class = ["function_keyword","function_name","function_args","function_instance","function_call","function_input"];
 const target_list_function_class_body = ["ext_instancemu4","ext_outputmu4"];
 const target_list_shell_script = ["shell_pyvisa","shell_backend","shell_list","shell_printlist","shell_open","shell_onlyopen","shell_opencommand","shell_openname","shell_termchar","shell_CRLF","shell_LF","shell_idn","shell_query","shell_*IDN?","shell_printidn"];
@@ -23,6 +24,10 @@ function hoverFunction(id, trigger_bool=true) {
         target_id = "function_" + id.split("_")[1];
     } else if (id.includes("function")) {
         target_id = "class_" + id.split("_")[1];
+    } else if (id.includes("func")) {
+        target_id = "clss_" + id.split("_")[1];
+    } else if (id.includes("clss")) {
+        target_id = "func_" + id.split("_")[1];
     } else if (id.includes("int")) {
         target_id = "ext_" + id.split("_")[1];
     } else if (id.includes("ext")) {
@@ -64,6 +69,12 @@ function comparisonIdleAnimation() {
     if (end.getTime() - start.getTime() >= 1000) {
         if (currentUrl.includes('classes')) {
             // highlight next compared elements in list for 2 s
+
+            hover_target = target_list_function_instance[targetindex % 3];
+            hoverFunction(hover_target, false);
+            setTimeout(disableAnimation, 1000);
+            setTimeout(hoverFunction, 2000, hover_target, false);
+
             hover_target = target_list_function_class[targetindex % 6];
             hoverFunction(hover_target, false);
             setTimeout(disableAnimation, 500);

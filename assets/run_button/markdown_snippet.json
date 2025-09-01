@@ -7,7 +7,7 @@
 			"${2:python code}",
 			"```",
 			"<pre>",
-			"<code>(ecpc) > python $1.py",
+			"<code>(ECPC) > python $1.py",
 			"<span class=\"invisible\" name=\"$1_$4\">${3:output}</span>",
 			"</code></pre></div>",
 			"$0"
@@ -17,7 +17,7 @@
 	"Run terminal": {
 		"prefix": "terminal",
 		"body": [
-			"<pre><code>(ecpc) > ${1:command} <button type=\"button\" name=\"$1_${3:suffix}\" onclick=\"runScript('$1_$3')\">{{ enter }}</button><button type=\"button\" name=\"$1_$3\" onclick=\"runScript('$1_$3')\" class=\"invisible\">{{ reload }}</button>",
+			"<pre><code>(ECPC) > ${1:command} <button type=\"button\" name=\"$1_${3:suffix}\" onclick=\"runScript('$1_$3')\">{{ enter }}</button><button type=\"button\" name=\"$1_$3\" onclick=\"runScript('$1_$3')\" class=\"invisible\">{{ reload }}</button>",
 			"<span class=\"invisible\" name=\"$1_$3\">${2:output}</span>",
 			"</code></pre>",
 			"$0"
