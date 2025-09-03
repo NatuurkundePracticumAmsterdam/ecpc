@@ -103,7 +103,7 @@ In de handleiding staan verschillende opgaves. Sommige opgaves zijn bedoeld als 
 !!! opdracht-inlever "Inleveropdracht"
     Deze opgaves moet worden ingeleverd voor feedback en een beoordeling. Je herkent ze aan de groene kleur. De opgaves bouwen op elkaar voort. Je levert alle opgaves van een projecttraject als geheel in. Kijk daarom goed bij het projecttraject in het tabblad **check** welke groene opgaves je gemaakt moet hebben voordat je het inlevert. 
 
-    Vaak heb je kennis en/of vaardigheden nodig die je eerder heb geleerd. Zie je een {{lightbulb}} lampje staan? Klik dan bovenin de blauwe balk (rechtsboven, naast de zoekbalk) op het lampje om de spiekbriefjes te openen.
+    Vaak heb je kennis en/of vaardigheden nodig die je eerder hebt geleerd. Zie je een {{lightbulb}} lampje staan? Klik dan bovenin de blauwe balk (rechtsboven, naast de zoekbalk) op het lampje om de spiekbriefjes te openen.
 
 
 !!! opdracht-meer "Meer leren"
