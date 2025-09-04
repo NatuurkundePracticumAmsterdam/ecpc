@@ -2,16 +2,16 @@
 
 ## MVC en het gebruik van packages
 
-MVC staat voor _Model-View-Controller_ en is een belangrijk, maar wat diffuus concept in software engineering en is vooral van toepassing op gebruikersinterfaces. Het belangrijkste idee is dat een programma zoveel mogelijk wordt opgesplitst in onderdelen. Het _model_ bevat de onderliggende data en concepten van het programma (een database, meetgegevens, berekeningen, etc.); de _controller_ praat met de fysieke omgeving en reageert bijvoorbeeld op invoer van een gebruiker en past het model aan; de _view_ is een weergave van de data uit het model en vormt de gebruikersinterface zelf. Vaak praten alle onderdelen met elkaar, maar een gelaagd model is makkelijker te overzien en dus eenvoudiger te programmeren. In het geval van een natuurkunde-experiment is dit vaak mogelijk. Daarmee krijgt MVC bij ons een andere betekenis dan bijvoorbeeld bij het bouwen van websites. Het gelaagd MVC-model dat wij gaan gebruiken is hieronder weergegeven:
+MVC staat voor _Model-View-Controller_ en is een belangrijk, maar ook een wat diffuus concept in software engineering en is vooral van toepassing op gebruikersinterfaces. Het belangrijkste idee is dat een programma zoveel mogelijk wordt opgesplitst in onderdelen. Het _model_ bevat de onderliggende data en concepten van het programma (een database, meetgegevens, berekeningen, etc.); de _controller_ praat met de fysieke omgeving en reageert bijvoorbeeld op invoer van een gebruiker en past het model aan; de _view_ is een weergave van de data uit het model en vormt de gebruikersinterface zelf. Vaak praten alle onderdelen met elkaar, maar een gelaagd programma is makkelijker te overzien en dus eenvoudiger te programmeren. In het geval van een natuurkunde-experiment is een gelaagd programma vaak mogelijk. Daarmee krijgt MVC in deze cursus een andere betekenis dan bijvoorbeeld bij het bouwen van websites. Het gelaagde MVC-programma dat je gaat gebruiken is hieronder weergegeven:
 
 <div id="fig:mvc-model"></div>
 ![Een gelaagd model-view-controller model](figures/mvc-model.svg){: style="width:50%", align=left}
 
-De _controllers_ communiceren met de apparatuur, bevat informatie en berekeningen die apparatuur afhankelijk zijn; het _model_ bevat de meetgegevens, berekeningen over - en de opzet van - het experiment; de _view_ zorgt voor een gebruikersinterface met weergave van de data.
+De _controllers_ communiceren met de apparatuur, zij bevatten informatie en berekeningen die apparatuur afhankelijk zijn; het _model_ bevat de meetgegevens, berekeningen over - en de opzet van - het experiment; de _view_ zorgt voor een gebruikersinterface met weergave van de data.
 
-Het scheiden van je programma in deze lagen kan enorm helpen om ervoor te zorgen dat je geen _spaghetticode_ schrijft &mdash; ongestructureerde en moeilijk te begrijpen code. Wanneer het drukken op een knop in de code van de grafische omgeving direct commando's stuurt naar de Arduino of dat de code voor het doen van een enkele meting meteen de $x$-as van een grafiek aanpast, sla je lagen over in ons model en knoop je delen van het programma aan elkaar die niet direct iets met elkaar te maken hebben. De knop moet een meting starten, ja, maar _hoe_ dat precies moet is niet de taak van de gebruikersinterface. En de meting zelf moet zich niet bemoeien met welke grafiek er precies getekend wordt. Je zult merken dat het heel lastig wordt om overzicht te houden en later aanpassingen te doen als je alles door elkaar laat lopen. Je zult dan door je hele code moeten zoeken als je óf de aansturing van de Arduino, óf de grafische interface wilt aanpassen. En dus gaan we alles netjes structureren.
+Het scheiden van je programma in deze lagen kan enorm helpen om ervoor te zorgen dat je geen _spaghetticode_ schrijft &mdash; ongestructureerde en moeilijk te begrijpen code. Wanneer het drukken op een knop in de grafische omgeving maakt dat er direct commando's gestuurd worden naar de Arduino of dat de code voor het doen van een enkele meting meteen de $x$-as van een grafiek aanpast, dan sla je lagen over en knoop je delen van het programma aan elkaar die niet direct iets met elkaar te maken hebben. De knop moet een meting starten, ja, maar _hoe_ dat precies moet is niet de taak van de gebruikersinterface. En de meting zelf moet zich niet bemoeien met welke grafiek er precies getekend wordt. Je zult merken dat het heel lastig wordt om overzicht te houden en later aanpassingen te doen als je alles door elkaar laat lopen. Je zult dan je hele code moeten doorzoeken als je óf de aansturing van de Arduino, óf de grafische interface wilt aanpassen. Om dat te voorkomen ga je alles netjes structureren.
 
-De verschillende onderdelen in het model kunnen we voor ons experiment als volgt beschrijven:
+De verschillende onderdelen in het programma kun je als volgt beschrijven:
 
 __View__
 : Het <q>startpunt</q> van je applicatie. Geeft de opdracht om een meting te starten en geeft na afloop de resultaten van de meting weer op het scherm.
@@ -20,24 +20,33 @@ __Model__
 : De code die het experiment uitvoert door verschillende metingen te doen en instellingen aan te passen, zoals de spanning over de LED. Het model weet hoe het experiment in elkaar zit en dat er bijvoorbeeld een weerstand van 220 &Omega; aanwezig is. Geeft opdrachten aan de controller.
 
 __Controller__
-: De code die via pyvisa praat met de Arduino. Opdrachten worden omgezet in firmwarecommando's en doorgestuurd naar het apparaat.
+: De code die via `pyvisa` praat met de Arduino. Opdrachten worden omgezet in firmwarecommando's en doorgestuurd naar het apparaat.
 
-Het opsplitsen van je programma _hoeft niet in één keer!_ Dit kan stapsgewijs. Je kunt starten met een eenvoudig script &mdash; zoals we hierboven gedaan hebben &mdash; en dat langzaam uitbreiden. ![Klik hier](assets/eastereggs/ECPC-purple.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met 'CTRL' + '/?' kun je stukken geselecteerde code uitcommentariëren en weer decommentariëren. Probeer maar eens!"} Je begint klein, verdeelt je code in lagen en bouwt vervolgens verder.
+Het opsplitsen van je programma _hoeft niet in één keer!_ Dit kan stapsgewijs. Je kunt starten met een eenvoudig script &mdash; zoals je eerder gedaan hebt met {{file}}`diode_experiment.py` &mdash; en dat langzaam uitbreiden. ![Klik hier](assets/eastereggs/ECPC-purple.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met 'CTRL' + '/?' kun je stukken geselecteerde code uitcommentariëren en weer decommentariëren. Probeer maar eens!"} Je begint klein, verdeelt je code in lagen en bouwt vervolgens verder.
 
 ## Implementeren van MVC
-Het opsplitsen van het {{file}}`diode_experiment.py` in MVC gaan we stapsgewijs doen. We gaan een class maken voor de aansturing van de Arduino, deze class valt in de categorie _controller_.
+Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs doen. Je gaat eerst een class maken voor de aansturing van de Arduino, deze class valt in de categorie _controller_.
 
 !!! opdracht-inlever "Pythondaq: open repository"
-    Open in GitHub Desktop de repository van {{github}}`pythondaq` en open de repository in Visual Studio Code. In de volgende opdrachten ga je het {{file}}`diode_experiment.py` uitbreiden en opsplitsen in MVC.
+    === "opdracht"
+        Open in GitHub Desktop de repository van {{github}}`pythondaq` en open deze repository in Visual Studio Code. In de volgende opdrachten ga je het {{file}}`diode_experiment.py` uitbreiden en opsplitsen in model-view-controller.
+
+    === "check"
+        **Projecttraject**
+
+        - [x] Pythondaq: open repository
+        - [ ] Pythondaq: controller bouwen
+        - [ ] Pythondaq: controller implementeren
+        - [ ] Pythondaq: controller afsplitsen
+        - [ ] Pythondaq: model afsplitsen
 
 <div id="opd:meting-class"></div>
 !!! opdracht-inlever "Pythondaq: controller bouwen"
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Je schrijft een script {{file}}`test_controller.py` waarmee je de Arduino aanstuurt. 
-            </br></br>
-            Een gebruiker test de door jou geschreven controller met de volgende handelingen. De gebruiker vraag een lijst met beschikbare poorten op met de functie `#!py list_resources()`. De gebruiker weet aan welke poort de Arduino hangt en gebruikt deze poortnaam om een instance aan te maken van de class `ArduinoVISADevice`. Met deze class kan de gebruiker met de Arduino communiceren. Met de method `#!py get_identification()` vraagt de gebruiker de identificatiestring op. De gebruiker zet met de method `#!py set_output_value()` om een waarde van 828 op het uitvoerkanaal 0, de gebruiker zit de LED branden en weet daarom dat de method werkt. De gebruiker vraag met de method `#!py get_input_value()` de spanning op kanaal 1 op, dit herhaald de gebruiker vervolgens voor kanaal 2. Met de method `#!py get_input_voltage()` vraagt de gebruiker de spanning op in volt. De gebruiker rekent de gegeven waarde van `#!py get_input_value()` op kanaal 1 om naar volt en ziet dat deze overeenkomt met de gegeven spanning door de method `#!py get_input_voltage()` op kanaal 1. 
+            Je schrijft een script {{file}}`test_controller.py` waarmee je de Arduino aanstuurt. Een gebruiker test de door jou geschreven controller met de volgende handelingen. De gebruiker vraagt een lijst met beschikbare poorten op met de functie `#!py list_resources()`. De gebruiker weet daarna aan welke poort de Arduino hangt en gebruikt deze poortnaam om een instance aan te maken van de class `ArduinoVISADevice`. Met deze class kan de gebruiker met de Arduino communiceren. Met de method `#!py get_identification()` vraagt de gebruiker de identificatiestring op. De gebruiker zet met de method `#!py set_output_value()` een waarde van 828 op uitvoerkanaal 0. De gebruiker ziet de LED branden en weet daardoor dat de method werkt. De gebruiker controleert met de method `#!py get_output_value()` de waarde op uitvoerkanaal 0, welke 828 zou moeten zijn. De gebruiker vraagt met de method `#!py get_input_value()` de spanning op kanaal 1 op, dit herhaalt de gebruiker vervolgens voor kanaal 2. Met de method `#!py get_input_voltage()` vraagt de gebruiker de spanning van kanaal 1 op in volt. De gebruiker rekent de gegeven waarde van de method `#!py get_input_value()` op kanaal 1 om naar volt en ziet dat deze overeenkomt met de gegeven spanning door de method `#!py get_input_voltage()` op kanaal 1. 
+            </ul>
             </div>
             <div>
             {{folder}} `ECPC`   
@@ -66,16 +75,16 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC gaan we stapsgewijs 
         #        set a value on the output channel
         #
         #   def get_output_value
-        #        get the value of the output channel
+        #        return the value of the output channel
         #      
         #   def get_input_value
-        #        get input value from input channel
+        #        return the value of the input channel
         #
         #   def get_input_voltage
-        #        get input value from input channel in Volt
+        #        return voltage in volt of the input channel
                 
         ```
-        **Testcode:**
+        **Testcode**
         <div class="code-box"><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="run">{{ run }}</button><button type="button" name="basisscript_controller" onclick="runScript('basisscript_controller')" class="reload invisible">{{ reload }}</button> test_controller.py
         ``` py
         # get available ports
@@ -88,7 +97,7 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC gaan we stapsgewijs 
         identification = device.get_identification()
         print(identification)
 
-        # set OUTPUT voltage on channel 0, using ADC values (0 - 1023)
+        # set OUTPUT voltage on channel 0 in ADC values (0 - 1023)
         device.set_output_value(value=828)
 
         # measure the voltage on INPUT channel 2 in ADC values (0 - 1023)
@@ -99,7 +108,7 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC gaan we stapsgewijs 
         ch2_voltage = device.get_input_voltage(channel=2)
         print(f"{ch2_voltage=}")
 
-        # get the previously set OUTPUT voltage in ADC values (0 - 1023)
+        # get the previously set OUTPUT voltage on channel 0 in ADC values (0 - 1023)
         ch0_value = device.get_output_value()
         print(f"{ch0_value=}")
         ```
@@ -116,11 +125,13 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC gaan we stapsgewijs 
         **Checkpunten:**
 
         - [ ] `#!py list_resources()` is een functie die buiten de class staat.
-        - [ ] Aan de `#!py __init__()` method moet een poortnaam worden meegeven.
-        - [ ] De `#!py __init__()` method opent de communicatie met de meegegeven poortnaam.
+        - [ ] Aan de `#!py __init__()`-method moet een poortnaam worden meegegeven.
+        - [ ] De `#!py __init__()`-method opent de communicatie met de Arduino.
         - [ ] Er is een method `#!py get_identification()` die de identificatiestring teruggeeft.
-        - [ ] De `set_output_value()` en `get_output_value()` communiceren standaard met kanaal 0.
-        - [ ] Bij `get_input_value` en `get_input_voltage` moet een kanaal opgegeven worden.
+        - [ ] Aan de method `set_output_value()` moet een ADC-waarde worden meegegeven.
+        - [ ] De methods `set_output_value()` en `get_output_value()` communiceren standaard met kanaal 0.
+        - [ ] Aan de methods `get_input_value` en `get_input_voltage` moet een kanaal worden meegegeven. 
+        - [ ] De methods `get_output_value()`, `get_input_value()` en `get_input_voltage` geven een ADC-waarde dan wel een spanning terug.
 
 
         **Projecttraject:**
@@ -131,11 +142,11 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC gaan we stapsgewijs 
         - [ ] Pythondaq: controller afsplitsen
         - [ ] Pythondaq: model afsplitsen
 
-Je hebt nu een werkende controller, maar je gebruikt het nog niet in je experiment. 
+Je hebt nu een werkende controller, maar je gebruikt deze nog niet in je experiment. 
 
 !!! opdracht-inlever "Pythondaq: controller implementeren"
     === "opdracht"
-        Kopieer je controller code (zonder de testcode) in het bestand {{file}}`diode_experiment.py`. Pas de code die de meting uitvoert aan zodat deze gebruikt maakt van de class `#!py ArduinoVISADevice` en de bijbehorende methods. 
+        Kopieer je controller code (zonder de testcode) in het bestand {{file}}`diode_experiment.py`. Pas de code die de meting uitvoert aan zodat deze gebruik maakt van de class `#!py ArduinoVISADevice` en de bijbehorende methods. 
     === "code"
         **Pseudo-code**
         ``` py title='diode_experiment.py'
