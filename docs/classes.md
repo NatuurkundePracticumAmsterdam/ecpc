@@ -84,6 +84,7 @@ Hierin is `50` het aantal stappen en `30` de hoek in graden die de schildpad teg
         - [ ] De method `#!py __init__(self)`
         - [ ] Een class maken
         - [ ] `self` = instance
+        - [ ] Opbouw van een class
 
 ## Het maken van een class
 De class `Turtle` is behoorlijk complex en het gaat te ver om de class hier helemaal te gaan bespreken. Voor een goed begrip van classes ga je daarom kijken naar een versimpelde weergave van de class `Turtle`.
@@ -142,8 +143,9 @@ Het aanmaken van een class lijkt in een aantal opzichten op het aanmaken van een
         - [x] De method `#!py __init__(self)`
         - [ ] Een class maken
         - [ ] `self` = instance
+        - [ ] Opbouw van een class
 
-!!! opdracht-basis-thuis "fake-turtle"
+!!! opdracht-basis-thuis "Een class maken"
     === "opdracht"
 
         <div class="grid-tree" markdown>
@@ -208,6 +210,7 @@ Het aanmaken van een class lijkt in een aantal opzichten op het aanmaken van een
         - [x] De method `#!py __init__(self)`
         - [x] Een class maken
         - [ ] `self` = instance
+        - [ ] Opbouw van een class
 
 ## De speciale parameter `#!py self`
 Een class method is vrijwel gelijk aan een normale functie, behalve dat een class method als eerste de parameter `#!py self` verwacht. Aan deze parameter wordt de eigen instance van de class meegegeven wanneer je de method aanroept. Laten we kijken naar wat die instance van de class eigenlijk is. De instance van een class is de collectie van methods (en variabelen). 
@@ -306,6 +309,7 @@ Als je de method `#!py do_kungfu_move` aanroept met `#!py master_oogway.do_kungf
         - [x] De method `#!py __init__(self)`
         - [x] Een class maken
         - [x] `self` = instance
+        - [ ] Opbouw van een class
 
 
 ### Instance attribute
@@ -334,9 +338,19 @@ print(master_oogway.quote)
 </code></pre></div>
 
 !!! opdracht-basis-thuis "Opbouw van een class"
-    Bekijk onderstaande code. Wat doet deze code precies? Verplaats daarna de onderdelen naar de juiste plek in de code. Twijfel je of je nog weet wat een module is kijk dan voor meer informatie in de [paragraaf modules](vervolg-python.md#modules).
+    === "opdracht"
+        Bekijk onderstaande code. Wat doet deze code precies? Verplaats daarna de onderdelen naar de juiste plek in de code. Twijfel je of je nog weet wat een module is kijk dan voor meer informatie in de [paragraaf modules](vervolg-python.md#modules).
 
-    <iframe src="https://h5plti.avwebs.nl/h5p/82/embed" width="740" height="830" frameborder="0" allowfullscreen="allowfullscreen" lang="en" scrolling="no"></iframe>
+        <iframe src="https://h5plti.avwebs.nl/h5p/82/embed" width="740" height="830" frameborder="0" allowfullscreen="allowfullscreen" lang="en" scrolling="no"></iframe>
+
+    === "check"
+        **Projecttraject**
+
+        - [x] De class `Turtle`
+        - [x] De method `#!py __init__(self)`
+        - [x] Een class maken
+        - [x] `self` = instance
+        - [x] Opbouw van een class
     
 
 ???+ meer-leren "Classes importeren"
@@ -345,7 +359,7 @@ print(master_oogway.quote)
     ``` py
     forward(master_oogway, distance=50)
     ```
-    hebben we nu
+    heb je nu
     ``` py
     master_oogway.forward(distance=50)
     ```
@@ -356,10 +370,10 @@ print(master_oogway.quote)
     master_oogway = Turtle()
     ...
     ```
-    Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je typt `#!py master_oogway.f` hoef je alleen maar op ++tab++ te drukken en VS Code vult de rest aan.
+    Op deze manier kun je code ook makkelijker delen en verspreiden. Zodra je een class definieert zal Visual Studio Code tijdens het programmeren je code automatisch aanvullen. Zodra je typt `#!py master_oogway.f` hoef je alleen maar op ++tab++ te drukken en Visual Studio Code vult de rest aan.
 
 
-!!! opdracht-basis "Class Particle"
+!!! opdracht-basis "Class `Particle`"
     === "opdracht"
         <img class="gif" src="../assets/particle-spin-flip/spin-flip-still.png" onclick="this.src='../assets/particle-spin-flip/spin-flip.gif'" style="width:128px;height:72px;" align=right />
         
@@ -384,13 +398,15 @@ print(master_oogway.quote)
             # def __init__(self, name, spin):
                 # make instance attribute from name
                 # make instance attribute from spin
-            # def is_up_or_down
+
+            # def is_up_or_down():
                 # print up when spin is positive
                 # print down when spin is negative
                 ...
-            # def flip
-                # Make spin positive if spin is negative
-                # Make spin negative if spin is positive
+
+            # def flip():
+                # make spin positive if spin is negative
+                # make spin negative if spin is positive
                 ...
 
         ```
@@ -401,33 +417,34 @@ print(master_oogway.quote)
         proton.is_up_or_down()
         proton.flip()
         proton.is_up_or_down()
-        print(proton.spin)
-        print(proton.name)
+        print(f"{proton.spin=}")
+        print(f"{proton.name=}")
         ```
         <pre>
         <code>(ECPC) > python particle.py
         <span class="invisible" name="particle">up
         down
-        -0.5
-        mooi proton</span>
+        proton.spin=-0.5
+        proton.name='mooi proton'</span>
         </code></pre></div>
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
-        - [ ] Naam en spin toestand worden aan instance meegegeven.
+        - [ ] Naam en spin worden aan instance meegegeven.
+        - [ ] Naam en spin zijn instance attributes en kunnen zowel binnen een method als buiten de class opgeroepen worden.
         - [ ] Method `#!py is_up_or_down()` print 'up' als de spin positief is en 'down' als het negatief is.
         - [ ] Method `#!py flip()` maakt de spin positief als de spin negatief is, en negatief als de spin positief is.
 
-        **Projecttraject:**
+        **Projecttraject**
 
-        - [x] Class Particle
+        - [x] Class `Particle`
 
-!!! opdracht-inlever "Class ProjectileMotion"
+!!! opdracht-inlever "Class `ProjectileMotion`"
     === "opdracht"
 
         <div class="grid-tree" markdown>
             <div>
-            Je gaat een waterraket een aantal keer wegschieten met steeds een andere beginsnelheid en lanceerhoek. Je hebt een instance aangemaakt van de class `#!py ProjectileMotion`. De beginsnelheid en de lanceerhoek bewaar je steeds met de method `#!py add_launch_parameters()`. Om in een keer alle beginsnelheden op te vragen gebruik je de method `#!py get_initial_velocities()`. Om alle lanceerhoeken op te vragen gebruik je de method `#!py get_launch_angles()`. Op basis van de gegevens (en door de luchtweerstand te verwaarlozen) bepaal je de vluchtduur en het bereik van de raket. Je kunt de vluchtduur van alle vluchten opvragen met de method `#!py get_time_of_flights()` en het bereik van alle vluchten met `#!py get_flight_ranges()`.
+            Je gaat een waterraket een aantal keer wegschieten met steeds een andere beginsnelheid en lanceerhoek. Je hebt een instance aangemaakt van de class `#!py ProjectileMotion`. De beginsnelheid en de lanceerhoek bewaar je steeds met de method `#!py add_launch_parameters()`. Om in een keer alle beginsnelheden op te vragen gebruik je de method `#!py get_initial_velocities()`. Om alle lanceerhoeken op te vragen gebruik je de method `#!py get_launch_angles()`. Op basis van de gegevens (en door de luchtweerstand te verwaarlozen) bepaal je de vluchtduur en het bereik van de raket. Je kunt de vluchtduur van alle vluchten opvragen met de method `#!py get_time_of_flights()` en het bereik van alle vluchten met `#!py get_flight_ranges()`. Zie het [tabblad check](#__tabbed_7_3) voor de nodige vergelijkingen.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -436,7 +453,7 @@ print(master_oogway.quote)
             {{T}} {{github}} `pythondaq`  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{github}} `projectile-motion`  
-            {{tab}} {{T}} {{new_file}} `water_rocket.py`  
+            {{tab}} {{T}} {{new_file}} `water-rocket.py`  
             {{tab}} {{L}} {{dots}}  
             </div>
         </div>
@@ -487,27 +504,27 @@ print(master_oogway.quote)
         
         
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] De code bevindt zich in een GitHub-repository {{lightbulb}}.
         - [ ] De method `#!py add_launch_parameters` verwacht een beginsnelheid in meter per seconde en een lanceerhoek in graden.
-        - [ ] De method `#!py get_initial_velocities` geeft een lijst terug met beginsnelheden van alle ingevoerde parameters.
+        - [ ] De method `#!py get_initial_velocities` geeft een lijst terug met alle beginsnelheden van de ingevoerde parameters.
         - [ ] De method `#!py get_launch_angles` geeft een lijst terug met alle lanceerhoeken van de ingevoerde parameters.
         - [ ] De time-of-flight wordt berekend met 2 * v_y / g.
-        - [ ] De beginsnelheid in de y-richting: v_y = v * sin(lanceerhoek).
+        - [ ] De beginsnelheid in de y-richting wordt berekend met v_y = v * sin(lanceerhoek).
         - [ ] Het bereik wordt berekend met time_of_flight * v_x.
-        - [ ] De beginsnelheid in de x-richting: v_x = v * cos(lanceerhoek).
-        - [ ] De lanceerhoek wordt in radialen meegegeven aan de trigonomische functies.
+        - [ ] De beginsnelheid in de x-richting wordt berekend met v_x = v * cos(lanceerhoek).
+        - [ ] De lanceerhoek wordt in radialen meegegeven aan de trigonometrische functies.
         - [ ] De method `#!py get_time_of_flights` geeft een lijst terug met de vluchtduur in seconden corresponderend met de ingevoerde parameters. 
-        - [ ] De method `#!py get_flight_ranges` geeft een lijst terug met het bereik in meters die correspondeerd met de ingevoerde parameters.
+        - [ ] De method `#!py get_flight_ranges` geeft een lijst terug met het bereik in meters corresponderend met de ingevoerde parameters.
 
 
-        **Projecttraject:**
+        **Projecttraject**
 
-        - [x] Class ProjectileMotion
+        - [x] Class `ProjectileMotion`
 
-???+ meer-leren "ProjectileMotion raise exception"
-    Het is niet logisch als de lanceerhoek boven een bepaalde hoek uitkomt of als een negatieve beginsnelheid wordt ingevoerd. Zorg dat in die gevallen een error afgegeven wordt. Meer informatie hierover vind je in de [paragraaf Exceptions](vervolg-python.md#exceptions).
+!!! opdracht-meer "Raise exception"
+    Het is niet logisch om een lanceerhoek boven een bepaalde waarde in te voeren of om een negatieve beginsnelheid mee te geven. Zorg dat in die gevallen een error afgegeven wordt. Meer informatie hierover vind je in de [paragraaf Exceptions](vervolg-python.md#exceptions).
 
 ???+ meer-leren "Subclass"
     ## Subclasses
@@ -533,8 +550,7 @@ print(master_oogway.quote)
                 i = i * -1
     ```
     
-    Door de parentclass `#!py Turtle` tussen ronde haakjes mee te geven aan de nieuwe subclass `#!py GiantTortoise` krijgt de subclass alle functionaliteit mee van de parentclass, waaronder alle methods zoals `#!py forward()`. Als je in de init-method van de subclass methods of attributes wilt gebruiken van de parentclass, moet je ervoor zorgen dat de parentclass is geïnitialiseerd . Dit doe je met `#!py super().__init__()` hierbij verwijst `#!py super()` naar de parentclass en met `#!py __init__()` voer je de init-method van de parentclass uit. 
-    Nadat we in de init-method van de subclass de eigenschappen van de Reuzenschildpad hebben gedefinieerd, kunnen we extra functionaliteit gaan toevoegen bijvoorbeeld de manier van bewegen met de method `#!py move()`. 
+    Door de parentclass `#!py Turtle` tussen ronde haakjes mee te geven aan de nieuwe subclass `#!py GiantTortoise` krijgt de subclass alle functionaliteit mee van de parentclass, waaronder alle methods zoals `#!py forward()`. Als je in de `#!py __init__()`-method van de subclass methods of attributes wilt gebruiken van de parentclass, moet je ervoor zorgen dat de parentclass is geïnitialiseerd . Dit doe je met `#!py super().__init__()`. Hierbij verwijst `#!py super()` naar de parentclass en met `#!py __init__()` voer je de `#!py __init__()`-method van de parentclass uit. Nadat je in de `#!py __init__()`-method van de subclass de eigenschappen van de reuzenschildpad hebt gedefinieerd, kun je extra functionaliteit gaan toevoegen, bijvoorbeeld de manier van bewegen met de method `#!py move()`. 
 
     !!! opdracht-meer "`#!py super().__init__()`"
         1. Maak een bestand aan waarin je de subclass `GiantTortoise` aanmaakt.
@@ -543,7 +559,7 @@ print(master_oogway.quote)
         t = GiantTortoise()
         t.move(50)
         ```
-        1. Wat gebeurd er als je `#!py super().__init__()` weglaat?
+        1. Wat gebeurt er als je `#!py super().__init__()` weglaat?
     
 
     !!! opdracht-meer "Hawksbill turtle"
