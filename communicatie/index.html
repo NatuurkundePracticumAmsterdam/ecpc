@@ -979,7 +979,8 @@ Bron: <a href="https://commons.wikimedia.org/wiki/File:Digitaloszilloskop_Schnit
 <p class="admonition-title">Info</p>
 <p>Om met Python via het VISA-protocol te kunnen communiceren met apparaten heb je specifieke packages nodig. Die gaan we later installeren in een <em>virtual environment</em>. Voor meer informatie over virtual environments zie de <a href="../virtual_environments/">Appendix <em>Virtual Environments</em></a>. Tijdens testen is het vaak niet nodig om packages te installeren, maar je moet dan wel steeds opnieuw intypen wat je nodig hebt. Dat kun je misschien het beste copy/pasten vanuit het <code>code</code>-tabblad die in de opdracht staat. Voordat je de volgende opdracht kunt doen, zorg dat je <a href="https://docs.astral.sh/uv/getting-started/installation/#winget">uv</a> geïnstalleerd hebt. Voor Windowscomputers, open een Terminal en type in (zonder het <code>&gt;</code>-symbool):
 <div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">&gt;</span> <span class="n">winget</span> <span class="n">install</span> <span class="n">-e</span> <span class="n">astral-sh</span><span class="p">.</span><span class="n">uv</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
+<strong>Belangrijk:</strong> uv werkt nu alleen in <em>nieuw geopende</em> terminals. Sluit de terminal die je open hebt staan dus af.</p>
 </div>
 <div id="opd:pyvisaterminal"></div>
 <div class="admonition opdracht-basis">
@@ -1038,7 +1039,7 @@ EOF  attr  close  exit  help  list  open  query  read  termchar  timeout  write
 <p>We gebruiken <code>uvx</code> om Python packages te draaien zonder ze te installeren. We starten <code>pyvisa-shell</code>, die afkomstig is uit het package <code>pyvisa</code> (<code>--from pyvisa</code>). We maken hier gebruik van de optie <code>--backend py</code>, wat staat voor <em>gebruik backend: python</em>. Het kan namelijk dat er naast <code>pyvisa-py</code> ook andere <em>backends</em>, of <em>drivers</em>, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. De verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle type apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers. We moeten dan wel meegeven dat we dat package ook nodig hebben (<code>--with pyvisa-py</code>) en omdat de Arduino is aangesloten op een seriële kabel<sup id="fnref:USB"><a class="footnote-ref" href="#fn:USB">6</a></sup> hebben we ook de PySerial package nodig (<code>--with pyserial</code>). Voluit wordt dan dus:
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>uvx<span class="w"> </span>--from<span class="w"> </span>pyvisa<span class="w"> </span>--with<span class="w"> </span>pyvisa-py<span class="w"> </span>--with<span class="w"> </span>pyserial<span class="w"> </span>pyvisa-shell<span class="w"> </span>--backend<span class="w"> </span>py
 </span></code></pre></div>
-Dat dit aardig vervelend kan worden met intypen is waarschijnlijk wel duidelijk. Daarom gaan we straks gebruik maken van <em>virtual environments</em>.</p>
+Dat dit aardig vervelend kan worden met intypen is waarschijnlijk wel duidelijk. Daarom gaan we op een later moment gebruik maken van <em>virtual environments</em>.</p>
 </div>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">PyVISA commando's <code>list</code> en <code>open</code></p>
@@ -1418,8 +1419,26 @@ rm = pyvisa.ResourceManager(</span><span onmouseover="hoverFunction('python_back
 </span></code></pre></div>
 Met <code>-p 3.13</code> geven we aan: gebruik Pythonversie 3.13 (released in 2024). Je mag dat weglaten en dan kiest uv op basis van Pythonversies die je al geïnstalleerd hebt staan, maar als je een te oude versie gebruikt werken sommige dingen misschien niet.</p>
 <p>Om een virtual environment daadwerkelijk te gebruiken kun je die <em>activeren</em>. Dat kun je doen door in de pop-up "We've noticed that..." te kiezen voor "Yes", of door rechtsonderin op <em>Select Interpreter</em> te klikken en dan te kiezen voor de omgeving (Python 3.13.x (ECPC) <code>.\.venv\Scripts\python.exe</code>). Je <strong>moet</strong> de terminal dan sluiten (type <code>exit</code> of klik op het prullenbakje) en een nieuwe terminal openen. Als het terminal goed geactiveerd is staat er nu <code>(ECPC)</code> aan het begin van de prompt (opdrachtregel waar je je commando's intypt).</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Als je op Windows werkt, kun je bij het openen van een nieuwe terminal de volgende foutmelding krijgen:
+<div class="language-ps1 highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">David</span><span class="p">\</span><span class="n">Documents</span><span class="p">\</span><span class="n">ECPC</span><span class="p">&gt;</span> <span class="p">&amp;</span> <span class="n">C</span><span class="p">:/</span><span class="n">Users</span><span class="p">/</span><span class="n">David</span><span class="p">/</span><span class="n">Documents</span><span class="p">/</span><span class="n">ECPC</span><span class="p">/.</span><span class="n">venv</span><span class="p">/</span><span class="n">Scripts</span><span class="p">/</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="p">&amp;</span> <span class="p">:</span> <span class="n">File</span> <span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">David</span><span class="p">\</span><span class="n">Documents</span><span class="p">\</span><span class="n">ECPC</span><span class="p">\.</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">loaded</span> 
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">because</span> <span class="n">running</span> <span class="n">scripts</span> <span class="n">is</span> <span class="n">disabled</span> <span class="n">on</span> <span class="n">this</span> <span class="n">system</span><span class="p">.</span> <span class="k">For</span> <span class="n">more</span> <span class="n">information</span><span class="p">,</span> <span class="n">see</span> 
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="n">about_Execution_Policies</span> <span class="n">at</span> <span class="n">https</span><span class="p">:/</span><span class="n">go</span><span class="p">.</span><span class="n">microsoft</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">fwlink</span><span class="p">/</span><span class="k">?</span><span class="n">LinkID</span><span class="p">=</span><span class="n">135170</span><span class="p">.</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="n">At</span> <span class="n">line</span><span class="p">:</span><span class="n">1</span> <span class="n">char</span><span class="p">:</span><span class="n">3</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="p">+</span> <span class="p">&amp;</span> <span class="n">C</span><span class="p">:/</span><span class="n">Users</span><span class="p">/</span><span class="n">David</span><span class="p">/</span><span class="n">Documents</span><span class="p">/</span><span class="n">ECPC</span><span class="p">/.</span><span class="n">venv</span><span class="p">/</span><span class="n">Scripts</span><span class="p">/</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="p">+</span>   <span class="p">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>    <span class="p">+</span> <span class="n">CategoryInfo</span>          <span class="p">:</span> <span class="n">SecurityError</span><span class="p">:</span> <span class="p">(:)</span> <span class="p">[],</span> <span class="n">PSSecurityException</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>    <span class="p">+</span> <span class="n">FullyQualifiedErrorId</span> <span class="p">:</span> <span class="n">UnauthorizedAccess</span>
+</span></code></pre></div>
+Los dit op door na de foutmelding het volgende in te typen in je terminal:
+<div class="language-ps1 highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nb">Set-ExecutionPolicy</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span> <span class="n">RemoteSigned</span>
+</span></code></pre></div>
+Open daarna nogmaals een nieuwe terminal. Nu moet je wél <code>(ECPC)</code> aan het begin van de prompt zien staan.</p>
+</div>
 <p>Installeer de benodigde packages met:
-<div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">uv</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pyvisa</span> <span class="n">pyvisa-py</span> <span class="n">pyserial</span>
+<div class="language-ps1 highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">uv</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pyvisa</span> <span class="n">pyvisa-py</span> <span class="n">pyserial</span>
 </span></code></pre></div></p>
 </div>
 <div class="tabbed-block">
@@ -1472,18 +1491,18 @@ Met <code>-p 3.13</code> geven we aan: gebruik Pythonversie 3.13 (released in 20
 </div>
 <div class="tabbed-block">
 <p><strong>Pseudo-code</strong>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># import pyvisa package</span>
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="c1"># create resource manager</span>
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="c1"># get list resources</span>
-</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="c1"># open device</span>
-</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="c1"># send query to get identification string</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># import pyvisa package</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="c1"># create resource manager</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="c1"># get list resources</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="c1"># open device</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="c1"># send query to get identification string</span>
 </span></code></pre></div>
 <strong>Testcode</strong>    <br />
 <div class="code-box"><button type="button" name="test_arduino_test_code" onclick="runScript('test_arduino_test_code')" class="run"><svg class="run" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button><button type="button" name="test_arduino_test_code" onclick="runScript('test_arduino_test_code')" class="reload invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button> test_arduino.py
-<div class="language-py highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="o">...</span>
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
-</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">ports</span><span class="p">)</span>
-</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">identification</span><span class="p">)</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="o">...</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">ports</span><span class="p">)</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">identification</span><span class="p">)</span>
 </span></code></pre></div>
 <pre>
 <code>(ECPC) &gt; python test_arduino.py
@@ -1538,20 +1557,20 @@ Arduino VISA firmware v1.1.0</span>
 </div>
 <div class="tabbed-block">
 <p><strong>Pseudo-code</strong>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># import pyvisa package</span>
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="c1"># create resource manager</span>
-</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="c1"># get list resources</span>
-</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="c1"># open device</span>
-</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="c1"># send query to get identifaction string</span>
-</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="c1">#</span>
-</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="c1"># for value in min to max</span>
-</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="c1">#   send query to set output channel to value</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># import pyvisa package</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="c1"># create resource manager</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="c1"># get list resources</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="c1"># open device</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="c1"># send query to get identifaction string</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="c1">#</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="c1"># for value in min to max</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="c1">#   send query to set output channel to value</span>
 </span></code></pre></div>
 <strong>Testcode</strong>    <br />
 <div class="code-box"><button type="button" name="test_LED" onclick="runScript('test_LED')" class="run"><svg class="run" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button><button type="button" name="test_LED" onclick="runScript('test_LED')" class="reload invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button> test_LED.py
-<div class="language-py highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="o">...</span>
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">final_value</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;OUT:CH0?&quot;</span><span class="p">)</span>
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">final_value</span><span class="p">)</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="o">...</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="n">final_value</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;OUT:CH0?&quot;</span><span class="p">)</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">final_value</span><span class="p">)</span>
 </span></code></pre></div>
 <pre>
 <code>(ECPC) &gt; python test_LED.py
@@ -1606,25 +1625,25 @@ Arduino VISA firmware v1.1.0</span>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Je kan hiervoor gebruik maken van de module <em>time</em> die standaard met Python meekomt.<sup id="fnref:standard-library"><a class="footnote-ref" href="#fn:standard-library">9</a></sup> Met de functie <code>sleep()</code> kun je de executie van de volgende regel in het script met een aantal seconden uitstellen.</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="c1"># wait 28 second</span>
-</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">28</span><span class="p">)</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="c1"># wait 28 second</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">28</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </div>
 <div class="tabbed-block">
 <p><strong>Pseudo-code</strong>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># import pyvisa package</span>
-</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="c1"># create resource manager</span>
-</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="c1"># get list resources</span>
-</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="c1"># open device</span>
-</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="c1"># send query to get identification string</span>
-</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="c1">#</span>
-</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="c1"># repeat:</span>
-</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="c1">#   send query set output channel to max</span>
-</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="c1">#   wait</span>
-</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="c1">#   send query set output channel to min</span>
-</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="c1">#   wait</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1"># import pyvisa package</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="c1"># create resource manager</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="c1"># get list resources</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="c1"># open device</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="c1"># send query to get identification string</span>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="c1">#</span>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="c1"># repeat:</span>
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="c1">#   send query set output channel to max</span>
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="c1">#   wait</span>
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a><span class="c1">#   send query set output channel to min</span>
+</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a><span class="c1">#   wait</span>
 </span></code></pre></div>
 <strong>Testvoorbeeld</strong></p>
 <p><iframe src="https://drive.google.com/file/d/1GdP3-9LTCSW_UGF708GlX0rKdhoNS5_G/preview" width="500" height="281" style="border:none;" align="left"></iframe></p>
