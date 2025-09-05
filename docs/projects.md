@@ -183,7 +183,7 @@ De sectie `[project.scripts]` zorgt ervoor dat we ons script kunnen aanroepen do
 We starten met ons package. We gaan een aantal `#!py ModuleNotFoundError`s tegenkomen, maar dat lossen we ook weer op.  Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige <q>shortcut</q> in {{file}}`shortcuts.py`. Nu willen we deze shortcut ook in een ander script {{file}}`measurements.py` gebruiken, die op basis van een aantal metingen het gemiddelde mét een onzekerheid geeft. Dit kunnen we doen door de module te importeren in het nieuwe script zodat we de functie `stdev_of_mean` daar ook kunnen gebruiken. We maken uiteindelijk een script {{file}}`try_measurements.py` om dit allemaal te testen, en die zetten we expres niet _in_ het package, maar in een nieuwe map {{folder}}`tests`. Het testscript hoort immers niet bij de code van het `easystat` package.
 
 !!! opdracht-basis "Easystat shortcuts.py en try_shortcuts.py aanmaken"
-    Maak zoals hieronder aangegeven de bestanden {{new_file}}`shortcuts.py`, {{new_file}}`measurements.py` en {{new_file}}`try_measurements.py` aan, waarbij je let op in welke map de bestanden moeten staan:
+    Maak zoals hieronder aangegeven de bestanden {{new_file}}`shortcuts.py`, {{new_file}}`measurements.py` en {{new_file}}`try_measurements.py` aan, waarbij je let op in welke map de bestanden moeten staan (je moet nog een map zelf aanmaken):
     <div class="grid-tree" markdown>
         <div>
         ``` py title="shortcuts.py"
@@ -221,8 +221,7 @@ We starten met ons package. We gaan een aantal `#!py ModuleNotFoundError`s tegen
         {{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
         {{tab}} {{tab}} {{T}} {{new_file}} `measurements.py`  
         {{tab}} {{tab}} {{L}} {{new_file}} `shortcuts.py`  
-        {{T}} {{folder}} `tests`  
-        {{tab}} {{T}} {{file}} `__init__.py`  
+        {{T}} {{new_folder}} `tests`  
         {{tab}} {{L}} {{new_file}} `try_measurements.py`  
         {{T}} {{file_lines}} `pyproject.toml`  
         {{L}} {{file_lines}} `readme.md`  
@@ -341,6 +340,7 @@ Fijn! Het verwijderen van dependency `PACKAGE` gaat met `uv remove PACKAGE`. uv 
 
 We hebben een uv project, dependencies toegevoegd maar nog niet alle code getest. Dat gaan we nu doen!
 
+<div id="opd:easystat-package-testen"></div>
 !!! opdracht-basis "Easystat package testen"
     === "opdracht"
         Je probeert nog een keer {{file}}`shortcuts.py` te runnen en ziet dat dat gewoon werkt. Daarna probeer je {{file}}`measurements.py`. Werkt ook, maar wel gek dat er golfjes onder `#!py from measurements import result_with_uncertainty` staan, hij doet het toch gewoon? Je kijkt even welke waarschuwing daarbij gegeven wordt door je muiscursor op de golfjes te schuiven. Daarna probeer je {{file}}`try_measurements.py`. Hier gaan dingen mis.
@@ -373,7 +373,7 @@ Het probleem is dat wanneer je met Python een script runt en je importeert iets,
 
 !!! opdracht-basis "Import aanpassen: absolute imports"
     === "opdracht"
-        Je past `#!py from shortcuts ...` aan door de naam van het package toe te voegen. Je test de code opnieuw. Gelukt! {{feesttoeter}}
+        Je past in het bestand {{file}}`measurements.py` de regel `#!py from shortcuts ...` aan door de naam van het package toe te voegen en ziet dat de oranje kriebeltjes ook verdwijnen. Je test de code in {{file}}`try_measurements.py` opnieuw. Gelukt! {{feesttoeter}}
     === "code"
         **Testcode**
         <pre><code>(easystat) > python tests/try_measurements.py <button type="button" name="try_measurements3" onclick="runScript('try_measurements3')">{{ enter }}</button><button type="button" name="try_measurements3" onclick="runScript('try_measurements3')" class="invisible">{{ reload }}</button>
@@ -684,7 +684,7 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Bij het uitbouwen van de applicatie ga je mogelijk onderdelen uit de pythonpackage importeren. Daarom is het verstandig om, net als met de [opdracht _Packages_](vervolg-python.md#opd:test_package), het importeren uit de package te testen.
+            Bij het uitbouwen van de applicatie ga je mogelijk onderdelen uit de pythonpackage importeren. Daarom is het verstandig om, net als met de [opdracht _Easystat package testen_](#opd:easystat-package-testen), het importeren uit de package te testen.
             Maak daarvoor een {{folder}}`tests`-map met {{file}}`test_imports.py` in de repository {{github}}`pythondaq`. 
             ```py title="test_imports.py"
             import pythondaq.run_experiment

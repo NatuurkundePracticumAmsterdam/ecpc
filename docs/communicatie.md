@@ -89,6 +89,7 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
     ``` ps1 title="Terminal"
     > winget install -e astral-sh.uv
     ```
+    **Belangrijk:** uv werkt nu alleen in _nieuw geopende_ terminals. Sluit de terminal die je open hebt staan dus af.
 
 <div id="opd:pyvisaterminal"></div>
 !!! opdracht-basis "PyVISA in terminal"
@@ -141,7 +142,7 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
     ```shell
     uvx --from pyvisa --with pyvisa-py --with pyserial pyvisa-shell --backend py
     ```
-    Dat dit aardig vervelend kan worden met intypen is waarschijnlijk wel duidelijk. Daarom gaan we straks gebruik maken van _virtual environments_.
+    Dat dit aardig vervelend kan worden met intypen is waarschijnlijk wel duidelijk. Daarom gaan we op een later moment gebruik maken van _virtual environments_.
 
     [^USB]: USB staat voor _Universal Serial Bus_, oftewel een universele standaard voor seriële communicatie. Dat mag je vergeten.
 
@@ -458,6 +459,25 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         Met `-p 3.13` geven we aan: gebruik Pythonversie 3.13 (released in 2024). Je mag dat weglaten en dan kiest uv op basis van Pythonversies die je al geïnstalleerd hebt staan, maar als je een te oude versie gebruikt werken sommige dingen misschien niet.
 
         Om een virtual environment daadwerkelijk te gebruiken kun je die _activeren_. Dat kun je doen door in de pop-up "We've noticed that..." te kiezen voor "Yes", of door rechtsonderin op _Select Interpreter_ te klikken en dan te kiezen voor de omgeving (Python 3.13.x (ECPC) `.\.venv\Scripts\python.exe`). Je **moet** de terminal dan sluiten (type `exit` of klik op het prullenbakje) en een nieuwe terminal openen. Als het terminal goed geactiveerd is staat er nu `(ECPC)` aan het begin van de prompt (opdrachtregel waar je je commando's intypt).
+
+        !!! info
+            Als je op Windows werkt, kun je bij het openen van een nieuwe terminal de volgende foutmelding krijgen:
+            ``` ps1
+            PS C:\Users\David\Documents\ECPC> & C:/Users/David/Documents/ECPC/.venv/Scripts/Activate.ps1
+            & : File C:\Users\David\Documents\ECPC\.venv\Scripts\Activate.ps1 cannot be loaded 
+            because running scripts is disabled on this system. For more information, see 
+            about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
+            At line:1 char:3
+            + & C:/Users/David/Documents/ECPC/.venv/Scripts/Activate.ps1
+            +   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                + CategoryInfo          : SecurityError: (:) [], PSSecurityException
+                + FullyQualifiedErrorId : UnauthorizedAccess
+            ```
+            Los dit op door na de foutmelding het volgende in te typen in je terminal:
+            ``` ps1
+            Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+            ```
+            Open daarna nogmaals een nieuwe terminal. Nu moet je wél `(ECPC)` aan het begin van de prompt zien staan.
         
         Installeer de benodigde packages met:
         ``` ps1 title="Terminal"
