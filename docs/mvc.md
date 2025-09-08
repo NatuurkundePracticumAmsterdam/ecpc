@@ -38,14 +38,22 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs do
         - [ ] Pythondaq: controller bouwen
         - [ ] Pythondaq: controller implementeren
         - [ ] Pythondaq: controller afsplitsen
-        - [ ] Pythondaq: model afsplitsen
+        - [ ] Pythondaq: model en view splitsen
 
 <div id="opd:meting-class"></div>
 !!! opdracht-inlever "Pythondaq: controller bouwen"
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Je schrijft een script {{file}}`test_controller.py` waarmee je de Arduino aanstuurt. Een gebruiker test de door jou geschreven controller met de volgende handelingen. De gebruiker vraagt een lijst met beschikbare poorten op met de functie `#!py list_resources()`. De gebruiker weet daarna aan welke poort de Arduino hangt en gebruikt deze poortnaam om een instance aan te maken van de class `ArduinoVISADevice`. Met deze class kan de gebruiker met de Arduino communiceren. Met de method `#!py get_identification()` vraagt de gebruiker de identificatiestring op. De gebruiker zet met de method `#!py set_output_value()` een waarde van 828 op uitvoerkanaal 0. De gebruiker ziet de LED branden en weet daardoor dat de method werkt. De gebruiker controleert met de method `#!py get_output_value()` de waarde op uitvoerkanaal 0, welke 828 zou moeten zijn. De gebruiker vraagt met de method `#!py get_input_value()` de spanning op kanaal 1 op, dit herhaalt de gebruiker vervolgens voor kanaal 2. Met de method `#!py get_input_voltage()` vraagt de gebruiker de spanning van kanaal 1 op in volt. De gebruiker rekent de gegeven waarde van de method `#!py get_input_value()` op kanaal 1 om naar volt en ziet dat deze overeenkomt met de gegeven spanning door de method `#!py get_input_voltage()` op kanaal 1. 
+            Je schrijft een script {{new_file}}`test_controller.py` waarmee je de Arduino aanstuurt. Een gebruiker test de door jou geschreven controller met de volgende handelingen: 
+            <ul> 
+                <li> De gebruiker vraagt een lijst met beschikbare poorten op met de functie `#!py list_resources()`.</li> 
+                <li> De gebruiker weet daarna aan welke poort de Arduino hangt en gebruikt deze poortnaam om een instance aan te maken van de class `ArduinoVISADevice`. Met deze class kan de gebruiker met de Arduino communiceren.</li> 
+                <li> Met de method `#!py get_identification()` vraagt de gebruiker de identificatiestring op. </li>
+                <li> De gebruiker zet met de method `#!py set_output_value()` een waarde van 828 op uitvoerkanaal 0. De gebruiker ziet de LED branden en weet daardoor dat de method werkt.</li>
+                <li> De gebruiker controleert met de method `#!py get_output_value()` de waarde op uitvoerkanaal 0, die nog steeds 828 zou moeten zijn. </li>
+                <li> De gebruiker vraagt met de method `#!py get_input_value()` de spanning op kanaal 1 op. Dit herhaalt de gebruiker vervolgens voor kanaal 2.</li>
+                <li> Met de method `#!py get_input_voltage()` vraagt de gebruiker de spanning van kanaal 1 op in volt. De gebruiker rekent de gegeven waarde van de method `#!py get_input_value()` op kanaal 1 om naar volt en ziet dat deze overeenkomt met de gegeven spanning door de method `#!py get_input_voltage()` op kanaal 1. </li>
             </ul>
             </div>
             <div>
@@ -114,7 +122,7 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs do
         ```
         <pre>
         <code>(ECPC) > python test_controller.py
-        <span class="invisible" name="basisscript_controller">('ASRL28::INSTR', ) 
+        <span class="invisible" name="basisscript_controller">('ASRL28::INSTR') 
         Arduino VISA firmware v1.1.0
         ch2_value=224
         ch2_voltage=0.7774193548387097
@@ -122,7 +130,7 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs do
         </code></pre></div>
         
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] `#!py list_resources()` is een functie die buiten de class staat.
         - [ ] Aan de `#!py __init__()`-method moet een poortnaam worden meegegeven.
@@ -130,23 +138,24 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs do
         - [ ] Er is een method `#!py get_identification()` die de identificatiestring teruggeeft.
         - [ ] Aan de method `set_output_value()` moet een ADC-waarde worden meegegeven.
         - [ ] De methods `set_output_value()` en `get_output_value()` communiceren standaard met kanaal 0.
-        - [ ] Aan de methods `get_input_value` en `get_input_voltage` moet een kanaal worden meegegeven. 
-        - [ ] De methods `get_output_value()`, `get_input_value()` en `get_input_voltage` geven een ADC-waarde dan wel een spanning terug.
+        - [ ] Aan de methods `get_input_value()` en `get_input_voltage()` moet een kanaal worden meegegeven. 
+        - [ ] De methods `get_output_value()`, `get_input_value()` en `get_input_voltage` geven een ADC-waarde dan wel een spanning in volt terug.
 
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Pythondaq: open repository
         - [x] Pythondaq: controller bouwen
         - [ ] Pythondaq: controller implementeren
         - [ ] Pythondaq: controller afsplitsen
-        - [ ] Pythondaq: model afsplitsen
+        - [ ] Pythondaq: model en view splitsen
 
 Je hebt nu een werkende controller, maar je gebruikt deze nog niet in je experiment. 
 
 !!! opdracht-inlever "Pythondaq: controller implementeren"
     === "opdracht"
-        Kopieer je controller code (zonder de testcode) in het bestand {{file}}`diode_experiment.py`. Pas de code die de meting uitvoert aan zodat deze gebruik maakt van de class `#!py ArduinoVISADevice` en de bijbehorende methods. 
+        Kopieer de functie `list_resources()` en de class `ArduinoVISADevice` uit het bestand {{file}}`test_controller.py`. Voeg deze functie en class toe aan het bestand {{file}}`diode_experiment.py`. Pas de code daarna zo aan dat in het bestand {{file}}`diode_experiment.py` gebruikgemaakt wordt van de betreffende functie en de class met de bijhorende methods.
+        
     === "code"
         **Pseudo-code**
         ``` py title='diode_experiment.py'
@@ -154,48 +163,54 @@ Je hebt nu een werkende controller, maar je gebruikt deze nog niet in je experim
         #   ...
 
         # class ArduinoVISADevice
-            ...
+        #   ...
 
         # get list resources
-        # connect to Arduino via ArduinoVISADevice
-        
+        # connect to Arduino via class ArduinoVISADevice
+        #
         # set output voltage from 0 to max
-            # measure voltages
-            # calculate LED voltage
-            # calculate LED current
-
-        # plot current vs voltage
+        #   set number of repeated measurements
+        #       measure voltages
+        #       calculate voltage LED
+        #       calculate current LED
+        #   calculate average voltage LED and uncertainty
+        #   calculate average current LED and uncertainty
+        #   print average voltage: average_voltage_LED +/- err_average_voltage_LED V  average current: average_current_LED +/- err_average_current_LED A
+        #
+        # turn LED off
         # create csv-file
+        # plot average_current_LED vs average_voltage_LED
         ```        
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
-        - [ ] In een script staan `#!py list_resources()`, `#!py ArduinoVISADevice()` en de code om de LED te laten branden, metingen te doen en het resultaat te laten zien.
-        - [ ] Wanneer de class `#!py ArduinoVISADevice()` uit het script wordt geknipt, werkt {{file}}`diode_experiment.py` niet meer.
-        - [ ] Er wordt een lijst gegeven van aangesloten instrumenten.
-        - [ ] Er wordt een plot getoond van de spanning over en de stroomsterkte door de LED.
-        - [ ] De spanning over en de stroomsterkte door de LED worden weggeschreven in een CSV-bestand.
+        - [ ] In een script staan de functie `#!py list_resources()`, de class `#!py ArduinoVISADevice` en de code om de LED te laten branden, metingen te doen en het resultaat te laten zien.
+        - [ ] Wanneer de class `#!py ArduinoVISADevice` uit het script wordt geknipt, werkt het bestand {{file}}`diode_experiment.py` niet meer.
+        - [ ] Er wordt een lijst geprint met beschikbare poorten.
+        - [ ] Er wordt een plot getoond van de gemiddelde spanning over en de gemiddelde stroomsterkte door de LED met de bijbehorende onzekerheden.
+        - [ ] De gemiddelde spanning over en de gemiddelde stroomsterkte door de LED worden samen met de bijbehorende onzekerheden weggeschreven in een CSV-bestand.
         - [ ] De LED wordt uitgezet na de meting.
 
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Pythondaq: open repository
         - [x] Pythondaq: controller bouwen
         - [x] Pythondaq: controller implementeren
         - [ ] Pythondaq: controller afsplitsen
-        - [ ] Pythondaq: model afsplitsen
+        - [ ] Pythondaq: model en view splitsen
 
 Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de precieze commando's zijn die je naar de hardware moet sturen. Als je de Arduino in de opstelling vervangt voor een ander meetinstrument moet je de class aanpassen, maar kan alle code die met het experiment zelf te maken heeft hetzelfde blijven.
-
-Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een stukje code over. Het laatste stuk waar de plot en het CSV-bestand gemaakt worden kunnen we beschouwen als een _view_ en de rest van de code &mdash; waar de metingen worden uitgevoerd en de stroomsterkte $I$ wordt berekend &mdash; is een _model_. We gaan de code nog wat verder opsplitsen om dat duidelijk te maken én onderbrengen in verschillende bestanden &mdash; dat is uiteindelijk beter voor het overzicht.
 
 !!! opdracht-inlever "Pythondaq: controller afsplitsen"
     === "opdracht"
 
         <div class="grid-tree" markdown>
             <div>
-            In latere opdrachten ga je een command-line interface en een grafische user interface maken voor het experiment. Daarom is het handig om alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten en om ze handige namen te geven die duidelijk maken wat wat is. We hebben nu de code voor de controller gekopieerd van {{file}}`test_controller.py` naar {{file}}`diode_experiment.py` en dat is dus eigenlijk niet zo handig. We hernoemen {{file}}`test_controller.py` naar {{file}}`arduino_device.py`. Het bestand {{file}}`#!py arduino_device.py` bevat de class `#!py ArduinoVISADevice` en de functie `#!py list_resources()`. Deze class en functie importeer je in het bestand {{file}}`diode_experiment.py` in plaats van dat we de code kopiëren. De `list_resources()` en `ArduinoVISADevice` kun je daar dus weer verwijderen.
+            In latere opdrachten ga je een command-line interface en een grafische user interface maken voor het experiment. Daarom is het handig om alvast overzicht te creëren door de verschillende onderdelen van de MVC in aparte scripts te zetten en om ze handige namen te geven die duidelijk maken wat wat is.
+            <br>
+            <br>
+            Je hebt eerder de code voor de controller gekopieerd van {{file}}`test_controller.py` naar {{file}}`diode_experiment.py` en dat is dus eigenlijk niet zo handig. Je hernoemt {{file}}`test_controller.py` naar {{new_file}}`arduino_device.py`. Het bestand {{file}}`#!py arduino_device.py` bevat de functie `#!py list_resources()` en de class `#!py ArduinoVISADevice`. Deze functie en class importeer je in het bestand {{file}}`diode_experiment.py` (in plaats van dat je de code kopieert). De functie `list_resources()` en de class `ArduinoVISADevice` kun je in het bestand {{file}}`diode_experiment.py` dan weer verwijderen.
             </div>
             <div>
             {{folder}} `ECPC`   
@@ -207,8 +222,8 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
             </div>
         </div>
 
-        !!! info "error"
-            Waarschijnlijk krijg je nog een of meerdere errors als je {{file}}`diode_experiment.py` runt. Lees het error bericht goed door, om welk bestand gaat het {{file}}`arduino_device.py` of {{file}}`diode_experiment.py`? Wat is er volgens het error bericht niet goed? Misschien helpt het als je de (inmiddels onnodige) testcode verwijdert uit {{file}}`arduino_device.py`. Als dat inderdaad helpt, wat was dan het probleem?
+        !!! info "Error"
+            Waarschijnlijk krijg je één of meerdere errors als je {{file}}`diode_experiment.py` runt. Lees het bericht bij de error goed door. Kijk om welk bestand het gaat: {{file}}`arduino_device.py` of {{file}}`diode_experiment.py`? Wat is er volgens het error bericht niet goed? Misschien helpt het als je de (inmiddels onnodige) testcode verwijdert uit {{file}}`arduino_device.py`. Als dat inderdaad helpt, wat was dan het probleem?
     === "code"
         **Pseudo-code**
         ``` py title="arduino_device.py"
@@ -216,47 +231,52 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         #   ...
 
         # class ArduinoVISADevice
-            ...
+        #   ...
         ```
         ``` py title="diode_experiment.py"
         from arduino_device import ArduinoVISADevice, list_resources
         
         # get list resources
-        # connect to Arduino via ArduinoVISADevice
-        
+        # connect to Arduino via class ArduinoVISADevice
+        #
         # set output voltage from 0 to max
-            # measure voltages
-            # calculate LED voltage
-            # calculate LED current
-
-        # plot current vs voltage
+        #   set number of repeated measurements
+        #       measure voltages
+        #       calculate voltage LED
+        #       calculate current LED
+        #   calculate average voltage LED and uncertainty
+        #   calculate average current LED and uncertainty
+        #   print average voltage: average_voltage_LED +/- err_average_voltage_LED V  average current: average_current_LED +/- err_average_current_LED A
+        #
+        # turn LED off
         # create csv-file
+        # plot average_current_LED vs average_voltage_LED
         ```        
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
-        - [ ] Alle directe communicatie met de Arduino, firmwarecommando's en pyvisacommando's, staan in de controller.
+        - [ ] Alle directe communicatie met de Arduino, firmware-commando's en PyVISA-commando's staan in het bestand {{file}}`arduino_device.py`, de controller.
         - [ ] Runnen van {{file}}`diode_experiment.py` zorgt ervoor dat een meting start.
-        - [ ] Er wordt een lijst gegeven van aangesloten instrumenten.
-        - [ ] Er wordt een plot getoond van de spanning over en de stroomsterkte door de LED.
-        - [ ] De spanning over en de stroomsterkte door de LED worden weggeschreven in een CSV-bestand.
+        - [ ] Er wordt een lijst geprint met beschikbare poorten.
+        - [ ] Er wordt een plot getoond van de gemiddelde spanning over en de gemiddelde stroomsterkte door de LED met de bijbehorende onzekerheden.
+        - [ ] De gemiddelde spanning over en de gemiddelde stroomsterkte door de LED worden samen met de bijbehorende onzekerheden weggeschreven in een CSV-bestand.
         - [ ] De LED wordt uitgezet na de meting.
 
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Pythondaq: open repository
         - [x] Pythondaq: controller bouwen
         - [x] Pythondaq: controller implementeren
         - [x] Pythondaq: controller afsplitsen
-        - [ ] Pythondaq: model afsplitsen
+        - [ ] Pythondaq: model en view splitsen
 
 ???+ opdracht-meer "`#!py if __name__ == '__main__'`"
     === "opdracht"
         Later wil je de functie `#!py list_resources()` netjes in het hele model-view-controller systeem vlechten zodat je als gebruiker de lijst kunt opvragen, maar voor nu wil je af en toe even zien aan welke poort de Arduino hangt. Wanneer je het script {{file}}`arduino_device.py` runt wordt er een lijst geprint met poorten. Dit gebeurt niet wanneer het bestand {{file}}`diode_experiment.py` wordt gerund. 
 
-        !!! info "modules"
-            Nog niet bekend met `#!py if __name__ == '__main__'`? kijk dan voor meer informatie in de [paragraaf modules](vervolg-python.md#modules).
+        !!! info "Statement onbekend"
+            Nog niet bekend met het statement `#!py if __name__ == '__main__'`? Kijk dan voor meer informatie in de [paragraaf modules](vervolg-python.md#modules).
 
     === "code"
         **Pseudo-code**
@@ -265,38 +285,54 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         #   ...
 
         # class ArduinoVISADevice
-            ...
+        #   ...
         
-        # print list ports if arduino_device.py is the main script 
-        # print list ports not if arduino_device.py is imported as a module in another script
+        # get list resources when arduino_device.py is the main script 
+        # doesnot get list resources when arduino_device.py is imported as a module in another script
 
         ```
         ``` py title="diode_experiment.py"
-        from arduino_device import ArduinoVISADevice, list_resources
+        from arduino_device import ArduinoVISADevice
         
-        # connect to Arduino via ArduinoVISADevice
-        
+        # connect to Arduino via class ArduinoVISADevice
+        #
         # set output voltage from 0 to max
-            # measure voltages
-            # calculate LED voltage
-            # calculate LED current
-
-        # plot current vs voltage
+        #   set number of repeated measurements
+        #       measure voltages
+        #       calculate voltage LED
+        #       calculate current LED
+        #   calculate average voltage LED and uncertainty
+        #   calculate average current LED and uncertainty
+        #   print average voltage: average_voltage_LED +/- err_average_voltage_LED V  average current: average_current_LED +/- err_average_current_LED A
+        #
+        # turn LED off
         # create csv-file
+        # plot average_current_LED vs average_voltage_LED
         ```     
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
-        - [ ] Er wordt een lijst met poorten geprint wanneer {{file}}`arduino_device.py` wordt gerund.
-        - [ ] De lijst wordt _niet_ geprint wanneer {{file}}`diode_experiment.py` wordt gerund.
+        - [ ] Er wordt een lijst met beschikbare poorten geprint wanneer {{file}}`arduino_device.py` wordt gerund.
+        - [ ] De lijst met beschikbare poorten wordt _niet_ geprint wanneer {{file}}`diode_experiment.py` wordt gerund.
 
-!!! opdracht-inlever "Pythondaq: model afsplitsen"
+Nu je de _controller_ die de Arduino aanstuurt, hebt gemaakt en afgesplitst, blijft er nog een stuk code over. Het laatste stuk code waar de plot en het CSV-bestand gemaakt worden kun je beschouwen als een _view_ en de rest van de code &mdash; waar de metingen worden uitgevoerd en de spanning $U$ en stroomsterkte $I$ worden berekend &mdash; is het _model_. Je gaat de code nog wat verder opsplitsen om dat duidelijk te maken én de onderdelen onderbrengen in verschillende bestanden &mdash; dat is uiteindelijk beter voor het overzicht.
+
+!!! opdracht-inlever "Pythondaq: model en view splitsen"
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Omdat je in latere opdrachten een command-line interface en een grafische user interface gaat maken voor het experiment is het handig om alvast overzicht creëren door de verschillende onderdelen in aparte scripts te zetten. Maak een bestand {{file}}`run_experiment.py` waarin de gebruiker een paar dingen kan aanpassen. Dit bestand fungeert als _view_, en importeert wat het nodig heeft uit {{file}}`diode_experiment.py` (het _model_), wat je zult moeten aanpassen zodat het uitvoeren van de metingen netjes in een class `#!py DiodeExperiment` zit. Het kan makkelijk zijn om {{file}}`diode_experiment.py` te _kopiëren_ naar {{file}}`run_experiment.py` en dan in beide bestanden weg te halen wat daar niet hoort. Dat scheelt copy/pasten. **Bij deze opdracht moet je wel dingen aanpassen, maar de meeste code staat er al. Schrijf dus _niet_ van alles opnieuw!**
+            Maak een bestand {{new_file}}`run_experiment.py` aan. Dit bestand fungeert als _view_. Naast de code van de plot en het genereren van het CSV-bestand, kan de gebruiker hier een aantal dingen aanpassen (zoals het bereik en het aantal herhaalmetingen). De view importeert wat het nodig heeft uit het _model_, {{file}}`diode_experiment.py`. Het is de bedoeling dat het uitvoeren van de metingen netjes in een class `#!py DiodeExperiment` zit, dit betekent dat je {{file}}`diode_experiment.py` zult moeten aanpassen. Het kan makkelijk zijn om {{file}}`diode_experiment.py` te kopiëren naar {{file}}`run_experiment.py` en dan in beide bestanden weg te halen wat daar niet hoort. Dat scheelt copy/pasten.
+            <br><br> 
+            **Bij deze opdracht ga je dingen aanpassen, maar de meeste code heb je al geschreven. Schrijf dus _niet_ allerlei code opnieuw!**
             </br></br>
-            De gebruiker test de door jou geschreven applicatie (view, model, controller) met de volgende handelingen. Het runnen van het bestand {{file}}`run_experiment.py` geeft een lijst van aangesloten instrumenten. De gebruiker past in het bestand {{file}}`run_experiment.py` de poortnaam aan naar een poort waarop een Arduino is aangesloten. De instance van de class `#!py DiodeExperiment` die uit het model wordt geïmporteerd gebruikt deze poortnaam om de communicatie met de Arduino te openen. De gebruiker roept de method `#!py scan()` aan van de class `#!py DiodeExperiment` waarna een meting wordt gestart. Om gegevens naar de Arduino te sturen maakt het model gebruik van de controller. De gegevens die het model terugkrijgt van de Arduino worden volgens de fysische relaties verwerkt tot de benodigde spanningen en stroomsterktes en doorgestuurd naar de view. De resultaten worden in een plot getoond en naar een CSV-bestand weggeschreven. De gebruiker past het bereik van de meting aan door door de start- en stopparameters, die aan de method `#!py scan()` worden meegegeven, aan te passen.
+            Om gegevens naar de Arduino te sturen maakt het model gebruik van de controller. De gegevens die het model terugkrijgt van de Arduino worden volgens de fysische relaties verwerkt tot de benodigde spanningen en stroomsterktes en doorgestuurd naar de view. De resultaten worden in een plot getoond en naar een CSV-bestand weggeschreven. De gebruiker test de door jou geschreven applicatie (view, model, controller) met de volgende handelingen:
+            <ul> 
+                <li> Het runnen van het bestand {{file}}`run_experiment.py` geeft een lijst van aangesloten instrumenten.</li>
+                <li> De gebruiker past in het bestand {{file}}`run_experiment.py` de poortnaam aan naar een poort waarop een Arduino is aangesloten. De instance van de class `#!py DiodeExperiment`, die uit het model wordt geïmporteerd, gebruikt deze poortnaam om de communicatie met de Arduino te openen. </li> 
+                <li> De gebruiker roept de method `#!py scan()` aan van de class `#!py DiodeExperiment` waarna een meting wordt gestart. </li>
+                <li> De gebruiker past het bereik van de meting aan door de start- en stopparameters, die aan de method `#!py scan()` worden meegegeven, aan te passen. </li>
+                <li> De gebruiker past het aantal herhaalmetingen aan, die ook aan de method `#!py scan()` wordt meegegeven.
+            </ul>
             </div>
             <div>
             {{folder}} `ECPC`   
@@ -316,55 +352,60 @@ Nu we de _controller_ hebben gemaakt die de Arduino aanstuurt, blijft er nog een
         #   ...
 
         # class ArduinoVISADevice
-            ...
+        #   ...
         ```
         ``` py title="diode_experiment.py"
         from arduino_device import ArduinoVISADevice, list_resources
         
         # class DiodeExperiment
-            ...
-            # connect to Arduino via ArduinoVISADevice
-            ...
-            # def scan with start, stop
-                # set output voltage from start to stop
-                    # measure voltages
-                    # calculate LED voltage
-                    # calculate LED current
-                # return LED voltage, LED current
-        ```      
+        #   ...
+        #   connect to Arduino via class ArduinoVISADevice
+        #   ...
+        #   def scan with start, stop and repeat
+        #       set output voltage from start to stop
+        #           set number of repeated measurements
+        #               measure voltages
+        #               calculate voltage LED
+        #               calculate current LED
+        #           calculate average voltage LED and uncertainty
+        #           calculate average current LED and uncertainty
+        #           print average voltage: average_voltage_LED +/- err_average_voltage_LED V  average current: average_current_LED +/- err_average_current_LED A
+        #       turn LED off
+        #       return average voltage LED, average current LED, error average voltage LED and error average current LED
+        ```     
         ``` py title="run_experiment.py"
         from diode_experiment import DiodeExperiment, list_resources
         
         # get list resources
-        # connect to Arduino via DiodeExperiment
-
-        # get current and voltage from scan(start, stop)
-
+        # connect to Arduino via class DiodeExperiment
+        #
+        # get average voltage, average current, error average voltage and error average current from method scan(start, stop, repeat)
+        #
         # create csv-file
-        # plot current vs voltage
+        # plot average_current_LED vs average_voltage_LED
         ```      
+
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
-        - [ ] Alle directe communicatie met de Arduino, firmwarecommando's en pyvisacommando's, staan in de controller
-        - [ ] Alle communicatie met de controller staan in het model
-        - [ ] Het model bevat een class `DiodeExperiment`
-        - [ ] De view communiceert alleen met het model. 
-        - [ ] Runnen van {{file}}`run_experiment.py` zorgt ervoor dat een meting start.
-        - [ ] Er wordt een lijst gegeven van aangesloten instrumenten.
-        - [ ] Er wordt een plot getoond van de spanning over en de stroomsterkte door de LED.
-        - [ ] De spanning over en de stroomsterkte door de LED worden weggeschreven in een CSV-bestand.
+        - [ ] Alle directe communicatie met de Arduino, firmware-commando's en PyVISA-commando's staan in het bestand {{file}}`arduino_device.py`, de controller.
+        - [ ] Het model, bestand {{file}}`diode_experiment.py`, communiceert met de controller.
+        - [ ] Het model bevat een class `DiodeExperiment`, deze class heeft onder andere een method `scan()`.
+        - [ ] De view, bestand {{file}}`run_experiment.py`, communiceert alleen met het model. 
+        - [ ] Runnen van {{file}}`run_experiment.py` zorgt ervoor dat een lijst met beschikbare poorten wordt gegeven en een meting wordt gestart.
+        - [ ] Er wordt een plot getoond van de gemiddelde spanning over en de gemiddelde stroomsterkte door de LED met de bijbehorende onzekerheden.
+        - [ ] De gemiddelde spanning over en de gemiddelde stroomsterkte door de LED worden samen met de bijbehorende onzekerheden weggeschreven in een CSV-bestand.
         - [ ] De LED wordt uitgezet na de meting.
-        - [ ] De bestanden bevatten alle code die nodig is en niet meer dan dat. 
+        - [ ] De bestanden bevatten alleen code die echt nodig is en niet meer dan dat. Dit betekent dat allerlei testcode is verwijderd.
 
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Pythondaq: open repository
         - [x] Pythondaq: controller bouwen
         - [x] Pythondaq: controller implementeren
         - [x] Pythondaq: controller afsplitsen
-        - [x] Pythondaq: model afsplitsen
+        - [x] Pythondaq: model en view splitsen
 
 Het oorspronkelijke script dat je gebruikte voor je meting (dat heet nu {{file}}`run_experiment.py`) is steeds leger geworden. Als het goed is gaat nu (vrijwel) het volledige script alleen maar over het starten van een meting en het weergeven en bewaren van de meetgegevens. In het <q>view</q> script komen verder geen berekeningen voor of details over welk kanaal van de Arduino op welke elektronische component is aangesloten. Ook staat hier niets over welke commando's de Arduino firmware begrijpt. Dit maakt het veel makkelijker om in de vervolghoofdstukken een gebruiksvriendelijke applicatie te ontwikkelen waarmee je snel en eenvoudig metingen kunt doen.
 
