@@ -34,7 +34,7 @@ In deze cursus ga je werken met GitHub. Je moet hiervoor wel een (gratis) accoun
 
 [^pro-account]: [https://github.com/education/students](https://github.com/education/students)
 
-!!! opdracht-basis-thuis "Account aanmaken"
+!!! opdracht-basis "Account aanmaken"
     === "opdracht"
         Ga naar [https://github.com/](https://github.com/) en klik op `Sign up for GitHub`. Maak een account aan onder je _privé-emailadres_. Op deze manier blijf je toegang houden tot je account ook nadat je afgestudeerd bent.
 
@@ -207,19 +207,26 @@ In GitHub Desktop zie je nu bij _History_ de commit staan, met in één oogopsla
 Om makkelijk je Git repository te delen met vrienden, collega's en de rest van de wereld kun je er dus voor kiezen om deze op GitHub te zetten. Je kunt dan je commits pushen naar GitHub en wijzigingen die je vrienden hebben gemaakt pullen, zodat jij er ook weer aan verder kan werken. Van alle repositories die op GitHub staan én openbaar zijn kun je de broncode clonen en er zelf mee aan de slag! Laten we eens een kijkje nemen op GitHub.
 
 !!! opdracht-basis "Tailor"
-    Als je nog nooit op GitHub bent geweest dan kunnen de pagina's nogal intimiderend overkomen. De informatiedichtheid is nogal hoog. Na een paar bezoeken weet je meestal wel waar je dingen kunt vinden. David heeft een data-analyse app geschreven dat Tailor heet. Deze app wordt gebruikt bij natuurkundepractica voor studenten Medische natuurwetenschappen en Science, business and innovation. Interessant om eens te kijken wat je hierover kunt vinden op GitHub.
+    === "opdracht"
+        Als je nog nooit op GitHub bent geweest dan kunnen de pagina's nogal intimiderend overkomen. De informatiedichtheid is nogal hoog. Na een paar bezoeken weet je meestal wel waar je dingen kunt vinden. David heeft een data-analyse app geschreven dat Tailor heet. Deze app wordt gebruikt bij natuurkundepractica voor studenten Medische natuurwetenschappen en Science, business and innovation. Interessant om eens te kijken wat je hierover kunt vinden op GitHub.
 
-    1. Zoek de repository {{github}}`/davidfokkema/tailor` op [github.com](https://github.com) op.
-    2. Je komt nu terecht op de hoofdpagina. Hier zie je een mappenstructuur met een aantal bestanden. Rechts daarvan staat een korte beschrijving onder het kopje _About_. Een uitgebreidere beschrijving vind je als je naar beneden scrolt onder _README_.
-    3. Linksboven zie je een aantal tabbladen (_Code_, _Issues_, _Pull requests_, enzovoorts). Het tabblad _Code_ is de hoofdpagina met de mappenstructuur. Navigeer door de mappen, wat staat er op regel 14 van {{file}}`plot_tab.py`?
-    4. Ga terug naar de hoofdpagina. In de regel boven de mappenstructuur vind je onder andere informatie over de commits (onder de groene knop met _Code_). Hoeveel commits zijn er gemaakt? Klik op _Commits_ en daarna op een aantal commit messages. Hoeveel regels zijn er bij een commit message weggehaald of bijgekomen?
-    5. Je kunt per bestand bekijken wanneer die is aangepast en wat er is aangepast. Ga naar het bestand {{file}}`pyproject.toml` en klik rechtsboven op _History_. Wat is er aangepast in {{file}}`pyproject.toml` bij de commit <q>Release v2.0.0</q>? Je ziet ook welke bestanden nog meer zijn gewijzigd in deze commit, welk bestand is nog meer gewijzigd bij de commit <q>Release v2.0.0</q>?
-    6. Ga terug naar de hoofdpagina. Welke versie van Tailor is als laatste gereleased? Kijk hiervoor onder _Releases_ aan de rechterkant.
-    7. Je kent het misschien wel, dat je een app gebruikt maar dat het niet helemaal goed werkt (_bug_), of je hebt een idee hoe het nog beter kan worden (_enhancement_). Daarvoor is op GitHub het tabblad `Issues`. Hoeveel bugs zijn er gerapporteerd? En hoeveel enhancements?
-    8. Als het jou gelukt is om een bug te fixen, of je hebt een super handige feature ontworpen, dan kan je de eigenaren van de repository vragen om jouw code te implementeren door een pull request te sturen. Ga naar het tabblad _Pull requests_, klik op _Closed_ en bekijk welke pull requests zijn geïmplementeerd.
-    9. Het meest tabblad _Insights_ geeft je, tegen alle verwachtingen in, inzicht. Je kan bijvoorbeeld zien door hoeveel mensen er aan het project gewerkt wordt (_Contributors_). En kijk eens bij _Code frequency_, in welke periode is er het meest aan de code veranderd?
-    10. Als je een repository goed/handig/slim/fijn vindt, kun je dit aangeven met een ster. Klik daarvoor rechtsboven op {{star}} _Star_.
-    11. Dan tot slot die ene, meest in het oogspringende groene _Code_-knop op de hoofdpagina. Met die knop kun je de repository als ZIP-bestand downloaden of openen met GitHub Desktop.
+        1. Zoek de repository {{github}}`/davidfokkema/tailor` op [github.com](https://github.com) op.
+        2. Je komt nu terecht op de hoofdpagina. Hier zie je een mappenstructuur met een aantal bestanden. Rechts daarvan staat een korte beschrijving onder het kopje _About_. Een uitgebreidere beschrijving vind je als je naar beneden scrolt onder _README_.
+        3. Linksboven zie je een aantal tabbladen (_Code_, _Issues_, _Pull requests_, enzovoorts). Het tabblad _Code_ is de hoofdpagina met de mappenstructuur. Navigeer door de mappen, wat staat er op regel 14 van {{file}}`plot_tab.py`?
+        4. Ga terug naar de hoofdpagina. In de regel boven de mappenstructuur vind je onder andere informatie over de commits (onder de groene knop met _Code_). Hoeveel commits zijn er gemaakt? Klik op _Commits_ en daarna op een aantal commit messages. Hoeveel regels zijn er bij een commit message weggehaald of bijgekomen?
+        5. Je kunt per bestand bekijken wanneer die is aangepast en wat er is aangepast. Ga naar het bestand {{file}}`pyproject.toml` en klik rechtsboven op _History_. Wat is er aangepast in {{file}}`pyproject.toml` bij de commit <q>Release v2.0.0</q>? Je ziet ook welke bestanden nog meer zijn gewijzigd in deze commit, welk bestand is nog meer gewijzigd bij de commit <q>Release v2.0.0</q>?
+        6. Ga terug naar de hoofdpagina. Welke versie van Tailor is als laatste gereleased? Kijk hiervoor onder _Releases_ aan de rechterkant.
+        7. Je kent het misschien wel, dat je een app gebruikt maar dat het niet helemaal goed werkt (_bug_), of je hebt een idee hoe het nog beter kan worden (_enhancement_). Daarvoor is op GitHub het tabblad `Issues`. Hoeveel bugs zijn er gerapporteerd? En hoeveel enhancements?
+        8. Als het jou gelukt is om een bug te fixen, of je hebt een super handige feature ontworpen, dan kan je de eigenaren van de repository vragen om jouw code te implementeren door een pull request te sturen. Ga naar het tabblad _Pull requests_, klik op _Closed_ en bekijk welke pull requests zijn geïmplementeerd.
+        9. Het meest tabblad _Insights_ geeft je, tegen alle verwachtingen in, inzicht. Je kan bijvoorbeeld zien door hoeveel mensen er aan het project gewerkt wordt (_Contributors_). En kijk eens bij _Code frequency_, in welke periode is er het meest aan de code veranderd?
+        10. Als je een repository goed/handig/slim/fijn vindt, kun je dit aangeven met een ster. Klik daarvoor rechtsboven op {{star}} _Star_.
+        11. Dan tot slot die ene, meest in het oogspringende groene _Code_-knop op de hoofdpagina. Met die knop kun je de repository als ZIP-bestand downloaden of openen met GitHub Desktop.
+   
+    === "check"
+
+        **Projecttraject**
+        
+        - [x] Tailor
 
 ???+ opdracht-meer "Clone repository"
     Clone de repository {{github}}`lmfit-py` van GitHub:
