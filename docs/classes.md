@@ -44,7 +44,7 @@ Hierin is `50` het aantal stappen en `30` de hoek in graden die de schildpad teg
 
         <div class="grid-tree" markdown>
             <div>
-            Je bent inmiddels nieuwsgierig geworden naar de schildpad. De class `#!py Turtle` zit standaard in Python, daarom kan je deze importeren met `#!py from turtle import Turtle`. Je maakt een bestand {{new_file}} `Feynman.py`aan in de repository {{github}} `oefenopdrachten`. Aangezien er nog geen environment gekoppeld is aan deze repository maak je eerst een virtual environment aan (zie [opdracht Environment aanmaken](communicatie.md#opd:venv)). Teken nu met een schildpad met de instancenaam `master_oogway` een Feynman diagram. 
+            Je bent inmiddels nieuwsgierig geworden naar de schildpad. De class `#!py Turtle` zit standaard in Python, daarom kan je deze importeren met `#!py from turtle import Turtle`. Je opent in GitHub Desktop de repository {{github}}`oefenopdrachten` en opent deze repository in Visual Studio Code. Je maakt een bestand {{new_file}} `Feynman.py` aan. Aangezien er nog geen environment gekoppeld is aan deze repository maak je eerst een virtual environment aan (zie [opdracht Environment aanmaken](communicatie.md#opd:venv)). Teken nu met een schildpad met de instancenaam `master_oogway` een Feynman diagram. 
             </div>
             <div>
             {{folder}} `ECPC`  
