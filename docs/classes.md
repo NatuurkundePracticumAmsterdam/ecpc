@@ -12,7 +12,7 @@ Het aanroepen van een class lijkt veel op het aanroepen van een functie:
 
 Stel je hebt de functie `#!py def calculate_squares_up_to(max_number):`. Dan roep je die aan met `#!py result = calculate_squares_up_to(5)`. Hierbij is `calculate_squares_up_to` de naam van de functie en `result` de variabele waar de uitkomst heen gaat. Achter de naam van de functie, `calculate_squares_up_to`, komen tussen ronde haakjes de variabelen te staan die worden meegegeven aan de functie, in dit geval `#!py 5`. Hierdoor wordt het kwadraat tot het getal 5 uitgerekend.
 
-Bij het aanroepen van een class doe je iets soortgelijks. In de variabele `master_oogway` gaat de <q>uitkomst</q> van de class, dat is in dit geval een collectie van functies (en variabelen). De variabele `master_oogway` noem je een _instance_ van de class `Turtle`. Achter de naam van de class, `Turtle`, komen tussen ronde haakjes de variabelen te staan die worden meegegeven aan class, in dit geval `#!py "turtle"`. Hierdoor heeft de pen de vorm van een schildpad in plaats van een pijl.
+Bij het aanroepen van een class doe je iets soortgelijks. In de variabele `master_oogway` gaat de <q>uitkomst</q> van de class, dat is in dit geval een collectie van functies &mdash; de zogeheten _methods_ van de class &mdash; (en variabelen). De variabele `master_oogway` noem je een _instance_ van de class `Turtle`. Achter de naam van de class, `Turtle`, komen tussen ronde haakjes de variabelen te staan die worden meegegeven aan class, in dit geval `#!py "turtle"`. Hierdoor heeft de pen de vorm van een schildpad in plaats van een pijl.
 
 
 ???+ meer-leren "Meerdere instances"
@@ -28,7 +28,7 @@ Bij het aanroepen van een class doe je iets soortgelijks. In de variabele `maste
     ...
     ```
 
-De class `#!py Turtle` is een verzameling van functies waaronder `#!py forward()` en `#!py left()`. Zoals hierboven staat beschreven zijn deze functies als <q>uitkomst</q> van de class meegegeven aan de instance `master_oogway`. Je kunt daarom de functies aanroepen met de instance `master_oogway`:
+De class `#!py Turtle` is een verzameling van methods waaronder `#!py forward()` en `#!py left()`. Zoals hierboven staat beschreven zijn deze methods als <q>uitkomst</q> van de class meegegeven aan de instance `master_oogway`. Je kunt daarom de methods aanroepen met de instance `master_oogway`:
 ```py
 master_oogway = Turtle("turtle")
 
@@ -39,12 +39,12 @@ master_oogway.forward(50)
 
 Hierin is `50` het aantal stappen en `30` de hoek in graden die de schildpad tegen de klok in draait. ![Klik hier](assets/eastereggs/ECPC-green.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met 'ALT' + '↑' (pijltje omhoog) kun je stukken geselecteerde code omhoog en met '↓' naar beneden verplaatsen. Probeer maar eens!"}
    
-!!! opdracht-basis-thuis "De class `#!py Turtle`"
+!!! opdracht-basis "De class `#!py Turtle`"
     === "opdracht"
 
         <div class="grid-tree" markdown>
             <div>
-            Je bent inmiddels nieuwsgierig geworden naar de schildpad. De class `#!py Turtle` zit standaard in Python, daarom kan je deze importeren met `#!py from turtle import Turtle`. Maak een bestand {{new_file}} `Feynman.py` waarin je met een schildpad met de instancenaam `master_oogway` een Feynman diagram tekent.
+            Je bent inmiddels nieuwsgierig geworden naar de schildpad. De class `#!py Turtle` zit standaard in Python, daarom kan je deze importeren met `#!py from turtle import Turtle`. Je maakt een bestand {{new_file}} `Feynman.py`aan in de repository {{github}} `oefenopdrachten`. Aangezien er nog geen environment gekoppeld is aan deze repository maak je eerst een virtual environment aan (zie [opdracht Environment aanmaken](communicatie.md#opd:venv)). Teken nu met een schildpad met de instancenaam `master_oogway` een Feynman diagram. 
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -89,7 +89,7 @@ Hierin is `50` het aantal stappen en `30` de hoek in graden die de schildpad teg
 ## Het maken van een class
 De class `Turtle` is behoorlijk complex en het gaat te ver om de class hier helemaal te gaan bespreken. Voor een goed begrip van classes ga je daarom kijken naar een versimpelde weergave van de class `Turtle`.
 
-Een class maak je aan met de regel `#!py class Turtle:`. [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit een collectie van functies &mdash; de zogeheten _methods_ van de class. De eerste method `#!py __init__()` is een speciale method (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods)), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
+Een class maak je aan met de regel `#!py class Turtle:`. [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit methods. De eerste method `#!py __init__()` is een speciale method (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods)), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
 
 [^ClassTitle]: Wanneer je de Google Style Guide[@google_style_guide] volgt schrijf je de naam van de class in CapWords of CamelCase. 
 
@@ -112,7 +112,7 @@ Het aanmaken van een class lijkt in een aantal opzichten op het aanmaken van een
 
 --8<-- "docs/assets/comparison/compare_function_class.html"
 
-!!! opdracht-basis-thuis "De method `#!py __init__(self)`"
+!!! opdracht-basis "De method `#!py __init__(self)`"
     === "opdracht"
         
         Achter de naam van de class: `Turtle`, komen tussen ronde haakjes de variabelen die worden meegegeven aan de  `#!py __init__()`-method (`#!py self` niet meegerekend), de parameter `#!py shape` krijgt dus de variabele `#!py "turtle"` toegewezen.
@@ -145,7 +145,7 @@ Het aanmaken van een class lijkt in een aantal opzichten op het aanmaken van een
         - [ ] `self` = instance
         - [ ] Opbouw van een class
 
-!!! opdracht-basis-thuis "Een class maken"
+!!! opdracht-basis "Een class maken"
     === "opdracht"
 
         <div class="grid-tree" markdown>
@@ -245,7 +245,7 @@ class Turtle:
 
 Als je de method `#!py do_kungfu_move` aanroept met `#!py master_oogway.do_kungfu_move()`, dan geeft python automatisch de instance `#!py master_oogway` mee aan de method. De parameter `#!py self` is dus nu gelijk aan de instance `#!py master_oogway`, daarmee doet `#!py self.forward(130)` hetzelfde als `#!py master_oogway.forward(130)`. 
 
-!!! opdracht-basis-thuis "`self` = instance"
+!!! opdracht-basis "`self` = instance"
     === "opdracht"
         Het begrip `self` is een vaag begrip, maar je kunt met print-statements zien wat `self` is. Voeg aan {{file}}`fake_turtle.py` de method `do_kungfu_move()` toe. En voeg aan de method ook een print-statement toe om de variabele `self` te printen. Gebruik hiervoor: `#!py print(f"{self=}")`. Gebruik de instance `master_oogway` om de method `do_kungfu_move` aan te roepen. De variabele `self` is, als het goed is, gelijk aan de instance `master_oogway`. Om dit te controleren voeg je ook een print-statement toe om `master_oogway` te printen: `#!py print(f"{master_oogway=}")`.
         </br></br>
@@ -337,7 +337,7 @@ print(master_oogway.quote)
 <span class="invisible" name="turtle_quote">"Yesterday is history, Tomorrow is a mystery, but Today is a gift. That is why it is called the present"</span>
 </code></pre></div>
 
-!!! opdracht-basis-thuis "Opbouw van een class"
+!!! opdracht-basis "Opbouw van een class"
     === "opdracht"
         Bekijk onderstaande code. Wat doet deze code precies? Verplaats daarna de onderdelen naar de juiste plek in de code. Twijfel je of je nog weet wat een module is kijk dan voor meer informatie in de [paragraaf modules](vervolg-python.md#modules).
 

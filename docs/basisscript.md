@@ -281,7 +281,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
 
-Je kunt de meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma, Python notebook of iets dergelijks. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment heb je ook alleen nog maar _ruwe_ metingen. En je gaat nog voorbij aan het feit dat je graag de stroomsterkte $I$ door de LED wilt uitzetten tegen de spanning $U$ over de LED.
+Je kunt de geprinte meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma, Python notebook of iets dergelijks. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment heb je ook alleen nog maar _ruwe_ metingen. En je gaat nog voorbij aan het feit dat je graag de stroomsterkte $I$ door de LED wilt uitzetten tegen de spanning $U$ over de LED.
 
 !!! info
     In de volgende opdracht ga je een grafiek maken. Installeer Matplotlib in de virtual environment. {{lightbulb}}
