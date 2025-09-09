@@ -72,7 +72,7 @@ extra_css:
 
 nav:
   - index.md
-  - Voorkennis:
+  - Voorkennis en verdieping:
     - basis-python.md
     - vervolg-python.md
   - communicatie.md
