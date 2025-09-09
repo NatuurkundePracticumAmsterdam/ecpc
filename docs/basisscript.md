@@ -251,12 +251,12 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         **Pseudo-code**
         ``` py title="diode_experiment.py"
         # connect to Arduino
-
+        #
         # set output voltage from 0 to max
-            # measure voltages
-            # calculate voltage LED 
-            # calculate voltage resistor
-            # print LED: raw_voltage_LED (voltage_LED V) Resistor: raw_voltage_resistor (voltage_resistor V)
+        #   measure voltages
+        #   calculate voltage LED 
+        #   calculate voltage resistor
+        #   print LED: raw_voltage_LED (voltage_LED V) Resistor: raw_voltage_resistor (voltage_resistor V)
         ```
     === "check"
         **Checkpunten**
@@ -298,13 +298,13 @@ Je kunt de geprinte meetgegevens kopiëren en plakken naar een tekstbestand, spr
         **Pseudo-code**
         ``` py title="diode_experiment.py"
         # connect to Arduino
-
+        #
         # set output voltage from 0 to max
-            # measure voltages
-            # calculate voltage LED
-            # calculate current LED
-            # print voltage: voltage_LED V (raw_voltage_LED) current: current_LED A
-        
+        #   measure voltages
+        #   calculate voltage LED
+        #   calculate current LED
+        #   print voltage: voltage_LED V (raw_voltage_LED) current: current_LED A
+        #
         # turn LED off
         # plot current_LED vs voltage_LED
         ```
@@ -386,17 +386,16 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
         **Pseudo-code**
         ```py title="diode_experiment.py"
         # connect to Arduino
-
+        #
         # set output voltage from 0 to max 
-            # set number of repeated measurements
-                # measure voltages
-                # calculate voltage LED
-                # calculate current LED
-                
-          # calculate average voltage LED and uncertainty
-          # calculate average current LED and uncertainty
-          # print average voltage: average_voltage_LED +/- err_average_voltage_LED V  average current: average_current_LED +/- err_average_current_LED A
-
+        #   set number of repeated measurements
+        #       measure voltages
+        #       calculate voltage LED
+        #       calculate current LED       
+        #   calculate average voltage LED and uncertainty
+        #   calculate average current LED and uncertainty
+        #   print average voltage: average_voltage_LED +/- err_average_voltage_LED V  average current: average_current_LED +/- err_average_current_LED A
+        #
         # turn LED off
         # plot average_current_LED vs average_voltage_LED
         ```      
@@ -548,17 +547,16 @@ Je kunt het wegschrijven van de regels natuurlijk vervangen door een `#!py for`-
         **Pseudo-code**
         ``` py title="diode_experiment.py"
         # connect to Arduino
-
+        #
         # set output voltage from 0 to max
-            # set number of repeated measurements
-                # measure voltages
-                # calculate voltage LED
-                # calculate current LED
-                
-            # calculate average voltage LED and uncertainty
-            # calculate average current LED and uncertainty
-            # print average voltage: average_voltage_LED +/- err_average_voltage_LED V  average current: average_current_LED +/- err_average_current_LED A
-
+        #   set number of repeated measurements
+        #       measure voltages
+        #       calculate voltage LED
+        #       calculate current LED       
+        #   calculate average voltage LED and uncertainty
+        #   calculate average current LED and uncertainty
+        #   print average voltage: average_voltage_LED +/- err_average_voltage_LED V  average current: average_current_LED +/- err_average_current_LED A
+        #
         # turn LED off
         # create csv-file
         # plot average_current_LED vs average_voltage_LED

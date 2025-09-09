@@ -71,7 +71,7 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs do
         ``` py title='test_controller.py'
         # def list_resources
         #    return list of available ports
-
+        #
         # class ArduinoVISADevice:
         #    def __init__ (ask port from user)
         #        open device
@@ -161,10 +161,10 @@ Je hebt nu een werkende controller, maar je gebruikt deze nog niet in je experim
         ``` py title='diode_experiment.py'
         # def list_resources
         #   ...
-
+        #
         # class ArduinoVISADevice
         #   ...
-
+        #
         # get list resources
         # connect to Arduino via class ArduinoVISADevice
         #
@@ -229,7 +229,7 @@ Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de
         ``` py title="arduino_device.py"
         # def list_resources
         #   ...
-
+        #
         # class ArduinoVISADevice
         #   ...
         ```
@@ -283,10 +283,10 @@ Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de
         ``` py title="arduino_device.py"
         # def list_resources
         #   ...
-
+        #
         # class ArduinoVISADevice
         #   ...
-        
+        #
         # get list resources when arduino_device.py is the main script 
         # doesnot get list resources when arduino_device.py is imported as a module in another script
 
@@ -350,7 +350,7 @@ Nu je de _controller_ die de Arduino aanstuurt, hebt gemaakt en afgesplitst, bli
         ``` py title="arduino_device.py"
         # def list_resources
         #   ...
-
+        #
         # class ArduinoVISADevice
         #   ...
         ```

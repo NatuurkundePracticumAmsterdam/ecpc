@@ -270,7 +270,7 @@ Als je de method `#!py do_kungfu_move` aanroept met `#!py master_oogway.do_kungf
                 ...
 
             def do_kungfu_move(self):
-                # Do kungfu move
+                # do kungfu move
                 self.forward(130)
                 self.left(350)
                 self.forward(60)
@@ -395,20 +395,19 @@ print(master_oogway.quote)
         **Pseudo-code**
         ``` py
         # class Particle:
-            # def __init__(self, name, spin):
-                # make instance attribute from name
-                # make instance attribute from spin
-
-            # def is_up_or_down():
-                # print up when spin is positive
-                # print down when spin is negative
-                ...
-
-            # def flip():
-                # make spin positive if spin is negative
-                # make spin negative if spin is positive
-                ...
-
+        #   def __init__(self, name, spin):
+        #       make instance attribute from name
+        #       make instance attribute from spin
+        #
+        #   def is_up_or_down():
+        #       print up when spin is positive
+        #       print down when spin is negative
+        #       ...
+        #
+        #   def flip():
+        #       make spin positive if spin is negative
+        #       make spin negative if spin is positive
+        #       ...
         ```
         **Testcode**
         <div class="code-box"><button type="button" name="particle" onclick="runScript('particle')" class="run">{{ run }}</button><button type="button" name="particle" onclick="runScript('particle')" class="reload invisible">{{ reload }}</button> <b>particle.py</b>
@@ -462,19 +461,19 @@ print(master_oogway.quote)
         **Pseudo-code**
         ``` py
         # class ProjectileMotion
-            ...
-            # __init__
-                ...
-            # add_launch_parameters
-                ...
-            # get_initial_velocities
-                ...
-            # get_launch_angles
-                ...
-            # get_time_of_flights
-                ...
-            # get_flight_ranges
-                ...
+        #    ...
+        #    __init__
+        #       ...
+        #    add_launch_parameters
+        #       ...
+        #    get_initial_velocities
+        #       ...
+        #    get_launch_angles
+        #       ...
+        #    get_time_of_flights
+        #       ...
+        #    get_flight_ranges
+        #       ...
         ```
         **Testcode**
         <div class="code-box"><button type="button" name="water_rocket" onclick="runScript('water_rocket')" class="run">{{ run }}</button><button type="button" name="water_rocket" onclick="runScript('water_rocket')" class="reload invisible">{{ reload }}</button> <b>water_rocket.py</b>
