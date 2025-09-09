@@ -315,13 +315,13 @@ Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de
         - [ ] Er wordt een lijst met beschikbare poorten geprint wanneer {{file}}`arduino_device.py` wordt gerund.
         - [ ] De lijst met beschikbare poorten wordt _niet_ geprint wanneer {{file}}`diode_experiment.py` wordt gerund.
 
-Nu je de _controller_ die de Arduino aanstuurt, hebt gemaakt en afgesplitst, blijft er nog een stuk code over. Het laatste stuk code waar de plot en het CSV-bestand gemaakt worden kun je beschouwen als een _view_ en de rest van de code &mdash; waar de metingen worden uitgevoerd en de spanning $U$ en stroomsterkte $I$ worden berekend &mdash; is het _model_. Je gaat de code nog wat verder opsplitsen om dat duidelijk te maken én de onderdelen onderbrengen in verschillende bestanden &mdash; dat is uiteindelijk beter voor het overzicht.
+Nu je de _controller_ die de Arduino aanstuurt, hebt gemaakt en afgesplitst, blijft er nog een stuk code over. Het stuk code waar de plot en het CSV-bestand gemaakt worden kun je beschouwen als een _view_ en de rest van de code &mdash; waar de metingen worden uitgevoerd en de spanning $U$ en stroomsterkte $I$ worden berekend &mdash; is een _model_. Je gaat de code nog wat verder opsplitsen om dit duidelijk te maken én de onderdelen van model en view onderbrengen in verschillende bestanden &mdash; dat is uiteindelijk beter voor het overzicht.
 
 !!! opdracht-inlever "Pythondaq: model en view splitsen"
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Maak een bestand {{new_file}}`run_experiment.py` aan. Dit bestand fungeert als _view_. Naast de code van de plot en het genereren van het CSV-bestand, kan de gebruiker hier een aantal dingen aanpassen (zoals het bereik en het aantal herhaalmetingen). De view importeert wat het nodig heeft uit het _model_, {{file}}`diode_experiment.py`. Het is de bedoeling dat het uitvoeren van de metingen netjes in een class `#!py DiodeExperiment` zit, dit betekent dat je {{file}}`diode_experiment.py` zult moeten aanpassen. Het kan makkelijk zijn om {{file}}`diode_experiment.py` te kopiëren naar {{file}}`run_experiment.py` en dan in beide bestanden weg te halen wat daar niet hoort. Dat scheelt copy/pasten.
+            Maak een bestand {{new_file}}`run_experiment.py` aan. Dit bestand fungeert als _view_. In de view staat de code voor het maken van de plot en het genereren van het CSV-bestand. Daarnaast kan de gebruiker in de view een aantal dingen aanpassen, zoals het bereik en het aantal herhaalmetingen. De view importeert wat het nodig heeft uit het _model_, {{file}}`diode_experiment.py`. Het is de bedoeling dat in het model de code voor het uitvoeren van de metingen netjes in een class `#!py DiodeExperiment` zit, dit betekent dat je {{file}}`diode_experiment.py` zult moeten aanpassen. Het kan makkelijk zijn om {{file}}`diode_experiment.py` te kopiëren naar {{file}}`run_experiment.py` en dan in beide bestanden weg te halen wat daar niet hoort. Dat scheelt copy/pasten.
             <br><br> 
             **Bij deze opdracht ga je dingen aanpassen, maar de meeste code heb je al geschreven. Schrijf dus _niet_ allerlei code opnieuw!**
             </br></br>
@@ -329,7 +329,7 @@ Nu je de _controller_ die de Arduino aanstuurt, hebt gemaakt en afgesplitst, bli
             <ul> 
                 <li> Het runnen van het bestand {{file}}`run_experiment.py` geeft een lijst van aangesloten instrumenten.</li>
                 <li> De gebruiker past in het bestand {{file}}`run_experiment.py` de poortnaam aan naar een poort waarop een Arduino is aangesloten. De instance van de class `#!py DiodeExperiment`, die uit het model wordt geïmporteerd, gebruikt deze poortnaam om de communicatie met de Arduino te openen. </li> 
-                <li> De gebruiker roept de method `#!py scan()` aan van de class `#!py DiodeExperiment` waarna een meting wordt gestart. </li>
+                <li> De gebruiker roept de method `#!py scan()` aan van de class `#!py DiodeExperiment`, waarna een meting wordt gestart. </li>
                 <li> De gebruiker past het bereik van de meting aan door de start- en stopparameters, die aan de method `#!py scan()` worden meegegeven, aan te passen. </li>
                 <li> De gebruiker past het aantal herhaalmetingen aan, die ook aan de method `#!py scan()` wordt meegegeven.
             </ul>
@@ -389,14 +389,14 @@ Nu je de _controller_ die de Arduino aanstuurt, hebt gemaakt en afgesplitst, bli
         **Checkpunten**
 
         - [ ] Alle directe communicatie met de Arduino, firmware-commando's en PyVISA-commando's staan in het bestand {{file}}`arduino_device.py`, de controller.
-        - [ ] Het model, bestand {{file}}`diode_experiment.py`, communiceert met de controller.
+        - [ ] Het model, {{file}}`diode_experiment.py`, communiceert met de controller.
         - [ ] Het model bevat een class `DiodeExperiment`, deze class heeft onder andere een method `scan()`.
-        - [ ] De view, bestand {{file}}`run_experiment.py`, communiceert alleen met het model. 
+        - [ ] De view, {{file}}`run_experiment.py`, communiceert alleen met het model. 
         - [ ] Runnen van {{file}}`run_experiment.py` zorgt ervoor dat een lijst met beschikbare poorten wordt gegeven en een meting wordt gestart.
         - [ ] Er wordt een plot getoond van de gemiddelde spanning over en de gemiddelde stroomsterkte door de LED met de bijbehorende onzekerheden.
         - [ ] De gemiddelde spanning over en de gemiddelde stroomsterkte door de LED worden samen met de bijbehorende onzekerheden weggeschreven in een CSV-bestand.
         - [ ] De LED wordt uitgezet na de meting.
-        - [ ] De bestanden bevatten alleen code die echt nodig is en niet meer dan dat. Dit betekent dat allerlei testcode is verwijderd.
+        - [ ] De bestanden bevatten alleen code die echt noodzakelijk is en niet meer dan dat. Dit betekent dat allerlei testcode is verwijderd.
 
 
         **Projecttraject**
@@ -407,10 +407,10 @@ Nu je de _controller_ die de Arduino aanstuurt, hebt gemaakt en afgesplitst, bli
         - [x] Pythondaq: controller afsplitsen
         - [x] Pythondaq: model en view splitsen
 
-Het oorspronkelijke script dat je gebruikte voor je meting (dat heet nu {{file}}`run_experiment.py`) is steeds leger geworden. Als het goed is gaat nu (vrijwel) het volledige script alleen maar over het starten van een meting en het weergeven en bewaren van de meetgegevens. In het <q>view</q> script komen verder geen berekeningen voor of details over welk kanaal van de Arduino op welke elektronische component is aangesloten. Ook staat hier niets over welke commando's de Arduino firmware begrijpt. Dit maakt het veel makkelijker om in de vervolghoofdstukken een gebruiksvriendelijke applicatie te ontwikkelen waarmee je snel en eenvoudig metingen kunt doen.
+Doordat je de verschillende onderdelen van de MVC in aparte scripts hebt gezet, is het oorspronkelijke script dat je gebruikte voor je meting steeds leger geworden. Als het goed is gaat de view (bijna) alleen maar over het starten van een meting en het weergeven en bewaren van de meetgegevens. In dit script komen verder geen berekeningen voor, deze staan immers beschreven in het model. Ook vind je in de view niets over welke commando's de Arduino firmware begrijpt, want dat staat beschreven in de controller. De splitsing van de code in de MVC-structuur maakt het veel makkelijker om in de vervolghoofdstukken een gebruiksvriendelijke applicatie te ontwikkelen waarmee je snel en eenvoudig metingen kunt doen.
 
 ???+ opdracht-meer "User input"
-    De gebruiker moet in de view het script aanpassen om een andere meting te doen. Kun je `#!py input()` gebruiken om van de gebruiker input te vragen voor de start, stop en aantal metingen?
+    De gebruiker moet in de view het script aanpassen om bijvoorbeeld een meting met een ander bereik te doen. Maak gebruik van `#!py input()` om bij de gebruiker de start, stop en het aantal herhaalmetingen op te vragen.
 
 ???+ opdracht-meer "Error!"
-    Als de gebruiker in de {{file}}`run_experiment.py` per ongeluk een negatieve startwaarde of negatieve aantal metingen invult gaat het niet goed. Gebruik [Exceptions](vervolg-python.md#exceptions) om dergelijke gevallen af te vangen en een duidelijke error af te geven. 
+    Als de gebruiker in de {{file}}`run_experiment.py` per ongeluk een negatieve startwaarde of een negatief aantal metingen invult, gaat het niet goed. Gebruik [exceptions](vervolg-python.md#exceptions) om dergelijke gevallen af te vangen en een duidelijke error af te geven. 
