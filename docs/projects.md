@@ -445,33 +445,34 @@ Natuurlijk willen we uv ook gaan gebruiken bij `pythondaq`. We maken nu alleen g
 
         **Projecttraject**
     
-        - [x] Pythondaq: Docstring
-        - [x] Pythondaq: src-layout
-        - [ ] Pythondaq: uv
+        - [x] Pythondaq: docstrings
+        - [x] Pythondaq: uv
+        - [ ] Pythondaq: src-layout
         - [ ] Pythondaq: test imports
         - [ ] Pythondaq: applicatie
 
 !!! opdracht-inlever "Pythondaq: src-layout"
-    <div class="grid-tree" markdown>
-        <div>
-        Nu de code in principe werkt, gaan we die in een src-layout zetten zoals hiernaast. Je test {{file}}`run_experiment.py` en die moet werken.
+    === "opdracht"
+        <div class="grid-tree" markdown>
+            <div>
+            Nu de code in principe werkt, gaan we die in een src-layout zetten zoals hiernaast. Je test {{file}}`run_experiment.py` en die moet werken.
+            </div>
+            <div>
+            {{github}}`pythondaq`  
+            {{T}}{{folder}}`src`  
+            {{tab}}{{L}}{{folder}}`pythondaq`  
+            {{tab}}{{tab}}{{T}}{{file}}`__init__.py`  
+            {{tab}}{{tab}}{{T}}{{new_file}}`arduino_device.py`  
+            {{tab}}{{tab}}{{T}}{{new_file}}`diode_experiment.py`  
+            {{tab}}{{tab}}{{L}}{{new_file}}`run_experiment.py`  
+            {{T}}{{file_lines}}`.gitattributes`  
+            {{T}}{{file_lines}}`.gitignore`  
+            {{T}}{{file_lines}}`.python-version`  
+            {{T}}{{file_lines}}`pyproject.toml`  
+            {{T}}{{file_lines}}`README.md`  
+            {{L}}{{file_lines}}`uv.lock`  
+            </div>
         </div>
-        <div>
-        {{github}}`pythondaq`  
-        {{T}}{{folder}}`src`  
-        {{tab}}{{L}}{{folder}}`pythondaq`  
-        {{tab}}{{tab}}{{T}}{{file}}`__init__.py`  
-        {{tab}}{{tab}}{{T}}{{new_file}}`arduino_device.py`  
-        {{tab}}{{tab}}{{T}}{{new_file}}`diode_experiment.py`  
-        {{tab}}{{tab}}{{L}}{{new_file}}`run_experiment.py`  
-        {{T}}{{file_lines}}`.gitattributes`  
-        {{T}}{{file_lines}}`.gitignore`  
-        {{T}}{{file_lines}}`.python-version`  
-        {{T}}{{file_lines}}`pyproject.toml`  
-        {{T}}{{file_lines}}`README.md`  
-        {{L}}{{file_lines}}`uv.lock`  
-        </div>
-    </div>
     === "check"
         **Checkpunten:**
     
@@ -481,9 +482,9 @@ Natuurlijk willen we uv ook gaan gebruiken bij `pythondaq`. We maken nu alleen g
 
         **Projecttraject**
     
-        - [x] Pythondaq: Docstring
-        - [x] Pythondaq: src-layout
+        - [x] Pythondaq: docstrings
         - [x] Pythondaq: uv
+        - [x] Pythondaq: src-layout
         - [ ] Pythondaq: test imports
         - [ ] Pythondaq: applicatie
 
@@ -738,9 +739,9 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
 
         **Projecttraject**
 
-        - [x] Pythondaq: Docstring
-        - [x] Pythondaq: src-layout
+        - [x] Pythondaq: docstrings
         - [x] Pythondaq: uv
+        - [x] Pythondaq: src-layout
         - [x] Pythondaq: test imports
         - [ ] Pythondaq: applicatie
     
@@ -769,9 +770,9 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
 
         **Projecttraject**
     
-        - [x] Pythondaq: Docstring
-        - [x] Pythondaq: src-layout
+        - [x] Pythondaq: docstrings
         - [x] Pythondaq: uv
+        - [x] Pythondaq: src-layout
         - [x] Pythondaq: test imports
         - [x] Pythondaq: applicatie
 
