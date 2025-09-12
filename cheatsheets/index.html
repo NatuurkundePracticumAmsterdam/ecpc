@@ -835,24 +835,6 @@
 
   <h1>Cheatsheets</h1>
 
-<details class="conda">
-<summary>Conda</summary>
-<details class="conda1">
-<summary>environment aanmaken</summary>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>conda create --name NAME PACKAGES
-</span></code></pre></div>
-</details>
-<details class="conda1">
-<summary>environment activeren</summary>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>conda activate NAME
-</span></code></pre></div>
-</details>
-<details class="conda1">
-<summary>pakket installeren</summary>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>(NAME) &gt; conda install PACKAGE
-</span></code></pre></div>
-</details>
-</details>
 <details class="github">
 <summary>GitHub</summary>
 <details class="github1">
@@ -878,39 +860,71 @@
 </ol>
 </details>
 </details>
+<details class="conda">
+<summary>Virtual environments</summary>
+<details class="conda1">
+<summary>Environment aanmaken</summary>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>uv venv --python PYTHONVERSION
+</span></code></pre></div>
+</details>
+<details class="conda1">
+<summary>Environment activeren</summary>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>.venv\Scripts\activate
+</span></code></pre></div>
+</details>
+<details class="conda1">
+<summary>Pakket installeren</summary>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>uv pip install PACKAGE
+</span></code></pre></div>
+</details>
+<details class="conda1">
+<summary>Commando runnen zonder activeren</summary>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>uv run COMMAND
+</span></code></pre></div>
+</details>
+<details class="conda1">
+<summary>Commando runnen zonder virtual environment en zonder installeren (ingekort)</summary>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>uvx COMMAND
+</span></code></pre></div>
+NB: Dit werkt alleen als het Python package en het commando dezelfde naam hebben.</p>
+</details>
+<details class="conda1">
+<summary>Commando runnen zonder virtual environment en zonder installeren (volledig)</summary>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>uvx --from PACKAGE --with EXTRAPACKAGE COMMAND
+</span></code></pre></div>
+</details>
+</details>
 <details class="poetry">
-<summary>Poetry</summary>
+<summary>Projectbeheer</summary>
 <details class="poetry1">
-<summary>Nieuw Poetry project aanmaken</summary>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>poetry new --src NAME
+<summary>Nieuw uv project aanmaken (in bestaande map)</summary>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>uv init --package
 </span></code></pre></div>
 </details>
 <details class="poetry1">
-<summary>Poetry toevoegen aan bestaand project</summary>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>poetry init --no-interaction
-</span></code></pre></div>
-</details>
-<details class="poetry1">
-<summary>Poetry project installeren</summary>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>poetry install
+<summary>Environment synchroniseren</summary>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>uv sync
 </span></code></pre></div>
 </details>
 <details class="poetry1">
 <summary>Dependencies toevoegen</summary>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>poetry add PACKAGE
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>uv add PACKAGE
 </span></code></pre></div>
 </details>
 <details class="poetry1">
 <summary>Dependencies verwijderen</summary>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>poetry remove PACKAGE
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>uv remove PACKAGE
 </span></code></pre></div>
 </details>
 <details class="poetry1">
-<summary>commando toevoegen</summary>
+<summary>Commando toevoegen</summary>
 <ol>
-<li>Voeg in je <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M64 48h112v88c0 39.8 32.2 72 72 72h88v240c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16m160 19.9 92.1 92.1H248c-13.3 0-24-10.7-24-24zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V186.5c0-17-6.7-33.3-18.7-45.3L242.7 18.7C230.7 6.7 214.5 0 197.5 0zm56 256c-13.3 0-24 10.7-24 24s10.7 24 24 24h144c13.3 0 24-10.7 24-24s-10.7-24-24-24zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24h144c13.3 0 24-10.7 24-24s-10.7-24-24-24z"/></svg></span><code>pyproject.toml</code> een extra kopje toe:
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">[tool.poetry.scripts]</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">naam_commando</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;package.module:naam_functie&quot;</span>
+<li>In je <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M64 48h112v88c0 39.8 32.2 72 72 72h88v240c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16m160 19.9 92.1 92.1H248c-13.3 0-24-10.7-24-24zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V186.5c0-17-6.7-33.3-18.7-45.3L242.7 18.7C230.7 6.7 214.5 0 197.5 0zm56 256c-13.3 0-24 10.7-24 24s10.7 24 24 24h144c13.3 0 24-10.7 24-24s-10.7-24-24-24zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24h144c13.3 0 24-10.7 24-24s-10.7-24-24-24z"/></svg></span><code>pyproject.toml</code>:
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">[project.scripts]</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">naam_commando</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;package.module:naam_functie&quot;</span>
+</span></code></pre></div></li>
+<li>Run
+<div class="language-ps1 highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">uv</span> <span class="n">sync</span>
 </span></code></pre></div></li>
 </ol>
 </details>
