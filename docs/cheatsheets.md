@@ -1,58 +1,72 @@
-??? conda "Conda"
-    ??? conda1 "environment aanmaken"
-        ```
-        conda create --name NAME PACKAGES
-        ```
-    ??? conda1 "environment activeren"
-        ```
-        conda activate NAME
-        ```
-    ??? conda1 "pakket installeren"
-        ```
-        (NAME) > conda install PACKAGE
-        ```
-
 ??? github "GitHub"
     ??? github1 "Lege repository aanmaken"
         1. GitHub Desktop: **File > New repository**
-        1. Kies `NAME` en locatie (let op! de project map mag _niet_ in een andere repository staan!)
-        1. Vink `Initialize this repository with a README` aan
-        1. `Git ignore`: "Python"
-        1. GitHub Desktop: **Repository > Open in Visual Studio Code**
+        2. Kies `NAME` en locatie (let op! de project map mag _niet_ in een andere repository staan!)
+        3. Vink `Initialize this repository with a README` aan
+        4. `Git ignore`: "Python"
+        5. GitHub Desktop: **Repository > Open in Visual Studio Code**
     
     ??? github1 "Van bestaande map repository maken"
-        1. GitHub Desktop: **File > Add repository**
-        1. Kies locatie van {{folder}}`projectmap` (let op! de project map mag _niet_ in een andere repository staan!)
-        1. Druk op de blauwe tekst `Create repository`.
-        1. Vink `Initialize this repository with a README` aan.
-        1. Kies bij `Git ignore` voor "Python".
-        1. Bevestig met de blauwe knop `Create Repository`.
-        1. Ga naar **Repository > Open in Visual Studio Code** (of druk op ++ctrl+shift+a++ ) en ga aan de slag.
+        6. GitHub Desktop: **File > Add repository**
+        7. Kies locatie van {{folder}}`projectmap` (let op! de project map mag _niet_ in een andere repository staan!)
+        8. Druk op de blauwe tekst `Create repository`.
+        9. Vink `Initialize this repository with a README` aan.
+        10. Kies bij `Git ignore` voor "Python".
+        11. Bevestig met de blauwe knop `Create Repository`.
+        12. Ga naar **Repository > Open in Visual Studio Code** (of druk op ++ctrl+shift+a++ ) en ga aan de slag.
 
-??? poetry "Poetry"
-    ??? poetry1 "Nieuw Poetry project aanmaken"
+??? conda "Virtual environments"
+    ??? conda1 "Environment aanmaken"
         ```
-        poetry new --src NAME
+        uv venv --python PYTHONVERSION
         ```
-    ??? poetry1 "Poetry toevoegen aan bestaand project"
+    ??? conda1 "Environment activeren"
         ```
-        poetry init --no-interaction
+        .venv\Scripts\activate
         ```
-    ??? poetry1 "Poetry project installeren"
+    ??? conda1 "Pakket installeren"
         ```
-        poetry install
+        uv pip install PACKAGE
+        ```
+    ??? conda1 "Commando runnen zonder activeren"
+        ```
+        uv run COMMAND
+        ```
+    ??? conda1 "Commando runnen zonder virtual environment en zonder installeren (ingekort)"
+        ```
+        uvx COMMAND
+        ```
+        NB: Dit werkt alleen als het Python package en het commando dezelfde naam hebben.
+    ??? conda1 "Commando runnen zonder virtual environment en zonder installeren (volledig)"
+        ```
+        uvx --from PACKAGE --with EXTRAPACKAGE COMMAND
+        ```
+
+
+??? poetry "Projectbeheer"
+    ??? poetry1 "Nieuw uv project aanmaken (in bestaande map)"
+        ```
+        uv init --package
+        ```
+    ??? poetry1 "Environment synchroniseren"
+        ```
+        uv sync
         ```
     ??? poetry1 "Dependencies toevoegen"
         ```
-        poetry add PACKAGE
+        uv add PACKAGE
         ```
     ??? poetry1 "Dependencies verwijderen"
         ```
-        poetry remove PACKAGE
+        uv remove PACKAGE
         ```
-    ??? poetry1 "commando toevoegen"
-        1.  Voeg in je {{file_lines}}`pyproject.toml` een extra kopje toe:
+    ??? poetry1 "Commando toevoegen"
+        1. In je {{file_lines}}`pyproject.toml`:
         ``` toml
-        [tool.poetry.scripts]
+        [project.scripts]
         naam_commando = "package.module:naam_functie"
+        ```
+        2. Run
+        ``` ps1
+        uv sync
         ```
