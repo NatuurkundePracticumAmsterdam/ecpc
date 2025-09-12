@@ -162,72 +162,108 @@ Het bestand is in het TOML-formaat.[@TOML] Tussen de vierkante haken staan de ko
 De sectie `[project.scripts]` zorgt ervoor dat we ons script kunnen aanroepen door `easystat` in de terminal in te typen en de sectie `[build-system]` zorgt ervoor dat we een package kunnen maken en uploaden naar de Python Package Index (PyPI). De `[build-system]` sectie is nu nog niet belangrijk.
 
 !!! opdracht-basis "Synchroniseren van virtual environments"
-    1. Hoewel we hierboven beweerden dat je `easystat` kunt intypen in de terminal en dat er dan een scriptje draait, werkt dat (nog) niet. Probeer maar eens! Het werkt ook niet als je een nieuwe terminal opent. En... er staat niets tussen haakjes aan het begin van de opdrachtprompt. Blijkbaar is er nog geen virtual environment actief.
-    2. Open {{file}}`src/eaystat/__init__.py`. Rechtsonderin zie je inderdaad {{warning}}`Select Interpreter`. Als je daarop klikt zie je alleen niet `Python 3.x.x (easystat)` in het rijtje staan... Druk op ++escape++ om het menu te verlaten.
-    3. In een terminal in VS Code, type in:
-    <pre><code>> uv sync <button type="button" name="uv_sync" onclick="runScript('uv_sync')">{{ enter }}</button><button type="button" name="uv_sync" onclick="runScript('uv_sync')" class="invisible">{{ reload }}</button>
-    <span class="invisible" name="uv_sync">Using CPython 3.13.5
-    Creating virtual environment at: .venv
-    Resolved 1 package in 5ms
-    Installed 1 package in 47ms
-    &nbsp;+ easystat==0.1.0 (from file:///C:/Users/David/Documents/ECPC/easystat)</span></code></pre>
-    Wat dit gedaan heeft is het automatisch aanmaken van het virtual environment op basis van je projectinstellingen. Dus de Pythonversie die in {{file}}`.python-version` staat en eventuele dependencies die gedefinieerd zijn in je {{file_lines}}`pyproject.toml`.
-    4. Kies het nieuwe virtual environment.
-    5. Open een _nieuwe_ terminal en type `easystat`. Als het goed is werkt het nu wél!
-    6. Commit in GitHub Desktop de wijzigingen die `uv sync` heeft gedaan (een `uv.lock` file, zie [later](#opd:uv.lock)).
+    === "opdracht"
+        1. Hoewel we hierboven beweerden dat je `easystat` kunt intypen in de terminal en dat er dan een scriptje draait, werkt dat (nog) niet. Probeer maar eens! Het werkt ook niet als je een nieuwe terminal opent. En... er staat niets tussen haakjes aan het begin van de opdrachtprompt. Blijkbaar is er nog geen virtual environment actief.
+        2. Open {{file}}`src/eaystat/__init__.py`. Rechtsonderin zie je inderdaad {{warning}}`Select Interpreter`. Als je daarop klikt zie je alleen niet `Python 3.x.x (easystat)` in het rijtje staan... Druk op ++escape++ om het menu te verlaten.
+        3. In een terminal in VS Code, type in:
+        <pre><code>> uv sync <button type="button" name="uv_sync" onclick="runScript('uv_sync')">{{ enter }}</button><button type="button" name="uv_sync" onclick="runScript('uv_sync')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="uv_sync">Using CPython 3.13.5
+        Creating virtual environment at: .venv
+        Resolved 1 package in 5ms
+        Installed 1 package in 47ms
+        &nbsp;+ easystat==0.1.0 (from file:///C:/Users/David/Documents/ECPC/easystat)</span></code></pre>
+        Wat dit gedaan heeft is het automatisch aanmaken van het virtual environment op basis van je projectinstellingen. Dus de Pythonversie die in {{file}}`.python-version` staat en eventuele dependencies die gedefinieerd zijn in je {{file_lines}}`pyproject.toml`.
+        4. Kies het nieuwe virtual environment.
+        5. Open een _nieuwe_ terminal en type `easystat`. Als het goed is werkt het nu wél!
+        6. Commit in GitHub Desktop de wijzigingen die `uv sync` heeft gedaan (een `uv.lock` file, zie [later](#opd:uv.lock)).
+
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] Rechtsonderin staat je Python environment geselecteerd (3.12.x (easystat)).
+        - [ ] In de terminal staat (easystat) vooraan de opdrachtprompt.
+        - [ ] Het commando `easystat` runt zonder problemen.
+
+        **Projecttraject**
+    
+        - [x] Easystat uv project aanmaken
+        - [x] Easystat virtual environment aanmaken
+        - [ ] Easystat {{file}}`shortcuts.py`, {{file}}`measurements.py` en {{file}}`try_measurements.py` aanmaken
+        - [ ] Easystat {{file}}`shortcuts.py` testen
+        - [ ] Easystat dependencies toevoegen
+        - [ ] Easystat package imports fixen
+
 
 
 ### Maken van de easystat-package
 We starten met ons package. We gaan een aantal `#!py ModuleNotFoundError`s tegenkomen, maar dat lossen we ook weer op.  Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige <q>shortcut</q> in {{file}}`shortcuts.py`. Nu willen we deze shortcut ook in een ander script {{file}}`measurements.py` gebruiken, die op basis van een aantal metingen het gemiddelde mét een onzekerheid geeft. Dit kunnen we doen door de module te importeren in het nieuwe script zodat we de functie `stdev_of_mean` daar ook kunnen gebruiken. We maken uiteindelijk een script {{file}}`try_measurements.py` om dit allemaal te testen, en die zetten we expres niet _in_ het package, maar in een nieuwe map {{folder}}`tests`. Het testscript hoort immers niet bij de code van het `easystat` package.
 
 !!! opdracht-basis "Easystat shortcuts.py en try_shortcuts.py aanmaken"
-    Maak zoals hieronder aangegeven de bestanden {{new_file}}`shortcuts.py`, {{new_file}}`measurements.py` en {{new_file}}`try_measurements.py` aan, waarbij je let op in welke map de bestanden moeten staan (je moet nog een map zelf aanmaken):
-    <div class="grid-tree" markdown>
-        <div>
-        ``` py title="shortcuts.py"
-        import numpy as np 
-        
-        
-        def stdev_of_mean(values):
-            """Calculate the standard deviation of the mean"""
-            return np.std(values) / np.sqrt(len(values))    
-        ```
-        ``` py title="measurements.py"
-        import numpy as np
-        from shortcuts import stdev_of_mean
+    === "opdracht"
+        Maak zoals hieronder aangegeven de bestanden {{new_file}}`shortcuts.py`, {{new_file}}`measurements.py` en {{new_file}}`try_measurements.py` aan, waarbij je let op in welke map de bestanden moeten staan (je moet nog een map zelf aanmaken):
+        <div class="grid-tree" markdown>
+            <div>
+            ``` py title="shortcuts.py"
+            import numpy as np 
+            
+            
+            def stdev_of_mean(values):
+                """Calculate the standard deviation of the mean"""
+                return np.std(values) / np.sqrt(len(values))    
+            ```
+            ``` py title="measurements.py"
+            import numpy as np
+            from shortcuts import stdev_of_mean
 
 
-        def result_with_uncertainty(values):
-            """Return result with uncertainty from list of measurements."""
-            return np.mean(values), stdev_of_mean(values)
+            def result_with_uncertainty(values):
+                """Return result with uncertainty from list of measurements."""
+                return np.mean(values), stdev_of_mean(values)
 
-        ```
-        ``` py title="try_measurements.py"
-        from measurements import result_with_uncertainty
+            ```
+            ``` py title="try_measurements.py"
+            from measurements import result_with_uncertainty
 
-        measurements = [1, 2, 2, 2, 3]
-        result, uncertainty = result_with_uncertainty(measurements)
+            measurements = [1, 2, 2, 2, 3]
+            result, uncertainty = result_with_uncertainty(measurements)
 
-        print(f"{measurements=}")
-        print(f"Result of measurements is: {result:.2f} +- {uncertainty:.2f}.")
-        ```
+            print(f"{measurements=}")
+            print(f"Result of measurements is: {result:.2f} +- {uncertainty:.2f}.")
+            ```
+            </div>
+            <div>
+            {{github}} `easystat`  
+            {{T}} {{folder}} `src`  
+            {{tab}} {{T}} {{folder}} `easystat`  
+            {{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
+            {{tab}} {{tab}} {{T}} {{new_file}} `measurements.py`  
+            {{tab}} {{tab}} {{L}} {{new_file}} `shortcuts.py`  
+            {{T}} {{new_folder}} `tests`  
+            {{tab}} {{L}} {{new_file}} `try_measurements.py`  
+            {{T}} {{file_lines}} `pyproject.toml`  
+            {{L}} {{file_lines}} `readme.md`  
+            </div>
         </div>
-        <div>
-        {{github}} `easystat`  
-        {{T}} {{folder}} `src`  
-        {{tab}} {{T}} {{folder}} `easystat`  
-        {{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
-        {{tab}} {{tab}} {{T}} {{new_file}} `measurements.py`  
-        {{tab}} {{tab}} {{L}} {{new_file}} `shortcuts.py`  
-        {{T}} {{new_folder}} `tests`  
-        {{tab}} {{L}} {{new_file}} `try_measurements.py`  
-        {{T}} {{file_lines}} `pyproject.toml`  
-        {{L}} {{file_lines}} `readme.md`  
-        </div>
-    </div>
 
-    !!! info "`Import numpy could not be resolved`"
-        Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regels van twee scripts, en ook onder `shortcuts` en `measurements`. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee... In de volgende opdrachten gaan we die problemen één voor één oplossen.
+        !!! info "`Import numpy could not be resolved`"
+            Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regels van twee scripts, en ook onder `shortcuts` en `measurements`. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee... In de volgende opdrachten gaan we die problemen één voor één oplossen.
+
+    === "check"
+        **Checkpunten:**
+    
+        - [ ] De map {{folder}}`easystat/src/easystat` bevat het bestand {{file}}`measurements.py`.
+        - [ ] De map {{folder}}`easystat/src/easystat` bevat het bestand {{file}}`shortcuts.py`.
+        - [ ] In de _projectmap_ {{folder}}`easystat` staat een map {{folder}}`tests`.
+        - [ ] De map {{folder}}`easystat/tests` bevat het bestand {{file}}`try_measurements.py`.
+
+        **Projecttraject**
+    
+        - [x] Easystat uv project aanmaken
+        - [x] Easystat virtual environment aanmaken
+        - [x] Easystat {{file}}`shortcuts.py`, {{file}}`measurements.py` en {{file}}`try_measurements.py` aanmaken
+        - [ ] Easystat {{file}}`shortcuts.py` testen
+        - [ ] Easystat dependencies toevoegen
+        - [ ] Easystat package imports fixen
 
 In de eerste regel van {{file}}`try_measurements.py` importeren we de functie uit het nieuwe package om uit te proberen. In de eerste `#!py print`-regel gebruiken we een handige functie van f-strings.[^f-string-=]
 
@@ -744,6 +780,21 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
         - [x] Pythondaq: test imports
         - [ ] Pythondaq: applicatie
     
+
+!!! opdracht-basis "Applicaties runnen in virtual environments"
+
+    Inmiddels ben je misschien gewend dat je virtual environments altijd moet activeren voordat je applicaties kunt runnen die daarin geïnstalleerd zijn. In Visual Studio Code gaat dat automatisch als je het environment goed geselecteerd hebt. Maar... hoe moet dat zonder VS Code? Omdat uv virtual environments in je projectmap neerzet (de {{folder}}`.venv`-map) moet je met je terminal wel in de goede map zitten. Daarna kun je ervoor kiezen om het commando te runnen met uv (dan is activeren niet nodig) of zonder uv (dan is activeren _wel_ nodig). Voer de volgende opdrachten uit om dat te proberen.
+
+    1. Open in GitHub Desktop nog een keer je {{github}}`easystat` repository.
+    2. Klik op **Menu > Repository > Open in Command Prompt** om een nieuwe terminal te openen, in je projectmap.
+    3. Run het commando `easystat`. Dit werkt niet.
+    4. Run het commando `uv run easystat`. Dit werkt _wel_.
+    5. Activeer het environment door het volgende commando te runnen: `.venv\Scripts\activate`.
+    6. Controleer dat `(easystat)` aan het begin van de opdrachtprompt staat.
+    7. Run het commando `easystat`. Dit werkt nu _wel_.
+
+    Je mag zelf kiezen welke methode je fijn vindt.
+
 !!! opdracht-inlever "Pythondaq: applicatie"
     === "opdracht"
         Je maakt een commando om het script {{file}}`run_experiment.py` uit de repository {{github}}`pythondaq` te starten {{lightbulb}}. Wanneer je het commando aanroept gaat het LED-lampje branden, en verschijnt er even later een IU-plot op het scherm. Je test of het commando ook buiten Visual Studio Code werkt door vanuit GitHub **Menu > Repository > Open in Command Prompt** een nieuwe terminal te openen. Je test het commando met `uv run` {{lightbulb}} en ook door het juiste virtual environment te activeren {{lightbulb}}. Je ziet dat ook dan het commando werkt, _zonder_ `uv run`. Wat een feest! {{feesttoeter}} Je hebt nu een applicatie geschreven die een Arduino aanstuurt om een ledje te laten branden. En je kunt je applicatie gewoon vanuit de terminal aanroepen! {{feesttoeter}}
