@@ -237,7 +237,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
     
         <div class="grid-tree" markdown>
             <div>
-            Je maakt een bestand {{file}}`diode_experiment.py` aan in de nieuwe repository {{github}} `pythondaq`, waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Je moet hiervoor ook weer opnieuw een virtual environment aanmaken (zie [opdracht Environment aanmaken](communicatie.md#opd:venv)). Tijdens het oplopen van de spanning over de LED lees je de verschillende spanningen uit. Je print steeds een regel met: ruwe waarde spanning over LED, voltage over LED, ruwe waarde spanning over weerstand, voltage over weerstand.
+            Je maakt een bestand {{file}}`diode_experiment.py` aan in de nieuwe repository {{github}} `pythondaq`, waarin je de spanning over de LED laat oplopen van nul tot de maximale waarde. Je moet hiervoor ook weer opnieuw een virtual environment aanmaken (zie [opdracht Virtual environment aanmaken](communicatie.md#opd:venv)). Tijdens het oplopen van de spanning over de LED lees je de verschillende spanningen uit. Je print steeds een regel met: ruwe waarde spanning over LED, voltage over LED, ruwe waarde spanning over weerstand, voltage over weerstand.
             </div>
             <div>
             {{folder}} `ECPC`  

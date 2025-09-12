@@ -85,16 +85,16 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         - [ ] PyVISA LED laten branden
 
 !!! info
-    Om met Python via het VISA-protocol te kunnen communiceren met apparaten heb je specifieke packages nodig. Die gaan we later installeren in een _virtual environment_. Voor meer informatie over virtual environments zie de [Appendix _Virtual Environments_](virtual_environments.md). Tijdens testen is het vaak niet nodig om packages te installeren, maar je moet dan wel steeds opnieuw intypen wat je nodig hebt. Dat kun je misschien het beste copy/pasten vanuit het `code`-tabblad die in de opdracht staat. Voordat je de volgende opdracht kunt doen, zorg dat je [uv](https://docs.astral.sh/uv/getting-started/installation/#winget) geïnstalleerd hebt. Voor Windowscomputers, open een Terminal en type in (zonder het `>`-symbool):
+     Voordat je de volgende opdracht kunt doen, zorg dat je uv [geïnstalleerd](https://docs.astral.sh/uv/getting-started/installation/#winget) hebt. Voor Windowscomputers, open een Terminal en type in (of kopieer door te klikken op het {{copy}}-icoon):
     ``` ps1 title="Terminal"
-    > winget install -e astral-sh.uv
+    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
     ```
     **Belangrijk:** uv werkt nu alleen in _nieuw geopende_ terminals. Sluit de terminal die je open hebt staan dus af.
 
 <div id="opd:pyvisaterminal"></div>
 !!! opdracht-basis "PyVISA in terminal"
     === "opdracht"
-        Je sluit de Arduino met een USB-kabel aan op de computer. In een `Terminal` open je een `pyvisa-shell` met een python _backend_. Om erachter te komen hoe de `pyvisa-shell` werkt type je het commando `help`. Je ziet een reeks aan commando's en bekijkt de helptekst van de commando's waarmee je denkt de `pyvisa-shell` te kunnen afsluiten. Wanneer je dit commando hebt gevonden sluit je daarmee de `pyvisa-shell` af. 
+        Je sluit de Arduino met een USB-kabel aan op de computer. In een `Terminal` open je een `pyvisa-shell` met een python _backend_. Dat kun je misschien het beste copy/pasten vanuit het `code`-tabblad die bij deze opdracht staat. Om erachter te komen hoe de `pyvisa-shell` werkt type je het commando `help`. Je ziet een reeks aan commando's en bekijkt de helptekst van de commando's waarmee je denkt de `pyvisa-shell` te kunnen afsluiten. Wanneer je dit commando hebt gevonden sluit je daarmee de `pyvisa-shell` af. 
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
@@ -142,7 +142,7 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
     ```shell
     uvx --from pyvisa --with pyvisa-py --with pyserial pyvisa-shell --backend py
     ```
-    Dat dit aardig vervelend kan worden met intypen is waarschijnlijk wel duidelijk. Daarom gaan we op een later moment gebruik maken van _virtual environments_.
+    Dat dit aardig vervelend kan worden met intypen is waarschijnlijk wel duidelijk. Daarom gaan we, als we Pythoncode gaan schrijven, gebruik maken van _virtual environments_.
 
     [^USB]: USB staat voor _Universal Serial Bus_, oftewel een universele standaard voor seriële communicatie. Dat mag je vergeten.
 
@@ -425,7 +425,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
-        - [ ] Environment aanmaken
+        - [ ] Virtual environment aanmaken
         - [ ] PyVISA in Pythonscript
         - [ ] LED laten branden
         - [ ] flashingLED
@@ -440,7 +440,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Je gaat de gegeven Pythoncode testen. Hiervoor open je in Visual Studio Code de map {{folder}}`ECPC` en maak je een bestand {{new_file}}`test_arduino.py` aan. Je kopieert de gegeven Pythoncode in dit bestand. Je ziet dat Visual Studio Code rechtsonder aangeeft dat je nog geen virtual environment hebt geselecteerd (de bruinige waarschuwing _Select Interpreter_). We moeten dus nog een environment aanmaken.
+            Je gaat de gegeven Pythoncode testen. Hiervoor open je in Visual Studio Code de map {{folder}}`ECPC` en maak je een bestand {{new_file}}`test_arduino.py` aan. Je kopieert de gegeven Pythoncode in dit bestand. Je ziet dat Visual Studio Code rechtsonder aangeeft dat je nog geen virtual environment hebt geselecteerd (de bruinige waarschuwing _Select Interpreter_). We moeten dus nog een virtual environment aanmaken.
             </div>
             <div>
             {{folder}}`ECPC`  
@@ -450,15 +450,19 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         </div>
 
 <div id="opd:venv"></div>
-!!! opdracht-basis "Environment aanmaken"
+!!! opdracht-basis "Virtual environment aanmaken"
     === "opdracht"
         Open een Terminal in je Visual Studio Code-omgeving (**Menu > Terminal > New Terminal**). Maak de virtual environment aan met:
         ``` ps1 title="Terminal"
-        uv venv -p 3.13
+        uv venv --python 3.13
         ```
-        Met `-p 3.13` geven we aan: gebruik Pythonversie 3.13 (released in 2024). Je mag dat weglaten en dan kiest uv op basis van Pythonversies die je al geïnstalleerd hebt staan, maar als je een te oude versie gebruikt werken sommige dingen misschien niet.
+        Met `--python 3.13` geven we aan: gebruik Pythonversie 3.13 (released in 2024). Je mag dat weglaten en dan kiest uv op basis van Pythonversies die je al geïnstalleerd hebt staan, maar als je een te oude versie gebruikt werken sommige dingen misschien niet.
 
-        Om een virtual environment daadwerkelijk te gebruiken kun je die _activeren_. Dat kun je doen door in de pop-up "We've noticed that..." te kiezen voor "Yes", of door rechtsonderin op _Select Interpreter_ te klikken en dan te kiezen voor de omgeving (Python 3.13.x (ECPC) `.\.venv\Scripts\python.exe`). Je **moet** de terminal dan sluiten (type `exit` of klik op het prullenbakje) en een nieuwe terminal openen. Als het terminal goed geactiveerd is staat er nu `(ECPC)` aan het begin van de prompt (opdrachtregel waar je je commando's intypt).
+        Om een virtual environment daadwerkelijk te gebruiken kun je die _activeren_. Dat kun je doen door in de pop-up "We've noticed that..." te kiezen voor "Yes", of door rechtsonderin op _Select Interpreter_ te klikken en dan te kiezen voor de omgeving (Python 3.13.x (ECPC) `.\.venv\Scripts\python.exe`):
+        
+        ![Screenshot van popup om nieuw virtual environment te selecteren](figures/screenshot-new-venv-popup.png){: style="width:475px"}
+        
+        Deze opties verschijnen als je een Pythonbestand open hebt staan. Na selecteren **moet** je de terminal dan sluiten (type `exit` of klik op het prullenbakje) en een nieuwe terminal openen. Als het terminal goed geactiveerd is staat er nu `(ECPC)` aan het begin van de prompt (opdrachtregel waar je je commando's intypt).
 
         !!! info
             Als je op Windows werkt, kun je bij het openen van een nieuwe terminal de volgende foutmelding krijgen:
@@ -493,7 +497,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
-        - [x] Environment aanmaken
+        - [x] Virtual environment aanmaken
         - [ ] PyVISA in Pythonscript
         - [ ] LED laten branden
         - [ ] flashingLED
@@ -507,7 +511,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Je gaat de gegeven Pythoncode testen. Je selecteert het environment dat je bij [opdracht Environment aanmaken](#opd:venv) hebt gemaakt. Je slaat het bestand op en runt het bestand.
+            Je gaat de gegeven Pythoncode testen. Je heb het virtual environment dat je bij [opdracht Virtual environment aanmaken](#opd:venv) hebt gemaakt al geselecteerd. Je bestand is opgeslagen dus je kunt het runnen en kijken of het werkt!
             </div>
             <div>
             {{folder}}`ECPC`  
@@ -548,7 +552,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "check"
         **Checkpunten**
 
-        - [ ] Je hebt het juiste environment geselecteerd (zie ook [paragraaf _Virtual environments_](virtual_environments.md#activeren-en-deactiveren)).
+        - [ ] Je hebt het juiste environment geselecteerd (zie ook [opdracht Virtual environment aanmaken](#opd:venv)).
         - [ ] Je opent de poort met de naam van jouw Arduino (in het geval dat jouw Arduino niet 'ASRL28::INSTR' heet). 
         - [ ] Je hebt alle terminals (ook de `Terminal` buiten Visual Studio Code) gesloten waarin communicatie met de Arduino openstond. 
         - [ ] Je krijgt een lijst met poorten en de identificatiestring terug als je het script runt.
@@ -556,7 +560,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
-        - [x] Environment aanmaken
+        - [x] Virtual environment aanmaken
         - [x] PyVISA in Pythonscript
         - [ ] LED laten branden
         - [ ] flashingLED
@@ -607,7 +611,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "check"
         **Checkpunten**
 
-        - [ ] Je hebt het juiste environment geselecteerd (zie ook [paragraaf _Virtual environments_](virtual_environments.md#activeren-en-deactiveren)).
+        - [ ] Je hebt het juiste environment geselecteerd (zie ook [opdracht Virtual environment aanmaken](#opd:venv)).
         - [ ] Je opent de poort met de naam van jouw Arduino (in het geval dat jouw Arduino niet 'ASRL28::INSTR' heet). 
         - [ ] Je hebt alle terminals (ook de `Terminal` buiten Visual Studio Code) gesloten waarin communicatie met de Arduino openstond. 
         - [ ] Je krijgt een lijst met poorten en de identificatiestring terug als je het script runt.
@@ -618,7 +622,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
-        - [x] Environment aanmaken
+        - [x] Virtual environment aanmaken
         - [x] PyVISA in Pythonscript
         - [x] LED laten branden
         - [ ] flashingLED
@@ -681,7 +685,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
-        - [x] Environment aanmaken
+        - [x] Virtual environment aanmaken
         - [x] PyVISA in Pythonscript
         - [x] LED laten branden
         - [x] flashingLED
