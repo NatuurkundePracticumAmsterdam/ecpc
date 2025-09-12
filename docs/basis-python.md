@@ -1,8 +1,6 @@
 # Basiskennis Python
 
-Bij de cursus Inleiding programmeren heb je de basis van het programmeren in Python geleerd. In dit hoofdstuk neem je de hoofdlijnen van deze cursus door met behulp van een aantal opdrachten. 
-
-Bij Inleiding programmeren mocht je kiezen om je code in het Nederlands of het Engels te schrijven. Omdat wij jou voorbereiden om in een onderzoeksgroep je bachelorproject te gaan doen, waar je hoogstwaarschijnlijk internationale collega's gaat treffen, vragen we jou om bij ECPC alles in het Engels te schrijven. 
+Bij de cursus Inleiding programmeren heb je de basis van het programmeren in Python geleerd. In dit hoofdstuk neem je de hoofdlijnen van deze cursus door aan de hand van een aantal opdrachten. 
 
 ## Visual Studio Code
 !!! opdracht-basis-thuis "Map aanmaken en openen in Visual Studio Code"
@@ -159,7 +157,11 @@ Bij inleiding programmeren heb je geleerd hoe je code netjes opschrijft, zodat d
 - Namen van functies geven duidelijk weer wat de functie doet, deze namen mogen lang zijn. Dus: `#!py def functienamen_met_doel():`
 - Je hoeft code niet met de hand over te schrijven. Leesbaarheid gaat daarom boven beknoptheid. Gebruik meerdere regels code als je meerdere stappen zet, in plaats van een heel lange regel code waar meer dan één ding gebeurt.
 - Gebruik `#!py #commentaar`-kopjes om een stukje code samen te vatten, een waarschuwing te geven, uitleg van complexe algoritmen te doen, uitleg van een variabele te geven, voor bronvermelding, enzovoorts. Zet het commentaar altijd boven het stukje code waar het over gaat. 
-- Zorg ook voor een nette opmaak. Spring in waar nodig, gebruik witregels en zet spaties rondom operatoren.
+- Zorg ook voor een nette opmaak. Spring in waar nodig, gebruik witregels en zet spaties rondom operatoren.[^formatter]
+
+[^formatter]: Er zijn pakketten beschikbaar die je code automatisch aanpassen aan een standaard opmaak, je hoeft bijna niet meer na te denken over de vormgeving van de code. Ruff[^ruff] is zo'n formatter. Je kunt van Ruff gebruikmaken door in Visual Studio Code de _Ruff_-extensie van Astral Software te installeren. Ga daarna in Visual Studio Code naar **Settings** en type in het zoekvenster **format on save**. Vink de instelling _Editor: Format On Save_ aan. Type daarna in het zoekvenster **default formatter** en kies voor de formatter _Ruff_.
+
+[^ruff]: Ruff. URL: <https://docs.astral.sh/ruff/>. 
 
 ## Modules
 
