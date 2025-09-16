@@ -85,16 +85,16 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         - [ ] PyVISA LED laten branden
 
 !!! info
-     Voordat je de volgende opdracht kunt doen, zorg dat je uv [geïnstalleerd](https://docs.astral.sh/uv/getting-started/installation/#winget) hebt. Voor Windowscomputers, open een Terminal en type in (of kopieer door te klikken op het {{copy}}-icoon):
+     Voor de volgende opdrachten moet je uv [geïnstalleerd](https://docs.astral.sh/uv/getting-started/installation/#winget) hebben. Voor Windowscomputers, open een Terminal en type in (of kopieer door te klikken op het {{copy}}-icoon):
     ``` ps1 title="Terminal"
     powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
     ```
-    **Belangrijk:** uv werkt nu alleen in _nieuw geopende_ terminals. Sluit de terminal die je open hebt staan dus af.
+    **Belangrijk:** uv werkt nu alleen in _nieuw geopende_ terminals. Sluit daarom de terminal die je open hebt staan en open een nieuwe terminal.
 
 <div id="opd:pyvisaterminal"></div>
 !!! opdracht-basis "PyVISA in terminal"
     === "opdracht"
-        Je sluit de Arduino met een USB-kabel aan op de computer. In een `Terminal` open je een `pyvisa-shell` met een python _backend_. Dat kun je misschien het beste copy/pasten vanuit het `code`-tabblad die bij deze opdracht staat. Om erachter te komen hoe de `pyvisa-shell` werkt type je het commando `help`. Je ziet een reeks aan commando's en bekijkt de helptekst van de commando's waarmee je denkt de `pyvisa-shell` te kunnen afsluiten. Wanneer je dit commando hebt gevonden sluit je daarmee de `pyvisa-shell` af. 
+        Je sluit de Arduino met een USB-kabel aan op de computer. In een Terminal open je een `pyvisa-shell` met een python _backend_. Het commando hiervoor kun je misschien het beste copy/pasten vanuit het [tabblad code](#__tabbed_2_2) die bij deze opdracht staat. Om erachter te komen hoe de `pyvisa-shell` werkt type je het commando `help`. Je ziet een reeks aan commando's en bekijkt de helptekst van de commando's waarmee je denkt de `pyvisa-shell` te kunnen afsluiten. Wanneer je dit commando hebt gevonden sluit je daarmee de `pyvisa-shell` af. 
     === "code"
         **Pseudo-code**
         ``` ps1 title="Terminal"
@@ -138,11 +138,11 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         - [ ] PyVISA LED laten branden
 
 !!! info
-    We gebruiken `uvx` om Python packages te draaien zonder ze te installeren. We starten `pyvisa-shell`, die afkomstig is uit het package `pyvisa` (`--from pyvisa`). We maken hier gebruik van de optie `--backend py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er naast `pyvisa-py` ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. De verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle type apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers. We moeten dan wel meegeven dat we dat package ook nodig hebben (`--with pyvisa-py`) en omdat de Arduino is aangesloten op een seriële kabel[^USB] hebben we ook de PySerial package nodig (`--with pyserial`). Voluit wordt dan dus:
+    Je gebruikt `uvx` om Python packages te draaien zonder ze te installeren. Je start `pyvisa-shell`, die afkomstig is uit het package `pyvisa` (`--from pyvisa`). Je maakt hier gebruik van de optie `--backend py`, wat staat voor _gebruik backend: python_. Het kan namelijk dat er naast `pyvisa-py` ook andere _backends_, of _drivers_, geïnstalleerd staan op het systeem die de VISA-communicatie kunnen verzorgen. Als je bijvoorbeeld LabVIEW geïnstalleerd hebt, dan heb je de drivers van National Instruments. De verschillende backends geven de aangesloten apparaten andere namen. Ook ondersteunen niet alle drivers alle type apparaten en moet je ze apart downloaden en installeren. Daarom maken we liever gebruik van de beschikbare Python drivers. Je moet dan wel meegeven dat je dat package ook nodig hebt (`--with pyvisa-py`) en omdat de Arduino is aangesloten op een seriële kabel[^USB] heb je ook de PySerial package nodig (`--with pyserial`). Voluit wordt dan dus:
     ```shell
     uvx --from pyvisa --with pyvisa-py --with pyserial pyvisa-shell --backend py
     ```
-    Dat dit aardig vervelend kan worden met intypen is waarschijnlijk wel duidelijk. Daarom gaan we, als we Pythoncode gaan schrijven, gebruik maken van _virtual environments_.
+    Dat dit aardig vervelend kan worden met intypen is waarschijnlijk wel duidelijk. Daarom ga je later, als je Pythoncode gaat schrijven, gebruik maken van _virtual environments_.
 
     [^USB]: USB staat voor _Universal Serial Bus_, oftewel een universele standaard voor seriële communicatie. Dat mag je vergeten.
 
@@ -241,11 +241,11 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
         ```shell
         uvx termchar-demo
         ```
-        Je gaat naar de _Basic_ tab, daar zie je twee inputvelden voor de client (dat ben jij) en de server (dat is de Arduino).
+        Je gaat naar de _Basic_ tab, daar zie je inputvelden voor de client (dat ben jij) en de server (dat is de Arduino).
         
-        Je schrijft een commando `measure_voltage` naar de Arduino (druk op _Write_). In het _Input_ veld van de Arduino verschijnt jouw commando maar het staat nog niet in de _Application Log_, het is dus nog niet door de Arduino verwerkt. Want de _Read Termination Characters_ van de Arduino zijn `\n`(LF), die gaat dus pas lezen als die tekens zijn verstuurd. Je verstuurt `\n` en ziet dat het commando wordt verwerkt en jij een antwoord krijgt. 
+        Je schrijft een commando `measure_voltage` naar de Arduino (druk op _Write_). In het _Input_ veld van de Arduino verschijnt jouw commando, maar het staat nog niet in de _Application Log_ van de Arduino. Het commando is dus nog niet door de Arduino verwerkt. Dit komt doordat de _Read Termination Characters_ van de Arduino `\n`(LF) zijn, die gaat dus pas lezen als die tekens zijn verstuurd. Je verstuurt `\n` en ziet dat het commando wordt verwerkt en je een antwoord krijgt. 
 
-        Steeds `\n` handmatig versturen is onhandig daarom voer je bij de Client als _Write Termination Characters_ `\n` in. Je verstuurt nog een commando `measure_current`, drukt op _Write_ en ziet dat het bericht direct door de Arduino wordt verwerkt en een antwoord terugstuurt. 
+        Steeds `\n` handmatig versturen is onhandig daarom voer je bij de Client als _Write Termination Characters_ `\n` in. Je verstuurt nog een commando `measure_current`, drukt op _Write_ en ziet dat het bericht direct door de Arduino wordt verwerkt en dat je een antwoord krijgt. 
 
         In het _Input_ veld van de Client staan twee antwoorden van de Arduino, als je nu op _Read_ drukt blijven de termination characters in de antwoorden staan en moet je ze handmatig uit elkaar gaan halen. Dat is niet handig, daarom vul je bij de _Read Termination Characters_ van de Client `\r\n`(CRLF) in. Daarna druk je op _Read_ en merk je dat de twee antwoorden apart uitgelezen worden, super handig!
     === "check"
@@ -425,6 +425,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
+        - [ ] Pythonscript aanmaken
         - [ ] Virtual environment aanmaken
         - [ ] PyVISA in Pythonscript
         - [ ] LED laten branden
@@ -440,7 +441,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Je gaat de gegeven Pythoncode testen. Hiervoor open je in Visual Studio Code de map {{folder}}`ECPC` en maak je een bestand {{new_file}}`test_arduino.py` aan. Je kopieert de gegeven Pythoncode in dit bestand. Je ziet dat Visual Studio Code rechtsonder aangeeft dat je nog geen virtual environment hebt geselecteerd (de bruinige waarschuwing _Select Interpreter_). We moeten dus nog een virtual environment aanmaken.
+            Je gaat de gegeven Pythoncode testen. Hiervoor open je in Visual Studio Code de map {{folder}}`ECPC` en maak je een bestand {{new_file}}`test_arduino.py` aan. Je kopieert de gegeven Pythoncode in dit bestand. Je ziet dat Visual Studio Code rechtsonder aangeeft dat je nog geen virtual environment hebt geselecteerd (de bruinige waarschuwing _Select Interpreter_). Je moet dus nog een virtual environment aanmaken. Ga daarvoor verder met de volgende opdracht.
             </div>
             <div>
             {{folder}}`ECPC`  
@@ -448,6 +449,20 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
             {{L}}{{dots}}  
             </div>
         </div>
+    
+    === "check"
+        **Projecttraject**
+
+        - [x] Vergelijk script met `pyvisa-shell`
+        - [x] Pythonscript aanmaken
+        - [ ] Virtual environment aanmaken
+        - [ ] PyVISA in Pythonscript
+        - [ ] LED laten branden
+        - [ ] flashingLED
+        - [ ] Account aanmaken
+        - [ ] Van bestaande map repository maken
+        - [ ] Commit 
+        - [ ] Push en pull
 
 <div id="opd:venv"></div>
 !!! opdracht-basis "Virtual environment aanmaken"
@@ -456,13 +471,13 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         ``` ps1 title="Terminal"
         uv venv --python 3.13
         ```
-        Met `--python 3.13` geven we aan: gebruik Pythonversie 3.13 (released in 2024). Je mag dat weglaten en dan kiest uv op basis van Pythonversies die je al geïnstalleerd hebt staan, maar als je een te oude versie gebruikt werken sommige dingen misschien niet.
+        Met `--python 3.13` geef je aan: gebruik Pythonversie 3.13 (released in 2024). Je mag dat weglaten en dan kiest uv op basis van Pythonversies die je al geïnstalleerd hebt staan, maar als je een te oude versie gebruikt werken sommige dingen misschien niet.
 
         Om een virtual environment daadwerkelijk te gebruiken kun je die _activeren_. Dat kun je doen door in de pop-up "We've noticed that..." te kiezen voor "Yes", of door rechtsonderin op _Select Interpreter_ te klikken en dan te kiezen voor de omgeving (Python 3.13.x (ECPC) `.\.venv\Scripts\python.exe`):
         
         ![Screenshot van popup om nieuw virtual environment te selecteren](figures/screenshot-new-venv-popup.png){: style="width:475px"}
         
-        Deze opties verschijnen als je een Pythonbestand open hebt staan. Na selecteren **moet** je de terminal dan sluiten (type `exit` of klik op het prullenbakje) en een nieuwe terminal openen. Als het terminal goed geactiveerd is staat er nu `(ECPC)` aan het begin van de prompt (opdrachtregel waar je je commando's intypt).
+        Deze opties verschijnen als je een Pythonbestand open hebt staan. Na selecteren **moet** je de terminal sluiten (type `exit` of klik op het prullenbakje) en een nieuwe terminal openen. Als de terminal goed geactiveerd is staat er nu `(ECPC)` aan het begin van de prompt (opdrachtregel waar je je commando's intypt).
 
         !!! info
             Als je op Windows werkt, kun je bij het openen van een nieuwe terminal de volgende foutmelding krijgen:
@@ -477,7 +492,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
                 + CategoryInfo          : SecurityError: (:) [], PSSecurityException
                 + FullyQualifiedErrorId : UnauthorizedAccess
             ```
-            Los dit op door na de foutmelding het volgende in te typen in je terminal:
+            Los dit op door na de foutmelding het volgende in te typen in de terminal:
             ``` ps1
             Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
             ```
@@ -497,6 +512,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
+        - [x] Pythonscript aanmaken
         - [x] Virtual environment aanmaken
         - [ ] PyVISA in Pythonscript
         - [ ] LED laten branden
@@ -560,6 +576,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
+        - [x] Pythonscript aanmaken
         - [x] Virtual environment aanmaken
         - [x] PyVISA in Pythonscript
         - [ ] LED laten branden
@@ -622,6 +639,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
+        - [x] Pythonscript aanmaken
         - [x] Virtual environment aanmaken
         - [x] PyVISA in Pythonscript
         - [x] LED laten branden
@@ -685,6 +703,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
+        - [x] Pythonscript aanmaken
         - [x] Virtual environment aanmaken
         - [x] PyVISA in Pythonscript
         - [x] LED laten branden

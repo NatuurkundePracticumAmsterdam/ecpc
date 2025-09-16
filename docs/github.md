@@ -50,6 +50,7 @@ In deze cursus ga je werken met GitHub. Je moet hiervoor wel een (gratis) accoun
         **Projecttraject**
 
         - [x] Vergelijk script met `pyvisa-shell`
+        - [x] Pythonscript aanmaken
         - [x] Virtual environment aanmaken
         - [x] PyVISA in Pythonscript
         - [x] LED laten branden
@@ -102,6 +103,7 @@ Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een d
         **Projecttraject**
     
         - [x] Vergelijk script met `pyvisa-shell`
+        - [x] Pythonscript aanmaken
         - [x] Virtual environment aanmaken
         - [x] PyVISA in Pythonscript
         - [x] LED laten branden
@@ -160,6 +162,7 @@ Hieronder zie je een aantal voorbeelden van commit messages. De titel (_summary_
         **Projecttraject**
     
         - [x] Vergelijk script met `pyvisa-shell`
+        - [x] Pythonscript aanmaken
         - [x] Virtual environment aanmaken
         - [x] PyVISA in Pythonscript
         - [x] LED laten branden
@@ -192,6 +195,7 @@ In GitHub Desktop zie je nu bij _History_ de commit staan, met in één oogopsla
         **Projecttraject**
     
         - [x] Vergelijk script met `pyvisa-shell`
+        - [x] Pythonscript aanmaken
         - [x] Virtual environment aanmaken
         - [x] PyVISA in Pythonscript
         - [x] LED laten branden
