@@ -1,30 +1,36 @@
 # Pythonprojecten met uv
 
-In de vorige hoofdstukken heb je gewerkt met een eigen virtual environment zodat je jouw pythonomgeving mooi gescheiden kan houden van andere projecten waar je aan werkt. Dit is echt _de_ oplossing voor alle problemen waarbij volledige Pythoninstallaties onbruikbaar kunnen worden &mdash; waarna je alles opnieuw moet installeren. Dit kan gebeuren als je &mdash; vanwege al je verschillende projecten &mdash; zoveel packages installeert dat die met elkaar in conflict komen.
+In de vorige hoofdstukken heb je gewerkt met een eigen virtual environment per project, zodat je jouw pythonomgeving mooi gescheiden kan houden van andere projecten waar je aan werkt. Dit is echt _de_ oplossing voor alle problemen waarbij volledige Pythoninstallaties onbruikbaar kunnen worden &mdash; waarna je alles opnieuw moet installeren. Dit kan gebeuren als je &mdash; vanwege al je verschillende projecten &mdash; zoveel packages installeert dat die met elkaar in conflict komen.
 
 Voor ieder project nieuwe environments aanmaken heeft wel een nadeel: je moet alle packages die je nodig hebt opnieuw installeren. Welke waren dat ook alweer? Vast `numpy`, en `matplotlib`, en&hellip;? Niet handig. Als je code gaat delen met elkaar krijg je regelmatig te maken met een `#!py ImportError` of `#!py ModuleNotFoundError` omdat je niet precies weet wat er nodig is, waarna je _weer_ één of ander package moet installeren.
 
-Nu pythondaq netjes is uitgesplitst in een MVC-structuur en de wijzigingen met Git worden bijgehouden, ga je er een package van maken zodat je het ook met anderen kan delen. Daarin staan alle benodigdheden duidelijk omschreven zodat gebruikers daar verder niet over hoeven na te denken.
+Nu pythondaq netjes is uitgesplitst in een MVC-structuur en de wijzigingen met Git worden bijgehouden, ga je er een package van maken zodat je het ook met anderen kunt delen. In deze package staan alle benodigdheden duidelijk omschreven, zodat gebruikers daar verder niet over hoeven na te denken.
 
-Packages op PyPI (de standaardplek waar Python packages gepubliceerd worden) geven altijd hun _dependencies_ op. Dat zijn de packages die verder nog nodig zijn om alles te laten werken. Installeer je `matplotlib`, dan krijg je er `six, python-dateutil, pyparsing, pillow, numpy, kiwisolver, cycler` automatisch bij. Maar alleen de namen van packages zijn niet genoeg. Welke versies van `numpy` werken met de huidige versie van `matplotlib`? Allemaal zaken die je &mdash; als je een package schrijft &mdash; zelf moet bijhouden. Het voordeel is dat jouw gebruikers alleen maar _jouw_ package hoeven te installeren &mdash; de rest gaat vanzelf.
+Packages op PyPI &mdash; de standaardplek waar Python packages gepubliceerd worden &mdash; geven altijd hun _dependencies_ op. Dat zijn de packages die verder nog nodig zijn om alles te laten werken. Installeer je `matplotlib`, dan krijg je er `six, python-dateutil, pyparsing, pillow, numpy, kiwisolver, cycler` automatisch bij. Maar alleen de namen van de packages als dependencies opgeven is niet genoeg. Welke versies van `numpy` werken met de huidige versie van `matplotlib`? Allemaal zaken die je &mdash; als je een package schrijft &mdash; zelf moet bijhouden. Als je dat netjes doet, dan hoeven jouw gebruikers alleen maar _jouw_ package te installeren &mdash; de rest gaat vanzelf.
 
-En&hellip; hoe test je je package zodat je zeker weet dat hij het bij een ander ook doet? Heel vaak werkt het bij jou wel, maar vergeet je een bestand mee te sturen dat wel echt nodig is.[^missende bestanden] Of: bij jou werkt `#!py import my_new_cool_app.gui` wel, maar bij een ander geeft hij een `#!py ImportError` of `#!py ModuleNotFoundError`. De bestanden zijn er wel, maar worden verkeerd geïmporteerd.
+En&hellip; hoe test je je package, zodat je zeker weet dat je package het bij een ander ook doet? Heel vaak werkt het bij jou wel, maar vergeet je een bestand mee te sturen dat wel echt nodig is.[^missende bestanden] Of: bij jou werkt `#!py import my_new_cool_app.gui` wel, maar bij een ander geeft dat een `#!py ImportError` of `#!py ModuleNotFoundError`. De bestanden zijn er wel, maar worden verkeerd geïmporteerd.
 
-[^missende bestanden]: Echt gebeurd: meerdere studenten leverden hun grafische applicatie in voor een beoordeling. We konden het niet draaien, want er misten bestanden. Bij de student werkte het wel, maar bij ons _echt_ niet.
+[^missende bestanden]: Echt gebeurd: meerdere studenten leverden hun grafische applicatie in voor een beoordeling. We konden het niet draaien, want er misten bestanden. Bij de studenten werkte het wel, maar bij ons _echt_ niet.
 
-Hoe _krijg_ je eigenlijk je code bij iemand anders? Liefst als één bestand, of zelfs met `pip install my_new_cool_app`; dat zou wel mooi zijn.
+Hoe _krijg_ je eigenlijk je code bij iemand anders? Liefst als één bestand, of zelfs met `uv pip install my_new_cool_app`; dat zou wel mooi zijn.
 
-Ook daarvoor gebruiken we _uv_.
+_uv_ helpt je ook hier om al deze problemen op te lossen. 
 
 !!! info
     Voorgaande jaren leerden we studenten om _Poetry_ te gebruiken. Heel populair, maar uv is de afgelopen anderhalf jaar nog [_veel populairder_](https://www.star-history.com/#python-poetry/poetry&astral-sh/uv&Date) geworden. En terecht.
 
 Er zijn meerdere tools ontwikkeld om dezelfde problemen op te lossen. uv is in korte tijd heel populair geworden. Het richt zich op het officiële ecosysteem: standaard Python packages, ofwel PyPI en `pip`; niet `conda` (zie meer hierover in [paragraaf _pip vs conda_](virtual_environments.md#pip-vs-conda)). Dit zorgt er voor dat iedereen mét of zónder Anaconda je package kan installeren. Omdat uv ook in staat is zelf verschillende versies van Python te installeren hebben we Anaconda niet meer nodig. De installer van Anaconda is bijna 1 Gb groot en bevat heel veel Python packages die je nooit gebruikt. De installer van uv is nog geen 20 Mb en kun je gebruiken om precies te installeren wat je nodig hebt.
 
-!!! opdracht-basis "Werken in een terminal"
-    uv is een tool die je enkel en alleen in de terminal kunt gebruiken. Het heeft alleen een command-line interface (CLI). Ben je nog niet zo bekend met het navigeren in een terminal dan kun je als oefening de [Terminal Adventure Game](terminal-adventure-game.md) spelen.
+!!! opdracht-basis-thuis "Werken in een terminal"
+    === "opdracht"
+        uv is een tool die je enkel en alleen in de terminal kunt gebruiken. Het heeft alleen een command-line interface (CLI). De [Terminal Adventure Game](terminal-adventure-game.md) helpt je om met meer gemak te navigeren in een terminal.
 
-We gaan uv bedienen door commando's te geven in de terminal van Visual Studio Code. We laten de terminal weten welk programma wij willen gaan besturen, door `uv` in te typen. En daarachter wat we willen dat uv gaat doen. We kunnen bijvoorbeeld kijken welke commando's allemaal beschikbaar zijn met `uv help`. Dat geeft een vrij lange lijst die je terug kunt scrollen in de terminal, maar je kunt ook `uv help | more` intypen om de tekst per pagina weer te geven.[^more]
+    === "check"
+        **Projecttraject**
+
+        - [x] Werken in een terminal
+
+Je gaat uv bedienen door commando's te geven in de terminal van Visual Studio Code. Je laat de terminal weten welk programma je wilt gaan besturen door `uv` in te typen. En daarachter wat je wilt dat uv gaat doen. Je kunt bijvoorbeeld kijken welke commando's allemaal beschikbaar zijn met `uv help`. Dat geeft een vrij lange lijst die je terug kunt scrollen in de terminal, maar je kunt ook `uv help | more` intypen om de tekst per pagina weer te geven.[^more]
 
 [^more]: `more` is een programma die aangeleverde tekst per pagina laat zien, waar je met ++space++ een volgende pagina te zien krijgt. Met ++enter++ krijg je maar één regel extra en met ++q++ sluit je het programma meteen af. Het `|` karakter stuurt output door. Dus `uv help | more` stuurt de output van `uv help` door naar het programma `more`.
 
@@ -62,19 +68,19 @@ Cache options:
 </code></pre>
 
 !!! info
-    Zoals je ziet heeft `uv` dus heel veel verschillende commando's. uv is een Zwitsers zakmes: het bevat heel veel tools voor wie dat nodig heeft. Wij hebben lang niet alles nodig dus laat je daardoor niet uit het veld slaan. In de rest van dit hoofdstuk vertellen we precies wat je _wel_ nodig hebt. Als je meer wilt weten kun je het beste [de documentatie](https://docs.astral.sh/uv/) lezen.
+    Zoals je ziet heeft `uv` heel veel verschillende commando's. uv is een Zwitsers zakmes: het bevat heel veel tools voor wie dat nodig heeft. Jij hebt voor nu lang niet alles nodig, dus laat je niet uit het veld slaan door deze lange lijst. In de rest van dit hoofdstuk vertellen we je precies wat je _wel_ nodig hebt. Als je meer wilt weten kun je het beste de [documentatie](https://docs.astral.sh/uv/) lezen.
 
 
 ## Nieuw uv project
 !!! info
-    We gaan werken met modules en packages. Ben je daar nog niet zo bekend mee, zorg dan dat je [paragraaf _Modules_](vervolg-python.md#modules) en [paragraaf _packages_](vervolg-python.md#packages) gemaakt hebt.
+    Je gaat werken met modules en packages. Ben je daar nog niet zo bekend mee, zorg dan dat je [paragraaf _Modules_](vervolg-python.md#modules) en [paragraaf _Packages_](vervolg-python.md#packages) gemaakt hebt.
 
-Stel je wilt een package schrijven met wat handige functies om veelgebruikte statistische berekeningen makkelijk uit te voeren. Je noemt het `easystat`. Het doel is eerst om het in al je eigen analyses makkelijk te kunnen gebruiken (`#!py import easystat`) maar je wilt het ook op GitHub zetten en wie weet vinden anderen het ook handig! Je wilt het dus ook _netjes_ doen. En niet later van anderen horen: <q>leuk, maar bij mij werkt het niet!</q>
+Stel je wilt een package schrijven met wat handige functies om veelgebruikte statistische berekeningen makkelijk uit te voeren. Je noemt het package `easystat`. Het doel is eerst om het in al je eigen analyses makkelijk te kunnen gebruiken (`#!py import easystat`), maar je wilt het ook op GitHub zetten en wie weet vinden anderen het ook handig! Je wilt het dus ook _netjes_ doen. En niet later van anderen horen: <q>leuk, maar bij mij werkt het niet!</q>
 
-!!! opdracht-basis "Easystat uv project aanmaken"
+!!! opdracht-basis "Easystat: uv project aanmaken"
     === "opdracht"
-        1. Open Github Desktop en ga naar het dropdownmenu **File**. Kies hier voor `New repository ...`. Geef de repository de naam `easystat` en zet de repository in de map {{folder}}`ECPC`. Vink `Initialize this repository with a README` aan en kies bij `Git ignore` voor <q>Python</q>.
-        2. Open de repository {{github}} `easystat` in Visual Studio Code.
+        1. Open Github Desktop en ga naar **Menu > File**. Kies hier voor `New repository ...`. Geef de repository de naam `easystat` en zet de repository in de map {{folder}}`ECPC`. Vink `Initialize this repository with a README` aan en kies bij `Git ignore` voor Python.
+        2. Open de repository {{github}} `easystat` in Visual Studio Code (**Menu > Repository > Open in Visual Studio Code**).
         3. Open een Terminal in je Visual Studio Code-omgeving (**Menu > Terminal > New Terminal**). Maak het uv project aan met:
         ``` ps1 title="Terminal"
         uv init --package
@@ -97,7 +103,7 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
         5. Commit in GitHub Desktop de wijzigingen die `uv init` heeft gedaan.
 
         !!! info "src-layout"
-            Door het project in een source layout (src-layout) te bouwen (`easystat` zit in een mapje `src`) staat al je Pythoncode netjes bij elkaar weggestopt. Dit maakt het makkelijker om te testen of het installeren goed werkt zodat je zeker weet dat andere mensen met jouw code aan de slag kunnen.
+            Door het project in een source layout (src-layout) te bouwen &mdash; `easystat` zit in een map `src` &mdash; staat al je Pythoncode netjes bij elkaar weggestopt. Dit maakt het makkelijker om te testen of het installeren goed werkt, zodat je zeker weet dat andere mensen met jouw code aan de slag kunnen.
 
     === "code"
         **Testcode**
@@ -106,31 +112,32 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
         </code></pre>
         
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
-        - [ ] De projectmap {{folder}}`easystat` staat in de map {{folder}}`ECPC`.
+        - [ ] De _projectmap_ {{folder}}`easystat` staat in de map {{folder}}`ECPC`.
         - [ ] In de _projectmap_ {{folder}}`easystat` staat een map {{folder}}`src`.
-        - [ ] In de map {{folder}}`src` staat een _package_ map {{folder}}`easystat`
+        - [ ] In de map {{folder}}`src` staat een _package map_ {{folder}}`easystat`
 
         **Projecttraject**
     
-        - [x] Easystat uv project aanmaken
-        - [ ] Easystat virtual environment aanmaken
-        - [ ] Easystat {{file}}`shortcuts.py`, {{file}}`measurements.py` en {{file}}`try_measurements.py` aanmaken
-        - [ ] Easystat {{file}}`shortcuts.py` testen
-        - [ ] Easystat dependencies toevoegen
-        - [ ] Easystat package imports fixen
+        - [x] Easystat: uv project aanmaken
+        - [ ] Easystat: virtual environment synchroniseren
+        - [ ] Easystat: benodigde scripts aanmaken
+        - [ ] Easystat: testen
+        - [ ] Easystat: dependency toevoegen
+        - [ ] Easystat: opnieuw testen 
+        - [ ] Easystat: imports aanpassen
+        - [ ] Easystat: absolute imports
 
+Laten we één voor één kijken welke mappen en bestanden uv heeft aangemaakt. Je had al een {{file_lines}}`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van het project.[^README]
 
-Laten we één voor één kijken welke mappen en bestanden uv heeft aangemaakt. We hadden al een {{file_lines}}`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van ons project.[^README]
+[^README]: Wanneer de repository op GitHub wordt geplaatst, wordt deze README automatisch op de hoofdpagina van de repository getoond, onder de code.
 
-[^README]: Wanneer de repository op GitHub wordt geplaatst wordt deze README automatisch op de hoofdpagina van de repository getoond, onder de code.
+Dan komt de {{folder}}`src`-map. Daarin komt het nieuwe package {{folder}}`easystat`[^projectmap] te staan. Er is alvast een {{file}}`__init__.py` aangemaakt. Handig! De bestanden {{file}}`.gitattributes` en {{file}}`.gitignore` bewaren wat instellingen voor Git. En {{file}}`.python-version` bewaart het versienummer van Python dat uv gebruikt. Vul je daar 3.12 in? Dan installeert uv Python 3.12 in je virtual environment.
 
-Dan komt de {{folder}}`src`-map. Daarin komt ons nieuwe package {{folder}}`easystat`[^projectmap] te staan. Er is alvast voor ons een {{file}}`__init__.py` aangemaakt. Handig! De bestanden {{file}}`.gitattributes` en {{file}}`.gitignore` bewaren wat instellingen voor git, en {{file}}`.python-version` bewaart het versienummer van Python dat uv gebruikt. Vul je daar 3.12 in? Dan installeert uv Python 3.12 in je virtual environment.
+[^projectmap]: Ja, er is een map {{folder}}`easystat` met daarin een map {{folder}}`src` met daarin weer een map {{folder}}`easystat` &mdash; dat kan nog wel eens verwarrend zijn. Het is conventie om de projectmap dezelfde naam te geven als je package. Het pad is dus eigenlijk {{folder}}`project/src/package` en dat wordt dan, in dit geval, {{folder}}`easystat/src/easystat`.
 
-[^projectmap]: Ja er is een map {{folder}}`easystat` met daarin een map {{folder}}`src` met daarin weer een map {{folder}}`easystat` &mdash; dat kan nog wel eens verwarrend zijn. Het is conventie om de projectmap dezelfde naam te geven als je package. Het pad is dus eigenlijk {{folder}}`project/src/package` en dat wordt dan, in ons geval, {{folder}}`easystat/src/easystat`.
-
-En als laatste&hellip; een {{file_lines}}`pyproject.toml`[^setup.py] waarin alle informatie over je project wordt bijgehouden. Ook staat er in dit bestand informatie voor de verschillende tools die je kunt gebruiken. De inhoud van het bestand ziet er ongeveer zo uit:
+En als laatste&hellip; een {{file_lines}}`pyproject.toml`[^setup.py] waarin alle informatie over je project wordt bijgehouden. Ook staat er in dit bestand informatie over de verschillende tools die je kunt gebruiken. De inhoud van het bestand ziet er ongeveer zo uit:
 ``` toml
 [project]
 name = "easystat"
@@ -151,21 +158,21 @@ requires = ["uv_build>=0.8.4,<0.9.0"]
 build-backend = "uv_build"
 ```
 
-[^setup.py]: Vroeger was er een `setup.py` maar Python schakelt nu langzaam over naar dit nieuwe bestand.
+[^setup.py]: Vroeger was er een `setup.py`, maar Python schakelt nu langzaam over naar dit nieuwe bestand.
 
-Het bestand is in het TOML-formaat.[@TOML] Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. In de eerste sectie staat informatie over ons project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. Ook bevat die sectie de _dependencies_. Dit zijn alle Pythonpackages die ons project nodig heeft. Op dit moment is dat nog niets. Ook het versienummer van Python is belangrijk. Hier is dat groter of gelijk aan 3.13. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python &mdash; bijvoorbeeld versie 3.11 &mdash; kunnen nu het package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.13 nodig hebt kun je aangeven dat een iets oudere versie van Python ook prima is. Op moment van schrijven &mdash; zomer 2025 &mdash; is Python 3.13 de nieuwste versie. Het is dus prima om minimaal 3.12 te vragen &mdash; die versie is inmiddels bijna twee jaar oud.
+Het bestand is in het TOML-formaat.[@TOML] Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. In de eerste sectie staat informatie over het project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. Ook bevat die sectie de _dependencies_. Dit zijn alle Pythonpackages die het project nodig heeft. Op dit moment is dat nog niets. Ook het versienummer van Python is belangrijk. Hier is dat groter of gelijk aan 3.13. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python &mdash; bijvoorbeeld versie 3.11 &mdash; kunnen nu de package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.13 nodig hebt, kun je aangeven dat een iets oudere versie van Python ook prima is. Op moment van schrijven &mdash; zomer 2025 &mdash; is Python 3.13 de nieuwste versie. Het is dus prima om minimaal 3.12 te vragen &mdash; deze versie is inmiddels bijna twee jaar oud.
 
-!!! info "Python versie in je project"
+!!! info "Pythonversie in het project"
 
-    Het is _heel handig_ om als je `#!toml requires-python = ">=3.12"` invult, ofwel 'minstens 3.12', dat je dan in {{file}}`.python-version` _ook_ 3.12 invult omdat je anders niet zeker weet dat je code ook echt werkt met 3.12 (omdat jij zelf dan bijvoorbeeld met 3.13 werkt en het dus nooit getest hebt met 3.12).
+    Het is _heel handig_ om, als je `#!toml requires-python = ">=3.12"` invult, ofwel 'minstens 3.12', dat je dan in {{file}}`.python-version` _ook_ 3.12 invult. Omdat je anders niet zeker weet of je code ook echt werkt met 3.12 (omdat jijzelf dan bijvoorbeeld met 3.13 werkt en je de code dus nooit getest hebt met 3.12).
 
-De sectie `[project.scripts]` zorgt ervoor dat we ons script kunnen aanroepen door `easystat` in de terminal in te typen en de sectie `[build-system]` zorgt ervoor dat we een package kunnen maken en uploaden naar de Python Package Index (PyPI). De `[build-system]` sectie is nu nog niet belangrijk.
+De sectie `[project.scripts]` zorgt ervoor dat je het script kunt aanroepen door `easystat` in de terminal in te typen. De sectie `[build-system]` zorgt ervoor dat je een package kunt maken en uploaden naar de Python Package Index (PyPI). De sectie `[build-system]` is voor nu nog niet belangrijk.
 
-!!! opdracht-basis "Synchroniseren van virtual environments"
+!!! opdracht-basis "Easystat: virtual environment synchroniseren"
     === "opdracht"
-        1. Hoewel we hierboven beweerden dat je `easystat` kunt intypen in de terminal en dat er dan een scriptje draait, werkt dat (nog) niet. Probeer maar eens! Het werkt ook niet als je een nieuwe terminal opent. En... er staat niets tussen haakjes aan het begin van de opdrachtprompt. Blijkbaar is er nog geen virtual environment actief.
-        2. Open {{file}}`src/eaystat/__init__.py`. Rechtsonderin zie je inderdaad {{warning}}`Select Interpreter`. Als je daarop klikt zie je alleen niet `Python 3.x.x (easystat)` in het rijtje staan... Druk op ++escape++ om het menu te verlaten.
-        3. In een terminal in VS Code, type in:
+        1. Hoewel we hierboven beweerden dat je `easystat` kunt intypen in de terminal en dat er dan een script draait, werkt dat hier (nog) niet. Probeer maar eens! Het werkt ook niet als je een nieuwe terminal opent. En... er staat niets tussen haakjes aan het begin van de opdrachtprompt. Blijkbaar is er nog geen virtual environment actief.
+        2. Open het bestand {{file}}`src/eaystat/__init__.py`. Rechtsonderin zie je inderdaad {{warning}}`Select Interpreter`. Als je daar op klikt, zie je alleen niet `Python 3.x.x (easystat)` in het rijtje staan... Druk op ++escape++ om het menu te verlaten.
+        3. Type in de terminal van Visual Studio Code: 
         <pre><code>> uv sync <button type="button" name="uv_sync" onclick="runScript('uv_sync')">{{ enter }}</button><button type="button" name="uv_sync" onclick="runScript('uv_sync')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="uv_sync">Using CPython 3.13.5
         Creating virtual environment at: .venv
@@ -173,34 +180,35 @@ De sectie `[project.scripts]` zorgt ervoor dat we ons script kunnen aanroepen do
         Installed 1 package in 47ms
         &nbsp;+ easystat==0.1.0 (from file:///C:/Users/David/Documents/ECPC/easystat)</span></code></pre>
         Wat dit gedaan heeft is het automatisch aanmaken van het virtual environment op basis van je projectinstellingen. Dus de Pythonversie die in {{file}}`.python-version` staat en eventuele dependencies die gedefinieerd zijn in je {{file_lines}}`pyproject.toml`.
-        4. Kies het nieuwe virtual environment.
+        4. Kies de nieuwe virtual environment.
         5. Open een _nieuwe_ terminal en type `easystat`. Als het goed is werkt het nu wél!
         6. Commit in GitHub Desktop de wijzigingen die `uv sync` heeft gedaan (een `uv.lock` file, zie [later](#opd:uv.lock)).
 
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
-        - [ ] Rechtsonderin staat je Python environment geselecteerd (3.12.x (easystat)).
+        - [ ] In Visual Studio Code staat rechtsonderin je Python environment geselecteerd (3.12.x (easystat)).
         - [ ] In de terminal staat (easystat) vooraan de opdrachtprompt.
         - [ ] Het commando `easystat` runt zonder problemen.
 
         **Projecttraject**
     
-        - [x] Easystat uv project aanmaken
-        - [x] Easystat virtual environment aanmaken
-        - [ ] Easystat {{file}}`shortcuts.py`, {{file}}`measurements.py` en {{file}}`try_measurements.py` aanmaken
-        - [ ] Easystat {{file}}`shortcuts.py` testen
-        - [ ] Easystat dependencies toevoegen
-        - [ ] Easystat package imports fixen
+        - [x] Easystat: uv project aanmaken
+        - [x] Easystat: virtual environment synchroniseren
+        - [ ] Easystat: benodigde scripts aanmaken
+        - [ ] Easystat: testen
+        - [ ] Easystat: dependency toevoegen
+        - [ ] Easystat: opnieuw testen 
+        - [ ] Easystat: imports aanpassen
+        - [ ] Easystat: absolute imports
 
+### Maken van de package
+Nu ga je starten met de package. Je gaat een aantal keer de foutmelding `#!py ModuleNotFoundError` tegenkomen, maar dit los je stap voor stap ook weer op. Stel, je berekent vaak de standaarddeviatie van het gemiddelde en je maakt daarvoor een handige <q>shortcut</q> in {{file}}`shortcuts.py`. Nu wil je deze shortcut ook in een ander script, {{file}}`measurements.py`, gebruiken, die op basis van een aantal metingen het gemiddelde mét een onzekerheid geeft. Dit kun je doen door de oorspronkelijke module te importeren in het nieuwe script, zodat je de functie `stdev_of_mean` ook daar kunt gebruiken. Je maakt een script {{file}}`try_measurements.py` om dit allemaal te testen, en dit script zet je expres niet _in_ het package, maar in een nieuwe map {{folder}}`tests`. Het testscript hoort immers niet bij de code van de `easystat` package.
 
-
-### Maken van de easystat-package
-We starten met ons package. We gaan een aantal `#!py ModuleNotFoundError`s tegenkomen, maar dat lossen we ook weer op.  Stel, we berekenen vaak de standaarddeviatie van het gemiddelde en maken daarvoor een handige <q>shortcut</q> in {{file}}`shortcuts.py`. Nu willen we deze shortcut ook in een ander script {{file}}`measurements.py` gebruiken, die op basis van een aantal metingen het gemiddelde mét een onzekerheid geeft. Dit kunnen we doen door de module te importeren in het nieuwe script zodat we de functie `stdev_of_mean` daar ook kunnen gebruiken. We maken uiteindelijk een script {{file}}`try_measurements.py` om dit allemaal te testen, en die zetten we expres niet _in_ het package, maar in een nieuwe map {{folder}}`tests`. Het testscript hoort immers niet bij de code van het `easystat` package.
-
-!!! opdracht-basis "Easystat shortcuts.py en try_shortcuts.py aanmaken"
+!!! opdracht-basis "Easystat: benodigde scripts aanmaken"
     === "opdracht"
-        Maak zoals hieronder aangegeven de bestanden {{new_file}}`shortcuts.py`, {{new_file}}`measurements.py` en {{new_file}}`try_measurements.py` aan, waarbij je let op in welke map de bestanden moeten staan (je moet nog een map zelf aanmaken):
+        Maak de bestanden {{new_file}}`shortcuts.py`, {{new_file}}`measurements.py` en {{new_file}}`try_measurements.py` aan. Kopieer onderstaande code in de betreffende bestanden. In welke map moet elk bestand staan? Je moet in ieder geval nog één map zelf aanmaken.
+       
         <div class="grid-tree" markdown>
             <div>
             ``` py title="shortcuts.py"
@@ -224,6 +232,7 @@ We starten met ons package. We gaan een aantal `#!py ModuleNotFoundError`s tegen
             ``` py title="try_measurements.py"
             from measurements import result_with_uncertainty
 
+
             measurements = [1, 2, 2, 2, 3]
             result, uncertainty = result_with_uncertainty(measurements)
 
@@ -246,32 +255,34 @@ We starten met ons package. We gaan een aantal `#!py ModuleNotFoundError`s tegen
         </div>
 
         !!! info "`Import numpy could not be resolved`"
-            Misschien is het je al opgevallen dat VS Code een oranje kringeltje onder `#!py numpy` zet in de eerste regels van twee scripts, en ook onder `shortcuts` en `measurements`. Als je daar je muiscursor op plaatst krijg je een popup met de melding `Import numpy could not be resolved`. Daar moeten we misschien wat mee... In de volgende opdrachten gaan we die problemen één voor één oplossen.
+            Misschien valt het je op dat Visual Studio Code een oranje kringeltje onder `#!py numpy` zet in de eerste regels van twee scripts. En dit gebeurt ook onder `shortcuts` en `measurements`. Als je hier je muiscursor op plaatst, krijg je een popup met de melding `Import numpy could not be resolved`. Daar moet je misschien wat mee... In de volgende opdrachten ga je deze problemen één voor één oplossen.
 
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
-        - [ ] De map {{folder}}`easystat/src/easystat` bevat het bestand {{file}}`measurements.py`.
-        - [ ] De map {{folder}}`easystat/src/easystat` bevat het bestand {{file}}`shortcuts.py`.
-        - [ ] In de _projectmap_ {{folder}}`easystat` staat een map {{folder}}`tests`.
-        - [ ] De map {{folder}}`easystat/tests` bevat het bestand {{file}}`try_measurements.py`.
+        - [ ] De map {{folder}}`easystat/src/easystat` bevat het bestand {{new_file}}`measurements.py`.
+        - [ ] De map {{folder}}`easystat/src/easystat` bevat het bestand {{new_file}}`shortcuts.py`.
+        - [ ] In de _projectmap_ {{folder}}`easystat` staat een map {{new_folder}}`tests`.
+        - [ ] De map {{folder}}`easystat/tests` bevat het bestand {{new_file}}`try_measurements.py`.
 
         **Projecttraject**
     
-        - [x] Easystat uv project aanmaken
-        - [x] Easystat virtual environment aanmaken
-        - [x] Easystat {{file}}`shortcuts.py`, {{file}}`measurements.py` en {{file}}`try_measurements.py` aanmaken
-        - [ ] Easystat {{file}}`shortcuts.py` testen
-        - [ ] Easystat dependencies toevoegen
-        - [ ] Easystat package imports fixen
+        - [x] Easystat: uv project aanmaken
+        - [x] Easystat: virtual environment synchroniseren
+        - [x] Easystat: benodigde scripts aanmaken
+        - [ ] Easystat: testen
+        - [ ] Easystat: dependency toevoegen
+        - [ ] Easystat: opnieuw testen 
+        - [ ] Easystat: imports aanpassen
+        - [ ] Easystat: absolute imports
 
-In de eerste regel van {{file}}`try_measurements.py` importeren we de functie uit het nieuwe package om uit te proberen. In de eerste `#!py print`-regel gebruiken we een handige functie van f-strings.[^f-string-=]
+In de eerste regel van {{file}}`try_measurements.py` importeer je de functie uit het nieuwe package om deze uit te proberen. In de eerste `#!py print`-regel gebruik je een handige functie van f-strings.[^f-string-=]
 
-[^f-string-=]: In f-strings kunnen tussen de accolades variabelen of functieaanroepen staan. Voeg daar het `=`-teken aan toe en je krijgt niet alleen de _waarde_, maar ook de variabele of aanroep zelf te zien. Bijvoorbeeld: als je definieert `#!py name = "Alice"`, dan geeft `#!py print(f"{name}")` als uitkomst `#!py Alice`. Maar voeg je het `=`-teken toe zoals in `#!py print(f"{name=")}` wordt de uitvoer `#!py name='Alice'`. Je ziet dan dus ook meteen de naam van de variabele en dat kan handig zijn.
+[^f-string-=]: In f-strings kunnen tussen de accolades variabelen of functieaanroepen staan. Voeg daar het `=`-teken aan toe en je krijgt niet alleen de _waarde_, maar ook de variabele of aanroep zelf te zien. Bijvoorbeeld: als je definieert `#!py name = "Alice"`, dan geeft `#!py print(f"{name}")` als uitkomst `#!py Alice`. Maar voeg je het `=`-teken toe, zoals in `#!py print(f"{name=")}`, dan wordt de uitvoer `#!py name='Alice'`. Je ziet dan dus ook meteen de naam van de variabele en dat kan handig zijn.
 
-!!! opdracht-basis "Easystat shortcuts.py testen"
+!!! opdracht-basis "Easystat: testen"
     === "opdracht"
-        Je bent heel benieuwd of je package al werkt. Je runt als eerste het bestand {{file}}`shortcuts.py` en krijgt een foutmelding...
+        Je bent heel benieuwd of je package al werkt. Je runt als eerste het bestand {{file}}`shortcuts.py` en... je krijgt een foutmelding.
     === "code"
         **Testcode**
         <div class="code-box"><button type="button" name="shortcuts_error" onclick="runScript('shortcuts_error')" class="run">{{ run }}</button><button type="button" name="shortcuts_error" onclick="runScript('shortcuts_error')" class="reload invisible">{{ reload }}</button> shortcuts.py
@@ -292,28 +303,28 @@ In de eerste regel van {{file}}`try_measurements.py` importeren we de functie ui
         </code></pre></div>
         
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
         - [ ] Je hebt de juiste virtual environment geactiveerd.
-        - [ ] Je runt het bestand {{file}}`shortcuts.py`.
-        - [ ] Je krijgt een foutmelding `#!py ModuleNotFoundError: No module named 'NumPy'`
+        - [ ] Je krijgt een foutmelding `ModuleNotFoundError: No module named 'numpy'` als je het bestand {{file}}`shortcuts.py` runt.
         
         **Projecttraject**
 
-        - [x] Easystat uv project aanmaken
-        - [x] Easystat virtual environment aanmaken
-        - [x] Easystat {{file}}`shortcuts.py`, {{file}}`measurements.py` en {{file}}`try_measurements.py` aanmaken
-        - [x] Easystat {{file}}`shortcuts.py` testen
-        - [ ] Easystat dependencies toevoegen
-        - [ ] Easystat package imports fixen
-
+        - [x] Easystat: uv project aanmaken
+        - [x] Easystat: virtual environment synchroniseren
+        - [x] Easystat: benodigde scripts aanmaken
+        - [x] Easystat: testen
+        - [ ] Easystat: dependency toevoegen
+        - [ ] Easystat: opnieuw testen 
+        - [ ] Easystat: imports aanpassen
+        - [ ] Easystat: absolute imports
     
-De beloofde `#!py ModuleNotFoundError`! Ons package heeft NumPy nodig en dat hebben we nog niet geïnstalleerd. Dat was de reden voor de kriebeltjes onder `numpy`. Het installeren kunnen we handmatig doen maar dan hebben andere gebruikers een probleem. Veel beter is het om netjes aan te geven dat ons package NumPy nodig heeft &mdash; als _dependency_.
+De beloofde `#!py ModuleNotFoundError`! Het package heeft `numpy` nodig en dat heb je nog niet geïnstalleerd in de virtual environment. Dat is ook de reden voor de kringeltjes onder `#!py numpy` in het bestand `shortcuts.py`. Het installeren van `#!py numpy` kun je handmatig doen, maar dan hebben straks andere gebruikers een probleem. Veel beter is het om netjes aan te geven dat het package `numpy` nodig heeft &mdash; als _dependency_.
 
 
 ### Dependencies toevoegen
 
-Om een dependency aan te geven vertellen we uv dat hij deze moet toevoegen met:
+Om een dependency aan te geven vertel je uv dat hij deze moet toevoegen met:
 <pre><code>(easystat) > uv add numpy <button type="button" name="uv add numpy" onclick="runScript('uv add numpy')">{{ enter }}</button><button type="button" name="uv add numpy" onclick="runScript('uv add numpy')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="uv add numpy">Resolved 2 packages in 453ms
       Built easystat @ file:///C:/Users/David/Documents/ECPC/easystat
@@ -324,61 +335,62 @@ Installed 2 packages in 798ms
  + numpy==2.3.2</span>
 </code></pre>
 
-!!! opdracht-basis "Easystat dependencies toevoegen"
+!!! opdracht-basis "Easystat: dependency toevoegen"
     === "opdracht"
-        Je voegt `numpy` als dependency toe aan het project `easystat` met het commando `uv add numpy`. Je kijkt in de {{file_lines}}`pyproject.toml` en warempel daar staat `numpy` nu bij de dependencies! Je vraagt je af of `numpy` nu ook in het virtual environment `easystat` is geïnstalleerd en controleert dit met `uv pip list` en waarachtig `numpy` staat in de lijst {{feesttoeter}}. Weer ga je {{file}}`shortcuts.py` draaien en ditmaal krijg geen foutmelding! Commit de wijzigingen.
+        Je voegt `numpy` als dependency toe aan het project `easystat` met het commando `uv add numpy`. Je kijkt in de {{file_lines}}`pyproject.toml` en warempel daar staat `numpy` nu bij de dependencies! Je vraagt je af of `numpy` nu ook in het virtual environment `easystat` is geïnstalleerd en controleert dit met `uv pip list`. En waarachtig `numpy` staat in de lijst {{feesttoeter}}. Weer ga je {{file}}`shortcuts.py` draaien en ditmaal krijg geen foutmelding! Commit de wijzigingen.
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
         - [ ] Je hebt de juiste virtual environment geacitveerd.
         - [ ] Je hebt `numpy` als dependency toegevoegd.
-        - [ ] Je krijgt geen foutmelding als je het bestand {{file}}`shortcuts.py` runt.
+        - [ ] Je krijgt geen foutmelding meer als je het bestand {{file}}`shortcuts.py` runt.
 
         **Projecttraject**
     
-        - [x] Easystat uv project aanmaken
-        - [x] Easystat virtual environment aanmaken
-        - [x] Easystat {{file}}`shortcuts.py`, {{file}}`measurements.py` en {{file}}`try_measurements.py` aanmaken
-        - [x] Easystat {{file}}`shortcuts.py` testen
-        - [x] Easystat dependencies toevoegen
-        - [ ] Easystat package imports fixen
+        - [x] Easystat: uv project aanmaken
+        - [x] Easystat: virtual environment synchroniseren
+        - [x] Easystat: benodigde scripts aanmaken
+        - [x] Easystat: testen
+        - [x] Easystat: dependency toevoegen
+        - [ ] Easystat: opnieuw testen 
+        - [ ] Easystat: imports aanpassen
+        - [ ] Easystat: absolute imports
 
-
-Fijn! uv heeft NumPy nu toegevoegd aan de environment `easystat`. Gewone package managers als Pip en Conda zullen geen packages toevoegen aan je uv project als je `pip/conda install package` aanroept. Gebruik daarom altijd `uv add package` als je met uv aan een package werkt. Sterker nog, als je met Pip handmatig packages extra installeert zal `uv sync` deze packages als overbodig herkennen en ze prompt weer verwijderen. Heb je iets verkeerds toegevoegd? Het verwijderen van dependency `PACKAGE` gaat met `uv remove PACKAGE`.
+Fijn! uv heeft `numpy` nu toegevoegd aan de virtual environment `easystat`. Gewone package managers als Pip en Conda zullen geen packages toevoegen aan je uv project als je `pip/conda install PACKAGE` aanroept. Gebruik daarom altijd `uv add PACKAGE` als je met uv aan een project werkt. Sterker nog, als je met Pip handmatig packages extra installeert zal `uv sync` deze packages als overbodig herkennen en ze prompt weer verwijderen. Heb je iets verkeerds toegevoegd? Het verwijderen van een dependency gaat met `uv remove PACKAGE`.
 
 !!! info
-    Als we de code in ons package aanpassen dan hoeven we het environment niet opnieuw te synchroniseren met `uv sync`, maar als we met de hand iets wijzigen in de {{file_lines}}`pyproject.toml` dan moet dat _wel_. Als je een `#!py ImportError` of `#!py ModuleNotFoundError` krijgt voor je eigen package &mdash; bijvoorbeeld als je nieuwe mappen of bestanden hebt aangemaakt &mdash; probeer dan _eerst_ voor de zekerheid `uv sync`.
+    Als je de code in het package aanpast, dan hoef je het virtual environment niet opnieuw te synchroniseren met `uv sync`. Maar als je met de hand iets wijzigt in de {{file_lines}}`pyproject.toml`, dan moet dat _wel_. Als je een `#!py ImportError` of `#!py ModuleNotFoundError` krijgt voor je eigen package &mdash; bijvoorbeeld als je nieuwe mappen of bestanden hebt aangemaakt &mdash; probeer dan _eerst_ voor de zekerheid `uv sync`.
 
 <div id="opd:uv.lock"></div>
 ???+ meer-leren "uv.lock"
 
     ### uv.lock
 
-    Na het toevoegen van NumPy is er ook een grote wijziging in het bestand {{file_lines}}`uv.lock` bijgekomen. Hierin staan de exacte versies van alle geïnstalleerde packages. Vaak wordt dit bestand gecommit zodat collega-ontwikkelaars van hetzelfde project exact dezelfde versies installeren zodra ze `uv sync` aanroepen. Ook als er nieuwere versies van NumPy bijkomen blijven alle ontwikkelaars precies dezelfde NumPy-versie gebruiken totdat {{file_lines}}`uv.lock` geüpdatet wordt. Niets is zo vervelend als "oh, bij mij werkt het wel" dus hoe meer dingen precies hetzelfde zijn, hoe minder problemen je tegenkomt. Updaten naar nieuwere versies kan natuurlijk wel, maar alleen op het moment dat je er klaar voor bent om te testen of dan alles nog netjes werkt.
+    Na het toevoegen van NumPy is er ook een grote wijziging in het bestand {{file_lines}}`uv.lock` bijgekomen. In dit bestand staan de exacte versies van alle geïnstalleerde packages. Vaak wordt dit bestand gecommit zodat collega-ontwikkelaars van hetzelfde project exact dezelfde versies installeren zodra ze `uv sync` aanroepen. Ook als er nieuwere versies van NumPy bijkomen, blijven alle ontwikkelaars precies dezelfde NumPy-versie gebruiken totdat {{file_lines}}`uv.lock` geüpdatet wordt. Niets is zo vervelend als "oh, bij mij werkt het wel". Dus hoe meer dingen precies hetzelfde zijn, hoe minder problemen je tegenkomt. Updaten naar nieuwere versies kan natuurlijk wel, maar alleen op het moment dat je er klaar voor bent om te testen of dan alles nog netjes werkt.
 
-    !!! opdracht-meer "Upgrade uv lockfile"
+    !!! opdracht-meer "Upgrade `uv.lock`"
 
         1. Clone de repository {{github}}[`NatuurkundePracticumAmsterdam/upgrade-uv-lock`](https://github.com/NatuurkundePracticumAmsterdam/upgrade-uv-lock).
         2. Open de repository in Visual Studio Code en open een nieuwe terminal.
-        3. Installeer de dependencies in één keer met `uv sync`.
+        3. Maak in één keer een virtual environment aan  en installeer de dependencies met `uv sync`.
         4. Waarvoor gebruikt uv de lockfile ({{file_lines}}`uv.lock)`? Welke versies van NumPy en matplotlib worden geïnstalleerd?
         5. Sinds het maken van de repository zijn er nieuwere versies van NumPy en matplotlib uitgekomen. Die worden nu nog niet geïnstalleerd, hoewel er in {{file_lines}}`pyproject.toml` staat: `dependencies = ["matplotlib>=3.10.3", "numpy>=2.2.6"]` (het mag dus wel!). Controleer dat in {{file_lines}}`pyproject.toml`.
-        6. Nu willen we de nieuwe versies hebben. Je kunt de lockfile updaten met `uv lock --upgrade`. De nieuwere versies worden genoemd en verwerkt in de lockfile. Controleer in GitHub Desktop dat {{file_lines}}`uv.lock` gewijzigd is.
+        6. Nu wil je toch de nieuwe versies hebben. Je kunt de lockfile updaten met `uv lock --upgrade`. De nieuwere versies worden genoemd en verwerkt in de lockfile. Controleer in GitHub Desktop dat {{file_lines}}`uv.lock` gewijzigd is.
         7. Update je virtual environment met `uv sync` en controleer dat de nieuwere versies inderdaad geïnstalleerd worden.
 
     !!! tip "Upgrade dependencies"
 
-        De stappen `uv lock --upgrade` en `uv sync` kunnen in één keer met `uv sync --upgrade`. Die zul je dus vaker gebruiken.
+        De stappen `uv lock --upgrade` en `uv sync` kunnen in één keer uitgevoerd worden met `uv sync --upgrade`. Grote kans dat je die vaker zult gebruiken.
 
 
 ### Absolute imports
 
-We hebben een uv project, dependencies toegevoegd maar nog niet alle code getest. Dat gaan we nu doen!
+Je hebt nu een uv project en dependencies toegevoegd, maar je hebt nog niet alle code getest. Dat ga je nu doen!
 
 <div id="opd:easystat-package-testen"></div>
-!!! opdracht-basis "Easystat package testen"
+!!! opdracht-basis "Easystat: opnieuw testen"
     === "opdracht"
-        Je probeert nog een keer {{file}}`shortcuts.py` te runnen en ziet dat dat gewoon werkt. Daarna probeer je {{file}}`measurements.py`. Werkt ook, maar wel gek dat er golfjes onder `#!py from shortcuts import stdev_of_mean` staan, hij doet het toch gewoon? Je kijkt even welke waarschuwing daarbij gegeven wordt door je muiscursor op de golfjes te schuiven. Daarna probeer je {{file}}`try_measurements.py`. Hier gaan dingen mis: daarom zette VS Code kriebeltjes onder `measurements` (en onder `shortcuts` vanwege een vergelijkbare reden).
+        Je probeert nog een keer het bestand {{file}}`shortcuts.py` te runnen en ziet dat dat gewoon werkt. Daarna probeer je het bestand {{file}}`measurements.py` te runnen. Dat werkt ook. Maar wel gek dat er kringeltjes onder `#!py from shortcuts import stdev_of_mean` staan, hij doet het toch gewoon? Je kijkt even welke waarschuwing gegeven wordt door je muiscursor op de kringeltjes te plaatsen. Daarna probeer je het bestand {{file}}`try_measurements.py`. Hier gaan dingen mis: daarom zette Visual Studio Code kringeltjes onder `measurements` (en onder `shortcuts` vanwege een vergelijkbare reden).
     === "code"
         **Testcode**
         <pre><code>(easystat) > python tests/try_measurements.py <button type="button" name="try_measurements" onclick="runScript('try_measurements')">{{ enter }}</button><button type="button" name="try_measurements" onclick="runScript('try_measurements')" class="invisible">{{ reload }}</button>
@@ -388,11 +400,29 @@ We hebben een uv project, dependencies toegevoegd maar nog niet alle code getest
         ModuleNotFoundError: No module named 'measurements'</span>
         </code></pre>
 
-We willen dus de module `measurements` importeren, maar Python kan hem niet vinden. Dat is ook wel een klein beetje logisch, want {{file}}`try_measurements.py` staat in de map {{folder}}`tests` maar {{file}}`measurements.py` staat in de map {{folder}}`src/easystat`. Dus we moeten Python vertellen wáár hij die module kan vinden, namelijk in ons nieuwe package `easystat`. Doordat we een package gemaakt hebben hoeven we dus niet precies te vertellen in welke _map_ alles te vinden is, maar hoeven we alleen de naam van het package te gebruiken. Dus _niet_ `map.op.computer.easystat.src.easystat` maar gewoon `easystat`. Wel zo makkelijk.
+    === "check"
+        **Checkpunten**
 
-!!! opdracht-basis "Import aanpassen: easystat package gebruiken"
+        - [ ] Je kunt zonder problemen het bestand {{file}}`shortcuts.py` runnen.
+        - [ ] Je kunt het bestand {{file}}`measurements.py` runnen.
+        - [ ] Je krijgt de foutmelding `#!py ModuleNotFoundError` als je het bestand {{file}}`try_measurements.py` runt.
+        
+        **Projecttraject**
+
+        - [x] Easystat: uv project aanmaken
+        - [x] Easystat: virtual environment synchroniseren
+        - [x] Easystat: benodigde scripts aanmaken
+        - [x] Easystat: testen
+        - [x] Easystat: dependency toevoegen
+        - [x] Easystat: opnieuw testen     
+        - [ ] Easystat: imports aanpassen
+        - [ ] Easystat: absolute imports
+
+Je wilt dus de module `measurements` importeren, maar Python kan deze module niet vinden. Dat is ook wel een klein beetje logisch, want {{file}}`try_measurements.py` staat in de map {{folder}}`tests` terwijl {{file}}`measurements.py` in de map {{folder}}`src/easystat` staat. Je moet Python daarom vertellen wáár hij die module kan vinden, namelijk in jouw nieuwe package `easystat`. Doordat je een package gemaakt hebt, hoef je niet precies te vertellen in welke _map_ alles te vinden is, je gebruikt alleen de naam van het package. Dus _niet_ `map.op.computer.easystat.src.easystat`, maar gewoon `easystat`. Wel zo makkelijk.
+
+!!! opdracht-basis "Easystat: imports aanpassen"
     === "opdracht"
-        Je past `#!py from measurements ...` aan naar `#!py from easystat.measurements ...`. Je test de code opnieuw. Verdorie, weer een error. Overleg met elkaar wat deze error betekent. Waarom kregen we die error niet toen we {{file}}`measurements.py` testten?
+        Je past `#!py from measurements ...` aan naar `#!py from easystat.measurements ...`. Je test de code opnieuw. Verdorie, weer een error. Overleg met je buurmens wat deze error betekent. Waarom kreeg je die error niet toen je het bestand {{file}}`measurements.py` testte?
     === "code"
         **Testcode**
         <pre><code>(easystat) > python tests/try_measurements.py <button type="button" name="try_measurements2" onclick="runScript('try_measurements2')">{{ enter }}</button><button type="button" name="try_measurements2" onclick="runScript('try_measurements2')" class="invisible">{{ reload }}</button>
@@ -404,11 +434,30 @@ We willen dus de module `measurements` importeren, maar Python kan hem niet vind
         ModuleNotFoundError: No module named 'shortcuts'</span>
         </code></pre>
 
-Het probleem is dat wanneer je met Python een script runt en je importeert iets, dat Python eerst in de map kijkt waar het script staat (hier {{folder}}`tests`) en daarna zoekt in de lijst met geïnstalleerde packages. De module `shortcuts` staat _niet_ in {{folder}}`tests`. Toen we {{file}}`measurements.py` draaiden kon hij die wél vinden want {{file}}`measurements.py` en {{file}}`shortcuts.py` staan in _dezelfde_ map. Dus afhankelijk van welk script we draaien kan hij de modules soms wel vinden, soms niet. Dat is natuurlijk niet zo handig. De oplossing: _absolute imports_: geef bij alle imports _altijd_ de naam van je package op.
+    === "check" 
+        **Checkpunten**
 
-!!! opdracht-basis "Import aanpassen: absolute imports"
+        - [ ] Je kunt nog steeds zonder problemen het bestand {{file}}`shortcuts.py` runnen.
+        - [ ] Je kunt ook nog steeds het bestand {{file}}`measurements.py` runnen.
+        - [ ] Bij het runnen van het bestand {{file}}`try_measurements.py` krijg je geen foutmelding meer voor de module `measurements`. 
+        - [ ] Bij het runnen van het bestand {{file}}`try_measurements.py` krijg je wel een nieuwe foutmelding.
+        
+        **Projecttraject**
+
+        - [x] Easystat: uv project aanmaken
+        - [x] Easystat: virtual environment synchroniseren
+        - [x] Easystat: benodigde scripts aanmaken
+        - [x] Easystat: testen
+        - [x] Easystat: dependency toevoegen
+        - [x] Easystat: opnieuw testen
+        - [x] Easystat: imports aanpassen
+        - [ ] Easystat: absolute imports
+
+Het probleem is dat wanneer je met Python een script runt en je importeert iets, dat Python eerst in de map kijkt waar het script staat (in dit geval {{folder}}`tests`) en daarna pas zoekt in de lijst met geïnstalleerde packages. De module `shortcuts` staat _niet_ in {{folder}}`tests`. Toen je {{file}}`measurements.py` draaide kon Python de module `shortcuts` wél vinden, want {{file}}`measurements.py` en {{file}}`shortcuts.py` staan in _dezelfde_ map. Dus afhankelijk van welk script je draait kan Python de modules soms wel vinden en soms niet. Dat is natuurlijk niet zo handig. De oplossing: _absolute imports_. Geef bij alle imports _altijd_ de naam van je package op.
+
+!!! opdracht-basis "Easystat: absolute imports"
     === "opdracht"
-        Je past in het bestand {{file}}`measurements.py` de regel `#!py from shortcuts ...` aan door de naam van het package toe te voegen en ziet dat de oranje kriebeltjes ook verdwijnen. Je test de code in {{file}}`try_measurements.py` opnieuw. Gelukt! {{feesttoeter}}
+        Je past in het bestand {{file}}`measurements.py` de regel `#!py from shortcuts ...` aan door de naam van het package toe te voegen en ziet dat de oranje kringeltjes ook verdwijnen. Je test de code in {{file}}`try_measurements.py` opnieuw. Gelukt! {{feesttoeter}}
     === "code"
         **Testcode**
         <pre><code>(easystat) > python tests/try_measurements.py <button type="button" name="try_measurements3" onclick="runScript('try_measurements3')">{{ enter }}</button><button type="button" name="try_measurements3" onclick="runScript('try_measurements3')" class="invisible">{{ reload }}</button>
@@ -416,72 +465,78 @@ Het probleem is dat wanneer je met Python een script runt en je importeert iets,
         Result of measurements is: 2.00 +- 0.28.</span>
         </code></pre>
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
-        - [ ] Je hebt de import in {{file}}`try_measurements.py` aangepast.
-        - [ ] Je hebt de import in {{file}}`measurements.py` aangepast.
-        - [ ] Je krijgt geen foutmelding als je het bestand {{file}}`try_measurements.py` runt.
+        - [ ] Je hebt de import in het bestand {{file}}`try_measurements.py` aangepast.
+        - [ ] Je hebt de import in het bestand {{file}}`measurements.py` aangepast.
+        - [ ] Je krijgt geen foutmelding meer als je het bestand {{file}}`try_measurements.py` runt.
 
         **Projecttraject**
     
-        - [x] Easystat uv project aanmaken
-        - [x] Easystat virtual environment aanmaken
-        - [x] Easystat {{file}}`shortcuts.py`, {{file}}`measurements.py` en {{file}}`try_measurements.py` aanmaken
-        - [x] Easystat {{file}}`shortcuts.py` testen
-        - [x] Easystat dependencies toevoegen
-        - [x] Easystat package imports fixen
+        - [x] Easystat: uv project aanmaken
+        - [x] Easystat: virtual environment synchroniseren
+        - [x] Easystat: benodigde scripts aanmaken
+        - [x] Easystat: testen
+        - [x] Easystat: dependency toevoegen
+        - [x] Easystat: opnieuw testen
+        - [x] Easystat: imports aanpassen
+        - [x] Easystat: absolute imports
 
+<div id="info:wheels"></div>
 ???+ meer-leren "Wheels"
 
     ### Wheels
 
-    Wanneer we klaar zijn om ons package te delen met andere gebruikers gebruiken we het commando `build` om zogeheten _wheels_ te bouwen. Wheels zijn de bestanden die uv en pip downloaden en installeren wanneer je zegt `pip install numpy`. Het is een soort ingepakte installer met alles wat er nodig is om het package te gebruiken.
+    Wanneer je klaar bent om jouw package te delen met andere gebruikers gebruik je het commando `build` om zogeheten _wheels_ te bouwen. Wheels zijn de bestanden die uv en pip downloaden en installeren wanneer je zegt `pip install PACKAGE`. Het is een soort ingepakte installer met alles wat er nodig is om het package te gebruiken.
 
-    !!! opdracht-meer "Bouw een wheel"
-        
-        1. Bouw het wheel van easystat met `uv build`.
-        2. Bekijk de namen van de bestanden in de nieuwe map {{folder}}`easystat/dist`, welke extensie hebben ze?
-        
-
-    <pre><code>(easystat) > uv build <button type="button" name="uv build" onclick="runScript('uv build')">{{ enter }}</button><button type="button" name="uv build" onclick="runScript('uv build')" class="invisible">{{ reload }}</button>
-    <span class="invisible" name="uv build">Building source distribution (uv build backend)...
-    Building wheel from source distribution (uv build backend)...
-    Successfully built dist\easystat-0.1.0.tar.gz
-    Successfully built dist\easystat-0.1.0-py3-none-any.whl</span>
-    </code></pre>
-    Een `.tar.gz`-bestand is een soort zipbestand met daarin de broncode van ons package (een _source distribution_). De tests worden daar niet in meegenomen. Een <q>wheel</q> is een soort bestand dat direct geïnstalleerd kan worden met `pip`. Zogenaamde _pure-python_ packages bevatten alleen Pythoncode &mdash; en geen C-code die gecompileerd moet worden voor verschillende besturingssystemen of hardwareplatforms. Je herkent ze aan `none-any` in de bestandsnaam. <q>None</q> voor <q>niet-OS-specifiek</q> en <q>any</q> voor <q>draait op elk hardwareplatform</q>. We kunnen dit bestand als download neerzetten op een website of aan anderen mailen. Zij kunnen het dan installeren met `pip install`.
-
-    !!! opdracht-meer "Test wheel"
-        Laten we het wheel uitproberen. We gaan straks een nieuw virtual environment aanmaken, installeren het wheel en proberen het testscript te runnen &mdash; één keer vóór het installeren van het wheel en één keer ná het installeren, als volgt:
-
-        3. Maak een nieuw, leeg, virtual environment.
-        4. Draai {{file}}`tests/try_measurements.py` en bekijk de foutmelding.
-        5. Installeer het wheel met `uv pip install .\dist\easystat-0.1.0-py3-none-any.whl`.
-        6. Draai {{file}}`tests/try_measurements.py` en bekijk de uitkomst.
-        
-    Het werkt! Je ziet dat `pip install` niet alleen ons package `easystat` installeert, maar _ook de dependency_ `numpy`. Dat is precies wat we willen.
+    !!! opdracht-meer "Easystat: wheel"
+        === "opdracht"
+            1. Bouw het wheel van `easystat` met `uv build`.
+            2. Bekijk de namen van de bestanden in de nieuwe map {{folder}}`easystat/dist`. Welke extensie hebben ze?
+   
+        === "code" 
+            
+            <pre><code>(easystat) > uv build <button type="button" name="uv build" onclick="runScript('uv build')">{{ enter }}</button><button type="button" name="uv build" onclick="runScript('uv build')" class="invisible">{{ reload }}</button>
+            <span class="invisible" name="uv build">Building source distribution (uv build backend)...
+            Building wheel from source distribution (uv build backend)...
+            Successfully built dist\easystat-0.1.0.tar.gz
+            Successfully built dist\easystat-0.1.0-py3-none-any.whl</span>
+            </code></pre>
     
-    Het is belangrijk om de wheels _niet_ in je GitHub repository te committen. Je repository is voor _broncode_, waarmee wheels gebouwd kunnen worden. Als je de stappen voor het aanmaken van de repository netjes gevolgd hebt dan heb je een {{file_lines}}`.gitignore` toegevoegd met Python-specifieke bestandsnamen en directories die genegeerd worden door Git en GitHub.
+    Een `.tar.gz`-bestand is een soort zipbestand met daarin de broncode van het package (een _source distribution_). De tests worden daar niet in meegenomen. Een wheel is een soort bestand dat direct geïnstalleerd kan worden met `pip`. Zogenaamde _pure-python_ packages bevatten alleen Pythoncode &mdash; en geen C-code die gecompileerd moet worden voor verschillende besturingssystemen of hardwareplatforms. Je herkent ze aan `none-any` in de bestandsnaam. <q>None</q> voor <q>niet-OS-specifiek</q> en <q>any</q> voor <q>draait op elk hardwareplatform</q>. Je kunt dit bestand als download neerzetten op een website of aan anderen mailen. Zij kunnen het dan installeren met `pip install`.
+
+    !!! opdracht-meer "Easystat: test wheel"
+        Tijd om het wheel uit te proberen. Je gaat straks een nieuw virtual environment aanmaken, installeert het wheel en probeert het testscript te runnen &mdash; één keer vóór het installeren van het wheel en één keer ná het installeren. Volg hiervoor de volgende stappen:
+
+        1. Maak een nieuw &mdash; leeg &mdash; virtual environment aan.
+        2. Run het bestand {{file}}`test/try_measurements.py` en bekijk de foutmelding.
+        3. Installeer het wheel met `uv pip install .\dist\easystat-0.1.0-py3-none-any.whl`.
+        4. Run het bestand {{file}}`test/try_measurements.py` opnieuw en bekijk de uitkomst.
+        
+    Het werkt! Je ziet dat `pip install` niet alleen jouw package `easystat` installeert, maar _ook de dependency_ `numpy`. Dat is precies wat je wilt.
+    
+    Het is belangrijk om de wheels _niet_ in je GitHub repository te committen. Je repository is voor _broncode_, waarmee wheels gebouwd kunnen worden. Als je de stappen voor het aanmaken van de repository netjes gevolgd hebt, dan heb je een {{file_lines}}`.gitignore` toegevoegd met Python-specifieke bestandsnamen en directories die genegeerd worden door Git en GitHub.
 
 
-## uv gebruiken voor een bestaand project: pythondaq
-Natuurlijk willen we uv ook gaan gebruiken bij `pythondaq`. We maken nu alleen geen _nieuw_ project, maar gaan uv toevoegen aan een bestaand project. Daarvoor moeten we twee dingen doen. Als eerste gaan we uv initialiseren in de `pythondaq` repository en dan moeten we de code in de `src`-structuur plaatsen.
+## uv gebruiken voor een bestaand project
+Natuurlijk willen we uv ook gaan gebruiken bij `pythondaq`. Je maakt nu alleen geen _nieuw_ project, maar je gaat uv toevoegen aan een bestaand project. Daarvoor moet je twee dingen doen: als eerste ga je uv initialiseren in de repository {{github}}`pythondaq` en daarna moet je de code in de `src`-structuur plaatsen.
 
-!!! opdracht-inlever "Pythondaq: uv"
+!!! opdracht-inlever "Pythondaq: uv project"
     === "opdracht"
-        1. Je project {{github}}`pythondaq` is zo tof aan het worden dat je het met uv gaat beheren zodat jij en anderen het gemakkelijk kunnen installeren en gebruiken. Als eerste open je de repository in GitHub Desktop en Visual Studio Code en open je een nieuwe terminal. Je test voor de zekerheid {{file}}`run_experiment.py` nog even uit zodat je zeker weet dat alles nu nog werkt. Vervolgens maak je een uv project {{lightbulb}}. Dan kies je op _twee plaatsen_ dat je Python 3.12 wilt gebruiken. Dan synchroniseer je je virtual environment en commit je je wijzigingen.
-        2. Test {{file}}`run_experiment.py` en voeg alle benodigde dependencies toe {{lightbulb}} totdat alles werkt en je opnieuw het lampje ziet gaan branden en de resultaten van je experiment krijgt. Commit je wijzigingen.
+        1. Je project {{github}}`pythondaq` is zo tof aan het worden dat je het met uv gaat beheren, zodat jij en anderen het gemakkelijk kunnen installeren en gebruiken. Als eerste open je de repository in GitHub Desktop en daarna in Visual Studio Code. Open nu een nieuwe terminal. Je test voor de zekerheid {{file}}`run_experiment.py` nog even uit, zodat je zeker weet dat alles nu nog werkt. Vervolgens maak je een uv project aan {{lightbulb}}. Dan geef je op _twee plaatsen_ aan dat je Python 3.12 wilt gebruiken (in welke bestanden moet je dit aangeven?). Daarna synchroniseer je je virtual environment {{lightbulb}} en commit je je wijzigingen.
+        2. Test nu {{file}}`run_experiment.py` opnieuw. Voeg alle benodigde dependencies toe {{lightbulb}}, net zolang totdat alles werkt en je opnieuw de LED ziet branden en de resultaten van je experiment krijgt. Commit je wijzigingen.
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
-        - [ ] Je hebt uv geïnitialiseerd in de Pythondaq projectmap.
-        - [ ] Na het initialiseren van uv is er een {{file_lines}}`pyproject.toml` en een {{file_lines}}`.python-version` in de projectmap aangemaakt.
-        - [ ] Wanneer met `uv sync` een nieuwe virtual environment met Python 3.12 wordt aangemaakt werkt {{file}}`run_experiment.py` daarna in die nieuwe omgeving naar behoren. 
+        - [ ] Je hebt uv geïnitialiseerd in de projectmap `pythondaq`.
+        - [ ] Na het initialiseren van uv zijn de bestanden {{file_lines}}`pyproject.toml` en {{file_lines}}`.python-version` in de projectmap aangemaakt.
+        - [ ] Wanneer je met `uv sync` een nieuw virtual environment aanmaakt, staat hier Python 3.12 in. 
+        - [ ] Je hebt alle dependencies toegevoegd, zodat {{file}}`run_experiment.py` in de nieuwe environment naar behoren werkt. 
 
         **Projecttraject**
     
         - [x] Pythondaq: docstrings
-        - [x] Pythondaq: uv
+        - [x] Pythondaq: uv project
         - [ ] Pythondaq: src-layout
         - [ ] Pythondaq: test imports
         - [ ] Pythondaq: applicatie
@@ -490,7 +545,7 @@ Natuurlijk willen we uv ook gaan gebruiken bij `pythondaq`. We maken nu alleen g
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Nu de code in principe werkt, gaan we die in een src-layout zetten zoals hiernaast. Je test {{file}}`run_experiment.py` en die moet werken.
+            Nu de code weer werkt, ga je de bestanden in een src-layout zetten, zie de weergegeven structuur voor het voorbeeld. Je test {{file}}`run_experiment.py` opnieuw en je zorgt er voor dat je ook nu de LED ziet branden en de resultaten van je experiment krijgt.
             </div>
             <div>
             {{github}}`pythondaq`  
@@ -509,37 +564,37 @@ Natuurlijk willen we uv ook gaan gebruiken bij `pythondaq`. We maken nu alleen g
             </div>
         </div>
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
-        - [ ] Je 'oude' code staat nu allemaan in {{folder}}`src/pythondaq`.
-        - [ ] {{file}}`run_experiment.py` draait zonder problemen.
+        - [ ] Al je 'oude' code staat nu in {{folder}}`src/pythondaq`.
+        - [ ] {{file}}`run_experiment.py` runt zonder problemen.
 
 
         **Projecttraject**
     
         - [x] Pythondaq: docstrings
-        - [x] Pythondaq: uv
+        - [x] Pythondaq: uv project
         - [x] Pythondaq: src-layout
         - [ ] Pythondaq: test imports
         - [ ] Pythondaq: applicatie
 
 
-???+ opdracht-meer "Model, view, controller packages"
-    In grotere projecten is het gebruikelijk om model, view, controller niet alleen uit te splitsen in verschillende scripts, maar ook in aparte packages te zetten.
+???+ opdracht-meer "Model, view en controller packages"
+    In grotere projecten is het gebruikelijk om model, view en controller niet alleen uit te splitsen in verschillende scripts, maar ook in aparte packages te zetten.
 
-    1. Maak 3 extra packages in de {{folder}}`pythondaq` package. {{folder}}`models`, {{folder}}`views` en {{folder}}`controllers`.
+    1. Maak drie extra packages in de package {{folder}}`pythondaq` aan: {{folder}}`models`, {{folder}}`views` en {{folder}}`controllers`.
     2. Zet de modules in de juiste packages.
     3. Test je code zodat alle imports weer werken.
 
 
 ## Van script naar applicatie
-Om onze python code te testen heb je tot nu toe waarschijnlijk op de `run`-knop in Visual Studio Code gedrukt. Of je hebt in de terminal aan python gevraagd om het {{file}}`script.py` te runnen:
+Om code te testen heb je tot nu toe waarschijnlijk op de `run`-knop in Visual Studio Code gedrukt. Of je hebt in de terminal aan `python` gevraagd om het {{file}}`script.py` te runnen:
 ``` ps1 title="Terminal"
 python script.py
 ```
-Je moet dan wel in Visual Studio Code de juiste map geopend hebben zodat Python het bestand kan vinden. En als je de `run`-knop gebruikt moet wel het bestandje open staan dat je wilt runnen. Kortom, best een beetje gedoe. Maar als we programma's zoals uv, Conda of Python willen gebruiken hoeven we helemaal niet het juiste bestandje op te zoeken en te runnen. We hoeven alleen maar een commando in de terminal te geven &mdash; bijvoorbeeld `python` of `conda` &mdash; en de computer start automatisch het juiste programma op.
+Je moet dan wel in Visual Studio Code de juiste map geopend hebben zodat Python het bestand kan vinden. En als je de `run`-knop gebruikt, moet wel het bestand dat je wilt runnen openstaan. Kortom, best een beetje gedoe. Maar als je programma's zoals uv, Conda of Python wilt gebruiken hoef je helemaal niet het juiste bestand op te zoeken en te runnen. Je hoeft alleen maar een commando in de terminal te geven &mdash; bijvoorbeeld `python` of `uv` &mdash; en de computer start automatisch het juiste programma op.
 
-Dat willen wij ook voor onze programma's! En omdat we uv gebruiken kunnen we dat heel eenvoudig doen. We gaan even in een andere test-repository een commando toevoegen om de module uit te voeren waarvan je de code in [paragraaf _Modules_](vervolg-python.md#modules) kunt vinden. De twee bestanden {{file}}`square.py` en {{file}}`count_count.py` hebben we voor jullie netjes in een package geplaats in de repository {{github}}`AnneliesVlaar/just_count` met de volgende structuur:
+Dat willen wij ook voor onze programma's! En met uv kun je dat heel eenvoudig doen. Voordat je doorgaat met jouw package `pythondaq` ga je dit eerst een keer testen. Je gaat daarvoor even in een test repository werken. Je voegt in deze repository een commando toe om een module uit te voeren. De twee bestanden {{file}}`square.py` en {{file}}`count_count.py` zijn voor jou netjes in een package geplaatst in de repository {{github}}`AnneliesVlaar/just_count` met de volgende structuur:
 
     just_count/
         src/
@@ -565,11 +620,11 @@ De bestanden {{file}}`square.py` en {{file}}`count_count.py` zien er hetzelfde u
     ```
 
 
-We kunnen uv niet vragen om een script te runnen, maar wel om een functie in een module uit te voeren. Een nieuw uv project krijgt automatisch al een voorbeeldscript. Daar gaan we even naar kijken en daarna passen we het aan voor eigen gebruik.
+Je kunt uv niet vragen om een script te runnen, maar wel om een functie in een module uit te voeren. Een nieuw uv project krijgt automatisch al een voorbeeldscript. 
 
-!!! opdracht-basis "Voorbeeldscript"
+!!! opdracht-basis "Voorbeeldscript bekijken"
     === "opdracht"
-        Je [cloned de repository just_count in GitHub desktop](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) en opent het daarna vanuit GitHub Desktop in Visual Studio Code. Je ziet een {{file_lines}}`pyproject.toml` en een {{file}}`uv.lock` in de repository staan, dus je maakt meteen een virtual environment aan {{lightbulb}}. Je opent een terminal en voert de opdracht `just-count` uit. De code hiervoor staat in {{file}}`src/just_count/__init__.py`. Dit is overigens niet de beste plek, maar werkt prima als eenvoudig voorbeeld. Je bekijkt de code en ziet dat de bewuste code in een functie `#!py main()` staat.
+        Clone de [repository just_count](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) naar GitHub Desktop en open de repository daarna vanuit GitHub Desktop in Visual Studio Code. Je ziet een {{file_lines}}`pyproject.toml` en een {{file_lines}}`uv.lock` in de repository staan, dus je maakt meteen een virtual environment aan {{lightbulb}}. Je opent een terminal en voert de opdracht `just-count` uit. De code die nu gerund wordt staat in het bestand {{file}}`src/just_count/__init__.py`. Dit is overigens niet de beste plek, maar werkt prima als eenvoudig voorbeeld. Je bekijkt de code en ziet dat de bewuste code in een functie `#!py main()` staat.
     === "code"
         **Testcode**
         <div class="code-box"><button type="button" name="uv voorbeeldscript" onclick="runScript('uv voorbeeldscript')" class="run">{{ run }}</button><button type="button" name="uv voorbeeldscript" onclick="runScript('uv voorbeeldscript')" class="reload invisible">{{ reload }}</button> \_\_init\_\_.py
@@ -580,11 +635,19 @@ We kunnen uv niet vragen om een script te runnen, maar wel om een functie in een
         <pre>
         <code>(just_count) > just-count
         <span class="invisible" name="uv voorbeeldscript">Hello from just-count!</span>
-        </code></pre></div>        
+        </code></pre></div>      
 
-Als wij willen dat onze eigen code draait als we `just-count` intypen, dan moeten we zorgen dat onze code _ook_ in een functie gezet wordt.
+    === "check"
+        **Projecttraject**
 
-!!! opdracht-basis "Main functie toevoegen"
+        - [x] Voorbeeldscript bekijken
+        - [ ] Functie `main()` toevoegen
+        - [ ] Commando toevoegen
+        - [ ] Commando testen
+
+Als je wilt dat er andere code gerund wordt als de opdracht `just-count` gegeven wordt, dan moet je er voor zorgen dat je naar een functie in het betreffende bestand verwijst. Dit doe je net zoals dat gedaan is in het bestand {{file}}`src/just_count/__init__.py`.
+
+!!! opdracht-basis "Functie `#!py main()` toevoegen"
     === "opdracht"
          Je opent het hoofdbestand {{file}}`count_count.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Daarna pas je het bestand aan zodat de functie nog steeds wordt uitgevoerd wanneer je het bestand {{file}}`count_count.py` runt. 
     === "code"
@@ -605,19 +668,21 @@ Als wij willen dat onze eigen code draait als we `just-count` intypen, dan moete
         </code></pre></div>
         
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
-        - [ ] Er is een functie `#!py main()` in het bestand {{file}}`count_count.py`
-        - [ ] Het runnen van het bestand {{file}}`count_count.py` geeft de output `The square of 5 is 25`
+        - [ ] Er staat een functie `#!py main()` in het bestand {{file}}`count_count.py`.
+        - [ ] In heb bestand {{file}}`count_count.py` is een statement `#!py if __name__ == '__main__'` toegevoegd.
+        - [ ] Het runnen van het bestand {{file}}`count_count.py` geeft de output `The square of 5 is 25`.
 
         **Projecttraject**
     
-        - [x] main functie toevoegen 
-        - [ ] commando toevoegen
-        - [ ] commando testen
+        - [x] Voorbeeldscript bekijken
+        - [x] Functie `main()` toevoegen
+        - [ ] Commando toevoegen
+        - [ ] Commando testen
     
 
-In {{file_lines}}`pyproject.toml` kunnen we nu het commando toe gaan voegen. In de `scripts`-sectie kunnen we aangeven met welk commando een functie uit een module wordt uitgevoerd. In {{file_lines}}`pyproject.toml` staat al zo'n kopje:
+In {{file_lines}}`pyproject.toml` kun je nu het commando toevoegen om een specifieke functie te runnen. In de sectie `[project.scripts]` kun je aangeven met welk commando een functie uit een module wordt uitgevoerd. In {{file_lines}}`pyproject.toml` staat deze sectie al:
 ``` toml
 [project.scripts]
 just-count = "just_count:main"
@@ -626,13 +691,13 @@ De vorm van die laatste regel is als volgt:
 ``` toml
 naam_commando = "package.module:naam_functie"
 ```
-Hier is `naam_commando` het commando dat je in moet typen in de terminal, `package` is de naam van het Python package waar de code staat, `module` is de naam van de module waar de code staat, en `naam_functie` is de naam van de functie waarin de code staat. Als je `module` weglaat, dan kijkt uv in {{file}}`__init__.py`.
+Hier is `naam_commando` het commando dat je in moet typen in de terminal. `package` is de naam van het Python package waar de code staat en `module` is de naam van de module waar de code staat. `naam_functie` is de naam van de functie waarin de code staat. Als je `module` weglaat, dan kijkt uv in {{file}}`__init__.py`. Vandaar dat uv met het commando `just-count` op het moment de functie `#!py main()` in {{file}}`__init__.py` draait. Maar dit kun je natuurlijk aanpassen!
 
-Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je virtual environment wel opnieuw synchroniseren. uv installeert dan jouw package ook opnieuw.
+Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren, moet je je virtual environment wel opnieuw synchroniseren. uv installeert dan jouw package ook opnieuw.
 
-!!! opdracht-basis "commando toevoegen"
+!!! opdracht-basis "Commando toevoegen"
     === "opdracht"
-        Je voegt in de {{file_lines}}`pyproject.toml` onder het kopje `[project.scripts]` een nieuw commando `square` toe. Deze verwijst naar de functie `#!py main()` welke in de module {{file}}`count_count.py` staat die ondergebracht is in de package {{folder}}`just_count`. Omdat je handmatig het toml-bestand hebt aangepast synchroniseer je je virtual environment opnieuw {{lightbulb}}.
+        Je voegt in de {{file_lines}}`pyproject.toml` in de sectie `[project.scripts]` een nieuw commando `square` toe. Deze verwijst naar de functie `#!py main()` welke in de module {{file}}`count_count.py` staat, die ondergebracht is in de package {{folder}}`just_count`. Omdat je handmatig de {{file_lines}}`pyproject.toml` hebt aangepast, synchroniseer je je virtual environment opnieuw {{lightbulb}}.
     === "code"
         **Pseudo-code**
         ``` toml title="pyproject.toml"
@@ -640,33 +705,33 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
         square = "just_count.count_count:main"
         ```
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
         - [ ] De naam van het commando is `square`.
         - [ ] De verwijzing na het = teken begint met twee aanhalingstekens gevolgd door het package {{folder}}`just_count` gevolgt door een punt.
         - [ ] Na de punt staat de naam van de module {{file}}`count_count.py` zonder de extensie `.py` gevolgd door een dubbele punt.
         - [ ] Na de dubbele punt staat de naam van de functie `#!py main()` zonder haakjes `()`.
         - [ ] Achter de functie staan weer dubble aanhalingstekens om de verwijzing te sluiten. 
-        - [ ] Na het opslaan van de {{file_lines}}`pyproject.toml` is het package opnieuw geïnstalleerd. 
+        - [ ] Na het opslaan van de {{file_lines}}`pyproject.toml` is de virtual environment gesynchroniseerd. 
 
         **Projecttraject**
     
-        - [x] main functie toevoegen 
-        - [x] commando toevoegen
-        - [ ] commando testen
+        - [x] Voorbeeldscript bekijken
+        - [x] Functie `main()` toevoegen 
+        - [x] Commando toevoegen
+        - [ ] Commando testen
 
 
 <div id="opd:uv_commando"></div>
 
 !!! opdracht-basis "Commando testen"
     === "opdracht"
-        Nu je het commando `square` hebt aangemaakt ga je deze testen in een terminal. Er verschijnt een error `ModuleNotFoundError: No module named 'square'`. Je leest het info-blokje hieronder.
-        </br>
-        </br>
-        Je runt het commando `square` opnieuw en je ziet de tekst `The square of 5 is 25` verschijnen. Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `square` en ziet weer de tekst `The square of 5 is 25` verschijnen. Je concludeert dat het commando nu overal werkt zolang het juiste virtual environment is geactiveerd. Dat test je uit door het virtual environment te deactiveren {{lightbulb}} en het commando `square` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
+        Nu je het commando `square` hebt aangemaakt ga je deze testen in een terminal. Er verschijnt een error `ModuleNotFoundError: No module named 'square'`. Je leest het info-blok hieronder en past het betreffende import statement aan. Daarna run je het commando `square` opnieuw en je ziet de tekst `The square of 5 is 25` verschijnen. 
+        <br><br>
+        Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `square` en ziet weer de tekst `The square of 5 is 25` verschijnen. Je concludeert dat het commando nu overal werkt zolang het juiste virtual environment is geactiveerd. Dat test je uit door het virtual environment te deactiveren {{lightbulb}} en het commando `square` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
 
         !!! info "ModuleNotFoundError: No module named 'square'"
-            Als je de Traceback leest zie je dat het probleem ontstaat in de module {{file}}`count_count.py`. Zoiets hebben we al eerder gezien toen we werkten met het easystat package... Pas het import statement aan naar `#!py from just_count import square`.  
+            Als je de traceback leest zie je dat het probleem ontstaat in de module {{file}}`count_count.py`. Zoiets heb je al eerder gezien, namelijk toen je werkte met het package `easystat`... Pas het import statement aan naar `#!py from just_count import square`.  
     === "code"
         **Pseudo-code**
         <pre><code>(just-count) > square <button type="button" name="square_test" onclick="runScript('square_test')">{{ enter }}</button><button type="button" name="square_test" onclick="runScript('square_test')" class="invisible">{{ reload }}</button>
@@ -681,7 +746,7 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
         ModuleNotFoundError: No module named 'square'</span>
         </code></pre>
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
         - [ ] Het import statement in {{file}}`count_count.py` is genoteerd beginnend vanuit de map {{folder}}`src`.
         - [ ] Het commando `square` werkt als het juiste virtual environment is geactiveerd.
@@ -690,27 +755,25 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
 
         **Projecttraject**
     
-        - [x] main functie toevoegen 
-        - [x] commando toevoegen
-        - [x] commando testen
+        - [x] Voorbeeldscript bekijken
+        - [x] Functie `main()` toevoegen
+        - [x] Commando toevoegen
+        - [x] Commando testen
 
 ???+ opdracht-meer "Error analysis"
-    Als extra oefening gaan we met uv een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script {{file}}`data_analysis.py` te laten runnen.
+    Als extra oefening ga je met uv een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script {{file}}`data_analysis.py` te laten runnen met een commando.
 
     1. Ga naar GitHub en clone {{github}}[`AnneliesVlaar/erroranalysis`](https://github.com/AnneliesVlaar/erroranalysis) in GitHub Desktop en open de repository daarna in Visual Studio Code.
-    2. Natuurlijk maak je gelijk een nieuw virtual environment aan {{lightbulb}}, voordat we dit package gaan testen.
-    3. Snuffel door de bestanden en mappen, en open {{file}}`src/erroranalysis/data_analysis.py`. Dit is het script wat moet kunnen runnen.
+    2. Natuurlijk maak je meteen een nieuw virtual environment aan {{lightbulb}}, voordat je dit package gaat testen.
+    3. Snuffel door de bestanden en mappen. Open {{file}}`src/erroranalysis/data_analysis.py`. Dit is het script wat moet kunnen runnen.
     4. Run het script {{file}}`data_analysis.py` en los de errors één voor één op.
-    
-    Om erachter te komen of de problemen die we hierboven hadden écht zijn opgelost maak je een nieuw leeg virtual environment aan {{lightbulb}} en test je dat het script _niet werkt_. Dan installeer je het package en run je het script opnieuw. Werkt alles? Mooi! Dan gaan we nu een commando aanmaken om de functie `#!py table()` aan te roepen.
-
-    5. Open {{file_lines}}`pyproject.toml` en zoek het kopje voor scripts. Het formaat was:
+    5. Om erachter te komen of de problemen die je eerder had écht zijn opgelost, maak je een nieuw &mdash; leeg &mdash; virtual environment aan {{lightbulb}} en test je dat het script _niet werkt_. Daarna installeer je het package en run je het script opnieuw. Werkt alles? Mooi! 
+    6. Dan ga je nu een commando aanmaken om de functie `#!py table()` aan te roepen. Open {{file_lines}}`pyproject.toml` en zoek de sectie `scripts`. Maak een commando die de functie `#!py table()` aanroept in {{file}}`src/erroranalysis/data_analysis.py`. Je mag de naam van het commando zelf kiezen. Het formaat voor een commando is:
             ``` toml
             [project.scripts]
             naam_commando = "package.module:naam_functie"
             ```
-            pas de regel aan zodat jouw commando de functie `#!py table()` aanroept in {{file}}`src/erroranalysis/data_analysis.py`. Je mag de naam van het commando zelf kiezen.
-    6. Ga naar de terminal en kijk of het werkt!
+    7. Ga naar de terminal en kijk of het commando werkt. Als je onderstaande output krijgt, dan is het gelukt!
     <pre><code>(erroranalysis) > naam_commando <button type="button" name="naam_commando" onclick="runScript('naam_commando')">{{ enter }}</button><button type="button" name="naam_commando" onclick="runScript('naam_commando')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="naam_commando">Area of the kitchen table is: 1.8386 ± 0.0049 m</span>
     </code></pre>
@@ -720,12 +783,12 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Bij het uitbouwen van de applicatie ga je mogelijk onderdelen uit de pythonpackage importeren. Daarom is het verstandig om, net als met de [opdracht _Easystat package testen_](#opd:easystat-package-testen), het importeren uit de package te testen.
-            Maak daarvoor een {{folder}}`tests`-map met {{file}}`test_imports.py` in de repository {{github}}`pythondaq`. 
+            Bij het uitbouwen van de applicatie ga je mogelijk onderdelen uit de Python-package importeren. Daarom is het verstandig om, net als in de [opdracht _Easystat: opnieuw testen_](#opd:easystat-package-testen), het importeren uit de package te testen.
+            Maak daarvoor een {{folder}}`tests`-map met {{file}}`test_imports.py` in de repository {{github}}`pythondaq`. Voeg aan {{file}}`test_imports.py` onderstaande code toe:
             ```py title="test_imports.py"
             import pythondaq.run_experiment
             ```
-            Je runt het bestand {{file}}`test_imports.py` en lost de errors op. Daarna  werkt je package ook als je het aanroept van buiten de map met broncode. Je {{github}}`pythondaq`-repository is nu een volledig project dat je met andere gebruikers van Python kunt delen, bijvoorbeeld via een _wheel_.
+            Run het bestand {{file}}`test_imports.py` en los de errors op. Nu werkt je package ook als je het aanroept van buiten de map met broncode. Je repository {{github}}`pythondaq` is nu een volledig project dat je met andere gebruikers van Python kunt delen, bijvoorbeeld via een [_wheel_](#info:wheels).
             </div>
             <div>
             {{github}}`pythondaq`  
@@ -754,7 +817,7 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
         **Testcode**
         <div class="code-box"><button type="button" name="test_imports_pythondaq" onclick="runScript('test_imports_pythondaq')" class="run">{{ run }}</button><button type="button" name="test_imports_pythondaq" onclick="runScript('test_imports_pythondaq')" class="reload invisible">{{ reload }}</button> test_imports.py
         ``` py
-        import pythondaq.view
+        import pythondaq.run_experiment
         ```
         <pre>
         <code>(ECPC) > python test_imports.py
@@ -767,37 +830,42 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
         </code></pre></div>
         
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
-        - [ ] Er is een map {{folder}}`tests` in de repository {{github}}`pythondaq`.
-        - [ ] De import statements in de modules in het package {{folder}}`pythondaq` zijn aangepast zodat het bestand {{file}}`test_imports` runt zonder problemen.
+        - [ ] Er staat een map {{new_folder}}`tests` in de repository {{github}}`pythondaq`.
+        - [ ] De import-statements in de modules in het package {{folder}}`pythondaq` zijn aangepast, zodat het bestand {{new_file}}`test_imports.py` runt zonder problemen.
 
         **Projecttraject**
 
         - [x] Pythondaq: docstrings
-        - [x] Pythondaq: uv
+        - [x] Pythondaq: uv project
         - [x] Pythondaq: src-layout
         - [x] Pythondaq: test imports
         - [ ] Pythondaq: applicatie
     
 
-!!! opdracht-basis "Applicaties runnen in virtual environments"
+!!! opdracht-basis "Applicatie runnen in terminal"
+    === "opdracht"
+        Inmiddels ben je misschien gewend dat je virtual environments altijd moet activeren voordat je applicaties kunt runnen die daarin geïnstalleerd zijn. In Visual Studio Code gaat dat automatisch als je het environment goed geselecteerd hebt. Maar... hoe moet dat zonder Visual Studio Code? Omdat uv virtual environments in je projectmap neerzet &mdash; de map {{folder}}`.venv` &mdash; moet je met je terminal wel in de goede map zitten. Daarna kun je ervoor kiezen om het commando te runnen met uv, dan is activeren van het virtual environment niet nodig, of zonder uv, dan is activeren van het virtual environment _wel_ nodig. Voer de volgende opdrachten uit om dit te proberen.
 
-    Inmiddels ben je misschien gewend dat je virtual environments altijd moet activeren voordat je applicaties kunt runnen die daarin geïnstalleerd zijn. In Visual Studio Code gaat dat automatisch als je het environment goed geselecteerd hebt. Maar... hoe moet dat zonder VS Code? Omdat uv virtual environments in je projectmap neerzet (de {{folder}}`.venv`-map) moet je met je terminal wel in de goede map zitten. Daarna kun je ervoor kiezen om het commando te runnen met uv (dan is activeren niet nodig) of zonder uv (dan is activeren _wel_ nodig). Voer de volgende opdrachten uit om dat te proberen.
+        1. Open in GitHub Desktop nogmaals je repository {{github}}`easystat`.
+        2. Klik op **Menu > Repository > Open in Command Prompt** om een nieuwe terminal te openen, in je projectmap.
+        3. Run het commando `easystat`. Dit werkt niet.
+        4. Run het commando `uv run easystat`. Dit werkt _wel_.
+        5. Activeer het environment door het volgende commando te runnen: `.venv\Scripts\activate`.
+        6. Controleer dat `(easystat)` aan het begin van de opdrachtprompt staat.
+        7. Run het commando `easystat`. Dit werkt nu _wel_.
 
-    1. Open in GitHub Desktop nog een keer je {{github}}`easystat` repository.
-    2. Klik op **Menu > Repository > Open in Command Prompt** om een nieuwe terminal te openen, in je projectmap.
-    3. Run het commando `easystat`. Dit werkt niet.
-    4. Run het commando `uv run easystat`. Dit werkt _wel_.
-    5. Activeer het environment door het volgende commando te runnen: `.venv\Scripts\activate`.
-    6. Controleer dat `(easystat)` aan het begin van de opdrachtprompt staat.
-    7. Run het commando `easystat`. Dit werkt nu _wel_.
+        Je mag zelf kiezen welke methode je fijn vindt.
 
-    Je mag zelf kiezen welke methode je fijn vindt.
+    === "check"
+        **Projecttraject**
+
+        - [x] Applicatie runnen in terminal
 
 !!! opdracht-inlever "Pythondaq: applicatie"
     === "opdracht"
-        Je maakt een commando om het script {{file}}`run_experiment.py` uit de repository {{github}}`pythondaq` te starten {{lightbulb}}. Wanneer je het commando aanroept gaat het LED-lampje branden, en verschijnt er even later een IU-plot op het scherm. Je test of het commando ook buiten Visual Studio Code werkt door vanuit GitHub **Menu > Repository > Open in Command Prompt** een nieuwe terminal te openen. Je test het commando met `uv run` {{lightbulb}} en ook door het juiste virtual environment te activeren {{lightbulb}}. Je ziet dat ook dan het commando werkt, _zonder_ `uv run`. Wat een feest! {{feesttoeter}} Je hebt nu een applicatie geschreven die een Arduino aanstuurt om een ledje te laten branden. En je kunt je applicatie gewoon vanuit de terminal aanroepen! {{feesttoeter}}
+        Je maakt een commando om het script {{file}}`run_experiment.py` uit de repository {{github}}`pythondaq` te starten {{lightbulb}}. Wanneer je het commando aanroept gaat de LED branden en verschijnt er even later een $IU$-plot op het scherm. Je test of het commando ook buiten Visual Studio Code werkt door vanuit GitHub een nieuwe terminal te openen (**Menu > Repository > Open in Command Prompt**). Je test het commando met `uv run COMMAND` en ook door het juiste virtual environment te activeren {{lightbulb}}. Je ziet dat in beide gevallen het commando werkt. Wat een feest! {{feesttoeter}} Je hebt nu een applicatie geschreven die een Arduino aanstuurt om een LED te laten branden. En je kunt je applicatie gewoon vanuit de terminal aanroepen! {{feesttoeter}}
     === "code"
         **Pseudo-code**
         ``` py title="run_experiment.py"
@@ -811,20 +879,20 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren moet je je v
         naam_commando = "package.module:naam_functie"
         ```
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
         - [ ] De functie in {{file}}`run_experiment.py` bevat alle code die uitgevoerd moet worden om een meting te starten.
         - [ ] Het commando in de {{file_lines}}`pyproject.toml` verwijst op de correcte manier naar de functie in {{file}}`run_experiment.py`.
         - [ ] Het aanroepen van het commando zorgt ervoor dat een meting gestart wordt. 
-        - [ ] Het commando werkt ook in een <q>losse</q> zolang het juiste virtual environment actief is, óf `uv run` wordt gebruikt.
+        - [ ] Het commando werkt ook in een terminal buiten Visual Studio Code, zolang het juiste virtual environment actief is óf `uv run` wordt gebruikt.
 
         **Projecttraject**
     
         - [x] Pythondaq: docstrings
-        - [x] Pythondaq: uv
+        - [x] Pythondaq: uv project
         - [x] Pythondaq: src-layout
         - [x] Pythondaq: test imports
         - [x] Pythondaq: applicatie
 
 ???+ meer-leren "Versie 2.0.0"
-    In de {{file_lines}}`pyproject.toml` kan je ook de versie aangeven van je package. Maar wanneer hoog je nu welk cijfertje op? Wanneer wordt iets _versie 2.0.0_? Daar zijn conventies voor. Bug fixes gaan op het laatste cijfer, wijzigingen en nieuwe features gaan op het middelste cijfer. Wanneer de applicatie dusdanig verandert dat je bijvoorbeeld bestanden die je met oude versie hebt gemaakt niet met de nieuwe versie kunt openen, dan verander je het eerste cijfer. Je start vaak met versie 0.1.0 en blijft tijdens het bouwen van je project ophogen naar 0.2.0 en soms zelfs 0.83.0. Wanneer je project min of meer klaar is voor eerste gebruik, dan kies je er vaak voor om versie 1.0.0 te releasen.
+    In de {{file_lines}}`pyproject.toml` kan je ook de versie aangeven van je package. Maar wanneer hoog je nu welk cijfer op? Wanneer wordt iets _versie 2.0.0_? Daar zijn conventies voor. Bug fixes gaan op het laatste cijfer, wijzigingen en nieuwe features gaan op het middelste cijfer. Wanneer de applicatie dusdanig verandert dat bijvoorbeeld bestanden die je met de oude versie hebt gemaakt niet met de nieuwe versie geopend kunnen worden, dan verander je het eerste cijfer. Je start vaak met versie 0.1.0 en blijft tijdens het bouwen van je project ophogen naar 0.2.0 en soms zelfs 0.83.0. Wanneer je project min of meer klaar is voor het gebruik, dan kies je er vaak voor om versie 1.0.0 te releasen.

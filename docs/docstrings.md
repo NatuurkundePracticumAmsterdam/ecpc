@@ -115,7 +115,7 @@ Zo kun je gemakkelijk de docstring invullen. Je kunt met ++tab++ naar het volgen
         </code></pre></div>     
         
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] De controller, het model én de view zijn voorzien van docstrings.
         - [ ] Er staan docstrings bij onder andere functies, classes en methods.
@@ -124,10 +124,10 @@ Zo kun je gemakkelijk de docstring invullen. Je kunt met ++tab++ naar het volgen
         - [ ] De docstrings bevatten noodzakelijke en nuttige informatie.
 
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Pythondaq: docstrings
-        - [ ] Pythondaq: uv
+        - [ ] Pythondaq: uv project
         - [ ] Pythondaq: src-layout
         - [ ] Pythondaq: test imports
         - [ ] Pythondaq: applicatie
