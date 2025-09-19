@@ -14,8 +14,8 @@ Je hebt tot nu toe al heel wat commando's in de terminal getypt. Laten we een pa
 PS> python script.py
 ```
 Als eerste vertel je welke applicatie je wilt gaan starten; in dit geval: `python`. Daarna geef je met het _argument_ `script.py` aan welk Pythonscript je wilt uitvoeren. Vaak kun je ook _opties_ meegeven zoals in:
-<pre><code>(ECPC) > python -V <button type="button" name="python -V" onclick="runScript('python -V')">{{ enter }}</button><button type="button" name="python -V" onclick="runScript('python -V')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="python -V">Python 3.10.13</span>
+<pre><code>PS> python -V <button type="button" name="python -V" onclick="runScript('python -V')">{{ enter }}</button><button type="button" name="python -V" onclick="runScript('python -V')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python -V">Python 3.13.5</span>
 </code></pre>
 
 Hiermee vraag je Python om het versienummer weer te geven. Soms kunnen _opties_ zelf weer een _argument_ meekrijgen. Bijvoorbeeld:
@@ -26,24 +26,25 @@ Met deze regel geef je Python de optie `-m` en die importeert een module (hier `
 
 Als applicaties veel verschillende functionaliteit hebben dan krijg je regelmatig te maken met een lange regel met een combinatie van argumenten en opties:
 ``` ps1con title="Terminal"
-PS> conda create --name pythondaq --channel conda-forge python pyvisa-py
+PS> uv venv --python 3.13
 ```
 Uitgesplitst in <mark>_argumenten_</mark> en __opties__, met vierkante haken [] om aan te geven welke onderdelen bij elkaar horen, is dat:
 
-<q>conda <mark>_create_</mark> [__--name__ <mark>_pythondaq_</mark>] [__-channel__ <mark>_conda-forge_</mark>] [<mark>_python_</mark> <mark>_pyvisa-py_</mark>]</q>
+<q>uv <mark>_venv_</mark> [__--python__ <mark>_3.13_</mark>]</q>
 
 
-!!! opdracht-basis "Poetry argumenten"
+!!! opdracht-basis "uv argumenten"
     
-    1. Naast `conda create` heb je ook met andere argumenten gewerkt zoals `activate` en `install`. Welke argumenten ken je al van de applicatie `poetry`?
-    1. Vraag de lijst met argumenten (commando's) op van Poetry met `poetry list`, hoeveel kende je nog niet?
+    1. Naast `uv venv` heb je ook met andere argumenten gewerkt zoals `sync` en `add`. Welke argumenten ken je al van de applicatie `uv`?
+    2. Vraag de lijst met argumenten (commando's) op van uv met `uv help` (scroll terug naar boven om alles te zien), hoeveel kende je nog niet?
     
-!!! opdracht-basis "Conda opties en argumenten"
-    1. Open een `Anaconda Prompt`
-    1. Maak gebruik van de optie __-h__ om de helpfunctie van conda op te vragen. (`conda -h`)
-    1. Zoek de optie op om de conda versie weer te geven (`conda -V`)
-    1. Maak gebruik van de optie __-h__ om de helpfunctie van het commando _activate_ op te vragen (`conda activate -h`)
-    1. Welke argumenten moet je meegeven (positional arguments?) en welke opties mag je meegeven (optional arguments?) (argument: env_name_or_prefix, opties: --help, --stack, --no-stack)
+!!! opdracht-basis "uv opties en argumenten"
+    Het gaat er bij deze opdracht niet om dat je alle helpteksten volledig doorleest en alle opties bekijkt. Het is heel veel. Het gaat er vooral om dat je een beetje bekend raakt met helpteksten, het verschil tussen argumenten en opties, en waar je informatie kunt vinden.
+
+    1. Open een terminal en bekijk de helptekst van uv.
+    2. Zoek de _optie_ op om de uv versie weer te geven.
+    3. Maak gebruik van het argument `help` om de helpfunctie van het commando _pip_ op te vragen (`uv help pip`)
+    4. Welke argumenten moet je meegeven (positional arguments?) en welke opties mag je meegeven (optional arguments?) (argument: `COMMAND`, opties o.a. : `--no-cache`, `--managed-python`).
 
 
 ### Click
@@ -58,7 +59,7 @@ import sys
 print(sys.argv)
 ```
 <pre>
-<code>(ECPC) > python cli.py test 123
+<code>PS> python cli.py test 123
 <span class="invisible" name="cli.py">['cli.py', 'test', '123']</span>
 </code></pre></div>
 
@@ -75,7 +76,7 @@ else:
     print(f"CommandNotFoundError: No command '{args[1]}'.")
 ```
 
-Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de _standard library_ van Python. Een hele handige &mdash; die níet in de _standard library_ van Pythhon zit maar wél meegeleverd is met de _base_ environment van Anaconda &mdash; is Click.[@click]
+Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de _standard library_ van Python. Een hele handige &mdash; die níet in de _standard library_ van Pythhon zit maar wél heel populair is, is Click.[@click]
 
 !!! info
     Click maakt gebruik van _decorators_ (`#!py @decorator`). Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_. Als je meer wilt weten over de werking ervan kijk dan de [calmcode tutorial](https://calmcode.io/decorators/introduction.html) of lees de [Primer on Python Decorators](https://realpython.com/primer-on-python-decorators/).
@@ -102,7 +103,7 @@ if __name__ == "__main__":
     hello()
 ```
 
-Dit levert ons nog niet zoveel op, maar op de achtergrond is click wel degelijk aan het werk. De `#!py @click.command()` houdt in de gaten wat er in de command line wordt ingetypt. Zo kunnen we de helpfunctie aanroepen door `--help` achter de naam van het script te zetten.
+Dit levert ons nog niet zoveel op, maar op de achtergrond is click wel degelijk aan het werk. De `#!py @click.command()` houdt in de gaten wat er in de command line wordt ingetypt. Zo kunnen we de helpfunctie aanroepen door `--help` achter de naam van het script te zetten. Om de code te runnen moet je wel eerst een virtual environment aanmaken, activeren en `click` installeren. {{lightbulb}}
 
 ``` ps1con title="Terminal"
 python hello.py --help
@@ -138,7 +139,7 @@ python hello.py --help
             # run function
         ```
         **Testcode**
-        <pre><code>(ECPC) > python hello.py --help <button type="button" name="python hello.py_help" onclick="runScript('python hello.py_help')">{{ enter }}</button><button type="button" name="python hello.py_help" onclick="runScript('python hello.py_help')" class="invisible">{{ reload }}</button>
+        <pre><code>(oefenopdrachten) > python hello.py --help <button type="button" name="python hello.py_help" onclick="runScript('python hello.py_help')">{{ enter }}</button><button type="button" name="python hello.py_help" onclick="runScript('python hello.py_help')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="python hello.py_help">Usage: hello.py [OPTIONS]        
         Options:
             --help  Show this message and exit.
@@ -194,7 +195,7 @@ if __name__ == "__main__":
             # run function
         ```
         **Testcode**
-        <pre><code>(ECPC) > python hello.py <button type="button" name="hello.py_name" onclick="runScript('hello.py_name')">{{ enter }}</button><button type="button" name="hello.py_name" onclick="runScript('hello.py_name')" class="invisible">{{ reload }}</button>
+        <pre><code>(oefenopdrachten) > python hello.py <button type="button" name="hello.py_name" onclick="runScript('hello.py_name')">{{ enter }}</button><button type="button" name="hello.py_name" onclick="runScript('hello.py_name')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="hello.py_name">Usage: hello.py [OPTIONS] NAME
         Try 'hello.py --help' for help.
         Error: Missing argument 'NAME'.
@@ -260,7 +261,7 @@ if __name__ == "__main__":
             # run function
         ```
         **Testcode**
-        <pre><code>(ECPC) > python hello.py David -c 5 <button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')">{{ enter }}</button><button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')" class="invisible">{{ reload }}</button>
+        <pre><code>(oefenopdrachten) > python hello.py David -c 5 <button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')">{{ enter }}</button><button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="python hello.py David -c 5">Hello David!
         Hello David!
         Hello David!
@@ -277,7 +278,7 @@ if __name__ == "__main__":
         - [ ] Wanneer de optie `count` wordt weggelaten wordt de naam 1 keer geprint.
         - [ ] Wanneer er geen argument wordt meegegeven met `count` volgt een foutmelding:
 
-            <pre><code>(ECPC) > python hello.py David -c <button type="button" name="python hello.py David -c" onclick="runScript('python hello.py David -c')">{{ enter }}</button><button type="button" name="python hello.py David -c" onclick="runScript('python hello.py David -c')" class="invisible">{{ reload }}</button>
+            <pre><code>(oefenopdrachten) > python hello.py David -c <button type="button" name="python hello.py David -c" onclick="runScript('python hello.py David -c')">{{ enter }}</button><button type="button" name="python hello.py David -c" onclick="runScript('python hello.py David -c')" class="invisible">{{ reload }}</button>
             <span class="invisible" name="python hello.py David -c">Error: Option '-c' requires an argument.</span>
             </code></pre>
         
@@ -323,7 +324,7 @@ if __name__ == "__main__":
 
 
 Als je dit script gebruikt ziet dat er zo uit:
-<pre><code>(ECPC) > python hello.py --help <button type="button" name="python hello.py --help" onclick="runScript('python hello.py --help')">{{ enter }}</button><button type="button" name="python hello.py --help" onclick="runScript('python hello.py --help')" class="invisible">{{ reload }}</button>
+<pre><code>(oefenopdrachten) > python hello.py --help <button type="button" name="python hello.py --help" onclick="runScript('python hello.py --help')">{{ enter }}</button><button type="button" name="python hello.py --help" onclick="runScript('python hello.py --help')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python hello.py --help">Usage: hello.py [OPTIONS] NAME
 
 Options:
@@ -331,14 +332,14 @@ Options:
   --help               Show this message and exit.
   </span>
 
-(ECPC) > python hello.py Alice <button type="button" name="python hello.py Alice" onclick="runScript('python hello.py Alice')">{{ enter }}</button><button type="button" name="python hello.py Alice" onclick="runScript('python hello.py Alice')" class="invisible">{{ reload }}</button>
+(oefenopdrachten) > python hello.py Alice <button type="button" name="python hello.py Alice" onclick="runScript('python hello.py Alice')">{{ enter }}</button><button type="button" name="python hello.py Alice" onclick="runScript('python hello.py Alice')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python hello.py Alice">Hello Alice!</span>
 
-(ECPC) > python hello.py Alice -c 2 <button type="button" name="python hello.py Alice -c 2" onclick="runScript('python hello.py Alice -c 2')">{{ enter }}</button><button type="button" name="python hello.py Alice -c 2" onclick="runScript('python hello.py Alice -c 2')" class="invisible">{{ reload }}</button>
+(oefenopdrachten) > python hello.py Alice -c 2 <button type="button" name="python hello.py Alice -c 2" onclick="runScript('python hello.py Alice -c 2')">{{ enter }}</button><button type="button" name="python hello.py Alice -c 2" onclick="runScript('python hello.py Alice -c 2')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python hello.py Alice -c 2">Hello Alice!
 Hello Alice!</span>
 
-(ECPC) > python hello.py Alice --count 3 <button type="button" name="python hello.py Alice --count 3" onclick="runScript('python hello.py Alice --count 3')">{{ enter }}</button><button type="button" name="python hello.py Alice --count 3" onclick="runScript('python hello.py Alice --count 3')" class="invisible">{{ reload }}</button>
+(oefenopdrachten) > python hello.py Alice --count 3 <button type="button" name="python hello.py Alice --count 3" onclick="runScript('python hello.py Alice --count 3')">{{ enter }}</button><button type="button" name="python hello.py Alice --count 3" onclick="runScript('python hello.py Alice --count 3')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python hello.py Alice --count 3">Hello Alice!
 Hello Alice!
 Hello Alice!</span>
@@ -377,7 +378,7 @@ Hello Alice!</span>
             # run function
         ```
         **Testcode**
-        <pre><code>(ECPC) > python hello.py David -c 5 <button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')">{{ enter }}</button><button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')" class="invisible">{{ reload }}</button>
+        <pre><code>(oefenopdrachten) > python hello.py David -c 5 <button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')">{{ enter }}</button><button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="python hello.py David -c 5">Hello David!
         Hello David!
         Hello David!
@@ -402,60 +403,67 @@ Hello Alice!</span>
 
 
 Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
-[^flag]: Zie voor meer informatie over flags de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
+[^flag]: Zie voor meer informatie over flags de [Click documentatie](https://click.palletsprojects.com/en/stable/options/#boolean-flags).
 
 !!! opdracht-basis "Vlag"
     Gebruik een optie als vlag om de gebruiker te laten kiezen tussen het wel (<q>tea</q>) of niet (<q>no tea</q>) aanbieden van een kopje thee. Zorg dat er standaard <q>tea</q> wordt aangeboden.
     
     !!! info "boolean flags"
-        Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/options/#boolean-flags).
+        Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/stable/options/#boolean-flags).
 
 
 !!! opdracht-basis "Argumenten en opties"
     === "opdracht"
-        Je opent met Github Desktop de {{github}}`just_count` in Visual Studio Code. Je hebt ooit een environment voor deze repository aangemaakt maar je hebt geen idee of die in de tussentijd niet per ongeluk stuk is gegaan. Daarom maak je een nieuwe environment `just_count` met daarin Python {{lightbulb}} en gebruik je Poetry om het pakket `just_count` in de nieuwe omgeving te installeren {{lightbulb}}. Je test of je de applicatie nog kunt aanroepen met het commando `square`.
+        Je opent met Github Desktop de {{github}}`easystat` in Visual Studio Code. Je hebt ooit een environment voor deze repository aangemaakt maar je hebt geen idee of die in de tussentijd niet per ongeluk stuk is gegaan. Daarom synchroniseer je het environment {{lightbulb}}. Je test of je de applicatie nog kunt aanroepen met het commando `easystat`.
 
-        Je activeert het juiste conda environment en past de code aan zodat met het commando `square 6` het kwadraat van 6 in de terminal wordt geprint.
+        Je activeert het environment en past de code aan zodat met het commando `easystat 4, 5, 6` het resultaat van de serie metingen met waardes 4, 5 en 6 in de terminal wordt geprint.
 
         !!! info argument is standaard string
-            Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieert. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden
+            Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieert. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden. Gebruik `#!py nargs=-1` om aan te geven dat je argument meerdere waardes accepteert, en zelfs oneindig veel (-1).
 
         ???+ opdracht-meer "Meer functies"
-            1. Pas de applicatie aan zodat je kan kiezen tussen het kwadraat of de wortel van het getal. 
+            1. Pas de applicatie aan zodat je zónder argument geen gekke foutmelding krijgt met `nan ± nan`, maar de uitleg dat je een argument _moet_ meegeven. Met andere woorden: je argument is _required_.
     === "code"
         **Pseudo-code**
-        ``` py title="count_count.py"
-        import square
+        ``` py title="app.py"
+        from easystat.measurements import result_with_uncertainty
 
-        # Add functionality to select a number via click and print its square
-        def main():
-            print(f"The square of 5 is {square.square(5)}")
 
-        if __name__ == '__main__':
+        # Add click-related code to pass measurements as an argument to easystat
+
+        def main(measurements):
+            result, uncertainty = result_with_uncertainty(measurements)
+
+            print(f"{measurements=}")
+            print(f"Result of measurements is: {result:.2f} +- {uncertainty:.2f}.")
+
+
+        if __name__ == "__main__":
             main()
         ```
         **Testcode**
-        <pre><code>(ECPC) > square 6 <button type="button" name="square 6" onclick="runScript('square 6')">{{ enter }}</button><button type="button" name="square 6" onclick="runScript('square 6')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="square 6">The square of 6 is 36</span>
+        <pre><code>(oefenopdrachten) > easystat 4, 5, 6 <button type="button" name="easystat 4, 5, 6" onclick="runScript('easystat 4, 5, 6')">{{ enter }}</button><button type="button" name="easystat 4, 5, 6" onclick="runScript('easystat 4, 5, 6')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="easystat 4, 5, 6">measurements=(4.0, 5.0, 6.0)
+        Result of measurements is: 5.00 +- 0.47.</span>
         </code></pre>
         
     === "check"
         **Checkpunten:**
 
-        - [ ] Je hebt `poetry install` in een schone environment (met alleen Python) gedaan.
+        - [ ] Je hebt `uv sync` gedaan.
         - [ ] Je hebt de juiste omgeving geactiveerd.
-        - [ ] Na het commando `square` kan je een getal meegeven en krijg je het verwachte antwoord terug.
+        - [ ] Na het commando `easystat` kun je getallen meegeven en krijg je het verwachte antwoord terug.
 
         **Projecttraject**
         
         - [x] Main functie toevoegen
         - [x] commando toevoegen
         - [x] Commando testen
-        - [x] Argumenten en opties
+        - [x] Argumenten en/of opties
 
     
 ### Click subcommando's
-Tot nu toe konden we maar één functie uitvoeren in onze applicatie. Maar het is ook mogelijk om subcommando's aan te maken zodat je met één programma meerdere <q>taken</q> kunt uitvoeren. Denk bijvoorbeeld aan `conda`. Je installeert packages met `conda install`, verwijdert ze met `conda remove`, maakt een environment met `conda create` en activeert het met `conda activate`.
+Tot nu toe konden we maar één functie uitvoeren in onze applicatie. Maar het is ook mogelijk om subcommando's aan te maken zodat je met één programma meerdere <q>taken</q> kunt uitvoeren. Denk bijvoorbeeld aan `uv`. Je voegt packages toe aan je project met `uv add`, verwijdert ze met `uv remove`, maakt een environment met `uv venv` en synchroniseert het met `uv sync`.
 
 !!! opdracht-basis "Subcommando's bedenken"
     <div id="opd:subcommandos"></div>
@@ -463,51 +471,48 @@ Tot nu toe konden we maar één functie uitvoeren in onze applicatie. Maar het i
 
 
 
-Een eenvoudig voorbeeldscript waarin de conda commando's `install` en `remove` worden nagebootst leggen we hieronder uit. Eerst de code:
+Een eenvoudig voorbeeldscript waarin de uv commando's `add` en `remove` worden nagebootst leggen we hieronder uit. Eerst de code:
 
-``` py title="fake_conda.py" linenums="1"
+``` py title="fake_uv.py" linenums="1"
 import click
+
 
 @click.group()
 def cmd_group():
     pass
 
+
 @cmd_group.command()
 @click.argument("package")
-@click.option(
-    "-c",
-    "--channel",
-    default="defaults",
-    help="Additional channel to search for packages.",
-    show_default=True,  # show default in help
-)
-def install(package, channel):
-    print(f"Installing {package} from {channel}...")
+def add(package):
+    print(f"Adding and installing {package}...")
+
 
 @cmd_group.command()
 @click.argument("package")
 def remove(package):
     print(f"Removing {package}...")
 
+
 if __name__ == "__main__":
     cmd_group()
 ```
-In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeurig `#!py cmd_group()` genoemd hebben en die we bovenaan definiëren. In tegenstelling tot het {{file}}`hello.py`-script doet deze functie helemaal niets (`#!py pass`). We vertellen aan click dat we een groep van commando's aan gaan maken met de `#!py @click.group()`-decorator in regel 3. Vervolgens gaan we commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` &mdash; zie regels 7 en 12. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 7 en 9 maken samen het commando `install`. Verder werkt alles hetzelfde. Dus een argument toevoegen &mdash; zoals in regel 8 &mdash; is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
+In (de laatste) regel 22 roepen we de hoofdfunctie aan die we enigszins willekeurig `#!py cmd_group()` genoemd hebben en die we redelijk bovenaan definiëren. In tegenstelling tot het {{file}}`hello.py`-script doet deze functie helemaal niets (`#!py pass`). We vertellen aan click dat we een groep van commando's aan gaan maken met de `#!py @click.group()`-decorator in regel 4. Vervolgens gaan we commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` &mdash; zie regels 9 en 15. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 9 en 11 maken samen het commando `add`. Verder werkt alles hetzelfde. Dus een argument toevoegen &mdash; zoals in regel 10 &mdash; is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
 
 
-!!! opdracht-basis "Fake conda"
+!!! opdracht-basis "Fake uv"
     === "opdracht"
 
         <div class="grid-tree" markdown>
             <div>
-            Nu je hebt geleerd om met Click subcommando's te maken wil je deze uittesten in combinatie met het commando wat je met Poetry kan aanmaken om een functie uit een script uit te voeren. Je maakt in de map {{folder}}`ECPC` een nieuw Poetry project aan voor {{folder}}`fake_conda` {{lightbulb}} en zet daarin de code uit het bestand {{file}}`fake_conda.py`. Je maakt een nieuw conda environment `fake_conda` met daarin de benodigde packages {{lightbulb}}. Je installeert het Poetry project in de nieuwe conda environment {{lightbulb}}. Je past de {{file_lines}}`pyproject.toml` aan zodat je met het commando `fake_conda install scipy` zogenaamd `scipy` kunt installeren {{lightbulb}}. 
+            Nu je hebt geleerd om met Click subcommando's te maken wil je deze uittesten in combinatie met het commando wat je met uv kan aanmaken om een functie uit een script uit te voeren. Je maakt in de map {{folder}}`ECPC` een nieuw uv project aan voor {{folder}}`fake_uv` {{lightbulb}} en zet daarin de code uit het bestand {{file}}`fake_uv.py`. Je maakt een nieuw virtual environment met daarin de benodigde packages {{lightbulb}}. Je past de {{file_lines}}`pyproject.toml` aan zodat je met het commando `fake_uv add scipy` zogenaamd `scipy` kunt installeren {{lightbulb}}. 
             </div>
             <div>
             {{folder}} `ECPC`  
-            {{T}} {{new_folder}} `fake_conda`  
-            {{tab}} {{T}} {{new_folder}} `src/fake_conda`  
+            {{T}} {{new_folder}} `fake_uv`  
+            {{tab}} {{T}} {{new_folder}} `src/fake_uv`  
             {{tab}} {{tab}} {{T}} {{new_file}} `__init__.py`  
-            {{tab}} {{tab}} {{L}} {{new_file}} `fake_conda.py`  
+            {{tab}} {{tab}} {{L}} {{new_file}} `fake_uv.py`  
             {{tab}} {{L}} {{new_file_lines}} `pyproject.toml`  
             {{tab}} {{L}} {{dots}}  
             {{T}} {{github}} `oefenopdrachten`  
@@ -517,38 +522,38 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
         </div>
 
         !!! info "commando"
-            Als je een commando met Poetry toevoegt dan heeft dat de opbouw `naam_commando = "package.module:naam_functie"`, welke functie moet uitgevoerd worden als je het commando aanroept?
+            Als je een commando met uv toevoegt dan heeft dat de opbouw `naam_commando = "package.module:naam_functie"`, welke functie moet uitgevoerd worden als je het commando aanroept?
     === "code"
         **Pseudo-code**
         ``` toml title="pyproject.toml"
-        [tool.poetry.scripts]
+        [project.scripts]
         naam_commando = "package.module:naam_functie"
         ```
         **Testcode**
-        <pre><code>(ECPC) > fake_conda install scipy <button type="button" name="fake_conda install scipy" onclick="runScript('fake_conda install scipy')">{{ enter }}</button><button type="button" name="fake_conda install scipy" onclick="runScript('fake_conda install scipy')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="fake_conda install scipy">Installing scipy from defaults....</span>
+        <pre><code>(oefenopdrachten) > fake_uv add scipy <button type="button" name="fake_uv add scipy" onclick="runScript('fake_uv add scipy')">{{ enter }}</button><button type="button" name="fake_uv add scipy" onclick="runScript('fake_uv add scipy')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="fake_uv add scipy">Adding and installing scipy...</span>
         </code></pre>
         
     === "check"
         **Checkpunten:**
 
-        - [ ] Het Poetry project is in het nieuwe conda environement geïnstalleerd. 
-        - [ ] Na het wijzigen van de {{file_lines}}`pyproject.toml` is het Poetry project opnieuw geïnstalleerd.
-        - [ ] In de {{file_lines}}`pyproject.toml` verwijst `[tool.poetry.scripts]` naar een functie zodat `install` en `remove` subcommando's zijn.
-        - [ ] Het commando `fake_conda install scipy` print de tekst `Installing scipy...` als output in de terminal. 
+        - [ ] Je hebt een uv project met een actief virtual environment.
+        - [ ] Na het wijzigen van de {{file_lines}}`pyproject.toml` is het virtual environment opnieuw gesynchroniseerd.
+        - [ ] In de {{file_lines}}`pyproject.toml` verwijst `[project.scripts]` naar een functie zodat `add` en `remove` subcommando's zijn.
+        - [ ] Het commando `fake_uv add scipy` print de tekst `Adding and installing scipy...` als output in de terminal. 
 
         **Projecttraject**
 
-        - [x] Fake conda
+        - [x] Fake uv
 
 !!! opdracht-meer "Smallangle (meer leren)"
     Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt &mdash; maar jij weet precies over welk onderdeel we het hebben.
 
     1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam {{github}}`smallangle` {{lightbulb}}.
-    1. Let op de Octocat {{github}} voor {{github}}`smallangle`, het moet dus een repository zijn (of worden). 
-    1. Maak een nieuw environment die `smallangle` heet met daarin alleen Python {{lightbulb}}.
-    1. Zet in het package {{folder}}`smallangle` een module {{file}}`smallangle.py`.
-    1. Plak de onderstaande code in {{file}}`smallangle.py`:
+    2. Let op de Octocat {{github}} voor {{github}}`smallangle`, het moet dus een repository zijn (of worden). 
+    3. Maak een nieuw environment die `smallangle` heet met daarin alleen Python {{lightbulb}}.
+    4. Zet in het package {{folder}}`smallangle` een module {{file}}`smallangle.py`.
+    5. Plak de onderstaande code in {{file}}`smallangle.py`:
         ``` py
         import numpy as np
         from numpy import pi
@@ -570,7 +575,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
         if __name__ == "__main__":
             sin(10)
         ```
-    1. Ga door naar de [_opdracht smallangle aanpassen_](#opd:smallangle). Je mag de opdracht smallangle installeren overslaan &mdash; dat werk heb je nu zelf al gedaan.
+    6. Ga door naar de [_opdracht smallangle aanpassen_](#opd:smallangle). Je mag de opdracht smallangle installeren overslaan &mdash; dat werk heb je nu zelf al gedaan.
     
 
 !!! opdracht-inlever "smallangle installeren"
@@ -611,7 +616,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
             sin(10)
         ```
         <pre>
-        <code>(ECPC) > python smallangle.py
+        <code>(oefenopdrachten) > python smallangle.py
         <span class="invisible" name="smallangle">          x       sin (x)
         0  0.000000  0.000000e+00
         1  0.698132  6.427876e-01
@@ -660,7 +665,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
             Dan komt dat doordat je `#!py sin(10)` probeert uit te voeren, terwijl de functie al verClickt is. De functie verwacht een argument vanuit de terminal en geen integer vanuit het pythonscript.
             Pas je script aan zodat `#!py if __name__ == "__main__":` naar de juiste functie verwijst en Click aanroept; niet `#!py sin(10)`.
     === "code"
-        <pre><code>(ECPC) > smallangle sin -n 9 <button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')">{{ enter }}</button><button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')" class="invisible">{{ reload }}</button>
+        <pre><code>(oefenopdrachten) > smallangle sin -n 9 <button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')">{{ enter }}</button><button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="smallangle sin -n 9">          x       sin (x)
         0  0.000000  0.000000e+00
         1  0.785398  7.071068e-01
@@ -689,7 +694,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
 
 ???+ opdracht-meer "Smallangle (uitdaging)"
     Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\lvert x - \sin(x) \rvert \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over .000, .001 en .002, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
-    <pre><code>(ECPC) > smallangle approx .1 <button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')">{{ enter }}</button><button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')" class="invisible">{{ reload }}</button>
+    <pre><code>(oefenopdrachten) > smallangle approx .1 <button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')">{{ enter }}</button><button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="smallangle approx .1">For an accuracy of 0.1, the small-angle approximation holds
     up to x = 0.854.</span>
     </code></pre>
@@ -701,7 +706,7 @@ Docstrings werken ook heel handig samen met Click want ze worden gebruikt als we
     We gebruiken bij click-functies niet de standaard structuur voor docstrings. Click breekt de docstrings standaard af waardoor het algauw een onogelijke brij aan informatie wordt. We kiezen daarom voor een samenvatting in een zin met daarin de PARAMETERS (argumenten) in hoofdletters en eventueel een korte toelichting daarop. 
 
 ???+ meer-leren "Uitgebreide documentatie en Click"
-    In de documentatie van Click vind je meer informatie over het afbreken van zinnen (en het [voorkomen](https://click.palletsprojects.com/en/8.1.x/documentation/#preventing-rewrapping) daarvan). Ook vind je daar een manier om een uitgebreide docstring te schrijven [zonder](https://click.palletsprojects.com/en/8.1.x/documentation/#truncating-help-texts) dat het een bende wordt.
+    In de documentatie van Click vind je meer informatie over het afbreken van zinnen (en het [voorkomen](https://click.palletsprojects.com/en/stable/documentation/#preventing-rewrapping) daarvan). Ook vind je daar een manier om een uitgebreide docstring te schrijven [zonder](https://click.palletsprojects.com/en/stable/documentation/#truncating-help-texts) dat het een bende wordt.
 
 We voegen docstrings toe aan fake-conda:
 
@@ -712,7 +717,7 @@ import click
 @click.group()
 def cmd_group():
     """
-    Fake the installation and removal of packages in fake conda environments.
+    Fake the installation and removal of packages in fake uv environments.
     """
     pass
 
@@ -747,10 +752,10 @@ if __name__ == "__main__":
     cmd_group()
 ```
 Als we vervolgens de help functie aanroepen zien we de eerste regel van de docstrings verschijnen voor alle subcommando's:
-<pre><code>(ECPC) > fake_conda --help <button type="button" name="python fake_conda --help" onclick="runScript('python fake_conda --help')">{{ enter }}</button><button type="button" name="python fake_conda --help" onclick="runScript('python fake_conda --help')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="python fake_conda --help">Usage: fake_conda [OPTIONS] COMMAND [ARGS]...
+<pre><code>(oefenopdrachten) > fake_uv --help <button type="button" name="python fake_uv --help" onclick="runScript('python fake_uv --help')">{{ enter }}</button><button type="button" name="python fake_uv --help" onclick="runScript('python fake_uv --help')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python fake_uv --help">Usage: fake_uv [OPTIONS] COMMAND [ARGS]...
 
-Fake the installation and removal of packages in fake conda environments.
+Fake the installation and removal of packages in fake uv environments.
 
 Options:
   --help  Show this message and exit.
@@ -763,8 +768,8 @@ Commands:
 
 Daarna kun je uitleg vragen voor de subcommando's waarbij je de hele docstring te zien krijgt:
 
-<pre><code>(ECPC) > fake_conda install --help <button type="button" name="python fake_conda.py install --help" onclick="runScript('python fake_conda.py install --help')">{{ enter }}</button><button type="button" name="python fake_conda.py install --help" onclick="runScript('python fake_conda.py install --help')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="python fake_conda.py install --help">Usage: fake_conda install [OPTIONS] PACKAGE
+<pre><code>(oefenopdrachten) > fake_uv install --help <button type="button" name="python fake_uv.py install --help" onclick="runScript('python fake_uv.py install --help')">{{ enter }}</button><button type="button" name="python fake_uv.py install --help" onclick="runScript('python fake_uv.py install --help')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python fake_uv.py install --help">Usage: fake_uv install [OPTIONS] PACKAGE
 
   Install a conda PACKAGE.
 
@@ -788,7 +793,7 @@ Options:
         """
         ```
         **Testcode**
-        <pre><code>(ECPC) > smallangle --help <button type="button" name="smallangle --help" onclick="runScript('smallangle --help')">{{ enter }}</button><button type="button" name="smallangle --help" onclick="runScript('smallangle --help')" class="invisible">{{ reload }}</button>
+        <pre><code>(oefenopdrachten) > smallangle --help <button type="button" name="smallangle --help" onclick="runScript('smallangle --help')">{{ enter }}</button><button type="button" name="smallangle --help" onclick="runScript('smallangle --help')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="smallangle --help">Usage: smallangle [OPTIONS] COMMAND [ARGS] ...
             Options: 
                 --help Show this message and exit.
@@ -858,11 +863,11 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
             # print Work in progress, scan LED
         ```
         **Testcode**
-        <pre><code>(ECPC) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
+        <pre><code>(oefenopdrachten) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode list">Work in progress, list devices </span>
         </code></pre>
 
-        <pre><code>(ECPC) > diode scan <button type="button" name="diode scan" onclick="runScript('diode scan')">{{ enter }}</button><button type="button" name="diode scan" onclick="runScript('diode scan')" class="invisible">{{ reload }}</button>
+        <pre><code>(oefenopdrachten) > diode scan <button type="button" name="diode scan" onclick="runScript('diode scan')">{{ enter }}</button><button type="button" name="diode scan" onclick="runScript('diode scan')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode scan">Work in progress, scan LED</span>
         </code></pre>
         
@@ -891,7 +896,7 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
 We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het tonen van de resultaten daarvan aan de gebruiker.
 
 !!! info
-    Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen 0 en 3.3 V. Je kunt dit doen door de `#!py type`-parameter in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven (bijvoorbeeld: `#!py type=int` of `#!py type=float`) en Click heeft speciale types zoals `#!py type=click.FloatRange(0, 3.3)` voor een kommagetal tussen 0 en 3.3. Bekijk alle speciale types in de [Click documentatie](https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types). Als je hiervan gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat voor je.
+    Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen 0 en 3.3 V. Je kunt dit doen door de `#!py type`-parameter in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven (bijvoorbeeld: `#!py type=int` of `#!py type=float`) en Click heeft speciale types zoals `#!py type=click.FloatRange(0, 3.3)` voor een kommagetal tussen 0 en 3.3. Bekijk alle speciale types in de [Click documentatie](https://click.palletsprojects.com/en/stable/parameters/#parameter-types). Als je hiervan gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat voor je.
 
 !!! opdracht-inlever "Pythondaq: `scan`"
     === "opdracht"
@@ -972,7 +977,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         De gebruiker test het subcommando `list` met de volgende handelingen. De gebruiker typt het commando `diode list` in de terminal. Daarna verschijnt in de terminal een lijst van aangesloten instrumenten.
         
     === "code"
-        <pre><code>(ECPC) > diode list <button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')">{{ enter }}</button><button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')" class="invisible">{{ reload }}</button>
+        <pre><code>(oefenopdrachten) > diode list <button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')">{{ enter }}</button><button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode list_filled_in">('ASRL28::INSTR','ASRL5::INSTR')</span>
         </code></pre>
 
@@ -1008,7 +1013,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
             # print identificationstring of device
         ```
         **Testcode**
-        <pre><code>(ECPC) > diode info ASRL28::INSTR <button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')">{{ enter }}</button><button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')" class="invisible">{{ reload }}</button>
+        <pre><code>(oefenopdrachten) > diode info ASRL28::INSTR <button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')">{{ enter }}</button><button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode info ASRL28::INSTR">Arduino VISA firmware v1.1.0</span>
         </code></pre>
 
@@ -1039,7 +1044,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         </br></br>
         Tot slot leent de gebruiker een Arduino van een buurmens. De gebruiker sluit de tweede Arduino aan op de computer. Met `list` en `info` kijkt de gebruiker wat de poortnaam is van de tweede Arduino. Met het subcommando `scan` voert de gebruiker een meting uit en ziet dat het lampje van de tweede Arduino gaat branden en niet het lampje van de eerste Arduino. 
     === "code"
-        <pre><code>(ECPC) > diode scan <button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')">{{ enter }}</button><button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')" class="invisible">{{ reload }}</button>
+        <pre><code>(oefenopdrachten) > diode scan <button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')">{{ enter }}</button><button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode scan_no device">errorUsage: diode [OPTIONS] DEVICE
         Try 'diode --help' for help.
         Error: Missing argument 'DEVICE'.</span>
@@ -1098,7 +1103,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         """
         ```
         **Testcode**
-        <pre><code>(ECPC) > diode --help <button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')">{{ enter }}</button><button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')" class="invisible">{{ reload }}</button>
+        <pre><code>(oefenopdrachten) > diode --help <button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')">{{ enter }}</button><button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode --help_assignment">Usage: diode [OPTIONS] COMMAND [ARGS] ...
             Options: 
                 --help Show this message and exit.
@@ -1125,7 +1130,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
 ???+ opdracht-meer "Pythondaq: `list --search`"
     Breid het commando `list` uit met een optie `--search` waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
-    <pre><code>(ECPC) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
+    <pre><code>(oefenopdrachten) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="diode list">The following devices are connected to your computer:                                                                             
     ASRL/dev/cu.SOC::INSTR
     ASRL/dev/cu.MALS::INSTR
@@ -1133,7 +1138,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
     ASRL/dev/cu.Bluetooth-Incoming-Port::INSTR
     ASRL/dev/cu.usbmodem143401::INSTR 
     </span>
-    (ECPC) > diode list -s usbmodem <button type="button" name="diode list -s usbmodem" onclick="runScript('diode list -s usbmodem')">{{ enter }}</button><button type="button" name="diode list -s usbmodem" onclick="runScript('diode list -s usbmodem')" class="invisible">{{ reload }}</button>
+    (oefenopdrachten) > diode list -s usbmodem <button type="button" name="diode list -s usbmodem" onclick="runScript('diode list -s usbmodem')">{{ enter }}</button><button type="button" name="diode list -s usbmodem" onclick="runScript('diode list -s usbmodem')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="diode list -s usbmodem">The following devices match your search string:                                                                       
     ASRL/dev/cu.usbmodem143401::INSTR </span>
     </code></pre>
