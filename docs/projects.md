@@ -503,7 +503,7 @@ Het probleem is dat wanneer je met Python een script runt en je importeert iets,
             Successfully built dist\easystat-0.1.0-py3-none-any.whl</span>
             </code></pre>
     
-    Een `.tar.gz`-bestand is een soort zipbestand met daarin de broncode van het package (een _source distribution_). De tests worden daar niet in meegenomen. Een wheel is een soort bestand dat direct geïnstalleerd kan worden met `pip`. Zogenaamde _pure-python_ packages bevatten alleen Pythoncode &mdash; en geen C-code die gecompileerd moet worden voor verschillende besturingssystemen of hardwareplatforms. Je herkent ze aan `none-any` in de bestandsnaam. <q>None</q> voor <q>niet-OS-specifiek</q> en <q>any</q> voor <q>draait op elk hardwareplatform</q>. Je kunt dit bestand als download neerzetten op een website of aan anderen mailen. Zij kunnen het dan installeren met `pip install`.
+    Een `.tar.gz`-bestand is een soort zipbestand met daarin de broncode van het package (een _source distribution_). De tests worden daar niet in meegenomen. Zogenaamde _pure-python_ wheels bevatten alleen Pythoncode &mdash; en geen C-code die gecompileerd moet worden voor verschillende besturingssystemen of hardwareplatforms. Je herkent ze aan `none-any` in de bestandsnaam. <q>None</q> voor <q>niet-OS-specifiek</q> en <q>any</q> voor <q>draait op elk hardwareplatform</q>. Je kunt dit bestand als download neerzetten op een website of aan anderen mailen. Zij kunnen het dan installeren met `pip install`.
 
     !!! opdracht-meer "Easystat: test wheel"
         Tijd om het wheel uit te proberen. Je gaat straks een nieuw virtual environment aanmaken, installeert het wheel en probeert het testscript te runnen &mdash; één keer vóór het installeren van het wheel en één keer ná het installeren. Volg hiervoor de volgende stappen:
@@ -594,47 +594,23 @@ python script.py
 ```
 Je moet dan wel in Visual Studio Code de juiste map geopend hebben zodat Python het bestand kan vinden. En als je de `run`-knop gebruikt, moet wel het bestand dat je wilt runnen openstaan. Kortom, best een beetje gedoe. Maar als je programma's zoals uv, Conda of Python wilt gebruiken hoef je helemaal niet het juiste bestand op te zoeken en te runnen. Je hoeft alleen maar een commando in de terminal te geven &mdash; bijvoorbeeld `python` of `uv` &mdash; en de computer start automatisch het juiste programma op.
 
-Dat willen wij ook voor onze programma's! En met uv kun je dat heel eenvoudig doen. Voordat je doorgaat met jouw package `pythondaq` ga je dit eerst een keer testen. Je gaat daarvoor even in een test repository werken. Je voegt in deze repository een commando toe om een module uit te voeren. De twee bestanden {{file}}`square.py` en {{file}}`count_count.py` zijn voor jou netjes in een package geplaatst in de repository {{github}}`AnneliesVlaar/just_count` met de volgende structuur:
-
-    just_count/
-        src/
-            just_count/
-                __init__.py
-                square.py
-                count_count.py
-        .python-version
-        pyproject.toml
-        README.md
-        uv.lock
-
-De bestanden {{file}}`square.py` en {{file}}`count_count.py` zien er hetzelfde uit als in [paragraaf _Modules_](vervolg-python.md#modules):
-=== "square.py"
-
-    ``` py
-    --8<-- "scripts/square.py"
-    ```
-=== "count_count.py"
-
-    ``` py
-    --8<-- "scripts/count_count.py"
-    ```
-
+Dat willen wij ook voor onze programma's! En met uv kun je dat heel eenvoudig doen. Voordat je doorgaat met jouw package `pythondaq` ga je dit eerst een keer testen. Je gaat daarvoor terug naar je {{github}}`easystat` repository.
 
 Je kunt uv niet vragen om een script te runnen, maar wel om een functie in een module uit te voeren. Een nieuw uv project krijgt automatisch al een voorbeeldscript. 
 
 !!! opdracht-basis "Voorbeeldscript bekijken"
     === "opdracht"
-        Clone de [repository just_count](x-github-client://openRepo/https://github.com/AnneliesVlaar/just_count) naar GitHub Desktop en open de repository daarna vanuit GitHub Desktop in Visual Studio Code. Je ziet een {{file_lines}}`pyproject.toml` en een {{file_lines}}`uv.lock` in de repository staan, dus je maakt meteen een virtual environment aan {{lightbulb}}. Je opent een terminal en voert de opdracht `just-count` uit. De code die nu gerund wordt staat in het bestand {{file}}`src/just_count/__init__.py`. Dit is overigens niet de beste plek, maar werkt prima als eenvoudig voorbeeld. Je bekijkt de code en ziet dat de bewuste code in een functie `#!py main()` staat.
+        Je opent je {{github}}`easystat` repository in Visual Studio Code. Je opent een terminal en voert de opdracht `easystat` uit. De code die nu gerund wordt staat in het bestand {{file}}`src/easystat/__init__.py`. Dit is overigens niet de beste plek, maar werkt prima als eenvoudig voorbeeld en is daarom automatisch aangemaakt door uv. Je bekijkt de code en ziet dat de bewuste code in een functie `#!py main()` staat.
     === "code"
         **Testcode**
         <div class="code-box"><button type="button" name="uv voorbeeldscript" onclick="runScript('uv voorbeeldscript')" class="run">{{ run }}</button><button type="button" name="uv voorbeeldscript" onclick="runScript('uv voorbeeldscript')" class="reload invisible">{{ reload }}</button> \_\_init\_\_.py
         ``` py
         def main() -> None:
-            print("Hello from just-count!")
+            print("Hello from easystat!")
         ```
         <pre>
-        <code>(just_count) > just-count
-        <span class="invisible" name="uv voorbeeldscript">Hello from just-count!</span>
+        <code>(easystat) > easystat
+        <span class="invisible" name="uv voorbeeldscript">Hello from easystat!</span>
         </code></pre></div>      
 
     === "check"
@@ -645,34 +621,46 @@ Je kunt uv niet vragen om een script te runnen, maar wel om een functie in een m
         - [ ] Commando toevoegen
         - [ ] Commando testen
 
-Als je wilt dat er andere code gerund wordt als de opdracht `just-count` gegeven wordt, dan moet je er voor zorgen dat je naar een functie in het betreffende bestand verwijst. Dit doe je net zoals dat gedaan is in het bestand {{file}}`src/just_count/__init__.py`.
+Als je wilt dat er andere code gerund wordt als de opdracht `easystat` gegeven wordt, dan moet je er voor zorgen dat je naar een functie in het betreffende bestand verwijst. Dit doe je net zoals dat gedaan is in het bestand {{file}}`src/easystat/__init__.py`.
 
 !!! opdracht-basis "Functie `#!py main()` toevoegen"
     === "opdracht"
-         Je opent het hoofdbestand {{file}}`count_count.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Daarna pas je het bestand aan zodat de functie nog steeds wordt uitgevoerd wanneer je het bestand {{file}}`count_count.py` runt. 
-    === "code"
-        **Testcode**
-        <div class="code-box"><button type="button" name="count_count_main function" onclick="runScript('count_count_main function')" class="run">{{ run }}</button><button type="button" name="count_count_main function" onclick="runScript('count_count_main function')" class="reload invisible">{{ reload }}</button> count_count.py
+        We hebben wat voorbeeldcode nodig. Dat kan van alles zijn dus je kopieert de code in het bestand {{file}}`tests/try_measurements.py` naar `src/easystat/app.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Ook voegen we aan het eind toe:
         ``` py
-        import square
-
-        def main():
-            print(f"The square of 5 is {square.square(5)}")
-
         if __name__ == '__main__':
             main()
         ```
+        zodat als je het script direct runt dat de functie `#!py main()` wordt aangeroepen, maar dat als je de code importeert dat dat niet direct gebeurt. Zie de [sectie _Modules_](http://127.0.0.1:8000/vervolg-python/#modules) voor meer informatie. Als je beide regels weglaat gebeurt er helemaal niets als je het script runt. Er wordt dan wel een functie gedefinieerd maar hij wordt niet uitgevoerd.
+    === "code"
+        **Testcode**
+        <div class="code-box"><button type="button" name="easystat_main function" onclick="runScript('easystat_main function')" class="run">{{ run }}</button><button type="button" name="easystat_main function" onclick="runScript('easystat_main function')" class="reload invisible">{{ reload }}</button> src/easystat/app.py
+        ``` py
+        from easystat.measurements import result_with_uncertainty
+
+
+        def main():
+            measurements = [1, 2, 2, 2, 3]
+            result, uncertainty = result_with_uncertainty(measurements)
+
+            print(f"{measurements=}")
+            print(f"Result of measurements is: {result:.2f} +- {uncertainty:.2f}.")
+
+
+        if __name__ == "__main__":
+            main()
+        ```
         <pre>
-        <code>(just_count) > python .\src\just_count\count_count.py
-        <span class="invisible" name="count_count_main function">The square of 5 is 25</span>
+        <code>(easystat) > python src/easystat/app.py
+        <span class="invisible" name="easystat_main function">measurements=[1, 2, 2, 2, 3]
+        Result of measurements is: 2.00 +- 0.28.</span>
         </code></pre></div>
         
     === "check"
         **Checkpunten**
     
-        - [ ] Er staat een functie `#!py main()` in het bestand {{file}}`count_count.py`.
-        - [ ] In heb bestand {{file}}`count_count.py` is een statement `#!py if __name__ == '__main__'` toegevoegd.
-        - [ ] Het runnen van het bestand {{file}}`count_count.py` geeft de output `The square of 5 is 25`.
+        - [ ] Er staat een functie `#!py main()` in het bestand {{file}}`app.py`.
+        - [ ] In het bestand {{file}}`app.py` is een statement `#!py if __name__ == '__main__'` toegevoegd.
+        - [ ] Het runnen van het bestand {{file}}`app.py` geeft de output `The easystat of 5 is 25`.
 
         **Projecttraject**
     
@@ -685,31 +673,31 @@ Als je wilt dat er andere code gerund wordt als de opdracht `just-count` gegeven
 In {{file_lines}}`pyproject.toml` kun je nu het commando toevoegen om een specifieke functie te runnen. In de sectie `[project.scripts]` kun je aangeven met welk commando een functie uit een module wordt uitgevoerd. In {{file_lines}}`pyproject.toml` staat deze sectie al:
 ``` toml
 [project.scripts]
-just-count = "just_count:main"
+easystat = "easystat:main"
 ```
 De vorm van die laatste regel is als volgt:
 ``` toml
 naam_commando = "package.module:naam_functie"
 ```
-Hier is `naam_commando` het commando dat je in moet typen in de terminal. `package` is de naam van het Python package waar de code staat en `module` is de naam van de module waar de code staat. `naam_functie` is de naam van de functie waarin de code staat. Als je `module` weglaat, dan kijkt uv in {{file}}`__init__.py`. Vandaar dat uv met het commando `just-count` op het moment de functie `#!py main()` in {{file}}`__init__.py` draait. Maar dit kun je natuurlijk aanpassen!
+Hier is `naam_commando` het commando dat je in moet typen in de terminal. `package` is de naam van het Python package waar de code staat en `module` is de naam van de module waar de code staat. `naam_functie` is de naam van de functie waarin de code staat. Als je `module` weglaat, dan kijkt uv in {{file}}`__init__.py`. Vandaar dat uv met het commando `easystat` op het moment de functie `#!py main()` in {{file}}`__init__.py` draait. Maar dit kun je natuurlijk aanpassen!
 
 Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren, moet je je virtual environment wel opnieuw synchroniseren. uv installeert dan jouw package ook opnieuw.
 
 !!! opdracht-basis "Commando toevoegen"
     === "opdracht"
-        Je voegt in de {{file_lines}}`pyproject.toml` in de sectie `[project.scripts]` een nieuw commando `square` toe. Deze verwijst naar de functie `#!py main()` welke in de module {{file}}`count_count.py` staat, die ondergebracht is in de package {{folder}}`just_count`. Omdat je handmatig de {{file_lines}}`pyproject.toml` hebt aangepast, synchroniseer je je virtual environment opnieuw {{lightbulb}}.
+        Je past in de {{file_lines}}`pyproject.toml` in de sectie `[project.scripts]` het commando `easystat` aan. Deze verwijst naar de functie `#!py main()` welke in de module {{file}}`app.py` staat, die ondergebracht is in de package {{folder}}`easystat`. Omdat je handmatig de {{file_lines}}`pyproject.toml` hebt aangepast, synchroniseer je je virtual environment opnieuw {{lightbulb}}.
     === "code"
         **Pseudo-code**
         ``` toml title="pyproject.toml"
         [project.scripts]
-        square = "just_count.count_count:main"
+        easystat = "easystat.app:main"
         ```
     === "check"
         **Checkpunten**
     
-        - [ ] De naam van het commando is `square`.
-        - [ ] De verwijzing na het = teken begint met twee aanhalingstekens gevolgd door het package {{folder}}`just_count` gevolgt door een punt.
-        - [ ] Na de punt staat de naam van de module {{file}}`count_count.py` zonder de extensie `.py` gevolgd door een dubbele punt.
+        - [ ] De naam van het commando is `easystat`.
+        - [ ] De verwijzing na het = teken begint met twee aanhalingstekens gevolgd door het package {{folder}}`easystat` gevolgt door een punt.
+        - [ ] Na de punt staat de naam van de module {{file}}`app.py` zonder de extensie `.py` gevolgd door een dubbele punt.
         - [ ] Na de dubbele punt staat de naam van de functie `#!py main()` zonder haakjes `()`.
         - [ ] Achter de functie staan weer dubble aanhalingstekens om de verwijzing te sluiten. 
         - [ ] Na het opslaan van de {{file_lines}}`pyproject.toml` is de virtual environment gesynchroniseerd. 
@@ -726,32 +714,22 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren, moet je je 
 
 !!! opdracht-basis "Commando testen"
     === "opdracht"
-        Nu je het commando `square` hebt aangemaakt ga je deze testen in een terminal. Er verschijnt een error `ModuleNotFoundError: No module named 'square'`. Je leest het info-blok hieronder en past het betreffende import statement aan. Daarna run je het commando `square` opnieuw en je ziet de tekst `The square of 5 is 25` verschijnen. 
+        Nu je het commando `easystat` hebt aangemaakt ga je deze testen in een terminal. Je ziet de verwachte uitvoer verschijnen, met al laatste regel `Result of measurements is: 2.00 +- 0.28.`.
         <br><br>
-        Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `square` en ziet weer de tekst `The square of 5 is 25` verschijnen. Je concludeert dat het commando nu overal werkt zolang het juiste virtual environment is geactiveerd. Dat test je uit door het virtual environment te deactiveren {{lightbulb}} en het commando `square` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
-
-        !!! info "ModuleNotFoundError: No module named 'square'"
-            Als je de traceback leest zie je dat het probleem ontstaat in de module {{file}}`count_count.py`. Zoiets heb je al eerder gezien, namelijk toen je werkte met het package `easystat`... Pas het import statement aan naar `#!py from just_count import square`.  
+        Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `easystat` en ziet weer de tekst `Result of measurements is: 2.00 +- 0.28.` verschijnen. Je concludeert dat het commando nu overal werkt zolang het juiste virtual environment is geactiveerd. Dat test je uit door het virtual environment te deactiveren {{lightbulb}} en het commando `easystat` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
     === "code"
         **Pseudo-code**
-        <pre><code>(just-count) > square <button type="button" name="square_test" onclick="runScript('square_test')">{{ enter }}</button><button type="button" name="square_test" onclick="runScript('square_test')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="square_test">Traceback (most recent call last):
-        File "C:\Users\David\AppData\Roaming\uv\python\cpython-3.10.18-windows-x86_64-none\lib\runpy.py", line 196, in _run_module_as_main
-            return _run_code(code, main_globals, None,
-        File "C:\Users\David\AppData\Roaming\uv\python\cpython-3.10.18-windows-x86_64-none\lib\runpy.py", line 86, in _run_code
-            exec(code, run_globals)
-        File "C:\Users\David\Documents\ECPC\just_count\.venv\Scripts\square.exe\__main__.py", line 4, in <module>
-        File "C:\Users\David\Documents\ECPC\just_count\src\just_count\count_count.py", line 1, in <module>
-            import square
-        ModuleNotFoundError: No module named 'square'</span>
+        <pre><code>(easystat) > easystat <button type="button" name="easystat_test" onclick="runScript('easystat_test')">{{ enter }}</button><button type="button" name="easystat_test" onclick="runScript('easystat_test')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="easystat_test">measurements=[1, 2, 2, 2, 3]
+        Result of measurements is: 2.00 +- 0.28.</span>
         </code></pre>
     === "check"
         **Checkpunten**
     
-        - [ ] Het import statement in {{file}}`count_count.py` is genoteerd beginnend vanuit de map {{folder}}`src`.
-        - [ ] Het commando `square` werkt als het juiste virtual environment is geactiveerd.
-        - [ ] Het commando `square` werkt nog steeds nadat je met het commando `cd..` naar een bovenliggende map bent gegaan.
-        - [ ] Het commando `square` werkt niet als het virtual environment is gedeactiveerd.
+        - [ ] Het import statement in {{file}}`app.py` is genoteerd beginnend vanuit de map {{folder}}`src`.
+        - [ ] Het commando `easystat` werkt als het juiste virtual environment is geactiveerd.
+        - [ ] Het commando `easystat` werkt nog steeds nadat je met het commando `cd..` naar een bovenliggende map bent gegaan.
+        - [ ] Het commando `easystat` werkt niet als het virtual environment is gedeactiveerd.
 
         **Projecttraject**
     
@@ -760,14 +738,14 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren, moet je je 
         - [x] Commando toevoegen
         - [x] Commando testen
 
-???+ opdracht-meer "Error analysis"
-    Als extra oefening ga je met uv een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script {{file}}`data_analysis.py` te laten runnen met een commando.
+???+ opdracht-basis "Error analysis"
+    Maak deze opdracht alleen als je extra wilt oefenen. Je gaat met uv een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script {{file}}`data_analysis.py` te laten runnen met een commando.
 
-    1. Ga naar GitHub en clone {{github}}[`AnneliesVlaar/erroranalysis`](https://github.com/AnneliesVlaar/erroranalysis) in GitHub Desktop en open de repository daarna in Visual Studio Code.
-    2. Natuurlijk maak je meteen een nieuw virtual environment aan {{lightbulb}}, voordat je dit package gaat testen.
+    1. Ga naar GitHub en clone {{github}}[`NatuurkundepracticumAmsterdam/erroranalysis`](https://github.com/NatuurkundepracticumAmsterdam/erroranalysis) in GitHub Desktop en open de repository daarna in Visual Studio Code.
+    2. Natuurlijk synchroniseer je meteen een virtual environment {{lightbulb}}, voordat je dit package gaat testen.
     3. Snuffel door de bestanden en mappen. Open {{file}}`src/erroranalysis/data_analysis.py`. Dit is het script wat moet kunnen runnen.
     4. Run het script {{file}}`data_analysis.py` en los de errors één voor één op.
-    5. Om erachter te komen of de problemen die je eerder had écht zijn opgelost, maak je een nieuw &mdash; leeg &mdash; virtual environment aan {{lightbulb}} en test je dat het script _niet werkt_. Daarna installeer je het package en run je het script opnieuw. Werkt alles? Mooi! 
+    5. Om erachter te komen of de problemen die je eerder had écht zijn opgelost, maak je een nieuw &mdash; leeg(!) &mdash; virtual environment aan {{lightbulb}} en test je dat het script _niet werkt_. Daarna synchroniseer je het environment en run je het script opnieuw. Werkt alles? Mooi! 
     6. Dan ga je nu een commando aanmaken om de functie `#!py table()` aan te roepen. Open {{file_lines}}`pyproject.toml` en zoek de sectie `scripts`. Maak een commando die de functie `#!py table()` aanroept in {{file}}`src/erroranalysis/data_analysis.py`. Je mag de naam van het commando zelf kiezen. Het formaat voor een commando is:
             ``` toml
             [project.scripts]

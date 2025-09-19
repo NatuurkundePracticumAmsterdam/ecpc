@@ -24,6 +24,10 @@
         ```
         .venv\Scripts\activate
         ```
+    ??? conda1 "Environment deactiveren"
+        ```
+        deactivate
+        ```
     ??? conda1 "Pakket installeren"
         ```
         uv pip install PACKAGE
