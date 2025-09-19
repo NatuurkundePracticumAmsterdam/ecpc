@@ -85,9 +85,15 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         - [ ] PyVISA LED laten branden
 
 !!! info
-     Voor de volgende opdrachten moet je uv [geïnstalleerd](https://docs.astral.sh/uv/getting-started/installation/#winget) hebben. Voor Windowscomputers, open een Terminal en type in (of kopieer door te klikken op het {{copy}}-icoon):
-    ``` ps1 title="Terminal"
-    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+     Voor de volgende opdrachten moet je uv [geïnstalleerd](https://docs.astral.sh/uv/getting-started/installation) hebben. Hieronder staat het benodigde commando voor verschillende besturingssystemen. Kies het commando dat voor jou van toepassing is. Open een Terminal en type het commando in (of kopieer door te klikken op het {{copy}}-icoon).
+    ``` ps1con title="Terminal (Windows)"
+    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1con | iex"
+    ```
+    ``` console title="(macOS en Linux, optie 1)"
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    ```
+    ``` console title="(macOS en Linux, optie 2)"
+    wget -qO- https://astral.sh/uv/install.sh | sh
     ```
     **Belangrijk:** uv werkt nu alleen in _nieuw geopende_ terminals. Sluit daarom de terminal die je open hebt staan en open een nieuwe terminal.
 
