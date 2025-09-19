@@ -212,6 +212,12 @@ Nu ga je starten met de package. Je gaat een aantal keer de foutmelding `#!py Mo
         <div class="grid-tree" markdown>
             <div>
             ``` py title="shortcuts.py"
+            """Easy shortcut functions for statistical calculations.
+
+            Currently only provides the `stdev_of_mean()` function which calculates the
+            standard deviation of the mean.
+            """
+
             import numpy as np 
             
             
@@ -220,6 +226,8 @@ Nu ga je starten met de package. Je gaat een aantal keer de foutmelding `#!py Mo
                 return np.std(values) / np.sqrt(len(values))    
             ```
             ``` py title="measurements.py"
+            """Statistical functions related to measurements."""
+
             import numpy as np
             from shortcuts import stdev_of_mean
 
@@ -230,6 +238,8 @@ Nu ga je starten met de package. Je gaat een aantal keer de foutmelding `#!py Mo
 
             ```
             ``` py title="try_measurements.py"
+            """Test the easystat package."""
+
             from measurements import result_with_uncertainty
 
 
