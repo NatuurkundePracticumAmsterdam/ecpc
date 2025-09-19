@@ -100,7 +100,11 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
 <div id="opd:pyvisaterminal"></div>
 !!! opdracht-basis "PyVISA in terminal"
     === "opdracht"
-        Je sluit de Arduino met een USB-kabel aan op de computer. In een Terminal open je een `pyvisa-shell` met een python _backend_. Het commando hiervoor kun je misschien het beste copy/pasten vanuit het [tabblad code](#__tabbed_2_2) die bij deze opdracht staat. Om erachter te komen hoe de `pyvisa-shell` werkt type je het commando `help`. Je ziet een reeks aan commando's en bekijkt de helptekst van de commando's waarmee je denkt de `pyvisa-shell` te kunnen afsluiten. Wanneer je dit commando hebt gevonden sluit je daarmee de `pyvisa-shell` af. 
+        Je sluit de Arduino met een USB-kabel aan op de computer. In een Terminal open je een `pyvisa-shell` met een python _backend_. Het commando hiervoor is:
+        ``` ps1con
+        uvx --from pyvisa --with pyvisa-py --with pyserial pyvisa-shell --backend py
+        ```
+        Om erachter te komen hoe de `pyvisa-shell` werkt type je het commando `help`. Je ziet een reeks aan commando's en bekijkt de helptekst van de commando's waarmee je denkt de `pyvisa-shell` te kunnen afsluiten. Wanneer je dit commando hebt gevonden sluit je daarmee de `pyvisa-shell` af. 
     === "code"
         **Pseudo-code**
         ``` ps1con title="Terminal"
@@ -485,6 +489,11 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         
         Deze opties verschijnen als je een Pythonbestand open hebt staan. Na selecteren **moet** je de terminal sluiten (type `exit` of klik op het prullenbakje) en een nieuwe terminal openen. Als de terminal goed geactiveerd is staat er nu `(ECPC)` aan het begin van de prompt (opdrachtregel waar je je commando's intypt).
 
+        Installeer de benodigde packages met:
+        ``` ps1con title="Terminal"
+        uv pip install pyvisa pyvisa-py pyserial
+        ```
+
         !!! info
             Als je op Windows werkt, kun je bij het openen van een nieuwe terminal de volgende foutmelding krijgen:
             ``` ps1
@@ -504,10 +513,6 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
             ```
             Open daarna nogmaals een nieuwe terminal. Nu moet je wél `(ECPC)` aan het begin van de prompt zien staan.
         
-        Installeer de benodigde packages met:
-        ``` ps1con title="Terminal"
-        uv pip install pyvisa pyvisa-py pyserial
-        ```
     === "check"
         **Checkpunten**
 
