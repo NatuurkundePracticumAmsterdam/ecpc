@@ -5,17 +5,15 @@
 Als je een grafische applicatie schrijft roep je functies aan van het besturingssysteem om vensters, knoppen, menu's e.d. te laten tekenen en te reageren op muisklikken en het toetsenbord. Het lastige daaraan is dat een applicatie voor MacOS heel anders geschreven moet worden dan één voor Linux of Windows. Om die reden zijn er verschillende _cross-platform_ bibliotheken ontwikkeld die als het ware tussen het besturingssysteem en je applicatie komen te staan. Je kunt dezelfde applicatie maken voor alle besturingssystemen en de bibliotheek kiest welke functies aangeroepen moeten worden om een venster te tekenen. Het voordeel is duidelijk: je hoeft maar één applicatie te schrijven die overal werkt. Het nadeel is dat je niet écht gebruik kunt maken van alle functies en opties die het besturingssysteem biedt. Hier kiezen we voor de voordelen en gaan we gebruik maken van misschien wel de meest populaire optie: Qt.[^uitspraak-Qt] De bibliotheek `PySide6` is de officiële Pythonbibliotheek.
 
 [^uitspraak-Qt]: Uitspraak: het Engelse _cute_.
+
 <div id="info:test-qt"></div>
 !!! info
-    Maak voor de oefeningen een nieuw conda environment `test-qt` met:
-    ``` ps1con title="Terminal"
-    conda create --name test-qt python=3.12
-    conda activate test-qt
-    pip install pyside6 pyqtgraph
-    ```
-    Selecteer het nieuwe `test-qt` conda environment in Visual Studio Code en sluit alle <q>oude</q> terminals met het {{trash}} -icoon.[^kill-terminals]
+    Je hebt voor de volgende opdrachten de volgende packages nodig in je virtual environment, of als dependency voor je uv project:
 
- [^kill-terminals]: Of in één keer met **View > Command Palette > Terminal: Kill All Terminals**
+    1. `pyside6-essentials`
+    2. `pyqtgraph`
+
+    Dit wordt bij de opdrachten nog wel verteld, maar voor het overzicht staan ze ook hier.
 
 Een minimale Qt-applicatie ziet er als volgt uit:
 <div id="code:minimal"></div>
@@ -52,7 +50,7 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
 
         <div class="grid-tree" markdown>
             <div>
-            Je gaat de gegeven Python code voor een een minimale GUI testen. In de map {{folder}}`ECPC` maak je een {{new_file}}`example-gui.py` aan en zet daarin de Python code. Je activeert de `test-qt` conda environment {{lightbulb}} en runt het bestand {{new_file}}`example-gui.py`. Er verschijnt een leeg venster in beeld met als venstertitel `python` en drie knoppen. Een streepje (minimize), een vierkant (maximize) en een kruis (close). Je drukt op het kruisje en het venster sluit. 
+            Je gaat de gegeven Python code voor een een minimale GUI testen. In de repository {{github}}`oefenopdrachten` maak je een {{new_file}}`example-gui.py` aan en zet daarin de Python code van bovenstaand voorbeeld. Je runt het bestand {{new_file}}`example-gui.py` en krijgt een foutmelding. Je installeert het pakket `pyside6-essentials` in je virtual environment {{lightbulb}} en runt je code nog een keer. Er verschijnt een leeg venster in beeld met als venstertitel `python` en de drie standaard vensterknoppen voor minimaliseren, maximaliseren en sluiten.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -85,7 +83,7 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
     === "check"
         **Checkpunten:**
 
-        - [ ] Het juiste conda environment is geactiveerd
+        - [ ] Het virtual environment `oefenopdrachten` is geactiveerd
         - [ ] De code is volledig overgenomen
         - [ ] Er verschijnt een leeg venster
 
@@ -600,7 +598,7 @@ Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties.
 
 ### De plotter als script
 
-Om PyQtGraph te importeren en globale opties in te stellen moeten we bovenaan ons programma het volgende schrijven:
+Om PyQtGraph te importeren en globale opties in te stellen moeten we het package `pyqtgraph` installeren en bovenaan ons programma het volgende schrijven:
 
 ``` py
 import pyqtgraph as pg
@@ -639,12 +637,16 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
 
         <div class="grid-tree" markdown>
             <div>
-            We gaan een nieuwe repository aanmaken in de {{folder}}`ECPC` map (zie hiernaast). Maak een Poetry project {{github}}`functionplotter`, voeg die toe aan GitHub Desktop {{lightbulb}} en open hem in Visual Studio Code. Bekijk {{file_lines}}`pyproject.toml` en zorg dat er een commando is aangemaakt om de applicatie te starten. Je maakt een nieuw conda environment aan met alleen Python daarin {{lightbulb}}. Gebruik `poetry install` om het project te installeren {{lightbulb}} en voer het commando uit om de applicatie te starten. Als je applicatie af is verschijnt er een scherm met een plot waarin de functie $\sin(x)$ plot in het domein $(0, 2\pi)$ is weergegeven. Een golfje van trots gaat door je heen en je gaat door naar de volgende opdracht.
+            We gaan een nieuwe repository aanmaken in de {{folder}}`ECPC` map (zie hiernaast). Maak een repository {{github}}`functionplotter` en open hem in Visual Studio Code. Maak een uv project {{lightbulb}}, en een bestand `app.py` in je package. Schrijf daarin je code. Bekijk {{file_lines}}`pyproject.toml` en zorg dat er een commando is aangemaakt om de applicatie te starten. Synchroniseer het environment {{lightbulb}} en voer het commando uit om de applicatie te starten. Als je applicatie af is verschijnt er een scherm met een plot waarin de functie $\sin(x)$ plot in het domein $(0, 2\pi)$ is weergegeven. Een golfje van trots gaat door je heen en je gaat door naar de volgende opdracht.
             </div>
             <div>
             {{folder}} `ECPC`  
             {{T}} {{github}} `pythondaq`  
             {{T}} {{github}} `functionplotter`  
+            {{tab}} {{T}} {{folder}} `functionplotter`  
+            {{tab}} {{tab}} {{L}} {{folder}} `src`  
+            {{tab}} {{tab}} {{tab}} {{L}} {{folder}} `functionplotter`  
+            {{tab}} {{tab}} {{tab}} {{tab}} {{L}} {{new_file_lines}} `app.py`  
             {{tab}} {{T}} {{new_file_lines}} `pyproject.toml`  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{dots}}  
@@ -670,7 +672,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
         - [ ] Er is een repository {{github}}`functionplotter`
         - [ ] Er is een commando om de applicatie te starten
         - [ ] De applicatie laat een $\sin(x)$ plot zien in het domein $(0, 2\pi)$
-        - [ ] De applicatie werkt ook na `poetry install` in een nieuwe conda environment.
+        - [ ] De applicatie werkt ook na `uv sync`.
 
         **Projecttraject**
     
@@ -737,13 +739,13 @@ Designer kan (bijna) alles wat je ook met programmeren kan, daarom kan het progr
 
 !!! opdracht-basis "Designer: opstarten"
     === "opdracht"
-        <iframe src="https://drive.google.com/file/d/16MJDQXXHG0KjVa3AIXC_pP__7zI73vXL/preview" width="620" height="349" style="border:none;"></iframe>
+        <iframe src="https://drive.google.com/file/d/16MJDQXXHG0KjVa3AIXC_pP__7zI73vXL/preview?t=24" width="620" height="349" style="border:none;"></iframe>
 
-        Bekijk de bovenstaande video. Activeer het conda environment `test-qt` die je [eerder hebt aangemaakt](#info:test-qt) {{lightbulb}} en start designer op. Open een template voor een `#!py MainWindow` en ontrolleer dat bij jou in de `object inspector` dezelfde widgets staan als in het filmpje hierboven.
+        Bekijk de bovenstaande video. Start designer op met het commando `pyside6-designer` in een terminal. Open een template voor een `#!py MainWindow` en ontrolleer dat bij jou in de `object inspector` dezelfde widgets staan als in het filmpje hierboven.
     === "code"
         **Test-code**
-        <pre><code>(test-qt) > pyside6-designer <button type="button" name="pyside6-designer_start" onclick="runScript('pyside6-designer_start')">{{ enter }}</button><button type="button" name="pyside6-designer_start" onclick="runScript('pyside6-designer_start')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="pyside6-designer_start">start Designer app</span>
+        <pre><code>(functionplotter) > pyside6-designer <button type="button" name="pyside6-designer_start" onclick="runScript('pyside6-designer_start')">{{ enter }}</button><button type="button" name="pyside6-designer_start" onclick="runScript('pyside6-designer_start')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="pyside6-designer_start">[start Designer app]</span>
         </code></pre>
         
     === "check"
@@ -829,11 +831,11 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
             </div>
         </div>
         !!! info "Wijzigingen in het ontwerp"
-            Het omzetten van het .ui-bestand naar een .py bestand moet je doen elke keer als je in Designer iets wijzigt (en opslaat). Gebruik de ++up++-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met Poetry, zullen we dit eenvoudiger maken.
+            Het omzetten van het .ui-bestand naar een .py bestand moet je doen elke keer als je in Designer iets wijzigt (en opslaat). Gebruik de ++up++-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met uv, zullen we dit eenvoudiger maken.
         [^overleg-navigeren]: Overleg met elkaar of met de assistent als je niet weet hoe dat moet.
     === "code"
         **Test-code**
-        <pre><code>(ECPC) > pyside6-uic number_display_app.ui --output ui_number_display_app.py <button type="button" name="pyside6-uic number_display_app.ui --output ui_number_display_app.py" onclick="runScript('pyside6-uic number_display_app.ui --output ui_number_display_app.py')">{{ enter }}</button><button type="button" name="pyside6-uic number_display_app.ui --output ui_number_display_app.py" onclick="runScript('pyside6-uic number_display_app.ui --output ui_number_display_app.py')" class="invisible">{{ reload }}</button>
+        <pre><code>(oefenopdrachten) > pyside6-uic number_display_app.ui --output ui_number_display_app.py <button type="button" name="pyside6-uic number_display_app.ui --output ui_number_display_app.py" onclick="runScript('pyside6-uic number_display_app.ui --output ui_number_display_app.py')">{{ enter }}</button><button type="button" name="pyside6-uic number_display_app.ui --output ui_number_display_app.py" onclick="runScript('pyside6-uic number_display_app.ui --output ui_number_display_app.py')" class="invisible">{{ reload }}</button>
         </code><span class="invisible" name="pyside6-uic number_display_app.ui --output ui_number_display_app.py">
         {{folder}} `ECPC`
         {{T}} {{github}} `oefenopdrachten`
@@ -1019,14 +1021,14 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
     Nu je dit een keer gedaan hebt kun je voortaan op een Graphics View meteen kiezen voor **Promote to > PlotWidget** en hoef je niets meer in te typen. Vergeet niet je widget nog even een handige naam te geven, bijvoorbeeld `plot_widget`.
 
     ### Commando toevoegen om .ui te vertalen naar .py
-    Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met Poetry taken aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. Doe dit als volgt:
+    Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met uv taken aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. Doe dit als volgt:
 
     1. Installeer _Poe the Poet_ &mdash; een zogeheten _task runner_ &mdash; als _development dependency_ met:
         ``` ps1con title="Terminal"
-        poetry add --group dev poethepoet
+        uv add --dev poethepoet
         ```
         We geven hiermee aan dat we dit package nodig hebben voor de ontwikkeling van onze applicatie, maar dat deze niet meegeleverd hoeft te worden als we de applicatie gaan delen met anderen.
-    1. Voeg aan je {{file}}`pyproject.toml` het volgende toe &mdash; uitgaande van de mappenstructuur in de `pythondaq` package en {{file_lines}}`mainwindow.ui` als naam van je `.ui`-bestand:
+    2. Voeg aan je {{file}}`pyproject.toml` het volgende toe &mdash; uitgaande van de mappenstructuur in de `pythondaq` package en {{file_lines}}`mainwindow.ui` als naam van je `.ui`-bestand:
         ``` toml
         [tool.poe.tasks.compile]
         shell = """
@@ -1035,7 +1037,7 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
         interpreter = ["posix", "powershell"]
         ```
         Je kunt binnen de driedubbele aanhalingstekens meerdere regels toevoegen als je meerdere `.ui`-bestanden hebt &mdash; voor ieder bestand een regel.
-    1. In bovenstaande regels is de naam _na_ `tool.poe.tasks` de naam van de taak &mdash; in dit geval dus `compile`. Je kunt die naam zelf kiezen en vervolgens gebruiken om de taak uit te voeren in de terminal:
+    3. In bovenstaande regels is de naam _na_ `tool.poe.tasks` de naam van de taak &mdash; in dit geval dus `compile`. Je kunt die naam zelf kiezen en vervolgens gebruiken om de taak uit te voeren in de terminal:
         ``` ps1con title="Terminal"
         poe compile
         ```
@@ -1049,7 +1051,7 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
             <div>
             Je gaat in stapjes een GUI maken voor de `pythondaq` applicatie. Maak daarvoor een {{new_file}}`gui.py` waarin een leeg GUI venster wordt gemaakt. Zorg dat het lege venster ook wordt getoond zodra je een commando in de terminal intypt.
             </br></br>
-            De gebruiker test de GUI met de volgende handelingen. De gebruiker maakt een nieuwe conda environment aan met Python daarin {{lightbulb}}. De gebruiker installeert de `Pythondaq` package met Poetry {{lightbulb}}. De gebruiker kijkt in de {{file_lines}}`pyproject.toml` wat het commando is om de GUI op te starten. De gebruiker typte het commando in de terminal en ziet een leeg venster verschijnen. 
+            De gebruiker test de GUI met de volgende handelingen. De gebruiker maakt een nieuw virtual environment aan {{lightbulb}}. De gebruiker installeert de `Pythondaq` package met uv sync {{lightbulb}}. De gebruiker kijkt in de {{file_lines}}`pyproject.toml` wat het commando is om de GUI op te starten. De gebruiker typte het commando in de terminal en ziet een leeg venster verschijnen. 
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -1072,7 +1074,7 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
         **Checkpunten:**
     
         - [ ] Het uitvoeren van een commando zorgt ervoor dat een leeg venster wordt getoond. 
-        - [ ] De GUI werkt ook na het installeren van de package `pythondaq` met Poetry in een nieuwe conda environment met Python. 
+        - [ ] De GUI werkt ook na het installeren van de package `pythondaq` met uv in een nieuw virtual environment met Python. 
 
         **Projecttraject**
     
@@ -1087,7 +1089,7 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
     === "opdracht"
         Pas de GUI aan zodat de applicatie een scan uitvoerd en de metingen in een plot laat zien binnen het venster. Voor het gemak mag je de poortnaam, start- en stopwaardes e.d. <q>hard coded</q> in je script zetten. Later ga je ervoor zorgen dat de gebruiker alles kan instellen en zelf een scan kan starten, maar dat komt straks wel. 
         </br></br>
-        De gebruiker test de GUI met de volgende handelingen. De gebruiker maakt een nieuwe conda environment aan met Python daarin {{lightbulb}}. De gebruiker installeert de `Pythondaq` package met Poetry {{lightbulb}}. De gebruiker kijkt in de {{file_lines}}`pyproject.toml` wat het commando is om de GUI op te starten. De gebruiker typte het commando in de terminal en ziet dat het LEDje gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI. 
+        De gebruiker test de GUI met de volgende handelingen. De gebruiker maakt een nieuw virtual environment aan {{lightbulb}}. De gebruiker installeert de `Pythondaq` package met uv sync {{lightbulb}}. De gebruiker kijkt in de {{file_lines}}`pyproject.toml` wat het commando is om de GUI op te starten. De gebruiker typte het commando in de terminal en ziet dat het LEDje gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI. 
 
         !!! info "Foutenvlaggen plotten"
 
