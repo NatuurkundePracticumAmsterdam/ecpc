@@ -463,7 +463,7 @@ Je wilt dus de module `measurements` importeren, maar Python kan deze module nie
         - [x] Easystat: imports aanpassen
         - [ ] Easystat: absolute imports
 
-Het probleem is dat wanneer je met Python een script runt en je importeert iets, dat Python eerst in de map kijkt waar het script staat (in dit geval {{folder}}`tests`) en daarna pas zoekt in de lijst met geïnstalleerde packages. De module `shortcuts` staat _niet_ in {{folder}}`tests`. Toen je {{file}}`measurements.py` draaide kon Python de module `shortcuts` wél vinden, want {{file}}`measurements.py` en {{file}}`shortcuts.py` staan in _dezelfde_ map. Dus afhankelijk van welk script je draait kan Python de modules soms wel vinden en soms niet. Dat is natuurlijk niet zo handig. De oplossing: _absolute imports_. Geef bij alle imports _altijd_ de naam van je package op.
+Het probleem is dat wanneer je met Python een script runt en je importeert iets, dat Python eerst in de map kijkt waar het script staat (in dit geval {{folder}}`tests`) en daarna pas zoekt in de lijst met geïnstalleerde packages. De module `shortcuts` staat _niet_ in {{folder}}`tests`. Toen je {{file}}`measurements.py` draaide kon Python de module `shortcuts` wél vinden, want {{file}}`measurements.py` en {{file}}`shortcuts.py` staan in _dezelfde_ map. Dus afhankelijk van welk script je draait kan Python de modules soms wel vinden en soms niet. Dat is natuurlijk niet zo handig. De oplossing: _absolute imports_. Geef bij alle imports van je eigen package _altijd_ de _naam_ van je package op.
 
 !!! opdracht-basis "Easystat: absolute imports"
     === "opdracht"
@@ -613,11 +613,7 @@ Je kunt uv niet vragen om een script te runnen, maar wel om een functie in een m
         Je opent je {{github}}`easystat` repository in Visual Studio Code. Je opent een terminal en voert de opdracht `easystat` uit. De code die nu gerund wordt staat in het bestand {{file}}`src/easystat/__init__.py`. Dit is overigens niet de beste plek, maar werkt prima als eenvoudig voorbeeld en is daarom automatisch aangemaakt door uv. Je bekijkt de code en ziet dat de bewuste code in een functie `#!py main()` staat.
     === "code"
         **Testcode**
-        <div class="code-box"><button type="button" name="uv voorbeeldscript" onclick="runScript('uv voorbeeldscript')" class="run">{{ run }}</button><button type="button" name="uv voorbeeldscript" onclick="runScript('uv voorbeeldscript')" class="reload invisible">{{ reload }}</button> \_\_init\_\_.py
-        ``` py
-        def main() -> None:
-            print("Hello from easystat!")
-        ```
+        <div class="code-box"><button type="button" name="uv voorbeeldscript" onclick="runScript('uv voorbeeldscript')" class="run">{{ run }}</button><button type="button" name="uv voorbeeldscript" onclick="runScript('uv voorbeeldscript')" class="reload invisible">{{ reload }}</button>
         <pre>
         <code>(easystat) > easystat
         <span class="invisible" name="uv voorbeeldscript">Hello from easystat!</span>
@@ -644,21 +640,6 @@ Als je wilt dat er andere code gerund wordt als de opdracht `easystat` gegeven w
     === "code"
         **Testcode**
         <div class="code-box"><button type="button" name="easystat_main function" onclick="runScript('easystat_main function')" class="run">{{ run }}</button><button type="button" name="easystat_main function" onclick="runScript('easystat_main function')" class="reload invisible">{{ reload }}</button> src/easystat/app.py
-        ``` py
-        from easystat.measurements import result_with_uncertainty
-
-
-        def main():
-            measurements = [1, 2, 2, 2, 3]
-            result, uncertainty = result_with_uncertainty(measurements)
-
-            print(f"{measurements=}")
-            print(f"Result of measurements is: {result:.2f} +- {uncertainty:.2f}.")
-
-
-        if __name__ == "__main__":
-            main()
-        ```
         <pre>
         <code>(easystat) > python src/easystat/app.py
         <span class="invisible" name="easystat_main function">measurements=[1, 2, 2, 2, 3]
@@ -696,12 +677,6 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren, moet je je 
 !!! opdracht-basis "Commando toevoegen"
     === "opdracht"
         Je past in de {{file_lines}}`pyproject.toml` in de sectie `[project.scripts]` het commando `easystat` aan. Deze verwijst naar de functie `#!py main()` welke in de module {{file}}`app.py` staat, die ondergebracht is in de package {{folder}}`easystat`. Omdat je handmatig de {{file_lines}}`pyproject.toml` hebt aangepast, synchroniseer je je virtual environment opnieuw {{lightbulb}}.
-    === "code"
-        **Pseudo-code**
-        ``` toml title="pyproject.toml"
-        [project.scripts]
-        easystat = "easystat.app:main"
-        ```
     === "check"
         **Checkpunten**
     
