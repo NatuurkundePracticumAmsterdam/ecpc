@@ -549,11 +549,10 @@ In (de laatste) regel 22 roepen we de hoofdfunctie aan die we enigszins willekeu
 !!! opdracht-meer "Smallangle (meer leren)"
     Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt &mdash; maar jij weet precies over welk onderdeel we het hebben.
 
-    1. Maak een nieuw poetry project (met een `src` indeling) aan met de naam {{github}}`smallangle` {{lightbulb}}.
+    1. Maak een nieuw uv project aan met de naam {{github}}`smallangle` {{lightbulb}}.
     2. Let op de Octocat {{github}} voor {{github}}`smallangle`, het moet dus een repository zijn (of worden). 
-    3. Maak een nieuw environment die `smallangle` heet met daarin alleen Python {{lightbulb}}.
-    4. Zet in het package {{folder}}`smallangle` een module {{file}}`smallangle.py`.
-    5. Plak de onderstaande code in {{file}}`smallangle.py`:
+    3. Zet in het package {{folder}}`smallangle` een module {{file}}`smallangle.py`.
+    4. Plak de onderstaande code in {{file}}`smallangle.py`:
         ``` py
         import numpy as np
         from numpy import pi
@@ -575,7 +574,7 @@ In (de laatste) regel 22 roepen we de hoofdfunctie aan die we enigszins willekeu
         if __name__ == "__main__":
             sin(10)
         ```
-    6. Ga door naar de [_opdracht smallangle aanpassen_](#opd:smallangle). Je mag de opdracht smallangle installeren overslaan &mdash; dat werk heb je nu zelf al gedaan.
+    5. Ga door naar de [_opdracht smallangle aanpassen_](#opd:smallangle). Je mag de opdracht smallangle installeren overslaan &mdash; dat werk heb je nu zelf al gedaan.
     
 
 !!! opdracht-inlever "smallangle installeren"
@@ -583,7 +582,7 @@ In (de laatste) regel 22 roepen we de hoofdfunctie aan die we enigszins willekeu
 
         <div class="grid-tree" markdown>
             <div>
-            Je cloned het Poetry project {{github}}`smallangle` van {{github}}`AnneliesVlaar/smallangle` door [de repository in GitHub desktop te openen](x-github-client://openRepo/https://github.com/AnneliesVlaar/smallangle). Daarna open je het project in Visual Studio Code. Na het installeren van het poetry project {{lightbulb}} in een nieuwe conda environment {{lightbulb}} run je het bestand {{file}}`smallangle.py` en krijg je een lijst van 10 punten tussen 0 en 2 $\pi$ en de sinus van deze punten. 
+            Je cloned {{github}}`NatuurkundepracticumAmsterdam/smallangle` door [de repository in GitHub desktop te openen](https://github.com/NatuurkundepracticumAmsterdam/smallangle). Daarna open je het project in Visual Studio Code. Na het synchroniseren van het uv project {{lightbulb}} run je het bestand {{file}}`smallangle.py` en krijg je een lijst van 10 punten tussen 0 en 2 $\pi$ en de sinus van deze punten. 
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -598,19 +597,23 @@ In (de laatste) regel 22 roepen we de hoofdfunctie aan die we enigszins willekeu
         **Testcode**
         <div class="code-box"><button type="button" name="smallangle" onclick="runScript('smallangle')" class="run">{{ run }}</button><button type="button" name="smallangle" onclick="runScript('smallangle')" class="reload invisible">{{ reload }}</button> smallangle.py
         ``` py
+        import click
         import numpy as np
         from numpy import pi
         import pandas as pd
+
 
         def sin(number):
             x = np.linspace(0, 2 * pi, number)
             df = pd.DataFrame({"x": x, "sin (x)": np.sin(x)})
             print(df)
 
+
         def tan(number):
             x = np.linspace(0, 2 * pi, number)
             df = pd.DataFrame({"x": x, "tan (x)": np.tan(x)})
             print(df)
+
 
         if __name__ == "__main__":
             sin(10)
@@ -632,7 +635,7 @@ In (de laatste) regel 22 roepen we de hoofdfunctie aan die we enigszins willekeu
     === "check"
         **Checkpunten:**
 
-        - [ ] Het project is geïnstalleerd in een nieuwe conda environment.
+        - [ ] Het project is gesynchroniseerd.
         - [ ] Na het installeren van het pakket geeft de code de verwachte output.
 
         **Projecttraject:**
@@ -706,79 +709,70 @@ Docstrings werken ook heel handig samen met Click want ze worden gebruikt als we
     We gebruiken bij click-functies niet de standaard structuur voor docstrings. Click breekt de docstrings standaard af waardoor het algauw een onogelijke brij aan informatie wordt. We kiezen daarom voor een samenvatting in een zin met daarin de PARAMETERS (argumenten) in hoofdletters en eventueel een korte toelichting daarop. 
 
 ???+ meer-leren "Uitgebreide documentatie en Click"
-    In de documentatie van Click vind je meer informatie over het afbreken van zinnen (en het [voorkomen](https://click.palletsprojects.com/en/stable/documentation/#preventing-rewrapping) daarvan). Ook vind je daar een manier om een uitgebreide docstring te schrijven [zonder](https://click.palletsprojects.com/en/stable/documentation/#truncating-help-texts) dat het een bende wordt.
+    In de documentatie van Click vind je meer informatie over het afbreken van zinnen (en het [voorkomen](https://click.palletsprojects.com/en/stable/documentation/#escaping-click-s-wrapping) daarvan). Ook vind je daar een manier om een uitgebreide docstring te schrijven [zonder](https://click.palletsprojects.com/en/stable/documentation/#truncating-help-texts) dat het een bende wordt.
 
-We voegen docstrings toe aan fake-conda:
+We voegen docstrings toe aan fake uv:
 
-``` py title="fakeconda.py"
+``` py title="fake_uv.py"
+"""A fake implementation of several uv commands."""
+
 import click
 
 
 @click.group()
 def cmd_group():
-    """
-    Fake the installation and removal of packages in fake uv environments.
-    """
+    """Fake uv commands."""
     pass
 
 
 @cmd_group.command()
 @click.argument("package")
-@click.option(
-    "-c",
-    "--channel",
-    default="defaults",
-    help="Additional channel to search for packages.",
-    show_default=True,  # show default in help
-)
-def install(package, channel):
-    """Install a conda PACKAGE.
+def add(package):
+    """Add a package to a uv project.
 
-    PACKAGE is the name of the package.
+    PACKAGE is the package to add to the project.
     """
-    print(f"Installing {package} from {channel}...")
+    print(f"Adding and installing {package}...")
 
 
 @cmd_group.command()
 @click.argument("package")
 def remove(package):
-    """Remove a conda PACKAGE.
+    """Remove a package from a uv project.
 
-    PACKAGE is the name of the package.
+    PACKAGE is the package to remove.
     """
     print(f"Removing {package}...")
+
 
 if __name__ == "__main__":
     cmd_group()
 ```
 Als we vervolgens de help functie aanroepen zien we de eerste regel van de docstrings verschijnen voor alle subcommando's:
 <pre><code>(oefenopdrachten) > fake_uv --help <button type="button" name="python fake_uv --help" onclick="runScript('python fake_uv --help')">{{ enter }}</button><button type="button" name="python fake_uv --help" onclick="runScript('python fake_uv --help')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="python fake_uv --help">Usage: fake_uv [OPTIONS] COMMAND [ARGS]...
+<span class="invisible" name="python fake_uv --help">Usage: fake_uv.py [OPTIONS] COMMAND [ARGS]...
 
-Fake the installation and removal of packages in fake uv environments.
+  Fake uv commands.
 
 Options:
   --help  Show this message and exit.
 
 Commands:
-  install  Install a conda PACKAGE.
-  remove   Remove a conda PACKAGE.</span>
+  add     Add a package to a uv project.
+  remove  Remove a package from a uv project.</span>
 </code></pre>
-
 
 Daarna kun je uitleg vragen voor de subcommando's waarbij je de hele docstring te zien krijgt:
 
-<pre><code>(oefenopdrachten) > fake_uv install --help <button type="button" name="python fake_uv.py install --help" onclick="runScript('python fake_uv.py install --help')">{{ enter }}</button><button type="button" name="python fake_uv.py install --help" onclick="runScript('python fake_uv.py install --help')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="python fake_uv.py install --help">Usage: fake_uv install [OPTIONS] PACKAGE
+<pre><code>(oefenopdrachten) > fake_uv add --help <button type="button" name="python fake_uv.py add --help" onclick="runScript('python fake_uv.py add --help')">{{ enter }}</button><button type="button" name="python fake_uv.py add --help" onclick="runScript('python fake_uv.py add --help')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="python fake_uv.py add --help">Usage: fake_uv.py add [OPTIONS] PACKAGE
 
-  Install a conda PACKAGE.
+  Add a package to a uv project.
 
-  PACKAGE is the name of the package.
+  PACKAGE is the package to add to the project.
 
 Options:
-  -c, --channel TEXT  Additional channel to search for packages.  [default:
-                      defaults]
-  --help              Show this message and exit.</span>
+  --help  Show this message and exit.</span>
 </code></pre>
 
 !!! opdracht-inlever "Smallangle docstrings"
