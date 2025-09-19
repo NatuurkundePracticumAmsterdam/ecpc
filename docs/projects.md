@@ -81,7 +81,7 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
     === "opdracht"
         1. Open Github Desktop en ga naar **Menu > File**. Kies hier voor `New repository ...`. Geef de repository de naam `easystat` en zet de repository in de map {{folder}}`ECPC`. Vink `Initialize this repository with a README` aan en kies bij `Git ignore` voor Python.
         2. Open de repository {{github}} `easystat` in Visual Studio Code (**Menu > Repository > Open in Visual Studio Code**).
-        3. Open een Terminal in je Visual Studio Code-omgeving (**Menu > Terminal > New Terminal**). Maak het uv project aan met:
+        3. Open een terminal in je Visual Studio Code-omgeving (**Menu > Terminal > New Terminal**). Maak het uv project aan met:
         ``` ps1con title="Terminal"
         uv init --package
         ```

@@ -85,7 +85,7 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         - [ ] PyVISA LED laten branden
 
 !!! info
-     Voor de volgende opdrachten moet je uv [geïnstalleerd](https://docs.astral.sh/uv/getting-started/installation) hebben. Hieronder staat het benodigde commando voor verschillende besturingssystemen. Kies het commando dat voor jou van toepassing is. Open een Terminal en type het commando in (of kopieer door te klikken op het {{copy}}-icoon).
+     Voor de volgende opdrachten moet je uv [geïnstalleerd](https://docs.astral.sh/uv/getting-started/installation) hebben. Hieronder staat het benodigde commando voor verschillende besturingssystemen. Kies het commando dat voor jou van toepassing is. Open een terminal en type het commando in (of kopieer door te klikken op het {{copy}}-icoon).
     ``` ps1con title="Terminal (Windows)"
     powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1con | iex"
     ```
@@ -100,7 +100,7 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
 <div id="opd:pyvisaterminal"></div>
 !!! opdracht-basis "PyVISA in terminal"
     === "opdracht"
-        Je sluit de Arduino met een USB-kabel aan op de computer. In een Terminal open je een `pyvisa-shell` met een python _backend_. Het commando hiervoor is:
+        Je sluit de Arduino met een USB-kabel aan op de computer. In een terminal open je een `pyvisa-shell` met een python _backend_. Het commando hiervoor is:
         ``` ps1con
         uvx --from pyvisa --with pyvisa-py --with pyserial pyvisa-shell --backend py
         ```
@@ -247,7 +247,7 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
 
 !!! opdracht-basis "Terminator characters demo"
     === "opdracht"
-        Je vraagt je misschien af wat het betekent dat er bij het schrijven en lezen regeleindes gebruikt worden. Daarom open je de _Termination Character Demo_ door een Terminal te starten en in te typen:
+        Je vraagt je misschien af wat het betekent dat er bij het schrijven en lezen regeleindes gebruikt worden. Daarom open je de _Termination Character Demo_ door een terminal te starten en in te typen:
         ```shell
         uvx termchar-demo
         ```
@@ -284,7 +284,7 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
 
 !!! opdracht-basis "PyVISA regeleindes"
     === "opdracht"
-        Je gaat weer terug naar de Terminal, en opent een pyvisa-shell. Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je deze moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige instellingen van de regeleindes op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Je bekijkt nog een keer de instellingen om te controleren of de regeleindes nu wel goed staan. Je gaat terug naar de [opdracht PyVISA commando `query`](#opd:pyvisa_query) en krijgt een response in plaats van een error. 
+        Je gaat weer terug naar de terminal, en opent een pyvisa-shell. Je gebruikt het commando `termchar` om de regeleindes in te stellen. Om erachter te komen hoe je deze moet instellen vraag je de helptekst op met `help termchar`. Je vraagt eerst de huidige instellingen van de regeleindes op en ziet dat deze niet goed staan. Daarna stel je de read in op CRLF en de write op LF. Je bekijkt nog een keer de instellingen om te controleren of de regeleindes nu wel goed staan. Je gaat terug naar de [opdracht PyVISA commando `query`](#opd:pyvisa_query) en krijgt een response in plaats van een error. 
 
         !!! info "\r\n en CRLF"
             Bij de _Termination characters demo_ maakte je gebruik van `\r\n`, dat is de programmeertaal equivalent van `CRLF`.
@@ -477,7 +477,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
 <div id="opd:venv"></div>
 !!! opdracht-basis "Virtual environment aanmaken"
     === "opdracht"
-        Open een Terminal in je Visual Studio Code-omgeving (**Menu > Terminal > New Terminal**). Maak de virtual environment aan met:
+        Open een terminal in je Visual Studio Code-omgeving (**Menu > Terminal > New Terminal**). Maak de virtual environment aan met:
         ``` ps1con title="Terminal"
         uv venv --python 3.13
         ```
@@ -581,7 +581,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
 
         - [ ] Je hebt het juiste environment geselecteerd (zie ook [opdracht Virtual environment aanmaken](#opd:venv)).
         - [ ] Je opent de poort met de naam van jouw Arduino (in het geval dat jouw Arduino niet 'ASRL28::INSTR' heet). 
-        - [ ] Je hebt alle terminals (ook de `Terminal` buiten Visual Studio Code) gesloten waarin communicatie met de Arduino openstond. 
+        - [ ] Je hebt alle terminals (ook de `terminal` buiten Visual Studio Code) gesloten waarin communicatie met de Arduino openstond. 
         - [ ] Je krijgt een lijst met poorten en de identificatiestring terug als je het script runt.
 
         **Projecttraject**
@@ -641,7 +641,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
 
         - [ ] Je hebt het juiste environment geselecteerd (zie ook [opdracht Virtual environment aanmaken](#opd:venv)).
         - [ ] Je opent de poort met de naam van jouw Arduino (in het geval dat jouw Arduino niet 'ASRL28::INSTR' heet). 
-        - [ ] Je hebt alle terminals (ook de `Terminal` buiten Visual Studio Code) gesloten waarin communicatie met de Arduino openstond. 
+        - [ ] Je hebt alle terminals (ook de `terminal` buiten Visual Studio Code) gesloten waarin communicatie met de Arduino openstond. 
         - [ ] Je krijgt een lijst met poorten en de identificatiestring terug als je het script runt.
         - [ ] Je laat de spanning oplopen van de minimale tot de maximale waarde. 
         - [ ] Als je goed kijkt zie je de LED vertraagd oplichten.
