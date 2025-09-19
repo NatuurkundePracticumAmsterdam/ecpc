@@ -53,7 +53,7 @@ Zoals je ziet hebben we de prompt (bijvoorbeeld `>`) weggelaten zodat je makkeli
 
 [^prompts]: Er bestaan verschillende _terminal emulators_, meestal afhankelijk van het besturingssysteem &mdash; al heeft Windows zelf al drie verschillende prompts: de _command prompt_, de _powershell prompt_ en tegenwoordig (voorkeur) de _Windows Terminal_. Een terminal ziet eruit als een tekstvenster. Hierbinnen verschijnt een prompt. Dit is een klein stukje tekst dat aangeeft waar je je opdrachten kunt intypen. In MacOS en Linux is de prompt vaak een `$`-teken. In Windows ziet het er vaak uit als `C:\>` of `PS>`. In veel documentatie op internet wordt de `$`-prompt gebruikt.
 
-We maken veel gebruik van conda environments. Hierboven zie je de naam van de conda environment tussen ronde haakjes staan, in dit geval heet de conda environment `ecpc`. In de voorbeeldcode staat standaard de `ecpc` conda environment, maar welk conda environment je moet gebruiken hangt van de opdracht af.
+We maken veel gebruik van virtual environments. Hierboven zie je de naam van de virtual environment tussen ronde haakjes staan, in dit geval heet de virtual environment `ecpc`. In de voorbeeldcode staat vaak de `ecpc` virtual environment, maar de naam hangt af van het project waar je in werkt.
 
 ## Opgaves
 
