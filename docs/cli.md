@@ -644,7 +644,7 @@ In (de laatste) regel 18 roepen we de hoofdfunctie aan die we enigszins willekeu
         !!! info "TypeError: 'int' object is not iterable"
 
             Probeer je de code te draaien maar krijg je een foutmelding zoals deze:
-            ``` ps1 title="Terminal"
+            ``` ps1con title="Terminal"
             Traceback (most recent call last):
             File "c:\smallangle\src\smallangle\smallangle.py", line 28, in <module>
                 sin(10)

@@ -285,7 +285,7 @@ Je kunt de geprinte meetgegevens kopiëren en plakken naar een tekstbestand, spr
 
 !!! info
     In de volgende opdracht ga je een grafiek maken. Installeer Matplotlib in de virtual environment. {{lightbulb}}
-    ``` ps1 title="Terminal"
+    ``` ps1con title="Terminal"
     uv pip install matplotlib
     ```
 

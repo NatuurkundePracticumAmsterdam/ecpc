@@ -8,7 +8,7 @@ Als je een grafische applicatie schrijft roep je functies aan van het besturings
 <div id="info:test-qt"></div>
 !!! info
     Maak voor de oefeningen een nieuw conda environment `test-qt` met:
-    ``` ps1 title="Terminal"
+    ``` ps1con title="Terminal"
     conda create --name test-qt python=3.12
     conda activate test-qt
     pip install pyside6 pyqtgraph
@@ -1022,7 +1022,7 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
     Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met Poetry taken aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. Doe dit als volgt:
 
     1. Installeer _Poe the Poet_ &mdash; een zogeheten _task runner_ &mdash; als _development dependency_ met:
-        ``` ps1 title="Terminal"
+        ``` ps1con title="Terminal"
         poetry add --group dev poethepoet
         ```
         We geven hiermee aan dat we dit package nodig hebben voor de ontwikkeling van onze applicatie, maar dat deze niet meegeleverd hoeft te worden als we de applicatie gaan delen met anderen.
@@ -1036,7 +1036,7 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
         ```
         Je kunt binnen de driedubbele aanhalingstekens meerdere regels toevoegen als je meerdere `.ui`-bestanden hebt &mdash; voor ieder bestand een regel.
     1. In bovenstaande regels is de naam _na_ `tool.poe.tasks` de naam van de taak &mdash; in dit geval dus `compile`. Je kunt die naam zelf kiezen en vervolgens gebruiken om de taak uit te voeren in de terminal:
-        ``` ps1 title="Terminal"
+        ``` ps1con title="Terminal"
         poe compile
         ```
         En dat gaat een stuk sneller dan die lange `pyside-uic`-regel onthouden en intypen!

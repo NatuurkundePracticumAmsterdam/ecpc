@@ -379,7 +379,7 @@ Herstart je terminal en test of het commando `pipx` werkt. Als je in een termina
 ### Apps installeren met pipx
 Wanneer een applicatie als package beschikbaar is op [PyPI](https:/pypi.org) kun je deze als volgt met pipx installeren:
 
-``` ps1 title="Terminal"
+``` ps1con title="Terminal"
 pipx install PACKAGE
 ```
 
@@ -406,7 +406,7 @@ manual pages are exposed at /Path/to/.local/share/man
 
 Daar zie je ook meteen welke versie is geïnstalleerd. Wil je de nieuwste versie installeren gebruik dan:
 
-``` ps1 title="Terminal"
+``` ps1con title="Terminal"
 pipx upgrade PACKAGE
 ```
 

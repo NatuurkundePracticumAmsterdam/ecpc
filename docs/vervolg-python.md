@@ -153,7 +153,7 @@ Deze code is bovendien veel korter en gebruikt minder variabelen.
 
 ### Enumerate
 Soms is het nodig om de index te hebben, bijvoorbeeld wanneer je een namenlijstje wilt nummeren:
-``` ps1 title="Terminal"
+``` ps1con title="Terminal"
 1. Alice
 2. Bob
 3. Carol
@@ -366,7 +366,7 @@ Je kunt op verschillende manieren een NumPy array maken (na `#!py import numpy a
 
     !!! opdracht-meer "*args*"
         Gegeven de lijst `#!py odds = [1, 3, 5, 7, 9]`, print de waardes uit deze lijst op één regel, zoals hieronder weergegeven:
-        ``` ps1 title="Terminal"
+        ``` ps1con title="Terminal"
         1 3 5 7 9
         ```
         Je mag er niet vanuit gaan dat de lijst altijd 5 elementen bevat.
@@ -670,7 +670,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
 
     [^niet_doen]: Maar dat is niet verplicht, je mag in principe zelf een naam kiezen. Doe dat echter niet.
 
-    ``` ps1 title="Terminal"
+    ``` ps1con title="Terminal"
     >>> v1 = Vector(0, 1)
     >>> v2 = Vector(1, 0)
     >>> abs(v1)
@@ -701,7 +701,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
             # roept __repr__ aan
             return repr(self)
     ```
-    ``` ps1 title="Terminal"
+    ``` ps1con title="Terminal"
     >>> v1 + v2
     Vector: (1, 1)
     >>> print(v1 + v2)

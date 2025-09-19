@@ -97,7 +97,7 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         Je sluit de Arduino met een USB-kabel aan op de computer. In een Terminal open je een `pyvisa-shell` met een python _backend_. Het commando hiervoor kun je misschien het beste copy/pasten vanuit het [tabblad code](#__tabbed_2_2) die bij deze opdracht staat. Om erachter te komen hoe de `pyvisa-shell` werkt type je het commando `help`. Je ziet een reeks aan commando's en bekijkt de helptekst van de commando's waarmee je denkt de `pyvisa-shell` te kunnen afsluiten. Wanneer je dit commando hebt gevonden sluit je daarmee de `pyvisa-shell` af. 
     === "code"
         **Pseudo-code**
-        ``` ps1 title="Terminal"
+        ``` ps1con title="Terminal"
         # open pyvisa-shell with python backend
         # check help of pyvisa-shell
         # check help of exit command
@@ -152,7 +152,7 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         Je bekijkt het lijstje met aangesloten apparaten door in de `pyvisa-shell` het commando `list` te typen. Je haalt de USB-kabel waarmee de Arduino aan de computer is aangesloten uit de computer en vraagt nogmaals de lijst met aangesloten apparaten op. Nu weet je welke poort de Arduino is. Je bekijkt daarna de helptekst van het commando `open`, waarna je de communicatie met de Arduino opent.
     === "code"
         **Pseudo-code**
-        ``` ps1 title="Terminal"
+        ``` ps1con title="Terminal"
         # open pyvisa-shell with python backend
         # check list of connected devices
         # check help of open command
@@ -198,7 +198,7 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
         Je stuurt een commando naar de Arduino met `query COMMANDO`. In de [documentatie van de firmware](firmware.md) heb je het commando opgezocht om de identificatiestring uit te lezen. Nadat je dit commando naar de Arduino stuurt krijg je een error. Je leest rustig verder in het hoofdstuk om erachter te komen hoe je dit moet oplossen.
     === "code"
         **Pseudo-code**
-        ``` ps1 title="Terminal"
+        ``` ps1con title="Terminal"
         # send query to get identification string 
         ```
         **Testcode**
@@ -281,7 +281,7 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
 
     === "code"
         **Pseudo-code**
-        ``` ps1 title="Terminal"
+        ``` ps1con title="Terminal"
         # get help of termchar command
         # check current termchar settings
         # adjust termchar settings in read = CRLF and write = LF
@@ -336,7 +336,7 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
         Je weet dat een LED een drempelspanning nodig heeft om te branden. Je vult een paar waardes in tussen de minimale en maximale waarde om erachter te komen wat deze drempelspanning is. 
     === "code"
         **Pseudo-code**
-        ``` ps1 title="Terminal"
+        ``` ps1con title="Terminal"
         # set maximum voltage
         # set maximum voltage + 1
         # set threshold voltage
@@ -468,7 +468,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
 !!! opdracht-basis "Virtual environment aanmaken"
     === "opdracht"
         Open een Terminal in je Visual Studio Code-omgeving (**Menu > Terminal > New Terminal**). Maak de virtual environment aan met:
-        ``` ps1 title="Terminal"
+        ``` ps1con title="Terminal"
         uv venv --python 3.13
         ```
         Met `--python 3.13` geef je aan: gebruik Pythonversie 3.13 (released in 2024). Je mag dat weglaten en dan kiest uv op basis van Pythonversies die je al geïnstalleerd hebt staan, maar als je een te oude versie gebruikt werken sommige dingen misschien niet.
@@ -483,7 +483,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
             Als je op Windows werkt, kun je bij het openen van een nieuwe terminal de volgende foutmelding krijgen:
             ``` ps1
             PS C:\Users\David\Documents\ECPC> & C:/Users/David/Documents/ECPC/.venv/Scripts/Activate.ps1
-            & : File C:\Users\David\Documents\ECPC\.venv\Scripts\Activate.ps1 cannot be loaded 
+            & : File C:\Users\David\Documents\ECPC\.venv\Scripts\Activate.ps1con cannot be loaded 
             because running scripts is disabled on this system. For more information, see 
             about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
             At line:1 char:3
@@ -499,7 +499,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
             Open daarna nogmaals een nieuwe terminal. Nu moet je wél `(ECPC)` aan het begin van de prompt zien staan.
         
         Installeer de benodigde packages met:
-        ``` ps1 title="Terminal"
+        ``` ps1con title="Terminal"
         uv pip install pyvisa pyvisa-py pyserial
         ```
     === "check"

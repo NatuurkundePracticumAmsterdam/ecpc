@@ -43,7 +43,7 @@ print(my_func(2))
 Linksboven kun je op de {{run}}-icoon klikken om de output van de code te zien. Rechtsboven in het blok staat een {{copy}}-icoon. Als je daar op klikt dan wordt de hele code gekopieerd naar het klembord en kun je het in Visual Studio Code weer plakken met ++ctrl+v++.
 
 Ook zul je soms systeemopdrachten moeten uitvoeren. Je wilt bijvoorbeeld nieuwe Pythonbibliotheken installeren of je nieuw-gebouwde applicaties testen. Dit doen we vanuit de _terminal_. De terminal biedt een zogeheten _command-line interface_ voor het systeem. Dit in tegenstelling tot een grafische interface.[^prompts] Met deze notatie laten we zien hoe je {{file}}`my-script.py` met python kunt runnen:
-``` ps1 title="Terminal"
+``` ps1con title="Terminal"
 python my-script.py
 ```
 Zoals je ziet hebben we de prompt (bijvoorbeeld `>`) weggelaten zodat je makkelijker commando's kunt kopiëren en plakken. Wanneer we ook de uitvoer van commando's laten zien is het handiger om onderscheid te maken tussen het commando en de uitvoer. Nu geven we _wel_ de prompt weer (`(ECPC) > `). Door op het {{enter}}-icoon te klikken wordt de uitvoer zichtbaar.

@@ -82,7 +82,7 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
         1. Open Github Desktop en ga naar **Menu > File**. Kies hier voor `New repository ...`. Geef de repository de naam `easystat` en zet de repository in de map {{folder}}`ECPC`. Vink `Initialize this repository with a README` aan en kies bij `Git ignore` voor Python.
         2. Open de repository {{github}} `easystat` in Visual Studio Code (**Menu > Repository > Open in Visual Studio Code**).
         3. Open een Terminal in je Visual Studio Code-omgeving (**Menu > Terminal > New Terminal**). Maak het uv project aan met:
-        ``` ps1 title="Terminal"
+        ``` ps1con title="Terminal"
         uv init --package
         ```
         4. Je bekijkt de nieuw gemaakte mappenstructuur en ziet dat het overeenkomt met de mappenstructuur zoals hieronder weergegeven:
@@ -589,7 +589,7 @@ Natuurlijk willen we uv ook gaan gebruiken bij `pythondaq`. Je maakt nu alleen g
 
 ## Van script naar applicatie
 Om code te testen heb je tot nu toe waarschijnlijk op de `run`-knop in Visual Studio Code gedrukt. Of je hebt in de terminal aan `python` gevraagd om het {{file}}`script.py` te runnen:
-``` ps1 title="Terminal"
+``` ps1con title="Terminal"
 python script.py
 ```
 Je moet dan wel in Visual Studio Code de juiste map geopend hebben zodat Python het bestand kan vinden. En als je de `run`-knop gebruikt, moet wel het bestand dat je wilt runnen openstaan. Kortom, best een beetje gedoe. Maar als je programma's zoals uv, Conda of Python wilt gebruiken hoef je helemaal niet het juiste bestand op te zoeken en te runnen. Je hoeft alleen maar een commando in de terminal te geven &mdash; bijvoorbeeld `python` of `uv` &mdash; en de computer start automatisch het juiste programma op.
