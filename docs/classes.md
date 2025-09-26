@@ -12,7 +12,7 @@ Het aanroepen van een class lijkt veel op het aanroepen van een functie:
 
 Stel je hebt de functie `#!py def calculate_squares_up_to(max_number):`. Dan roep je die aan met `#!py result = calculate_squares_up_to(5)`. Hierbij is `calculate_squares_up_to` de naam van de functie en `result` de variabele waar de uitkomst heen gaat. Achter de naam van de functie, `calculate_squares_up_to`, komen tussen ronde haakjes de variabelen te staan die worden meegegeven aan de functie, in dit geval `#!py 5`. Hierdoor wordt het kwadraat tot het getal 5 uitgerekend.
 
-Bij het aanroepen van een class doe je iets soortgelijks. In de variabele `master_oogway` gaat de <q>uitkomst</q> van de class, dat is in dit geval een collectie van functies &mdash; de zogeheten _methods_ van de class &mdash; (en variabelen). De variabele `master_oogway` noem je een _instance_ van de class `Turtle`. Achter de naam van de class, `Turtle`, komen tussen ronde haakjes de variabelen te staan die worden meegegeven aan class, in dit geval `#!py "turtle"`. Hierdoor heeft de pen de vorm van een schildpad in plaats van een pijl.
+Bij het aanroepen van een class doe je iets soortgelijks. In de variabele `master_oogway` gaat de <q>uitkomst</q> van de class, dat is in dit geval een collectie van functies &mdash; de zogeheten _methods_ van de class &mdash; (en variabelen). De variabele `master_oogway` noem je een _instance_ van de class `Turtle`. Achter de naam van de class, `Turtle`, komen tussen ronde haakjes de parameters te staan die worden meegegeven aan de class, in dit geval `#!py "turtle"`. Hierdoor heeft de pen de vorm van een schildpad in plaats van een pijl.
 
 
 ???+ meer-leren "Meerdere instances"
@@ -87,9 +87,9 @@ Hierin is `50` het aantal stappen en `30` de hoek in graden die de schildpad teg
         - [ ] Opbouw van een class
 
 ## Het maken van een class
-De class `Turtle` is behoorlijk complex en het gaat te ver om de class hier helemaal te gaan bespreken. Voor een goed begrip van classes ga je daarom kijken naar een versimpelde weergave van de class `Turtle`.
+We hebben een class nu _gebruikt_, maar hoe _maak_ je zelf een class? De class `Turtle` is behoorlijk complex en het gaat te ver om de class hier helemaal te bespreken. Voor een goed begrip van classes ga je daarom kijken naar een versimpelde weergave van de class `Turtle`.
 
-Een class maak je aan met de regel `#!py class Turtle:`. [^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit methods. De eerste method `#!py __init__()` is een speciale method (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods)), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
+Een class maak je aan met de regel `#!py class Turtle:`.[^ClassTitle] Daaronder komt ingesprongen de inhoud van de class. De class bestaat uit methods (de 'functies' van een class). De eerste method `#!py __init__()` is een speciale method (voor meer informatie zie: [dunder methods](vervolg-python.md#dunder-methods)), dit is de _initializer_ waarin alle taken staan die uitgevoerd worden zodra de class gebruikt wordt. 
 
 [^ClassTitle]: Wanneer je de Google Style Guide[@google_style_guide] volgt schrijf je de naam van de class in CapWords of CamelCase. 
 
@@ -438,12 +438,117 @@ print(master_oogway.quote)
 
         - [x] Class `Particle`
 
+!!! opdracht-basis "Class `Temperature` (extra oefening)"
+    === "opdracht"        
+        <div class="grid-tree" markdown>
+            <div>
+            Je hebt een class `#!py Temperature` gemaakt in een niew bestand {{file}} `temperature.py`. Als je een instance aanmaakt van de class `#!py Temperature` kun je de temperatuur in ºC meegeven. De instance kun je dan bijvoorbeeld beschouwen als een _temperatuurmeting_. Je kunt de waarde van de temperatuur terugvragen in verschillende eenheden (ºC, ºF, K) met de methods `#!py to_celsius()`, `#!py to_fahrenheit()` en `#!py to_kelvin()`. Met de method `#!py update_temperature()` kun je een nieuwe temperatuurswaarde bewaren.
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{tab}} {{T}} {{file}} `particle.py`  
+            {{tab}} {{T}} {{new_file}} `temperature.py`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{github}} `pythondaq`  
+            {{tab}} {{L}} {{dots}}  
+            </div>
+        </div>
+
+    === "code"
+        **Pseudo-code**
+
+        Vervang de `#!py pass`-statements door jouw code.
+        ``` py
+        class Temperature:
+            def __init__(self, temperature_celsius):
+                pass
+
+            def to_celsius(self):
+                pass
+            
+            def to_kelvin(self):
+                # K = C + 273.15
+                pass
+            
+            def to_fahrenheit(self):
+                # F = C * 9/5 + 32
+                pass
+            
+            def update_temperature(self, temperature_celsius):
+                # Update the stored temperature
+                pass
+        ```
+        **Testcode**
+        <div class="code-box"><button type="button" name="temperature" onclick="runScript('temperature')" class="run">{{ run }}</button><button type="button" name="temperature" onclick="runScript('temperature')" class="reload invisible">{{ reload }}</button> <b>temperature.py</b>
+        ``` py
+        t1 = Temperature(37)
+        print(f"{t1.temperature=}")
+        print(f"{t1.to_celsius()=}")
+        print(f"{t1.to_kelvin()=}")
+        print(f"{t1.to_fahrenheit()=}")
+        print()
+
+        t1.update(21)
+        print(f"{t1.to_celsius()=}")
+        print(f"{t1.to_kelvin()=}")
+        print(f"{t1.to_fahrenheit()=}")
+        ```
+        <pre>
+        <code>(ECPC) > python temperature.py
+        <span class="invisible" name="temperature">t1.temperature=37
+        t1.to_celsius()=37
+        t1.to_kelvin()=310.15
+        t1.to_fahrenheit()=98.6        
+        t1.to_celsius()=21
+        t1.to_kelvin()=294.15
+        t1.to_fahrenheit()=69.8</span>
+        </code></pre></div>
+    === "check"
+        **Checkpunten**
+
+        - [ ] Temperatuur wordt meegegeven.
+        - [ ] Temperature is een instance attribute en kan zowel binnen een method als buiten de class opgeroepen worden.
+        - [ ] Method `#!py to_kelvin()` rekent de temperatuur uit in Kelvin en geeft die waarde terug.
+        - [ ] Method `#!py to_fahrenheit()` rekent de temperatuur uit in Fahrenheit en geeft die waarde terug.
+
+
+!!! opdracht-basis "Class `PointMass` (extra oefening)"
+    === "opdracht"        
+        <div class="grid-tree" markdown>
+            <div>
+            Je hebt een class `#!py PointMass` gemaakt in een niew bestand {{file}} `point_mass.py`. Als je een instance aanmaakt van de class `#!py PointMass` kun je de positie en de snelheid in twee dimensies meegeven. De instance kun je dan beschouwen als een puntmassa waarvan je de plaats en snelheid kent en kunt simuleren. Je hebt gezorgd voor een method om de snelheid aan te passen, en een method om de beweging van het deeltje te simuleren: waar is de puntmassa over 1 seconde? Ook zijn er methods om de kinetische energie en de impuls uit te rekenen.
+            </div>
+            <div>
+            {{folder}} `ECPC`  
+            {{T}} {{github}} `oefenopdrachten`  
+            {{tab}} {{T}} {{file}} `particle.py`  
+            {{tab}} {{T}} {{file}} `temperature.py`  
+            {{tab}} {{T}} {{new_file}} `point_mass.py`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{github}} `pythondaq`  
+            {{tab}} {{L}} {{dots}}  
+            </div>
+        </div>
+
+    === "code"
+        Je bent helemaal vrij om de namen van de attributes en methods te kiezen.
+
+    === "check"
+        **Checkpunten**
+
+        - [ ] Positie en snelheid (in twee dimensies) kunnen worden meegegeven.
+        - [ ] De positie is/zijn instance attribute(s) en kan/kunnen zowel binnen een method als buiten de class opgeroepen worden.
+        - [ ] Er is een method om de snelheid aan te passen.
+        - [ ] Er is een method om de puntmassa te laten 'bewegen' door een tijdstap te zetten.
+
+
 !!! opdracht-inlever "Class `ProjectileMotion`"
     === "opdracht"
 
         <div class="grid-tree" markdown>
             <div>
-            Je gaat een waterraket een aantal keer wegschieten met steeds een andere beginsnelheid en lanceerhoek. Je hebt een instance aangemaakt van de class `#!py ProjectileMotion`. De beginsnelheid en de lanceerhoek bewaar je steeds met de method `#!py add_launch_parameters()`. Om in een keer alle beginsnelheden op te vragen gebruik je de method `#!py get_initial_velocities()`. Om alle lanceerhoeken op te vragen gebruik je de method `#!py get_launch_angles()`. Op basis van de gegevens (en door de luchtweerstand te verwaarlozen) bepaal je de vluchtduur en het bereik van de raket. Je kunt de vluchtduur van alle vluchten opvragen met de method `#!py get_time_of_flights()` en het bereik van alle vluchten met `#!py get_flight_ranges()`. Zie het [tabblad check](#__tabbed_7_3) voor de nodige vergelijkingen.
+            Maak een nieuwe repository voor deze inleveropdracht. Je gaat een waterraket een aantal keer wegschieten met steeds een andere beginsnelheid en lanceerhoek. Je hebt een instance aangemaakt van de class `#!py ProjectileMotion`. De beginsnelheid en de lanceerhoek bewaar je steeds met de method `#!py add_launch_parameters()`. Om in een keer alle beginsnelheden op te vragen gebruik je de method `#!py get_initial_velocities()`. Om alle lanceerhoeken op te vragen gebruik je de method `#!py get_launch_angles()`. Op basis van de gegevens (en door de luchtweerstand te verwaarlozen) bepaal je de vluchtduur en het bereik van de raket. Je kunt de vluchtduur van alle vluchten opvragen met de method `#!py get_time_of_flights()` en het bereik van alle vluchten met `#!py get_flight_ranges()`. Zie het [tabblad check](#__tabbed_9_3) voor de nodige vergelijkingen.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -505,7 +610,7 @@ print(master_oogway.quote)
     === "check"
         **Checkpunten**
 
-        - [ ] De code bevindt zich in een GitHub-repository {{lightbulb}}.
+        - [ ] De code bevindt zich in een nieuwe GitHub-repository {{lightbulb}}.
         - [ ] De method `#!py add_launch_parameters` verwacht een beginsnelheid in meter per seconde en een lanceerhoek in graden.
         - [ ] De method `#!py get_initial_velocities` geeft een lijst terug met alle beginsnelheden van de ingevoerde parameters.
         - [ ] De method `#!py get_launch_angles` geeft een lijst terug met alle lanceerhoeken van de ingevoerde parameters.
