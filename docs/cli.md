@@ -76,7 +76,7 @@ else:
     print(f"CommandNotFoundError: No command '{args[1]}'.")
 ```
 
-Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de _standard library_ van Python. Een hele handige &mdash; die níet in de _standard library_ van Pythhon zit maar wél heel populair is, is Click.[@click]
+Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de _standard library_ van Python. Een hele handige &mdash; die níet in de _standard library_ van Python zit maar wél heel populair is, is Click.[@click]
 
 !!! info
     Click maakt gebruik van _decorators_ (`#!py @decorator`). Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_. Als je meer wilt weten over de werking ervan kijk dan de [calmcode tutorial](https://calmcode.io/decorators/introduction.html) of lees de [Primer on Python Decorators](https://realpython.com/primer-on-python-decorators/).
@@ -114,7 +114,7 @@ python hello.py --help
 
         <div class="grid-tree" markdown>
             <div>
-            Je neemt het script {{file}}`hello.py` over. Je vraagt de helpfunctie van het script op. Je ziet een helptekst verschijnen. Je vraagt je af wat er gebeurt als je `#!py @click.command()` weg haalt en dan de helpfunctie opvraagt. Je krijgt gewoon de output van de functie `#!py hello()` een geen help tekst.
+            Je neemt het script {{file}}`hello.py` over. Je vraagt de helpfunctie van het script op. Je ziet een helptekst verschijnen. Je vraagt je af wat er gebeurt als je `#!py @click.command()` weg haalt en dan de helpfunctie opvraagt. Je krijgt gewoon de output van de functie `#!py hello()` en geen help tekst.
             </div>
             <div>
             {{folder}} `ECPC`  
