@@ -489,7 +489,7 @@ print(master_oogway.quote)
         print(f"{t1.to_fahrenheit()=}")
         print()
 
-        t1.update(21)
+        t1.update_temperature(21)
         print(f"{t1.to_celsius()=}")
         print(f"{t1.to_kelvin()=}")
         print(f"{t1.to_fahrenheit()=}")
