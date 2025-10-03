@@ -778,7 +778,6 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren, moet je je 
     === "check"
         **Checkpunten**
     
-        - [ ] Het import statement in {{file}}`app.py` is genoteerd beginnend vanuit de map {{folder}}`src`.
         - [ ] Het commando `easystat` werkt als het juiste virtual environment is geactiveerd.
         - [ ] Het commando `easystat` werkt nog steeds nadat je met het commando `cd..` naar een bovenliggende map bent gegaan.
         - [ ] Het commando `easystat` werkt niet als het virtual environment is gedeactiveerd.
