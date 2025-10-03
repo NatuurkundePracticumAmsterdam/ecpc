@@ -128,6 +128,11 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
         - [ ] Easystat: opnieuw testen 
         - [ ] Easystat: imports aanpassen
         - [ ] Easystat: absolute imports
+        - [ ] Easystat: voorbeeldscript bekijken
+        - [ ] Easystat: functie `main()` toevoegen
+        - [ ] Easystat: commando toevoegen
+        - [ ] Easystat: commando testen
+        - [ ] Easystat: applicatie runnen in terminal
 
 Laten we één voor één kijken welke mappen en bestanden uv heeft aangemaakt. Je had al een {{file_lines}}`README.md` in de projectmap staan. Hierin komt een algemene beschrijving van het project.[^README]
 
@@ -201,6 +206,11 @@ De sectie `[project.scripts]` zorgt ervoor dat je het script kunt aanroepen door
         - [ ] Easystat: opnieuw testen 
         - [ ] Easystat: imports aanpassen
         - [ ] Easystat: absolute imports
+        - [ ] Easystat: voorbeeldscript bekijken
+        - [ ] Easystat: functie `main()` toevoegen
+        - [ ] Easystat: commando toevoegen
+        - [ ] Easystat: commando testen
+        - [ ] Easystat: applicatie runnen in terminal
 
 ### Maken van de package
 Nu ga je starten met de package. Je gaat een aantal keer de foutmelding `#!py ModuleNotFoundError` tegenkomen, maar dit los je stap voor stap ook weer op. Stel, je berekent vaak de standaarddeviatie van het gemiddelde en je maakt daarvoor een handige <q>shortcut</q> in {{file}}`shortcuts.py`. Nu wil je deze shortcut ook in een ander script, {{file}}`measurements.py`, gebruiken, die op basis van een aantal metingen het gemiddelde mét een onzekerheid geeft. Dit kun je doen door de oorspronkelijke module te importeren in het nieuwe script, zodat je de functie `stdev_of_mean` ook daar kunt gebruiken. Je maakt een script {{file}}`try_measurements.py` om dit allemaal te testen, en dit script zet je expres niet _in_ het package, maar in een nieuwe map {{folder}}`tests`. Het testscript hoort immers niet bij de code van de `easystat` package.
@@ -285,6 +295,11 @@ Nu ga je starten met de package. Je gaat een aantal keer de foutmelding `#!py Mo
         - [ ] Easystat: opnieuw testen 
         - [ ] Easystat: imports aanpassen
         - [ ] Easystat: absolute imports
+        - [ ] Easystat: voorbeeldscript bekijken
+        - [ ] Easystat: functie `main()` toevoegen
+        - [ ] Easystat: commando toevoegen
+        - [ ] Easystat: commando testen
+        - [ ] Easystat: applicatie runnen in terminal
 
 In de eerste regel van {{file}}`try_measurements.py` importeer je de functie uit het nieuwe package om deze uit te proberen. In de eerste `#!py print`-regel gebruik je een handige functie van f-strings.[^f-string-=]
 
@@ -328,6 +343,11 @@ In de eerste regel van {{file}}`try_measurements.py` importeer je de functie uit
         - [ ] Easystat: opnieuw testen 
         - [ ] Easystat: imports aanpassen
         - [ ] Easystat: absolute imports
+        - [ ] Easystat: voorbeeldscript bekijken
+        - [ ] Easystat: functie `main()` toevoegen
+        - [ ] Easystat: commando toevoegen
+        - [ ] Easystat: commando testen
+        - [ ] Easystat: applicatie runnen in terminal
     
 De beloofde `#!py ModuleNotFoundError`! Het package heeft `numpy` nodig en dat heb je nog niet geïnstalleerd in de virtual environment. Dat is ook de reden voor de kringeltjes onder `#!py numpy` in het bestand `shortcuts.py`. Het installeren van `#!py numpy` kun je handmatig doen, maar dan hebben straks andere gebruikers een probleem. Veel beter is het om netjes aan te geven dat het package `numpy` nodig heeft &mdash; als _dependency_.
 
@@ -365,6 +385,11 @@ Installed 2 packages in 798ms
         - [ ] Easystat: opnieuw testen 
         - [ ] Easystat: imports aanpassen
         - [ ] Easystat: absolute imports
+        - [ ] Easystat: voorbeeldscript bekijken
+        - [ ] Easystat: functie `main()` toevoegen
+        - [ ] Easystat: commando toevoegen
+        - [ ] Easystat: commando testen
+        - [ ] Easystat: applicatie runnen in terminal
 
 Fijn! uv heeft `numpy` nu toegevoegd aan de virtual environment `easystat`. Gewone package managers als Pip en Conda zullen geen packages toevoegen aan je uv project als je `pip/conda install PACKAGE` aanroept. Gebruik daarom altijd `uv add PACKAGE` als je met uv aan een project werkt. Sterker nog, als je met Pip handmatig packages extra installeert zal `uv sync` deze packages als overbodig herkennen en ze prompt weer verwijderen. Heb je iets verkeerds toegevoegd? Het verwijderen van een dependency gaat met `uv remove PACKAGE`.
 
@@ -427,6 +452,11 @@ Je hebt nu een uv project en dependencies toegevoegd, maar je hebt nog niet alle
         - [x] Easystat: opnieuw testen     
         - [ ] Easystat: imports aanpassen
         - [ ] Easystat: absolute imports
+        - [ ] Easystat: voorbeeldscript bekijken
+        - [ ] Easystat: functie `main()` toevoegen
+        - [ ] Easystat: commando toevoegen
+        - [ ] Easystat: commando testen
+        - [ ] Easystat: applicatie runnen in terminal
 
 Je wilt dus de module `measurements` importeren, maar Python kan deze module niet vinden. Dat is ook wel een klein beetje logisch, want {{file}}`try_measurements.py` staat in de map {{folder}}`tests` terwijl {{file}}`measurements.py` in de map {{folder}}`src/easystat` staat. Je moet Python daarom vertellen wáár hij die module kan vinden, namelijk in jouw nieuwe package `easystat`. Doordat je een package gemaakt hebt, hoef je niet precies te vertellen in welke _map_ alles te vinden is, je gebruikt alleen de naam van het package. Dus _niet_ `map.op.computer.easystat.src.easystat`, maar gewoon `easystat`. Wel zo makkelijk.
 
@@ -462,6 +492,11 @@ Je wilt dus de module `measurements` importeren, maar Python kan deze module nie
         - [x] Easystat: opnieuw testen
         - [x] Easystat: imports aanpassen
         - [ ] Easystat: absolute imports
+        - [ ] Easystat: voorbeeldscript bekijken
+        - [ ] Easystat: functie `main()` toevoegen
+        - [ ] Easystat: commando toevoegen
+        - [ ] Easystat: commando testen
+        - [ ] Easystat: applicatie runnen in terminal
 
 Het probleem is dat wanneer je met Python een script runt en je importeert iets, dat Python eerst in de map kijkt waar het script staat (in dit geval {{folder}}`tests`) en daarna pas zoekt in de lijst met geïnstalleerde packages. De module `shortcuts` staat _niet_ in {{folder}}`tests`. Toen je {{file}}`measurements.py` draaide kon Python de module `shortcuts` wél vinden, want {{file}}`measurements.py` en {{file}}`shortcuts.py` staan in _dezelfde_ map. Dus afhankelijk van welk script je draait kan Python de modules soms wel vinden en soms niet. Dat is natuurlijk niet zo handig. De oplossing: _absolute imports_. Geef bij alle imports van je eigen package _altijd_ de _naam_ van je package op.
 
@@ -491,6 +526,11 @@ Het probleem is dat wanneer je met Python een script runt en je importeert iets,
         - [x] Easystat: opnieuw testen
         - [x] Easystat: imports aanpassen
         - [x] Easystat: absolute imports
+        - [ ] Easystat: voorbeeldscript bekijken
+        - [ ] Easystat: functie `main()` toevoegen
+        - [ ] Easystat: commando toevoegen
+        - [ ] Easystat: commando testen
+        - [ ] Easystat: applicatie runnen in terminal
 
 <div id="info:wheels"></div>
 ???+ meer-leren "Wheels"
@@ -608,7 +648,7 @@ Dat willen wij ook voor onze programma's! En met uv kun je dat heel eenvoudig do
 
 Je kunt uv niet vragen om een script te runnen, maar wel om een functie in een module uit te voeren. Een nieuw uv project krijgt automatisch al een voorbeeldscript. 
 
-!!! opdracht-basis "Voorbeeldscript bekijken"
+!!! opdracht-basis "Easystat: voorbeeldscript bekijken"
     === "opdracht"
         Je opent je {{github}}`easystat` repository in Visual Studio Code. Je opent een terminal en voert de opdracht `easystat` uit. De code die nu gerund wordt staat in het bestand {{file}}`src/easystat/__init__.py`. Dit is overigens niet de beste plek, maar werkt prima als eenvoudig voorbeeld en is daarom automatisch aangemaakt door uv. Je bekijkt de code en ziet dat de bewuste code in een functie `#!py main()` staat.
     === "code"
@@ -622,21 +662,30 @@ Je kunt uv niet vragen om een script te runnen, maar wel om een functie in een m
     === "check"
         **Projecttraject**
 
-        - [x] Voorbeeldscript bekijken
-        - [ ] Functie `main()` toevoegen
-        - [ ] Commando toevoegen
-        - [ ] Commando testen
+        - [x] Easystat: uv project aanmaken
+        - [x] Easystat: virtual environment synchroniseren
+        - [x] Easystat: benodigde scripts aanmaken
+        - [x] Easystat: testen
+        - [x] Easystat: dependency toevoegen
+        - [x] Easystat: opnieuw testen
+        - [x] Easystat: imports aanpassen
+        - [x] Easystat: absolute imports
+        - [x] Easystat: voorbeeldscript bekijken
+        - [ ] Easystat: functie `main()` toevoegen
+        - [ ] Easystat: commando toevoegen
+        - [ ] Easystat: commando testen
+        - [ ] Easystat: applicatie runnen in terminal
 
 Als je wilt dat er andere code gerund wordt als de opdracht `easystat` gegeven wordt, dan moet je er voor zorgen dat je naar een functie in het betreffende bestand verwijst. Dit doe je net zoals dat gedaan is in het bestand {{file}}`src/easystat/__init__.py`.
 
-!!! opdracht-basis "Functie `#!py main()` toevoegen"
+!!! opdracht-basis "Easystat: functie `#!py main()` toevoegen"
     === "opdracht"
-        We hebben wat voorbeeldcode nodig. Dat kan van alles zijn dus je kopieert de code in het bestand {{file}}`tests/try_measurements.py` naar `src/easystat/app.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Ook voegen we aan het eind toe:
+        Voor het vervolg heb je wat voorbeeldcode nodig. Dat kan van alles zijn dus je kopieert de code in het bestand {{file}}`tests/try_measurements.py` naar `src/easystat/app.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Ook voeg je aan het eind toe:
         ``` py
         if __name__ == '__main__':
             main()
         ```
-        zodat als je het script direct runt dat de functie `#!py main()` wordt aangeroepen, maar dat als je de code importeert dat dat niet direct gebeurt. Zie de [sectie _Modules_](http://127.0.0.1:8000/vervolg-python/#modules) voor meer informatie. Als je beide regels weglaat gebeurt er helemaal niets als je het script runt. Er wordt dan wel een functie gedefinieerd maar hij wordt niet uitgevoerd.
+        Dit zorgt er voor dat als je het script direct runt de functie `#!py main()` wordt aangeroepen, terwijl als je code importeert dat niet direct gebeurt. Zie de [sectie _Modules_](http://127.0.0.1:8000/vervolg-python/#modules) voor meer informatie. Als je beide regels weglaat gebeurt er helemaal niets als je het script runt. Er wordt dan wel een functie gedefinieerd maar hij wordt niet uitgevoerd.
     === "code"
         **Testcode**
         <div class="code-box"><button type="button" name="easystat_main function" onclick="runScript('easystat_main function')" class="run">{{ run }}</button><button type="button" name="easystat_main function" onclick="runScript('easystat_main function')" class="reload invisible">{{ reload }}</button> src/easystat/app.py
@@ -651,14 +700,23 @@ Als je wilt dat er andere code gerund wordt als de opdracht `easystat` gegeven w
     
         - [ ] Er staat een functie `#!py main()` in het bestand {{file}}`app.py`.
         - [ ] In het bestand {{file}}`app.py` is een statement `#!py if __name__ == '__main__'` toegevoegd.
-        - [ ] Het runnen van het bestand {{file}}`app.py` geeft de output `The easystat of 5 is 25`.
+        - [ ] Het runnen van het bestand {{file}}`app.py` geeft als laatste regel `Result of measurements is: 2.00 +- 0.28.`
 
         **Projecttraject**
     
-        - [x] Voorbeeldscript bekijken
-        - [x] Functie `main()` toevoegen
-        - [ ] Commando toevoegen
-        - [ ] Commando testen
+        - [x] Easystat: uv project aanmaken
+        - [x] Easystat: virtual environment synchroniseren
+        - [x] Easystat: benodigde scripts aanmaken
+        - [x] Easystat: testen
+        - [x] Easystat: dependency toevoegen
+        - [x] Easystat: opnieuw testen
+        - [x] Easystat: imports aanpassen
+        - [x] Easystat: absolute imports
+        - [x] Easystat: voorbeeldscript bekijken
+        - [x] Easystat: functie `main()` toevoegen
+        - [ ] Easystat: commando toevoegen
+        - [ ] Easystat: commando testen
+        - [ ] Easystat: applicatie runnen in terminal
     
 
 In {{file_lines}}`pyproject.toml` kun je nu het commando toevoegen om een specifieke functie te runnen. In de sectie `[project.scripts]` kun je aangeven met welk commando een functie uit een module wordt uitgevoerd. In {{file_lines}}`pyproject.toml` staat deze sectie al:
@@ -674,14 +732,14 @@ Hier is `naam_commando` het commando dat je in moet typen in de terminal. `packa
 
 Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren, moet je je virtual environment wel opnieuw synchroniseren. uv installeert dan jouw package ook opnieuw.
 
-!!! opdracht-basis "Commando toevoegen"
+!!! opdracht-basis "Easystat: commando toevoegen"
     === "opdracht"
         Je past in de {{file_lines}}`pyproject.toml` in de sectie `[project.scripts]` het commando `easystat` aan. Deze verwijst naar de functie `#!py main()` welke in de module {{file}}`app.py` staat, die ondergebracht is in de package {{folder}}`easystat`. Omdat je handmatig de {{file_lines}}`pyproject.toml` hebt aangepast, synchroniseer je je virtual environment opnieuw {{lightbulb}}.
     === "check"
         **Checkpunten**
     
         - [ ] De naam van het commando is `easystat`.
-        - [ ] De verwijzing na het = teken begint met twee aanhalingstekens gevolgd door het package {{folder}}`easystat` gevolgt door een punt.
+        - [ ] De verwijzing na het = teken begint met twee aanhalingstekens gevolgd door het package {{folder}}`easystat` gevolgd door een punt.
         - [ ] Na de punt staat de naam van de module {{file}}`app.py` zonder de extensie `.py` gevolgd door een dubbele punt.
         - [ ] Na de dubbele punt staat de naam van de functie `#!py main()` zonder haakjes `()`.
         - [ ] Achter de functie staan weer dubble aanhalingstekens om de verwijzing te sluiten. 
@@ -689,17 +747,26 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren, moet je je 
 
         **Projecttraject**
     
-        - [x] Voorbeeldscript bekijken
-        - [x] Functie `main()` toevoegen 
-        - [x] Commando toevoegen
-        - [ ] Commando testen
+        - [x] Easystat: uv project aanmaken
+        - [x] Easystat: virtual environment synchroniseren
+        - [x] Easystat: benodigde scripts aanmaken
+        - [x] Easystat: testen
+        - [x] Easystat: dependency toevoegen
+        - [x] Easystat: opnieuw testen
+        - [x] Easystat: imports aanpassen
+        - [x] Easystat: absolute imports
+        - [x] Easystat: voorbeeldscript bekijken
+        - [x] Easystat: functie `main()` toevoegen
+        - [x] Easystat: commando toevoegen
+        - [ ] Easystat: commando testen
+        - [ ] Easystat: applicatie runnen in terminal
 
 
 <div id="opd:uv_commando"></div>
 
-!!! opdracht-basis "Commando testen"
+!!! opdracht-basis "Easystat: commando testen"
     === "opdracht"
-        Nu je het commando `easystat` hebt aangemaakt ga je deze testen in een terminal. Je ziet de verwachte uitvoer verschijnen, met al laatste regel `Result of measurements is: 2.00 +- 0.28.`.
+        Nu je het commando `easystat` hebt aangemaakt ga je deze testen in een terminal. Je ziet de verwachte uitvoer verschijnen, met als laatste regel `Result of measurements is: 2.00 +- 0.28.`
         <br><br>
         Je vraagt je af of het commando ook werkt als de terminal in een andere map zit. Met het commando `cd..` ga je naar een bovenliggende map. Je test het commando `easystat` en ziet weer de tekst `Result of measurements is: 2.00 +- 0.28.` verschijnen. Je concludeert dat het commando nu overal werkt zolang het juiste virtual environment is geactiveerd. Dat test je uit door het virtual environment te deactiveren {{lightbulb}} en het commando `easystat` nogmaal te proberen. Je krijgt een error en hebt daarmee je vermoeden bewezen. Tevreden ga je door naar de volgende opdracht. 
     === "code"
@@ -718,10 +785,19 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren, moet je je 
 
         **Projecttraject**
     
-        - [x] Voorbeeldscript bekijken
-        - [x] Functie `main()` toevoegen
-        - [x] Commando toevoegen
-        - [x] Commando testen
+        - [x] Easystat: uv project aanmaken
+        - [x] Easystat: virtual environment synchroniseren
+        - [x] Easystat: benodigde scripts aanmaken
+        - [x] Easystat: testen
+        - [x] Easystat: dependency toevoegen
+        - [x] Easystat: opnieuw testen
+        - [x] Easystat: imports aanpassen
+        - [x] Easystat: absolute imports
+        - [x] Easystat: voorbeeldscript bekijken
+        - [x] Easystat: functie `main()` toevoegen
+        - [x] Easystat: commando toevoegen
+        - [x] Easystat: commando testen
+        - [ ] Easystat: applicatie runnen in terminal
 
 ???+ opdracht-basis "Error analysis"
     Maak deze opdracht alleen als je extra wilt oefenen. Je gaat met uv een commando maken om een ander script uit te laten voeren. De package is al aangemaakt, maar werkt nog niet naar behoren. Los in de volgende opdrachten de errors op om het script {{file}}`data_analysis.py` te laten runnen met een commando.
@@ -807,7 +883,7 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren, moet je je 
         - [ ] Pythondaq: applicatie
     
 
-!!! opdracht-basis "Applicatie runnen in terminal"
+!!! opdracht-basis "Easystat: applicatie runnen in terminal"
     === "opdracht"
         Inmiddels ben je misschien gewend dat je virtual environments altijd moet activeren voordat je applicaties kunt runnen die daarin geïnstalleerd zijn. In Visual Studio Code gaat dat automatisch als je het environment goed geselecteerd hebt. Maar... hoe moet dat zonder Visual Studio Code? Omdat uv virtual environments in je projectmap neerzet &mdash; de map {{folder}}`.venv` &mdash; moet je met je terminal wel in de goede map zitten. Daarna kun je ervoor kiezen om het commando te runnen met uv, dan is activeren van het virtual environment niet nodig, of zonder uv, dan is activeren van het virtual environment _wel_ nodig. Voer de volgende opdrachten uit om dit te proberen.
 
@@ -824,7 +900,19 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren, moet je je 
     === "check"
         **Projecttraject**
 
-        - [x] Applicatie runnen in terminal
+        - [x] Easystat: uv project aanmaken
+        - [x] Easystat: virtual environment synchroniseren
+        - [x] Easystat: benodigde scripts aanmaken
+        - [x] Easystat: testen
+        - [x] Easystat: dependency toevoegen
+        - [x] Easystat: opnieuw testen
+        - [x] Easystat: imports aanpassen
+        - [x] Easystat: absolute imports
+        - [x] Easystat: voorbeeldscript bekijken
+        - [x] Easystat: functie `main()` toevoegen
+        - [x] Easystat: commando toevoegen
+        - [x] Easystat: commando testen
+        - [x] Easystat: applicatie runnen in terminal
 
 !!! opdracht-inlever "Pythondaq: applicatie"
     === "opdracht"

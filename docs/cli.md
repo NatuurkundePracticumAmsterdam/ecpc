@@ -33,12 +33,12 @@ Uitgesplitst in <mark>_argumenten_</mark> en __opties__, met vierkante haken [] 
 <q>uv <mark>_venv_</mark> [__--python__ <mark>_3.13_</mark>]</q>
 
 
-!!! opdracht-basis "uv argumenten"
+!!! opdracht-basis-thuis "uv argumenten"
     
     1. Naast `uv venv` heb je ook met andere argumenten gewerkt zoals `sync` en `add`. Welke argumenten ken je al van de applicatie `uv`?
     2. Vraag de lijst met argumenten (commando's) op van uv met `uv help` (scroll terug naar boven om alles te zien), hoeveel kende je nog niet?
     
-!!! opdracht-basis "uv opties en argumenten"
+!!! opdracht-basis-thuis "uv opties en argumenten"
     Het gaat er bij deze opdracht niet om dat je alle helpteksten volledig doorleest en alle opties bekijkt. Het is heel veel. Het gaat er vooral om dat je een beetje bekend raakt met helpteksten, het verschil tussen argumenten en opties, en waar je informatie kunt vinden.
 
     1. Open een terminal en bekijk de helptekst van uv.

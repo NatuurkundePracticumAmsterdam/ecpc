@@ -437,8 +437,10 @@ print(master_oogway.quote)
         **Projecttraject**
 
         - [x] Class `Particle`
+        - [ ] Class `Temperature`
+        - [ ] Class `PointMass`
 
-!!! opdracht-basis "Class `Temperature` (extra oefening)"
+!!! opdracht-basis "Class `Temperature`"
     === "opdracht"        
         <div class="grid-tree" markdown>
             <div>
@@ -512,8 +514,14 @@ print(master_oogway.quote)
         - [ ] Method `#!py to_kelvin()` rekent de temperatuur uit in Kelvin en geeft die waarde terug.
         - [ ] Method `#!py to_fahrenheit()` rekent de temperatuur uit in Fahrenheit en geeft die waarde terug.
 
+        **Projecttraject**
 
-!!! opdracht-basis "Class `PointMass` (extra oefening)"
+        - [x] Class `Particle`
+        - [x] Class `Temperature`
+        - [ ] Class `PointMass`
+
+
+!!! opdracht-basis "Class `PointMass`"
     === "opdracht"        
         <div class="grid-tree" markdown>
             <div>
@@ -541,6 +549,12 @@ print(master_oogway.quote)
         - [ ] De positie is/zijn instance attribute(s) en kan/kunnen zowel binnen een method als buiten de class opgeroepen worden.
         - [ ] Er is een method om de snelheid aan te passen.
         - [ ] Er is een method om de puntmassa te laten 'bewegen' door een tijdstap te zetten.
+
+        **Projecttraject**
+
+        - [x] Class `Particle`
+        - [x] Class `Temperature`
+        - [x] Class `PointMass`
 
 
 !!! opdracht-inlever "Class `ProjectileMotion`"
