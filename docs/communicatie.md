@@ -87,7 +87,7 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
 !!! info
      Voor de volgende opdrachten moet je uv [geïnstalleerd](https://docs.astral.sh/uv/getting-started/installation) hebben. Hieronder staat het benodigde commando voor verschillende besturingssystemen. Kies het commando dat voor jou van toepassing is. Open een terminal en type het commando in (of kopieer door te klikken op het {{copy}}-icoon).
     ``` ps1con title="Terminal (Windows)"
-    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1con | iex"
+    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
     ```
     ``` console title="(macOS en Linux, optie 1)"
     curl -LsSf https://astral.sh/uv/install.sh | sh
