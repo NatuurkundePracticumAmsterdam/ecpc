@@ -711,6 +711,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
 
     Vaak hebben classes geen dunder methods nodig (behalve `#!py __repr__` en `#!py __str__`).
 
+<div id="meer:decorators"></div>
 ???+ meer-leren "Decorators"
 
     ## Decorators

@@ -3,9 +3,9 @@
 
 Vanaf de jaren '60 van de vorige eeuw werden computers _interactief_. Het was mogelijk om via een _terminal_ commando's aan de computer te geven en te wachten op een antwoord. In tegenstelling tot moderne gebruikersomgevingen waren deze volledig op tekst gebaseerd. Hoewel moderne besturingssystemen &mdash; of het nu computers, tablets of mobiele telefoons betreft &mdash; volledig grafisch zijn ingericht, is de tekstuele interface nooit verdwenen. Opdrachten geven door te typen is gewoon best wel handig en snel. Ook is het veel eenvoudiger om applicaties te ontwikkelen zonder grafische interface.
 
-Op ieder besturingssysteem &mdash; Linux, MacOS, Windows &mdash; is een _shell_, _terminal_ of _command prompt_ te vinden. Als je die opstart kun je op de zogeheten _command line_ opdrachten intypen. Veelal zijn dit commando's om het bestandssysteem te navigeren en programma's op te starten.
+Op ieder besturingssysteem &mdash; Linux, MacOS, Windows &mdash; is een _shell_, _terminal_ of _command prompt_ te vinden. Als je die opstart kun je op de zogeheten _command line_ opdrachten intypen. Veelal zijn dit commando's om door het bestandssysteem te navigeren en programma's op te starten.
 
-Wanneer je in Visual Studio Code een Python script start dan opent het een terminal onderin het scherm.
+Wanneer je in Visual Studio Code een Pythonscript start dan opent het een terminal onderin het scherm.
 
 ### Commando's
 
@@ -13,7 +13,7 @@ Je hebt tot nu toe al heel wat commando's in de terminal getypt. Laten we een pa
 ``` ps1con title="Terminal"
 PS> python script.py
 ```
-Als eerste vertel je welke applicatie je wilt gaan starten; in dit geval: `python`. Daarna geef je met het _argument_ `script.py` aan welk Pythonscript je wilt uitvoeren. Vaak kun je ook _opties_ meegeven zoals in:
+Als eerste vertel je welke applicatie je wilt gaan starten; in dit geval: `python`. Daarna geef je met het _argument_ `script.py` aan welk Pythonscript je wilt uitvoeren. Vaak kun je ook _opties_[^opties] meegeven zoals in:
 <pre><code>PS> python -V <button type="button" name="python -V" onclick="runScript('python -V')">{{ enter }}</button><button type="button" name="python -V" onclick="runScript('python -V')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python -V">Python 3.13.5</span>
 </code></pre>
@@ -22,7 +22,9 @@ Hiermee vraag je Python om het versienummer weer te geven. Soms kunnen _opties_ 
 ``` ps1con title="Terminal"
 PS> python -m antigravity
 ```
-Met deze regel geef je Python de optie `-m` en die importeert een module (hier `antigravity`) en voert die uit. Probeer maar eens zelf wat er gebeurt als je dat commando uitvoert.
+Met deze regel geef je Python de optie `-m` mee en die importeert een module (hier `antigravity`) en voert die uit. Probeer maar eens zelf wat er gebeurt als je dat commando uitvoert.
+
+[^opties]: Opties hebben vaak een lange naam en een afkorting. De lange naam wordt gegeven met twee mintekens en de korte naam met één minteken. `PS> python -V` wordt met de lange naam `PS> python --version`. Beide commando's geven hetzelfde antwoord. Je kunt je voorstellen dat de korte naam minder typwerk is. In de handleiding gebruiken we echter meestal de lange naam van een optie, omdat het commando dan beter leesbaar wordt. 
 
 Als applicaties veel verschillende functionaliteit hebben dan krijg je regelmatig te maken met een lange regel met een combinatie van argumenten en opties:
 ``` ps1con title="Terminal"
@@ -35,23 +37,36 @@ Uitgesplitst in <mark>_argumenten_</mark> en __opties__, met vierkante haken [] 
 
 !!! opdracht-basis-thuis "uv argumenten"
     
-    1. Naast `uv venv` heb je ook met andere argumenten gewerkt zoals `sync` en `add`. Welke argumenten ken je al van de applicatie `uv`?
-    2. Vraag de lijst met argumenten (commando's) op van uv met `uv help` (scroll terug naar boven om alles te zien), hoeveel kende je nog niet?
+    === "opdracht"
+        1. Naast `uv venv` heb je ook met andere argumenten gewerkt zoals `sync` en `add`. Welke argumenten ken je al van de applicatie `uv`?
+        2. Vraag de lijst met argumenten (commando's) op van uv met `uv help` (scroll terug naar boven om alles te zien). Hoeveel kende je nog niet?
+   
+    === "check"
+        **Projecttraject**
+
+        - [x] uv argumenten
+        - [ ] uv opties en argumenten
     
 !!! opdracht-basis-thuis "uv opties en argumenten"
-    Het gaat er bij deze opdracht niet om dat je alle helpteksten volledig doorleest en alle opties bekijkt. Het is heel veel. Het gaat er vooral om dat je een beetje bekend raakt met helpteksten, het verschil tussen argumenten en opties, en waar je informatie kunt vinden.
+    === "opdracht"
+        Het gaat er bij deze opdracht om dat je een beetje bekend raakt met helpteksten, het verschil tussen argumenten en opties en waar je informatie kunt vinden. Je hoeft daarvoor niet alle helpteksten volledig door te lezen of alle opties te bekijken. Dat is namelijk heel veel.
 
-    1. Open een terminal en bekijk de helptekst van uv.
-    2. Zoek de _optie_ op om de uv versie weer te geven.
-    3. Maak gebruik van het argument `help` om de helpfunctie van het commando _pip_ op te vragen (`uv help pip`)
-    4. Welke argumenten moet je meegeven (positional arguments?) en welke opties mag je meegeven (optional arguments?) (argument: `COMMAND`, opties o.a. : `--no-cache`, `--managed-python`).
+        1. Open een terminal en bekijk de helptekst van uv (`uv help`).
+        2. Zoek de _optie_ op om de uv versie weer te geven. Wat is deze versie?
+        3. Maak gebruik van het argument `help` om de helpfunctie van het commando _pip_ op te vragen (`uv help pip`)
+        4. Welke argumenten moet je meegeven (positional arguments?) en welke opties mag je meegeven (optional arguments?) (argument: `COMMAND`, opties o.a. : `--no-cache`, `--managed-python`)?
+    
+    === "check"
+        **Projecttraject**
+
+        - [x] uv argumenten
+        - [x] uv opties en argumenten
 
 
 ### Click
-Als we gebruik willen maken van commando's in onze eigen applicatie moeten we weten wat de gebruiker in de terminal typt. Dit is mogelijk met `sys.argv`.[^argv]
-Waarbij alles wat we in de terminal typen aan input wordt meegegeven:
+Als je gebruik wilt maken van commando's in jouw eigen applicatie dan moet je weten wat de gebruiker in de terminal typt. Dit is mogelijk met `sys.argv`.[^argv] Hiermee wordt alles wat in de terminal getypt wordt aan input meegegeven:
 
-[^argv]: argv staat voor: _argument vector_, een lijst met argumenten
+[^argv]: argv staat voor: _argument vector_, een lijst met argumenten.
 <div class="code-box"><button type="button" name="cli.py" onclick="runScript('cli.py')" class="run">{{ run }}</button><button type="button" name="cli.py" onclick="runScript('cli.py')" class="reload invisible">{{ reload }}</button> cli.py
 ``` py
 import sys
@@ -63,7 +78,7 @@ print(sys.argv)
 <span class="invisible" name="cli.py">['cli.py', 'test', '123']</span>
 </code></pre></div>
 
-Met if-statements kunnen we acties verbinden aan bepaalde argumenten:
+Met if-statements kun je acties verbinden aan bepaalde argumenten:
 ``` py title="cli.py" hl_lines="6-9"
 import sys
 
@@ -76,12 +91,12 @@ else:
     print(f"CommandNotFoundError: No command '{args[1]}'.")
 ```
 
-Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de _standard library_ van Python. Een hele handige &mdash; die níet in de _standard library_ van Python zit maar wél heel populair is, is Click.[@click]
+Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de _standard library_ van Python. Een hele handige &mdash; die níet in de _standard library_ van Python zit, maar wél heel populair is &mdash; is Click.[@click]
 
 !!! info
-    Click maakt gebruik van _decorators_ (`#!py @decorator`). Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_. Als je meer wilt weten over de werking ervan kijk dan de [calmcode tutorial](https://calmcode.io/decorators/introduction.html) of lees de [Primer on Python Decorators](https://realpython.com/primer-on-python-decorators/).
+    Click maakt gebruik van _decorators_ (`#!py @decorator`). Om decorators te _gebruiken_, hoef je niet per se te weten hoe ze _werken_. Als je meer wilt weten over de werking ervan kijk dan de [calmcode tutorial over decorators](https://calmcode.io/decorators/introduction.html). Of lees het [meer-leren blok over decorators](vervolg-python.md#meer:decorators) of de [Primer on Python Decorators](https://realpython.com/primer-on-python-decorators/).
 
-Als kort voorbeeld &mdash; geïnspireerd op de documentatie van Click &mdash; nemen we het volgende script:
+Als kort voorbeeld &mdash; geïnspireerd op de documentatie van Click &mdash; neem je het volgende script:
 ``` py title="hello.py"
 def hello():
     print("Hello physicist!")
@@ -90,7 +105,7 @@ if __name__ == "__main__":
     hello()
 ```
 
-Dit script print de uitdrukking "Hello physicist!". We gaan dit aanpassen en maken het mogelijk om de naam en het aantal begroetingen te kiezen. Hiervoor gebruiken we Click. Allereerst moeten we `#!py click` importeren en aangeven dat we de `#!py hello()`-functie willen gebruiken als _commando_:
+Dit script print de uitdrukking "Hello physicist!". Je gaat dit script aanpassen en maakt het daarmee mogelijk om de naam en het aantal begroetingen te kiezen. Hiervoor gebruik je Click. Allereerst moet je `#!py click` importeren en aangeven dat je de `#!py hello()`-functie wilt gebruiken als _commando_:
 
 ``` py title="hello.py" hl_lines="3"
 import click
@@ -103,18 +118,22 @@ if __name__ == "__main__":
     hello()
 ```
 
-Dit levert ons nog niet zoveel op, maar op de achtergrond is click wel degelijk aan het werk. De `#!py @click.command()` houdt in de gaten wat er in de command line wordt ingetypt. Zo kunnen we de helpfunctie aanroepen door `--help` achter de naam van het script te zetten. Om de code te runnen moet je wel eerst een virtual environment aanmaken, activeren en `click` installeren. {{lightbulb}}
+Dit levert je nog niet zoveel op, maar op de achtergrond is Click wel degelijk aan het werk. De `#!py @click.command()` houdt in de gaten wat er in de command-line wordt ingetypt. Zo kun je de helpfunctie aanroepen door `--help` achter de naam van het script te zetten: 
 
 ``` ps1con title="Terminal"
 python hello.py --help
 ```
+
+Om de code te runnen moet je wel een virtual environment aanmaken, activeren en `click` installeren. {{lightbulb}}
+
+
 <div id="opd:hello-help"></div>
-!!! opdracht-basis "Help functie"
+!!! opdracht-basis "Helpfunctie"
     === "opdracht"
 
         <div class="grid-tree" markdown>
             <div>
-            Je neemt het script {{file}}`hello.py` over. Je vraagt de helpfunctie van het script op. Je ziet een helptekst verschijnen. Je vraagt je af wat er gebeurt als je `#!py @click.command()` weg haalt en dan de helpfunctie opvraagt. Je krijgt gewoon de output van de functie `#!py hello()` en geen help tekst.
+            Je neemt het script {{file}}`hello.py` over. Je vraagt de helpfunctie van het script op. Je ziet een helptekst verschijnen. Je vraagt je af wat er gebeurt als je `#!py @click.command()` weghaalt en daarna de helpfunctie opvraagt. Je krijgt gewoon de output van de functie `#!py hello()` en geen helptekst.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -148,23 +167,23 @@ python hello.py --help
         
         
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] Je vraagt de helpfunctie op door `--help` achter de bestandsnaam te zetten in de terminal.
         - [ ] Er verschijnt een standaard helptekst.
         - [ ] Zonder `@click.command()` verschijnt er geen helptekst, maar de output van de functie.
 
 
-        **Projecttraject:**
+        **Projecttraject**
 
-        - [x] Help functie
-        - [ ] Argumenten toevoegen
-        - [ ] Test hello
+        - [x] Helpfunctie
+        - [ ] Argument toevoegen
+        - [ ] Optie toevoegen
         - [ ] Helptekst toevoegen
-        - [ ] Pauze optie
-        - [ ] Vlag
+        - [ ] Extra optie toevoegen
+        - [ ] Vlag toevoegen
 
-In de code hieronder geven we met de regel `#!py @click.argument("name")` aan dat we van de gebruiker een argument verwachten. Zorg dat het argument ook gebruikt wordt in de functie `hello`:
+In de code hieronder wordt met de regel `#!py @click.argument("name")` aangegeven dat je van de gebruiker een argument verwacht. Zorg dat het argument ook gebruikt wordt in de functie `hello`:
 
 ``` py title="hello.py" hl_lines="4 6"
 import click
@@ -203,26 +222,26 @@ if __name__ == "__main__":
         </code></pre>
         
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
-        - [ ] Het draaien van {{file}}`hello.py` zonder een argument: `python hello.py` geeft een foutmelding.
-        - [ ] Het draaien van {{file}}`hello.py` met een argument: `python hello.py Alice` werkt zoals verwacht.
+        - [ ] Het draaien van {{file}}`hello.py` zonder een argument (`python hello.py`) geeft een foutmelding.
+        - [ ] Het draaien van {{file}}`hello.py` met een argument (`python hello.py Alice`) werkt zoals verwacht.
 
-        **Projecttraject:**
+        **Projecttraject**
 
-        - [x] Help functie
-        - [x] Argumenten toevoegen
-        - [ ] Test hello
+        - [x] Helpfunctie
+        - [x] Argument toevoegen
+        - [ ] Optie toevoegen
         - [ ] Helptekst toevoegen
-        - [ ] Pauze optie
-        - [ ] Vlag
+        - [ ] Extra optie toevoegen
+        - [ ] Vlag toevoegen
 
 !!! warning
-    Let er op dat je bij `#!py @click.argument` de naam meegeeft die overeenkomt met de namen van de parameters van je functie. In ons geval hebben we een argument `#!py "name"`. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name)`.
+    Let er op dat je bij `#!py @click.argument` de naam meegeeft die overeenkomt met de namen van de parameters van je functie. In dit geval heb je een argument `#!py "name"`, dit moet overeenkomen met de functiedefinitie `#!py def hello(name):`.
 
-Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij _opties_ is dat anders. Je geeft met mintekens aan dat je een optie meegeeft. Veel opties hebben een lange naam en een afkorting (bijvoorbeeld `--count` en `-c`). Opties kunnen zelf weer een argument hebben (bijvoorbeeld `--count 3`). Het is handig om een standaardwaarde te definiëren. In dat geval mag de gebruiker de optie weglaten. We voegen een for-loop[^weggooivariabele] toe om de begroeting te herhalen.
+Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij _opties_ is dat anders. Je geeft met mintekens aan dat je een optie meegeeft. Veel opties hebben een lange naam en een afkorting (bijvoorbeeld `--count` en `-c`). Opties kunnen zelf weer een argument hebben (bijvoorbeeld `--count 3`). Het is handig om een standaardwaarde te definiëren. In dat geval mag de gebruiker de optie weglaten. Je voegt een for-loop toe om de begroeting te herhalen.[^weggooivariabele]
 
-[^weggooivariabele]: Merk op in de code hieronder: `#!py _` is de weggooivariabele in Python. Het gaat ons erom dat de loop een aantal keer doorlopen wordt en we hoeven niets te doen met de loop index.
+[^weggooivariabele]: Merk op: `#!py _` is de weggooivariabele in Python. In het geval van de voorbeeldcode gaat het er om dat de for-loop een aantal keer doorlopen wordt, je hoeft verder niets te doen met de loop index.
 
 ``` py title="hello.py" hl_lines="5-9 11"
 import click
@@ -242,9 +261,9 @@ if __name__ == "__main__":
     hello()
 ```
 
-!!! opdracht-basis "5 keer hello"
+!!! opdracht-basis "Optie toevoegen"
     === "opdracht"
-        Je runt het bestand {{file}}`hello.py` en geeft achter de bestandsnaam de naam van je assistent mee en geeft aan dat je deze 5 keer wilt printen. Er verschijnt vijf keer `Hello <assistent>!` als output in de terminal.
+        Je runt het bestand {{file}}`hello.py` en geeft achter de bestandsnaam de naam van je assistent mee. Tevens geef je aan dat je de begroeting vijf keer wilt herhalen. Er verschijnt vijf keer `Hello <assistent>!` als output in de terminal.
     === "code"
         **Pseudo-code**
         ``` py title="hello.py"
@@ -270,32 +289,32 @@ if __name__ == "__main__":
         </code></pre>
         
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
-        - [ ] Je kan de naam van je assistent 5 keer printen met één commando
+        - [ ] Je kan de naam van je assistent 5 keer printen met één commando.
         - [ ] Je kan het aantal keer printen opgeven met `-c`.
         - [ ] Je kan het aantal keer printen ook opgeven met `--count`.
-        - [ ] Wanneer de optie `count` wordt weggelaten wordt de naam 1 keer geprint.
-        - [ ] Wanneer er geen argument wordt meegegeven met `count` volgt een foutmelding:
+        - [ ] Wanneer de optie `count` wordt weggelaten wordt de naam één keer geprint.
+        - [ ] Wanneer er geen argument wordt meegegeven met de optie `count` volgt een foutmelding:
 
             <pre><code>(oefenopdrachten) > python hello.py David -c <button type="button" name="python hello.py David -c" onclick="runScript('python hello.py David -c')">{{ enter }}</button><button type="button" name="python hello.py David -c" onclick="runScript('python hello.py David -c')" class="invisible">{{ reload }}</button>
             <span class="invisible" name="python hello.py David -c">Error: Option '-c' requires an argument.</span>
             </code></pre>
         
 
-        **Projecttraject:**
+        **Projecttraject**
 
-        - [x] Help functie
-        - [x] Argumenten toevoegen
-        - [x] Test hello
+        - [x] Helpfunctie
+        - [x] Argument toevoegen
+        - [x] Optie toevoegen
         - [ ] Helptekst toevoegen
-        - [ ] Pauze optie
-        - [ ] Vlag        
+        - [ ] Extra optie toevoegen
+        - [ ] Vlag toevoegen       
 
 
 
 !!! warning
-    Let er op dat je bij `#!py @click.option` de afkorting met 1 minteken meegeeft en de lange naam met 2 mintekens. De lange naam moet overeenkomen met de paramater van je functie. In ons geval hebben we een optie `#!py "--count"` &mdash; de lange naam telt. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name, count)`.
+    Let er op dat je bij `#!py @click.option` de afkorting met één minteken meegeeft en de lange naam met twee mintekens. De lange naam moet overeenkomen met de paramater van je functie. In ons geval hebben we een optie `#!py "--count"` &mdash; de lange naam telt. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name, count):`.
 
 Het is handig om een korte helptekst toe te voegen. Dit gaat als volgt:
 
@@ -320,10 +339,38 @@ if __name__ == "__main__":
 ```
 
 !!! opdracht-basis "Helptekst toevoegen"
-    Voeg de helptekst toe en vraag de helptekst op zoals in de [_opdracht Help functie_](#opd:hello-help).
+    === "opdracht"
+        Voeg de helptekst toe. Vraag daarna de helptekst op zoals in de [_opdracht Helpfunctie_](#opd:hello-help).
+
+    === "code"
+        **Pseudo-code**
+        ``` py title="hello.py"
+        import click
+
+        # make function Click command
+        # make argument name
+        # make option count with default value 1 and help
+        # function, parameter name and count
+            # repeat count times
+                # print hello <name>!
+
+        # when run this script:
+            # run function
+        ```
+
+    === "check"    
+
+        **Projecttraject**
+
+        - [x] Helpfunctie
+        - [x] Argument toevoegen
+        - [x] Optie toevoegen
+        - [x] Helptekst toevoegen
+        - [ ] Extra optie toevoegen
+        - [ ] Vlag toevoegen      
 
 
-Als je dit script gebruikt ziet dat er zo uit:
+Als je bovenstaand script gebruikt ziet dat er zo uit:
 <pre><code>(oefenopdrachten) > python hello.py --help <button type="button" name="python hello.py --help" onclick="runScript('python hello.py --help')">{{ enter }}</button><button type="button" name="python hello.py --help" onclick="runScript('python hello.py --help')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python hello.py --help">Usage: hello.py [OPTIONS] NAME
 
@@ -346,16 +393,17 @@ Hello Alice!</span>
 </code></pre>
 
 <div id="opd:hello-pauze"></div>
-!!! opdracht-basis "Pauze optie"
+!!! opdracht-basis "Extra optie toevoegen"
     === "opdracht"
-        Je runt het bestand {{file}}`hello.py` en geeft achter de bestandsnaam de naam van je assistent mee en geeft aan dat je deze 5 keer wilt printen met een pauze van 2 seconde ertussen. Het duurt 8 seconden voordat er vijf keer `Hello <assistent>!` als output in de terminal staat. Als je geen pauze-optie meegeeft wordt er ook geen pauze gehouden. 
+        Je runt het bestand {{file}}`hello.py` en geeft achter de bestandsnaam de naam van je assistent mee. Tevens geef je aan dat je de begroeting vijf keer wilt herhalen met een pauze van twee seconde ertussen. Het duurt dus acht seconden voordat er vijf keer `Hello <assistent>!` als output in de terminal staat. Als je de optie voor een pauze niet meegeeft, wordt er ook geen pauze gehouden. 
         
         !!! info
-            Je kan hiervoor gebruik maken van de module _time_ die standaard met Python meekomt[^standard-library]. Met de functie `#! sleep()` kun je de executie van de volgende regel in het script met een aantal seconden uitstellen.
+            Je kan gebruikmaken van de module _time_ die standaard met Python meekomt.[^standard-library] Met de functie `#! sleep()` kun je de executie van de volgende regel in het script met een aantal seconden uitstellen.
 
             ``` py
             import time
-            # wait 28 second
+
+            # wait 28 seconds
             time.sleep(28)
             ```
 
@@ -367,9 +415,9 @@ Hello Alice!</span>
 
         # make function Click command
         # make argument name
-        # make option count with default value 1
+        # make option count with default value 1 and help
         # make option pause
-        # function, parameter name and count
+        # function, parameter name, count and pause
             # repeat count times
                 # print hello <name>!
                 # pause
@@ -387,49 +435,90 @@ Hello Alice!</span>
         </code></pre>
 
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
-        - [ ] Als de pauze optie niet wordt meegegeven, dan wordt er géén pauze ingelast
-        - [ ] Bij het meegeven van de pauze optie, wacht het programma zo lang als verwacht
+        - [ ] Als de optie voor pauze niet wordt meegegeven, dan wordt er géén pauze ingelast.
+        - [ ] Bij het meegeven van de optie voor pauze, wacht het programma zo lang als verwacht.
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Help functie
-        - [x] Argumenten toevoegen
-        - [x] Test hello
+        - [x] Argument toevoegen
+        - [x] Optie toevoegen
         - [x] Helptekst toevoegen
-        - [x] Pauze optie
-        - [ ] Vlag
+        - [x] Extra optie toevoegen
+        - [ ] Vlag toevoegen
 
 
-Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
+Opties zonder argument werken als vlag &mdash; een soort aan-/uitknop.[^flag]
 [^flag]: Zie voor meer informatie over flags de [Click documentatie](https://click.palletsprojects.com/en/stable/options/#boolean-flags).
 
-!!! opdracht-basis "Vlag"
-    Gebruik een optie als vlag om de gebruiker te laten kiezen tussen het wel (<q>tea</q>) of niet (<q>no tea</q>) aanbieden van een kopje thee. Zorg dat er standaard <q>tea</q> wordt aangeboden.
-    
-    !!! info "boolean flags"
-        Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/stable/options/#boolean-flags).
-
-
-!!! opdracht-basis "Argumenten en opties"
+!!! opdracht-basis "Vlag toevoegen"
     === "opdracht"
-        Je opent met Github Desktop de {{github}}`easystat` in Visual Studio Code. Je hebt ooit een environment voor deze repository aangemaakt maar je hebt geen idee of die in de tussentijd niet per ongeluk stuk is gegaan. Daarom synchroniseer je het environment {{lightbulb}}. Je test of je de applicatie nog kunt aanroepen met het commando `easystat`.
+        Gebruik een optie als vlag om de gebruiker te laten kiezen tussen het wel (<q>tea</q>) of niet (<q>no tea</q>) aanbieden van een kopje thee. Zorg dat er standaard <q>tea</q> wordt aangeboden.
+    
+        !!! info "Boolean flags"
+            Lees meer over boolean flags in de [Click documentatie](https://click.palletsprojects.com/en/stable/options/#boolean).
 
-        Je activeert het environment en past de code aan zodat met het commando `easystat 4, 5, 6` het resultaat van de serie metingen met waardes 4, 5 en 6 in de terminal wordt geprint.
+    === "code"
+        **Pseudo-code**
+        ``` py title="hello.py"
+        import click
+
+        # make function Click command
+        # make argument name
+        # make option count with default value 1 and help
+        # make option pause
+        # make boolean flag tea/no-tea
+        # function, parameter name, count, pause and tea
+            # repeat count times
+                # print hello <name>!
+                # if wished offer tea
+                # pause
+
+        # when run this script:
+            # run function
+        ```
+        **Testcode**
+        <pre><code>(oefenopdrachten) > python hello.py David -c 5 <button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')">{{ enter }}</button><button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="python hello.py David -c 5">Hello David! Here is your tea.
+        Hello David! Here is your tea.
+        Hello David! Here is your tea.
+        Hello David! Here is your tea.
+        Hello David! Here is your tea.</span>
+        </code></pre>
+
+    === "check"
+        **Checkpunten**
+
+        - [ ] Als de vlag voor een kopje thee niet wordt meegegeven, dan wordt er een kopje thee aangeboden.
+        - [ ] Als de vlag `tea` wordt meegegeven, dan wordt er ook een kopje thee aangeboden.
+        - [ ] Als de vlag `no-tea` wordt meegegeven, dan wordt er geen kopje thee aangeboden.
+
+        **Projecttraject**
+
+        - [x] Help functie
+        - [x] Argument toevoegen
+        - [x] Optie toevoegen
+        - [x] Helptekst toevoegen
+        - [x] Extra optie toevoegen
+        - [x] Vlag toevoegen
+
+!!! opdracht-basis "Easystat: click"
+    === "opdracht"
+        Je opent met Github Desktop de repository {{github}}`easystat` in Visual Studio Code. Je hebt eerder een virtual environment voor deze repository aangemaakt, maar je hebt geen idee of die in de tussentijd per ongeluk stuk is gegaan. Daarom synchroniseer je de virtual environment {{lightbulb}}. En je test of je de applicatie nog kunt aanroepen met het commando `easystat`.
+
+        Je past de code in het bestand {{file}}`app.py` zo aan dat met het commando `easystat 4, 5, 6` het resultaat van de serie metingen met waardes 4, 5 en 6 in de terminal wordt geprint.
 
         !!! info argument is standaard string
-            Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieert. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden. Gebruik `#!py nargs=-1` om aan te geven dat je argument meerdere waardes accepteert, en zelfs oneindig veel (-1).
+            Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieert. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden. Gebruik daarnaast `#!py nargs=-1` om aan te geven dat je argument meerdere waardes accepteert, en zelfs oneindig veel (-1).
 
-        ???+ opdracht-meer "Meer functies"
-            1. Pas de applicatie aan zodat je zónder argument geen gekke foutmelding krijgt met `nan ± nan`, maar de uitleg dat je een argument _moet_ meegeven. Met andere woorden: je argument is _required_.
     === "code"
         **Pseudo-code**
         ``` py title="app.py"
         from easystat.measurements import result_with_uncertainty
 
-
-        # Add click-related code to pass measurements as an argument to easystat
+        # add click-related code to pass measurements as an argument to easystat
 
         def main(measurements):
             result, uncertainty = result_with_uncertainty(measurements)
@@ -448,28 +537,43 @@ Opties zonder argument werken als vlag &mdash; een soort aan/uitknop.[^flag]
         </code></pre>
         
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
-        - [ ] Je hebt `uv sync` gedaan.
-        - [ ] Je hebt de juiste omgeving geactiveerd.
+        - [ ] Je hebt de virtual environment gesynchroniseerd met `uv sync`.
+        - [ ] Je hebt de juiste virtual environment geactiveerd.
+        - [ ] Je hebt click als dependency toegevoegd aan {{file_lines}}`pyproject.toml`.
+        - [ ] Je hebt in het bestand {{file}}`app.py` code toegevoegd om meerdere metingen als argument mee te kunnen geven.
         - [ ] Na het commando `easystat` kun je getallen meegeven en krijg je het verwachte antwoord terug.
 
         **Projecttraject**
         
-        - [x] Main functie toevoegen
-        - [x] commando toevoegen
-        - [x] Commando testen
-        - [x] Argumenten en/of opties
+        - [x] Easystat: click
 
+
+???+ opdracht-meer "Easystat: verplicht argument"
+    Pas de applicatie zo aan dat je zónder argument &mdash; dus zonder metingen &mdash; geen gekke uitkomst krijgt met `nan +- nan`, maar de uitleg dat je een argument _moet_ meegeven. Met andere woorden: je argument is _required_.
     
 ### Click subcommando's
-Tot nu toe konden we maar één functie uitvoeren in onze applicatie. Maar het is ook mogelijk om subcommando's aan te maken zodat je met één programma meerdere <q>taken</q> kunt uitvoeren. Denk bijvoorbeeld aan `uv`. Je voegt packages toe aan je project met `uv add`, verwijdert ze met `uv remove`, maakt een environment met `uv venv` en synchroniseert het met `uv sync`.
+Tot nu toe kon je maar één functie uitvoeren in jouw applicatie. Maar het is ook mogelijk om subcommando's aan te maken, zodat je met één programma meerdere <q>taken</q> kunt uitvoeren. Denk bijvoorbeeld aan `uv`: je voegt packages toe aan je project met `uv add`, verwijdert ze met `uv remove`, maakt een virtual environment met `uv venv` en synchroniseert het met `uv sync`.
 
-!!! opdracht-basis "Subcommando's bedenken"
-    <div id="opd:subcommandos"></div>
-    Je gaat de `pythondaq` applicatie straks verder uitbreiden zodat er veel meer mogelijk is dan nu. Wat zou je willen dat de applicatie allemaal kan? Welke subcommando's wil je gaan aanmaken? Overleg met elkaar om goede ideeën uit te wisselen.
+<div id="opd:subcommandos"></div>
+!!! opdracht-basis "Pythondaq: subcommando's bedenken"
+    === "opdracht"
+        Je gaat de applicatie `pythondaq` straks verder uitbreiden, zodat er veel meer mogelijk is dan nu. Wat zou je willen dat de applicatie allemaal kan? Welke subcommando's wil je gaan aanmaken? Overleg met elkaar om goede ideeën uit te wisselen.
 
+    === "check"
+        **Projecttraject**
 
+        - [x] Pythondaq: subcommando's bedenken
+        - [ ] Pythondaq: commando's
+        - [ ] Pythondaq: `scan`
+        - [ ] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: `list`
+        - [ ] Pythondaq: `info`
+        - [ ] Pythondaq: choose device
+        - [ ] Pythondaq: grafiek
+        - [ ] Pythondaq: `--help`
+        - [ ] Pythondaq: alle subcommando's geïmplementeerd?
 
 Een eenvoudig voorbeeldscript waarin de uv commando's `add` en `remove` worden nagebootst leggen we hieronder uit. Eerst de code:
 
@@ -497,7 +601,7 @@ def remove(package):
 if __name__ == "__main__":
     cmd_group()
 ```
-In (de laatste) regel 22 roepen we de hoofdfunctie aan die we enigszins willekeurig `#!py cmd_group()` genoemd hebben en die we redelijk bovenaan definiëren. In tegenstelling tot het {{file}}`hello.py`-script doet deze functie helemaal niets (`#!py pass`). We vertellen aan click dat we een groep van commando's aan gaan maken met de `#!py @click.group()`-decorator in regel 4. Vervolgens gaan we commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` &mdash; zie regels 9 en 15. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 9 en 11 maken samen het commando `add`. Verder werkt alles hetzelfde. Dus een argument toevoegen &mdash; zoals in regel 10 &mdash; is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
+In regel 22 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_group()` genoemd is en die redelijk bovenaan gedefinieerd wordt. In tegenstelling tot het {{file}}`hello.py`-script doet deze functie helemaal niets (`#!py pass`). Je vertelt aan click dat je een groep van commando's aan gaat maken met de `#!py @click.group()`-decorator in regel 4. Vervolgens ga je commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` &mdash; zie regels 9 en 15. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 9 en 11 maken samen het commando `add`. Verder werkt alles hetzelfde. Dus een argument toevoegen &mdash; zoals in regel 10 &mdash; is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
 
 
 !!! opdracht-basis "Fake uv"
@@ -505,7 +609,7 @@ In (de laatste) regel 22 roepen we de hoofdfunctie aan die we enigszins willekeu
 
         <div class="grid-tree" markdown>
             <div>
-            Nu je hebt geleerd om met Click subcommando's te maken wil je deze uittesten in combinatie met het commando wat je met uv kan aanmaken om een functie uit een script uit te voeren. Je maakt in de map {{folder}}`ECPC` een nieuw uv project aan voor {{folder}}`fake_uv` {{lightbulb}} en zet daarin de code uit het bestand {{file}}`fake_uv.py`. Je maakt een nieuw virtual environment met daarin de benodigde packages {{lightbulb}}. Je past de {{file_lines}}`pyproject.toml` aan zodat je met het commando `fake_uv add scipy` zogenaamd `scipy` kunt installeren {{lightbulb}}. 
+            Nu je hebt geleerd om met Click subcommando's te maken wil je deze uittesten. Je maakt in de map {{folder}}`ECPC` een nieuw uv project aan voor {{new_folder}}`fake_uv` {{lightbulb}}. In deze map zet je de code uit het bestand {{file}}`fake_uv.py`. Je maakt een nieuw virtual environment aan met daarin de benodigde packages {{lightbulb}}. Je past de {{file_lines}}`pyproject.toml` aan zodat je met het commando `fake_uv add scipy` zogenaamd `scipy` kunt installeren {{lightbulb}}. 
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -521,8 +625,8 @@ In (de laatste) regel 22 roepen we de hoofdfunctie aan die we enigszins willekeu
             </div>
         </div>
 
-        !!! info "commando"
-            Als je een commando met uv toevoegt dan heeft dat de opbouw `naam_commando = "package.module:naam_functie"`, welke functie moet uitgevoerd worden als je het commando aanroept?
+        !!! info "Commando"
+            Als je een commando met uv toevoegt dan heeft dat de opbouw `naam_commando = "package.module:naam_functie"`. Welke functie moet uitgevoerd worden als je het commando aanroept?
     === "code"
         **Pseudo-code**
         ``` toml title="pyproject.toml"
@@ -535,7 +639,7 @@ In (de laatste) regel 22 roepen we de hoofdfunctie aan die we enigszins willekeu
         </code></pre>
         
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] Je hebt een uv project met een actief virtual environment.
         - [ ] Na het wijzigen van de {{file_lines}}`pyproject.toml` is het virtual environment opnieuw gesynchroniseerd.
@@ -546,58 +650,45 @@ In (de laatste) regel 22 roepen we de hoofdfunctie aan die we enigszins willekeu
 
         - [x] Fake uv
 
-!!! opdracht-meer "Smallangle (meer leren)"
-    Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt &mdash; maar jij weet precies over welk onderdeel we het hebben.
-
-    1. Maak een nieuw uv project aan met de naam {{github}}`smallangle` {{lightbulb}}.
-    2. Let op de Octocat {{github}} voor {{github}}`smallangle`, het moet dus een repository zijn (of worden). 
-    3. Zet in het package {{folder}}`smallangle` een module {{file}}`smallangle.py`.
-    4. Plak de onderstaande code in {{file}}`smallangle.py`:
-        ``` py
-        import numpy as np
-        from numpy import pi
-        import pandas as pd
-        
-        
-        def sin(number):
-            x = np.linspace(0, 2 * pi, number)
-            df = pd.DataFrame({"x": x, "sin (x)": np.sin(x)})
-            print(df)
-        
-        
-        def tan(number):
-            x = np.linspace(0, 2 * pi, number)
-            df = pd.DataFrame({"x": x, "tan (x)": np.tan(x)})
-            print(df)
-        
-        
-        if __name__ == "__main__":
-            sin(10)
-        ```
-    5. Ga door naar de [_opdracht smallangle aanpassen_](#opd:smallangle). Je mag de opdracht smallangle installeren overslaan &mdash; dat werk heb je nu zelf al gedaan.
-    
-
-!!! opdracht-inlever "smallangle installeren"
+!!! opdracht-inlever "Smallangle: project aanmaken"
     === "opdracht"
+        Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt &mdash; maar jij weet precies over welk onderdeel het gaat.
 
-        <div class="grid-tree" markdown>
-            <div>
-            Je cloned {{github}}`NatuurkundepracticumAmsterdam/smallangle` door [de repository in GitHub desktop te openen](https://github.com/NatuurkundepracticumAmsterdam/smallangle). Daarna open je het project in Visual Studio Code. Na het synchroniseren van het uv project {{lightbulb}} run je het bestand {{file}}`smallangle.py` en krijg je een lijst van 10 punten tussen 0 en 2 $\pi$ en de sinus van deze punten. 
-            </div>
-            <div>
-            {{folder}} `ECPC`  
-            {{T}} {{github}} `pythondaq`   
-            {{L}} {{github}} `smallangle`  
-            {{tab}} {{L}} {{dots}}  
-            {{L}} {{dots}}  
-            </div>
-        </div>
+        1. Maak een nieuw uv project aan met de naam {{github}}`smallangle` {{lightbulb}}. Let op de Octocat {{github}} voor {{github}}`smallangle`, het moet dus een repository zijn (of worden).    
+        {{folder}} `ECPC`   
+        {{T}} {{github}} `pythondaq`   
+        {{L}} {{github}} `smallangle`   
+        {{tab}} {{L}} {{dots}}   
+        {{L}} {{dots}}   
+        2. Zet in het package {{folder}}`smallangle` een module {{file}}`smallangle.py`.
+        3. Plak onderstaande code in {{file}}`smallangle.py`:
+            ``` py
+            import numpy as np
+            from numpy import pi
+            import pandas as pd
+        
+        
+            def sin(number):
+                x = np.linspace(0, 2 * pi, number)
+                df = pd.DataFrame({"x": x, "sin (x)": np.sin(x)})
+                print(df)
+        
+        
+            def tan(number):
+                x = np.linspace(0, 2 * pi, number)
+                df = pd.DataFrame({"x": x, "tan (x)": np.tan(x)})
+                print(df)
+        
+        
+            if __name__ == "__main__":
+                sin(10)
+            ```
+        4. Run het bestand {{file}}`smallangle.py` en los de foutmeldingen op door de juiste dependencies toe te voegen aan het bestand {{file_lines}}`pyproject.toml`. Als je alle foutmeldingen opgelost hebt krijg je een lijst van tien punten tussen 0 en 2$\pi$ en de sinus van deze punten.
 
     === "code"
         **Testcode**
         <div class="code-box"><button type="button" name="smallangle" onclick="runScript('smallangle')" class="run">{{ run }}</button><button type="button" name="smallangle" onclick="runScript('smallangle')" class="reload invisible">{{ reload }}</button> smallangle.py
         ``` py
-        import click
         import numpy as np
         from numpy import pi
         import pandas as pd
@@ -619,7 +710,7 @@ In (de laatste) regel 22 roepen we de hoofdfunctie aan die we enigszins willekeu
             sin(10)
         ```
         <pre>
-        <code>(oefenopdrachten) > python smallangle.py
+        <code>(smallangle) > python smallangle.py
         <span class="invisible" name="smallangle">          x       sin (x)
         0  0.000000  0.000000e+00
         1  0.698132  6.427876e-01
@@ -633,25 +724,26 @@ In (de laatste) regel 22 roepen we de hoofdfunctie aan die we enigszins willekeu
         9  6.283185 -2.449294e-16</span>
         </code></pre></div>
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
-        - [ ] Het project is gesynchroniseerd.
-        - [ ] Na het installeren van het pakket geeft de code de verwachte output.
-
-        **Projecttraject:**
-
-        - [x] smallangle installeren
-        - [ ] smallangle aanpassen
-        - [ ] smallangle docstrings
+        - [ ] De module `smallangle.py` staat in de map `src/smallangle`.
+        - [ ] Alle benodigde dependencies zijn toegevoegd aan het bestand {{file_lines}}`pyproject.toml`.
+        - [ ] Het runnen van het bestand {{file}}`smallangle.py` geeft een lijst van tien punten tussen 0 en 2$\pi$ en de sinus van deze punten.
+        
+        **Projecttraject**
+    
+        - [x] Smallangle: project aanmaken
+        - [ ] Smallangle: subcommando's en opties
+        - [ ] Smallangle: docstrings
 
 <div id="opd:smallangle"></div>
-!!! opdracht-inlever "smallangle aanpassen"
+!!! opdracht-inlever "Smallangle: subcommando's en opties"
     === "opdracht"
-        Je kunt met het commando `smallangle` en de subcommando's `sin` en `tan` een lijst genereren van getallen tussen de 0 en 2 $\pi$ en de bijbehorende sinus dan wel tangens van deze getallen. Met de optie `-n` kan je het aantal stappen (het aantal $x$-waardes tussen 0 en $2\pi$) kiezen. Als je de optie `-n` weglaat werkt de applicatie met een standaardwaarde.
+        Je kunt met het commando `smallangle` en de subcommando's `sin` en `tan` een lijst genereren van getallen tussen de 0 en 2$\pi$ en de bijbehorende sinus dan wel tangens van deze getallen. Met de optie `-n` kun je het aantal stappen &mdash; het aantal $x$-waardes tussen 0 en $2\pi$ &mdash; kiezen. Als je de optie `-n` weglaat werkt de applicatie met een standaardwaarde.
 
         !!! info "TypeError: 'int' object is not iterable"
 
-            Probeer je de code te draaien maar krijg je een foutmelding zoals deze:
+            Krijg je onderstaande foutmelding tijdens het draaien van het bestand {{file}}`smallangle`?
             ``` ps1con title="Terminal"
             Traceback (most recent call last):
             File "c:\smallangle\src\smallangle\smallangle.py", line 28, in <module>
@@ -668,7 +760,7 @@ In (de laatste) regel 22 roepen we de hoofdfunctie aan die we enigszins willekeu
             Dan komt dat doordat je `#!py sin(10)` probeert uit te voeren, terwijl de functie al verClickt is. De functie verwacht een argument vanuit de terminal en geen integer vanuit het pythonscript.
             Pas je script aan zodat `#!py if __name__ == "__main__":` naar de juiste functie verwijst en Click aanroept; niet `#!py sin(10)`.
     === "code"
-        <pre><code>(oefenopdrachten) > smallangle sin -n 9 <button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')">{{ enter }}</button><button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')" class="invisible">{{ reload }}</button>
+        <pre><code>(smallangle) > smallangle sin -n 9 <button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')">{{ enter }}</button><button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="smallangle sin -n 9">          x       sin (x)
         0  0.000000  0.000000e+00
         1  0.785398  7.071068e-01
@@ -685,19 +777,20 @@ In (de laatste) regel 22 roepen we de hoofdfunctie aan die we enigszins willekeu
     === "check"
         **Checkpunten:**
 
+        - [ ] De gebruiker kan met een commando het script `smallangle.py` starten.
         - [ ] De gebruiker kan met subcommando's kiezen tussen `sin` en `tan`.
         - [ ] De gebruiker kan het aantal stappen kiezen met een optie.
         - [ ] De gebruiker kan de optie ook weglaten.
 
         **Projecttraject:**
 
-        - [x] smallangle installeren
-        - [x] smallangle aanpassen
-        - [ ] smallangle docstrings
+        - [x] Smallangle: project aanmaken
+        - [x] Smallangle: subcommando's en opties
+        - [ ] Smallangle: docstrings
 
-???+ opdracht-meer "Smallangle (uitdaging)"
-    Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\lvert x - \sin(x) \rvert \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine-hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over .000, .001 en .002, etc. totdat de vergelijking niet meer geldt). N.B. besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
-    <pre><code>(oefenopdrachten) > smallangle approx .1 <button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')">{{ enter }}</button><button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')" class="invisible">{{ reload }}</button>
+???+ opdracht-meer "Smallangle: kleine hoekbenadering"
+    Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\lvert x - \sin(x) \rvert \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over .000, .001 en .002, etc. totdat de vergelijking niet meer geldt). Belangrijk: besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
+    <pre><code>(smallangle) > smallangle approx .1 <button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')">{{ enter }}</button><button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="smallangle approx .1">For an accuracy of 0.1, the small-angle approximation holds
     up to x = 0.854.</span>
     </code></pre>
