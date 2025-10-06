@@ -1799,8 +1799,8 @@ Pas je script aan zodat <code class="language-py highlight"><span class="k">if</
 <div class="tabbed-block">
 <p><strong>Checkpunten:</strong></p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De gebruiker kan met een commando het script <code>smallangle.py</code> starten.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De gebruiker kan met subcommando's kiezen tussen <code>sin</code> en <code>tan</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De gebruiker kan met het commando <code>smallangle</code> het script <code>smallangle.py</code> starten.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De gebruiker kan met subcommando's kiezen tussen <code>sin</code> en <code>tan</code>. Let op: het gaat hier om subcommando's!</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De gebruiker kan het aantal stappen kiezen met een optie.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De gebruiker kan de optie ook weglaten.</li>
 </ul>
@@ -1823,16 +1823,16 @@ up to x = 0.854.</span>
 </code></pre></p>
 </details>
 <h2 id="docstrings-en-click-help">Docstrings en Click <code>--help</code><a class="headerlink" href="#docstrings-en-click-help" title="Permanent link">&para;</a></h2>
-<p>Docstrings werken ook heel handig samen met Click want ze worden gebruikt als we de helpfunctie aanroepen. </p>
+<p>Docstrings werken ook heel handig samen met Click. Ze worden gebruikt als je de helpfunctie aanroept. </p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>We gebruiken bij click-functies niet de standaard structuur voor docstrings. Click breekt de docstrings standaard af waardoor het algauw een onmogelijke brij aan informatie wordt. We kiezen daarom voor een samenvatting in een zin met daarin de PARAMETERS (argumenten) in hoofdletters en eventueel een korte toelichting daarop. </p>
+<p>We gebruiken bij Click-functies niet de standaard structuur voor docstrings. Click breekt docstrings namelijk standaard af waardoor het algauw een onmogelijke brij aan informatie wordt. We kiezen daarom voor een samenvatting in een zin met daarin de PARAMETERS (argumenten) in hoofdletters en eventueel een korte toelichting daarop. </p>
 </div>
 <details class="meer-leren" open="open">
 <summary>Uitgebreide documentatie en Click</summary>
 <p>In de documentatie van Click vind je meer informatie over het afbreken van zinnen (en het <a href="https://click.palletsprojects.com/en/stable/documentation/#escaping-click-s-wrapping">voorkomen</a> daarvan). Ook vind je daar een manier om een uitgebreide docstring te schrijven <a href="https://click.palletsprojects.com/en/stable/documentation/#truncating-help-texts">zonder</a> dat het een bende wordt.</p>
 </details>
-<p>We voegen docstrings toe aan fake uv:</p>
+<p>Tijd om docstrings toe te voegen aan fake uv:</p>
 <p><div class="language-py highlight"><span class="filename">fake_uv.py</span><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="sd">&quot;&quot;&quot;A fake implementation of several uv commands.&quot;&quot;&quot;</span>
 </span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
 </span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">click</span>
@@ -1867,7 +1867,7 @@ up to x = 0.854.</span>
 </span><span id="__span-24-32"><a id="__codelineno-24-32" name="__codelineno-24-32" href="#__codelineno-24-32"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
 </span><span id="__span-24-33"><a id="__codelineno-24-33" name="__codelineno-24-33" href="#__codelineno-24-33"></a>    <span class="n">cmd_group</span><span class="p">()</span>
 </span></code></pre></div>
-Als we vervolgens de help functie aanroepen zien we de eerste regel van de docstrings verschijnen voor alle subcommando's:</p>
+Als je vervolgens de helpfunctie aanroept, zie je de eerste regel van de docstrings verschijnen voor alle subcommando's:</p>
 <pre><code>(oefenopdrachten) > fake_uv --help <button type="button" name="python fake_uv --help" onclick="runScript('python fake_uv --help')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="python fake_uv --help" onclick="runScript('python fake_uv --help')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
 <span class="invisible" name="python fake_uv --help">Usage: fake_uv.py [OPTIONS] COMMAND [ARGS]...
 
@@ -1881,7 +1881,7 @@ Commands:
   remove  Remove a package from a uv project.</span>
 </code></pre>
 
-<p>Daarna kun je uitleg vragen voor de subcommando's waarbij je de hele docstring te zien krijgt:</p>
+<p>Daarna kun je uitleg vragen over de subcommando's, waarbij je de hele docstring te zien krijgt:</p>
 <pre><code>(oefenopdrachten) > fake_uv add --help <button type="button" name="python fake_uv.py add --help" onclick="runScript('python fake_uv.py add --help')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="python fake_uv.py add --help" onclick="runScript('python fake_uv.py add --help')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
 <span class="invisible" name="python fake_uv.py add --help">Usage: fake_uv.py add [OPTIONS] PACKAGE
 
@@ -1894,41 +1894,41 @@ Options:
 </code></pre>
 
 <div class="admonition opdracht-inlever">
-<p class="admonition-title">Smallangle docstrings</p>
+<p class="admonition-title">Smallangle: docstrings</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">opdracht</label><label for="__tabbed_14_2">code</label><label for="__tabbed_14_3">check</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Je gebruikt het commando <code>smallangle --help</code> en leest de helptekst van de <a href="#opd:smallangle"><em>opdracht smallangle</em></a>. De helptekst bevat zinvolle informatie die je in staat stelt om te begrijpen wat je met de applicatie kan doen. Je ziet dat er twee subcommando's zijn en bekijkt de helptekst van deze commando's met <code>smallangle sin --help</code> en daarna <code>smallangle tan --help</code>. Beide helpteksten stellen je in staat op de applicatie te begrijpen en te bedienen. Tevreden test je de applicatie verder uit.</p>
+<p>Je gebruikt het commando <code>smallangle --help</code> en leest de helptekst van de <a href="#opd:smallangle"><em>opdracht smallangle</em></a>. De helptekst bevat zinvolle informatie die je in staat stelt om te begrijpen wat je met de applicatie kan doen. Je ziet dat er twee subcommando's zijn en bekijkt de helptekst van deze subcommando's met <code>smallangle sin --help</code> en daarna <code>smallangle tan --help</code>. Beide helpteksten stellen je in staat om de applicatie te begrijpen en te bedienen. </p>
 </div>
 <div class="tabbed-block">
 <p><strong>Pseudo-code</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>&quot;&quot;&quot;Summary containing ARGUMENTs.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>&quot;&quot;&quot;Summary containing ARGUMENT(S).
 </span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
 </span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>ARGUMENT description of the argument.
 </span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>&quot;&quot;&quot;
 </span></code></pre></div>
 <strong>Testcode</strong>
-<pre><code>(oefenopdrachten) &gt; smallangle --help <button type="button" name="smallangle --help" onclick="runScript('smallangle --help')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="smallangle --help" onclick="runScript('smallangle --help')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
+<pre><code>(smallangle) &gt; smallangle --help <button type="button" name="smallangle --help" onclick="runScript('smallangle --help')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="smallangle --help" onclick="runScript('smallangle --help')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
 <span class="invisible" name="smallangle --help">Usage: smallangle [OPTIONS] COMMAND [ARGS] ...
-    Options: 
-        --help Show this message and exit.
-    Commands:
-        Subcommand Summary containing ARGUMENTs.
+Options: 
+    --help Show this message and exit.
+Commands:
+    Subcommand Summary containing ARGUMENT(S).
 </span>
 </code></pre></p>
 </div>
 <div class="tabbed-block">
-<p><strong>Checkpunten:</strong></p>
+<p><strong>Checkpunten</strong></p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <code>smallangle --help</code> geeft zinvolle informatie</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <code>smallangle sin --help</code> geeft zinvolle informatie</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <code>smallangle tan --help</code> geeft zinvolle informatie</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <code>smallangle --help</code> geeft zinvolle informatie.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <code>smallangle sin --help</code> geeft zinvolle informatie.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <code>smallangle tan --help</code> geeft zinvolle informatie.</li>
 </ul>
 <p><strong>Projecttraject</strong></p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> smallangle installeren</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> smallangle aanpassen</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> smallangle docstrings</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Smallangle: project aanmaken</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Smallangle: subcommando's en opties</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Smallangle: docstrings</li>
 </ul>
 </div>
 </div>
