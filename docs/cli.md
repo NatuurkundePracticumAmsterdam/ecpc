@@ -777,8 +777,8 @@ In regel 22 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_grou
     === "check"
         **Checkpunten:**
 
-        - [ ] De gebruiker kan met een commando het script `smallangle.py` starten.
-        - [ ] De gebruiker kan met subcommando's kiezen tussen `sin` en `tan`.
+        - [ ] De gebruiker kan met het commando `smallangle` het script `smallangle.py` starten.
+        - [ ] De gebruiker kan met subcommando's kiezen tussen `sin` en `tan`. Let op: het gaat hier om subcommando's!
         - [ ] De gebruiker kan het aantal stappen kiezen met een optie.
         - [ ] De gebruiker kan de optie ook weglaten.
 
@@ -797,14 +797,14 @@ In regel 22 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_grou
 
 ## Docstrings en Click `--help`
 
-Docstrings werken ook heel handig samen met Click want ze worden gebruikt als we de helpfunctie aanroepen. 
+Docstrings werken ook heel handig samen met Click. Ze worden gebruikt als je de helpfunctie aanroept. 
 !!! info
-    We gebruiken bij click-functies niet de standaard structuur voor docstrings. Click breekt de docstrings standaard af waardoor het algauw een onmogelijke brij aan informatie wordt. We kiezen daarom voor een samenvatting in een zin met daarin de PARAMETERS (argumenten) in hoofdletters en eventueel een korte toelichting daarop. 
+    We gebruiken bij Click-functies niet de standaard structuur voor docstrings. Click breekt docstrings namelijk standaard af waardoor het algauw een onmogelijke brij aan informatie wordt. We kiezen daarom voor een samenvatting in een zin met daarin de PARAMETERS (argumenten) in hoofdletters en eventueel een korte toelichting daarop. 
 
 ???+ meer-leren "Uitgebreide documentatie en Click"
     In de documentatie van Click vind je meer informatie over het afbreken van zinnen (en het [voorkomen](https://click.palletsprojects.com/en/stable/documentation/#escaping-click-s-wrapping) daarvan). Ook vind je daar een manier om een uitgebreide docstring te schrijven [zonder](https://click.palletsprojects.com/en/stable/documentation/#truncating-help-texts) dat het een bende wordt.
 
-We voegen docstrings toe aan fake uv:
+Tijd om docstrings toe te voegen aan fake uv:
 
 ``` py title="fake_uv.py"
 """A fake implementation of several uv commands."""
@@ -841,7 +841,7 @@ def remove(package):
 if __name__ == "__main__":
     cmd_group()
 ```
-Als we vervolgens de help functie aanroepen zien we de eerste regel van de docstrings verschijnen voor alle subcommando's:
+Als je vervolgens de helpfunctie aanroept, zie je de eerste regel van de docstrings verschijnen voor alle subcommando's:
 <pre><code>(oefenopdrachten) > fake_uv --help <button type="button" name="python fake_uv --help" onclick="runScript('python fake_uv --help')">{{ enter }}</button><button type="button" name="python fake_uv --help" onclick="runScript('python fake_uv --help')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python fake_uv --help">Usage: fake_uv.py [OPTIONS] COMMAND [ARGS]...
 
@@ -855,7 +855,7 @@ Commands:
   remove  Remove a package from a uv project.</span>
 </code></pre>
 
-Daarna kun je uitleg vragen voor de subcommando's waarbij je de hele docstring te zien krijgt:
+Daarna kun je uitleg vragen over de subcommando's, waarbij je de hele docstring te zien krijgt:
 
 <pre><code>(oefenopdrachten) > fake_uv add --help <button type="button" name="python fake_uv.py add --help" onclick="runScript('python fake_uv.py add --help')">{{ enter }}</button><button type="button" name="python fake_uv.py add --help" onclick="runScript('python fake_uv.py add --help')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python fake_uv.py add --help">Usage: fake_uv.py add [OPTIONS] PACKAGE
@@ -868,39 +868,40 @@ Options:
   --help  Show this message and exit.</span>
 </code></pre>
 
-!!! opdracht-inlever "Smallangle docstrings"
+!!! opdracht-inlever "Smallangle: docstrings"
     === "opdracht"
-        Je gebruikt het commando `smallangle --help` en leest de helptekst van de [_opdracht smallangle_](#opd:smallangle). De helptekst bevat zinvolle informatie die je in staat stelt om te begrijpen wat je met de applicatie kan doen. Je ziet dat er twee subcommando's zijn en bekijkt de helptekst van deze commando's met `smallangle sin --help` en daarna `smallangle tan --help`. Beide helpteksten stellen je in staat op de applicatie te begrijpen en te bedienen. Tevreden test je de applicatie verder uit.
+        Je gebruikt het commando `smallangle --help` en leest de helptekst van de [_opdracht smallangle_](#opd:smallangle). De helptekst bevat zinvolle informatie die je in staat stelt om te begrijpen wat je met de applicatie kan doen. Je ziet dat er twee subcommando's zijn en bekijkt de helptekst van deze subcommando's met `smallangle sin --help` en daarna `smallangle tan --help`. Beide helpteksten stellen je in staat om de applicatie te begrijpen en te bedienen. 
+
     === "code"
         **Pseudo-code**
         ```
-        """Summary containing ARGUMENTs.
+        """Summary containing ARGUMENT(S).
 
         ARGUMENT description of the argument.
         """
         ```
         **Testcode**
-        <pre><code>(oefenopdrachten) > smallangle --help <button type="button" name="smallangle --help" onclick="runScript('smallangle --help')">{{ enter }}</button><button type="button" name="smallangle --help" onclick="runScript('smallangle --help')" class="invisible">{{ reload }}</button>
+        <pre><code>(smallangle) > smallangle --help <button type="button" name="smallangle --help" onclick="runScript('smallangle --help')">{{ enter }}</button><button type="button" name="smallangle --help" onclick="runScript('smallangle --help')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="smallangle --help">Usage: smallangle [OPTIONS] COMMAND [ARGS] ...
-            Options: 
-                --help Show this message and exit.
-            Commands:
-                Subcommand Summary containing ARGUMENTs.
+        Options: 
+            --help Show this message and exit.
+        Commands:
+            Subcommand Summary containing ARGUMENT(S).
         </span>
         </code></pre>
         
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
-        - [ ] `smallangle --help` geeft zinvolle informatie
-        - [ ] `smallangle sin --help` geeft zinvolle informatie
-        - [ ] `smallangle tan --help` geeft zinvolle informatie
+        - [ ] `smallangle --help` geeft zinvolle informatie.
+        - [ ] `smallangle sin --help` geeft zinvolle informatie.
+        - [ ] `smallangle tan --help` geeft zinvolle informatie.
 
         **Projecttraject**
     
-        - [x] smallangle installeren
-        - [x] smallangle aanpassen
-        - [x] smallangle docstrings
+        - [x] Smallangle: project aanmaken
+        - [x] Smallangle: subcommando's en opties
+        - [x] Smallangle: docstrings
 
 ## Command-line interface voor ons experiment
 
