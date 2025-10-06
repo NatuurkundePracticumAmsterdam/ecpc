@@ -379,7 +379,7 @@ print(master_oogway.quote)
         
         <div class="grid-tree" markdown>
             <div>
-            Je hebt een class `#!py Particle` gemaakt in een niew bestand {{file}} `particle.py`. Als je een instance aanmaakt van de class `#!py Particle` kun je de naam van het deeltje meegeven en de spin (bijvoorbeeld: 0.5). De instance attributes van deze class zijn 'name' en 'spin'. Er is ook een method `#!py is_up_or_down()` om terug op te vragen wat de spin van het deeltje op dat moment is (spin omhoog/positief of spin omlaag/negatief). Door de method `#!py flip()` op te roepen wordt de spin van het deeltje omgekeerd.
+            Je hebt een class `#!py Particle` gemaakt in een nieuw bestand {{new_file}} `particle.py`. Als je een instance aanmaakt van de class `#!py Particle` kun je de naam van het deeltje meegeven en de spin (bijvoorbeeld: 0.5). De instance attributes van deze class zijn 'name' en 'spin'. Er is ook een method `#!py is_up_or_down()` om op te vragen wat de spin van het deeltje op dat moment is (spin omhoog/positief of spin omlaag/negatief). Door de method `#!py flip()` op te roepen wordt de spin van het deeltje omgekeerd.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -444,7 +444,7 @@ print(master_oogway.quote)
     === "opdracht"        
         <div class="grid-tree" markdown>
             <div>
-            Je hebt een class `#!py Temperature` gemaakt in een niew bestand {{file}} `temperature.py`. Als je een instance aanmaakt van de class `#!py Temperature` kun je de temperatuur in ºC meegeven. De instance kun je dan bijvoorbeeld beschouwen als een _temperatuurmeting_. Je kunt de waarde van de temperatuur terugvragen in verschillende eenheden (ºC, ºF, K) met de methods `#!py to_celsius()`, `#!py to_fahrenheit()` en `#!py to_kelvin()`. Met de method `#!py update_temperature()` kun je een nieuwe temperatuurswaarde bewaren.
+            Je hebt een class `#!py Temperature` gemaakt in een nieuw bestand {{new_file}} `temperature.py`. Als je een instance aanmaakt van de class `#!py Temperature` kun je de temperatuur in ºC meegeven. De instance kun je dan bijvoorbeeld beschouwen als een _temperatuurmeting_. Je kunt de waarde van de temperatuur terugvragen in verschillende eenheden (ºC, ºF, K) met de methods `#!py to_celsius()`, `#!py to_fahrenheit()` en `#!py to_kelvin()`. Met de method `#!py update_temperature()` kun je een nieuwe temperatuurswaarde bewaren.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -478,7 +478,7 @@ print(master_oogway.quote)
                 pass
             
             def update_temperature(self, temperature_celsius):
-                # Update the stored temperature
+                # update the stored temperature
                 pass
         ```
         **Testcode**
@@ -509,10 +509,12 @@ print(master_oogway.quote)
     === "check"
         **Checkpunten**
 
-        - [ ] Temperatuur wordt meegegeven.
-        - [ ] Temperature is een instance attribute en kan zowel binnen een method als buiten de class opgeroepen worden.
+        - [ ] Temperatuur wordt aan instance meegegeven.
+        - [ ] De temperatuur is een instance attribute en kan zowel binnen een method als buiten de class opgeroepen worden.
+        - [ ] Method `#!py to_celsius()` geeft de temperatuur in graden Celisus terug.
         - [ ] Method `#!py to_kelvin()` rekent de temperatuur uit in Kelvin en geeft die waarde terug.
         - [ ] Method `#!py to_fahrenheit()` rekent de temperatuur uit in Fahrenheit en geeft die waarde terug.
+        - [ ] Method `#!py update_temperature()` vervangt de eerdere temperatuurmeting met een nieuwe temperatuurswaarde. 
 
         **Projecttraject**
 
@@ -525,7 +527,7 @@ print(master_oogway.quote)
     === "opdracht"        
         <div class="grid-tree" markdown>
             <div>
-            Je hebt een class `#!py PointMass` gemaakt in een niew bestand {{file}} `point_mass.py`. Als je een instance aanmaakt van de class `#!py PointMass` kun je de positie en de snelheid in twee dimensies meegeven. De instance kun je dan beschouwen als een puntmassa waarvan je de plaats en snelheid kent en kunt simuleren. Je hebt gezorgd voor een method om de snelheid aan te passen, en een method om de beweging van het deeltje te simuleren: waar is de puntmassa over 1 seconde? Ook zijn er methods om de kinetische energie en de impuls uit te rekenen.
+            Je hebt een class `#!py PointMass` gemaakt in een nieuw bestand {{new_file}} `point_mass.py`. Als je een instance aanmaakt van de class `#!py PointMass` kun je de positie en de snelheid in twee dimensies meegeven. De instance kun je dan beschouwen als een puntmassa waarvan je de plaats en snelheid kent en kunt simuleren. Je hebt gezorgd voor een method om de snelheid aan te passen, en een method om de beweging van het deeltje te simuleren: waar is de puntmassa over 1 seconde? Ook zijn er methods om de kinetische energie en de impuls uit te rekenen.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -545,10 +547,12 @@ print(master_oogway.quote)
     === "check"
         **Checkpunten**
 
-        - [ ] Positie en snelheid (in twee dimensies) kunnen worden meegegeven.
+        - [ ] Positie en snelheid (in twee dimensies) kunnen aan instance worden meegegeven.
         - [ ] De positie is/zijn instance attribute(s) en kan/kunnen zowel binnen een method als buiten de class opgeroepen worden.
         - [ ] Er is een method om de snelheid aan te passen.
         - [ ] Er is een method om de puntmassa te laten 'bewegen' door een tijdstap te zetten.
+        - [ ] Er zijn methods om de kinetische energie en de impuls uit te rekenen en terug te geven.
+        - [ ] Je hebt jouw class getest en alles werkt zoals verwacht.
 
         **Projecttraject**
 
