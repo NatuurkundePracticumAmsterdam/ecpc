@@ -429,7 +429,7 @@ print(master_oogway.quote)
     === "check"
         **Checkpunten**
 
-        - [ ] Naam en spin worden aan instance meegegeven.
+        - [ ] Naam en spin worden aan de class meegegeven.
         - [ ] Naam en spin zijn instance attributes en kunnen zowel binnen een method als buiten de class opgeroepen worden.
         - [ ] Method `#!py is_up_or_down()` print 'up' als de spin positief is en 'down' als het negatief is.
         - [ ] Method `#!py flip()` maakt de spin positief als de spin negatief is, en negatief als de spin positief is.
@@ -460,56 +460,56 @@ print(master_oogway.quote)
     === "code"
         **Pseudo-code**
 
-        Vervang de `#!py pass`-statements door jouw code.
+        Vervang de `#!py ...`-statements door jouw code.
         ``` py
         class Temperature:
             def __init__(self, temperature_celsius):
-                pass
+                ...
 
             def to_celsius(self):
-                pass
+                ...
             
             def to_kelvin(self):
                 # K = C + 273.15
-                pass
+                ...
             
             def to_fahrenheit(self):
                 # F = C * 9/5 + 32
-                pass
+                ...
             
             def update_temperature(self, temperature_celsius):
                 # update the stored temperature
-                pass
+                ...
         ```
         **Testcode**
         <div class="code-box"><button type="button" name="temperature" onclick="runScript('temperature')" class="run">{{ run }}</button><button type="button" name="temperature" onclick="runScript('temperature')" class="reload invisible">{{ reload }}</button> <b>temperature.py</b>
         ``` py
-        t1 = Temperature(37)
-        print(f"{t1.temperature=}")
-        print(f"{t1.to_celsius()=}")
-        print(f"{t1.to_kelvin()=}")
-        print(f"{t1.to_fahrenheit()=}")
+        temperature = Temperature(37)
+        print(f"{temperature.temperature=}")
+        print(f"{temperature.to_celsius()=}")
+        print(f"{temperature.to_kelvin()=}")
+        print(f"{temperature.to_fahrenheit()=}")
         print()
 
-        t1.update_temperature(21)
-        print(f"{t1.to_celsius()=}")
-        print(f"{t1.to_kelvin()=}")
-        print(f"{t1.to_fahrenheit()=}")
+        temperature.update_temperature(21)
+        print(f"{temperature.to_celsius()=}")
+        print(f"{temperature.to_kelvin()=}")
+        print(f"{temperature.to_fahrenheit()=}")
         ```
         <pre>
         <code>(ECPC) > python temperature.py
-        <span class="invisible" name="temperature">t1.temperature=37
-        t1.to_celsius()=37
-        t1.to_kelvin()=310.15
-        t1.to_fahrenheit()=98.6        
-        t1.to_celsius()=21
-        t1.to_kelvin()=294.15
-        t1.to_fahrenheit()=69.8</span>
+        <span class="invisible" name="temperature">temperature.temperature=37
+        temperature.to_celsius()=37
+        temperature.to_kelvin()=310.15
+        temperature.to_fahrenheit()=98.6        
+        temperature.to_celsius()=21
+        temperature.to_kelvin()=294.15
+        temperature.to_fahrenheit()=69.8</span>
         </code></pre></div>
     === "check"
         **Checkpunten**
 
-        - [ ] Temperatuur wordt aan instance meegegeven.
+        - [ ] Temperatuur wordt aan de class meegegeven.
         - [ ] De temperatuur is een instance attribute en kan zowel binnen een method als buiten de class opgeroepen worden.
         - [ ] Method `#!py to_celsius()` geeft de temperatuur in graden Celisus terug.
         - [ ] Method `#!py to_kelvin()` rekent de temperatuur uit in Kelvin en geeft die waarde terug.
@@ -527,7 +527,7 @@ print(master_oogway.quote)
     === "opdracht"        
         <div class="grid-tree" markdown>
             <div>
-            Je hebt een class `#!py PointMass` gemaakt in een nieuw bestand {{new_file}} `point_mass.py`. Als je een instance aanmaakt van de class `#!py PointMass` kun je de positie en de snelheid in twee dimensies meegeven. De instance kun je dan beschouwen als een puntmassa waarvan je de plaats en snelheid kent en kunt simuleren. Je hebt gezorgd voor een method om de snelheid aan te passen, en een method om de beweging van het deeltje te simuleren: waar is de puntmassa over 1 seconde? Ook zijn er methods om de kinetische energie en de impuls uit te rekenen.
+            Je hebt een class `#!py PointMass` gemaakt in een nieuw bestand {{new_file}} `point_mass.py`. Als je een instance aanmaakt van de class `#!py PointMass` kun je de massa en de positie en de snelheid in twee dimensies meegeven. De instance kun je dan beschouwen als een puntmassa waarvan je de plaats en snelheid kent en kunt simuleren. Je hebt gezorgd voor een method om de snelheid aan te passen, en een method om de beweging van het deeltje te simuleren: waar is de puntmassa over 1 seconde? Ook zijn er methods om de kinetische energie en de impuls uit te rekenen.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -542,13 +542,41 @@ print(master_oogway.quote)
         </div>
 
     === "code"
-        Je bent helemaal vrij om de namen van de attributes en methods te kiezen.
+        Je bent vrij om de namen van de attributes en methods te kiezen, maar in de testcode hieronder hebben wij een keuze gemaakt.
+
+        **Testcode**
+        <div class="code-box"><button type="button" name="point_mass" onclick="runScript('point_mass')" class="run">{{ run }}</button><button type="button" name="point_mass" onclick="runScript('point_mass')" class="reload invisible">{{ reload }}</button> <b>point_mass.py</b>
+        ``` py
+        m = PointMass(mass=5.0, position=(1.0, 0.0), velocity=(3.0, 0.0))
+        print(f"{m.update_position_after(0)=}")
+        print(f"{m.update_position_after(0.5)=}")
+        print(f"{m.update_position_after(0.5)=}")
+
+        m.update_velocity((0.0, 3.0))
+        print(f"{m.update_position_after(0.5)=}")
+        print(f"{m.update_position_after(0.5)=}")
+
+        print(f"{m.velocity=}")
+        print(f"{m.get_momentum()=}")
+        print(f"{m.get_kinetic_energy()=}")
+        ```
+        <pre>
+        <code>(ECPC) > python point_mass.py
+        <span class="invisible" name="point_mass">m.update_position_after(0)=(1.0, 0.0)
+        m.update_position_after(0.5)=(2.5, 0.0)
+        m.update_position_after(0.5)=(4.0, 0.0)
+        m.update_position_after(0.5)=(4.0, 1.5)
+        m.update_position_after(0.5)=(4.0, 3.0)
+        m.velocity=(0.0, 3.0)
+        m.get_momentum()=15.0
+        m.get_kinetic_energy()=22.5</span>
+        </code></pre></div>
 
     === "check"
         **Checkpunten**
 
-        - [ ] Positie en snelheid (in twee dimensies) kunnen aan instance worden meegegeven.
-        - [ ] De positie is/zijn instance attribute(s) en kan/kunnen zowel binnen een method als buiten de class opgeroepen worden.
+        - [ ] Massa en positie en snelheid (in twee dimensies) kunnen aan de class worden meegegeven.
+        - [ ] De positie en de snelheid zijn instance attributes en kunnen zowel binnen een method als buiten de class opgeroepen worden.
         - [ ] Er is een method om de snelheid aan te passen.
         - [ ] Er is een method om de puntmassa te laten 'bewegen' door een tijdstap te zetten.
         - [ ] Er zijn methods om de kinetische energie en de impuls uit te rekenen en terug te geven.
