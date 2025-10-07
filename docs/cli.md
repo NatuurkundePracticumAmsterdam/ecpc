@@ -508,7 +508,7 @@ Opties zonder argument werken als vlag &mdash; een soort aan-/uitknop.[^flag]
     === "opdracht"
         Je opent met Github Desktop de repository {{github}}`easystat` in Visual Studio Code. Je hebt eerder een virtual environment voor deze repository aangemaakt, maar je hebt geen idee of die in de tussentijd per ongeluk stuk is gegaan. Daarom synchroniseer je de virtual environment {{lightbulb}}. En je test of je de applicatie nog kunt aanroepen met het commando `easystat`.
 
-        Je past de code in het bestand {{file}}`app.py` zo aan dat met het commando `easystat 4, 5, 6` het resultaat van de serie metingen met waardes 4, 5 en 6 in de terminal wordt geprint.
+        Je past de code in het bestand {{file}}`app.py` zo aan dat met het commando `easystat 4 5 6` het resultaat van de serie metingen met waardes 4, 5 en 6 in de terminal wordt geprint.
 
         !!! info argument is standaard string
             Click maakt van alle argumenten een string, tenzij je een default waarde of een type definieert. Gebruik `#!py type=int`, `#!py type=float` enzovoorts om aan te geven wat voor type object het argument moet worden. Gebruik daarnaast `#!py nargs=-1` om aan te geven dat je argument meerdere waardes accepteert, en zelfs oneindig veel (-1).
@@ -531,8 +531,8 @@ Opties zonder argument werken als vlag &mdash; een soort aan-/uitknop.[^flag]
             main()
         ```
         **Testcode**
-        <pre><code>(oefenopdrachten) > easystat 4, 5, 6 <button type="button" name="easystat 4, 5, 6" onclick="runScript('easystat 4, 5, 6')">{{ enter }}</button><button type="button" name="easystat 4, 5, 6" onclick="runScript('easystat 4, 5, 6')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="easystat 4, 5, 6">measurements=(4.0, 5.0, 6.0)
+        <pre><code>(oefenopdrachten) > easystat 4 5 6 <button type="button" name="easystat 4 5 6" onclick="runScript('easystat 4 5 6')">{{ enter }}</button><button type="button" name="easystat 4 5 6" onclick="runScript('easystat 4 5 6')" class="invisible">{{ reload }}</button>
+        <span class="invisible" name="easystat 4 5 6">measurements=(4.0, 5.0, 6.0)
         Result of measurements is: 5.00 +- 0.47.</span>
         </code></pre>
         
