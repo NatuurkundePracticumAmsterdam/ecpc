@@ -592,7 +592,7 @@ De documentatie van PySide6[^officialPySide6Doc] is niet super-intuïtief. Daaro
 
 ## Functieplotter
 
-In de eindopracht willen we data weergeven op een scherm. We zullen dus nog moeten plotten. In de volgende opdrachten gaan we daarmee aan de slag. ![Klik hier](assets/eastereggs/ECPC-purple.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst als je een stukje code selecteert en op 'CTRL' + 'd' drukt, selecteert VS Code automatisch het volgende dezelfde stukje code. Zo kun je meerdere cursors tegelijk aanmaken en op meerdere plekken tegelijk iets wijzigen. Superhandig voor snelle aanpassingen! Probeer maar eens!"}
+In de eindopracht willen we data weergeven op een scherm. We zullen dus nog moeten plotten. In de volgende opdrachten gaan we daarmee aan de slag. ![Klik hier](assets/eastereggs/ECPC-purple.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst als je een stukje code selecteert en op 'CTRL' + 'd' drukt, selecteert Visual Studio Code automatisch het volgende stukje code. Zo kun je meerdere cursors tegelijk aanmaken en op meerdere plekken tegelijk iets wijzigen. Superhandig voor snelle aanpassingen! Probeer maar eens!"}
 
 Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties. Helaas is matplotlib voor het gebruik in interactieve interfaces nogal traag zodra we te maken krijgen met meer data. We kiezen daarom voor een populair alternatief: PyQtGraph. Eén nadeel: [de documentatie](https://pyqtgraph.readthedocs.io/en/latest/) is niet fantastisch. Het geeft dus niets als je ergens niet uitkomt en je hulp nodig hebt van de assistent of een staflid.
 
@@ -731,7 +731,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
 
 Bij het ontwerpen van een grafische interface kan het fijn zijn om het ontwerp steeds voor je te zien als je iets wilt aanpassen. Misschien wil je de knoppen toch onder elkaar, of een slider gebruiken in plaats van een spinbox. Je kunt natuurlijk steeds je code aanpassen en opnieuw runnen, maar PySide6 heeft ook een drag-and-drop applicatie 'Designer' gemaakt. Je gebruikt Designer om het uiterlijk van je applicatie vorm te geven, de functionaliteit voeg je vervolgens toe in je code. 
 
-Designer kan (bijna) alles wat je ook met programmeren kan, daarom kan het programma op het eerste gezicht wat onoverzichtelijk overkomen. In de onderstaande video's nemen we je stap voor stap mee op een tour door Designer. Aan het eind heb je de basis informatie over Designer en kan je de minimale gui die je eerder geprogrameerd hebt, ook maken met Designer. 
+Designer kan (bijna) alles wat je ook met programmeren kan, daarom kan het programma op het eerste gezicht wat onoverzichtelijk overkomen. In onderstaande video's nemen we je stap voor stap mee op een tour door Designer. Aan het eind heb je de basisinformatie over Designer en kan je de minimale gui die je eerder geprogrameerd hebt, ook maken met Designer. 
 
 !!! info
     Druk in de video's op het vierkant rechtsboven om ze in volledig scherm te bekijken.
@@ -741,7 +741,7 @@ Designer kan (bijna) alles wat je ook met programmeren kan, daarom kan het progr
     === "opdracht"
         <iframe src="https://drive.google.com/file/d/16MJDQXXHG0KjVa3AIXC_pP__7zI73vXL/preview?t=24" width="620" height="349" style="border:none;"></iframe>
 
-        Bekijk de bovenstaande video. Start designer op met het commando `pyside6-designer` in een terminal. Open een template voor een `#!py MainWindow` en ontrolleer dat bij jou in de `object inspector` dezelfde widgets staan als in het filmpje hierboven.
+        Bekijk bovenstaande video. Start Designer op met het commando `pyside6-designer` in een terminal. Open een template voor een `#!py MainWindow` en controleer dat bij jou in de `object inspector` dezelfde widgets staan als in de video hierboven.
     === "code"
         **Test-code**
         <pre><code>(functionplotter) > pyside6-designer <button type="button" name="pyside6-designer_start" onclick="runScript('pyside6-designer_start')">{{ enter }}</button><button type="button" name="pyside6-designer_start" onclick="runScript('pyside6-designer_start')" class="invisible">{{ reload }}</button>
@@ -751,7 +751,7 @@ Designer kan (bijna) alles wat je ook met programmeren kan, daarom kan het progr
     === "check"
         **Checkpunten:**
         
-        - [ ] De MainWindow bevat een centralwidget, menubar en statusbar.
+        - [ ] De `MainWindow` bevat een `central widget`, menubar en statusbar.
 
         **Projecttraject**
     
@@ -762,13 +762,13 @@ Designer kan (bijna) alles wat je ook met programmeren kan, daarom kan het progr
         - [ ] Designer: ontwerp importeren
         - [ ] Designer: slots en signals toevoegen
 
-Laten we kijken hoe we widgets toevoegen en de centralwidget een layout geven in Designer:
+Laten we kijken hoe we widgets toevoegen en de `central widget` een layout geven in Designer.
 
 !!! opdracht-basis "Designer: layout toevoegen aan centralwidget"
     === "opdracht"
         <iframe src="https://drive.google.com/file/d/1cEzuZU069ArgAc9rmMuRA1hBz2HwJ87Z/preview" width="620" height="349" style="border:none;"></iframe>
 
-        Bekijk de bovenstaande video. Voeg zelf ook een `TextEdit` toe geef de `central widget` een verticale layout. Voeg _onder_ de `TextEdit` een horizontale layout toe.
+        Bekijk bovenstaande video. Voeg zelf ook een `TextEdit` toe en geef de `central widget` een verticale layout. Voeg _onder_ de `TextEdit` een horizontale layout toe.
     === "check"
         **Checkpunten:**
         
@@ -785,13 +785,13 @@ Laten we kijken hoe we widgets toevoegen en de centralwidget een layout geven in
         - [ ] Designer: ontwerp importeren
         - [ ] Designer: slots en signals toevoegen
 
-In het volgende filmpje kun je zien hoe je gemakkelijk een widget aan de horizontale layout toevoegd en hoe je de eigenschappen van de widgets aanpast.
+In de volgende video kun je zien hoe je gemakkelijk een widget aan de horizontale layout toevoegd en hoe je de eigenschappen van de widgets aanpast.
 
 !!! opdracht-basis "Designer: eigenschappen widgets aanpassen"
     === "opdracht"
         <iframe src="https://drive.google.com/file/d/1u57a2wILXmXewVYjCDTSqxG6dD2B42vl/preview" width="620" height="349" style="border:none;"></iframe>
 
-        Bekijk de bovenstaande video. Voeg zelf ook een `PushButton` en een `SpinBox` toe aan de horizontale layout. Pas de tekst op de `PushButton` aan naar `Add value`. Zorg dat de `SpinBox` alleen waardes tussen 1 en 28 kan aannemen. Pas de `objectName` aan van de `TextEdit` naar `textedit`, van `PushButton` naar `add_value_button` en van `SpinBox` naar `value`. 
+        Bekijk bovenstaande video. Voeg zelf ook een `PushButton` en een `SpinBox` toe aan de horizontale layout. Pas de tekst op de `PushButton` aan naar `Add value`. Zorg dat de `SpinBox` alleen waardes tussen 1 en 28 kan aannemen. Pas de `objectName` aan van de `TextEdit` naar `textedit`, van `PushButton` naar `add_value_button` en van `SpinBox` naar `value`. 
     === "check"
         **Checkpunten:**
         
@@ -814,12 +814,12 @@ In het volgende filmpje kun je zien hoe je gemakkelijk een widget aan de horizon
 
 Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar een Pythonbestand met een class die je importeert in je eigen programma.
 
-!!! opdracht-basis "Designer: De .ui vertalen naar .py"
+!!! opdracht-basis "Designer: de .ui vertalen naar .py"
     === "opdracht"
         <iframe src="https://drive.google.com/file/d/1cMTtI9-mgCRjYCvZYSsZ9lsZfU5KpOE2/preview" width="620" height="349" style="border:none;"></iframe>
         <div class="grid-tree" markdown>
             <div>
-            Bekijk de bovenstaande video. Sla het ontwerp op als {{new_file_lines}}`number_display_app.ui`. In een terminal in Visual Studio Code, navigeer naar dezelfde map waarin {{file_lines}}`number_display_app.ui` staat.[^overleg-navigeren] Gebruik de optie `--output` van `pyside6-uic` om het bestand {{file_lines}}`number_display_app.ui` om te zetten naar het bestand {{file_lines}}`ui_number_display_app.py`.
+            Bekijk bovenstaande video. Sla het ontwerp op als {{new_file_lines}}`number_display_app.ui`. In een terminal in Visual Studio Code navigeer je naar dezelfde map waarin {{file_lines}}`number_display_app.ui` staat.[^overleg-navigeren] Gebruik de optie `--output` van `pyside6-uic` om het bestand {{file_lines}}`number_display_app.ui` om te zetten naar het bestand {{file_lines}}`ui_number_display_app.py`.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -831,7 +831,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
             </div>
         </div>
         !!! info "Wijzigingen in het ontwerp"
-            Het omzetten van het .ui-bestand naar een .py bestand moet je doen elke keer als je in Designer iets wijzigt (en opslaat). Gebruik de ++up++-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met uv, zullen we dit eenvoudiger maken.
+            Het omzetten van het .ui-bestand naar een .py-bestand moet je elke keer doen als je in Designer iets wijzigt (en opslaat). Gebruik de ++up++-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met uv, zullen we dit eenvoudiger maken.
         [^overleg-navigeren]: Overleg met elkaar of met de assistent als je niet weet hoe dat moet.
     === "code"
         **Test-code**
@@ -925,7 +925,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
     === "check"
         **Checkpunten:**
         
-        - [ ] De class `#!py Ui_MainWindow` wordt geimporteerd uit {{file}}`ui_number_display_app.py`
+        - [ ] De class `#!py Ui_MainWindow` wordt geïmporteerd uit {{file}}`ui_number_display_app.py`.
         - [ ] De widgets worden aangeroepen met `#!py self.ui` ervoor.
 
         **Projecttraject**

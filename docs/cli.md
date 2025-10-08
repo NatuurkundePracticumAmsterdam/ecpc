@@ -1023,7 +1023,7 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
     === "opdracht"
         Pas het subcommando `scan` aan zodat je met een optie het aantal herhaalmetingen kan kiezen.
         </br></br>
-        De gebruiker test de optie om het aantal herhaalmetingen te kiezen met de volgende handelingen. Met het subcommando `scan` voert de gebruiker een meting uit in het bereik 2.8V tot 3.3V. Met een optie zet de gebruiker het aantal herhaalmetingen op 5. De gebruiker ziet dat het resultaat van de metingen met onzekerheden worden geprint in de terminal. De gebruiker bekijkt de grootte van de onzekerheden en voert nogmaals een scan uit maar dan met 10 metingen en daarna met 20 metingen. De gebruiker ziet dat de onzekerheden afnemen wanneer het aantal metingen toeneem.t
+        De gebruiker test de optie om het aantal herhaalmetingen te kiezen met de volgende handelingen. Met het subcommando `scan` voert de gebruiker een meting uit in het bereik 2.8V tot 3.3V. Met een optie zet de gebruiker het aantal herhaalmetingen op 5. De gebruiker ziet dat het resultaat van de metingen met onzekerheden worden geprint in de terminal. De gebruiker bekijkt de grootte van de onzekerheden en voert nogmaals een scan uit maar dan met 10 metingen en daarna met 20 metingen. De gebruiker ziet dat de onzekerheden afnemen wanneer het aantal metingen toeneemt.
     === "code"
         **Pseudo-code**
         ```py
@@ -1181,7 +1181,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
     === "opdracht"
         Voeg helpteksten toe.
         </br></br>
-        De gebruiker test de applicatie `diode` met de volgende handelingen. De gebruiker typt `diode --help` en bekijkt de helptekst. De gebruiker ziet dat er subcommando's zijn. Met `subcommando --help` test de gebruiker de helpteksten een voor een uit. Ook bekijkt de gebruiker de helpteksten over de argumenten en otpies. De helpteksten stellen de gebruiker in staat om de applicatie te begrijpen en te bedienen.
+        De gebruiker test de applicatie `diode` met de volgende handelingen. De gebruiker typt `diode --help` en bekijkt de helptekst. De gebruiker ziet dat er subcommando's zijn. Met `subcommando --help` test de gebruiker de helpteksten een voor een uit. Ook bekijkt de gebruiker de helpteksten over de argumenten en opties. De helpteksten stellen de gebruiker in staat om de applicatie te begrijpen en te bedienen.
     === "code"
         **Pseudo-code**
         ```
@@ -1263,4 +1263,4 @@ Op dit punt hebben we de functionaliteit van ons snelle script van het vorige ho
     Lukt het, om binnen de te bepalen onzekerheid, overeenkomst te vinden met de literatuurwaarde? Een LED is helaas geen ideale diode dus dit kan lastig zijn.
 
     !!! opdracht-meer "Model fitten"
-            Fit het model van Shockley aan je $I,U$-karakteristiek. Welke parameters kun je bepalen? Overleg met je begeleider!
+        Fit het model van Shockley aan je $I,U$-karakteristiek. Welke parameters kun je bepalen? Overleg met je begeleider!
