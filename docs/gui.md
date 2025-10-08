@@ -50,7 +50,7 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
 
         <div class="grid-tree" markdown>
             <div>
-            Je gaat de gegeven Python code voor een een minimale GUI testen. In de repository {{github}}`oefenopdrachten` maak je een {{new_file}}`example-gui.py` aan en zet daarin de Python code van bovenstaand voorbeeld. Je runt het bestand {{new_file}}`example-gui.py` en krijgt een foutmelding. Je installeert het pakket `pyside6-essentials` in je virtual environment {{lightbulb}} en runt je code nog een keer. Er verschijnt een leeg venster in beeld met als venstertitel `python` en de drie standaard vensterknoppen voor minimaliseren, maximaliseren en sluiten.
+            Je gaat de gegeven Python code voor een minimale GUI testen. In de repository {{github}}`oefenopdrachten` maak je een {{new_file}}`example-gui.py` aan en zet daarin de Python code van bovenstaand voorbeeld. Je runt het bestand {{new_file}}`example-gui.py` en krijgt een foutmelding. Je installeert het pakket `pyside6-essentials` in je virtual environment {{lightbulb}} en runt je code nog een keer. Er verschijnt een leeg venster in beeld met als venstertitel `python` en de drie standaard vensterknoppen voor minimaliseren, maximaliseren en sluiten.
             </div>
             <div>
             {{folder}} `ECPC`  
