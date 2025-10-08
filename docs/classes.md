@@ -527,7 +527,7 @@ print(master_oogway.quote)
     === "opdracht"        
         <div class="grid-tree" markdown>
             <div>
-            Je hebt een class `#!py PointMass` gemaakt in een nieuw bestand {{new_file}} `point_mass.py`. Als je een instance aanmaakt van de class `#!py PointMass` kun je de massa en de positie en de snelheid in twee dimensies meegeven. De instance kun je dan beschouwen als een puntmassa waarvan je de plaats en snelheid kent en kunt simuleren. Je hebt gezorgd voor een method om de snelheid aan te passen, en een method om de beweging van het deeltje te simuleren: waar is de puntmassa over 1 seconde? Ook zijn er methods om de kinetische energie en de impuls uit te rekenen.
+            Je hebt een class `#!py PointMass` gemaakt in een nieuw bestand {{new_file}} `point_mass.py`. Als je een instance aanmaakt van de class `#!py PointMass` kun je de massa en de positie en de snelheid in twee dimensies meegeven. De instance kun je dan beschouwen als een puntmassa waarvan je de plaats en snelheid kent en kunt simuleren. Je hebt gezorgd voor een method om de snelheid aan te passen. Ook heb je een method geschreven om de beweging van het deeltje te simuleren. Door deze method meerdere keren aan te roepen, kun je het pad van het deeltje in de tijd volgen. Ook zijn er methods om de kinetische energie en de impuls uit te rekenen.
             </div>
             <div>
             {{folder}} `ECPC`  
