@@ -256,6 +256,7 @@ Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de
         **Checkpunten**
 
         - [ ] Alle directe communicatie met de Arduino, firmware-commando's en PyVISA-commando's staan in het bestand {{file}}`arduino_device.py`, de controller.
+        - [ ] Er staat geen `#!py import pyvisa` meer in {{file}}`diode_experiment.py`.
         - [ ] Runnen van {{file}}`diode_experiment.py` zorgt ervoor dat een meting start.
         - [ ] Er wordt een lijst geprint met beschikbare poorten.
         - [ ] Er wordt een plot getoond van de gemiddelde spanning over en de gemiddelde stroomsterkte door de LED met de bijbehorende onzekerheden.
