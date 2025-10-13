@@ -247,7 +247,7 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
 
 !!! opdracht-basis "Terminator characters demo"
     === "opdracht"
-        Je vraagt je misschien af wat het betekent dat er bij het schrijven en lezen regeleindes gebruikt worden. Daarom open je de _Termination Character Demo_ door een terminal te starten en in te typen:
+        Je vraagt je misschien af wat het betekent dat er bij het schrijven en lezen regeleindes gebruikt worden. Daarom open je de _Termination Character Demo_ door een nieuwe terminal te starten en in te typen:
         ```shell
         uvx termchar-demo
         ```
