@@ -76,6 +76,9 @@ Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een d
             <br>
             <br>
             De repository {{github}}`oefenopdrachten` is in GitHub Desktop geopend en als je op het tabblad 'History' klikt dan zie je dat er een `Initial commit` is met wat `git`-bestanden en de Pythonscripts die je in de map hebt gezet. Vanaf nu staat {{github}}`oefenopdrachten` in versiebeheer en houdt Git je wijzigingen bij. Het is wel belangrijk dat je met regelmaat zelf [commit](#commit)!
+            <br>
+            <br>
+            Open de repository in Visual Studio Code door op de knop `Open in Visual Studio Code` te klikken _of_ via het pulldown-menu: **Menu > Repository > Open in Visual Studio Code**. Als je je oefenopdrachten probeert te runnen lukt dat waarschijnlijk niet, angezien er nog geen environment gekoppeld is aan deze repository (die had je vast niet meegekopieerd naar de folder {{folder}}`oefenopdrachten`). Je maakt nu eerst een virtual environment aan (zie [opdracht Virtual environment aanmaken](communicatie.md#opd:venv)), en probeert opnieuw je scripts te runnen.
             </div>
             <div>
             {{folder}}`ECPC`  
