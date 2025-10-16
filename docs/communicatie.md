@@ -709,7 +709,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         **Checkpunten**
 
         - [ ] De LED staat een tijd aan en een tijd uit.
-        - [ ] Het aan- en uitgaan van de LED herhaald zich enkele keren.
+        - [ ] Het aan- en uitgaan van de LED herhaalt zich enkele keren.
 
         **Projecttraject**
 
