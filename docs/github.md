@@ -56,6 +56,7 @@ In deze cursus ga je werken met GitHub. Je moet hiervoor wel een (gratis) accoun
         - [x] LED laten branden
         - [x] flashingLED
         - [x] Account aanmaken
+        - [ ] GitHub Desktop installeren
         - [ ] Van bestaande map repository maken
         - [ ] Commit 
         - [ ] Push en pull        
@@ -63,6 +64,34 @@ In deze cursus ga je werken met GitHub. Je moet hiervoor wel een (gratis) accoun
 
 ### GitHub Desktop
 Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een desktopapplicatie ontwikkeld met de naam GitHub Desktop. Je gaat GitHub Desktop gebruiken om een repository te maken van de map met de oefenopdrachten.
+
+!!! opdracht-basis "GitHub Desktop installeren"
+    === "opdracht"
+        Ga naar [https://desktop.github.com/download/](https://desktop.github.com/download/) om GitHub Desktop te downloaden. Zoek daarna het gedownloade bestand op en installeer de applicatie. Log nu in met jouw account.
+
+        !!! info
+            Mogelijk heb je eerder al eens GitHub Desktop geïnstalleerd. Controleer dan of je met het juiste account ingelogd bent. Ga hiervoor naar **Accounts** via het dropdownmenu **File** > **Options**.
+
+    === "check"
+
+        **Checkpunten**
+
+        - [ ] De applicatie GitHub Desktop is geïnstalleerd.
+        - [ ] Je bent ingelogd met jouw eigen account.
+
+        **Projecttraject**
+    
+        - [x] Vergelijk script met `pyvisa-shell`
+        - [x] Pythonscript aanmaken
+        - [x] Virtual environment aanmaken
+        - [x] PyVISA in Pythonscript
+        - [x] LED laten branden
+        - [x] flashingLED
+        - [x] Account aanmaken
+        - [x] GitHub Desktop installeren
+        - [ ] Van bestaande map repository maken
+        - [ ] Commit 
+        - [ ] Push en pull
 
 <div id="opd:add_repository"></div>
 !!! opdracht-basis "Van bestaande map repository maken"
@@ -72,7 +101,7 @@ Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een d
             **Zorg dat Visual Studio Code is afgesloten en geen bestanden meer open heeft staan.** Je gaat een repository maken van een bestaande map. Als je van de map {{folder}}`ECPC` een repository maakt, kun je daar geen andere repositories meer in zetten. Dat is onhandig! Daarom maak je in de map {{folder}}`ECPC` een nieuwe map {{new_folder}}`oefenopdrachten` aan. Hierin zet je alle Python-bestanden die je tot nu toe hebt gemaakt, zoals de opdrachten [_PyVISA in Pythonscript_](communicatie.md#opd:test_arduino) en [_flashingLED_](communicatie.md#opd:flashingLED). 
             <br>
             <br>
-            Je gaat naar GitHub Desktop en logt in met je eigen account. Je vindt onder het dropdownmenu **File** drie opties:  `New repository...`, `Add local repository...` en `Clone repository...`. Hoewel `New repository...` een goede optie lijkt, is dit niet wat je zoekt. Op het moment dat je een nieuwe repository maakt, wordt er ook een nieuwe map aangemaakt en dat is niet wat je wilt. Daarom kies je voor `Add local repository...`. Je geeft de map {{folder}}`oefenopdrachten` op als locatie en krijgt in rode tekst een waarschuwing. De waarschuwing geeft aan dat de map wel bestaat maar dat het geen `Git repository` is, daarom klik je op de blauwe tekst `create a repository`. Je vinkt `Initialize this repository with a README` aan en kiest bij `Git ignore` voor <q>Python</q>. Daarna klik je op de blauwe knop `Create Repository`. 
+            Je gaat naar GitHub Desktop. Je vindt onder het dropdownmenu **File** drie opties:  `New repository...`, `Add local repository...` en `Clone repository...`. Hoewel `New repository...` een goede optie lijkt, is dit niet wat je zoekt. Op het moment dat je een nieuwe repository maakt, wordt er ook een nieuwe map aangemaakt en dat is niet wat je wilt. Daarom kies je voor `Add local repository...`. Je geeft de map {{folder}}`oefenopdrachten` op als locatie en krijgt in rode tekst een waarschuwing. De waarschuwing geeft aan dat de map wel bestaat maar dat het geen `Git repository` is, daarom klik je op de blauwe tekst `create a repository`. Je vinkt `Initialize this repository with a README` aan en kiest bij `Git ignore` voor <q>Python</q>. Daarna klik je op de blauwe knop `Create Repository`. 
             <br>
             <br>
             De repository {{github}}`oefenopdrachten` is in GitHub Desktop geopend en als je op het tabblad 'History' klikt dan zie je dat er een `Initial commit` is met wat `git`-bestanden en de Pythonscripts die je in de map hebt gezet. Vanaf nu staat {{github}}`oefenopdrachten` in versiebeheer en houdt Git je wijzigingen bij. Het is wel belangrijk dat je met regelmaat zelf [commit](#commit)!
@@ -112,6 +141,7 @@ Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een d
         - [x] LED laten branden
         - [x] flashingLED
         - [x] Account aanmaken
+        - [x] GitHub Desktop installeren
         - [x] Van bestaande map repository maken
         - [ ] Commit 
         - [ ] Push en pull
@@ -171,6 +201,7 @@ Hieronder zie je een aantal voorbeelden van commit messages. De titel (_summary_
         - [x] LED laten branden
         - [x] flashingLED
         - [x] Account aanmaken
+        - [x] GitHub Desktop installeren
         - [x] Van bestaande map repository maken
         - [x] Commit 
         - [ ] Push en pull
@@ -182,9 +213,9 @@ In GitHub Desktop zie je nu bij _History_ de commit staan, met in één oogopsla
 
 !!! opdracht-basis "Push en pull"
     === "opdracht"
-        De repository {{github}}`oefenopdrachten` bestaat alleen nog maar op de computer. Als de zaalcomputerkabouters 's nachts langskomen kan het zijn dat de zaalcomputer daarna is gewist en je alles kwijt bent.[^kabouter] Dat zal op je eigen laptop niet zo snel gebeuren gelukkig. Maar het kan dus fijn zijn om de repository ook in de cloud te hebben op [github.com](https://github.com/). Bovendien geeft dat de mogelijkheid je code op andere computers binnen te halen of te delen met anderen.
+        De repository {{github}}`oefenopdrachten` bestaat alleen nog maar op de computer. Het kan fijn zijn om de repository ook in de cloud te hebben op [github.com](https://github.com/). Het geeft de mogelijkheid je code op andere computers binnen te halen en te delen met anderen. Bovendien ben je dan beschermd tegen computerkabouters die 's nachts documenten verplaatsen of wissen.[^kabouter]
 
-        [^kabouter]: Dit is geen grap en is al meerdere studenten gebeurd. De zaalcomputers worden om privacy- en efficiëntieredenen met enige regelmaat automatisch opgeschoond. Ok, het zijn waarschijnlijk geen kabouters &mdash; dat is wel een grap, denken we.
+        [^kabouter]: Dit kan echt gebeuren en is dus geen grap. Zo worden de zaalcomputers om privacy- en efficiëntieredenen met enige regelmaat automatisch opgeschoond. Je bent dan alles kwijt. Ok, het zijn waarschijnlijk geen kabouters &mdash; dat is wel een grap, denken we.
         
         In GitHub Desktop vind je een knop `Publish repository; Publish this repository to GitHub`. Als je daar op drukt kun je nog een andere naam aan de repository geven (deze naam bepaalt de url op [github.com](https://github.com/)), een beschrijving toevoegen en aangeven of de code privé moet zijn. Daarna klik je op de blauwe knop `Publish repository`. Als je nu naar [github.com](https://github.com) gaat zie je bij jouw repositories de zojuist gepubliceerde repository staan. 
     
@@ -204,6 +235,7 @@ In GitHub Desktop zie je nu bij _History_ de commit staan, met in één oogopsla
         - [x] LED laten branden
         - [x] flashingLED
         - [x] Account aanmaken
+        - [x] GitHub Desktop installeren
         - [x] Van bestaande map repository maken
         - [x] Commit 
         - [x] Push en pull

@@ -441,6 +441,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         - [ ] LED laten branden
         - [ ] flashingLED
         - [ ] Account aanmaken
+        - [ ] GitHub Desktop installeren
         - [ ] Van bestaande map repository maken
         - [ ] Commit 
         - [ ] Push en pull
@@ -470,6 +471,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         - [ ] LED laten branden
         - [ ] flashingLED
         - [ ] Account aanmaken
+        - [ ] GitHub Desktop installeren
         - [ ] Van bestaande map repository maken
         - [ ] Commit 
         - [ ] Push en pull
@@ -529,6 +531,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         - [ ] LED laten branden
         - [ ] flashingLED
         - [ ] Account aanmaken
+        - [ ] GitHub Desktop installeren
         - [ ] Van bestaande map repository maken
         - [ ] Commit 
         - [ ] Push en pull
@@ -593,6 +596,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         - [ ] LED laten branden
         - [ ] flashingLED
         - [ ] Account aanmaken
+        - [ ] GitHub Desktop installeren
         - [ ] Van bestaande map repository maken
         - [ ] Commit 
         - [ ] Push en pull
@@ -656,6 +660,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         - [x] LED laten branden
         - [ ] flashingLED
         - [ ] Account aanmaken
+        - [ ] GitHub Desktop installeren
         - [ ] Van bestaande map repository maken
         - [ ] Commit 
         - [ ] Push en pull
@@ -720,6 +725,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         - [x] LED laten branden
         - [x] flashingLED
         - [ ] Account aanmaken
+        - [ ] GitHub Desktop installeren
         - [ ] Van bestaande map repository maken
         - [ ] Commit 
         - [ ] Push en pull
