@@ -531,7 +531,7 @@ Opties zonder argument werken als vlag &mdash; een soort aan-/uitknop.[^flag]
             main()
         ```
         **Testcode**
-        <pre><code>(oefenopdrachten) > easystat 4 5 6 <button type="button" name="easystat 4 5 6" onclick="runScript('easystat 4 5 6')">{{ enter }}</button><button type="button" name="easystat 4 5 6" onclick="runScript('easystat 4 5 6')" class="invisible">{{ reload }}</button>
+        <pre><code>(easystat) > easystat 4 5 6 <button type="button" name="easystat 4 5 6" onclick="runScript('easystat 4 5 6')">{{ enter }}</button><button type="button" name="easystat 4 5 6" onclick="runScript('easystat 4 5 6')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="easystat 4 5 6">measurements=(4.0, 5.0, 6.0)
         Result of measurements is: 5.00 +- 0.47.</span>
         </code></pre>
@@ -634,7 +634,7 @@ In regel 22 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_grou
         naam_commando = "package.module:naam_functie"
         ```
         **Testcode**
-        <pre><code>(oefenopdrachten) > fake_uv add scipy <button type="button" name="fake_uv add scipy" onclick="runScript('fake_uv add scipy')">{{ enter }}</button><button type="button" name="fake_uv add scipy" onclick="runScript('fake_uv add scipy')" class="invisible">{{ reload }}</button>
+        <pre><code>(fake-uv) > fake_uv add scipy <button type="button" name="fake_uv add scipy" onclick="runScript('fake_uv add scipy')">{{ enter }}</button><button type="button" name="fake_uv add scipy" onclick="runScript('fake_uv add scipy')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="fake_uv add scipy">Adding and installing scipy...</span>
         </code></pre>
         
@@ -842,7 +842,7 @@ if __name__ == "__main__":
     cmd_group()
 ```
 Als je vervolgens de helpfunctie aanroept, zie je de eerste regel van de docstrings verschijnen voor alle subcommando's:
-<pre><code>(oefenopdrachten) > fake_uv --help <button type="button" name="python fake_uv --help" onclick="runScript('python fake_uv --help')">{{ enter }}</button><button type="button" name="python fake_uv --help" onclick="runScript('python fake_uv --help')" class="invisible">{{ reload }}</button>
+<pre><code>(fake-uv) > fake_uv --help <button type="button" name="python fake_uv --help" onclick="runScript('python fake_uv --help')">{{ enter }}</button><button type="button" name="python fake_uv --help" onclick="runScript('python fake_uv --help')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python fake_uv --help">Usage: fake_uv.py [OPTIONS] COMMAND [ARGS]...
 
   Fake uv commands.
@@ -857,7 +857,7 @@ Commands:
 
 Daarna kun je uitleg vragen over de subcommando's, waarbij je de hele docstring te zien krijgt:
 
-<pre><code>(oefenopdrachten) > fake_uv add --help <button type="button" name="python fake_uv.py add --help" onclick="runScript('python fake_uv.py add --help')">{{ enter }}</button><button type="button" name="python fake_uv.py add --help" onclick="runScript('python fake_uv.py add --help')" class="invisible">{{ reload }}</button>
+<pre><code>(fake-uv) > fake_uv add --help <button type="button" name="python fake_uv.py add --help" onclick="runScript('python fake_uv.py add --help')">{{ enter }}</button><button type="button" name="python fake_uv.py add --help" onclick="runScript('python fake_uv.py add --help')" class="invisible">{{ reload }}</button>
 <span class="invisible" name="python fake_uv.py add --help">Usage: fake_uv.py add [OPTIONS] PACKAGE
 
   Add a package to a uv project.
@@ -951,11 +951,11 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
             # print Work in progress, scan LED
         ```
         **Testcode**
-        <pre><code>(oefenopdrachten) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
+        <pre><code>(pythondaq) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode list">Work in progress, list devices </span>
         </code></pre>
 
-        <pre><code>(oefenopdrachten) > diode scan <button type="button" name="diode scan" onclick="runScript('diode scan')">{{ enter }}</button><button type="button" name="diode scan" onclick="runScript('diode scan')" class="invisible">{{ reload }}</button>
+        <pre><code>(pythondaq) > diode scan <button type="button" name="diode scan" onclick="runScript('diode scan')">{{ enter }}</button><button type="button" name="diode scan" onclick="runScript('diode scan')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode scan">Work in progress, scan LED</span>
         </code></pre>
         
@@ -1065,7 +1065,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         De gebruiker test het subcommando `list` met de volgende handelingen. De gebruiker typt het commando `diode list` in de terminal. Daarna verschijnt in de terminal een lijst van aangesloten instrumenten.
         
     === "code"
-        <pre><code>(oefenopdrachten) > diode list <button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')">{{ enter }}</button><button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')" class="invisible">{{ reload }}</button>
+        <pre><code>(pythondaq) > diode list <button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')">{{ enter }}</button><button type="button" name="diode list_filled_in" onclick="runScript('diode list_filled_in')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode list_filled_in">('ASRL28::INSTR','ASRL5::INSTR')</span>
         </code></pre>
 
@@ -1101,7 +1101,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
             # print identificationstring of device
         ```
         **Testcode**
-        <pre><code>(oefenopdrachten) > diode info ASRL28::INSTR <button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')">{{ enter }}</button><button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')" class="invisible">{{ reload }}</button>
+        <pre><code>(pythondaq) > diode info ASRL28::INSTR <button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')">{{ enter }}</button><button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode info ASRL28::INSTR">Arduino VISA firmware v1.1.0</span>
         </code></pre>
 
@@ -1132,7 +1132,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         </br></br>
         Tot slot leent de gebruiker een Arduino van een buurmens. De gebruiker sluit de tweede Arduino aan op de computer. Met `list` en `info` kijkt de gebruiker wat de poortnaam is van de tweede Arduino. Met het subcommando `scan` voert de gebruiker een meting uit en ziet dat het lampje van de tweede Arduino gaat branden en niet het lampje van de eerste Arduino. 
     === "code"
-        <pre><code>(oefenopdrachten) > diode scan <button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')">{{ enter }}</button><button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')" class="invisible">{{ reload }}</button>
+        <pre><code>(pythondaq) > diode scan <button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')">{{ enter }}</button><button type="button" name="diode scan_no device" onclick="runScript('diode scan_no device')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode scan_no device">errorUsage: diode [OPTIONS] DEVICE
         Try 'diode --help' for help.
         Error: Missing argument 'DEVICE'.</span>
@@ -1191,7 +1191,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         """
         ```
         **Testcode**
-        <pre><code>(oefenopdrachten) > diode --help <button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')">{{ enter }}</button><button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')" class="invisible">{{ reload }}</button>
+        <pre><code>(pythondaq) > diode --help <button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')">{{ enter }}</button><button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="diode --help_assignment">Usage: diode [OPTIONS] COMMAND [ARGS] ...
             Options: 
                 --help Show this message and exit.
@@ -1218,7 +1218,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
 ???+ opdracht-meer "Pythondaq: `list --search`"
     Breid het commando `list` uit met een optie `--search` waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
-    <pre><code>(oefenopdrachten) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
+    <pre><code>(pythondaq) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="diode list">The following devices are connected to your computer:                                                                             
     ASRL/dev/cu.SOC::INSTR
     ASRL/dev/cu.MALS::INSTR
@@ -1226,7 +1226,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
     ASRL/dev/cu.Bluetooth-Incoming-Port::INSTR
     ASRL/dev/cu.usbmodem143401::INSTR 
     </span>
-    (oefenopdrachten) > diode list -s usbmodem <button type="button" name="diode list -s usbmodem" onclick="runScript('diode list -s usbmodem')">{{ enter }}</button><button type="button" name="diode list -s usbmodem" onclick="runScript('diode list -s usbmodem')" class="invisible">{{ reload }}</button>
+    (pythondaq) > diode list -s usbmodem <button type="button" name="diode list -s usbmodem" onclick="runScript('diode list -s usbmodem')">{{ enter }}</button><button type="button" name="diode list -s usbmodem" onclick="runScript('diode list -s usbmodem')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="diode list -s usbmodem">The following devices match your search string:                                                                       
     ASRL/dev/cu.usbmodem143401::INSTR </span>
     </code></pre>
