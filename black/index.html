@@ -16,15 +16,15 @@
       
       
       <link rel="icon" href="../figures/ECPC_logo_simple.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>Black - Experiment Control with Python Course</title>
+        <title>Black / Ruff - Experiment Control with Python Course</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
       
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#black" class="md-skip">
+        <a href="#black-ruff" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Black
+              Black / Ruff
             
           </span>
         </div>
@@ -759,7 +759,7 @@
   
   
   <span class="md-ellipsis">
-    Black
+    Black / Ruff
     
   </span>
   
@@ -840,14 +840,14 @@
 
 
 
-<h1 id="black">Black<a class="headerlink" href="#black" title="Permanent link">&para;</a></h1>
+<h1 id="black-ruff">Black / Ruff<a class="headerlink" href="#black-ruff" title="Permanent link">&para;</a></h1>
 <p><q>Code wordt veel vaker gelezen dan geschreven,</q> is een veel geciteerd gezegde onder programmeurs. Je schrijft je code en zit vervolgens uren te puzzelen om een fout te vinden of hoe je de code het beste kunt uitbreiden. Je zoekt op internet naar voorbeeldcode, je helpt een medestudent of vraagt die om hulp. Heel vaak dus lees je niet je eigen code, maar die <em>van iemand anders</em>. Is dat relevant? Ja! Want die code ziet er anders uit. Iedereen programmeert toch op zijn eigen manier. Het scheelt enorm als de code er tenminste grotendeels hetzelfde uitziet. Het kost je dan minder energie om te lezen. Daarom ook dat de artikelen in wetenschappelijke tijdschriften bijvoorbeeld er allemaal hetzelfde uitzien en de auteur niet de vrijheid krijgt om zélf lettertypes te kiezen. Net zo goed hebben grote organisaties vaak hun eigen <em>coding style</em> ontwikkeld waar alle werknemers zich zoveel mogelijk aan moeten houden.</p>
 <p>Python heeft een eigen style guide die je vooral eens door moet lezen.<sup id="fnref:pep8"><a class="footnote-ref" href="#fn:pep8">1</a></sup> Google heeft ook een hele mooie, met duidelijke voorbeelden.<sup id="fnref:google_style_guide"><a class="footnote-ref" href="#fn:google_style_guide">2</a></sup></p>
 <p>Fijn dat je code consistenter wordt, maar het moet nu ook weer niet zo zijn dat je uren kwijt bent met de style guides bestuderen of twijfelen waar je een regel code precies moet afbreken. Wel of niet een enter? Om daar vanaf te zijn zijn er verschillende pakketten die je code automatisch aanpassen aan de standaard. Als je de instelling <strong>Editor: Format On Save</strong> aan zet (staat standaard uit) dan wordt je code aangepast zodra je je bestand opslaat. Black is zo'n formatter en heeft een `eigen mening'. Als je je daar bij neerlegt hoef je bijna niet meer na te denken over hoe je je code precies vormgeeft. De Black website zegt<sup id="fnref:black"><a class="footnote-ref" href="#fn:black">3</a></sup>:</p>
 <p><q>
   By using Black, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters.
 </q></p>
-<p>Black is tegenwoordig immens populair en in Visual Studio Code kun je hem gebruiken door de <em>Black Formatter</em>-extensie van Microsoft te installeren. De code in deze handleiding is geformat met Black. In Visual Studio Code, ga naar <strong>File</strong> en dan naar <strong>Preferences &gt; Settings &gt; Editor: Format On Save</strong> en vink die <em>aan</em>. De eerste keer dat je je bestand opslaat zal hij vragen of hij Black moet gebruiken, daarna wordt je code altijd netjes gemaakt zodra je je Pythonbestand bewaart.</p>
+<p>Black en de veel snellere variant Ruff zijn tegenwoordig immens populair en in Visual Studio Code kun je ze automatisch gebruiken door de juiste extensie te installeren. De code in deze handleiding is geformat met Black/Ruff. In Visual Studio Code, ga naar <strong>File</strong> en dan naar <strong>Preferences &gt; Settings &gt; Editor: Format On Save</strong> en vink die <em>aan</em>. Je code wordt dan altijd netjes gemaakt zodra je je Pythonbestand bewaart.</p>
 <p>De volgende code:</p>
 <div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">s1</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;World&quot;</span>
@@ -857,7 +857,7 @@
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">g</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span><span class="n">b</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">h</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">phi</span><span class="p">)</span> <span class="o">+</span> <span class="n">A2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">f2</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">phi2</span><span class="p">)</span> <span class="o">+</span> <span class="n">A3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">f3</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">phi3</span><span class="p">)</span>
 </span></code></pre></div>
-<p>wordt door Black omgezet in:</p>
+<p>wordt door Black of Ruff omgezet in:</p>
 <div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;World&quot;</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -941,7 +941,7 @@
       <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "toc.integrate", "navigation.top", "content.code.annotate"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="../javascripts/katex.js"></script>
       
