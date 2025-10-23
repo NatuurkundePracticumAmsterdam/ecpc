@@ -566,13 +566,13 @@ Tot nu toe kon je maar één functie uitvoeren in jouw applicatie. Maar het is o
 
         - [x] Pythondaq: subcommando's bedenken
         - [ ] Pythondaq: commando's
-        - [ ] Pythondaq: `scan`
+        - [ ] Pythondaq: subcommando `scan`
         - [ ] Pythondaq: herhaalmetingen
-        - [ ] Pythondaq: `list`
-        - [ ] Pythondaq: `info`
-        - [ ] Pythondaq: choose device
-        - [ ] Pythondaq: grafiek
-        - [ ] Pythondaq: `--help`
+        - [ ] Pythondaq: subcommando `list`
+        - [ ] Pythondaq: subcommando `info`
+        - [ ] Pythondaq: poortnaam meegeven
+        - [ ] Pythondaq: vlag voor grafiek
+        - [ ] Pythondaq: helpteksten
         - [ ] Pythondaq: alle subcommando's geïmplementeerd?
 
 Een eenvoudig voorbeeldscript waarin de uv commando's `add` en `remove` worden nagebootst leggen we hieronder uit. Eerst de code:
@@ -775,14 +775,14 @@ In regel 22 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_grou
         
         
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] De gebruiker kan met het commando `smallangle` het script `smallangle.py` starten.
         - [ ] De gebruiker kan met subcommando's kiezen tussen `sin` en `tan`. Let op: het gaat hier om subcommando's!
         - [ ] De gebruiker kan het aantal stappen kiezen met een optie.
         - [ ] De gebruiker kan de optie ook weglaten.
 
-        **Projecttraject:**
+        **Projecttraject**
 
         - [x] Smallangle: project aanmaken
         - [x] Smallangle: subcommando's en opties
@@ -905,16 +905,16 @@ Options:
 
 ## Command-line interface voor ons experiment
 
-In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer we een command-line interface gaan bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals {{file}}`run_experiment.py`, een command-line interface en een grafische interface. Hier gaan we ons richten op een command-line interface. We gaan een nieuw bestand {{file}}`cli.py` aanmaken en dat langzaam opbouwen.
+In het [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer je een command-line interface gaat bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals {{file}}`run_experiment.py`, een command-line interface en een grafische interface. Je gaat je nu richten op een command-line interface. Hiervoor maak je een nieuw bestand {{new_file}}`cli.py` aan wat je langzaam gaat opbouwen.
 
 !!! opdracht-inlever "Pythondaq: commando's"
     === "opdracht"
 
         <div class="grid-tree" markdown>
             <div>
-            Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand {{new_file}}`src/pythondaq/cli.py` een opzetje maken waar je stap voor stap functionaliteit aan toevoegt. De oude {{file}}`run_experiment.py` maakte eerst een lijst van aangesloten apparaten en daarna werd een scan uitgevoerd. Daarom zet je in {{file}}`cli.py` de subcommando's `list` en `scan`. En zorg je dat ze voor nu alleen een stukje tekst printen.
+            Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand {{new_file}}`src/pythondaq/cli.py` eerst een opzetje maken waar je stap voor stap functionaliteit aan toevoegt. Het bestand {{file}}`run_experiment.py` maakt eerst een lijst van aangesloten apparaten en daarna wordt een scan uitgevoerd. Daarom zet je in {{file}}`cli.py` de subcommando's `list` en `scan` en zorg je dat ze voor nu alleen een stukje tekst printen.
             </br></br>
-            De gebruiker test de test-subcommmando's met de volgende handelingen. De gebruiker typt in de terminal het commando `diode` met daarachter het subcommando `list` en ziet een tekst verschijnen: `Work in progress, list devices`. De gebruiker test vervolgens het subcommando `scan` en ziet de tekst `Work in progress, scan LED` verschijnen.
+            De gebruiker test de subcommmando's `list` en `scan` met de volgende handelingen. De gebruiker typt in de terminal het commando `diode` met daarachter het subcommando `list` en ziet een tekst verschijnen: `Work in progress, list devices`. De gebruiker test vervolgens het subcommando `scan` en ziet de tekst `Work in progress, scan LED` verschijnen.
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -932,15 +932,14 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
 
         <div id="warn:cmd_name"></div>
         !!! warning
-            Omdat de naam van een subcommando gelijk is aan de functienaam kan dat voor problemen zorgen wanneer je gereserveerde namen van python wilt gebruiken zoals: `#!py import`, `#!py return`, `#!py lambda`. Of wanneer je de naam van het subcommando graag hetzelfde wilt hebben als een ander pythonfunctie zoals `#!py sin` of `#!py list`.
-            Een oplossing is om de functienaam aan te passen en de subcommando naam expliciet aan click mee te geven bij `command`:
+            Omdat de naam van een subcommando gelijk is aan de functienaam kan dat voor problemen zorgen wanneer je gereserveerde namen van Python wilt gebruiken, zoals `#!py import`, `#!py return` of `#!py lambda`. Of wanneer je de naam van het subcommando graag hetzelfde wilt hebben als een ander Pythonfunctie zoals `#!py sin` of `#!py list`. Een oplossing is om de functienaam aan te passen en de naam van het subcommando expliciet aan Click mee te geven bij `command`:
             ``` py
             @cmd_group.command("import")
             @click.argument("package")
             def import_package(package):
                 print(f"import {package}...")
             ```
-            We hebben nu een commando `import` aangemaakt &mdash; _niet_ een commando `import_package`.
+            In de code hierboven wordt een commando `import` aangemaakt &mdash; _niet_ een commando `import_package`.
         
     === "code"
         **Pseudo-code**
@@ -961,36 +960,38 @@ In [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst i
         
 
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
-        - [ ] De applicatie is aan te roepen met `diode`.
+        - [ ] De applicatie is aan te roepen met het commando `diode`.
         - [ ] Het subcommando `list` print een stukje tekst.
         - [ ] Het subcommando `scan` print een ander stukje tekst.
 
-        **Projecttraject:**
+        **Projecttraject**
 
+        - [x] Pythondaq: subcommando's bedenken
         - [x] Pythondaq: commando's
-        - [ ] Pythondaq: `scan`
+        - [ ] Pythondaq: subcommando `scan`
         - [ ] Pythondaq: herhaalmetingen
-        - [ ] Pythondaq: `list`
-        - [ ] Pythondaq: `info`
-        - [ ] Pythondaq: choose device
-        - [ ] Pythondaq: Grafiek        
-        - [ ] Pythondaq: `--help`
+        - [ ] Pythondaq: subcommando `list`
+        - [ ] Pythondaq: subcommando `info`
+        - [ ] Pythondaq: poortnaam meegeven
+        - [ ] Pythondaq: vlag voor grafiek
+        - [ ] Pythondaq: helpteksten
+        - [ ] Pythondaq: alle subcommando's geïmplementeerd?
  
 
-### Het uitvoeren van een meetserie ![Klik hier](assets/eastereggs/ECPC-silver.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met 'ALT' ingedrukt kun je met je linkermuisknop meerdere cursors creeëren. Handig als je op meer plekken tegelijk hetzelfde wil typen of wehalen! Probeer maar eens!"}
+### Het uitvoeren van een meetserie ![Klik hier](assets/eastereggs/ECPC-silver.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met 'ALT' ingedrukt kun je met je linkermuisknop meerdere cursors creëren. Handig als je op meer plekken tegelijk hetzelfde wilt typen of weghalen! Probeer maar eens!"}
 
-We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het tonen van de resultaten daarvan aan de gebruiker.
+Je gaat je nu eerst richten op het uitvoeren van een volledige meetserie en het tonen van de resultaten daarvan aan de gebruiker.
 
 !!! info
-    Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen 0 en 3.3 V. Je kunt dit doen door de `#!py type`-parameter in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven (bijvoorbeeld: `#!py type=int` of `#!py type=float`) en Click heeft speciale types zoals `#!py type=click.FloatRange(0, 3.3)` voor een kommagetal tussen 0 en 3.3. Bekijk alle speciale types in de [Click documentatie](https://click.palletsprojects.com/en/stable/parameters/#parameter-types). Als je hiervan gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat voor je.
+    Bij het opgeven van argumenten en opties voor de spanning kan het belangrijk zijn om te controleren of de spanning überhaupt wel een getal is tussen 0 en 3.3 V. Je kunt dit doen met de parameter `#!py type` in `#!py @click.argument()` en `#!py @click.option()`. Je kunt een Pythontype opgeven, bijvoorbeeld: `#!py type=int` of `#!py type=float`. En Click heeft speciale types, zoals `#!py type=click.FloatRange(0, 3.3)`, voor een kommagetal tussen 0 en 3.3. Bekijk alle speciale types in de [Click documentatie](https://click.palletsprojects.com/en/stable/parameter-types/#parameter-types). Als je van deze speciale types gebruik maakt hoef je niet _zelf_ te controleren of de parameters kloppen. Click doet dat dan voor je.
 
-!!! opdracht-inlever "Pythondaq: `scan`"
+!!! opdracht-inlever "Pythondaq: subcommando `scan`"
     === "opdracht"
-        Pas het subcommando `scan` aan.
+        Pas het subcommando `scan` zo aan dat onderstaande functionaliteiten werken.
         </br></br>
-        De gebruiker test het subcommando `scan` met de volgende handelingen. De gebruiker typt het commando `diode scan` in de terminal. Aan de hand van de helptekst weet de gebruiker dat het met argumenten of opties mogelijk is om het spanningsbereik (in Volt) aan te passen. Er wordt een meting gestart die binnen het spanningsbereik blijft. De gebruiker ziet dat de stroomsterkte dóór en de spanning óver de LED in de terminal worden geprint. De gebruiker start een nieuwe meting en geeft ditmaal met de optie `--output FILENAME` een naam voor een CSV-bestand mee. Dit keer worden de metingen ook opgeslagen als CSV-bestand onder de meegegeven bestandsnaam.
+        De gebruiker test het subcommando `scan` met de volgende handelingen. De gebruiker typt het commando `diode scan` in de terminal. Aan de hand van de helptekst weet de gebruiker dat het met argumenten of opties mogelijk is om het spanningsbereik (in Volt) aan te passen. Er wordt een meting gestart die binnen het spanningsbereik blijft. De gebruiker ziet dat de stroomsterkte door en de spanning over de LED in de terminal worden geprint. De gebruiker start een nieuwe meting en geeft ditmaal met de optie `--output FILENAME` een naam voor een CSV-bestand mee. Dit keer worden de metingen ook opgeslagen als CSV-bestand onder de meegegeven bestandsnaam.
     === "code"
         **Pseudo-code**
         ```py
@@ -1001,23 +1002,25 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
                 # create csv
         ```
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] Het programma print een lijst van metingen van de stroomsterkte dóór en de spanning óver de LED.
         - [ ] De gebruiker moet het spanningsbereik (in volt) zelf kunnen opgeven met argumenten of opties.
         - [ ] De gebruiker kan de metingen opslaan in een CSV-bestand met een optie `--output FILENAME`.
         - [ ] De meting wordt alleen opgeslagen als de optie wordt meegegeven.
 
-        **Projecttraject:**
+        **Projecttraject**
 
+        - [x] Pythondaq: subcommando's bedenken
         - [x] Pythondaq: commando's
-        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: subcommando `scan`
         - [ ] Pythondaq: herhaalmetingen
-        - [ ] Pythondaq: `list`
-        - [ ] Pythondaq: `info`
-        - [ ] Pythondaq: choose device
-        - [ ] Pythondaq: Grafiek        
-        - [ ] Pythondaq: `--help`
+        - [ ] Pythondaq: subcommando `list`
+        - [ ] Pythondaq: subcommando `info`
+        - [ ] Pythondaq: poortnaam meegeven
+        - [ ] Pythondaq: vlag voor grafiek
+        - [ ] Pythondaq: helpteksten
+        - [ ] Pythondaq: alle subcommando's geïmplementeerd?
 
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
     === "opdracht"
@@ -1034,21 +1037,23 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
                 # create csv
         ```
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] De gebruiker kan het aantal herhaalmetingen met een optie kiezen.
         - [ ] De herhaalmetingen worden gebruikt om de beste schatting en onzekerheid te berekenen van de stroomsterkte en de spanning.
 
-        **Projecttraject:**
+        **Projecttraject**
 
+        - [x] Pythondaq: subcommando's bedenken
         - [x] Pythondaq: commando's
-        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
-        - [ ] Pythondaq: `list`
-        - [ ] Pythondaq: `info`
-        - [ ] Pythondaq: choose device
-        - [ ] Pythondaq: Grafiek        
-        - [ ] Pythondaq: `--help`
+        - [ ] Pythondaq: subcommando `list`
+        - [ ] Pythondaq: subcommando `info`
+        - [ ] Pythondaq: poortnaam meegeven
+        - [ ] Pythondaq: vlag voor grafiek
+        - [ ] Pythondaq: helpteksten
+        - [ ] Pythondaq: alle subcommando's geïmplementeerd?
 
 ???+ opdracht-meer "Pythondaq: stapgrootte"
     Soms wil je snel een meting uitvoeren over het hele bereik, dan is het handig om minder punten te meten dan 1023 punten. Breid de applicatie uit zodat de gebruiker de stapgrootte kan aanpassen. 
@@ -1058,7 +1063,7 @@ We gaan ons eerst richten op het uitvoeren van een volledige meetserie en het to
 
 We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan heeft toegekend. Helaas kan &mdash; ook afhankelijk van het besturingssysteem &mdash; die naam veranderen als we de Arduino in een andere poort van onze computer steken of soms zelfs als we een andere Arduino op dezelfde poort koppelen. Met het commando `list` laten we alle apparaten zien die gevonden worden door de VISA drivers.
 
-!!! opdracht-inlever "Pythondaq: `list`"
+!!! opdracht-inlever "Pythondaq: subcommando `list`"
     === "opdracht"
         Pas het subcommando `list` aan.
         </br></br>
@@ -1070,22 +1075,24 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         </code></pre>
 
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] De gebruiker kan met `diode list` de lijst met aangesloten devices opvragen.
 
-        **Projecttraject:**
+        **Projecttraject**
 
+        - [x] Pythondaq: subcommando's bedenken
         - [x] Pythondaq: commando's
-        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
-        - [x] Pythondaq: `list`
-        - [ ] Pythondaq: `info`
-        - [ ] Pythondaq: choose device
-        - [ ] Pythondaq: Grafiek        
-        - [ ] Pythondaq: `--help`
+        - [x] Pythondaq: subcommando `list`
+        - [ ] Pythondaq: subcommando `info`
+        - [ ] Pythondaq: poortnaam meegeven
+        - [ ] Pythondaq: vlag voor grafiek
+        - [ ] Pythondaq: helpteksten
+        - [ ] Pythondaq: alle subcommando's geïmplementeerd?
 
-!!! opdracht-inlever "Pythondaq: `info`"
+!!! opdracht-inlever "Pythondaq: subcommando `info`"
     === "opdracht"
         Voeg een subcommando `info` toe.
         </br></br>
@@ -1106,23 +1113,25 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         </code></pre>
 
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] De identificatiestring is met `diode info DEVICE` op te vragen.
         - [ ] De string is niet direct gecopypaste, maar wordt daadwerkelijk opgevraagd.
 
-        **Projecttraject:**
+        **Projecttraject**
 
+        - [x] Pythondaq: subcommando's bedenken
         - [x] Pythondaq: commando's
-        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
-        - [x] Pythondaq: `list`
-        - [x] Pythondaq: `info`
-        - [ ] Pythondaq: choose device
-        - [ ] Pythondaq: Grafiek        
-        - [ ] Pythondaq: `--help`
+        - [x] Pythondaq: subcommando `list`
+        - [x] Pythondaq: subcommando `info`
+        - [ ] Pythondaq: poortnaam meegeven
+        - [ ] Pythondaq: vlag voor grafiek
+        - [ ] Pythondaq: helpteksten
+        - [ ] Pythondaq: alle subcommando's geïmplementeerd?
 
-!!! opdracht-inlever "Pythondaq: choose device"
+!!! opdracht-inlever "Pythondaq: poortnaam meegeven"
     === "opdracht"
         Pas het subcommando `scan` aan zodat je kan aangeven met welke Arduino je een meting wilt uitvoeren. 
         </br></br>
@@ -1138,46 +1147,50 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         Error: Missing argument 'DEVICE'.</span>
         </code></pre>
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] De gebruiker moet een poortnaam meegeven.
         - [ ] De gekozen device wordt ook daadwerkelijk gebruikt in het model en de controller.
         - [ ] Als géén poortnaam wordt opgegeven, krijgt de gebruiker een foutmelding.
 
-        **Projecttraject:**
+        **Projecttraject**
 
+        - [x] Pythondaq: subcommando's bedenken
         - [x] Pythondaq: commando's
-        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
-        - [x] Pythondaq: `list`
-        - [x] Pythondaq: `info`
-        - [x] Pythondaq: choose device
-        - [ ] Pythondaq: Grafiek
-        - [ ] Pythondaq: `--help`
+        - [x] Pythondaq: subcommando `list`
+        - [x] Pythondaq: subcommando `info`
+        - [x] Pythondaq: poortnaam meegeven
+        - [ ] Pythondaq: vlag voor grafiek
+        - [ ] Pythondaq: helpteksten
+        - [ ] Pythondaq: alle subcommando's geïmplementeerd?
 
 
-!!! opdracht-inlever "Pythondaq: Grafiek"
+!!! opdracht-inlever "Pythondaq: vlag voor grafiek"
     === "opdracht"
         Pas het subcommando `scan` aan zodat je met een _boolean flag_ kan aangeven of er wel of niet een grafiek wordt getoond.
         </br></br>
         De gebruiker test het subcommando `scan` met de volgende handelingen. De gebruiker start een meting en geeft ook de optie `--graph` na afloop ziet de gebruiker een grafiek met daarin de metingen. Daarna start de gebruiker opnieuwe een meting en geeft dit keer de optie `--no-graph` mee, na afloopt van de meting ziet de gebruiker _geen_ grafiek verschijnen. Tot slot start de gebruiker een meting en geeft daarbij geen van beide opties (`--graph/--no-graph) wederom ziet de gebruiker na afloop van de meting geen grafiek verschijnen.
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] De grafiek wordt alleen getoond wanneer `--graph` wordt meegegeven.
 
-        **Projecttraject:**
+        **Projecttraject**
 
+        - [x] Pythondaq: subcommando's bedenken
         - [x] Pythondaq: commando's
-        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
-        - [x] Pythondaq: `list`
-        - [x] Pythondaq: `info`
-        - [x] Pythondaq: choose device
-        - [x] Pythondaq: Grafiek
-        - [ ] Pythondaq: `--help`
+        - [x] Pythondaq: subcommando `list`
+        - [x] Pythondaq: subcommando `info`
+        - [x] Pythondaq: poortnaam meegeven
+        - [x] Pythondaq: vlag voor grafiek
+        - [ ] Pythondaq: helpteksten
+        - [ ] Pythondaq: alle subcommando's geïmplementeerd?
 
-!!! opdracht-inlever "Pythondaq: `--help`"
+!!! opdracht-inlever "Pythondaq: helpteksten"
     === "opdracht"
         Voeg helpteksten toe.
         </br></br>
@@ -1199,22 +1212,24 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
                 Subcommand Summary containing ARGUMENTs.</span>
         </code></pre>
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
 
         - [ ] De informatie in de helpteksten is voldoende om de applicatie te begrijpen en te bedienen.
         - [ ] `diode --help` vertelt duidelijk welke subcommando's aanwezig zijn en wat ze doen.
         - [ ] Bij alle subcommando's, is het duidelijk welke opties en argumenten er zijn, wat de standaardwaarden zijn en wat ze doen.
 
-        **Projecttraject:**
+        **Projecttraject**
 
+        - [x] Pythondaq: subcommando's bedenken
         - [x] Pythondaq: commando's
-        - [x] Pythondaq: `scan`
+        - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
-        - [x] Pythondaq: `list`
-        - [x] Pythondaq: `info`
-        - [x] Pythondaq: choose device
-        - [x] Pythondaq: Grafiek
-        - [x] Pythondaq: `--help`
+        - [x] Pythondaq: subcommando `list`
+        - [x] Pythondaq: subcommando `info`
+        - [x] Pythondaq: poortnaam meegeven
+        - [x] Pythondaq: vlag voor grafiek
+        - [x] Pythondaq: helpteksten
+        - [ ] Pythondaq: alle subcommando's geïmplementeerd?
 
 ???+ opdracht-meer "Pythondaq: `list --search`"
     Breid het commando `list` uit met een optie `--search` waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
@@ -1238,8 +1253,23 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
 Op dit punt hebben we de functionaliteit van ons snelle script van het vorige hoofdstuk bereikt. Dit was veel meer werk, maar het is veel flexibeler. Als je wilt meten met een andere Arduino, een ander bereik, of een andere stapgrootte dan type je gewoon een iets ander commando in de terminal. Je hoeft geen scripts meer aan te passen. Als je na een tijdje niet meer precies weet hoe het ook alweer werkte allemaal kun je dat snel weer oppakken door `--help` aan te roepen.
 
-!!! opdracht-basis "Alle subcommando's implementeren"
-    Kijk nog eens terug naar het lijstje subcommando's die je in [opdracht _Subcommando's bedenken_](cli.md#opd:subcommandos) hebt opgeschreven. Heb je alles geïmplementeerd? Wat zou je willen dat je nog meer kan instellen? Als er tijd over is, kijk dan of dit lukt.
+!!! opdracht-basis "Pythondaq: alle subcommando's implementeren"
+    === "opdracht"
+        Kijk nog eens terug naar het lijstje subcommando's die je in [opdracht _Subcommando's bedenken_](cli.md#opd:subcommandos) hebt opgeschreven. Heb je alles geïmplementeerd? Wat zou je willen dat je nog meer kan instellen? Als er tijd over is, kijk dan of dit lukt.
+    
+    === "check"
+        **Projecttraject**
+
+        - [x] Pythondaq: subcommando's bedenken
+        - [x] Pythondaq: commando's
+        - [x] Pythondaq: subcommando `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: subcommando `list`
+        - [x] Pythondaq: subcommando `info`
+        - [x] Pythondaq: poortnaam meegeven
+        - [x] Pythondaq: vlag voor grafiek
+        - [x] Pythondaq: helpteksten
+        - [x] Pythondaq: alle subcommando's geïmplementeerd?
 
 
 ???+ meer-leren "Rich"
