@@ -673,7 +673,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
         - [ ] Er is een repository {{github}}`functionplotter`.
         - [ ] Er is een commando om de applicatie te starten.
         - [ ] De applicatie laat een $\sin(x)$ plot zien in het domein $(0, 2\pi)$.
-        - [ ] De applicatie werkt ook nog steeds na `uv sync`. Met andere woorden de benodigde packages zijn als dependencies opgegeven in de {{file_lines}}`pyproject.toml`.
+        - [ ] De applicatie werkt ook nog steeds na `uv sync`. Met andere woorden: de benodigde packages zijn als dependencies opgegeven in de {{file_lines}}`pyproject.toml`.
 
         **Projecttraject**
     

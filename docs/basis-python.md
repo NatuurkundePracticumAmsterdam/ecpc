@@ -7,7 +7,7 @@ Bij de cursus Inleiding programmeren heb je de basis van het programmeren in Pyt
     1. Open Visual Studio Code.
     1. Ga naar **File > Open folder**.
     2. Navigeer naar een geschikte map.
-    3. Klik op **Nieuwe map** en geef de map de naam ECPC.
+    3. Klik op **Nieuwe map** en geef de map de naam `ECPC`.
     4. Klik op **Map selecteren**.
 
 ## Variabelen, `#!py input()`-functie en f-strings
@@ -150,7 +150,7 @@ Bij het programmeren heb je vaak te maken met foutmeldingen. Bij het debuggen va
 
 ## Stijl
 
-Bij inleiding programmeren heb je geleerd hoe je code netjes opschrijft, zodat de code leesbaar en begrijpelijk is. Hieronder vind je een samenvatting, die een beetje aangevuld is met ECPC-stijl.
+Bij Inleiding programmeren heb je geleerd hoe je code netjes opschrijft, zodat de code leesbaar en begrijpelijk is. Hieronder vind je een samenvatting, die een beetje aangevuld is met ECPC-stijl.
 
 - Schrijf code in het Engels.
 - De naam van een variabele houd je kort en duidelijk. Gebruik alleen afkortingen wanneer deze bij veel mensen bekend is. Dus: `#!py korte_variabelenaam = 28`
