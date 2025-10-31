@@ -1024,11 +1024,11 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
     ### Commando toevoegen om .ui te vertalen naar .py
     Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met uv taken aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. Doe dit als volgt:
 
-    1. Installeer _Poe the Poet_ &mdash; een zogeheten _task runner_ &mdash; als _development dependency_ met:
+    1. Installeer _Poe the Poet_ &mdash; een zogeheten _task runner_ &mdash; _globaal_ met:
         ``` ps1con title="Terminal"
-        uv add --dev poethepoet
+        uv tool install poethepoet
         ```
-        We geven hiermee aan dat we dit package nodig hebben voor de ontwikkeling van onze applicatie, maar dat deze niet meegeleverd hoeft te worden als we de applicatie gaan delen met anderen.
+        We geven hiermee aan dat we dit package willen kunnen aanroepen vanuit de terminal, ongeacht in welke map of in welk virtual environment we zitten.
     2. Voeg aan je {{file}}`pyproject.toml` het volgende toe &mdash; uitgaande van de mappenstructuur in de `pythondaq` package en {{file_lines}}`mainwindow.ui` als naam van je `.ui`-bestand:
         ``` toml
         [tool.poe.tasks.compile]
