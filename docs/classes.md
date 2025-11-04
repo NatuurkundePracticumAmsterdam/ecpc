@@ -284,7 +284,7 @@ Als je de method `#!py do_kungfu_move` aanroept met `#!py master_oogway.do_kungf
         print(f"{master_oogway=}")
         master_oogway.do_kungfu_move()
 
-        toby = Turtle("turlte")
+        toby = Turtle("turtle")
         print(f"{toby=}")
         toby.do_kungfu_move()
         ```
