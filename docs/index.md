@@ -62,6 +62,9 @@ In de handleiding staan verschillende opgaves. Sommige opgaves zijn bedoeld als 
 !!! info
     In sommige programmeercursussen is het de bedoeling dat je een bepaald algoritme _zelf_ schrijft. Je moet bijvoorbeeld een loop schrijven om een reeks berekeningen uit te voeren en mag dan niet gebruik maken van de NumPy-bibliotheek om dat in één regel te doen. Je kunt je voorstellen dat als je straks in een lab werkt dat je _juist_ gebruik wilt maken van bibliotheken die het leven een stuk gemakkerlijker maken. Trek dus alles uit de kast. Kijk eens in de _Python Standard Library_,[@python-standard-library] de _Python Package Index_[@pypi] of _Awesome Python_[@awesome-python].
 
+!!! opdracht-basis-thuis "Voorbereidende opdrachten"
+    Sommige opgaves hebben een icoontje met een huis en een laptop voor de titel. Deze opgaves zijn voorbereidende opdrachten die je voorafgaand aan een sessie maakt. Deze opgaves bereiden je voor op de stof van de betreffende sessie. Vragen over deze opgaves kun je in de les stellen. 
+
 !!! opdracht-basis "Basisopdracht"
     === "opdracht"
         Deze opgaves helpen je om het niveau te behalen wat van je verwacht wordt. Ze worden niet beoordeeld.
@@ -97,17 +100,12 @@ In de handleiding staan verschillende opgaves. Sommige opgaves zijn bedoeld als 
         - [ ] Opgaves zonder vinkje volgen nog.
         - [ ] Zo kun je altijd zien waar je in het projecttraject bent.
 
-!!! opdracht-basis-thuis "Voorbereidende opdrachten"
-    Sommige opgaves hebben een icoontje met een huis en een laptop voor de titel. Deze opgaves zijn voorbereidende opdrachten die je voorafgaand aan een sessie maakt. Deze opgaves bereiden je voor op de stof van de betreffende sessie. Vragen over deze opgaves kun je in de les stellen. 
-
 !!! opdracht-inlever "Inleveropdracht"
     Deze opgaves moet worden ingeleverd voor feedback en een beoordeling. Je herkent ze aan de groene kleur. De opgaves bouwen op elkaar voort. Je levert alle opgaves van een projecttraject als geheel in. Kijk daarom goed bij het projecttraject in het tabblad **check** welke groene opgaves je gemaakt moet hebben voordat je het inlevert. 
 
     Vaak heb je kennis en/of vaardigheden nodig die je eerder hebt geleerd. Zie je een {{lightbulb}} lampje staan? Klik dan bovenin de blauwe balk (rechtsboven, naast de zoekbalk) op het lampje om de spiekbriefjes te openen.
 
-
 !!! opdracht-meer "Meer leren"
-    Dit zijn verdiepende en verbredende opgaves om je te kunnen ontwikkelen tot een goed programmeur en een waardevolle aanwinst voor een onderzoeksgroep. Je kunt er geen extra punten mee verdienen wanneer je deze technieken toepast in je inleveropdrachten, maar het is wel een goede oefening. Doe deze opgaves _alleen_ als je klaar bent met álle opgaves van het projecttraject.
-
+    Dit zijn verdiepende en verbredende opgaves om je te kunnen ontwikkelen tot een goed programmeur en een waardevolle aanwinst voor een onderzoeksgroep. Doe deze opgaves _alleen_ als je klaar bent met álle opgaves van het projecttraject.
 
 Een basiskennis van Python is nodig om de opgaves te kunnen maken. In de [paragraaf Basiskennis Python](basis-python.md#basiskennis-python) vind je opdrachten om je kennis te testen. Het is handig om ook een uitgebreidere Python kennis te hebben, meer informatie vind je in de [paragraaf Uitgebreidere Python kennis](vervolg-python.md#uitgebreidere-python-kennis).
