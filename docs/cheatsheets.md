@@ -21,8 +21,14 @@
         uv venv --python PYTHONVERSION
         ```
     ??? conda1 "Environment activeren"
+        Windows:
         ```
         .venv\Scripts\activate
+        ```
+
+        macOS / Linux:
+        ```
+        source .venv/bin/activate
         ```
     ??? conda1 "Environment deactiveren"
         ```

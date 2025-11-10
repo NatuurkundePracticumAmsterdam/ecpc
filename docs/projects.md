@@ -890,7 +890,7 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren, moet je je 
         2. Klik op **Menu > Repository > Open in Command Prompt** om een nieuwe terminal te openen, in je projectmap.
         3. Run het commando `easystat`. Dit werkt niet.
         4. Run het commando `uv run easystat`. Dit werkt _wel_.
-        5. Activeer het environment door het volgende commando te runnen: `.venv\Scripts\activate`.
+        5. Activeer het environment door het volgende commando te runnen: `.venv\Scripts\activate` (Windows) of `source .venv/bin/activate` (macOS / Linux).
         6. Controleer dat `(easystat)` aan het begin van de opdrachtprompt staat.
         7. Run het commando `easystat`. Dit werkt nu _wel_.
 
