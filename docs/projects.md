@@ -630,9 +630,9 @@ Natuurlijk willen we uv ook gaan gebruiken bij `pythondaq`. Je maakt nu alleen g
 
 
 ???+ opdracht-meer "Model, view en controller packages"
-    In grotere projecten is het gebruikelijk om model, view en controller niet alleen uit te splitsen in verschillende scripts, maar ook in aparte packages te zetten.
+    In grotere projecten is het gebruikelijk om model, view en controller niet alleen uit te splitsen in verschillende scripts, maar ook in aparte packages te zetten. 
 
-    1. Maak drie extra packages in de package {{folder}}`pythondaq` aan: {{folder}}`models`, {{folder}}`views` en {{folder}}`controllers`.
+    1. Maak drie extra packages in de package {{folder}}`pythondaq` aan: {{folder}}`models`, {{folder}}`views` en {{folder}}`controllers`. Kijk nog even naar [paragraaf _Packages_](vervolg-python.md#packages) om te zien hoe de layout er dan ongeveer uit moet zien.
     2. Zet de modules in de juiste packages.
     3. Test je code zodat alle imports weer werken.
 

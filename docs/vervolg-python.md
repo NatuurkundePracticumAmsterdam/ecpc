@@ -933,16 +933,17 @@ Wij gaan in deze cursus onze code ook in packages stoppen. Op die manier kun je 
 <div id="fig:packagetree"></div>
 {{L}} {{github}} `my_project_folder`  
 {{tab}} {{T}} {{file}} `script.py`  
-{{tab}} {{L}} {{folder}} `my_package`  
-{{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
-{{tab}} {{tab}} {{L}} {{folder}} `package1`  
+{{tab}} {{L}} {{folder}} `src`  
+{{tab}} {{tab}} {{L}} {{folder}} `my_package`  
 {{tab}} {{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
-{{tab}} {{tab}} {{tab}} {{T}} {{file}} `module1.py`  
-{{tab}} {{tab}} {{tab}} {{L}} {{file}} `module2.py`  
-{{tab}} {{tab}} {{L}} {{folder}} `package2`  
-{{tab}} {{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
-{{tab}} {{tab}} {{tab}} {{L}} {{file}} `module3.py`  
-{{tab}} {{tab}} {{L}} {{file}} `module4.py`  
+{{tab}} {{tab}} {{tab}} {{T}} {{folder}} `package1`  
+{{tab}} {{tab}} {{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
+{{tab}} {{tab}} {{tab}} {{tab}} {{T}} {{file}} `module1.py`  
+{{tab}} {{tab}} {{tab}} {{tab}} {{L}} {{file}} `module2.py`  
+{{tab}} {{tab}} {{tab}} {{T}} {{folder}} `package2`  
+{{tab}} {{tab}} {{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
+{{tab}} {{tab}} {{tab}} {{tab}} {{L}} {{file}} `module3.py`  
+{{tab}} {{tab}} {{tab}} {{L}} {{file}} `module4.py`  
 
 Iedere package bestaat uit een directory met een {{file}}`__init__.py`-bestand.[^init]
 
