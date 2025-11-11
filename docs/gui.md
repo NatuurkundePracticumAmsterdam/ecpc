@@ -620,13 +620,14 @@ Om daadwerkelijk een functie te plotten kun je onderstaande code als basis gebru
 
 ``` py
 import numpy as np
+from numpy import pi
 
 class UserInterface(QtWidgets.QMainWindow):
 
     ...
 
     def plot(self):
-        x = np.linspace(-np.pi, np.pi, 100)
+        x = np.linspace(-pi, pi, 100)
         self.plot_widget.plot(x, np.sin(x), symbol=None, pen={"color": "m", "width": 5})
         self.plot_widget.setLabel("left", "y-axis [units]")
         self.plot_widget.setLabel("bottom", "x-axis [units]")
