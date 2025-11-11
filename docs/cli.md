@@ -54,7 +54,7 @@ Uitgesplitst in <mark>_argumenten_</mark> en __opties__, met vierkante haken [] 
         1. Open een terminal en bekijk de helptekst van uv (`uv help`).
         2. Zoek de _optie_ op om de uv versie weer te geven. Wat is deze versie?
         3. Maak gebruik van het argument `help` om de helpfunctie van het commando _pip_ op te vragen (`uv help pip`)
-        4. Welke argumenten moet je meegeven (positional arguments?) en welke opties mag je meegeven (optional arguments?) (argument: `COMMAND`, opties o.a. : `--no-cache`, `--managed-python`)?
+        4. Welke argumenten kun je meegeven aan `uv pip`? En welke opties mag je meegeven?
     
     === "check"
         **Projecttraject**
@@ -556,25 +556,6 @@ Opties zonder argument werken als vlag &mdash; een soort aan-/uitknop.[^flag]
 ### Click subcommando's
 Tot nu toe kon je maar één functie uitvoeren in jouw applicatie. Maar het is ook mogelijk om subcommando's aan te maken, zodat je met één programma meerdere <q>taken</q> kunt uitvoeren. Denk bijvoorbeeld aan `uv`: je voegt packages toe aan je project met `uv add`, verwijdert ze met `uv remove`, maakt een virtual environment met `uv venv` en synchroniseert het met `uv sync`.
 
-<div id="opd:subcommandos"></div>
-!!! opdracht-basis "Pythondaq: subcommando's bedenken"
-    === "opdracht"
-        Je gaat de applicatie `pythondaq` straks verder uitbreiden, zodat er veel meer mogelijk is dan nu. Wat zou je willen dat de applicatie allemaal kan? Welke subcommando's wil je gaan aanmaken? Overleg met elkaar om goede ideeën uit te wisselen.
-
-    === "check"
-        **Projecttraject**
-
-        - [x] Pythondaq: subcommando's bedenken
-        - [ ] Pythondaq: commando's
-        - [ ] Pythondaq: subcommando `scan`
-        - [ ] Pythondaq: herhaalmetingen
-        - [ ] Pythondaq: subcommando `list`
-        - [ ] Pythondaq: subcommando `info`
-        - [ ] Pythondaq: poortnaam meegeven
-        - [ ] Pythondaq: vlag voor grafiek
-        - [ ] Pythondaq: helpteksten
-        - [ ] Pythondaq: alle subcommando's geïmplementeerd?
-
 Een eenvoudig voorbeeldscript waarin de uv commando's `add` en `remove` worden nagebootst leggen we hieronder uit. Eerst de code:
 
 ``` py title="fake_uv.py" linenums="1"
@@ -757,8 +738,8 @@ In regel 22 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_grou
             TypeError: 'int' object is not iterable
             ```
 
-            Dan komt dat doordat je `#!py sin(10)` probeert uit te voeren, terwijl de functie al verClickt is. De functie verwacht een argument vanuit de terminal en geen integer vanuit het pythonscript.
-            Pas je script aan zodat `#!py if __name__ == "__main__":` naar de juiste functie verwijst en Click aanroept; niet `#!py sin(10)`.
+            Dan komt dat doordat je in de allerlaatste regel `#!py sin(10)` probeert uit te voeren, terwijl de functie al verClickt is. De functie verwacht een argument vanuit de terminal en geen integer vanuit het pythonscript.
+            Pas je script aan zodat `#!py if __name__ == "__main__":` naar de juiste functie verwijst en Click aanroept; de regel `#!py sin(10)` moet weg.
     === "code"
         <pre><code>(smallangle) > smallangle sin -n 9 <button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')">{{ enter }}</button><button type="button" name="smallangle sin -n 9" onclick="runScript('smallangle sin -n 9')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="smallangle sin -n 9">          x       sin (x)
@@ -799,10 +780,7 @@ In regel 22 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_grou
 
 Docstrings werken ook heel handig samen met Click. Ze worden gebruikt als je de helpfunctie aanroept. 
 !!! info
-    We gebruiken bij Click-functies niet de standaard structuur voor docstrings. Click breekt docstrings namelijk standaard af waardoor het algauw een onmogelijke brij aan informatie wordt. We kiezen daarom voor een samenvatting in een zin met daarin de PARAMETERS (argumenten) in hoofdletters en eventueel een korte toelichting daarop. 
-
-???+ meer-leren "Uitgebreide documentatie en Click"
-    In de documentatie van Click vind je meer informatie over het afbreken van zinnen (en het [voorkomen](https://click.palletsprojects.com/en/stable/documentation/#escaping-click-s-wrapping) daarvan). Ook vind je daar een manier om een uitgebreide docstring te schrijven [zonder](https://click.palletsprojects.com/en/stable/documentation/#truncating-help-texts) dat het een bende wordt.
+    We gebruiken bij Click-functies niet de standaard structuur voor docstrings. Click laat de tekst standaard doorvloeien waardoor hij regels aan elkaar plakt en het algauw een onmogelijke brij aan informatie wordt. We kiezen daarom voor een samenvatting in een zin, zoals normaal, met in de toelichting die daarop volgt de ARGUMENTS in hoofdletters en in een lopende zin beschreven. Dit komt overeen met de notatie in de eerste regel van de automatisch gegenereerde helptekst die start met `Usage:`. We gebruiken dus _geen_ `Args:` en een lijstje met argumenten. Zie het voorbeeld hieronder.
 
 Tijd om docstrings toe te voegen aan fake uv:
 
@@ -903,11 +881,33 @@ Options:
         - [x] Smallangle: subcommando's en opties
         - [x] Smallangle: docstrings
 
+???+ meer-leren "Uitgebreide documentatie en Click"
+    In de documentatie van Click vind je meer informatie over het afbreken van zinnen (en het [voorkomen](https://click.palletsprojects.com/en/stable/documentation/#escaping-click-s-wrapping) daarvan). Ook vind je daar een manier om een uitgebreide docstring te schrijven [zonder](https://click.palletsprojects.com/en/stable/documentation/#truncating-help-texts) dat het een bende wordt.
+
 ## Command-line interface voor ons experiment
 
 In het [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer je een command-line interface gaat bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals {{file}}`run_experiment.py`, een command-line interface en een grafische interface. Je gaat je nu richten op een command-line interface. Hiervoor maak je een nieuw bestand {{new_file}}`cli.py` aan wat je langzaam gaat opbouwen.
 
-!!! opdracht-inlever "Pythondaq: commando's"
+<div id="opd:subcommandos"></div>
+!!! opdracht-basis "Pythondaq: subcommando's bedenken"
+    === "opdracht"
+        Je gaat de pythondaq-applicatie straks verder uitbreiden, zodat er veel meer mogelijk is dan nu. Wat zou je willen dat de applicatie allemaal kan? Welke subcommando's wil je gaan aanmaken? Overleg met elkaar om goede ideeën uit te wisselen.
+
+    === "check"
+        **Projecttraject**
+
+        - [x] Pythondaq: subcommando's bedenken
+        - [ ] Pythondaq: subcommando's
+        - [ ] Pythondaq: subcommando `scan`
+        - [ ] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: subcommando `list`
+        - [ ] Pythondaq: subcommando `info`
+        - [ ] Pythondaq: poortnaam meegeven
+        - [ ] Pythondaq: vlag voor grafiek
+        - [ ] Pythondaq: helpteksten
+        - [ ] Pythondaq: alle subcommando's geïmplementeerd?
+
+!!! opdracht-inlever "Pythondaq: subcommando's"
     === "opdracht"
 
         <div class="grid-tree" markdown>
@@ -969,7 +969,7 @@ In het [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplit
         **Projecttraject**
 
         - [x] Pythondaq: subcommando's bedenken
-        - [x] Pythondaq: commando's
+        - [x] Pythondaq: subcommando's
         - [ ] Pythondaq: subcommando `scan`
         - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: subcommando `list`
@@ -1012,7 +1012,7 @@ Je gaat je nu eerst richten op het uitvoeren van een volledige meetserie en het 
         **Projecttraject**
 
         - [x] Pythondaq: subcommando's bedenken
-        - [x] Pythondaq: commando's
+        - [x] Pythondaq: subcommando's
         - [x] Pythondaq: subcommando `scan`
         - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: subcommando `list`
@@ -1045,7 +1045,7 @@ Je gaat je nu eerst richten op het uitvoeren van een volledige meetserie en het 
         **Projecttraject**
 
         - [x] Pythondaq: subcommando's bedenken
-        - [x] Pythondaq: commando's
+        - [x] Pythondaq: subcommando's
         - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: subcommando `list`
@@ -1082,7 +1082,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         **Projecttraject**
 
         - [x] Pythondaq: subcommando's bedenken
-        - [x] Pythondaq: commando's
+        - [x] Pythondaq: subcommando's
         - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
         - [x] Pythondaq: subcommando `list`
@@ -1121,7 +1121,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         **Projecttraject**
 
         - [x] Pythondaq: subcommando's bedenken
-        - [x] Pythondaq: commando's
+        - [x] Pythondaq: subcommando's
         - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
         - [x] Pythondaq: subcommando `list`
@@ -1156,7 +1156,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         **Projecttraject**
 
         - [x] Pythondaq: subcommando's bedenken
-        - [x] Pythondaq: commando's
+        - [x] Pythondaq: subcommando's
         - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
         - [x] Pythondaq: subcommando `list`
@@ -1180,7 +1180,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         **Projecttraject**
 
         - [x] Pythondaq: subcommando's bedenken
-        - [x] Pythondaq: commando's
+        - [x] Pythondaq: subcommando's
         - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
         - [x] Pythondaq: subcommando `list`
@@ -1221,7 +1221,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         **Projecttraject**
 
         - [x] Pythondaq: subcommando's bedenken
-        - [x] Pythondaq: commando's
+        - [x] Pythondaq: subcommando's
         - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
         - [x] Pythondaq: subcommando `list`
@@ -1261,7 +1261,7 @@ Op dit punt hebben we de functionaliteit van ons snelle script van het vorige ho
         **Projecttraject**
 
         - [x] Pythondaq: subcommando's bedenken
-        - [x] Pythondaq: commando's
+        - [x] Pythondaq: subcommando's
         - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
         - [x] Pythondaq: subcommando `list`
