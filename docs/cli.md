@@ -314,7 +314,7 @@ if __name__ == "__main__":
 
 
 !!! warning
-    Let er op dat je bij `#!py @click.option` de afkorting met één minteken meegeeft en de lange naam met twee mintekens. De lange naam moet overeenkomen met de paramater van je functie. In ons geval hebben we een optie `#!py "--count"` &mdash; de lange naam telt. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name, count):`.
+    Let er op dat je bij `#!py @click.option` de afkorting met één minteken meegeeft en de lange naam met twee mintekens. De lange naam moet overeenkomen met de parameter van je functie. In ons geval hebben we een optie `#!py "--count"` &mdash; de lange naam telt. Dit moet overeenkomen met de functiedefinitie `#!py def hello(name, count):`.
 
 Het is handig om een korte helptekst toe te voegen. Dit gaat als volgt:
 
@@ -590,7 +590,7 @@ In regel 22 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_grou
 
         <div class="grid-tree" markdown>
             <div>
-            Nu je hebt geleerd om met Click subcommando's te maken wil je deze uittesten. Je maakt in de map {{folder}}`ECPC` een nieuw uv project aan voor {{new_folder}}`fake_uv` {{lightbulb}}. In deze map zet je de code uit het bestand {{file}}`fake_uv.py`. Je maakt een nieuw virtual environment aan met daarin de benodigde packages {{lightbulb}}. Je past de {{file_lines}}`pyproject.toml` aan zodat je met het commando `fake_uv add scipy` zogenaamd `scipy` kunt installeren {{lightbulb}}. 
+            Nu je hebt geleerd om met Click subcommando's te maken wil je dit uittesten. Je maakt in de map {{folder}}`ECPC` een nieuw uv project aan voor {{new_folder}}`fake_uv` {{lightbulb}}. In deze map zet je de code uit het bestand {{file}}`fake_uv.py`. Je maakt een nieuw virtual environment aan met daarin de benodigde packages {{lightbulb}}. Je past de {{file_lines}}`pyproject.toml` aan zodat je met het commando `fake_uv add scipy` zogenaamd `scipy` kunt installeren {{lightbulb}}. 
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -664,7 +664,7 @@ In regel 22 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_grou
             if __name__ == "__main__":
                 sin(10)
             ```
-        4. Run het bestand {{file}}`smallangle.py` en los de foutmeldingen op door de juiste dependencies toe te voegen aan het bestand {{file_lines}}`pyproject.toml`. Als je alle foutmeldingen opgelost hebt krijg je een lijst van tien punten tussen 0 en 2$\pi$ en de sinus van deze punten.
+        4. Run het bestand {{file}}`smallangle.py` en los de foutmeldingen op door de juiste dependencies toe te voegen aan het bestand {{file_lines}}`pyproject.toml`. Als je alle foutmeldingen opgelost hebt dan krijg je in de terminal een lijst van tien punten tussen 0 en 2$\pi$ en de sinus van deze punten.
 
     === "code"
         **Testcode**
@@ -772,7 +772,7 @@ In regel 22 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_grou
 ???+ opdracht-meer "Smallangle: kleine hoekbenadering"
     Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\lvert x - \sin(x) \rvert \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over .000, .001 en .002, etc. totdat de vergelijking niet meer geldt). Belangrijk: besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
     <pre><code>(smallangle) > smallangle approx .1 <button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')">{{ enter }}</button><button type="button" name="smallangle approx .1" onclick="runScript('smallangle approx .1')" class="invisible">{{ reload }}</button>
-    <span class="invisible" name="smallangle approx .1">For an accuracy of 0.1, the small-angle approximation holds
+    <span class="invisible" name="smallangle approx .1">For an accuracy of 0.1, the smallangle approximation holds
     up to x = 0.854.</span>
     </code></pre>
 
@@ -853,9 +853,9 @@ Options:
     === "code"
         **Pseudo-code**
         ```
-        """Summary containing ARGUMENT(S).
+        """Summary
 
-        ARGUMENT description of the argument.
+        Explanation with description of ARGUMENT(S). ARGUMENT(S) are written in capital letters.
         """
         ```
         **Testcode**
@@ -864,7 +864,7 @@ Options:
         Options: 
             --help Show this message and exit.
         Commands:
-            Subcommand Summary containing ARGUMENT(S).
+            Subcommand Summary
         </span>
         </code></pre>
         
