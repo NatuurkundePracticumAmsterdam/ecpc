@@ -1171,7 +1171,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
     === "opdracht"
         Pas het subcommando `scan` aan zodat je met een _boolean flag_ kan aangeven of er wel of niet een grafiek wordt getoond.
         </br></br>
-        De gebruiker test het subcommando `scan` met de volgende handelingen. De gebruiker start een meting en geeft ook de optie `--graph` na afloop ziet de gebruiker een grafiek met daarin de metingen. Daarna start de gebruiker opnieuwe een meting en geeft dit keer de optie `--no-graph` mee, na afloopt van de meting ziet de gebruiker _geen_ grafiek verschijnen. Tot slot start de gebruiker een meting en geeft daarbij geen van beide opties (`--graph/--no-graph) wederom ziet de gebruiker na afloop van de meting geen grafiek verschijnen.
+        De gebruiker test het subcommando `scan` met de volgende handelingen. De gebruiker start een meting en geeft ook de optie `--graph` mee. Na afloop ziet de gebruiker een grafiek met daarin de metingen. Daarna start de gebruiker opnieuw een meting en geeft dit keer de optie `--no-graph` mee. Na afloop van de meting ziet de gebruiker _geen_ grafiek verschijnen. Tot slot start de gebruiker een meting en geeft daarbij geen van beide opties (`--graph/--no-graph`). Wederom ziet de gebruiker na afloop van de meting geen grafiek verschijnen.
     === "check"
         **Checkpunten**
 
@@ -1194,7 +1194,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
     === "opdracht"
         Voeg helpteksten toe.
         </br></br>
-        De gebruiker test de applicatie `diode` met de volgende handelingen. De gebruiker typt `diode --help` en bekijkt de helptekst. De gebruiker ziet dat er subcommando's zijn. Met `subcommando --help` test de gebruiker de helpteksten een voor een uit. Ook bekijkt de gebruiker de helpteksten over de argumenten en opties. De helpteksten stellen de gebruiker in staat om de applicatie te begrijpen en te bedienen.
+        De gebruiker test de applicatie `diode` met de volgende handelingen. De gebruiker typt `diode --help` en bekijkt de helptekst. De gebruiker ziet dat er subcommando's zijn. Met `subcommando --help` test de gebruiker de helpteksten één voor één uit. Ook bekijkt de gebruiker de helpteksten over de argumenten en opties. De helpteksten stellen de gebruiker in staat om de applicatie te begrijpen en te bedienen.
     === "code"
         **Pseudo-code**
         ```
@@ -1251,7 +1251,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
     Pas &mdash; na het uitbreiden van `list` &mdash; de commando's `scan` en `info` aan zodat het niet nodig is om de volledige devicenaam mee te geven, maar alleen een zoekterm.
 
 
-Op dit punt hebben we de functionaliteit van ons snelle script van het vorige hoofdstuk bereikt. Dit was veel meer werk, maar het is veel flexibeler. Als je wilt meten met een andere Arduino, een ander bereik, of een andere stapgrootte dan type je gewoon een iets ander commando in de terminal. Je hoeft geen scripts meer aan te passen. Als je na een tijdje niet meer precies weet hoe het ook alweer werkte allemaal kun je dat snel weer oppakken door `--help` aan te roepen.
+Op dit punt heb je de functionaliteit van het snelle script uit een vorige hoofdstuk uitgebreid. Dit was veel meer werk, maar het is veel flexibeler. Als je wilt meten met een andere Arduino, een ander bereik of een andere stapgrootte dan typ je gewoon een iets ander commando in de terminal. Je hoeft geen scripts meer aan te passen. Als je na een tijdje niet meer precies weet hoe het ook alweer werkte allemaal, kun je dat snel weer oppakken door `--help` aan te roepen.
 
 !!! opdracht-basis "Pythondaq: alle subcommando's implementeren"
     === "opdracht"
