@@ -83,9 +83,10 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
     === "check"
         **Checkpunten**
 
-        - [ ] Het virtual environment `oefenopdrachten` is geactiveerd
-        - [ ] De code is volledig overgenomen
-        - [ ] Er verschijnt een leeg venster
+        - [ ] De virtual environment `oefenopdrachten` is geactiveerd.
+        - [ ] `pyside6-essentials` is geïnstalleerd in de virtual environment `oefenopdrachten`.
+        - [ ] De code is volledig overgenomen uit het voorbeeld.
+        - [ ] Er verschijnt een leeg venster.
 
         **Projecttraject**
 
@@ -98,7 +99,7 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
         - [ ] Extra knoppen toevoegen
     
 
-Elke keer als je een nieuwe Qt applicatie gaat schrijven kun je bovenstaand stukje code kopiëren en plakken. Als je dit programma draait heb je echter een klein leeg venster op het scherm, zonder elementen. Die elementen kun je op twee manieren toevoegen: door ze te programmeren of door het gebruik van een visueel ontwerp met Qt Designer. Beide zullen in de volgende secties toegelicht worden.
+Elke keer als je een nieuwe Qt applicatie gaat schrijven, kun je bovenstaand stukje code kopiëren en plakken. Als je dit programma draait heb je echter een klein leeg venster op het scherm, zonder elementen. Die elementen kun je op twee manieren toevoegen: door ze te programmeren of door het gebruik van een visueel ontwerp met Qt Designer. Beide zullen in de volgende secties toegelicht worden.
 
 
 ## Een interface programmeren met PySide6
@@ -251,7 +252,7 @@ Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets 
 
         - [ ] Er is een centrale widget gemaakt met `#!py QtWidgets.QWidget()` ([regel 14](#__codelineno-2-14)).
         - [ ] De widget wordt als centrale widget ingesteld met `#!py setCentralWidget()` ([regel 15](#__codelineno-2-15)).
-        - [ ] De method `#!py setCentralWidget()` is afkomstig van de class `#!py QtWidgets.QMainWindow` welke geïnitialiseerd is, de method wordt daarom met `#!py self.setCentralWidget()` aangeroepen.
+        - [ ] De method `#!py setCentralWidget()` is afkomstig van de class `#!py QtWidgets.QMainWindow`, die geïnitialiseerd is. De method wordt daarom met `#!py self.setCentralWidget()` aangeroepen.
         - [ ] Er verschijnt een leeg venster.
 
         **Projecttraject**
@@ -304,7 +305,7 @@ Nu ga je layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen netje
         - [ ] De `#!py central_widget` krijgt als layout een verticale layout ([regel 19](#__codelineno-2-19))
         - [ ] Er is een tekstveld gemaakt ([regel 22](#__codelineno-2-22)).
         - [ ] Het tekstveld (`#!py QTextEdit`) is toegevoegd aan de verticale layout ([regel 23](#__codelineno-2-23)).
-        - [ ] Er verschijnt een venster met een tekstveld waar je in kan typen {{feesttoeter}}
+        - [ ] Er verschijnt een venster met een tekstveld waar je in kunt typen {{feesttoeter}}
 
         **Projecttraject**
 
@@ -382,7 +383,7 @@ De knoppen zelf plaats je straks in een horizontale layout, dus die voeg je ook 
 
 De horizontale layout (voor de knoppen) moet je expliciet toevoegen aan de verticale layout zodat deze layout netjes verticaal onder het tekstveld verschijnt. 
 
-Als laatste verbindt je de knoppen aan functies. Zodra je op een knop drukt wordt er een zogeheten _signal_ afgegeven. Die kun je verbinden met een _slot_. Er zijn verschillende soorten signalen. Het drukken op een knop zorgt voor een _clicked signal_, het veranderen van een getal in een keuzevenster geeft een _changed signal_. In dit geval verbind je één knop direct met een al bestaande method van het tekstveld `#!py clear()` en de andere knop met een eigen method `#!py add_button_clicked()`. De naam is geheel vrij te kiezen, maar boven de functiedefinitie moet je wel de `#!py @Slot()`-decorator gebruiken (voor meer informatie over decorators zie [paragraaf Decorators](vervolg-python.md#decorators)). PySide kan dan net wat efficiënter werken.
+Als laatste verbind je de knoppen aan functies. Zodra je op een knop drukt wordt er een zogeheten _signal_ afgegeven. Die kun je verbinden met een _slot_. Er zijn verschillende soorten signalen. Het drukken op een knop zorgt voor een _clicked signal_, het veranderen van een getal in een keuzevenster geeft een _changed signal_. In dit geval verbind je één knop direct met een al bestaande method van het tekstveld `#!py clear()` en de andere knop met een eigen method `#!py add_button_clicked()`. De naam is geheel vrij te kiezen, maar boven de functiedefinitie moet je wel de `#!py @Slot()`-decorator gebruiken (voor meer informatie over decorators zie [paragraaf Decorators](vervolg-python.md#decorators)). PySide kan dan net wat efficiënter werken.
    
 !!! opdracht-basis "Slots en signals"
     === "opdracht"
