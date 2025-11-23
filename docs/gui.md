@@ -321,7 +321,7 @@ De knoppen zelf plaats je straks in een horizontale layout, dus die voeg je ook 
 
 !!! opdracht-basis "Knoppen toevoegen"
     === "opdracht"
-        Omdat de knoppen naast elkaar moeten komen te staan voeg je een horizontale layout toe aan de verticale layout. Je maakt een `clear`-knop en een `add text`-knop en voegt deze toe aan de horizontale layout. Je runt {{file}}`example-gui.py`en ziet een venster met een tekstveld verschijnen met daaronder twee knoppen. Je drukt verwoed op de knoppen maar er gebeurt niets.[^knop-stuk]
+        Omdat de knoppen naast elkaar moeten komen te staan voeg je een horizontale layout toe aan de verticale layout. Je maakt een `clear`-knop en een `add text`-knop en voegt deze toe aan de horizontale layout. Je runt {{file}}`example-gui.py`en ziet een venster met een tekstveld verschijnen met daaronder twee knoppen. Je drukt verwoed op de knoppen, maar er gebeurt niets.[^knop-stuk]
 
         [^knop-stuk]: Waarom doen de knoppen niets als je er op klikt?
     === "code"
@@ -396,9 +396,8 @@ Als laatste verbind je de knoppen aan functies. Zodra je op een knop drukt wordt
         ``` py hl_lines="3 26 27 29 30 31"
         import sys
 
-        from PySide6.QtCore import Slot
-
         from PySide6 import QtWidgets
+        from PySide6.QtCore import Slot
 
         # create subclass of QtWidgets.QMainWindow
             # def __init__()
@@ -444,7 +443,7 @@ Als laatste verbind je de knoppen aan functies. Zodra je op een knop drukt wordt
         - [ ] De `Slot`-functie is geïmporteerd vanuit de `#!py PySide6.QtCore` ([regel 4](#__codelineno-2-4)).
         - [ ] De method `add_text_button_clicked` voegt met `append` een tekst toe aan `textedit` ([regel 38](#__codelineno-2-38)). 
         - [ ] Drukken op de knop "Add text" zorgt voor het verschijnen van tekst in het tekstveld.
-        - [ ] Drukken op de knop "Clear" zorgt ervoor dat alle tekst in het tekstveld verdwijnt.
+        - [ ] Drukken op de knop "Clear" zorgt voor het verdwijnen van alle tekst in het tekstveld.
 
         **Projecttraject**
     
@@ -461,7 +460,7 @@ Er zijn veel verschillende widgets met eigen methods en signals. We hebben de ha
 [^Qt for Python-documentatie]:[https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes](https://doc.qt.io/qtforpython/PySide6/QtWidgets/index.html#list-of-classes)
 
 ???+ opdracht-meer "Volgorde layout aanpassen"
-    De volgorde waarin je layouts en widgets toevoegt bepaalt het uiterlijk van de grafische interface. Verander de code om de layout aan te passen. Zet bijvoorbeeld de knoppen boven de textbox of zet de knoppen onder elkaar en naast de textbox.
+    De volgorde waarin je layouts en widgets toevoegt bepaalt het uiterlijk van de grafische interface. Verander maar eens de code om de layout aan te passen. Zet bijvoorbeeld de knoppen boven het tekstveld of zet de knoppen onder elkaar en naast het tekstveld.
 
 !!! opdracht-basis "Extra knoppen toevoegen"
     === "opdracht"
@@ -594,9 +593,9 @@ De documentatie van PySide6[^officialPySide6Doc] is niet super-intuïtief. Daaro
 
 ## Functieplotter
 
-Later in dit hoofdstuk ga je voor jouw `pythondaq` applicatie toewerken naar het weergeven van data op een scherm. Deze data wil je dan natuurlijk plotten. In de volgende opdrachten ga je eerst voor een kleiner project hiermee oefenen. ![Klik hier](assets/eastereggs/ECPC-purple.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst als je een stukje code selecteert en op 'CTRL' + 'd' drukt, selecteert Visual Studio Code automatisch het volgende stukje code. Zo kun je meerdere cursors tegelijk aanmaken en op meerdere plekken tegelijk iets wijzigen. Superhandig voor snelle aanpassingen! Probeer maar eens!"}
+Later in dit hoofdstuk ga je voor jouw `pythondaq` applicatie toewerken naar het weergeven van data op een scherm. Deze data wil je dan natuurlijk plotten. In de volgende opdrachten ga je hiermee eerst voor een kleiner project oefenen. ![Klik hier](assets/eastereggs/ECPC-purple.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst als je een stukje code selecteert en op 'CTRL' + 'd' drukt, selecteert Visual Studio Code automatisch het volgende stukje code. Zo kun je meerdere cursors tegelijk aanmaken en op meerdere plekken tegelijk iets wijzigen. Superhandig voor snelle aanpassingen! Probeer maar eens!"}
 
-Je bent bekend met matplotlib en dat kan ook ingebouwd worden in Qt-applicaties. Helaas is matplotlib voor het gebruik in interactieve interfaces nogal traag zodra het te maken krijgt met meer data. We kiezen daarom voor een populair alternatief: PyQtGraph. Eén nadeel: [de documentatie](https://pyqtgraph.readthedocs.io/en/latest/) is niet fantastisch. Het geeft dus niets als je ergens niet uitkomt. Vraag op tijd hulp aan de assistent of een staflid.
+Je bent bekend met `matplotlib` en dat kan ook ingebouwd worden in Qt-applicaties. Helaas is `matplotlib` in interactieve interfaces nogal traag zodra het te maken krijgt met meer data. We kiezen daarom voor een populair alternatief: PyQtGraph. Eén nadeel: [de documentatie](https://pyqtgraph.readthedocs.io/en/latest/) is niet fantastisch. Het geeft dus niets als je ergens niet uitkomt. Vraag op tijd hulp aan de assistent of een staflid.
 
 ### De plotter als script
 
@@ -706,9 +705,9 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
     === "check"
         **Checkpunten:**
     
-        - [ ] Het is mogelijk om de start waarde aan te passen.
-        - [ ] Het is mogelijk om de stop waarde aan te passen.
-        - [ ] Het is mogelijk om het aantal punten te kiezen waarmee de sinus functie wordt geplot.
+        - [ ] Het is mogelijk om de startwaarde aan te passen.
+        - [ ] Het is mogelijk om de stopwaarde aan te passen.
+        - [ ] Het is mogelijk om het aantal punten te kiezen waarmee de sin(x) functie wordt geplot.
         - [ ] Na het aanpassen van een waarde wordt de plot automatisch opnieuw geplot.
 
         **Projecttraject**
