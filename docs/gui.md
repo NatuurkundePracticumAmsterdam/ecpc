@@ -498,13 +498,54 @@ Er zijn veel verschillende widgets met eigen methods en signals. We hebben de ha
         - [x] Slots en signals
         - [x] Extra knoppen toevoegen
 
-<div id="opdracht:number-display"></div>
 
+<div id="info:PySide6CD"></div>
+## Compacte PySide6 documentatie
+De documentatie van PySide6[^officialPySide6Doc] is niet super-intuïtief. Daarom hebben we speciaal voor jullie een [Compacte PySide6 documentatie📄](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/) geschreven. Daarin kun je een lijst van widgets vinden met de meest handige methods en signals. De documentatie is dus niet compleet maar genoeg voor een simpele GUI. Een overzicht van alle classes gedocumenteerd in de compacte documentatie vind je hieronder.
+
+[^officialPySide6Doc]: [https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes)
+
+**Subclasses van `QLayout`:**
+
+- `QHBoxLayout`: Beheert een horizontale indeling van widgets. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QHBoxLayout/)
+
+- `QVBoxLayout`: Beheert een verticale indeling van widgets. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QVBoxLayout/)
+
+- `QFormLayout`: Beheert een indeling waarbij de ruimte wordt verdeeld in een linkerkolom met labels en een rechterkolom met widgets. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QFormLayout/)
+<br>
+
+**Subclasses van `QWidgets`:**
+
+- `QApplication`: Beheert de controleflow en hoofdinstellingen van de GUI-applicatie. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QApplication/)
+
+- `QMainWindow`: Biedt een framework voor het bouwen van de gebruikersinterface van een applicatie. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QMainWindow/)
+
+- `QGroupBox`: Biedt een frame, een titel erboven, en kan verschillende andere widgets binnen zichzelf weergeven. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QGroupBox/)
+
+- `QTextEdit`: Geeft tekst weer en stelt de gebruiker in staat om deze te bewerken. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QTextEdit/)
+
+- `QCheckBox`: Schakelknop met een checkbox-indicator. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QCheckBox/)
+
+- `QLabel`: Een widget die tekst weergeeft. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QLabel/)
+
+- `QComboBox`: Een widget waarmee de gebruiker een keuze kan maken uit een lijst met opties. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QComboBox/)
+
+- `QSpinBox`: Een widget waarmee de gebruiker een geheel nummer kan kiezen uit een bereik. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QSpinBox/)
+
+- `QDoubleSpinBox`: Een widget waarmee de gebruiker een komma getal kan kiezen uit een bereik. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QDoubleSpinBox/)
+
+- `QPushButton`: Een knop die door de gebruiker kan worden ingedrukt. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QPushButton/)
+
+- `QLineEdit`: Een widget waarmee de gebruiker een enkele regel platte tekst kan invoeren en bewerken. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QLineEdit/)
+
+- `QFileDialog`: Biedt een dialoogvenster waarmee de gebruiker bestanden of mappen kan selecteren. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QFileDialog/)
+
+<div id="opdracht:number-display"></div>
 !!! opdracht-basis "Number display"
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Maak aan de hand van onderstaande schets een grafische interface. Kijk in de [Compacte Pyside6 documentatie](gui.md#compacte-pyside6-documentatie) welke widgets je daarvoor nodig hebt. Het getal moet met de pijltjes kunnen worden aangepast. Zorg dat het getal alleen waardes tussen 1 en 28 kan aannemen. Wanneer je op de knop `Add value` drukt, wordt het getal in het tekstveld geprint.
+            Maak aan de hand van onderstaande schets een grafische interface. De schets is gemaakt met [Excalidraw Whiteboard](https://excalidraw.com). Kijk in de [Compacte Pyside6 documentatie](gui.md#compacte-pyside6-documentatie) welke widgets je daarvoor nodig hebt. Het getal moet met de pijltjes kunnen worden aangepast. Zorg dat het getal alleen waardes tussen 1 en 28 kan aannemen. Wanneer je op de knop `Add value` drukt, wordt het getal in het tekstveld geprint.
             <br></br>
             ![Een venster met een textbox, daaronder een spinbox met daarnaast een knop waarop staat 'Add value'](figures/Numberdisplay-schematic.svg){: style="width:50%"}
             </div>
@@ -548,48 +589,6 @@ Er zijn veel verschillende widgets met eigen methods en signals. We hebben de ha
         **Projecttracject**
         
         - [x] Number display
-
-
-<div id="info:PySide6CD"></div>
-## Compacte PySide6 documentatie
-De documentatie van PySide6[^officialPySide6Doc] is niet super-intuïtief. Daarom hebben we speciaal voor jullie een [Compacte PySide6 documentatie📄](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/) geschreven. Daarin kun je een lijst van widgets vinden met de meest handige methods en signals. De documentatie is dus niet compleet maar genoeg voor een simpele GUI. Een overzicht van alle classes gedocumenteerd in de compacte documentatie vind je hieronder.
-
-[^officialPySide6Doc]: [https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/index.html#list-of-classes)
-
-**Subclasses van `QLayout`:**
-
-- `QHBoxLayout`: Beheert een horizontale indeling van widgets. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QHBoxLayout/)
-
-- `QVBoxLayout`: Beheert een verticale indeling van widgets. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QVBoxLayout/)
-
-- `QFormLayout`: Beheert een indeling waarbij de ruimte wordt verdeeld in een linkerkolom met labels en een rechterkolom met widgets. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QFormLayout/)
-<br>
-
-**Subclasses van `QWidgets`:**
-
-- `QApplication`: Beheert de controleflow en hoofdinstellingen van de GUI-applicatie. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QApplication/)
-
-- `QMainWindow`: Biedt een framework voor het bouwen van de gebruikersinterface van een applicatie. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QMainWindow/)
-
-- `QGroupBox`: Biedt een frame, een titel erboven, en kan verschillende andere widgets binnen zichzelf weergeven. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QGroupBox/)
-
-- `QTextEdit`: Geeft tekst weer en stelt de gebruiker in staat om deze te bewerken. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QTextEdit/)
-
-- `QCheckBox`: Schakelknop met een checkbox-indicator. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QCheckBox/)
-
-- `QLabel`: Een widget die tekst weergeeft. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QLabel/)
-
-- `QComboBox`: Een widget waarmee de gebruiker een keuze kan maken uit een lijst met opties. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QComboBox/)
-
-- `QSpinBox`: Een widget waarmee de gebruiker een geheel nummer kan kiezen uit een bereik. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QSpinBox/)
-
-- `QDoubleSpinBox`: Een widget waarmee de gebruiker een komma getal kan kiezen uit een bereik. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QDoubleSpinBox/)
-
-- `QPushButton`: Een knop die door de gebruiker kan worden ingedrukt. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QPushButton/)
-
-- `QLineEdit`: Een widget waarmee de gebruiker een enkele regel platte tekst kan invoeren en bewerken. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QLineEdit/)
-
-- `QFileDialog`: Biedt een dialoogvenster waarmee de gebruiker bestanden of mappen kan selecteren. [Meer info.](https://natuurkundepracticumamsterdam.github.io/PySide6-compact-documentation/QtWidgets/QFileDialog/)
 
 ## Functieplotter
 
