@@ -730,7 +730,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
 
 ## Een interface ontwerpen met Qt Designer
 
-Bij het ontwerpen van een grafische interface kan het fijn zijn om het ontwerp steeds voor je te zien als je iets wilt aanpassen. Misschien wil je de knoppen toch onder elkaar, of een slider gebruiken in plaats van een spinbox. Je kunt natuurlijk steeds je code aanpassen en opnieuw runnen, maar PySide6 heeft ook een drag-and-drop applicatie 'Designer' gemaakt. Je gebruikt Designer om het uiterlijk van je applicatie vorm te geven, de functionaliteit voeg je vervolgens toe in je code. 
+Bij het ontwerpen van een grafische interface kan het fijn zijn om het ontwerp steeds voor je te zien als je iets wilt aanpassen. Misschien wil je de knoppen toch onder elkaar, of een slider gebruiken in plaats van een spinbox. Je kunt natuurlijk steeds je code aanpassen en opnieuw runnen, maar PySide6 heeft ook een drag-and-drop applicatie _Designer_ gemaakt. Je gebruikt Designer om het uiterlijk van je applicatie vorm te geven, de functionaliteit voeg je vervolgens toe in je code. 
 
 Designer kan (bijna) alles wat je ook met programmeren kan, daarom kan het programma op het eerste gezicht wat onoverzichtelijk overkomen. In onderstaande video's nemen we je stap voor stap mee op een tour door Designer. Aan het eind heb je de basisinformatie over Designer en heb je de [opdracht number display](gui.md#opdracht:number-display) ook met Designer gemaakt.
 
@@ -977,7 +977,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
     === "check"
         **Checkpunten**
         
-        - [ ] Wanneer je op de knop `Add value` drukt wordt de waarde uit de `S`pinBox` aan de `textedit` toegevoegd.
+        - [ ] Wanneer je op de knop `Add value` drukt wordt de waarde uit de `SpinBox` aan de `textedit` toegevoegd.
         - [ ] Wanneer je het getal in de `SpinBox` verandert naar 14 en daarna op `Add value` drukt, wordt het getal 14 toegevoegd aan de `textedit`.
         - [ ] Onder de `SpinBox` en de knop `Add value` staat een knop `Quit`.
         - [ ] Wanneer je op de knop `Quit` drukt sluit de applicatie.
