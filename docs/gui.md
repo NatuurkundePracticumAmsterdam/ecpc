@@ -740,7 +740,8 @@ Designer kan (bijna) alles wat je ook met programmeren kan, daarom kan het progr
 
 !!! opdracht-basis "Designer: opstarten"
     === "opdracht"
-        <iframe src="https://drive.google.com/file/d/16MJDQXXHG0KjVa3AIXC_pP__7zI73vXL/preview?t=24" width="620" height="349" style="border:none;"></iframe>
+        <iframe src="https://drive.google.com/file/d/18kgavG5zywNnaOcTVDKmcszVs4ec_Ihg/preview" width="620" height="349" style="border:none;"></iframe>
+
 
         Bekijk bovenstaande video. Start Designer op met het commando `pyside6-designer` in een terminal. Open een template voor een `#!py MainWindow` en controleer dat bij jou in de `object inspector` dezelfde widgets staan als in de video.
     === "code"
@@ -817,7 +818,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
 
 !!! opdracht-basis "Designer: de `.ui` vertalen naar `.py`"
     === "opdracht"
-        <iframe src="https://drive.google.com/file/d/1cMTtI9-mgCRjYCvZYSsZ9lsZfU5KpOE2/preview" width="620" height="349" style="border:none;"></iframe>
+        <iframe src="https://drive.google.com/file/d/1b6TMg77_SkHSEAZ8cytThWjPFrK_l3fU/preview" width="620" height="349" style="border:none;"></iframe>
         <div class="grid-tree" markdown>
             <div>
             Bekijk bovenstaande video. Sla het ontwerp op als {{new_file_lines}}`number_display_app.ui`. In een terminal in Visual Studio Code navigeer je naar dezelfde map waarin {{file_lines}}`number_display_app.ui` staat.[^overleg-navigeren] Gebruik de optie `--output` van `pyside6-uic` om het bestand {{file_lines}}`number_display_app.ui` om te zetten naar het bestand {{file_lines}}`ui_number_display_app.py`.
