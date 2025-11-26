@@ -732,7 +732,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
 
 Bij het ontwerpen van een grafische interface kan het fijn zijn om het ontwerp steeds voor je te zien als je iets wilt aanpassen. Misschien wil je de knoppen toch onder elkaar, of een slider gebruiken in plaats van een spinbox. Je kunt natuurlijk steeds je code aanpassen en opnieuw runnen, maar PySide6 heeft ook een drag-and-drop applicatie 'Designer' gemaakt. Je gebruikt Designer om het uiterlijk van je applicatie vorm te geven, de functionaliteit voeg je vervolgens toe in je code. 
 
-Designer kan (bijna) alles wat je ook met programmeren kan, daarom kan het programma op het eerste gezicht wat onoverzichtelijk overkomen. In onderstaande video's nemen we je stap voor stap mee op een tour door Designer. Aan het eind heb je de basisinformatie over Designer en kan je de minimale gui die je eerder geprogrameerd hebt, ook maken met Designer. 
+Designer kan (bijna) alles wat je ook met programmeren kan, daarom kan het programma op het eerste gezicht wat onoverzichtelijk overkomen. In onderstaande video's nemen we je stap voor stap mee op een tour door Designer. Aan het eind heb je de basisinformatie over Designer en heb je de [opdracht number display](gui.md#opdracht:number-display) ook met Designer gemaakt.
 
 !!! info
     Druk in de video's op het vierkant rechtsboven om ze in volledig scherm te bekijken.
@@ -742,7 +742,7 @@ Designer kan (bijna) alles wat je ook met programmeren kan, daarom kan het progr
     === "opdracht"
         <iframe src="https://drive.google.com/file/d/16MJDQXXHG0KjVa3AIXC_pP__7zI73vXL/preview?t=24" width="620" height="349" style="border:none;"></iframe>
 
-        Bekijk bovenstaande video. Start Designer op met het commando `pyside6-designer` in een terminal. Open een template voor een `#!py MainWindow` en controleer dat bij jou in de `object inspector` dezelfde widgets staan als in de video hierboven.
+        Bekijk bovenstaande video. Start Designer op met het commando `pyside6-designer` in een terminal. Open een template voor een `#!py MainWindow` en controleer dat bij jou in de `object inspector` dezelfde widgets staan als in de video.
     === "code"
         **Test-code**
         <pre><code>(functionplotter) > pyside6-designer <button type="button" name="pyside6-designer_start" onclick="runScript('pyside6-designer_start')">{{ enter }}</button><button type="button" name="pyside6-designer_start" onclick="runScript('pyside6-designer_start')" class="invisible">{{ reload }}</button>
@@ -750,28 +750,28 @@ Designer kan (bijna) alles wat je ook met programmeren kan, daarom kan het progr
         </code></pre>
         
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
         
         - [ ] De `MainWindow` bevat een `central widget`, menubar en statusbar.
 
         **Projecttraject**
     
         - [x] Designer: opstarten
-        - [ ] Designer: layout toevoegen aan centralwidget
+        - [ ] Designer: layout en widgets toevoegen
         - [ ] Designer: eigenschappen widgets aanpassen
-        - [ ] Designer: De .ui vertalen naar .py
+        - [ ] Designer: de `.ui` vertalen naar `.py`
         - [ ] Designer: ontwerp importeren
         - [ ] Designer: slots en signals toevoegen
 
-Laten we kijken hoe we widgets toevoegen en de `central widget` een layout geven in Designer.
+Laten we kijken hoe je de `central widget` een layout geeft en widgets toevoegt in Designer.
 
-!!! opdracht-basis "Designer: layout toevoegen aan centralwidget"
+!!! opdracht-basis "Designer: layout en widgets toevoegen"
     === "opdracht"
         <iframe src="https://drive.google.com/file/d/1cEzuZU069ArgAc9rmMuRA1hBz2HwJ87Z/preview" width="620" height="349" style="border:none;"></iframe>
 
         Bekijk bovenstaande video. Voeg zelf ook een `TextEdit` toe en geef de `central widget` een verticale layout. Voeg _onder_ de `TextEdit` een horizontale layout toe.
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
         
         - [ ] In de object inspector heeft de `centralwidget` _geen_ rood rondje in het icoon ervoor staan.
         - [ ] Er is een `TextEdit` en een horizontale layout aan de `centralwidget` toegevoegd.
@@ -780,13 +780,13 @@ Laten we kijken hoe we widgets toevoegen en de `central widget` een layout geven
         **Projecttraject**
     
         - [x] Designer: opstarten
-        - [x] Designer: layout toevoegen aan centralwidget
+        - [x] Designer: layout en widgets toevoegen
         - [ ] Designer: eigenschappen widgets aanpassen
-        - [ ] Designer: De .ui vertalen naar .py
+        - [ ] Designer: de `.ui` vertalen naar `.py`
         - [ ] Designer: ontwerp importeren
         - [ ] Designer: slots en signals toevoegen
 
-In de volgende video kun je zien hoe je gemakkelijk een widget aan de horizontale layout toevoegd en hoe je de eigenschappen van de widgets aanpast.
+In de volgende video kun je zien hoe je gemakkelijk een widget aan de horizontale layout toevoegt en hoe je de eigenschappen van de widgets aanpast.
 
 !!! opdracht-basis "Designer: eigenschappen widgets aanpassen"
     === "opdracht"
@@ -794,11 +794,11 @@ In de volgende video kun je zien hoe je gemakkelijk een widget aan de horizontal
 
         Bekijk bovenstaande video. Voeg zelf ook een `PushButton` en een `SpinBox` toe aan de horizontale layout. Pas de tekst op de `PushButton` aan naar `Add value`. Zorg dat de `SpinBox` alleen waardes tussen 1 en 28 kan aannemen. Pas de `objectName` aan van de `TextEdit` naar `textedit`, van `PushButton` naar `add_value_button` en van `SpinBox` naar `value`. 
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
         
-        - [ ] In het ontwerp staan de PushButton en de SpinBox _onder_ het tekstveld en _naast_ elkaar.
+        - [ ] In het ontwerp staan de `PushButton` en de `SpinBox` _onder_ het tekstveld en _naast_ elkaar.
         - [ ] Op de `PushButton` staat de tekst `Add value`.
-        - [ ] De minimale waarde van de SpinBox staat ingesteld op 1, de maximale waarde op 28.
+        - [ ] De minimale waarde van de `SpinBox` staat ingesteld op 1, de maximale waarde op 28.
         - [ ] De `objectName` van de `TextEdit` is `textedit`, met kleine letters.
         - [ ] De `objectName` van de `PushButton` is `add_value_button`.
         - [ ] De `objectName` van de `SpinBox` is `value`.
@@ -807,15 +807,15 @@ In de volgende video kun je zien hoe je gemakkelijk een widget aan de horizontal
         **Projecttraject**
     
         - [x] Designer: opstarten
-        - [x] Designer: layout toevoegen aan centralwidget
+        - [x] Designer: layout en widgets toevoegen
         - [x] Designer: eigenschappen widgets aanpassen
-        - [ ] Designer: De .ui vertalen naar .py
+        - [ ] Designer: de `.ui` vertalen naar `.py`
         - [ ] Designer: ontwerp importeren
         - [ ] Designer: slots en signals toevoegen
 
 Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar een Pythonbestand met een class die je importeert in je eigen programma.
 
-!!! opdracht-basis "Designer: de .ui vertalen naar .py"
+!!! opdracht-basis "Designer: de `.ui` vertalen naar `.py`"
     === "opdracht"
         <iframe src="https://drive.google.com/file/d/1cMTtI9-mgCRjYCvZYSsZ9lsZfU5KpOE2/preview" width="620" height="349" style="border:none;"></iframe>
         <div class="grid-tree" markdown>
@@ -832,7 +832,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
             </div>
         </div>
         !!! info "Wijzigingen in het ontwerp"
-            Het omzetten van het .ui-bestand naar een .py-bestand moet je elke keer doen als je in Designer iets wijzigt (en opslaat). Gebruik de ++up++-toets om oude commando's terug te halen. Dat scheelt typewerk. Later, met uv, zullen we dit eenvoudiger maken.
+            Het omzetten van het .ui-bestand naar een .py-bestand moet je elke keer doen als je in Designer iets wijzigt (en opslaat). Gebruik de ++up++-toets om oude commando's terug te halen. Dat scheelt typewerk. Later &mdash; met uv &mdash; zullen we dit eenvoudiger maken.
         [^overleg-navigeren]: Overleg met elkaar of met de assistent als je niet weet hoe dat moet.
     === "code"
         **Test-code**
@@ -848,23 +848,23 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
         </span>
         </pre>
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
         
         - [ ] Er is een bestand {{file}}`ui_number_display_app.py` bijgekomen.
-        - [ ] In het bestand {{file}}`ui_number_display_app.py` staat een class `#!py Ui_MainWindow`
+        - [ ] In het bestand {{file}}`ui_number_display_app.py` staat een class `#!py Ui_MainWindow`.
 
         **Projecttraject**
     
         - [x] Designer: opstarten
-        - [x] Designer: layout toevoegen aan centralwidget
+        - [x] Designer: layout en widgets toevoegen
         - [x] Designer: eigenschappen widgets aanpassen
-        - [x] Designer: De .ui vertalen naar .py
+        - [x] Designer: de `.ui` vertalen naar `.py`
         - [ ] Designer: ontwerp importeren
         - [ ] Designer: slots en signals toevoegen
 
 !!! opdracht-basis "Designer: ontwerp importeren"
     === "opdracht"
-        Maak een nieuw pythonbestand {{new_file}}`number-display-gui-designer.py`, kopieer de code van de vorige [opdracht number display](gui.md#opdracht:number-display) en vervang de volledige class door:
+        Maak een nieuw pythonbestand {{new_file}}`number-display-gui-designer.py`. Kopieer de code van de [opdracht number display](gui.md#opdracht:number-display) en vervang de volledige class door:
 
         <div id="code:designer"></div>
 
@@ -885,20 +885,19 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
             def add_value_button_clicked(self):
                 self.ui.textedit.append("You've clicked the 'Add value' button")
         ```
-        In deze code definiëren we niet `#!py self.ui.add_value_button`; die naam hebben we in Designer aan de knop gegeven. De namen van alle objecten in Designer zijn daarna beschikbaar in onze code om bijvoorbeeld de signalen te koppelen.
+        In deze code definieer je niet `#!py self.ui.add_value_button`; die naam heb je in Designer aan de knop gegeven. De namen van alle objecten in Designer zijn daarna beschikbaar in de code, bijvoorbeeld om de signalen te koppelen.
 
         !!! info "self.add_value_button wordt self.ui.add_value_button"
-            Merk op dat we nu niet meer `#!py self.add_value_button` gebruiken maar `#!py self.ui.add_value_button`. Alle widgets komen op deze manier onder een `#!py .ui`-object te hangen.
+            Merk op dat je nu niet meer `#!py self.add_value_button` gebruikt, maar `#!py self.ui.add_value_button`. Alle widgets komen op deze manier onder een `#!py .ui`-object te hangen.
 
     === "code"
         **Pseudo-code**
         ``` py hl_lines="7 13 14 16 18-20"
         import sys
 
-        from PySide6.QtCore import Slot
-
         from PySide6 import QtWidgets
-
+        from PySide6.QtCore import Slot
+        
         from ui_number_display_app import Ui_MainWindow
 
         # create subclass of QtWidgets.QMainWindow
@@ -906,7 +905,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
                 # initialise the parent class Qtwidgets.QMainWindow
 
                 # create an instance of the class Ui_MainWindow
-                # Setup the UI with the method setupUi(self) from the class Ui_MainWindow
+                # setup the UI with the method setupUi(self) from the class Ui_MainWindow
 
                 # connect add_value_button to add_value_button_clicked
 
@@ -924,7 +923,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
             # run main function  
         ```
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
         
         - [ ] De class `#!py Ui_MainWindow` wordt geïmporteerd uit {{file}}`ui_number_display_app.py`.
         - [ ] De widgets worden aangeroepen met `#!py self.ui` ervoor.
@@ -932,24 +931,23 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
         **Projecttraject**
     
         - [x] Designer: opstarten
-        - [x] Designer: layout toevoegen aan centralwidget
+        - [x] Designer: layout en widgets toevoegen
         - [x] Designer: eigenschappen widgets aanpassen
-        - [x] Designer: De .ui vertalen naar .py
+        - [x] Designer: de `.ui` vertalen naar `.py`
         - [x] Designer: ontwerp importeren
         - [ ] Designer: slots en signals toevoegen
 
 !!! opdracht-basis "Designer: slots en signals toevoegen"
     === "opdracht"
-        Pas de code aan zodat de waarde van de SpinBox aan de textedit wordt toegevoegd. Voeg daarna in Designer een knop `Quit` toe onder de SpinBox en de PushButton. Zorg dat het venster sluit wanneer je op de knop `Quit` drukt.
+        Pas de code aan zodat de waarde van de `SpinBox` aan de `textedit` wordt toegevoegd. Voeg daarna in Designer een knop `Quit` toe, onder de `SpinBox` en de `PushButton`. Zorg dat het venster sluit wanneer je op de knop `Quit` drukt.
 
     === "code"
         **Pseudo-code**
         ``` py hl_lines="17 21"
         import sys
 
-        from PySide6.QtCore import Slot
-
         from PySide6 import QtWidgets
+        from PySide6.QtCore import Slot
 
         from ui_number_display_app import Ui_MainWindow
 
@@ -965,7 +963,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
 
             # decorate method with Slot function
             # def add_value_button_clicked
-                # Add value to textedit
+                # add value to textedit
 
         def main():
             # create instance of QtWidgets.QApplication with arguments from sys.argv
@@ -977,43 +975,43 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
             # run main function  
         ```
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
         
-        - [ ] Wanneer je op de knop `Add value` drukt wordt de waarde uit de SpinBox aan de textedit toegevoegd.
-        - [ ] Wanneer je het getal in de SpinBox veranderd naar 14 en daarna op `Add value` drukt wordt het getal 14 toegevoegd aan de textedit.
-        - [ ] Onder de SpinBox en de knop `Add value` staat een knop `Quit`.
+        - [ ] Wanneer je op de knop `Add value` drukt wordt de waarde uit de `S`pinBox` aan de `textedit` toegevoegd.
+        - [ ] Wanneer je het getal in de `SpinBox` verandert naar 14 en daarna op `Add value` drukt, wordt het getal 14 toegevoegd aan de `textedit`.
+        - [ ] Onder de `SpinBox` en de knop `Add value` staat een knop `Quit`.
         - [ ] Wanneer je op de knop `Quit` drukt sluit de applicatie.
 
         **Projecttraject**
     
         - [x] Designer: opstarten
-        - [x] Designer: layout toevoegen aan centralwidget
+        - [x] Designer: layout en widgets toevoegen
         - [x] Designer: eigenschappen widgets aanpassen
-        - [x] Designer: De .ui vertalen naar .py
+        - [x] Designer: de `.ui` vertalen naar `.py`
         - [x] Designer: ontwerp importeren
         - [x] Designer: slots en signals toevoegen
 
 ## Een grafische interface voor ons experiment
 
-In het vorige hoofdstuk hebben we een _tekst_-interface geschreven voor ons experiment. We gaan nu een _grafische_ interface schrijven voor hetzelfde experiment.
+In het vorige hoofdstuk heb je een _tekst_-interface geschreven voor het experiment. Je gaat nu een _grafische_ interface schrijven voor hetzelfde experiment.
 
-We hebben tot nu toe veel moeite gedaan om onze code te splitsen volgens het MVC-model: werken in laagjes, goed nadenken over wat waar hoort. Als dat netjes gelukt is kunnen we relatief makkelijk één van die laagjes vervangen. We kunnen de `#!py ArduinoVISADevice` vervangen door een `#!py RaspberryPiDevice` of een `#!py PicoScopeDevice` [^nieuwe-controller]. Ook kunnen we een nieuwe applicatie schrijven voor ons bestaande experiment. We hoeven dan alleen een extra view te schrijven (de interface met de gebruiker) en de rest kunnen we hergebruiken. Misschien dat we hier en daar iets willen aanpassen maar zorg er dan voor dat je oude applicatie nog steeds werkt!
+Je hebt tot nu toe veel moeite gedaan om de code te splitsen volgens het MVC-model: werken in laagjes, goed nadenken over wat waar hoort. Als dat netjes gelukt is kun je relatief makkelijk één van die laagjes vervangen. Je kunt bijvoorbeeld `#!py ArduinoVISADevice` vervangen door een `#!py RaspberryPiDevice` of een `#!py PicoScopeDevice` [^nieuwe-controller]. Ook kun je een nieuwe applicatie schrijven voor het experiment. Je hoeft dan alleen een extra view te schrijven (de interface met de gebruiker) en de rest kun je hergebruiken. Misschien dat je hier en daar iets wilt aanpassen, maar zorg er dan voor dat je oude applicatie nog steeds werkt!
 
 [^nieuwe-controller]: Je moet dan wel eerst nieuwe controllers schrijven (of krijgen van een collega) om deze nieuwe instrumenten aan te sturen. Maar als je die hebt kun je vrij eenvoudig wisselen.
 
-We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor ons experiment.
+Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor het experiment.
 
-!!! info "Ga je programmeren of gebruik je Designer?"
-    Je mag zelf kiezen of je de grafische interface gaat ontwerpen met Designer of dat je hem volledig programmeert. Als je kiest om Designer te gebruiken, staan hieronder een paar handige tips en trucs.
+!!! info "Programmeren of Designer?"
+    Je mag zelf kiezen of je de grafische interface gaat ontwerpen met Designer of dat je hem volledig programmeert. Hieronder staan een paar handige tips en trucs voor als je besluit Designer te gebruiken.
 
     ### Plotwidget toevoegen in Designer
     Voeg als volgt een plot widget toe in Designer:
 
-    1. Voeg aan je interface een _Graphics View_ toe;
-    1. Klik er op om hem te selecteren en klik daarna op de rechtermuistoets;
-    1. Kies voor _Promote To ..._;
-    1. Bij _Promoted class name_ vul je in `PlotWidget` en bij _Header file_ vul je in `pyqtgraph` (zonder `.h` aan het eind);
-    1. Dan klik je op _Add_ en vervolgens op _Promote_.
+    1. Voeg aan je interface een _Graphics View_ toe.
+    2. Klik op de _Graphics View_ om hem te selecteren en klik daarna op de rechtermuistoets.
+    3. Kies voor _Promote To ..._.
+    4. Bij _Promoted class name_ vul je in `PlotWidget` en bij _Header file_ vul je in `pyqtgraph` (zonder `.h` aan het eind).
+    5. Dan klik je op _Add_ en vervolgens op _Promote_.
     
     De stappen zijn weergegeven in onderstaand screenshot. Bij de rode pijl vind je _Graphics View_ en in het rode kader staat wat je moet invullen om te promoten:
 
@@ -1022,14 +1020,14 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
     Nu je dit een keer gedaan hebt kun je voortaan op een Graphics View meteen kiezen voor **Promote to > PlotWidget** en hoef je niets meer in te typen. Vergeet niet je widget nog even een handige naam te geven, bijvoorbeeld `plot_widget`.
 
     ### Commando toevoegen om .ui te vertalen naar .py
-    Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. We kunnen met uv taken aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. Doe dit als volgt:
+    Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. Je kunt met uv taken aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. Doe dit als volgt:
 
-    1. Installeer _Poe the Poet_ &mdash; een zogeheten _task runner_ &mdash; _globaal_ met:
+    6. Installeer _Poe the Poet_ &mdash; een zogeheten _task runner_ &mdash; _globaal_ met:
         ``` ps1con title="Terminal"
         uv tool install poethepoet
         ```
-        We geven hiermee aan dat we dit package willen kunnen aanroepen vanuit de terminal, ongeacht in welke map of in welk virtual environment we zitten.
-    2. Voeg aan je {{file}}`pyproject.toml` het volgende toe &mdash; uitgaande van de mappenstructuur in de `pythondaq` package en {{file_lines}}`mainwindow.ui` als naam van je `.ui`-bestand:
+    Je geeft hiermee aan dat je deze package wilt kunnen aanroepen vanuit de terminal, ongeacht in welke map of in welk virtual environment je zit.
+    7. Voeg aan je {{file}}`pyproject.toml` het volgende toe &mdash; uitgaande van de mappenstructuur in de `pythondaq` package en {{file_lines}}`mainwindow.ui` als naam van je `.ui`-bestand:
         ``` toml
         [tool.poe.tasks.compile]
         shell = """
@@ -1038,7 +1036,7 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
         interpreter = ["posix", "powershell"]
         ```
         Je kunt binnen de driedubbele aanhalingstekens meerdere regels toevoegen als je meerdere `.ui`-bestanden hebt &mdash; voor ieder bestand een regel.
-    3. In bovenstaande regels is de naam _na_ `tool.poe.tasks` de naam van de taak &mdash; in dit geval dus `compile`. Je kunt die naam zelf kiezen en vervolgens gebruiken om de taak uit te voeren in de terminal:
+    8. In bovenstaande regels is de naam _na_ `tool.poe.tasks` de naam van de taak &mdash; in dit geval dus `compile`. Je kunt die naam zelf kiezen en vervolgens gebruiken om de taak uit te voeren in de terminal:
         ``` ps1con title="Terminal"
         poe compile
         ```
@@ -1050,9 +1048,9 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
 
         <div class="grid-tree" markdown>
             <div>
-            Je gaat in stapjes een GUI maken voor de `pythondaq` applicatie. Maak daarvoor een {{new_file}}`gui.py` waarin een leeg GUI venster wordt gemaakt. Zorg dat het lege venster ook wordt getoond zodra je een commando in de terminal intypt.
+            Je gaat in stapjes een GUI maken voor de `pythondaq` applicatie. Maak daarvoor eerst een {{new_file}}`gui.py` waarin een leeg GUI venster wordt gemaakt. Zorg dat het lege venster ook wordt getoond zodra je een commando in de terminal intypt.
             </br></br>
-            De gebruiker test de GUI met de volgende handelingen. De gebruiker maakt een nieuw virtual environment aan {{lightbulb}}. De gebruiker installeert de `Pythondaq` package met uv sync {{lightbulb}}. De gebruiker kijkt in de {{file_lines}}`pyproject.toml` wat het commando is om de GUI op te starten. De gebruiker typte het commando in de terminal en ziet een leeg venster verschijnen. 
+            De gebruiker test de GUI met de volgende handelingen. De gebruiker maakt een nieuw virtual environment aan {{lightbulb}}. De gebruiker installeert de `Pythondaq` package met uv sync {{lightbulb}}. De gebruiker kijkt in de {{file_lines}}`pyproject.toml` wat het commando is om de GUI op te starten. De gebruiker typt het commando in de terminal en ziet een leeg venster verschijnen. 
             </div>
             <div>
             {{folder}} `ECPC`  
@@ -1072,7 +1070,7 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
         # create empty window
         ```
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
         - [ ] Het uitvoeren van een commando zorgt ervoor dat een leeg venster wordt getoond. 
         - [ ] De GUI werkt ook na het installeren van de package `pythondaq` met uv in een nieuw virtual environment met Python. 
@@ -1088,33 +1086,36 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
 
 !!! opdracht-inlever "Pythondaq: plot scan"
     === "opdracht"
-        Pas de GUI aan zodat de applicatie een scan uitvoerd en de metingen in een plot laat zien binnen het venster. Voor het gemak mag je de poortnaam, start- en stopwaardes e.d. <q>hard coded</q> in je script zetten. Later ga je ervoor zorgen dat de gebruiker alles kan instellen en zelf een scan kan starten, maar dat komt straks wel. 
+        Pas de GUI aan zodat de applicatie een scan uitvoert en de metingen in een plot laat zien binnen het venster. Voor het gemak mag je de poortnaam, start- en stopwaardes en dergelijke <q>hard coded</q> in je script zetten. Later ga je ervoor zorgen dat de gebruiker alles kan instellen en zelf een scan kan starten, maar dat komt straks wel. 
         </br></br>
-        De gebruiker test de GUI met de volgende handelingen. De gebruiker maakt een nieuw virtual environment aan {{lightbulb}}. De gebruiker installeert de `Pythondaq` package met uv sync {{lightbulb}}. De gebruiker kijkt in de {{file_lines}}`pyproject.toml` wat het commando is om de GUI op te starten. De gebruiker typte het commando in de terminal en ziet dat het LEDje gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI. 
+        De gebruiker test de GUI met de volgende handelingen. De gebruiker maakt een nieuw virtual environment aan {{lightbulb}}. De gebruiker installeert de `pythondaq` package met uv sync {{lightbulb}}. De gebruiker kijkt in de {{file_lines}}`pyproject.toml` wat het commando is om de GUI op te starten. De gebruiker typt het commando in de terminal en ziet dat de LED gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI. 
 
         !!! info "Foutenvlaggen plotten"
 
-            Foutenvlaggen toevoegen aan een pyqtgraph is helaas iets minder intuitief dan bij matplotlib. Met _breedte_ en _hoogte_ geef je aan hoe groot de vlaggen zijn, de vlag is 2 keer zo hoog of breed als de onzekerheid. Samen met de $x$ en $y$ data maak je dan een `ErrorBarItem` aan die je expliciet toevoegt aan de plot. **Let op:** `x`, `y`, `x_err` en `y_err` *moeten* NumPy arrays zijn *of*, en dat geldt alleen voor de errors, een vast getal. Gewone lijsten werken helaas *niet*.
+            Foutenvlaggen toevoegen aan een `pyqtgraph` is helaas iets minder intuïtief dan bij `matplotlib`. Met _breedte_ en _hoogte_ geef je aan hoe groot de vlaggen zijn, de vlag is twee keer zo hoog of breed als de onzekerheid. Samen met de $x$- en $y$-data maak je dan een `ErrorBarItem` aan die je expliciet toevoegt aan de plot. 
+            
+            **Let op:** `x`, `y`, `x_err` en `y_err` *moeten* NumPy arrays zijn *of*, en dat geldt alleen voor de errors, een vast getal. Gewone lijsten werken helaas *niet*.
 
             ``` py linenums="1" hl_lines="20 22"
             def plot(self):
                 """Clear the plot widget and display experimental data."""
 
-                # Genereer wat data als demo.
-                # **Let op:** `x`, `y`, `x_err` en `y_err` *moeten* NumPy arrays zijn *of*,
-                # en dat geldt alleen voor de errors, een vast getal.
+                # genereer wat data als demo
+                # **let op:** `x`, `y`, `x_err` en `y_err` *moeten* NumPy arrays zijn *of*,
+                # en dat geldt alleen voor de errors, een vast getal
                 x = np.linspace(0, 2 * np.pi, 20)
                 y = np.sin(x)
                 x_err = 0.1
                 y_err = np.random.normal(0, 0.2, size=len(x))
 
-                # Maak eerst een scatterplot
+                # maak eerst een scatterplot
                 self.plot_widget.plot(x, y, symbol="o", symbolSize=5, pen=None)
 
-                # nu de foutvlaggen, met 'breedte' en 'hoogte' in plaats van x errors en y
-                # errors.
+                # maak nu de foutvlaggen, met 'breedte' en
+                # 'hoogte' in plaats van x errors en y errors
                 error_bars = pg.ErrorBarItem(x=x, y=y, width=2 * x_err, height=2 * y_err)
-                # we moeten de error_bars expliciet toevoegen aan de plot
+                # voeg daarna de error_bars expliciet
+                # aan de plot toe
                 self.plot_widget.addItem(error_bars)
             ```
     === "code"
@@ -1125,10 +1126,10 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
             # plot results in application window
         ```
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
         - [ ] Het uitvoeren van het commando zorgt ervoor dat een scan wordt gestart.
-        - [ ] Het LED lampje gaat branden.
+        - [ ] De LED gaat branden.
         - [ ] De resultaten van de meting worden geplot in het venster.
 
         **Projecttraject**
@@ -1141,9 +1142,9 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
 
 !!! opdracht-inlever "Pythondaq: widgets"
     === "opdracht"
-        Pas de GUI aan zodat de applicatie opstart met een lege plot en widgets om de start- en stopwaardes, en het aantal metingen aan te passen en een startknop waarmee een (nieuwe) meting wordt uitgevoerd.
+        Pas de GUI aan zodat de applicatie opstart met een lege plot en widgets om de start-, stopwaardes en het aantal herhaalmetingen aan te passen en een startknop waarmee een (nieuwe) meting wordt uitgevoerd.
         </br></br>
-        De gebruiker test de GUI met de volgende handelingen. De gebruiker typte het commando in de terminal en er verschijnt een GUI met daarin een lege plot. De gebruiker vult verschillende waardes in voor de start- en stopwaardes en het aantal metingen en drukt op de startknop. De gebruiker ziet dat het LEDje gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI.
+        De gebruiker test de GUI met de volgende handelingen. De gebruiker typt het commando in de terminal en er verschijnt een GUI met daarin een lege plot. De gebruiker vult verschillende waardes in voor de start, stop en het aantal herhaalmetingen en drukt daarna op de startknop. De gebruiker ziet dat de LED gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI.
     === "code"
         **Pseudo-code**
         ```
@@ -1155,13 +1156,13 @@ We gaan nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor on
         # methods for start, stop, measurements and start scan
         ```
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
         - [ ] De applicatie start op met een lege plot.
-        - [ ] In de applicatie kan de startwaarde in volt worden aangepast.
-        - [ ] In de applicatie kan de stopwaarde in volt worden aangepast.
-        - [ ] In de applicatie kan het aantal metingen worden aangepast.
-        - [ ] Druk op de startknop laat een meting starten.
+        - [ ] In de applicatie kan de startwaarde in Volt worden aangepast.
+        - [ ] In de applicatie kan de stopwaarde in Volt worden aangepast.
+        - [ ] In de applicatie kan het aantal herhaalmetingen worden aangepast.
+        - [ ] Drukken op de startknop laat een meting starten.
 
         **Projecttraject**
     
@@ -1183,13 +1184,13 @@ De functie `#!py getSaveFileName()` opent een dialoogvenster om een bestand op t
 
 [^csv-extensie]: Het eerste deel van het argument (`CSV files`) is vrij te kiezen en geeft alleen informatie aan de gebruiker. Het deel tussen haakjes (`*.csv`) is het gedeelte dat echt van belang is. Het geeft de extensie die achter alle bestandsnamen geplakt wordt.
 
-Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder welke naam het bestand moet worden opgeslagen. Je krijgt echt alleen een pad en bestandsnaam terug, de data is _niet_ opgeslagen en het bestand is _niet_ aangemaakt. De variabele `filename` is echt niets anders dan een bestandsnaam, bijvoorbeeld: `/Users/david/LED-rood.csv`. Nadat je die bestandsnaam gekregen hebt moet je dus zelf nog code schrijven zodat het CSV-bestand wordt opgeslagen onder die naam.
+Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder welke naam het bestand moet worden opgeslagen. Je krijgt echt alleen een pad en bestandsnaam terug, de data is _niet_ opgeslagen en het bestand is _niet_ aangemaakt. De variabele `filename` is echt niets anders dan een bestandsnaam, bijvoorbeeld: `/Users/david/LED-rood.csv`. Nadat je die bestandsnaam gekregen hebt, moet je dus zelf nog code schrijven zodat het CSV-bestand wordt opgeslagen onder die naam.
 
 !!! opdracht-inlever "Pythondaq: save"
     === "opdracht"
-        Pas de GUI aan zodat de applicatie de metingen kan wegschrijven naar een csv-bestand.
+        Pas de GUI aan zodat de applicatie de metingen kan wegschrijven naar een CSV-bestand.
         </br></br>
-        De gebruiker test de GUI met de volgende handelingen. De gebruiker typte het commando in de terminal en er verschijnt een GUI met daarin een lege plot. De gebruiker vult verschillende waardes in voor de start- en stopwaardes en het aantal metingen en drukt op de startknop. De gebruiker ziet dat het LEDje gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI. De gebruiker ziet in de GUI een `Save`-knop en klikt daarop. Er vershijnt een dialoogvenster. De gebruiker kiest een locatie en typt een bestandsnaam en klikt op `Save` (of `Opslaan`). De gebruiker gaat op de computer naar de locatie waar het bestand opgeslagen zou zijn. De gebruiker opent het bestand en ziet de metingen staan. 
+        De gebruiker test de GUI met de volgende handelingen. De gebruiker typt het commando in de terminal en er verschijnt een GUI met daarin een lege plot. De gebruiker vult verschillende waardes in voor de start, stop en het aantal herhaalmetingen en drukt op de startknop. De gebruiker ziet dat de LED gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI. De gebruiker ziet in de GUI een `Save`-knop en klikt daarop. Er verschijnt een dialoogvenster. De gebruiker kiest een locatie en typt een bestandsnaam en klikt op `Save` (of `Opslaan`). De gebruiker gaat op de computer naar de locatie waar het bestand opgeslagen zou zijn. De gebruiker opent het bestand en ziet de metingen staan. 
     === "code"
         **Pseudo-code**
         ```
@@ -1202,10 +1203,10 @@ Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder
             # save measurements as csv in given filename
         ```
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
-        - [ ] Druk op de knop `Save` opent een dialoogvenster.
-        - [ ] De metingen worden opgeslagen als csv-bestand op de gegeven locatie en onder de gegeven bestandsnaam.
+        - [ ] Drukken op de knop `Save` opent een dialoogvenster.
+        - [ ] De metingen worden opgeslagen als CSV-bestand op de gegeven locatie en onder de gegeven bestandsnaam.
 
         **Projecttraject**
     
@@ -1222,28 +1223,28 @@ Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder
     Je kunt je grafische applicatie volledig optuigen met menu's of taakbalken. Ook kun je onderin je applicatie met een statusbalk weergeven wat de status is: gereed, aan het meten, foutcode, etc. Dat valt buiten het bestek van deze cursus, maar een mooie referentie is _PySide6 Toolbars & Menus — QAction_.[@qtmenus] Als je vaker grafische applicaties wilt gaan maken dan moet je dat zeker eens doornemen!
 
     !!! opdracht-meer "Pythondaq: statusbalk"
-        Maak een statusbalk die aangeeft wat de identificatiestring is van het device dat geselecteerd is. Maak ook een menu waarmee je een CSV-bestand kunt opslaan en een nieuwe meting kunt starten. Let op: je hebt dan een menu-item én een knop die dezelfde method aanroepen. Je hoeft geen dubbele code te schrijven, maar moet de `#!py save_data()`-method wel twee keer verbinden.
+        Maak een statusbalk die aangeeft wat de identificatiestring is van de device die geselecteerd is. Maak ook een menu waarmee je een CSV-bestand kunt opslaan en een nieuwe meting kunt starten. Let op: je hebt dan een menu-item én een knop die dezelfde method aanroepen. Je hoeft geen dubbele code te schrijven, maar moet de `#!py save_data()`-method wel twee keer verbinden.
 
 
 ### Selecteer de Arduino
 
 Je hebt nu waarschijnlijk nog de poortnaam van de Arduino in je code gedefinieerd als vaste waarde. Dat betekent dat als je de code deelt met iemand anders &mdash; bijvoorbeeld wanneer je de code inlevert op Canvas of wanneer je je experiment op een labcomputer wilt draaien &mdash; je het risico loopt dat je applicatie crasht omdat de Arduino aan een andere poort hangt. Zeker bij de overstap van Windows naar MacOS of Linux, of andersom! Je kunt dit op twee manieren oplossen:
 
-1. Je maakt een keuzemenu waarmee de gebruiker de Arduino kan selecteren;
+1. Je maakt een keuzemenu waarmee de gebruiker de Arduino kan selecteren.
 1. Je probeert de Arduino te detecteren op één van de poorten. De gebruiker hoeft dan niet te weten welke poort dat zou kunnen zijn. Het werkt dan vanzelf!
 
-Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeilijker dan gedacht. Zodra je andere devices gaat openen en commando's gaat sturen om te ontdekken wat voor apparaat het is kunnen er gekke dingen gebeuren. Onder MacOS bijvoorbeeld kunnen Bluetooth luidsprekers en koptelefoons opeens ontkoppelen. _We gaan dus toch voor keuze 1._ Bijkomend voordeel van deze keuze is dat je meerdere Arduino's aan je computer kunt hangen en kunt schakelen &mdash; vooral handig als je meerdere experimenten vanaf één computer wilt aansturen.
+Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeilijker dan gedacht. Zodra je andere devices gaat openen en commando's gaat sturen om te ontdekken wat voor apparaat het is kunnen er gekke dingen gebeuren. Onder MacOS bijvoorbeeld kunnen Bluetooth luidsprekers en koptelefoons opeens ontkoppelen. _We gaan daarom toch voor mogelijkheid 1._ Bijkomend voordeel van deze mogelijkheid is dat je meerdere Arduino's aan je computer kunt hangen en kunt schakelen &mdash; vooral handig als je meerdere experimenten vanaf één computer wilt aansturen.
 
 !!! opdracht-inlever "Pythondaq: selecteer Arduino"
     === "opdracht"
          Pas de GUI aan zodat het mogelijk is om een device te selecteren.
         </br></br>
-        De gebruiker test de GUI met de volgende handelingen. De gebruiker typte het commando in de terminal en er verschijnt een GUI met daarin een lege plot. De gebruiker ziet ook een keuzemenu (`#!py QComboBox`), de gebruiker klikt op het keuzemenu en ziet een lijstje van poorten verschijnen. De gebruiker selecteert de poort waarop de Arduino is aangesloten. De gebruiker start een meting en ziet het LEDje branden.
+        De gebruiker test de GUI met de volgende handelingen. De gebruiker typt het commando in de terminal en er verschijnt een GUI met daarin een lege plot. De gebruiker ziet ook een keuzemenu (`#!py QComboBox`), de gebruiker klikt op het keuzemenu en ziet een lijstje van poorten verschijnen. De gebruiker selecteert de poort waarop de Arduino is aangesloten. De gebruiker start een meting en ziet de LED branden.
         </br></br>
-        De gebruiker leent een (of twee, of drie) Arduino('s) bij de buren en sluit deze aan op de computer en start opnieuw de applicatie. Ditmaal ziet de gebruiker veel meer poorten in het keuzemenu staan. De gebruiker kiest een Arduino, start een meting en ziet een lampje branden. De gebruiker selecteert daarna een andere Arduino, start een meting en ziet een ander lampje branden, hoe leuk {{feesttoeter}}.
+        De gebruiker leent één (of twee, of drie) Arduino('s) bij de buren en sluit deze aan op de computer en start opnieuw de applicatie. Ditmaal ziet de gebruiker veel meer poorten in het keuzemenu staan. De gebruiker kiest een Arduino, start een meting en ziet een LED branden. De gebruiker selecteert daarna een andere Arduino, start een meting en ziet een ander LED branden. Hoe leuk {{feesttoeter}}.
 
         !!! meer-leren "Arduino afsluiten"
-            Als je met meerdere Arduino's werkt kan het handig zijn om na afloop van de scan de communicatie met de Arduino weer te sluiten. In de [_opdracht Pyvisa in terminal_](communicatie.md#opd:pyvisaterminal) heb je al eens gewerkt met het commando `close`. Dit werkt ook voor pyvisa in een script. Je hebt in de controller de communicatie geopend met `#!py self.device = rm.open_resource(port, read_termination="\r\n", write_termination="\n")`, je kunt de communicatie met `self.device` in de controller sluiten met `self.device.close()`. Je kunt een method in de controller toevoegen die de communicatie sluit. Via het model kun je deze method aanroepen in de gui.
+            Als je met meerdere Arduino's werkt kan het handig zijn om na afloop van de scan de communicatie met de Arduino weer te sluiten. In de [_opdracht Pyvisa in terminal_](communicatie.md#opd:pyvisaterminal) heb je al eens gewerkt met het commando `close`. Dit werkt ook voor pyvisa in een script. Je hebt in de controller de communicatie geopend met `#!py self.device = rm.open_resource(port, read_termination="\r\n", write_termination="\n")`, je kunt de communicatie met `self.device` in de controller sluiten met `self.device.close()`. Je kunt een method in de controller toevoegen die de communicatie sluit. Via het model kun je deze method aanroepen in de GUI.
 
     === "code"
         **Pseudo-code**
@@ -1255,10 +1256,10 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft! Helaas is dit moeil
             # start scan
         ```
     === "check"
-        **Checkpunten:**
+        **Checkpunten**
     
         - [ ] In de applicatie kan een Arduino geselecteerd worden.
-        - [ ] De gekozen Arduino wordt gebruikt tijdens het uitvoeren van een scan
+        - [ ] De gekozen Arduino wordt gebruikt tijdens het uitvoeren van een scan.
 
         **Projecttraject**
     
