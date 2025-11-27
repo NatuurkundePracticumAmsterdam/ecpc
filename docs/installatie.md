@@ -14,7 +14,10 @@ winget install microsoft.visualstudiocode
 winget install github.githubdesktop
 winget install git.git
 ```
-
+In de PowerShell (de standaard shell) is het nodig om toestemming te geven om scripts uit te voeren. Het volgende commando staat dat toe voor de huidige gebruiker (jijzelf) voor scripts die digitaal zijn ondertekend waardoor Microsoft ze kan blokkeren als dat nodig is:
+```
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+```
 
 ## Installatie &mdash; macOS
 
