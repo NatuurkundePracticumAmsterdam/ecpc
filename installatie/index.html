@@ -956,14 +956,17 @@
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>winget install microsoft.visualstudiocode
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>winget install github.githubdesktop
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>winget install git.git
+</span></code></pre></div>
+In de PowerShell (de standaard shell) is het nodig om toestemming te geven om scripts uit te voeren. Het volgende commando staat dat toe voor de huidige gebruiker (jijzelf) voor scripts die digitaal zijn ondertekend waardoor Microsoft ze kan blokkeren als dat nodig is:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 </span></code></pre></div></p>
 <h2 id="installatie-macos">Installatie &mdash; macOS<a class="headerlink" href="#installatie-macos" title="Permanent link">&para;</a></h2>
 <p>We gebruiken Visual Studio Code en GitHub Desktop. Je kunt die via de verschillende websites downloaden en installeren, maar het kan ook vanuit een terminal met Homebrew, een populaire package manager. Doe vooral wat je fijn vindt. Installeer de package manager <em>Homebrew</em> als volgt. Open een <em>terminal</em> en type in (of kopieer van \url{https://brew.sh}):
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
 </span></code></pre></div>
 Sluit de terminal af en open een <em>nieuwe</em> terminal. We installeren de ontwikkelomgeving met:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>brew install visual-studio-code
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>brew install github
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>brew install visual-studio-code
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>brew install github
 </span></code></pre></div>
 Zie voor verdere instructies de volgende secties.</p>
 <h2 id="installatie-linux">Installatie &mdash; Linux<a class="headerlink" href="#installatie-linux" title="Permanent link">&para;</a></h2>
@@ -971,10 +974,10 @@ Zie voor verdere instructies de volgende secties.</p>
 <p>Sommige Linuxdistributies geven je niet automatisch voldoende rechten om verbinding te maken met willekeurige USB-devices (zoals onze meetapparatuur). Je zult dan bijvoorbeeld toegevoegd moeten worden aan de <code>dialout</code> groep. Sommige devices worden nog niet herkend door het systeem en moeten handmatig worden toegevoegd in <code>/etc/udev/rules.d</code> voordat je ze kunt gebruiken. Houd hier rekening mee, zoek zelf naar informatie of vraag om hulp op de zaal.</p>
 <h2 id="vs-code-extensions-alle-oses">VS Code extensions &mdash; Alle OSes<a class="headerlink" href="#vs-code-extensions-alle-oses" title="Permanent link">&para;</a></h2>
 <p>Sluit de terminal of prompt af. Je kunt in Visual Studio Code zelf extensies zoeken en installeren door te klikken op het 'blokjes' icoon in de linkerbalk. De namen van de extenties staan hieronder. Je kunt ze ook in een terminal of prompt installeren. Open dan een <em>nieuwe</em> terminal of prompt. We installeren de extensions voor Visual Studio Code in één keer met:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>code --install-extension ms-python.python
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>code --install-extension charliermarsh.ruff
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>code --install-extension tamasfe.even-better-toml
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>code --install-extension njpwerner.autodocstring
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>code --install-extension ms-python.python
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>code --install-extension charliermarsh.ruff
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>code --install-extension tamasfe.even-better-toml
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>code --install-extension njpwerner.autodocstring
 </span></code></pre></div></p>
 <h2 id="instellingen-vs-code-alle-oses">Instellingen VS Code &mdash; Alle OSes<a class="headerlink" href="#instellingen-vs-code-alle-oses" title="Permanent link">&para;</a></h2>
 <p>Er zijn drie instellingen om je code automatisch wat op te schonen en import statements te sorteren. Op die manier hoef je je veel minder druk te maken over hoe netjes je code eruitziet. Elke keer als je je bestand opslaat gaat de tool <em>ruff</em> aan het werk.</p>
