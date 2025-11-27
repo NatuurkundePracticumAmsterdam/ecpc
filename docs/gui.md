@@ -1005,14 +1005,36 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
 !!! info "Programmeren of Designer?"
     Je mag zelf kiezen of je de grafische interface gaat ontwerpen met Designer of dat je hem volledig programmeert. Hieronder staan een paar handige tips en trucs voor als je besluit Designer te gebruiken.
 
+    !!! info "Designer op macOS"
+
+        Op moment van schrijven (najaar 2025) heeft Designer problemen met zowel de Anaconda Python als de uv Python. Dit merk je aan de volgende foutmelding als je Designer opstart:
+        ```
+        Unable to find Python library directory. Use a framework build of Python.
+        ```
+        Dit los je op door de officiële Pythoninstaller te gebruiken:
+
+        1. Ga naar [https://www.python.org/](https://www.python.org/) en click op Downloads -> macOS.
+        2. Goed lezen en scrollen, en klik onder `Python 3.12.10 - April 8, 2025` op Download `macOS 64-bit universal2 installer`.
+        3. Start de installer en kies alle defaults. Hij opent nog een popup, klik terug naar de installer en wacht tot hij echt helemaal klaar is.
+        4. In een terminal in je pythondaq project, voer uit:
+            ```
+            uv venv --python /usr/local/bin/python3.12
+            ```
+            en kies Yes 
+        5. Type in `uv sync` en controleer dat er als eerste regel staat:
+            ```
+            Using CPython 3.12.10 interpreter at: /Library/Frameworks/Python.framework/Versions/3.12/bin/python3.12
+            ```
+        6. Start `pyside6-designer` om te controleren of het werkt.
+
     ### Plotwidget toevoegen in Designer
     Voeg als volgt een plot widget toe in Designer:
 
-    1. Voeg aan je interface een _Graphics View_ toe.
-    2. Klik op de _Graphics View_ om hem te selecteren en klik daarna op de rechtermuistoets.
-    3. Kies voor _Promote To ..._.
-    4. Bij _Promoted class name_ vul je in `PlotWidget` en bij _Header file_ vul je in `pyqtgraph` (zonder `.h` aan het eind).
-    5. Dan klik je op _Add_ en vervolgens op _Promote_.
+    1.  Voeg aan je interface een _Graphics View_ toe.
+    2.  Klik op de _Graphics View_ om hem te selecteren en klik daarna op de rechtermuistoets.
+    3.  Kies voor _Promote To ..._.
+    4.  Bij _Promoted class name_ vul je in `PlotWidget` en bij _Header file_ vul je in `pyqtgraph` (zonder `.h` aan het eind).
+    5.  Dan klik je op _Add_ en vervolgens op _Promote_.
     
     De stappen zijn weergegeven in onderstaand screenshot. Bij de rode pijl vind je _Graphics View_ en in het rode kader staat wat je moet invullen om te promoten:
 
@@ -1023,12 +1045,12 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
     ### Commando toevoegen om .ui te vertalen naar .py
     Als je Designer gaat gebruiken voor de grafische interface dan is het lastig dat je steeds `pyside-uic` moet aanroepen en moet zorgen dat je in de goede directory staat. Je kunt met uv taken aanmaken die je met een eenvoudig commando kunt laten uitvoeren. Die taken zijn alleen beschikbaar tijdens het ontwikkelen van je applicatie. Doe dit als volgt:
 
-    6. Installeer _Poe the Poet_ &mdash; een zogeheten _task runner_ &mdash; _globaal_ met:
+    6.  Installeer _Poe the Poet_ &mdash; een zogeheten _task runner_ &mdash; _globaal_ met:
         ``` ps1con title="Terminal"
         uv tool install poethepoet
         ```
     Je geeft hiermee aan dat je deze package wilt kunnen aanroepen vanuit de terminal, ongeacht in welke map of in welk virtual environment je zit.
-    7. Voeg aan je {{file}}`pyproject.toml` het volgende toe &mdash; uitgaande van de mappenstructuur in de `pythondaq` package en {{file_lines}}`mainwindow.ui` als naam van je `.ui`-bestand:
+    7.  Voeg aan je {{file}}`pyproject.toml` het volgende toe &mdash; uitgaande van de mappenstructuur in de `pythondaq` package en {{file_lines}}`mainwindow.ui` als naam van je `.ui`-bestand:
         ``` toml
         [tool.poe.tasks.compile]
         shell = """
@@ -1037,7 +1059,7 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
         interpreter = ["posix", "powershell"]
         ```
         Je kunt binnen de driedubbele aanhalingstekens meerdere regels toevoegen als je meerdere `.ui`-bestanden hebt &mdash; voor ieder bestand een regel.
-    8. In bovenstaande regels is de naam _na_ `tool.poe.tasks` de naam van de taak &mdash; in dit geval dus `compile`. Je kunt die naam zelf kiezen en vervolgens gebruiken om de taak uit te voeren in de terminal:
+    8.  In bovenstaande regels is de naam _na_ `tool.poe.tasks` de naam van de taak &mdash; in dit geval dus `compile`. Je kunt die naam zelf kiezen en vervolgens gebruiken om de taak uit te voeren in de terminal:
         ``` ps1con title="Terminal"
         poe compile
         ```
