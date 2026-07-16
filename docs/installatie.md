@@ -55,7 +55,7 @@ Er zijn drie instellingen om je code automatisch wat op te schonen en import sta
 1. Kies **File>Preferences>Settings** of druk op ctrl-, (control-komma).
 2. Type nu in het zoekvenster: `format on save` en vink de bovenste instelling aan.
 3. Type nu in het zoekvenster: `@lang:python default formatter` en kies `Ruff`
-4. Type nu in het zoekvenster: `@lang:python code actions on save` en kies `Edit in settings.json` en kies dan in het menuutje `source.organizeImports` en dan `explicit`. Sla dan het bestand op met **File>Save** of ctrl+s.
+4. Type nu in het zoekvenster: `@lang:python code actions on save` en kies `Edit in settings.json` en kies dan in het menuutje `source.organizeImports` en dan `explicit`. Sla dan het bestand op met **File>Save** of ++ctrl+s++.
 5. Sluit de settingstabbladen.
 
 Zodra je een Pythonbestand hebt geopend kun je rechts onderin bij `Select interpreter` het juiste environment kiezen.
