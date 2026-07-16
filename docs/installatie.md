@@ -21,7 +21,7 @@ Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 
 ## Installatie &mdash; macOS
 
-We gebruiken Visual Studio Code en GitHub Desktop. Je kunt die via de verschillende websites downloaden en installeren, maar het kan ook vanuit een terminal met Homebrew, een populaire package manager. Doe vooral wat je fijn vindt. Installeer de package manager _Homebrew_ als volgt. Open een _terminal_ en type in (of kopieer van \url{https://brew.sh}):
+We gebruiken Visual Studio Code en GitHub Desktop. Je kunt die via de verschillende websites downloaden en installeren, maar het kan ook vanuit een terminal met Homebrew, een populaire package manager. Doe vooral wat je fijn vindt. Installeer de package manager _Homebrew_ als volgt. Open een _terminal_ en type in (of kopieer van [https://brew.sh](https://brew.sh)):
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
