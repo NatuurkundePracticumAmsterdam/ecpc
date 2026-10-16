@@ -492,7 +492,7 @@ Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de len
         **Pseudo-code**
         ``` py
         F = [1.2, 1.8, 2.4, 2.7, 3.1] # N
-        s = [0.3, 0.4, 0.6, 0.8, 1.0] # m 
+        s = [0.3, 0.4, 0.6, 0.8, 1.0] # m
 
         # repeat
         #   print F, s, W
