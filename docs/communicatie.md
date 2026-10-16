@@ -321,7 +321,7 @@ Jammer maar helaas, verschillende besturingssystemen hebben verschillende conven
         ```
         - [ ] Als je het commando `query` verstuurt om de identificatiestring uit te lezen, verschijnt er:  
         ``` consolecode
-        Response: Arduino VISA firmware v1.1.0
+        Response: Arduino VISA firmware v1.2.0
         ```
 
         **Projecttraject**
@@ -422,7 +422,7 @@ print(identification)
 <pre>
 <code>(ECPC) > python test_arduino.py
 <span class="invisible" name="test_arduino">('ASRL28::INSTR',)
-Arduino VISA firmware v1.1.0</span>
+Arduino VISA firmware v1.2.0</span>
 </code></pre></div>
 
 De output van het script is afhankelijk van het systeem en het aantal apparaten dat verbonden is.
@@ -577,7 +577,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         <pre>
         <code>(ECPC) > python test_arduino.py
         <span class="invisible" name="test_arduino_test_code">('ASRL28::INSTR',)
-        Arduino VISA firmware v1.1.0</span>
+        Arduino VISA firmware v1.2.0</span>
         </code></pre></div>
     === "check"
         **Checkpunten**

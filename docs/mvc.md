@@ -123,7 +123,7 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs do
         <pre>
         <code>(ECPC) > python test_controller.py
         <span class="invisible" name="basisscript_controller">('ASRL28::INSTR') 
-        Arduino VISA firmware v1.1.0
+        Arduino VISA firmware v1.2.0
         ch2_value=224
         ch2_voltage=0.7774193548387097
         ch0_value=828</span>
