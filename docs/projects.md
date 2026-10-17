@@ -239,6 +239,7 @@ Nu ga je starten met de package. Je gaat een aantal keer de foutmelding `#!py Mo
             """Statistical functions related to measurements."""
 
             import numpy as np
+
             from shortcuts import stdev_of_mean
 
 
@@ -251,7 +252,6 @@ Nu ga je starten met de package. Je gaat een aantal keer de foutmelding `#!py Mo
             """Test the easystat package."""
 
             from measurements import result_with_uncertainty
-
 
             measurements = [1, 2, 2, 2, 3]
             result, uncertainty = result_with_uncertainty(measurements)
