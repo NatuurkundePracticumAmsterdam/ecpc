@@ -192,7 +192,7 @@ De sectie `[project.scripts]` zorgt ervoor dat je het script kunt aanroepen door
     === "check"
         **Checkpunten**
     
-        - [ ] In Visual Studio Code staat rechtsonderin je Python environment geselecteerd (3.12.x (easystat)).
+        - [ ] In Visual Studio Code staat rechtsonderin je Python environment geselecteerd (easystat (3.13.x)).
         - [ ] In de terminal staat (easystat) vooraan de opdrachtprompt.
         - [ ] Het commando `easystat` runt zonder problemen.
 
