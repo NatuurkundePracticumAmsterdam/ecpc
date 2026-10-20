@@ -425,6 +425,14 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
         - [x] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
 
+!!! opdracht-meer "Drift"
+    Als het goed is heb je nu, voordat je de loop met herhaalmetingen in gaat, de output voltage ingesteld. Dit kan je net zo goed binnen de loop hebben gedaan. Nou kan je je af vragen of deze keuze een effect heeft op de waardes die je meet. Het zou namelijk kunnen dat het instellen van de spanning eenmalig gebeurdt of dat de Arduino de spanning vast houdt op de ingestelde waarde. In het eerste geval zal de spanning dus langzaam kunnen verschuiven van de ingestelde waarde. Dit heeft natuurlijk een effect als je herhaalmetingen doet.
+
+    Maak een script `drift.py` waarin je spanning op de LED eenmalig insteld en dan de spanning meerdere malen meet over een tijdsinterval. Plot vervolgens de spanning tegen de tijd en kijk of er een meetbare verschuiving is.
+
+!!! opdracht-meer "Temperatuur afhankelijkheid van de LED"
+    
+
 ## Bewaren van meetgegevens
 
 Het is fijn dat je script de meetgegevens op het scherm kan printen en er een grafiek van maakt, maar als je echt bezig bent met een onderzoek is een grafiek alleen niet voldoende. Je wilt dat de data bewaard blijft, zodat je die later nog kunt gebruiken voor nieuwe analyses. Ook is het zo dat data steeds vaker beschikbaar moet zijn voor andere wetenschappers die jouw onderzoek willen controleren. Steeds meer wetenschappelijke tijdschriften vragen auteurs niet alleen hun grafieken, maar ook hun onderliggende data beschikbaar te maken en te publiceren. Op die manier is het veel moeilijker om fraude te plegen; iets dat in de wetenschap helaas soms nog voor komt.
