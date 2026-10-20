@@ -307,12 +307,13 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
 
     ## Pull- en merge requests
 
-    Bij grote softwareprojecten met meerdere ontwikkelaars is het op GitHub standaard om te werken met een pull request (PR). Nadat je op jouw eigen branch een aantal features hebt toegevoegd, kan je een pull request openen. Je vraagt hiermee aan de eigenaar of maintainer van de repository om jouw werk te bekijken, eventueel aan te passen, en dan te mergen. De maintainer kan op diens beurt ook feedback geven of om aanpassingen vragen.
+    Bij grote softwareprojecten met meerdere ontwikkelaars is het op GitHub standaard om te werken met een pull request (PR). Nadat je op jouw eigen branch een aantal features hebt toegevoegd, kan je een pull request openen. Je vraagt hiermee aan de eigenaar of maintainer van de repository om jouw werk te bekijken, eventueel aan te passen, en dan te mergen. De maintainer kan op diens beurt ook feedback geven of om aanpassingen vragen. Hiermee kan je dus ook zelf bijdragen aan een heleboel open-source projecten!
 
     !!! opdracht-meer "Pull requests"
 
         1. Werk samen met een vriend of buur.
-        2. Publiceer allebei je repository op GitHub en geef elkaar toegang als collaborator.
-        3. Maak ieder een nieuwe branch aan in de repository van de ander, breng een aantal wijzigingen aan en commit deze.
-        4. Push je branch naar GitHub en open een pull request.
-        5. Bekijk elkaars pull request en merge de wijzigingen in de main branch.
+        2. Publiceer allebei je repository op GitHub.
+        3. Fork elkaars repository en maak daarop een nieuwe branch aan.
+        4. Breng een aantal aanpassingen aan op het werk van je partner.
+        5. Publiceer je branch naar GitHub en open een pull request.
+        6. Bekijk elkaars pull request en merge de wijzigingen in de main branch.
