@@ -1005,28 +1005,6 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
 !!! info "Programmeren of Designer?"
     Je mag zelf kiezen of je de grafische interface gaat ontwerpen met Designer of dat je hem volledig programmeert. Hieronder staan een paar handige tips en trucs voor als je besluit Designer te gebruiken.
 
-    !!! info "Designer op macOS"
-
-        Op moment van schrijven (najaar 2025) heeft Designer problemen met zowel de Anaconda Python als de uv Python. Dit merk je aan de volgende foutmelding als je Designer opstart:
-        ```
-        Unable to find Python library directory. Use a framework build of Python.
-        ```
-        Dit los je op door de officiële Pythoninstaller te gebruiken:
-
-        1. Ga naar [https://www.python.org/](https://www.python.org/) en click op Downloads -> macOS.
-        2. Goed lezen en scrollen, en klik onder `Python 3.12.10 - April 8, 2025` op Download `macOS 64-bit universal2 installer`.
-        3. Start de installer en kies alle defaults. Hij opent nog een popup, klik terug naar de installer en wacht tot hij echt helemaal klaar is.
-        4. In een terminal in je pythondaq project, voer uit:
-            ```
-            uv venv --python /usr/local/bin/python3.12
-            ```
-            en kies Yes 
-        5. Type in `uv sync` en controleer dat er als eerste regel staat:
-            ```
-            Using CPython 3.12.10 interpreter at: /Library/Frameworks/Python.framework/Versions/3.12/bin/python3.12
-            ```
-        6. Start `pyside6-designer` om te controleren of het werkt.
-
     ### Plotwidget toevoegen in Designer
     Voeg als volgt een plot widget toe in Designer:
 
