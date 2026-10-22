@@ -254,7 +254,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         #
         # set output voltage from 0 to max
         #   measure voltages
-        #   calculate voltage LED 
+        #   calculate voltage LED
         #   calculate voltage resistor
         #   print LED: raw_voltage_LED (voltage_LED V) Resistor: raw_voltage_resistor (voltage_resistor V)
         ```
@@ -362,7 +362,7 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
         In het experiment ga je straks de metingen een aantal keer herhalen. Je kunt dan op twee manieren het gemiddelde van de benodigde grootheden bepalen en de bijbehorende onzekerheden. 
         
         1. Je kunt dit stap voor stap doen, als een schildpad. Bij elke waarde van $U_0$ meet je een aantal keer de waardes van $U_1$ en $U_2$, waarna je een gemiddelde en de bijbehorende onzekerheid berekent. Daarna doe je hetzelfde voor de volgende waarde van $U_0$. 
-        2. Je kunt ook eerst voor het hele bereik van $U_0$ de waardes van $U_1$ en $U_2$ bepalen, als een raket. Dit herhaal je daarna een aantal keer. Pas nadat je álle metingen gedaan hebt, ga je een gemiddelde en de bijbehorende onderzekerheid berekenen.
+        2. Je kunt ook eerst voor het hele bereik van $U_0$ de waardes van $U_1$ en $U_2$ bepalen, als een raket. Dit herhaal je daarna een aantal keer. Pas nadat je álle metingen gedaan hebt, ga je een gemiddelde en de bijbehorende onzekerheid berekenen.
         
         Bespreek met je buurmens de voor- en nadelen van beide manieren. Maak hierin onderscheid tussen het experimentele gebied en het programmeergebied.
 
@@ -387,11 +387,11 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
         ```py title="diode_experiment.py"
         # connect to Arduino
         #
-        # set output voltage from 0 to max 
+        # set output voltage from 0 to max
         #   set number of repeated measurements
         #       measure voltages
         #       calculate voltage LED
-        #       calculate current LED       
+        #       calculate current LED
         #   calculate average voltage LED and uncertainty
         #   calculate average current LED and uncertainty
         #   print average voltage: average_voltage_LED +/- err_average_voltage_LED V  average current: average_current_LED +/- err_average_current_LED A
@@ -459,7 +459,7 @@ Het viel je misschien op dat in bovenstaand CSV-bestand op iedere regel een waar
 === "with_zip.py"
     <div class="code-box"><button type="button" name="with_zip.py_suffix" onclick="runScript('with_zip.py_suffix')" class="run">{{ run }}</button><button type="button" name="with_zip.py_suffix" onclick="runScript('with_zip.py_suffix')" class="reload invisible">{{ reload }}</button> with_zip.py
     ``` py
-    --8<-- "scripts/with_zip.py"
+    --8 < --"scripts/with_zip.py"
     ```
     <pre>
     <code>(ECPC) > python with_zip.py
@@ -471,7 +471,7 @@ Het viel je misschien op dat in bovenstaand CSV-bestand op iedere regel een waar
 === "with_indexing.py"
     <div class="code-box"><button type="button" name="with_indexing.py_suffix" onclick="runScript('with_indexing.py_suffix')" class="run">{{ run }}</button><button type="button" name="with_indexing.py_suffix" onclick="runScript('with_indexing.py_suffix')" class="reload invisible">{{ reload }}</button> with_indexing.py
     ``` py
-    --8<-- "scripts/with_indexing.py"
+    --8 < --"scripts/with_indexing.py"
     ```
     <pre>
     <code>(ECPC) > python with_indexing.py
@@ -491,8 +491,8 @@ Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de len
     === "code"
         **Pseudo-code**
         ``` py
-        F = [1.2, 1.8, 2.4, 2.7, 3.1] # N
-        s = [0.3, 0.4, 0.6, 0.8, 1.0] # m
+        F = [1.2, 1.8, 2.4, 2.7, 3.1]  # N
+        s = [0.3, 0.4, 0.6, 0.8, 1.0]  # m
 
         # repeat
         #   print F, s, W
@@ -515,7 +515,7 @@ Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de len
 Wanneer je de `#!py csv`-module wilt gebruiken moet je éérst een bestand openen om in te schrijven, daarna een <q>writer</q> object aanmaken en dat object daarna gebruiken om regels te schrijven. Als laatste moet het bestand netjes afgesloten worden, zodat het bestand ook echt naar de schijf weggeschreven wordt. Het openen en sluiten van een bestand kun je Python het beste laten doen met het `#!py with`-statement:[^context-manager]
 
 ``` py hl_lines="1"
-with open('metingen.csv', 'w', newline='') as csvfile:
+with open("metingen.csv", "w", newline="") as csvfile:
     # csvfile is nu een bestandsobject
     ...
     # na dit blok sluit Python automatisch het bestand
@@ -526,9 +526,9 @@ Bij `#!py open()` geef je eerst de naam van het bestand, dan `#!py 'w'` om aan t
 ``` py hl_lines="1 4-8"
 import csv
 
-with open('metingen.csv', 'w', newline='') as csvfile:
+with open("metingen.csv", "w", newline="") as csvfile:
     writer = csv.writer(csvfile)
-    writer.writerow(['t', 's'])
+    writer.writerow(["t", "s"])
     writer.writerow([0.0, 0.0])
     writer.writerow([1.0, 4.9])
     writer.writerow([2.0, 19.6])
@@ -552,7 +552,7 @@ Je kunt het wegschrijven van de regels natuurlijk vervangen door een `#!py for`-
         #   set number of repeated measurements
         #       measure voltages
         #       calculate voltage LED
-        #       calculate current LED       
+        #       calculate current LED
         #   calculate average voltage LED and uncertainty
         #   calculate average current LED and uncertainty
         #   print average voltage: average_voltage_LED +/- err_average_voltage_LED V  average current: average_current_LED +/- err_average_current_LED A
