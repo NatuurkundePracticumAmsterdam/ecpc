@@ -15,7 +15,7 @@ PS> python script.py
 ```
 Als eerste vertel je welke applicatie je wilt gaan starten; in dit geval: `python`. Daarna geef je met het _argument_ `script.py` aan welk Pythonscript je wilt uitvoeren. Vaak kun je ook _opties_[^opties] meegeven zoals in:
 <pre><code>PS> python -V <button type="button" name="python -V" onclick="runScript('python -V')">{{ enter }}</button><button type="button" name="python -V" onclick="runScript('python -V')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="python -V">Python 3.13.5</span>
+<span class="invisible" name="python -V">Python 3.14.5</span>
 </code></pre>
 
 Hiermee vraag je Python om het versienummer weer te geven. Soms kunnen _opties_ zelf weer een _argument_ meekrijgen. Bijvoorbeeld:
@@ -28,11 +28,11 @@ Met deze regel geef je Python de optie `-m` mee en die importeert een module (hi
 
 Als applicaties veel verschillende functionaliteit hebben dan krijg je regelmatig te maken met een lange regel met een combinatie van argumenten en opties:
 ``` ps1con title="Terminal"
-PS> uv venv --python 3.13
+PS> uv venv --python 3.14
 ```
 Uitgesplitst in <mark>_argumenten_</mark> en __opties__, met vierkante haken [] om aan te geven welke onderdelen bij elkaar horen, is dat:
 
-<q>uv <mark>_venv_</mark> [__--python__ <mark>_3.13_</mark>]</q>
+<q>uv <mark>_venv_</mark> [__--python__ <mark>_3.14_</mark>]</q>
 
 
 !!! opdracht-basis-thuis "uv argumenten"
@@ -101,6 +101,7 @@ Als kort voorbeeld &mdash; geïnspireerd op de documentatie van Click &mdash; ne
 def hello():
     print("Hello physicist!")
 
+
 if __name__ == "__main__":
     hello()
 ```
@@ -110,9 +111,11 @@ Dit script print de uitdrukking "Hello physicist!". Je gaat dit script aanpassen
 ``` py title="hello.py" hl_lines="3"
 import click
 
+
 @click.command()
 def hello():
     print("Hello physicist!")
+
 
 if __name__ == "__main__":
     hello()
@@ -152,10 +155,10 @@ Om de code te runnen moet je wel een virtual environment aanmaken, activeren en 
 
         # make function Click command
         # function
-            # print hello physicist!
+        # print hello physicist!
 
         # when run this script:
-            # run function
+        # run function
         ```
         **Testcode**
         <pre><code>(oefenopdrachten) > python hello.py --help <button type="button" name="python hello.py_help" onclick="runScript('python hello.py_help')">{{ enter }}</button><button type="button" name="python hello.py_help" onclick="runScript('python hello.py_help')" class="invisible">{{ reload }}</button>
@@ -188,10 +191,12 @@ In de code hieronder wordt met de regel `#!py @click.argument("name")` aangegeve
 ``` py title="hello.py" hl_lines="4 6"
 import click
 
+
 @click.command()
 @click.argument("name")
 def hello(name):
     print(f"Hello {name}!")
+
 
 if __name__ == "__main__":
     hello()
@@ -208,10 +213,10 @@ if __name__ == "__main__":
         # make function Click command
         # make argument name
         # function, parameter name
-            # print hello <name>!
+        # print hello <name>!
 
         # when run this script:
-            # run function
+        # run function
         ```
         **Testcode**
         <pre><code>(oefenopdrachten) > python hello.py <button type="button" name="hello.py_name" onclick="runScript('hello.py_name')">{{ enter }}</button><button type="button" name="hello.py_name" onclick="runScript('hello.py_name')" class="invisible">{{ reload }}</button>
@@ -246,6 +251,7 @@ Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij _opt
 ``` py title="hello.py" hl_lines="5-9 11"
 import click
 
+
 @click.command()
 @click.argument("name")
 @click.option(
@@ -256,6 +262,7 @@ import click
 def hello(name, count):
     for _ in range(count):
         print(f"Hello {name}!")
+
 
 if __name__ == "__main__":
     hello()
@@ -273,11 +280,11 @@ if __name__ == "__main__":
         # make argument name
         # make option count with default value 1
         # function, parameter name and count
-            # repeat count times
-                # print hello <name>!
+        # repeat count times
+        # print hello <name>!
 
         # when run this script:
-            # run function
+        # run function
         ```
         **Testcode**
         <pre><code>(oefenopdrachten) > python hello.py David -c 5 <button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')">{{ enter }}</button><button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')" class="invisible">{{ reload }}</button>
@@ -321,6 +328,7 @@ Het is handig om een korte helptekst toe te voegen. Dit gaat als volgt:
 ``` py title="hello.py" hl_lines="9-10"
 import click
 
+
 @click.command()
 @click.argument("name")
 @click.option(
@@ -330,12 +338,13 @@ import click
     help="Number of times to print greeting.",
     show_default=True,  # show default in help
 )
-def hello(name,count):
+def hello(name, count):
     for _ in range(count):
         print(f"Hello {name}!")
 
+
 if __name__ == "__main__":
-    hello()  
+    hello()
 ```
 
 !!! opdracht-basis "Helptekst toevoegen"
@@ -351,11 +360,11 @@ if __name__ == "__main__":
         # make argument name
         # make option count with default value 1 and help
         # function, parameter name and count
-            # repeat count times
-                # print hello <name>!
+        # repeat count times
+        # print hello <name>!
 
         # when run this script:
-            # run function
+        # run function
         ```
 
     === "check"    
@@ -418,12 +427,12 @@ Hello Alice!</span>
         # make option count with default value 1 and help
         # make option pause
         # function, parameter name, count and pause
-            # repeat count times
-                # print hello <name>!
-                # pause
+        # repeat count times
+        # print hello <name>!
+        # pause
 
         # when run this script:
-            # run function
+        # run function
         ```
         **Testcode**
         <pre><code>(oefenopdrachten) > python hello.py David -c 5 <button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')">{{ enter }}</button><button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')" class="invisible">{{ reload }}</button>
@@ -471,13 +480,13 @@ Opties zonder argument werken als vlag &mdash; een soort aan-/uitknop.[^flag]
         # make option pause
         # make boolean flag tea/no-tea
         # function, parameter name, count, pause and tea
-            # repeat count times
-                # print hello <name>!
-                # if wished offer tea
-                # pause
+        # repeat count times
+        # print hello <name>!
+        # if wished offer tea
+        # pause
 
         # when run this script:
-            # run function
+        # run function
         ```
         **Testcode**
         <pre><code>(oefenopdrachten) > python hello.py David -c 5 <button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')">{{ enter }}</button><button type="button" name="python hello.py David -c 5" onclick="runScript('python hello.py David -c 5')" class="invisible">{{ reload }}</button>
@@ -519,6 +528,7 @@ Opties zonder argument werken als vlag &mdash; een soort aan-/uitknop.[^flag]
         from easystat.measurements import result_with_uncertainty
 
         # add click-related code to pass measurements as an argument to easystat
+
 
         def main(measurements):
             result, uncertainty = result_with_uncertainty(measurements)
@@ -945,9 +955,9 @@ In het [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplit
         **Pseudo-code**
         ```py title="cli.py"
         # subcommando list
-            # print Work in progress, list devices
+        # print Work in progress, list devices
         # subcommando scan
-            # print Work in progress, scan LED
+        # print Work in progress, scan LED
         ```
         **Testcode**
         <pre><code>(pythondaq) > diode list <button type="button" name="diode list" onclick="runScript('diode list')">{{ enter }}</button><button type="button" name="diode list" onclick="runScript('diode list')" class="invisible">{{ reload }}</button>
@@ -996,10 +1006,10 @@ Je gaat je nu eerst richten op het uitvoeren van een volledige meetserie en het 
         **Pseudo-code**
         ```py
         # subcommando scan with range in Volt and output CSV
-            # start scan with range
-            # print current and voltage
-            # if output:
-                # create csv
+        # start scan with range
+        # print current and voltage
+        # if output:
+        # create csv
         ```
     === "check"
         **Checkpunten**
@@ -1031,10 +1041,10 @@ Je gaat je nu eerst richten op het uitvoeren van een volledige meetserie en het 
         **Pseudo-code**
         ```py
         # subcommando scan with range in Volt, output CSV and repeat measurements
-            # start scan with range and repeat measurements
-            # print current, voltage and errors
-            # if output:
-                # create csv
+        # start scan with range and repeat measurements
+        # print current, voltage and errors
+        # if output:
+        # create csv
         ```
     === "check"
         **Checkpunten**
@@ -1105,7 +1115,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         **Pseudo-code**
         ```py
         # subcommando info with device
-            # print identificationstring of device
+        # print identificationstring of device
         ```
         **Testcode**
         <pre><code>(pythondaq) > diode info ASRL28::INSTR <button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')">{{ enter }}</button><button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')" class="invisible">{{ reload }}</button>

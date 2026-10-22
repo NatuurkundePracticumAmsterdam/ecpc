@@ -152,8 +152,8 @@ Nadat je de environment hebt geactiveerd (zie [environment activeren](virtual_en
 Nadat je de environment hebt geactiveerd (zie [environment activeren](virtual_environments.md#activeren-en-deactiveren)) kun je packages in de virtual environment installeren, dit kun je met de onderstaande code doen. 
 
 === "conda"
-    Merk op dat je meerdere packages tegelijk kunt installeren, in dit geval installeren we Python en SciPy tegelijkertijd. Ook is het mogelijk om een specifieke versie aan te geven, bijvoorbeeld Python=3.10
-    <pre><code>(my_env) > conda install python=3.10 scipy <button type="button" name="conda install python scipy_venv" onclick="runScript('conda install python scipy_venv')">{{ enter }}</button><button type="button" name="conda install python scipy_venv" onclick="runScript('conda install python scipy_venv')" class="invisible">{{ reload }}</button>
+    Merk op dat je meerdere packages tegelijk kunt installeren, in dit geval installeren we Python en SciPy tegelijkertijd. Ook is het mogelijk om een specifieke versie aan te geven, bijvoorbeeld Python=3.13
+    <pre><code>(my_env) > conda install python=3.13 scipy <button type="button" name="conda install python scipy_venv" onclick="runScript('conda install python scipy_venv')">{{ enter }}</button><button type="button" name="conda install python scipy_venv" onclick="runScript('conda install python scipy_venv')" class="invisible">{{ reload }}</button>
     <span class="invisible" name="conda install python scipy_venv">Retrieving notices: ...working... done
     Channels:
     - defaults
@@ -166,7 +166,7 @@ Nadat je de environment hebt geactiveerd (zie [environment activeren](virtual_en
     environment location: path\to\environment\with\name\my_env
     &nbsp;
     added / updated specs:
-        - python=3.10
+        - python=3.13
         - scipy
     ...</span>
     </code></pre>
@@ -179,8 +179,8 @@ Nadat je de environment hebt geactiveerd (zie [environment activeren](virtual_en
     
 Je kan ook gelijk bij het [aanmaken van de virtual environment](#virtual-environment-aanmaken) aangeven welke packages je erin wilt hebben.
 
-<pre><code>(ECPC) > conda create --name my_env python=3.10 numpy <button type="button" name="conda create --name my_env python=3.10 numpy_venv" onclick="runScript('conda create --name my_env python=3.10 numpy_venv')">{{ enter }}</button><button type="button" name="conda create --name my_env python=3.10 numpy_venv" onclick="runScript('conda create --name my_env python=3.10 numpy_venv')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="conda create --name my_env python=3.10 numpy_venv">Channels:
+<pre><code>(ECPC) > conda create --name my_env python=3.13 numpy <button type="button" name="conda create --name my_env python=3.13 numpy_venv" onclick="runScript('conda create --name my_env python=3.13 numpy_venv')">{{ enter }}</button><button type="button" name="conda create --name my_env python=3.13 numpy_venv" onclick="runScript('conda create --name my_env python=3.13 numpy_venv')" class="invisible">{{ reload }}</button>
+<span class="invisible" name="conda create --name my_env python=3.13 numpy_venv">Channels:
  - defaults
 Platform: osx-arm64
 Collecting package metadata (repodata.json): done
@@ -192,7 +192,7 @@ Solving environment: done
 &nbsp;
   added / updated specs:
     - numpy
-    - python=3.10
+    - python=3.13
 ...</span>
 </code></pre>
 

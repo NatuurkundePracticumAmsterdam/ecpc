@@ -481,11 +481,11 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "opdracht"
         Open een terminal in je Visual Studio Code-omgeving (**Menu > Terminal > New Terminal**). Maak de virtual environment aan met:
         ``` ps1con title="Terminal"
-        uv venv --python 3.13
+        uv venv --python 3.14
         ```
-        Met `--python 3.13` geef je aan: gebruik Pythonversie 3.13 (released in 2024). Je mag dat weglaten en dan kiest uv op basis van Pythonversies die je al geïnstalleerd hebt staan, maar als je een te oude versie gebruikt werken sommige dingen misschien niet.
+        Met `--python 3.14` geef je aan: gebruik Pythonversie 3.14 (released in 2025). Je mag dat weglaten en dan kiest uv op basis van Pythonversies die je al geïnstalleerd hebt staan, maar als je een te oude versie gebruikt werken sommige dingen misschien niet.
 
-        Om een virtual environment daadwerkelijk te gebruiken kun je die _activeren_. Dat kun je doen door in de pop-up "We've noticed that..." te kiezen voor "Yes", of door rechtsonderin op _Select Interpreter_ te klikken en dan te kiezen voor de omgeving (Python 3.13.x (ECPC) `.\.venv\Scripts\python.exe`):
+        Om een virtual environment daadwerkelijk te gebruiken kun je die _activeren_. Dat kun je doen door in de pop-up "We've noticed that..." te kiezen voor "Yes", of door rechtsonderin op _Select Interpreter_ te klikken en dan te kiezen voor de omgeving (Python 3.14.x (ECPC) `.\.venv\Scripts\python.exe`):
         
         ![Screenshot van popup om nieuw virtual environment te selecteren](figures/screenshot-new-venv-popup.png){: style="width:475px"}
         
@@ -687,6 +687,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
 
             ``` py
             import time
+
             # wait 28 second
             time.sleep(28)
             ```

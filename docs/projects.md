@@ -138,7 +138,7 @@ Laten we één voor één kijken welke mappen en bestanden uv heeft aangemaakt. 
 
 [^README]: Wanneer de repository op GitHub wordt geplaatst, wordt deze README automatisch op de hoofdpagina van de repository getoond, onder de code.
 
-Dan komt de {{folder}}`src`-map. Daarin komt het nieuwe package {{folder}}`easystat`[^projectmap] te staan. Er is alvast een {{file}}`__init__.py` aangemaakt. Handig! De bestanden {{file}}`.gitattributes` en {{file}}`.gitignore` bewaren wat instellingen voor Git. En {{file}}`.python-version` bewaart het versienummer van Python dat uv gebruikt. Vul je daar 3.12 in? Dan installeert uv Python 3.12 in je virtual environment.
+Dan komt de {{folder}}`src`-map. Daarin komt het nieuwe package {{folder}}`easystat`[^projectmap] te staan. Er is alvast een {{file}}`__init__.py` aangemaakt. Handig! De bestanden {{file}}`.gitattributes` en {{file}}`.gitignore` bewaren wat instellingen voor Git. En {{file}}`.python-version` bewaart het versienummer van Python dat uv gebruikt. Vul je daar 3.13 in? Dan installeert uv Python 3.13 in je virtual environment.
 
 [^projectmap]: Ja, er is een map {{folder}}`easystat` met daarin een map {{folder}}`src` met daarin weer een map {{folder}}`easystat` &mdash; dat kan nog wel eens verwarrend zijn. Het is conventie om de projectmap dezelfde naam te geven als je package. Het pad is dus eigenlijk {{folder}}`project/src/package` en dat wordt dan, in dit geval, {{folder}}`easystat/src/easystat`.
 
@@ -152,7 +152,7 @@ readme = "README.md"
 authors = [
     { name = "David Fokkema", email = "davidfokkema@icloud.com" }
 ]
-requires-python = ">=3.13"
+requires-python = ">=3.14"
 dependencies = []
 
 [project.scripts]
@@ -165,11 +165,11 @@ build-backend = "uv_build"
 
 [^setup.py]: Vroeger was er een `setup.py`, maar Python schakelt nu langzaam over naar dit nieuwe bestand.
 
-Het bestand is in het TOML-formaat.[@TOML] Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. In de eerste sectie staat informatie over het project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. Ook bevat die sectie de _dependencies_. Dit zijn alle Pythonpackages die het project nodig heeft. Op dit moment is dat nog niets. Ook het versienummer van Python is belangrijk. Hier is dat groter of gelijk aan 3.13. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python &mdash; bijvoorbeeld versie 3.11 &mdash; kunnen nu de package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.13 nodig hebt, kun je aangeven dat een iets oudere versie van Python ook prima is. Op moment van schrijven &mdash; zomer 2025 &mdash; is Python 3.13 de nieuwste versie. Het is dus prima om minimaal 3.12 te vragen &mdash; deze versie is inmiddels bijna twee jaar oud.
+Het bestand is in het TOML-formaat.[@TOML] Tussen de vierkante haken staan de koppen van de verschillende secties in dit configuratiebestand. In de eerste sectie staat informatie over het project. Je kunt daar bijvoorbeeld een beschrijving toevoegen of het versienummer aanpassen. Ook bevat die sectie de _dependencies_. Dit zijn alle Pythonpackages die het project nodig heeft. Op dit moment is dat nog niets. Ook het versienummer van Python is belangrijk. Hier is dat groter of gelijk aan 3.14. Dit kan belangrijk zijn. Gebruikers met een iets oudere versie van Python &mdash; bijvoorbeeld versie 3.11 &mdash; kunnen nu de package niet installeren. Als je niet per se de nieuwste snufjes van Python 3.14 nodig hebt, kun je aangeven dat een iets oudere versie van Python ook prima is. Op moment van schrijven &mdash; zomer 2026 &mdash; is Python 3.14 de nieuwste versie. Het is dus prima om minimaal 3.13 te vragen &mdash; deze versie is inmiddels bijna twee jaar oud.
 
 !!! info "Pythonversie in het project"
 
-    Het is _heel handig_ om, als je `#!toml requires-python = ">=3.12"` invult, ofwel 'minstens 3.12', dat je dan in {{file}}`.python-version` _ook_ 3.12 invult. Omdat je anders niet zeker weet of je code ook echt werkt met 3.12 (omdat jijzelf dan bijvoorbeeld met 3.13 werkt en je de code dus nooit getest hebt met 3.12).
+    Het is _heel handig_ om, als je `#!toml requires-python = ">=3.13"` invult, ofwel 'minstens 3.13', dat je dan in {{file}}`.python-version` _ook_ 3.13 invult. Omdat je anders niet zeker weet of je code ook echt werkt met 3.13 (omdat jijzelf dan bijvoorbeeld met 3.14 werkt en je de code dus nooit getest hebt met 3.13).
 
 De sectie `[project.scripts]` zorgt ervoor dat je het script kunt aanroepen door `easystat` in de terminal in te typen. De sectie `[build-system]` zorgt ervoor dat je een package kunt maken en uploaden naar de Python Package Index (PyPI). De sectie `[build-system]` is voor nu nog niet belangrijk.
 
@@ -179,7 +179,7 @@ De sectie `[project.scripts]` zorgt ervoor dat je het script kunt aanroepen door
         2. Open het bestand {{file}}`src/eaystat/__init__.py`. Rechtsonderin zie je inderdaad {{warning}}`Select Interpreter`. Als je daar op klikt, zie je alleen niet `Python 3.x.x (easystat)` in het rijtje staan... Druk op ++escape++ om het menu te verlaten.
         3. Type in de terminal van Visual Studio Code: 
         <pre><code>> uv sync <button type="button" name="uv_sync" onclick="runScript('uv_sync')">{{ enter }}</button><button type="button" name="uv_sync" onclick="runScript('uv_sync')" class="invisible">{{ reload }}</button>
-        <span class="invisible" name="uv_sync">Using CPython 3.13.5
+        <span class="invisible" name="uv_sync">Using CPython 3.14.5
         Creating virtual environment at: .venv
         Resolved 1 package in 5ms
         Installed 1 package in 47ms
@@ -192,7 +192,7 @@ De sectie `[project.scripts]` zorgt ervoor dat je het script kunt aanroepen door
     === "check"
         **Checkpunten**
     
-        - [ ] In Visual Studio Code staat rechtsonderin je Python environment geselecteerd (easystat (3.13.x)).
+        - [ ] In Visual Studio Code staat rechtsonderin je Python environment geselecteerd (easystat (3.14.x)).
         - [ ] In de terminal staat (easystat) vooraan de opdrachtprompt.
         - [ ] Het commando `easystat` runt zonder problemen.
 
@@ -246,7 +246,6 @@ Nu ga je starten met de package. Je gaat een aantal keer de foutmelding `#!py Mo
             def result_with_uncertainty(values):
                 """Return result with uncertainty from list of measurements."""
                 return np.mean(values), stdev_of_mean(values)
-
             ```
             ``` py title="try_measurements.py"
             """Test the easystat package."""
@@ -573,14 +572,14 @@ Natuurlijk willen we uv ook gaan gebruiken bij `pythondaq`. Je maakt nu alleen g
 
 !!! opdracht-inlever "Pythondaq: uv project"
     === "opdracht"
-        1. Je project {{github}}`pythondaq` is zo tof aan het worden dat je het met uv gaat beheren, zodat jij en anderen het gemakkelijk kunnen installeren en gebruiken. Als eerste open je de repository in GitHub Desktop en daarna in Visual Studio Code. Open nu een nieuwe terminal. Je test voor de zekerheid {{file}}`run_experiment.py` nog even uit, zodat je zeker weet dat alles nu nog werkt. Vervolgens maak je een uv project aan {{lightbulb}}. Dan geef je op _twee plaatsen_ aan dat je Python 3.12 wilt gebruiken (in welke bestanden moet je dit aangeven?). Daarna synchroniseer je je virtual environment {{lightbulb}} en commit je je wijzigingen.
+        1. Je project {{github}}`pythondaq` is zo tof aan het worden dat je het met uv gaat beheren, zodat jij en anderen het gemakkelijk kunnen installeren en gebruiken. Als eerste open je de repository in GitHub Desktop en daarna in Visual Studio Code. Open nu een nieuwe terminal. Je test voor de zekerheid {{file}}`run_experiment.py` nog even uit, zodat je zeker weet dat alles nu nog werkt. Vervolgens maak je een uv project aan {{lightbulb}}. Dan geef je op _twee plaatsen_ aan dat je Python 3.13 wilt gebruiken (in welke bestanden moet je dit aangeven?). Daarna synchroniseer je je virtual environment {{lightbulb}} en commit je je wijzigingen.
         2. Test nu {{file}}`run_experiment.py` opnieuw. Voeg alle benodigde dependencies toe {{lightbulb}}, net zolang totdat alles werkt en je opnieuw de LED ziet branden en de resultaten van je experiment krijgt. Commit je wijzigingen.
     === "check"
         **Checkpunten**
     
         - [ ] Je hebt uv geïnitialiseerd in de projectmap `pythondaq`.
         - [ ] Na het initialiseren van uv zijn de bestanden {{file_lines}}`pyproject.toml` en {{file_lines}}`.python-version` in de projectmap aangemaakt.
-        - [ ] Wanneer je met `uv sync` een nieuw virtual environment aanmaakt, staat hier Python 3.12 in. 
+        - [ ] Wanneer je met `uv sync` een nieuw virtual environment aanmaakt, staat hier Python 3.13 in. 
         - [ ] Je hebt alle dependencies toegevoegd, zodat {{file}}`run_experiment.py` in de nieuwe environment naar behoren werkt. 
 
         **Projecttraject**
@@ -682,7 +681,7 @@ Als je wilt dat er andere code gerund wordt als de opdracht `easystat` gegeven w
     === "opdracht"
         Voor het vervolg heb je wat voorbeeldcode nodig. Dat kan van alles zijn dus je kopieert de code in het bestand {{file}}`tests/try_measurements.py` naar `src/easystat/app.py` en zet de <q>body</q> van de module in een functie `#!py main()`. Ook voeg je aan het eind toe:
         ``` py
-        if __name__ == '__main__':
+        if __name__ == "__main__":
             main()
         ```
         Dit zorgt er voor dat als je het script direct runt de functie `#!py main()` wordt aangeroepen, terwijl als je code importeert dat niet direct gebeurt. Zie de [sectie _Modules_](http://127.0.0.1:8000/vervolg-python/#modules) voor meer informatie. Als je beide regels weglaat gebeurt er helemaal niets als je het script runt. Er wordt dan wel een functie gedefinieerd maar hij wordt niet uitgevoerd.
@@ -850,7 +849,6 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren, moet je je 
         ```py title="run_experiment.py"
         # define from which package the module diode_experiment should be imported
         ...
-
         ```
         **Testcode**
         <div class="code-box"><button type="button" name="test_imports_pythondaq" onclick="runScript('test_imports_pythondaq')" class="run">{{ run }}</button><button type="button" name="test_imports_pythondaq" onclick="runScript('test_imports_pythondaq')" class="reload invisible">{{ reload }}</button> test_imports.py
@@ -922,7 +920,7 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren, moet je je 
         # import statements
 
         # def function
-            # code to start a measurement
+        # code to start a measurement
         ```
         ``` toml title="pyproject.toml"
         [project.scripts]
