@@ -241,7 +241,7 @@ Een error, niet helemaal wat je had gehoopt! Als je goed kijkt in de [documentat
 !!! info "Carriage return line feed: typewriter demonstration"
     <iframe title="Carriage Return Line Feed: Typewriter Demonstration" src="https://drive.google.com/file/d/16jcQcI2o8i3dh3z7TLnK1Qb9OLnF5g20/preview" width="540" height="304" style="border:none;"></iframe>
 
-Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van _carriage return + line feed_ (CRLF). Maar MacOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer heb je nodig? Af en toe is dat lastig, vooral wanneer er elektronica in het spel is want dan willen de regeleindes voor schrijven en lezen nog wel eens verschillend zijn.[^regeleindes]
+Jammer maar helaas, verschillende besturingssystemen hebben verschillende conventies. Windows gebruikt nog steeds allebei: een combinatie van _carriage return + line feed_ (CRLF). Maar macOS/Linux/Unix gebruiken enkel een _line feed_ (LF), want hoeveel meer heb je nodig? Af en toe is dat lastig, vooral wanneer er elektronica in het spel is want dan willen de regeleindes voor schrijven en lezen nog wel eens verschillend zijn.[^regeleindes]
 
 [^regeleindes]: De regeleindes voor de Arduino firmware zijn verschillend voor lezen en schrijven. Dit heeft een oninteressante reden: bij het ontvangen van commando's is het makkelijk om alles te lezen totdat je één bepaald karakter (LF) tegenkomt. Bij het schrijven gebruikt de standaard `println`-functie een Windows-stijl regeleinde (CRLF).
 
