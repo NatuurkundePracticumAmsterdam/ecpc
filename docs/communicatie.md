@@ -89,10 +89,10 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
     ``` ps1con title="Terminal (Windows)"
     powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
     ```
-    ``` console title="(macOS en Linux, optie 1)"
+    ``` console title="Terminal (macOS en Linux, optie 1)"
     curl -LsSf https://astral.sh/uv/install.sh | sh
     ```
-    ``` console title="(macOS en Linux, optie 2)"
+    ``` console title="Terminal (macOS en Linux, optie 2)"
     wget -qO- https://astral.sh/uv/install.sh | sh
     ```
     **Belangrijk:** uv werkt nu alleen in _nieuw geopende_ terminals. Sluit daarom de terminal die je open hebt staan en open een nieuwe terminal.
