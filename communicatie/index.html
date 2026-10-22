@@ -1248,7 +1248,7 @@ Set termination character read or read+write:
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>use CR, LF, CRLF, NUL or None to set termchar
 </span></code></pre></div></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Als je het commando <code>query</code> verstuurt om de identificatiestring uit te lezen, verschijnt er:<br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Response: Arduino VISA firmware v1.1.0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Response: Arduino VISA firmware v1.2.0
 </span></code></pre></div></li>
 </ul>
 <p><strong>Projecttraject</strong></p>
@@ -1350,7 +1350,7 @@ Het volledige script &mdash; met een paar <code class="language-py highlight"><s
 <pre>
 <code>(ECPC) > python test_arduino.py
 <span class="invisible" name="test_arduino">('ASRL28::INSTR',)
-Arduino VISA firmware v1.1.0</span>
+Arduino VISA firmware v1.2.0</span>
 </code></pre></div>
 
 <p>De output van het script is afhankelijk van het systeem en het aantal apparaten dat verbonden is.</p>
@@ -1398,7 +1398,7 @@ The default end of message is added to each message.</span></span>
 <span><span class="comparison" id="shell_termchar"><span onmouseover="hoverFunction('shell_termchar')" onmouseout="hoverFunction('shell_termchar')">(open) termchar</span> <span onmouseover="hoverFunction('shell_CRLF')" onmouseout="hoverFunction('shell_CRLF')"><span class="comparison" id="shell_CRLF">CRLF</span></span> <span onmouseover="hoverFunction('shell_LF')" onmouseout="hoverFunction('shell_LF')"><span class="comparison" id="shell_LF">LF</span></span>
 <span onmouseover="hoverFunction('shell_termchar')" onmouseout="hoverFunction('shell_termchar')">Done</span></span></span></span></span>
 <span><span class="comparison" id="shell_idn"><span onmouseover="hoverFunction('shell_idn')" onmouseout="hoverFunction('shell_idn')">(open) </span><span onmouseover="hoverFunction('shell_query')" onmouseout="hoverFunction('shell_query')"><span id="shell_query" class="comparison">query</span></span> <span onmouseover="hoverFunction('shell_*IDN?')" onmouseout="hoverFunction('shell_*IDN?')"><span id="shell_*IDN?" class="comparison">*IDN?</span></span></span></span></span>
-<span onmouseover="hoverFunction('shell_printidn')" onmouseout="hoverFunction('shell_printidn')"><span class="comparison" id="shell_printidn">Response: Arduino VISA firmware v1.1.0</span></span>
+<span onmouseover="hoverFunction('shell_printidn')" onmouseout="hoverFunction('shell_printidn')"><span class="comparison" id="shell_printidn">Response: Arduino VISA firmware v1.2.0</span></span>
 </code></pre>
     </div>
 
@@ -1411,8 +1411,8 @@ rm = pyvisa.ResourceManager(</span><span onmouseover="hoverFunction('python_back
 <span onmouseover="hoverFunction('python_printlist')" onmouseout="hoverFunction('python_printlist')"><span class="comparison" id="python_printlist"><span style="color: var(--md-code-hl-constant-color);">print</span>(ports)</span></span></span>
 
 <span><span class="comparison" id="python_open"><span onmouseover="hoverFunction('python_open')" onmouseout="hoverFunction('python_open')">device = </span><span><span id="python_onlyopen" class="comparison"><span onmouseover="hoverFunction('python_opencommand')" onmouseout="hoverFunction('python_opencommand')"><span id="python_opencommand" class="comparison">rm.open_resource</span></span>(
-    <span onmouseover="hoverFunction('python_openname')" onmouseout="hoverFunction('python_openname')"><span id="python_openname" class="comparison"><span style="color: var(--md-code-hl-string-color);">"ASRL28::INSTR"</span></span></span></span></span>, 
-    <span><span class="comparison" id="python_termchar"><span onmouseover="hoverFunction('python_termchar')" onmouseout="hoverFunction('python_termchar')">read_termination=</span><span onmouseover="hoverFunction('python_CRLF')" onmouseout="hoverFunction('python_CRLF')"><span class="comparison" id="python_CRLF"><span style="color: var(--md-code-hl-string-color);">"<span style="color: var(--md-code-hl-special-color);">\r\n</span>"</span></span></span><span onmouseover="hoverFunction('python_termchar')" onmouseout="hoverFunction('python_termchar')">, 
+    <span onmouseover="hoverFunction('python_openname')" onmouseout="hoverFunction('python_openname')"><span id="python_openname" class="comparison"><span style="color: var(--md-code-hl-string-color);">"ASRL28::INSTR"</span></span></span></span></span>,
+    <span><span class="comparison" id="python_termchar"><span onmouseover="hoverFunction('python_termchar')" onmouseout="hoverFunction('python_termchar')">read_termination=</span><span onmouseover="hoverFunction('python_CRLF')" onmouseout="hoverFunction('python_CRLF')"><span class="comparison" id="python_CRLF"><span style="color: var(--md-code-hl-string-color);">"<span style="color: var(--md-code-hl-special-color);">\r\n</span>"</span></span></span><span onmouseover="hoverFunction('python_termchar')" onmouseout="hoverFunction('python_termchar')">,
     write_termination=</span><span onmouseover="hoverFunction('python_LF')" onmouseout="hoverFunction('python_LF')"><span class="comparison" id="python_LF"><span style="color: var(--md-code-hl-string-color);">"<span style="color: var(--md-code-hl-special-color);">\n</span>"</span></span></span></span></span>
 )</span></span>
 <span><span class="comparison" id="python_idn"><span onmouseover="hoverFunction('python_idn')" onmouseout="hoverFunction('python_idn')">identification = device.</span><span onmouseover="hoverFunction('python_query')" onmouseout="hoverFunction('python_query')"><span id="python_query" class="comparison">query</span></span>(<span onmouseover="hoverFunction('python_*IDN?')" onmouseout="hoverFunction('python_*IDN?')"><span id="python_*IDN?" class="comparison"><span style="color: var(--md-code-hl-string-color);">"*IDN?"</span></span></span><span onmouseover="hoverFunction('python_idn')" onmouseout="hoverFunction('python_idn')">)</span></span></span></span>
@@ -1463,10 +1463,10 @@ rm = pyvisa.ResourceManager(</span><span onmouseover="hoverFunction('python_back
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Open een terminal in je Visual Studio Code-omgeving (<strong>Menu &gt; Terminal &gt; New Terminal</strong>). Maak de virtual environment aan met:
-<div class="language-ps1con highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="go">uv venv --python 3.13</span>
+<div class="language-ps1con highlight"><span class="filename">Terminal</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="go">uv venv --python 3.14</span>
 </span></code></pre></div>
-Met <code>--python 3.13</code> geef je aan: gebruik Pythonversie 3.13 (released in 2024). Je mag dat weglaten en dan kiest uv op basis van Pythonversies die je al geïnstalleerd hebt staan, maar als je een te oude versie gebruikt werken sommige dingen misschien niet.</p>
-<p>Om een virtual environment daadwerkelijk te gebruiken kun je die <em>activeren</em>. Dat kun je doen door in de pop-up "We've noticed that..." te kiezen voor "Yes", of door rechtsonderin op <em>Select Interpreter</em> te klikken en dan te kiezen voor de omgeving (Python 3.13.x (ECPC) <code>.\.venv\Scripts\python.exe</code>):</p>
+Met <code>--python 3.14</code> geef je aan: gebruik Pythonversie 3.14 (released in 2025). Je mag dat weglaten en dan kiest uv op basis van Pythonversies die je al geïnstalleerd hebt staan, maar als je een te oude versie gebruikt werken sommige dingen misschien niet.</p>
+<p>Om een virtual environment daadwerkelijk te gebruiken kun je die <em>activeren</em>. Dat kun je doen door in de pop-up "We've noticed that..." te kiezen voor "Yes", of door rechtsonderin op <em>Select Interpreter</em> te klikken en dan te kiezen voor de omgeving (Python 3.14.x (ECPC) <code>.\.venv\Scripts\python.exe</code>):</p>
 <p><img alt="Screenshot van popup om nieuw virtual environment te selecteren" src="../figures/screenshot-new-venv-popup.png" style="width:475px" /></p>
 <p>Deze opties verschijnen als je een Pythonbestand open hebt staan. Na selecteren <strong>moet</strong> je de terminal sluiten (type <code>exit</code> of klik op het prullenbakje) en een nieuwe terminal openen. Als de terminal goed geactiveerd is staat er nu <code>(ECPC)</code> aan het begin van de prompt (opdrachtregel waar je je commando's intypt).</p>
 <p>Installeer de benodigde packages met:
@@ -1559,7 +1559,7 @@ Open daarna nogmaals een nieuwe terminal. Nu moet je wél <code>(ECPC)</code> aa
 <pre>
 <code>(ECPC) &gt; python test_arduino.py
 <span class="invisible" name="test_arduino_test_code">('ASRL28::INSTR',)
-Arduino VISA firmware v1.1.0</span>
+Arduino VISA firmware v1.2.0</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
@@ -1682,8 +1682,9 @@ Arduino VISA firmware v1.1.0</span>
 <p class="admonition-title">Info</p>
 <p>Je kan hiervoor gebruik maken van de module <em>time</em> die standaard met Python meekomt.<sup id="fnref:standard-library"><a class="footnote-ref" href="#fn:standard-library">9</a></sup> Met de functie <code>sleep()</code> kun je de executie van de volgende regel in het script met een aantal seconden uitstellen.</p>
 <div class="language-py highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="c1"># wait 28 second</span>
-</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">28</span><span class="p">)</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="c1"># wait 28 second</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">28</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </div>
