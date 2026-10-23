@@ -74,7 +74,7 @@ Je kunt het lezen middels een _easter egg_ in Python zelf: `#!py import this`.
 
 
 
-Deze tekst kan nog behoorlijk cryptisch overkomen, maar een paar dingen worden snel duidelijk: code moet _mooi_ zijn (regel 1) en duidelijk (regels 2, 3 en 6). Er bestaan prachtige programmeertrucs in één of twee regels, maar onleesbaar is het wel. Een voorbeeld [@contemplating_zenofpython]:
+Deze tekst kan nog behoorlijk cryptisch overkomen, maar een paar dingen worden snel duidelijk: code moet _mooi_ zijn (regel 1) en duidelijk (regels 2, 3 en 6). Er bestaan prachtige programmeertrucs in één of twee regels, maar onleesbaar is het wel. Een voorbeeld:[@contemplating_zenofpython]
 ``` py
 print('\n'.join("%i bytes = %i bits which has %i possible values." %
       (j, j*8, 256**j) for  j in (1 << i for i in range(4))))
@@ -138,7 +138,7 @@ Deze code is bovendien veel korter en gebruikt minder variabelen.
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="iterator.py" onclick="runScript('iterator.py')" class="run">{{ run }}</button><button type="button" name="iterator.py" onclick="runScript('iterator.py')" class="reload invisible">{{ reload }}</button> iterator.py
         ``` py
-        --8<-- "uitwerkingen-on/iterator-on.py"
+        --8<-- "uitwerkingen-on/iterator_on.py"
         ```
         <pre>
         <code>(ECPC) > python iterator.py
@@ -188,7 +188,7 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="list.py" onclick="runScript('list.py')" class="run">{{ run }}</button><button type="button" name="list.py" onclick="runScript('list.py')" class="reload invisible">{{ reload }}</button> list.py
         ``` py
-        --8<-- "uitwerkingen-on/list-square-on.py"
+        --8<-- "uitwerkingen-on/list_square_on.py"
         ```
         <pre>
         <code>(ECPC) > python list.py
@@ -260,7 +260,7 @@ Je kunt op verschillende manieren een NumPy array maken (na `#!py import numpy a
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="np_array.py" onclick="runScript('np_array.py')" class="run">{{ run }}</button><button type="button" name="np_array.py" onclick="runScript('np_array.py')" class="reload invisible">{{ reload }}</button> np_array.py
         ``` py
-        --8<-- "uitwerkingen-on/numpy-array-on.py"
+        --8<-- "uitwerkingen-on/numpy_array_on.py"
         ```
         <pre>
         <code>(ECPC) > python np_array.py
@@ -299,7 +299,7 @@ Je kunt op verschillende manieren een NumPy array maken (na `#!py import numpy a
         ??? uitwerkingen
             <div class="code-box"><button type="button" name="dictionaries.py_suffix" onclick="runScript('dictionaries.py_suffix')" class="run">{{ run }}</button><button type="button" name="dictionaries.py_suffix" onclick="runScript('dictionaries.py_suffix')" class="reload invisible">{{ reload }}</button> dictionaries.py
             ``` pyd
-            --8<-- "uitwerkingen-on/dictionaries-on.py"
+            --8<-- "uitwerkingen-on/dictionaries_on.py"
             ```
             <pre>
             <code>(ECPC) > python dictionaries.py
@@ -372,7 +372,7 @@ Je kunt op verschillende manieren een NumPy array maken (na `#!py import numpy a
         Je mag er niet vanuit gaan dat de lijst altijd 5 elementen bevat.
         ??? uitwerkingen
             ```py
-            --8<-- "uitwerkingen-on/odds-on.py"
+            --8<-- "uitwerkingen-on/odds_on.py"
             ```
 ???+ meer-leren "Set"
 
@@ -440,7 +440,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="for_loop.py" onclick="runScript('for_loop.py')" class="run">{{ run }}</button><button type="button" name="for_loop.py" onclick="runScript('for_loop.py')" class="reload invisible">{{ reload }}</button> for_loop.py
         ``` py
-        --8<-- "uitwerkingen-on/comprehension-on.py"
+        --8<-- "uitwerkingen-on/comprehension_on.py"
         ```
         <pre>
         <code>(ECPC) > python for_loop.py
@@ -533,7 +533,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         
         ??? uitwerkingen
             ``` py
-            --8<-- "uitwerkingen-on/lambda-on.py"
+            --8<-- "uitwerkingen-on/lambda_on.py"
             ```
 
 
@@ -609,7 +609,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         ??? uitwerkingen
             <div class="code-box"><button type="button" name="collatz.py" onclick="runScript('collatz.py')" class="run">{{ run }}</button><button type="button" name="collatz.py" onclick="runScript('collatz.py')" class="reload invisible">{{ reload }}</button> collatz.py
             ``` py
-            --8<-- "uitwerkingen-on/generators-on.py"
+            --8<-- "uitwerkingen-on/generators_on.py"
             ```
             <pre>
             <code>(ECPC) > python collatz.py
@@ -817,7 +817,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         ??? uitwerkingen
             <div class="code-box"><button type="button" name="decorators.py_suffix" onclick="runScript('decorators.py_suffix')" class="run">{{ run }}</button><button type="button" name="decorators.py_suffix" onclick="runScript('decorators.py_suffix')" class="reload invisible">{{ reload }}</button> decorators.py.py
             ``` py
-            --8<-- "uitwerkingen-on/decorators-on.py"
+            --8<-- "uitwerkingen-on/decorators_on.py"
             ```
             <pre>
             <code>(ECPC) > python decorators.py.py
@@ -861,7 +861,7 @@ Door de `#!py math` module te importeren hebben we opeens de beschikking over he
 Je kunt je eigen code ook importeren, maar hier moet je wel even opletten. Stel, we hebben een bestand {{file}}`square.py`:
 <div class="code-box"><button type="button" name="square.py_1" onclick="runScript('square.py_1')" class="run">{{ run }}</button><button type="button" name="square.py_1" onclick="runScript('square.py_1')" class="reload invisible">{{ reload }}</button> square.py
 ``` py
---8<-- "scripts/square-1.py"
+--8<-- "scripts/square_1.py"
 ```
 <pre>
 <code>(ECPC) > python square.py
@@ -1002,13 +1002,13 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
         {{tab}} {{tab}} {{L}} {{file}} `tests.py`
 
         ``` py title="polynomials.py"
-        --8<-- "uitwerkingen-on/polynomials-on.py"
+        --8<-- "uitwerkingen-on/polynomials_on.py"
         ```
         ``` py title="tests.py"
-        --8<-- "uitwerkingen-on/tests-on.py"
+        --8<-- "uitwerkingen-on/tests_on.py"
         ```
         ``` py title="practice-packages.py"
-        --8<-- "uitwerkingen-on/packages-on.py"
+        --8<-- "uitwerkingen-on/packages_on.py"
         ```
 
 ???+ meer-leren "Relatieve en absolute imports"
@@ -1193,7 +1193,7 @@ Merk op dat je een exception met traceback meestal van onder naar boven leest. O
         ??? uitwerkingen
             <div class="code-box"><button type="button" name="exceptions.py" onclick="runScript('exceptions.py')" class="run">{{ run }}</button><button type="button" name="exceptions.py" onclick="runScript('exceptions.py')" class="reload invisible">{{ reload }}</button> exceptions.py
             ``` py
-            --8<-- "uitwerkingen-on/exceptions-on.py"
+            --8<-- "uitwerkingen-on/exceptions_on.py"
             ```
             <pre>
             <code>(ECPC) > python exceptions.py

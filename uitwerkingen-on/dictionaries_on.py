@@ -11,10 +11,10 @@ mass = 14  # kg
 F_z = mass * constants["g"]
 print(f"Gravity of an object with {mass} kg is: {F_z} N")
 
-# Dictionary with results of a measurement 
+# Dictionary with results of a measurement
 measurement = {"U": 1.5, "I": 75e-3}  # U in V, I in A
 
 # Add resistance to dictionary
 measurement["R"] = measurement["U"] / measurement["I"]
 
-print(f'The resistance was: {measurement["R"]:.2f} \u03A9')
+print(f"The resistance was: {measurement['R']:.2f} \u03a9")

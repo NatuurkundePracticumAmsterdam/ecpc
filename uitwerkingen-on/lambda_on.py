@@ -1,11 +1,11 @@
+import matplotlib.pyplot as plt
 import numpy as np
 from numpy import pi
-import matplotlib.pyplot as plt
 
 # dictionary with linear, quadratic and sine function
 models = {
     "linear": lambda x, a, b: a * x + b,
-    "quadratic": lambda x, a, b, c: a * x ** 2 + b * x + c,
+    "quadratic": lambda x, a, b, c: a * x**2 + b * x + c,
     "sine": lambda x, a, b, c, d: a + b * np.sin(c * x + d),
 }
 

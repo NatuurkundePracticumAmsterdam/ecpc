@@ -13,9 +13,9 @@ Bij de cursus Inleiding programmeren heb je de basis van het programmeren in Pyt
 ## Variabelen, `#!py input()`-functie en f-strings
 
 !!! opdracht-basis-thuis "Variabelen, `#!py input()`-functie en f-strings"
-    1. Maak een bestand {{new_file}}`diameter-ball.py` in de map {{folder}}`ECPC`.  
+    1. Maak een bestand {{new_file}}`diameter_ball.py` in de map {{folder}}`ECPC`.  
     {{folder}} `ECPC`  
-    {{L}} {{new_file}} `diameter-ball.py`  
+    {{L}} {{new_file}} `diameter_ball.py`  
     2. Schrijf een stuk code waarin je de gebruiker vraagt wat de diameter van de bal is. Maak hierbij gebruik van de `#!py input()`-functie. 
     3. Bereken daarna de straal van de bal.
     4. Print de diameter en straal van de bal in een zin. Maak hiervoor gebruik van f-strings. Bijvoorbeeld: "A ball with a diameter of 2.8 m has a radius of 1.4 m."
@@ -23,7 +23,7 @@ Bij de cursus Inleiding programmeren heb je de basis van het programmeren in Pyt
     
     ??? uitwerkingen
         ``` py
-        --8<-- "uitwerkingen-on/f-strings-on.py"
+        --8<-- "uitwerkingen-on/f_strings_on.py"
         ```
 
 ## If-statements en operatoren
@@ -61,7 +61,7 @@ Bij de cursus Inleiding programmeren heb je de basis van het programmeren in Pyt
     ```
     ??? uitwerkingen
         ``` py 
-        --8<-- "uitwerkingen-on/if-statements-on.py"
+        --8<-- "uitwerkingen-on/if_statements_on.py"
         ```
 
 <div id="opdr:naam-en-leeftijd"></div>
@@ -104,7 +104,7 @@ Bij het programmeren heb je vaak te maken met foutmeldingen. Bij het debuggen va
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="print_and_break.py" onclick="runScript('print_and_break.py')" class="run">{{ run }}</button><button type="button" name="print_and_break.py" onclick="runScript('print_and_break.py')" class="reload invisible">{{ reload }}</button> print_and_break.py
         ``` py
-        --8<-- "uitwerkingen-on/break-on.py"
+        --8<-- "uitwerkingen-on/break_on.py"
         ```
         <pre>
         <code>(ECPC) > python print_and_break.py
@@ -113,7 +113,7 @@ Bij het programmeren heb je vaak te maken met foutmeldingen. Bij het debuggen va
 
         <div class="code-box"><button type="button" name="for_loop.py" onclick="runScript('for_loop.py')" class="run">{{ run }}</button><button type="button" name="for_loop.py" onclick="runScript('for_loop.py')" class="reload invisible">{{ reload }}</button> for_loop.py
         ``` py
-        --8<-- "uitwerkingen-on/for-loop-on.py"
+        --8<-- "uitwerkingen-on/for_loop_on.py"
         ```
         <pre>
         <code>(ECPC) > python for_loop.py
@@ -154,7 +154,7 @@ Bij het programmeren heb je vaak te maken met foutmeldingen. Bij het debuggen va
     ??? uitwerkingen
         1. 
         ``` py
-        --8<-- "uitwerkingen-on/function-on.py"
+        --8<-- "uitwerkingen-on/function_on.py"
         ```
         
         2. De globale variabelen zijn `#!py number_1`, `#!py number_2` en `#!py answer` en de lokale variabele is `#!py solution`. Het gevolg is dat `#!py number_1`, `#!py number_2` en `#!py answer` zowel buiten als binnen de functie `#!py exponentiation()` gebruikt kunnen worden, terwijl `#!py solution` alleen maar binnen de functie `#!py exponentiation()` gebruikt kan worden. 
@@ -168,7 +168,7 @@ Bij het programmeren heb je vaak te maken met foutmeldingen. Bij het debuggen va
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="lijsten.py" onclick="runScript('lijsten.py')" class="run">{{ run }}</button><button type="button" name="lijsten.py" onclick="runScript('lijsten.py')" class="reload invisible">{{ reload }}</button> lijsten.py
         ``` py
-        --8<-- "uitwerkingen-on/lists-on.py"
+        --8<-- "uitwerkingen-on/lists_on.py"
         ```
         <pre>
         <code>(ECPC) > python lijsten.py
@@ -205,7 +205,7 @@ Ook heb je al geleerd om functies uit andere (Python) modules te importeren. Mee
     ```
     ??? uitwerkingen
         ``` py
-        --8<-- "uitwerkingen-on/plot-on.py"
+        --8<-- "uitwerkingen-on/plot_on.py"
         ```
 
 ## Bestanden inlezen
@@ -227,7 +227,7 @@ Ook heb je al geleerd om functies uit andere (Python) modules te importeren. Mee
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="txt_bestanden_lezen.py" onclick="runScript('txt_bestanden_lezen.py')" class="run">{{ run }}</button><button type="button" name="txt_bestanden_lezen.py" onclick="runScript('txt_bestanden_lezen.py')" class="reload invisible">{{ reload }}</button> txt_bestanden_lezen.py
         ``` py
-        --8<-- "uitwerkingen-on/read-txt-on.py"
+        --8<-- "uitwerkingen-on/read_txt_on.py"
         ```
         <pre>
         <code>(ECPC) > python txt_bestanden_lezen.py
