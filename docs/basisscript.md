@@ -336,7 +336,7 @@ Je kunt de geprinte meetgegevens kopiëren en plakken naar een tekstbestand, spr
 
 Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga je de meting herhalen en foutenvlaggen toevoegen. Je moet misschien wel weer even hard nadenken over hoe je deze foutenvlaggen bepaald. Pak daarom eerst pen en papier (voordat je verder code gaat toevoegen), stoot je buurmens aan en ga samen nadenken over hoe jullie in dit experiment de onzekerheid kunnen bepalen.
 
-!!! opdracht-basis "Pythondaq: onzekerheid"
+!!! opdracht-inlever "Pythondaq: onzekerheid"
     === "opdracht"
         <iframe src="https://drive.google.com/file/d/1-26rnvYwTZ_I7PgUX85Don21qevgHLv0/preview" width="620" height="349" style="border:none;"></iframe>
     
@@ -357,7 +357,7 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
         - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
 
-!!! opdracht-basis "Pythondaq: schildpad of raket?"
+!!! opdracht-inlever "Pythondaq: schildpad of raket?"
     === "opdracht"
         In het experiment ga je straks de metingen een aantal keer herhalen. Je kunt dan op twee manieren het gemiddelde van de benodigde grootheden bepalen en de bijbehorende onzekerheden. 
         
