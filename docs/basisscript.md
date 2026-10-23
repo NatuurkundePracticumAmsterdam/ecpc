@@ -486,7 +486,7 @@ Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de len
 
 !!! opdracht-basis "Oefenen met `#!py zip()`"
     === "opdracht"
-        Je hebt een lijst met krachten en een lijst met afstanden, zie het [tabblad code](#__tabbed_15_2). Loop over de lijsten heen en print voor iedere iteratie de kracht $F$, de afstand $s$ en de arbeid $W$. Maak hierbij gebruik van de `#!py zip`-functie.
+        Je hebt een lijst met krachten en een lijst met afstanden, zie het [tabblad code](#__tabbed_15_2). Maak in de oefenopdrachten repository een nieuw bestand {{new_file}}`zip_practice.py` en plak daarin de code uit het tabblad. Loop over de lijsten heen en print voor iedere iteratie de kracht $F$, de afstand $s$ en de arbeid $W$. Maak hierbij gebruik van de `#!py zip`-functie.
 
     === "code"
         **Pseudo-code**
@@ -526,7 +526,7 @@ Bij `#!py open()` geef je eerst de naam van het bestand, dan `#!py 'w'` om aan t
 ``` py hl_lines="1 4-8"
 import csv
 
-with open("metingen.csv", "w", newline="") as csvfile:
+with open("measurements.csv", "w", newline="") as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(["t", "s"])
     writer.writerow([0.0, 0.0])
