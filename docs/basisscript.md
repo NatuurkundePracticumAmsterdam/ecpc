@@ -515,7 +515,7 @@ Vergelijk beide methodes goed. In het geval van `#!py zip()` hoef je niet de len
 Wanneer je de `#!py csv`-module wilt gebruiken moet je éérst een bestand openen om in te schrijven, daarna een <q>writer</q> object aanmaken en dat object daarna gebruiken om regels te schrijven. Als laatste moet het bestand netjes afgesloten worden, zodat het bestand ook echt naar de schijf weggeschreven wordt. Het openen en sluiten van een bestand kun je Python het beste laten doen met het `#!py with`-statement:[^context-manager]
 
 ``` py hl_lines="1"
-with open("metingen.csv", "w", newline="") as csvfile:
+with open("measurements.csv", "w", newline="") as csvfile:
     # csvfile is nu een bestandsobject
     ...
     # na dit blok sluit Python automatisch het bestand
