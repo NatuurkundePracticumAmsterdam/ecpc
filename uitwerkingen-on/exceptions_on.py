@@ -14,11 +14,10 @@ def average(values):
 print(average([1, 2, 3]))
 
 average([])
-# # gives: ZeroDivisionError: division by zero
+# gives: ZeroDivisionError: division by zero
 
 average(4)
-# # gives: TypeError: 'int' object is not iterable
+# gives: TypeError: 'int' object is not iterable
 
 a = average("12345")
-# # gives: TypeError: unsupported operand type(s) for +: 'int' and 'str'
-# print(a)
+# gives: TypeError: unsupported operand type(s) for +: 'int' and 'str'

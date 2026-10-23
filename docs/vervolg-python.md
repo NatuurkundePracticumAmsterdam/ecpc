@@ -698,7 +698,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
             return f"Vector: ({self.x}, {self.y})"
 
         def __str__(self):
-            # roept __repr__ aan
+            # calls __repr__
             return repr(self)
     ```
     ``` ps1con title="Terminal"
@@ -951,15 +951,15 @@ Iedere package bestaat uit een directory met een {{file}}`__init__.py`-bestand.[
 
 De verschillende modules uit het [figuur](vervolg-python.md#fig:packagetree) hierboven kun je als volgt importeren en gebruiken in het bestand {{file}}`script.py` (we gaan er even vanuit dat iedere module een functie `#!py some_function()` bevat):
 ``` py title="script.py"
-# module direct importeren
+# direct import
 import my_package.package1.module1
 my_package.package1.module1.some_function()
 
-# losse module vanuit een package importeren
+# import module from a package
 from my_package.package1 import module2
 module2.some_function()
 
-# module importeren onder een andere naam
+# import module under a different name
 import my_package.module4 as m4
 m4.some_function()
 ```
@@ -1132,7 +1132,7 @@ Merk op dat je een exception met traceback meestal van onder naar boven leest. O
 
     Ook kun je zelf exceptions maken. Stel je schrijft een programma om een oscilloscoop uit te lezen dat twee kanalen heeft om de spanning te meten. Kanaal 0 en kanaal 1. Het programma moet gebruikt kunnen worden door andere studenten in de onderzoeksgroep dus het kan nu eenmaal gebeuren dat iemand niet op zit te letten -- niet jij, jij let altijd goed op. Een andere student die een programma schrijft en jouw code gebruikt wil een spanning meten op kanaal 2, het was immers een tweekanaals oscilloscoop. Maar kanaal 2 bestaat niet. Sommige oscilloscopen klagen dan niet maar geven een random getal terug. Dit kan leiden tot heel vervelende en lastig te achterhalen fouten in het experiment. Met dat idee in je achterhoofd kun je code schrijven die controleert op het kanaalnummer en een exception geeft:
     ``` py
-    # we maken een subclass van de 'standaard' Exception
+    # create a subclass of Exception
     class InvalidChannelException(Exception):
         pass
 
