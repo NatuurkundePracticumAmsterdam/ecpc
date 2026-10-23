@@ -64,6 +64,26 @@ Bij de cursus Inleiding programmeren heb je de basis van het programmeren in Pyt
         --8<-- "uitwerkingen-on/if-statements-on.py"
         ```
 
+<div id="opdr:naam-en-leeftijd"></div>
+!!! opdracht-basis-thuis "Naam en leeftijd"
+
+    Je weet dat je met `#!py print()` dingen kunt _printen_ naar het beeldscherm. Met `#!py input()` kun je dingen _vragen_ aan de gebruiker. Het antwoord van de gebruiker slaan we op in een _variabele_. In deze opdracht ga je een if-else structuur zelf opbouwen.
+
+    1. Schrijf een script {{new_file}}`name_and_age.py` dat eerst vraagt hoe je heet en daarna hallo zegt waarbij je naam gebruikt wordt. Een voorbeeld van wat je in de terminal ziet is:
+        ```
+        What is your name? Alice
+        Hi Alice
+        ```
+    Test je code voor verschillende namen uit.
+    2. Breid nu je script uit zodat hij controleert of je naam gelijk is aan `admin`, de standaardnaam voor accounts met alle rechten op een computersysteem. Alleen als je naam gelijk is aan `admin` moet je script roepen: `You're a legend!` In alle andere gevallen zegt hij je nog steeds gedag, zoals hierboven. Zorg dat je ook (korte) comments schrijft in je script om duidelijk te maken welk stukje code wat doet.
+    3. Breid je script uit zodat hij ook vraagt om je leeftijd, maar alleen als je naam _niet_ admin is. Hint: gebruik `#!py int(input(...))`. Als je leeftijd hoger of gelijk is aan 13 jaar, print dan `You're allowed on social media!` Als je 16 jaar of ouder bent, print dan `You can drive a scooter.` Print vanaf 17 jaar: `You can get a driving license.` Vanaf 18 jaar: `You're a grown-up now and are allowed to vote.` Vanaf 30 jaar: `You can no longer apply for student finance.` Hoe ouder je bent, hoe langer het lijstje wordt dat op het scherm verschijnt. Voeg ook nu (korte) comments toe.
+    4. Soms wil je juist _niet_ dat het lijstje steeds langer wordt. Pas het script aan zodat hij _alleen_ de regel print die nog net bij je leeftijd hoort. Dus als je 17 invult, print dan _alleen_ `You can get a driving license.` Hint: gebruik hiervoor een `#!py if ... elif` construct.
+
+    ??? uitwerkingen
+        ``` py 
+        --8<-- "uitwerkingen-on/name_and_age.py"
+        ```
+
 ## For-loop, while-loop en break
 
 Bij het programmeren heb je vaak te maken met foutmeldingen. Bij het debuggen van een loop zijn twee dingen heel handig: `#!py print` en `#!py break`.
@@ -103,7 +123,15 @@ Bij het programmeren heb je vaak te maken met foutmeldingen. Bij het debuggen va
         The voltage is set to 150 mV.
         ...</span>
         </code></pre></div>
-        
+
+!!! opdracht-basis-thuis "Naam en leeftijd (vervolg)"
+
+    Kijk nog eens naar de [_Naam en leeftijd_ opdracht](#opdr:naam-en-leeftijd). Het script vraagt nu één keer om je naam en je leeftijd en sluit dan af. Pas je script aan zodat het na het printen van de mededelingen opnieuw begint en weer vraagt om je naam en leeftijd. Je script moet dit blijven herhalen _totdat_ je als naam `STOP` invult. Dan moet het script afsluiten.
+
+    ??? uitwerkingen
+        ``` py 
+        --8<-- "uitwerkingen-on/name_and_age_loop.py"
+        ```
         
 ## Functies
 
