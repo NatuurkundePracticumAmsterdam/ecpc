@@ -4,7 +4,7 @@ Welkom bij de _Experiment Control with Python Course_. Deze cursus wordt aangebo
 
 Het doel van deze cursus is om je kennis te laten maken met het aansturen en uitlezen van een experiment. Bij heel eenvoudige experimenten kun je metingen één voor één verrichten en ruwe data noteren in je labjournaal, bijvoorbeeld bij het meten van de trillingstijd van een slinger bij verschillende lengtes. Maar al snel wordt dat ondoenlijk, bijvoorbeeld wanneer je de hele beweging van de slinger wilt volgen met een ultrasoon afstandsdetector. In een gemiddeld lab worden alle experimenten via de computer aangestuurd en uitgelezen. Voor <q>standaard</q> handelingen zoals het bekijken van een sample onder een elektronenmicroscoop of het opnemen van een spectrum van een radioactieve bron kun je de door de fabrikant meegeleverde software gebruiken. Maar vaak is die software óf heel duur terwijl je maar een klein deel van de functionaliteit nodig hebt, óf ongeschikt voor jouw doeleinden. En heel vaak voer je géén standaardexperiment uit, maar ben je een nieuw experiment aan het opzetten. In dat geval is er helemaal geen software voorhanden. Je zult dan zelf aan de slag moeten.
 
-We willen je in deze cursus niet alleen maar leren om zelf een applicatie te schrijven voor het uitvoeren van een snelle meting, maar ook hoe je de code _netjes_ schrijft. Als je straks een bachelorproject doet, een masterstage of een promotieonderzoek, dan wil je code schrijven die ook na de afronding van je project of de verdedeging van je proefschrift nog bruikbaar is. Ook zullen andere onderzoekers aan dezelfde code werken. Het is dus belangrijk om te zorgen voor een duidelijke structuur waarmee de code overzichtelijk blijft maar ook makkelijk is aan te passen of uit te breiden.
+We willen je in deze cursus niet alleen maar leren om zelf een applicatie te schrijven voor het uitvoeren van een snelle meting, maar ook hoe je de code _netjes_ schrijft. Als je straks een bachelorproject doet, een masterstage of een promotieonderzoek, dan wil je code schrijven die ook na de afronding van je project of de verdediging van je proefschrift nog bruikbaar is. Ook zullen andere onderzoekers aan dezelfde code werken. Het is dus belangrijk om te zorgen voor een duidelijke structuur waarmee de code overzichtelijk blijft maar ook makkelijk is aan te passen of uit te breiden.
 
 Je gaat in deze cursus aan de slag met een Arduino. De Arduino bevat firmware[^firmware] waarmee het zich gedraagt als een meetinstrument en kan communiceren met de computer volgens een standaardprotocol dat ook geïmplementeerd wordt door onder andere functiegeneratoren en oscilloscopen.
 
@@ -12,7 +12,7 @@ Je gaat in deze cursus aan de slag met een Arduino. De Arduino bevat firmware[^f
 
 ## Werk van anderen
 
-Over Python wordt veel geschreven en er zijn tal van (professionele) trainingen die je kunt volgen. Over de hele wereld zijn conferenties en er is vermoedelijk geen universiteit meer te vinden waar Python niet wordt gebruikt. Deze cursus is niet in een vacuüm ontstaan. Voordat deze cursus in studiejaar 2020-2021 voor het eerst gegeven werd is jarenlang de cursus _Experimentautomatisering met LabVIEW_ gegeven aan de Vrije Universiteit Amsterdam door Jan Mulder en Gerrit Kuik. Deze cursus is de spirituele opvolger van de LabVIEW-cursus. Een website (en boek!) met eenzelfde soort insteek is _Python for the lab_ van Aquiles Carattino.[@python-for-the-lab] Op de website is veel informatie te vinden over hoe je Python gebruikt (slots, singletons, multiprocessing) en met verschillende soorten hardware communiceert (van onder andere National Instruments en Basler). In het boek leer je hoe je een eenvoudig experiment opzet en aanstuurt vanuit Python, heel vergelijkbaar met het eerste deel van deze cursus. Zowel in deze cursus als in het boek is gekozen voor het diode-experiment (project 1 uit het _Arduino Projects Book_ dat meegeleverd wordt met de _Arduino Starter Kit_). Een groot verschil is dat je in deze cursus leert over versiebeheer, command-line interfaces en project management met Poetry.
+Over Python wordt veel geschreven en er zijn tal van (professionele) trainingen die je kunt volgen. Over de hele wereld zijn conferenties en er is vermoedelijk geen universiteit meer te vinden waar Python niet wordt gebruikt. Deze cursus is niet in een vacuüm ontstaan. Voordat deze cursus in studiejaar 2020-2021 voor het eerst gegeven werd is jarenlang de cursus _Experimentautomatisering met LabVIEW_ gegeven aan de Vrije Universiteit Amsterdam door Jan Mulder en Gerrit Kuik. Deze cursus is de spirituele opvolger van de LabVIEW-cursus. Een website (en boek!) met eenzelfde soort insteek is _Python for the lab_ van Aquiles Carattino.[@python-for-the-lab] Op de website is veel informatie te vinden over hoe je Python gebruikt (slots, singletons, multiprocessing) en met verschillende soorten hardware communiceert (van onder andere National Instruments en Basler). In het boek leer je hoe je een eenvoudig experiment opzet en aanstuurt vanuit Python, heel vergelijkbaar met het eerste deel van deze cursus. Zowel in deze cursus als in het boek is gekozen voor het diode-experiment (project 1 uit het _Arduino Projects Book_ dat meegeleverd wordt met de _Arduino Starter Kit_). Een groot verschil is dat je in deze cursus leert over versiebeheer, command-line interfaces en project management.
 
 Voor het eindfeest automatiseren we een zonnecelexperiment. Het idee hiervoor is gebaseerd op het experiment dat we uitvoeren in het eerste jaar. Hoewel hetzelfde eerder gedaan is door o.a. Chenni et al.[@chenni_etal] en Hammoumi et al.[@Hammoumi_2018] met LabVIEW, is de schakeling die in deze cursus gebruikt wordt door ons ontworpen om de noodzaak van een relatief dure stroomsterktesensor te vermijden. Ook wordt de schakeling daardoor fysisch gezien wat interessanter.
 
@@ -30,8 +30,10 @@ In deze handleiding kom je twee verschillende opdrachten tegen: Pythoncode en sy
 # I am a script. I am in a colored block
 # and the Python code has colored syntax.
 
+
 def my_func(x):
-    return x ** 2
+    return x**2
+
 
 print(my_func(2))
 ```
@@ -48,7 +50,7 @@ python my-script.py
 ```
 Zoals je ziet hebben we de prompt (bijvoorbeeld `>`) weggelaten zodat je makkelijker commando's kunt kopiëren en plakken. Wanneer we ook de uitvoer van commando's laten zien is het handiger om onderscheid te maken tussen het commando en de uitvoer. Nu geven we _wel_ de prompt weer (`(ECPC) > `). Door op het {{enter}}-icoon te klikken wordt de uitvoer zichtbaar.
 <pre><code>(ECPC) > python --version <button type="button" name="--version_index" onclick="runScript('--version_index')">{{ enter }}</button><button type="button" name="--version_index" onclick="runScript('--version_index')" class="invisible">{{ reload }}</button>
-<span class="invisible" name="--version_index">Python 3.10.9</span>
+<span class="invisible" name="--version_index">Python 3.14.0</span>
 </code></pre>
 
 [^prompts]: Er bestaan verschillende _terminal emulators_, meestal afhankelijk van het besturingssysteem &mdash; al heeft Windows zelf al drie verschillende prompts: de _command prompt_, de _powershell prompt_ en tegenwoordig (voorkeur) de _Windows Terminal_. Een terminal ziet eruit als een tekstvenster. Hierbinnen verschijnt een prompt. Dit is een klein stukje tekst dat aangeeft waar je je opdrachten kunt intypen. In MacOS en Linux is de prompt vaak een `$`-teken. In Windows ziet het er vaak uit als `C:\>` of `PS>`. In veel documentatie op internet wordt de `$`-prompt gebruikt.
