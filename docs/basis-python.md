@@ -23,7 +23,7 @@ Bij de cursus Inleiding programmeren heb je de basis van het programmeren in Pyt
     
     ??? uitwerkingen
         ``` py
-        --8<-- "uitwerkingen-on/f_strings_on.py"
+        --8 < --"uitwerkingen-on/f_strings_on.py"
         ```
 
 ## If-statements en operatoren
@@ -47,21 +47,21 @@ Bij de cursus Inleiding programmeren heb je de basis van het programmeren in Pyt
 
     print(f"{rain=}, {umbrella=}")
 
-    if ... :
+    if ...:
         print("Lucky you have your umbrella with you since it's raining.")
 
-    if ... :
-        if ... :
+    if ...:
+        if ...:
             print("You will get wet without an umbrella since it's raining.")
-        if ... :
+        if ...:
             print("You can use your umbrella as a walking stick since it doesn't rain.")
 
-    if ... :
+    if ...:
         print("Without an umbrella there is no problem since it's not raining.")
     ```
     ??? uitwerkingen
         ``` py 
-        --8<-- "uitwerkingen-on/if_statements_on.py"
+        --8 < --"uitwerkingen-on/if_statements_on.py"
         ```
 
 <div id="opdr:naam-en-leeftijd"></div>
@@ -81,7 +81,7 @@ Bij de cursus Inleiding programmeren heb je de basis van het programmeren in Pyt
 
     ??? uitwerkingen
         ``` py 
-        --8<-- "uitwerkingen-on/name_and_age.py"
+        --8 < --"uitwerkingen-on/name_and_age.py"
         ```
 
 ## For-loop, while-loop en break
@@ -104,7 +104,7 @@ Bij het programmeren heb je vaak te maken met foutmeldingen. Bij het debuggen va
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="print_and_break.py" onclick="runScript('print_and_break.py')" class="run">{{ run }}</button><button type="button" name="print_and_break.py" onclick="runScript('print_and_break.py')" class="reload invisible">{{ reload }}</button> print_and_break.py
         ``` py
-        --8<-- "uitwerkingen-on/break_on.py"
+        --8 < --"uitwerkingen-on/break_on.py"
         ```
         <pre>
         <code>(ECPC) > python print_and_break.py
@@ -113,7 +113,7 @@ Bij het programmeren heb je vaak te maken met foutmeldingen. Bij het debuggen va
 
         <div class="code-box"><button type="button" name="for_loop.py" onclick="runScript('for_loop.py')" class="run">{{ run }}</button><button type="button" name="for_loop.py" onclick="runScript('for_loop.py')" class="reload invisible">{{ reload }}</button> for_loop.py
         ``` py
-        --8<-- "uitwerkingen-on/for_loop_on.py"
+        --8 < --"uitwerkingen-on/for_loop_on.py"
         ```
         <pre>
         <code>(ECPC) > python for_loop.py
@@ -130,7 +130,7 @@ Bij het programmeren heb je vaak te maken met foutmeldingen. Bij het debuggen va
 
     ??? uitwerkingen
         ``` py 
-        --8<-- "uitwerkingen-on/name_and_age_loop.py"
+        --8 < --"uitwerkingen-on/name_and_age_loop.py"
         ```
         
 ## Functies
@@ -154,7 +154,7 @@ Bij het programmeren heb je vaak te maken met foutmeldingen. Bij het debuggen va
     ??? uitwerkingen
         1. 
         ``` py
-        --8<-- "uitwerkingen-on/function_on.py"
+        --8 < --"uitwerkingen-on/function_on.py"
         ```
         
         2. De globale variabelen zijn `#!py number_1`, `#!py number_2` en `#!py answer` en de lokale variabele is `#!py solution`. Het gevolg is dat `#!py number_1`, `#!py number_2` en `#!py answer` zowel buiten als binnen de functie `#!py exponentiation()` gebruikt kunnen worden, terwijl `#!py solution` alleen maar binnen de functie `#!py exponentiation()` gebruikt kan worden. 
@@ -166,13 +166,13 @@ Bij het programmeren heb je vaak te maken met foutmeldingen. Bij het debuggen va
     1. Print de negende maand.
     1. Voeg een dertiende maand toe aan de lijst. Controleer daarna of dit gelukt is.
     ??? uitwerkingen
-        <div class="code-box"><button type="button" name="lijsten.py" onclick="runScript('lijsten.py')" class="run">{{ run }}</button><button type="button" name="lijsten.py" onclick="runScript('lijsten.py')" class="reload invisible">{{ reload }}</button> lijsten.py
+        <div class="code-box"><button type="button" name="months.py" onclick="runScript('months.py')" class="run">{{ run }}</button><button type="button" name="months.py" onclick="runScript('months.py')" class="reload invisible">{{ reload }}</button> months.py
         ``` py
-        --8<-- "uitwerkingen-on/lists_on.py"
+        --8 < --"uitwerkingen-on/lists_on.py"
         ```
         <pre>
-        <code>(ECPC) > python lijsten.py
-        <span class="invisible" name="lijsten.py">The ninth month is called September.
+        <code>(ECPC) > python months.py
+        <span class="invisible" name="months.py">The ninth month is called September.
         ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'trēdecimber']</span>
         </code></pre></div>
 
@@ -205,7 +205,7 @@ Ook heb je al geleerd om functies uit andere (Python) modules te importeren. Mee
     ```
     ??? uitwerkingen
         ``` py
-        --8<-- "uitwerkingen-on/plot_on.py"
+        --8 < --"uitwerkingen-on/plot_on.py"
         ```
 
 ## Bestanden inlezen
@@ -225,13 +225,13 @@ Ook heb je al geleerd om functies uit andere (Python) modules te importeren. Mee
     ```
     
     ??? uitwerkingen
-        <div class="code-box"><button type="button" name="txt_bestanden_lezen.py" onclick="runScript('txt_bestanden_lezen.py')" class="run">{{ run }}</button><button type="button" name="txt_bestanden_lezen.py" onclick="runScript('txt_bestanden_lezen.py')" class="reload invisible">{{ reload }}</button> txt_bestanden_lezen.py
+        <div class="code-box"><button type="button" name="read_file.py" onclick="runScript('read_file.py')" class="run">{{ run }}</button><button type="button" name="read_file.py" onclick="runScript('read_file.py')" class="reload invisible">{{ reload }}</button> read_file.py
         ``` py
-        --8<-- "uitwerkingen-on/read_txt_on.py"
+        --8 < --"uitwerkingen-on/read_txt_on.py"
         ```
         <pre>
-        <code>(ECPC) > python txt_bestanden_lezen.py
-        <span class="invisible" name="txt_bestanden_lezen.py">"Do you have a favourite
+        <code>(ECPC) > python read_file.py
+        <span class="invisible" name="read_file.py">"Do you have a favourite
         saying?" asked the boy.
         "Yes" said the mole.
         "What is it?"
