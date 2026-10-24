@@ -142,7 +142,7 @@ Deze code is bovendien veel korter en gebruikt minder variabelen.
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="iterator.py" onclick="runScript('iterator.py')" class="run">{{ run }}</button><button type="button" name="iterator.py" onclick="runScript('iterator.py')" class="reload invisible">{{ reload }}</button> iterator.py
         ``` py
-        --8 < --"uitwerkingen-on/iterator_on.py"
+        --8<-- "uitwerkingen-on/iterator_on.py"
         ```
         <pre>
         <code>(ECPC) > python iterator.py
@@ -192,7 +192,7 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="list.py" onclick="runScript('list.py')" class="run">{{ run }}</button><button type="button" name="list.py" onclick="runScript('list.py')" class="reload invisible">{{ reload }}</button> list.py
         ``` py
-        --8 < --"uitwerkingen-on/list_square_on.py"
+        --8<-- "uitwerkingen-on/list_square_on.py"
         ```
         <pre>
         <code>(ECPC) > python list.py
@@ -265,7 +265,7 @@ Je kunt op verschillende manieren een NumPy array maken (na `#!py import numpy a
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="np_array.py" onclick="runScript('np_array.py')" class="run">{{ run }}</button><button type="button" name="np_array.py" onclick="runScript('np_array.py')" class="reload invisible">{{ reload }}</button> np_array.py
         ``` py
-        --8 < --"uitwerkingen-on/numpy_array_on.py"
+        --8<-- "uitwerkingen-on/numpy_array_on.py"
         ```
         <pre>
         <code>(ECPC) > python np_array.py
@@ -377,7 +377,7 @@ Je kunt op verschillende manieren een NumPy array maken (na `#!py import numpy a
         Je mag er niet vanuit gaan dat de lijst altijd 5 elementen bevat.
         ??? uitwerkingen
             ```py
-            --8 < --"uitwerkingen-on/odds_on.py"
+            --8<-- "uitwerkingen-on/odds_on.py"
             ```
 ???+ meer-leren "Set"
 
@@ -447,7 +447,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="for_loop.py" onclick="runScript('for_loop.py')" class="run">{{ run }}</button><button type="button" name="for_loop.py" onclick="runScript('for_loop.py')" class="reload invisible">{{ reload }}</button> for_loop.py
         ``` py
-        --8 < --"uitwerkingen-on/comprehension_on.py"
+        --8<-- "uitwerkingen-on/comprehension_on.py"
         ```
         <pre>
         <code>(ECPC) > python for_loop.py
@@ -542,7 +542,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         
         ??? uitwerkingen
             ``` py
-            --8 < --"uitwerkingen-on/lambda_on.py"
+            --8<-- "uitwerkingen-on/lambda_on.py"
             ```
 
 
@@ -619,7 +619,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         ??? uitwerkingen
             <div class="code-box"><button type="button" name="collatz.py" onclick="runScript('collatz.py')" class="run">{{ run }}</button><button type="button" name="collatz.py" onclick="runScript('collatz.py')" class="reload invisible">{{ reload }}</button> collatz.py
             ``` py
-            --8 < --"uitwerkingen-on/generators_on.py"
+            --8<-- "uitwerkingen-on/generators_on.py"
             ```
             <pre>
             <code>(ECPC) > python collatz.py
@@ -829,7 +829,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         ??? uitwerkingen
             <div class="code-box"><button type="button" name="decorators.py_suffix" onclick="runScript('decorators.py_suffix')" class="run">{{ run }}</button><button type="button" name="decorators.py_suffix" onclick="runScript('decorators.py_suffix')" class="reload invisible">{{ reload }}</button> decorators.py.py
             ``` py
-            --8 < --"uitwerkingen-on/decorators_on.py"
+            --8<-- "uitwerkingen-on/decorators_on.py"
             ```
             <pre>
             <code>(ECPC) > python decorators.py.py
@@ -874,7 +874,7 @@ Door de `#!py math` module te importeren hebben we opeens de beschikking over he
 Je kunt je eigen code ook importeren, maar hier moet je wel even opletten. Stel, we hebben een bestand {{file}}`square.py`:
 <div class="code-box"><button type="button" name="square.py_1" onclick="runScript('square.py_1')" class="run">{{ run }}</button><button type="button" name="square.py_1" onclick="runScript('square.py_1')" class="reload invisible">{{ reload }}</button> square.py
 ``` py
---8 < --"scripts/square_1.py"
+--8<-- "scripts/square_1.py"
 ```
 <pre>
 <code>(ECPC) > python square.py
@@ -884,7 +884,7 @@ Je kunt je eigen code ook importeren, maar hier moet je wel even opletten. Stel,
 De uitvoer is zoals verwacht. Maar nu willen we in een nieuw script, {{file}}`count_count.py`, de functie importeren en gebruiken:
 <div class="code-box"><button type="button" name="count_count.py" onclick="runScript('count_count.py')" class="run">{{ run }}</button><button type="button" name="count_count.py" onclick="runScript('count_count.py')" class="reload invisible">{{ reload }}</button> count_count.py
 ``` py
---8 < --"scripts/count_count.py"
+--8<-- "scripts/count_count.py"
 ```
 <pre>
 <code>(ECPC) > python count_count.py
@@ -906,7 +906,7 @@ Tijdens het importeren wordt alle code die aanwezig is in {{file}}`square.py` oo
 
 De eerste oplossing is lang niet altijd wenselijk. Voor de tweede oplossing pas je {{file}}`square.py` als volgt aan:
 ``` py title="square.py"
---8 < --"scripts/square.py"
+--8<-- "scripts/square.py"
 ```
 Wanneer je een python script runt is de speciale variabele `#!py __name__` gelijk aan de string `__main__`. Maar als je een module importeert is
 `#!py __name__` gelijk aan de _naam_ van de module; in dit geval `#!py square`. Met bovenstaande constructie wordt de code alleen uitgevoerd wanneer de module direct gerund wordt:
@@ -1018,13 +1018,13 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
         {{tab}} {{tab}} {{L}} {{file}} `tests.py`
 
         ``` py title="polynomials.py"
-        --8 < --"uitwerkingen-on/polynomials_on.py"
+        --8<-- "uitwerkingen-on/polynomials_on.py"
         ```
         ``` py title="tests.py"
-        --8 < --"uitwerkingen-on/tests_on.py"
+        --8<-- "uitwerkingen-on/tests_on.py"
         ```
         ``` py title="practice-packages.py"
-        --8 < --"uitwerkingen-on/packages_on.py"
+        --8<-- "uitwerkingen-on/packages_on.py"
         ```
 
 ???+ meer-leren "Relatieve en absolute imports"
@@ -1210,7 +1210,7 @@ Merk op dat je een exception met traceback meestal van onder naar boven leest. O
         ??? uitwerkingen
             <div class="code-box"><button type="button" name="exceptions.py" onclick="runScript('exceptions.py')" class="run">{{ run }}</button><button type="button" name="exceptions.py" onclick="runScript('exceptions.py')" class="reload invisible">{{ reload }}</button> exceptions.py
             ``` py
-            --8 < --"uitwerkingen-on/exceptions_on.py"
+            --8<-- "uitwerkingen-on/exceptions_on.py"
             ```
             <pre>
             <code>(ECPC) > python exceptions.py
