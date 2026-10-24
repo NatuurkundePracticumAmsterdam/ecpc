@@ -671,13 +671,13 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Om bekend te raken met de code maak je een nieuw bestand {{new_file}}`flashingLED.py` aan in de map {{folder}}`ECPC`. Hierin schrijf je code om de LED in een regelmatig tempo te laten knipperen.
+            Om bekend te raken met de code maak je een nieuw bestand {{new_file}}`flashing_LED.py` aan in de map {{folder}}`ECPC`. Hierin schrijf je code om de LED in een regelmatig tempo te laten knipperen.
             </div>
             <div>
             {{folder}}`ECPC`  
             {{T}}{{file}}`test_arduino.py`  
             {{T}}{{file}}`test_LED.py`  
-            {{T}}{{new_file}}`flashingLED.py`  
+            {{T}}{{new_file}}`flashing_LED.py`  
             {{L}}{{dots}}  
             </div>
         </div>
@@ -732,7 +732,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         - [ ] Push en pull
 
 !!! opdracht-meer "Meer knipperritmes"
-    Breid het bestand {{file}}`flashingLED.py` uit met meer knipperritmes. Bijvoorbeeld:
+    Breid het bestand {{file}}`flashing_LED.py` uit met meer knipperritmes. Bijvoorbeeld:
 
     * Maak een _SOS light_ &mdash; een lamp die in morsecode het signaal SOS uitzendt.
     * Maak een _breathing light_ &mdash; een lamp die langzaam aan- en uitgaat gevolgd door een pauze in het tempo dat iemand in- en uitademt.
