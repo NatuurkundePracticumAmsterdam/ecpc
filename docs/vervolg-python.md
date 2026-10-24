@@ -76,8 +76,12 @@ Je kunt het lezen middels een _easter egg_ in Python zelf: `#!py import this`.
 
 Deze tekst kan nog behoorlijk cryptisch overkomen, maar een paar dingen worden snel duidelijk: code moet _mooi_ zijn (regel 1) en duidelijk (regels 2, 3 en 6). Er bestaan prachtige programmeertrucs in één of twee regels, maar onleesbaar is het wel. Een voorbeeld:[@contemplating_zenofpython]
 ``` py
-print('\n'.join("%i bytes = %i bits which has %i possible values." %
-      (j, j*8, 256**j) for  j in (1 << i for i in range(4))))
+print(
+    "\n".join(
+        "%i bytes = %i bits which has %i possible values." % (j, j * 8, 256**j)
+        for j in (1 << i for i in range(4))
+    )
+)
 ```
 
 Kun je zien wat de uitvoer van dit programma moet zijn? Misschien als we het op deze manier uitschrijven:
@@ -86,7 +90,7 @@ Kun je zien wat de uitvoer van dit programma moet zijn? Misschien als we het op 
 ``` py
 for num_bytes in [1, 2, 4, 8]:
     num_bits = 8 * num_bytes
-    num_possible_values = 2 ** num_bits
+    num_possible_values = 2**num_bits
     print(
         f"{num_bytes} bytes = {num_bits} bits which has {num_possible_values} possible values."
     )
@@ -105,7 +109,7 @@ Moraal van dit verhaal: we worden gelukkiger van code die leesbaar en begrijpeli
 
 Als je samenwerkt aan software kan het andere Pythonprogrammeurs erg helpen om dingen 'op de Python-manier te doen'. Een C-programmeur herken je vaak aan het typische gebruik van lijsten of arrays in `#!py for`-loops. Als je een lijst hebt: `#!py names = ['Alice', 'Bob', 'Carol']`, doe dan niet:
 ``` py
-names = ['Alice', 'Bob', 'Carol']
+names = ["Alice", "Bob", "Carol"]
 i = 0
 while i < len(names):
     print("Hi,", names[i])
@@ -113,13 +117,13 @@ while i < len(names):
 ```
 en ook niet:
 ``` py
-names = ['Alice', 'Bob', 'Carol']
+names = ["Alice", "Bob", "Carol"]
 for i in range(len(names)):
     print("Hi,", names[i])
 ```
 waarbij je loopt over een index `#!py i`. Gebruik liever het feit dat een lijst al een _iterator_ is:
 ``` py
-names = ['Alice', 'Bob', 'Carol']
+names = ["Alice", "Bob", "Carol"]
 for name in names:
     print("Hi,", name)
 ```
@@ -132,13 +136,13 @@ Deze code is bovendien veel korter en gebruikt minder variabelen.
     1. Print voor elk item in de lijst de waarde in mV. Bijvoorbeeld: "The voltage is set to 0 mV."
 
     ```py
-    voltages = [0, 50, 100, 150, 200, 250, 300] #mV
+    voltages = [0, 50, 100, 150, 200, 250, 300]  # mV
     ```
 
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="iterator.py" onclick="runScript('iterator.py')" class="run">{{ run }}</button><button type="button" name="iterator.py" onclick="runScript('iterator.py')" class="reload invisible">{{ reload }}</button> iterator.py
         ``` py
-        --8<-- "uitwerkingen-on/iterator_on.py"
+        --8 < --"uitwerkingen-on/iterator_on.py"
         ```
         <pre>
         <code>(ECPC) > python iterator.py
@@ -188,7 +192,7 @@ Om nog even te oefenen met de datatypes volgt er een aantal korte opdrachten.
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="list.py" onclick="runScript('list.py')" class="run">{{ run }}</button><button type="button" name="list.py" onclick="runScript('list.py')" class="reload invisible">{{ reload }}</button> list.py
         ``` py
-        --8<-- "uitwerkingen-on/list_square_on.py"
+        --8 < --"uitwerkingen-on/list_square_on.py"
         ```
         <pre>
         <code>(ECPC) > python list.py
@@ -231,6 +235,7 @@ Je kunt op verschillende manieren een NumPy array maken (na `#!py import numpy a
 
     ``` py
     import math
+
     x = [0.00, 1.05, 2.09, 3.14, 4.19, 5.24, 6.28]
     y = []
     for u in x:
@@ -260,7 +265,7 @@ Je kunt op verschillende manieren een NumPy array maken (na `#!py import numpy a
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="np_array.py" onclick="runScript('np_array.py')" class="run">{{ run }}</button><button type="button" name="np_array.py" onclick="runScript('np_array.py')" class="reload invisible">{{ reload }}</button> np_array.py
         ``` py
-        --8<-- "uitwerkingen-on/numpy_array_on.py"
+        --8 < --"uitwerkingen-on/numpy_array_on.py"
         ```
         <pre>
         <code>(ECPC) > python np_array.py
@@ -344,7 +349,7 @@ Je kunt op verschillende manieren een NumPy array maken (na `#!py import numpy a
     Het uit elkaar plukken van argumenten kan zelfs als je een functie aanroept:
     ``` py
     def power(a, b):
-        return a ** b
+        return a**b
 
 
     # regular function call
@@ -372,7 +377,7 @@ Je kunt op verschillende manieren een NumPy array maken (na `#!py import numpy a
         Je mag er niet vanuit gaan dat de lijst altijd 5 elementen bevat.
         ??? uitwerkingen
             ```py
-            --8<-- "uitwerkingen-on/odds_on.py"
+            --8 < --"uitwerkingen-on/odds_on.py"
             ```
 ???+ meer-leren "Set"
 
@@ -401,12 +406,14 @@ Je kunt op verschillende manieren een NumPy array maken (na `#!py import numpy a
 Door gebruik te maken van een _list comprehension_ kun je de for-loop in één regel opschrijven:
 ``` py
 from math import sin
+
 x = [0.00, 1.05, 2.09, 3.14, 4.19, 5.24, 6.28]
 y = [sin(u) for u in x]
 ```
 Er is in veel gevallen tegenwoordig geen groot verschil met een for-loop qua snelheid. In andere gevallen is de list comprehension net wat sneller. Als je lijsten niet te lang zijn is het makkelijker (en sneller) om een list comprehension te gebruiken in plaats van je lijst éérst naar een array te veranderen en er dan mee verder te rekenen. Als je lijst wél lang is of je weet al dat je meerdere berekeningen wilt uitvoeren kan dat wel:
 ``` py
 import numpy as np
+
 x = [0.00, 1.05, 2.09, 3.14, 4.19, 5.24, 6.28]
 x = np.array(x)
 y = np.sin(x)
@@ -440,7 +447,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     ??? uitwerkingen
         <div class="code-box"><button type="button" name="for_loop.py" onclick="runScript('for_loop.py')" class="run">{{ run }}</button><button type="button" name="for_loop.py" onclick="runScript('for_loop.py')" class="reload invisible">{{ reload }}</button> for_loop.py
         ``` py
-        --8<-- "uitwerkingen-on/comprehension_on.py"
+        --8 < --"uitwerkingen-on/comprehension_on.py"
         ```
         <pre>
         <code>(ECPC) > python for_loop.py
@@ -476,8 +483,10 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     ``` py
     a = ["kiwi", "banana", "apple"]
 
+
     def second_letter(value):
         return value[1]
+
 
     print(second_letter("lemon"))
     print(sorted(a, key=second_letter))
@@ -490,7 +499,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     ``` py
     a = ["kiwi", "banana", "apple"]
 
-    squared = lambda x: x ** 2
+    squared = lambda x: x**2
     print(squared(4))
 
     second_letter = lambda value: value[1]
@@ -525,7 +534,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     !!! opdracht-meer "lambda"
         Maak een dictionary `models` met functies voor een lineaire functie `linear` gegeven door $y = ax + b$, een kwadratische functie `quadratic` gegeven door $y = ax^2 + bx + c$ en een sinusfunctie `sine` gegeven door $a + b\sin(cx + d)$. Hierna moet de volgende code werken:
         ``` py
-        f = models['linear']
+        f = models["linear"]
         f(5, a=2, b=3)
         # 13
         ```
@@ -533,7 +542,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         
         ??? uitwerkingen
             ``` py
-            --8<-- "uitwerkingen-on/lambda_on.py"
+            --8 < --"uitwerkingen-on/lambda_on.py"
             ```
 
 
@@ -552,8 +561,9 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         """Calculate squares of all integers up to a maximum number"""
         squares = []
         for number in range(max_number):
-            squares.append(number ** 2)
+            squares.append(number**2)
         return squares
+
 
     print(calculate_squares_up_to(5))
     ```
@@ -566,7 +576,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     def calculate_squares_up_to(max_number):
         """Generate squares of all integers up to a maximum number"""
         for number in range(max_number):
-            yield number ** 2
+            yield number**2
     ```
     Lekker kort, want we hoeven geen lijst bij te houden! Als je de functie aanroept krijg je geen resultaat terug, maar een _generator_. Als je de waardes wil zien dan gebruik je `#!py next()`, als volgt:
     ``` py
@@ -609,7 +619,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         ??? uitwerkingen
             <div class="code-box"><button type="button" name="collatz.py" onclick="runScript('collatz.py')" class="run">{{ run }}</button><button type="button" name="collatz.py" onclick="runScript('collatz.py')" class="reload invisible">{{ reload }}</button> collatz.py
             ``` py
-            --8<-- "uitwerkingen-on/generators_on.py"
+            --8 < --"uitwerkingen-on/generators_on.py"
             ```
             <pre>
             <code>(ECPC) > python collatz.py
@@ -664,7 +674,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
             return Vector(new_x, new_y)
 
         def __abs__(self):
-            return (self.x ** 2 + self.y ** 2) ** .5
+            return (self.x**2 + self.y**2) ** 0.5
     ```
     De speciale `#!py __init__()` methode zorgt voor de initialisatie van de class en de eerste parameter die alle methodes meekrijgen verwijst naar zichzelf en wordt dus gewoonlijk `#!py self` genoemd.[^niet_doen] Met de regel `#!py self.x = x` wordt de parameter `#!py x` bewaard voor later gebruik. Je kunt de class gebruiken op de volgende manier:
 
@@ -694,6 +704,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     ``` py
     class Vector:
         ...
+
         def __repr__(self):
             return f"Vector: ({self.x}, {self.y})"
 
@@ -739,6 +750,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     def squared(func, a, b):
         return func(a, b) ** 2
 
+
     f(3, 4)
     # 12
     squared(f, 3, 4)
@@ -756,7 +768,6 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     g = squared_func(f)
     g(3, 4)
     # 144
-
     ```
 
     Hier gebeurt iets geks&hellip; Om te begrijpen wat hier gebeurt moeten we een beetje heen en weer springen. In regel 8 roepen we de functie `#!py squared_func(f)` aan. In regel 5 zien we dat die functie een andere functie teruggeeft -- die _niet_ wordt aangeroepen! In regel 8 wordt die functie bewaard als `#!py g` en pas in regel 9 roepen we hem aan. De functie `#!py g()` is dus eigenlijk gelijk aan de functie `#!py inner_func()` die in regels 2--3 gedefinieerd wordt. De aanroep in regel 9 zorgt er uiteindelijk voor dat in regel 3 de oorspronkelijke functie `#!py f(a, b)` wordt aangeroepen en dat het antwoord gekwadrateerd wordt. Dit is echt wel even lastig.
@@ -782,6 +793,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
     @squared_func
     def f(a, b):
         return a * b
+
 
     f(3, 4)
     # 144
@@ -817,7 +829,7 @@ In een for-loop heb je daar meer ruimte voor nodig. Naast list comprehensions he
         ??? uitwerkingen
             <div class="code-box"><button type="button" name="decorators.py_suffix" onclick="runScript('decorators.py_suffix')" class="run">{{ run }}</button><button type="button" name="decorators.py_suffix" onclick="runScript('decorators.py_suffix')" class="reload invisible">{{ reload }}</button> decorators.py.py
             ``` py
-            --8<-- "uitwerkingen-on/decorators_on.py"
+            --8 < --"uitwerkingen-on/decorators_on.py"
             ```
             <pre>
             <code>(ECPC) > python decorators.py.py
@@ -845,9 +857,10 @@ Eenvoudig gezegd is een module een stuk Python code dat je kunt importeren en ge
 <div class="code-box"><button type="button" name="math" onclick="runScript('math')" class="run">{{ run }}</button><button type="button" name="math" onclick="runScript('math')" class="reload invisible">{{ reload }}</button> math.py
 ``` py
 import math
+
 print(math.sqrt(2))
 print(math.pi)
-print(math.sin(.5 * math.pi))
+print(math.sin(0.5 * math.pi))
 ```
 <pre>
 <code>(ECPC) > python math.py
@@ -861,7 +874,7 @@ Door de `#!py math` module te importeren hebben we opeens de beschikking over he
 Je kunt je eigen code ook importeren, maar hier moet je wel even opletten. Stel, we hebben een bestand {{file}}`square.py`:
 <div class="code-box"><button type="button" name="square.py_1" onclick="runScript('square.py_1')" class="run">{{ run }}</button><button type="button" name="square.py_1" onclick="runScript('square.py_1')" class="reload invisible">{{ reload }}</button> square.py
 ``` py
---8<-- "scripts/square_1.py"
+--8 < --"scripts/square_1.py"
 ```
 <pre>
 <code>(ECPC) > python square.py
@@ -871,7 +884,7 @@ Je kunt je eigen code ook importeren, maar hier moet je wel even opletten. Stel,
 De uitvoer is zoals verwacht. Maar nu willen we in een nieuw script, {{file}}`count_count.py`, de functie importeren en gebruiken:
 <div class="code-box"><button type="button" name="count_count.py" onclick="runScript('count_count.py')" class="run">{{ run }}</button><button type="button" name="count_count.py" onclick="runScript('count_count.py')" class="reload invisible">{{ reload }}</button> count_count.py
 ``` py
---8<-- "scripts/count_count.py"
+--8 < --"scripts/count_count.py"
 ```
 <pre>
 <code>(ECPC) > python count_count.py
@@ -893,7 +906,7 @@ Tijdens het importeren wordt alle code die aanwezig is in {{file}}`square.py` oo
 
 De eerste oplossing is lang niet altijd wenselijk. Voor de tweede oplossing pas je {{file}}`square.py` als volgt aan:
 ``` py title="square.py"
---8<-- "scripts/square.py"
+--8 < --"scripts/square.py"
 ```
 Wanneer je een python script runt is de speciale variabele `#!py __name__` gelijk aan de string `__main__`. Maar als je een module importeert is
 `#!py __name__` gelijk aan de _naam_ van de module; in dit geval `#!py square`. Met bovenstaande constructie wordt de code alleen uitgevoerd wanneer de module direct gerund wordt:
@@ -907,16 +920,16 @@ Wanneer je een python script runt is de speciale variabele `#!py __name__` gelij
 Het `#!py if __name__ == '__main__'`-statement wordt heel veel gebruikt in Python modules.
 
 !!! opdracht-basis-thuis "modules"
-    1. Maak zelf de bestanden {{file}}`square.py` en {{file}}`just_count.py` aan.  
+    1. Maak zelf de bestanden {{file}}`square.py` en {{file}}`count_count.py` aan.  
     {{folder}} `ECPC`  
     {{T}} {{new_file}} `square.py`  
-    {{T}} {{new_file}} `just_count.py`  
+    {{T}} {{new_file}} `count_count.py`  
     {{L}} {{dots}}
-    1. Run {{file}}`just_count.py` zonder het `#!py if __name__ == '__main__'`-statement.
-    1. Run {{file}}`just_count.py` met het `#!py if __name__ == '__main__'`-statement.
+    1. Run {{file}}`count_count.py` zonder het `#!py if __name__ == '__main__'`-statement.
+    1. Run {{file}}`count_count.py` met het `#!py if __name__ == '__main__'`-statement.
     1. Voeg `#!py print(f"{__name__ = }")` toe bovenaan {{file}}`square.py`. 
     1. Run {{file}}`square.py` en kijk wat `#!py __name__` is.
-    1. Run dan nu {{file}}`just_count.py`. Zie hoe de speciale variabele `#!py __name__` verandert. 
+    1. Run dan nu {{file}}`count_count.py`. Zie hoe de speciale variabele `#!py __name__` verandert. 
 
 
 ## Packages
@@ -953,14 +966,17 @@ De verschillende modules uit het [figuur](vervolg-python.md#fig:packagetree) hie
 ``` py title="script.py"
 # direct import
 import my_package.package1.module1
+
 my_package.package1.module1.some_function()
 
 # import module from a package
 from my_package.package1 import module2
+
 module2.some_function()
 
 # import module under a different name
 import my_package.module4 as m4
+
 m4.some_function()
 ```
 
@@ -1002,13 +1018,13 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
         {{tab}} {{tab}} {{L}} {{file}} `tests.py`
 
         ``` py title="polynomials.py"
-        --8<-- "uitwerkingen-on/polynomials_on.py"
+        --8 < --"uitwerkingen-on/polynomials_on.py"
         ```
         ``` py title="tests.py"
-        --8<-- "uitwerkingen-on/tests_on.py"
+        --8 < --"uitwerkingen-on/tests_on.py"
         ```
         ``` py title="practice-packages.py"
-        --8<-- "uitwerkingen-on/packages_on.py"
+        --8 < --"uitwerkingen-on/packages_on.py"
         ```
 
 ???+ meer-leren "Relatieve en absolute imports"
@@ -1060,7 +1076,7 @@ Exceptions zijn de foutmeldingen van Python. Je krijgt ze als je bijvoorbeeld pr
 
 <div class="code-box"><button type="button" name="divide_suffix" onclick="runScript('divide_suffix')" class="run">{{ run }}</button><button type="button" name="divide_suffix" onclick="runScript('divide_suffix')" class="reload invisible">{{ reload }}</button> divide.py
 ``` py
-print(1/0)
+print(1 / 0)
 ```
 <pre>
 <code>(ECPC) > python divide.py
@@ -1136,6 +1152,7 @@ Merk op dat je een exception met traceback meestal van onder naar boven leest. O
     class InvalidChannelException(Exception):
         pass
 
+
     def get_voltage(channel):
         if channel not in [0, 1]:
             raise InvalidChannelException(f"Use channel 0 or 1, not {channel}")
@@ -1180,7 +1197,7 @@ Merk op dat je een exception met traceback meestal van onder naar boven leest. O
         De volgende code berekent een gemiddelde van een lijst getallen:
         ``` py
         def average(values):
-            return sum(values) / len(values)    
+            return sum(values) / len(values)
         ```
         Er is alleen geen foutafhandeling en dat kan leiden tot exceptions. De volgende aanroepen zorgen voor een crash (probeer ze allemaal uit!):
         ``` py
@@ -1193,7 +1210,7 @@ Merk op dat je een exception met traceback meestal van onder naar boven leest. O
         ??? uitwerkingen
             <div class="code-box"><button type="button" name="exceptions.py" onclick="runScript('exceptions.py')" class="run">{{ run }}</button><button type="button" name="exceptions.py" onclick="runScript('exceptions.py')" class="reload invisible">{{ reload }}</button> exceptions.py
             ``` py
-            --8<-- "uitwerkingen-on/exceptions_on.py"
+            --8 < --"uitwerkingen-on/exceptions_on.py"
             ```
             <pre>
             <code>(ECPC) > python exceptions.py
