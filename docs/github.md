@@ -65,6 +65,10 @@ In deze cursus ga je werken met GitHub. Je moet hiervoor wel een (gratis) accoun
 ### GitHub Desktop
 Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een desktopapplicatie ontwikkeld met de naam GitHub Desktop. Je gaat GitHub Desktop gebruiken om een repository te maken van de map met de oefenopdrachten.
 
+!!! info "GitHub Desktop voor Linux"
+    
+    GitHub Desktop wordt officieel niet ondersteund voor Linux. De instructies in de volgende opdracht werken daarom niet. De officiële repository van GitHub Desktop verwijst wél naar zogeheten _Community Releases_ die voor Linux verwijst naar de [Shiftkey fork](https://github.com/shiftkey/desktop). Je kunt de instructies in de README volgen om GitHub Desktop te installeren.
+
 !!! opdracht-basis "GitHub Desktop installeren"
     === "opdracht"
         Ga naar [https://desktop.github.com/download/](https://desktop.github.com/download/) om GitHub Desktop te downloaden. Zoek daarna het gedownloade bestand op en installeer de applicatie. Log nu in met jouw account.
