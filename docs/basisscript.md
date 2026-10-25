@@ -581,18 +581,6 @@ Je kunt het wegschrijven van de regels natuurlijk vervangen door een `#!py for`-
         - [x] Pythondaq: herhaalmetingen
         - [x] Pythondaq: CSV
 
-???+ meer-leren "`Git ignore`"
-    Het kan wenselijk zijn om niet alle bestanden mee te nemen voor versiebeheer in je repository. Soms wil je een specifiek bestand uitsluiten en soms wil je een bepaald bestandstype uitsluiten. Om GitHub te laten weten welke bestanden niet gecommit hoeven te worden, is er een bestand {{file_lines}}`.gitignore`. Let op de punt voor de bestandsnaam: dit betekent dat het om een verborgen bestand gaat en mogelijk zie je het daarom niet in je repository staan.
-    
-    ???+ opdracht-meer "CSV-bestanden uitsluiten van versiebeheer"
-        Stel je wilt alle CSV-bestanden uitsluiten van versiebeheer, dan kun je dat als volgt doen:
-
-        1. Ga naar GitHub Desktop.
-        2. Ga naar het tabblad _Changes_. 
-        3. Rechtermuisklik op het bestand wat je wilt negeren (ervan uitgaande dat je dit bestand nog niet hebt gecommit).
-        4. Maak een keuze tussen `Ignore file` of `Ignore all .csv files`.
-        5. Commit.
-
 ???+ opdracht-meer "CSV bestandsnaam"
     Pas de code zodanig aan dat een CSV-bestand nooit wordt overschreven. Je kunt bijvoorbeeld controleren of het bestand al bestaat en aan de bestandsnaam een oplopend getal toevoegen (`data-001.csv`, `data-002.csv`, etcetera), net zo lang totdat je uitkomt bij een bestandsnaam die nog niet bestaat. Wees er zeker van dat je programma ook echt geen data overschrijft.
 

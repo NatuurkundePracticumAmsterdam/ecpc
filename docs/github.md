@@ -215,6 +215,17 @@ In GitHub Desktop zie je nu bij _History_ de commit staan, met in één oogopsla
 !!! info
     Als je wilt opzoeken hoe iets werkt bij GitHub Desktop, kijk dan in de documentatie: [https://docs.github.com/en/desktop](https://docs.github.com/en/desktop).
 
+!!! opdracht-basis "`Git ignore`"
+    Het kan wenselijk zijn om niet alle bestanden mee te nemen voor versiebeheer in je repository. Soms wil je een specifiek bestand uitsluiten en soms wil je een bepaald bestandstype uitsluiten. Om GitHub te laten weten welke bestanden niet gecommit hoeven te worden, is er een bestand {{file_lines}}`.gitignore`. Let op de punt voor de bestandsnaam: dit betekent dat het om een verborgen bestand gaat en mogelijk zie je het daarom niet in je repository staan.
+    
+    Stel je wilt alle CSV-bestanden uitsluiten van versiebeheer, dan kun je dat als volgt doen:
+
+    1. Ga naar GitHub Desktop.
+    2. Ga naar het tabblad _Changes_. 
+    3. Rechtermuisklik op het bestand wat je wilt negeren (ervan uitgaande dat je dit bestand nog niet hebt gecommit).
+    4. Maak een keuze tussen `Ignore file` of `Ignore all .csv files`.
+    5. Commit.
+
 !!! opdracht-basis "Push en pull"
     === "opdracht"
         De repository {{github}}`oefenopdrachten` bestaat alleen nog maar op de computer. Het kan fijn zijn om de repository ook in de cloud te hebben op [github.com](https://github.com/). Het geeft de mogelijkheid je code op andere computers binnen te halen en te delen met anderen. Bovendien ben je dan beschermd tegen computerkabouters die 's nachts documenten verplaatsen of wissen.[^kabouter]
