@@ -479,7 +479,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
 <div id="opd:venv"></div>
 !!! opdracht-basis "Virtual environment aanmaken"
     === "opdracht"
-        Open een terminal in je Visual Studio Code-omgeving (**Menu > Terminal > New Terminal**). Maak de virtual environment aan met:
+        Open een terminal in je Visual Studio Code-omgeving (**Terminal > New Terminal**). Maak de virtual environment aan met:
         ``` ps1con title="Terminal"
         uv venv --python 3.14
         ```

@@ -70,7 +70,7 @@ Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een d
         Ga naar [https://desktop.github.com/download/](https://desktop.github.com/download/) om GitHub Desktop te downloaden. Zoek daarna het gedownloade bestand op en installeer de applicatie. Log nu in met jouw account.
 
         !!! info
-            Mogelijk heb je eerder al eens GitHub Desktop geïnstalleerd. Controleer dan of je met het juiste account ingelogd bent. Ga hiervoor naar **Accounts** via het dropdownmenu **File** > **Options**.
+            Mogelijk heb je eerder al eens GitHub Desktop geïnstalleerd. Controleer dan of je met het juiste account ingelogd bent. Ga hiervoor naar **Accounts** via het dropdownmenu **File > Options**.
 
     === "check"
 
@@ -107,7 +107,7 @@ Om het programmeurs makkelijker te maken met GitHub te werken heeft GitHub een d
             De repository {{github}}`oefenopdrachten` is in GitHub Desktop geopend en als je op het tabblad 'History' klikt dan zie je dat er een `Initial commit` is met wat `git`-bestanden en de Pythonscripts die je in de map hebt gezet. Vanaf nu staat {{github}}`oefenopdrachten` in versiebeheer en houdt Git je wijzigingen bij. Het is wel belangrijk dat je met regelmaat zelf [commit](#commit)!
             <br>
             <br>
-            Open de repository in Visual Studio Code door op de knop `Open in Visual Studio Code` te klikken _of_ via het pulldown-menu: **Menu > Repository > Open in Visual Studio Code**. Als je je oefenopdrachten probeert te runnen lukt dat waarschijnlijk niet, aangezien er nog geen environment gekoppeld is aan deze repository (die moest je verwijderen). Je maakt nu eerst een virtual environment aan (zie [opdracht Virtual environment aanmaken](communicatie.md#opd:venv)), en probeert opnieuw je scripts te runnen.
+            Open de repository in Visual Studio Code door op de knop `Open in Visual Studio Code` te klikken _of_ via het pulldown-menu: **Repository > Open in Visual Studio Code**. Als je je oefenopdrachten probeert te runnen lukt dat waarschijnlijk niet, aangezien er nog geen environment gekoppeld is aan deze repository (die moest je verwijderen). Je maakt nu eerst een virtual environment aan (zie [opdracht Virtual environment aanmaken](communicatie.md#opd:venv)), en probeert opnieuw je scripts te runnen.
             </div>
             <div>
             {{folder}}`ECPC`  
@@ -160,7 +160,7 @@ Hieronder zie je een aantal voorbeelden van commit messages. De titel (_summary_
         Voer de volgende opdrachten uit:
 
         1. Open GitHub Desktop, klik op *Current repository* (links onder de menubalk) en selecteer de repository {{github}}`oefenopdrachten`.
-        2. Ga naar het dropdownmenu **Repository** en kies voor `Open in Visual Studio Code` (of druk op ++ctrl+shift+a++ ) en open de repository {{github}}`oefenopdrachten` in Visual Studio Code.
+        2. Ga naar het dropdownmenu **Repository > Open in Visual Studio Code** (of druk op ++ctrl+shift+a++ ) en open de repository {{github}}`oefenopdrachten` in Visual Studio Code.
         3. Open in Visual Studio Code één van je Pythonscripts.
         4. Type een stukje code erbij &mdash; bijvoorbeeld een `#!py print`-statement &mdash; en haal ergens anders iets weg. Sla het bestand op.
         5. Ga terug naar GitHub Desktop. Controleer bij *Current repository* (links onder de menubalk) of de repository {{github}}`oefenopdrachten` nog steeds is geopend.
@@ -173,7 +173,7 @@ Hieronder zie je een aantal voorbeelden van commit messages. De titel (_summary_
         Voer de volgende opdrachten uit:
 
         1. Open GitHub Desktop, klik op *Current repository* (links onder de menubalk) en selecteer de repository {{github}}`oefenopdrachten`.
-        2. Ga naar het dropdownmenu **Repository** en kies voor `Open in Visual Studio Code` (of druk op ++ctrl+shift+a++ ) en open de repository {{github}}`oefenopdrachten` in Visual Studio Code.
+        2. Ga naar het dropdownmenu **Repository > Open in Visual Studio Code** (of druk op ++ctrl+shift+a++ ) en open de repository {{github}}`oefenopdrachten` in Visual Studio Code.
         3. Open in Visual Studio Code één van je Pythonscripts.
         4. Type een stukje code erbij &mdash; bijvoorbeeld een `#!py print`-statement &mdash; en haal ergens anders iets weg. Sla het bestand op.
         5. In Visual Studio Code verschijnt links een blauw bolletje bij *Source Control* {{branch}}. (Geen blauw bolletje? Bekijk het info-blok hieronder.) Dit bolletje laat weten dat er wijzigingen zijn ten opzichte van de vorige commit. Klik op *Source Control*. 
@@ -273,13 +273,13 @@ Om makkelijk je Git repository te delen met vrienden, collega's en de rest van d
     1. Zoek op [github.com](https://github.com) de repository {{github}}`lmfit/lmfit-py` op.
     2. Klik op de groene knop _Code_ en kies voor _Open with GitHub Desktop_.
     3. Kies zelf een map op je harde schijf waar je de repository wilt bewaren.
-    4. Open Visual Studio Code en open de repository met **File** en kies voor `Open Folder...`.[^open folder] Als GitHub Desktop de geïnstalleerde Visual Studio Code herkent, dan kun je de repository ook direct vanuit GitHub Desktop in Visual Studio Code openen. Ga hiervoor naar het dropdownmenu **Repository** en kies voor `Open in Visual Studio Code`. 
+    4. Open Visual Studio Code en open de repository met **File > Open Folder...**.[^open folder] Als GitHub Desktop de geïnstalleerde Visual Studio Code herkent, dan kun je de repository ook direct vanuit GitHub Desktop in Visual Studio Code openen. Ga hiervoor naar het dropdownmenu **Repository > Open in Visual Studio Code**. 
     5. Open de map {{folder}}`examples` en daarna het bestand {{file_lines}}`README.txt`. Verander in de eerste paragraaf "Below are examples" in "Below are different examples" en sla het bestand op.
     6. Schakel naar de GitHub Desktop applicatie en bekijk de wijziging.
     7. Schrijf een commmit message. Houd de titel in de commit message kort en krachtig. Een uitgebreidere beschrijving kun je kwijt in het grote veld. Commit.
     8. Bekijk het tabblad _History_. Bovenaan staat nu jouw wijziging. Daaronder kun je alle wijzigingen van anderen bekijken.
 
-    [^open folder]: Als je vergeten bent waar je de repository ook alweer bewaard hebt, dan kun je via GitHub Desktop de locatie terugvinden. Selecteer in GitHub Desktop de betreffende repository. Ga naar het dropdownmenu **Repository** en kies voor `Show in explorer`. 
+    [^open folder]: Als je vergeten bent waar je de repository ook alweer bewaard hebt, dan kun je via GitHub Desktop de locatie terugvinden. Selecteer in GitHub Desktop de betreffende repository. Ga naar het dropdownmenu **Repository > Show in explorer**. 
 
     Aangezien je geen schrijfrechten hebt voor LMfit kun je niet kiezen voor `Push origin` &mdash; de knop die in GitHub Desktop bovenin verschijnt. Met die knop <q>duw</q> je je wijzigingen naar GitHub zodat iedereen ze kan zien. Dat is mooi, maar je mag niet zomaar de repository van iemand anders wijzigen.
 

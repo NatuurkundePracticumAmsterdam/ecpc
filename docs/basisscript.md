@@ -202,7 +202,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
     === "opdracht"
         Omdat je met een belangrijk project aan de slag gaat, namelijk een inleveropdracht, ga je gelijk goed beginnen door een repository aan te maken. 
 
-        1. Open Github Desktop en ga naar het dropdownmenu **File**. Kies hier voor `New repository ...`. Geef de repository de naam `pythondaq` en zet de repository in de map {{folder}}`ECPC`. De mappenstructuur ziet er dan als volgt uit:   
+        1. Open Github Desktop en ga naar het dropdownmenu **File > New repository ...**. Geef de repository de naam `pythondaq` en zet de repository in de map {{folder}}`ECPC`. De mappenstructuur ziet er dan als volgt uit:   
         {{folder}} ECPC  
         {{T}} {{github}} oefenopdrachten  
         {{T}} {{github}} pythondaq  
@@ -210,7 +210,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         {{L}} {{dots}}  
         2. Vink `Initialize this repository with a README` aan.
         3. Kies bij `Git ignore` voor <q>Python</q>.
-        4. Open de repository {{github}}`pythondaq` via GitHub Desktop. Ga hiervoor naar het dropdownmenu **Repository** en kies voor `Open in Visual Studio Code`.
+        4. Open de repository {{github}}`pythondaq` via GitHub Desktop. Ga hiervoor naar het dropdownmenu **Repository > Open in Visual Studio Code**.
         5. Nu kun je aan de slag. Vergeet tijdens het werken niet regelmatig te committen!
 
     === "check"

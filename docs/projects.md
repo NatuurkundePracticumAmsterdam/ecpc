@@ -79,9 +79,9 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
 
 !!! opdracht-basis "Easystat: uv project aanmaken"
     === "opdracht"
-        1. Open Github Desktop en ga naar **Menu > File**. Kies hier voor `New repository ...`. Geef de repository de naam `easystat` en zet de repository in de map {{folder}}`ECPC`. Vink `Initialize this repository with a README` aan en kies bij `Git ignore` voor Python.
-        2. Open de repository {{github}} `easystat` in Visual Studio Code (**Menu > Repository > Open in Visual Studio Code**).
-        3. Open een terminal in je Visual Studio Code-omgeving (**Menu > Terminal > New Terminal**). Maak het uv project aan met:
+        1. Open Github Desktop en ga naar **File > New repository ...**. Geef de repository de naam `easystat` en zet de repository in de map {{folder}}`ECPC`. Vink `Initialize this repository with a README` aan en kies bij `Git ignore` voor Python.
+        2. Open de repository {{github}} `easystat` in Visual Studio Code (**Repository > Open in Visual Studio Code**).
+        3. Open een terminal in je Visual Studio Code-omgeving (**Terminal > New Terminal**). Maak het uv project aan met:
         ``` ps1con title="Terminal"
         uv init --package
         ```
@@ -885,7 +885,7 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren, moet je je 
         Inmiddels ben je misschien gewend dat je virtual environments altijd moet activeren voordat je applicaties kunt runnen die daarin geïnstalleerd zijn. In Visual Studio Code gaat dat automatisch als je het environment goed geselecteerd hebt. Maar... hoe moet dat zonder Visual Studio Code? Omdat uv virtual environments in je projectmap neerzet &mdash; de map {{folder}}`.venv` &mdash; moet je met je terminal wel in de goede map zitten. Daarna kun je ervoor kiezen om het commando te runnen met uv, dan is activeren van het virtual environment niet nodig, of zonder uv, dan is activeren van het virtual environment _wel_ nodig. Voer de volgende opdrachten uit om dit te proberen.
 
         1. Open in GitHub Desktop nogmaals je repository {{github}}`easystat`.
-        2. Klik op **Menu > Repository > Open in Command Prompt** om een nieuwe terminal te openen, in je projectmap.
+        2. Klik op **Repository > Open in Command Prompt** om een nieuwe terminal te openen, in je projectmap.
         3. Run het commando `easystat`. Dit werkt niet.
         4. Run het commando `uv run easystat`. Dit werkt _wel_.
         5. Activeer het environment door het volgende commando te runnen: `.venv\Scripts\activate` (Windows) of `source .venv/bin/activate` (macOS / Linux).
@@ -913,7 +913,7 @@ Om de wijzigingen aan {{file_lines}}`pyproject.toml` door te voeren, moet je je 
 
 !!! opdracht-inlever "Pythondaq: applicatie"
     === "opdracht"
-        Je maakt een commando om het script {{file}}`run_experiment.py` uit de repository {{github}}`pythondaq` te starten {{lightbulb}}. Wanneer je het commando aanroept gaat de LED branden en verschijnt er even later een $IU$-plot op het scherm. Je test of het commando ook buiten Visual Studio Code werkt door vanuit GitHub een nieuwe terminal te openen (**Menu > Repository > Open in Command Prompt**). Je test het commando met `uv run COMMAND` en ook door het juiste virtual environment te activeren {{lightbulb}}. Je ziet dat in beide gevallen het commando werkt. Wat een feest! {{feesttoeter}} Je hebt nu een applicatie geschreven die een Arduino aanstuurt om een LED te laten branden. En je kunt je applicatie gewoon vanuit de terminal aanroepen! {{feesttoeter}}
+        Je maakt een commando om het script {{file}}`run_experiment.py` uit de repository {{github}}`pythondaq` te starten {{lightbulb}}. Wanneer je het commando aanroept gaat de LED branden en verschijnt er even later een $IU$-plot op het scherm. Je test of het commando ook buiten Visual Studio Code werkt door vanuit GitHub een nieuwe terminal te openen (**Repository > Open in Command Prompt**). Je test het commando met `uv run COMMAND` en ook door het juiste virtual environment te activeren {{lightbulb}}. Je ziet dat in beide gevallen het commando werkt. Wat een feest! {{feesttoeter}} Je hebt nu een applicatie geschreven die een Arduino aanstuurt om een LED te laten branden. En je kunt je applicatie gewoon vanuit de terminal aanroepen! {{feesttoeter}}
     === "code"
         **Pseudo-code**
         ``` py title="run_experiment.py"
