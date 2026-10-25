@@ -917,7 +917,7 @@ Wanneer je een python script runt is de speciale variabele `#!py __name__` gelij
 </code></pre>
 
 
-Het `#!py if __name__ == '__main__'`-statement wordt heel veel gebruikt in Python modules.
+Het `#!py if __name__ == '__main__'`-statement wordt heel veel gebruikt in Python modules. Om goed overzicht te bewaren is het belangrijk dat dit blok _altijd onderaan_ je script staat, en niet verstopt ergens tussendoor.
 
 !!! opdracht-basis-thuis "modules"
     1. Maak zelf de bestanden {{file}}`square.py` en {{file}}`count_count.py` aan.  
