@@ -95,7 +95,7 @@ Onderdeel van VISA is de SCPI standaard [@SCPI], wat staat voor _Standard Comman
     ``` console title="Terminal (macOS en Linux, optie 2)"
     wget -qO- https://astral.sh/uv/install.sh | sh
     ```
-    **Belangrijk:** uv werkt nu alleen in _nieuw geopende_ terminals. Sluit daarom de terminal die je open hebt staan en open een nieuwe terminal.
+    **Belangrijk:** uv werkt nu alleen in _nieuw geopende_ terminals. Sluit daarom de terminal die je open hebt staan en open een nieuwe terminal. Dit geldt ook voor Visual Studio Code. Sluit Visual Studio Code _volledig_ af.
 
 <div id="opd:pyvisaterminal"></div>
 !!! opdracht-basis "PyVISA in terminal"
