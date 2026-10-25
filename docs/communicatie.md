@@ -452,7 +452,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Je gaat de gegeven Pythoncode testen. Hiervoor open je in Visual Studio Code de map {{folder}}`ECPC` en maak je een bestand {{new_file}}`test_arduino.py` aan. Je kopieert de gegeven Pythoncode in dit bestand. Je ziet dat Visual Studio Code rechtsonder aangeeft dat je nog geen virtual environment hebt geselecteerd (de bruinige waarschuwing _Select Interpreter_). Je moet dus nog een virtual environment aanmaken. Ga daarvoor verder met de volgende opdracht.
+            **Belangrijk: lees de hele opdracht want het _runnen_ van het script lukt pas later.** We willen de gegeven Pythoncode testen. Hiervoor open je in Visual Studio Code de map {{folder}}`ECPC` en maak je een bestand {{new_file}}`test_arduino.py` aan. Je kopieert de gegeven Pythoncode in dit bestand. Je ziet dat Visual Studio Code rechtsonder aangeeft dat je nog geen virtual environment hebt geselecteerd (de bruinige waarschuwing _Select Interpreter_). Je moet dus nog een virtual environment aanmaken. Ga daarvoor verder met de volgende opdracht.
             </div>
             <div>
             {{folder}}`ECPC`  
