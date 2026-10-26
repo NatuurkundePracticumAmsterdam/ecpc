@@ -459,7 +459,7 @@ Het viel je misschien op dat in bovenstaand CSV-bestand op iedere regel een waar
 === "with_zip.py"
     <div class="code-box"><button type="button" name="with_zip.py_suffix" onclick="runScript('with_zip.py_suffix')" class="run">{{ run }}</button><button type="button" name="with_zip.py_suffix" onclick="runScript('with_zip.py_suffix')" class="reload invisible">{{ reload }}</button> with_zip.py
     ``` py
-    --8 < --"scripts/with_zip.py"
+    --8<-- "scripts/with_zip.py"
     ```
     <pre>
     <code>(ECPC) > python with_zip.py
@@ -471,7 +471,7 @@ Het viel je misschien op dat in bovenstaand CSV-bestand op iedere regel een waar
 === "with_indexing.py"
     <div class="code-box"><button type="button" name="with_indexing.py_suffix" onclick="runScript('with_indexing.py_suffix')" class="run">{{ run }}</button><button type="button" name="with_indexing.py_suffix" onclick="runScript('with_indexing.py_suffix')" class="reload invisible">{{ reload }}</button> with_indexing.py
     ``` py
-    --8 < --"scripts/with_indexing.py"
+    --8<-- "scripts/with_indexing.py"
     ```
     <pre>
     <code>(ECPC) > python with_indexing.py
