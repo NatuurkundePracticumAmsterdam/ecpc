@@ -53,13 +53,14 @@ code --install-extension njpwerner.autodocstring
 Er zijn drie instellingen om je code automatisch wat op te schonen en import statements te sorteren. Op die manier hoef je je veel minder druk te maken over hoe netjes je code eruitziet. Elke keer als je je bestand opslaat gaat de tool _ruff_ aan het werk.
 
 1. Kies **File>Preferences>Settings** of druk op ctrl-, (control-komma).
-2. Type nu in het zoekvenster: `format on save` en vink de bovenste instelling aan.
-3. Type nu in het zoekvenster: `@lang:python default formatter` en kies `Ruff`
-4. Typ in het zoekvenster _@lang:python code actions on save_, kies _Edit in settings.json_ en type of copy/paste:
+2. Typ in het zoekvenster chat: disable AI features en vink de instelling aan. Deze features zijn op dit moment vooral irritant.
+3. Type nu in het zoekvenster: `format on save` en vink de bovenste instelling aan.
+4. Type nu in het zoekvenster: `@lang:python default formatter` en kies `Ruff`
+5. Typ in het zoekvenster _@lang:python code actions on save_, kies _Edit in settings.json_ en type of copy/paste:
    ```
    "source.organizeImports.ruff": "explicit"
    ```
    Sla de wijzigingen op via het dropdownmenu **File** en kies **Save** of met de sneltoetscombinatie ++cmd+s++ (macOS) / ++ctrl+s++ (Windows).
-5. Sluit de settingstabbladen.
+6. Sluit de settingstabbladen.
 
 Zodra je een Pythonbestand hebt geopend kun je rechts onderin bij `Select interpreter` het juiste environment kiezen.
