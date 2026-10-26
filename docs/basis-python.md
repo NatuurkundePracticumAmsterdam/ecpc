@@ -225,19 +225,6 @@ Ook heb je al geleerd om functies uit andere (Python) modules te importeren. Mee
     ```
     
     ??? uitwerkingen
-        <div class="code-box"><button type="button" name="read_file.py" onclick="runScript('read_file.py')" class="run">{{ run }}</button><button type="button" name="read_file.py" onclick="runScript('read_file.py')" class="reload invisible">{{ reload }}</button> read_file.py
         ``` py
         --8<-- "uitwerkingen-on/read_txt_on.py"
         ```
-        <pre>
-        <code>(ECPC) > python read_file.py
-        <span class="invisible" name="read_file.py">"Do you have a favourite
-        saying?" asked the boy.
-        "Yes" said the mole.
-        "What is it?"
-        "If at first you don't 
-        succeed have some cake."
-        "I see, does it work?"
-        "Every time."
-        From: The boy, the mole, the fox and the horse - Charlie Mackesy</span>
-        </code></pre></div>
