@@ -436,9 +436,9 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
         - [ ] Pythondaq: CSV
 
 !!! opdracht-meer "Drift"
-    Als het goed is heb je nu, voordat je de loop met herhaalmetingen in gaat, het output voltage ingesteld. Dit kun je net zo goed binnen de loop hebben gedaan. Nou kan je je af vragen of deze keuze een effect heeft op de waardes die je meet. Het zou namelijk kunnen dat het instellen van de spanning eenmalig gebeurt of dat de Arduino de spanning vasthoudt op de ingestelde waarde. In het eerste geval zal de spanning dus langzaam kunnen verschuiven van de ingestelde waarde. Dit heeft natuurlijk een effect als je herhaalmetingen doet.
+    Blijft de bronspanning $U_0$ constant nadat je deze hebt ingesteld? Een geleidelijke verandering van een meetwaarde in de tijd noemen we _drift_. In deze opdracht zoek je naar aanwijzingen voor drift van de bronspanning door de spanning over de LED te volgen in de tijd.
 
-    Maak een script {{new_file}}`drift.py` waarin je de spanning op de LED eenmalig instelt en dan de spanning meerdere malen meet over een tijdsinterval. Plot vervolgens de spanning tegen de tijd en kijk of er een meetbare verschuiving in de spanning over de tijd is.
+    Maak een nieuw bestand {{new_file}}`drift.py` waain je de bronspanning één keer instelt en vervolgens gedurende een tijdsinterval meerdere keren de spanning over de LED meet. Plot de gemeten spanning tegen de tijd. Is er een meetbare verschuiving? Fit bijvoorbeeld een rechte lijn aan je meetgegevens. Wat zegt de helling, samen met de onzekerheid in die helling, over een mogelijke drift?  
 
 !!! opdracht-meer "Temperatuurafhankelijkheid van de LED"
     In deze opdracht gaan we bepalen of de onzekerheid in de spanning gemeten over de LED, varieert met de temperatuur. Vraag aan de assistenten op de zaal om ijs of een föhn. Kijk vervolgens hoe de onzekerheid op de metingen verandert, wat verwacht je en waarom?
