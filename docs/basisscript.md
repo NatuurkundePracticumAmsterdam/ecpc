@@ -441,7 +441,7 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
     Maak een nieuw bestand {{new_file}}`drift.py` waain je de bronspanning één keer instelt en vervolgens gedurende een tijdsinterval meerdere keren de spanning over de LED meet. Plot de gemeten spanning tegen de tijd. Is er een meetbare verschuiving? Fit bijvoorbeeld een rechte lijn aan je meetgegevens. Wat zegt de helling, samen met de onzekerheid in die helling, over een mogelijke drift?  
 
 !!! opdracht-meer "Temperatuurafhankelijkheid van de LED"
-    In deze opdracht gaan we bepalen of de onzekerheid in de spanning gemeten over de LED, varieert met de temperatuur. Vraag aan de assistenten op de zaal om ijs of een föhn. Kijk vervolgens hoe de onzekerheid op de metingen verandert, wat verwacht je en waarom?
+    In deze opdracht onderzoek je of de onzekerheid in de spanning gemeten over de LED varieert met de temperatuur. Vraag aan de assistent op de zaal om een föhn of ijs. Kijk vervolgens hoe de onzekerheid op de metingen verandert. Wat verwacht je en waarom?
     
 
 ## Bewaren van meetgegevens
