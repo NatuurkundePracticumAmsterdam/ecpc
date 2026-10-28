@@ -281,6 +281,16 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
 
+???+ opdracht-meer "Aantal cijfers achter de komma"
+
+    Je script print naast de ADC-waarde ook de spanning. Daarbij verschijnen waarschijnlijk veel cijfers achter de komma. Dit maakt de uitvoer onrustig en suggereert een nauwkeurigheid die de meting niet heeft. Met een f-string kun je bepalen hoe je een getal weergeeft. Bijvoorbeeld:
+    ```python
+    print(f"Voltage: {voltage:.2f} V")
+    ```
+    De notatie `#!py :.2f` geeft het getal weer met twee cijfers achter de komma. Alleen de geprinte waarde wordt afgerond, de waarde van de variabele `#!py voltage` verandert verder niet.
+    
+    Pas je script aan zodat de spanning met een handig aantal decimalen wordt weergegeven. 
+
 Je kunt de geprinte meetgegevens kopiëren en plakken naar een tekstbestand, spreadsheetprogramma, Python notebook of iets dergelijks. Maar dat is wel veel werk, zeker als je metingen wilt herhalen. Op dit moment heb je ook alleen nog maar _ruwe_ metingen. En je gaat nog voorbij aan het feit dat je graag de stroomsterkte $I$ door de LED wilt uitzetten tegen de spanning $U$ over de LED.
 
 !!! info
@@ -468,7 +478,7 @@ Het viel je misschien op dat in bovenstaand CSV-bestand op iedere regel een waar
 === "with_zip.py"
     <div class="code-box"><button type="button" name="with_zip.py_suffix" onclick="runScript('with_zip.py_suffix')" class="run">{{ run }}</button><button type="button" name="with_zip.py_suffix" onclick="runScript('with_zip.py_suffix')" class="reload invisible">{{ reload }}</button> with_zip.py
     ``` py
-    --8<-- "scripts/with_zip.py"
+    --8 < --"scripts/with_zip.py"
     ```
     <pre>
     <code>(ECPC) > python with_zip.py
@@ -480,7 +490,7 @@ Het viel je misschien op dat in bovenstaand CSV-bestand op iedere regel een waar
 === "with_indexing.py"
     <div class="code-box"><button type="button" name="with_indexing.py_suffix" onclick="runScript('with_indexing.py_suffix')" class="run">{{ run }}</button><button type="button" name="with_indexing.py_suffix" onclick="runScript('with_indexing.py_suffix')" class="reload invisible">{{ reload }}</button> with_indexing.py
     ``` py
-    --8<-- "scripts/with_indexing.py"
+    --8 < --"scripts/with_indexing.py"
     ```
     <pre>
     <code>(ECPC) > python with_indexing.py
