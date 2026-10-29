@@ -44,12 +44,12 @@ Hierin is `50` het aantal stappen en `30` de hoek in graden die de schildpad teg
 
         <div class="grid-tree" markdown>
             <div>
-            Je bent inmiddels nieuwsgierig geworden naar de schildpad. De class `#!py Turtle` zit standaard in Python, daarom kan je deze importeren met `#!py from turtle import Turtle`. Je opent in GitHub Desktop de repository {{github}}`oefenopdrachten` en opent deze repository in Visual Studio Code. Je maakt een bestand {{new_file}} `Feynman.py` aan. Teken nu met een schildpad met de instancenaam `master_oogway` een Feynman diagram. 
+            Je bent inmiddels nieuwsgierig geworden naar de schildpad. De class `#!py Turtle` zit standaard in Python, daarom kan je deze importeren met `#!py from turtle import Turtle`. Je opent in GitHub Desktop de repository {{github}}`oefenopdrachten` en opent deze repository in Visual Studio Code. Je maakt een bestand {{new_file}} `feynman.py` aan. Teken nu met een schildpad met de instancenaam `master_oogway` een Feynman diagram. 
             </div>
             <div>
             {{folder}} `ECPC`  
             {{T}} {{github}} `oefenopdrachten`  
-            {{tab}} {{T}} {{new_file}} `Feynman.py`  
+            {{tab}} {{T}} {{new_file}} `feynman.py`  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{github}} `pythondaq`  
             {{tab}} {{L}} {{dots}}  
@@ -152,13 +152,13 @@ Het aanmaken van een class lijkt in een aantal opzichten op het aanmaken van een
             <div>
             Je gaat de versimpelde weergave van de `Turtle` class gebruiken om een werkende class te maken die weliswaar geen schildpad laat lopen maar wel tekst print!
             </br></br>
-            Maak een bestand {{new_file}} `fake-turtle.py` waarin je zelf een class `Turtle` maakt. Zodra de class `Turtle` gebruikt wordt, print je tekst die aangeeft welke vorm de pen heeft. Wanneer de methods `forward` en `left` worden aangeroepen print je een tekst die aangeeft hoeveel stappen de turtle zet of hoeveel graden de turtle draait.
+            Maak een bestand {{new_file}} `fake_turtle.py` waarin je zelf een class `Turtle` maakt. Zodra de class `Turtle` gebruikt wordt, print je tekst die aangeeft welke vorm de pen heeft. Wanneer de methods `forward` en `left` worden aangeroepen print je een tekst die aangeeft hoeveel stappen de turtle zet of hoeveel graden de turtle draait.
             </div>
             <div>
             {{folder}} `ECPC`  
             {{T}} {{github}} `oefenopdrachten`  
-            {{tab}} {{T}} {{new_file}} `fake-turtle.py`  
-            {{tab}} {{T}} {{file}} `Feynman.py`  
+            {{tab}} {{T}} {{new_file}} `fake_turtle.py`  
+            {{tab}} {{T}} {{file}} `feynman.py`  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{github}} `pythondaq`  
             {{tab}} {{L}} {{dots}}  
