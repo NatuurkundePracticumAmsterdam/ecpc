@@ -229,6 +229,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         - [ ] Pythondaq: schildpad of raket?
         - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
+        - [ ] Pythondaq: `Git ignore`
 
 ![Klik hier](assets/eastereggs/ECPC-blue.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met 'CTRL' + 'SHIFT' + 'A'  kun je vanuit GitHub Desktop de repository in Visual Studio Code openen. Probeer maar eens!"}
 
@@ -280,6 +281,7 @@ Een LED is een lichtgevende diode &mdash; en een diode gedraagt zich _heel_ ande
         - [ ] Pythondaq: schildpad of raket?
         - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
+        - [ ] Pythondaq: `Git ignore`
 
 ???+ opdracht-meer "Aantal cijfers achter de komma"
 
@@ -343,6 +345,7 @@ Je kunt de geprinte meetgegevens kopiëren en plakken naar een tekstbestand, spr
         - [ ] Pythondaq: schildpad of raket?
         - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
+        - [ ] Pythondaq: `Git ignore`
 
 Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga je de meting herhalen en foutenvlaggen toevoegen. Je moet misschien wel weer even hard nadenken over hoe je deze foutenvlaggen bepaald. Pak daarom eerst pen en papier (voordat je verder code gaat toevoegen), stoot je buurmens aan en ga samen nadenken over hoe jullie in dit experiment de onzekerheid kunnen bepalen.
 
@@ -366,6 +369,7 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
         - [ ] Pythondaq: schildpad of raket?
         - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
+        - [ ] Pythondaq: `Git ignore`
 
 !!! opdracht-inlever "Pythondaq: schildpad of raket?"
     === "opdracht"
@@ -386,6 +390,7 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
         - [x] Pythondaq: schildpad of raket?
         - [ ] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
+        - [ ] Pythondaq: `Git ignore`
 
 <div id="opd:herhaalmetingen"></div>
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
@@ -434,6 +439,7 @@ Omdat je never nooit niet je conclusies gaat baseren op een enkele meetserie ga 
         - [x] Pythondaq: schildpad of raket?
         - [x] Pythondaq: herhaalmetingen
         - [ ] Pythondaq: CSV
+        - [ ] Pythondaq: `Git ignore`
 
 !!! opdracht-meer "Drift"
     Blijft de bronspanning $U_0$ constant nadat je deze hebt ingesteld? Een geleidelijke verandering van een meetwaarde in de tijd noemen we _drift_. In deze opdracht zoek je naar aanwijzingen voor drift van de bronspanning door de spanning over de LED te volgen in de tijd.
@@ -599,22 +605,41 @@ Je kunt het wegschrijven van de regels natuurlijk vervangen door een `#!py for`-
         - [x] Pythondaq: schildpad of raket?
         - [x] Pythondaq: herhaalmetingen
         - [x] Pythondaq: CSV
+        - [ ] Pythondaq: `Git ignore`
 
 ???+ opdracht-meer "CSV bestandsnaam"
     Pas de code zodanig aan dat een CSV-bestand nooit wordt overschreven. Je kunt bijvoorbeeld controleren of het bestand al bestaat en aan de bestandsnaam een oplopend getal toevoegen (`data-001.csv`, `data-002.csv`, etcetera), net zo lang totdat je uitkomt bij een bestandsnaam die nog niet bestaat. Wees er zeker van dat je programma ook echt geen data overschrijft.
 
-!!! opdracht-inlever "`Git ignore`"
-    Het kan wenselijk zijn om niet alle bestanden mee te nemen voor versiebeheer in je repository. Soms wil je een specifiek bestand uitsluiten en soms wil je een bepaald bestandstype uitsluiten. Om GitHub te laten weten welke bestanden niet gecommit hoeven te worden, is er een bestand {{file_lines}}`.gitignore`. Let op de punt voor de bestandsnaam: dit betekent dat het om een verborgen bestand gaat en mogelijk zie je het daarom niet in je repository staan.
+!!! opdracht-inlever "Pythondaq: `Git ignore`"
+    === "opdracht"
+        Het kan wenselijk zijn om niet alle bestanden mee te nemen voor versiebeheer in je repository. Soms wil je een specifiek bestand uitsluiten en soms wil je een bepaald bestandstype uitsluiten. Om GitHub te laten weten welke bestanden niet gecommit hoeven te worden, is er een bestand {{file_lines}}`.gitignore`. Let op de punt voor de bestandsnaam: dit betekent dat het om een verborgen bestand gaat en mogelijk zie je het daarom niet in je repository staan.
     
-    Je wilt eigenlijk alle CSV-bestanden uitsluiten van versiebeheer; dat kun je als volgt doen:
+        Je wilt eigenlijk alle CSV-bestanden uitsluiten van versiebeheer; dat kun je als volgt doen:
 
-    1. Ga naar GitHub Desktop.
-    2. Ga naar het tabblad _Changes_. 
-    3. Rechtermuisklik op het bestand wat je wilt negeren (ervan uitgaande dat je dit bestand nog niet hebt gecommit).
-    4. Maak een keuze tussen `Ignore file` of `Ignore all .csv files`.
-    5. Commit.
-    
-    Doe (na het inleveren van de opdracht) hetzelfde voor .bundle-bestanden.[^bundle-files]
+        1. Ga naar GitHub Desktop.
+        2. Ga naar het tabblad _Changes_. 
+        3. Rechtermuisklik op het bestand wat je wilt negeren (ervan uitgaande dat je dit bestand nog niet hebt gecommit).
+        4. Maak een keuze tussen `Ignore file` of `Ignore all .csv files`.
+        5. Commit.
+        
+        Doe (na het inleveren van de opdracht) hetzelfde voor .bundle-bestanden.[^bundle-files]
+
+    === "check"
+        **Checkpunten**
+
+        - [ ] Nieuwe en gewijzigde CSV-bestanden verschijnen niet meer onder _Changes_ in GitHub Desktop.
+        - [ ] Nieuwe .bundle-bestanden verschijnen niet meer onder _Changes_ in GitHub Desktop.  
+
+        **Projecttraject**
+
+        - [x] Pythondaq: repository
+        - [x] Pythondaq: start script
+        - [x] Pythondaq: quick 'n dirty meting
+        - [x] Pythondaq: onzekerheid
+        - [x] Pythondaq: schildpad of raket?
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: CSV
+        - [x] Pythondaq: `Git ignore`
 
 [^bundle-files]: In de inleveropdracht op Canvas wordt uitgelegd hoe je je code inlevert. Dit doe je door je hele repository te bundelen in een .bundle-bestand. Maar als je die dan commit... dan zit je repository in je repository en is hij twee keer zo groot geworden.
 
