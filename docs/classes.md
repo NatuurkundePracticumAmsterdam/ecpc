@@ -602,8 +602,8 @@ print(master_oogway.quote)
             {{tab}} {{L}} {{dots}}  
             {{T}} {{github}} `pythondaq`  
             {{tab}} {{L}} {{dots}}  
-            {{L}} {{github}} `projectile-motion`  
-            {{tab}} {{T}} {{new_file}} `water-rocket.py`  
+            {{L}} {{github}} `projectile_motion`  
+            {{tab}} {{T}} {{new_file}} `water_rocket.py`  
             {{tab}} {{L}} {{dots}}  
             </div>
         </div>
