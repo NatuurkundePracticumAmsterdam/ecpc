@@ -589,7 +589,7 @@ print(master_oogway.quote)
         - [x] Class `PointMass`
 
 
-!!! opdracht-inlever "Class `ProjectileMotion`"
+!!! opdracht-basis "Class `ProjectileMotion`"
     === "opdracht"
 
         <div class="grid-tree" markdown>
@@ -602,7 +602,7 @@ print(master_oogway.quote)
             {{tab}} {{L}} {{dots}}  
             {{T}} {{github}} `pythondaq`  
             {{tab}} {{L}} {{dots}}  
-            {{L}} {{github}} `projectile_motion`  
+            {{L}} {{github}} `projectile-motion`  
             {{tab}} {{T}} {{new_file}} `water_rocket.py`  
             {{tab}} {{L}} {{dots}}  
             </div>
