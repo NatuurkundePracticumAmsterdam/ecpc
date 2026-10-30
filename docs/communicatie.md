@@ -616,7 +616,7 @@ De output van het script is afhankelijk van het systeem en het aantal apparaten 
         </div>
  
         !!! info "f-strings"
-            Het sturen van commando's naar de Arduino waar een variabele spanning in staat gaat gemakkelijk met f-strings. Voor meer informatie zie de [paragraaf f-strings](basis-python.md#f-strings-variabelen-en-input).
+            Het sturen van commando's naar de Arduino waar een variabele spanning in staat gaat gemakkelijk met f-strings. Voor meer informatie zie de [paragraaf f-strings](basis-python.md#variabelen-input-functie-en-f-strings).
     === "code"
         **Pseudo-code**
         ``` py
