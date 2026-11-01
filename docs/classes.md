@@ -19,7 +19,7 @@ Bij het aanroepen van een class doe je iets soortgelijks. In de variabele `maste
     Net zoals je een functie vaker kunt aanroepen, kan je ook meerdere instances van een class aanmaken.
     Je kunt meerdere instances hebben van dezelfde class, bijvoorbeeld voor verschillende schildpadden:
     ``` py
-    class Turtle:
+    class Turtle: 
         ...
 
     turtle_1247 = Turtle()
@@ -187,7 +187,7 @@ Het aanmaken van een class lijkt in een aantal opzichten op het aanmaken van een
         master_oogway.forward(50)
         ```
         <pre>
-        <code>(ECPC) > python fake_turtle.py
+        <code>(oefenopdrachten) > python fake_turtle.py
         <span class="invisible" name="fake_turtle">transform shape to... turtle
         move with 50 steps
         turn turtle counterclockwise by 30 degrees
@@ -289,7 +289,7 @@ Als je de method `#!py do_kungfu_move` aanroept met `#!py master_oogway.do_kungf
         toby.do_kungfu_move()
         ```
         <pre>
-        <code>(ECPC) > python fake_turtle.py
+        <code>(oefenopdrachten) > python fake_turtle.py
         <span class="invisible" name="fake_turtle_self">master_oogway=<\__main__.Turtle object at 0x10530b890>
         self=<\__main__.Turtle object at 0x10530b890>
         toby=<\__main__.Turtle object at 0x103377980>
@@ -333,7 +333,7 @@ master_oogway = Turtle("turtle")
 print(master_oogway.quote)
 ```
 <pre>
-<code>(ECPC) > python turtles.py
+<code>(oefenopdrachten) > python turtles.py
 <span class="invisible" name="turtle_quote">"Yesterday is history, Tomorrow is a mystery, but Today is a gift. That is why it is called the present"</span>
 </code></pre></div>
 
@@ -412,7 +412,7 @@ print(master_oogway.quote)
         **Testcode**
         <div class="code-box"><button type="button" name="particle" onclick="runScript('particle')" class="run">{{ run }}</button><button type="button" name="particle" onclick="runScript('particle')" class="reload invisible">{{ reload }}</button> <b>particle.py</b>
         ``` py
-        proton = Particle('mooi proton', 0.5)
+        proton = Particle("mooi proton", 0.5)
         proton.is_up_or_down()
         proton.flip()
         proton.is_up_or_down()
@@ -420,7 +420,7 @@ print(master_oogway.quote)
         print(f"{proton.name=}")
         ```
         <pre>
-        <code>(ECPC) > python particle.py
+        <code>(oefenopdrachten) > python particle.py
         <span class="invisible" name="particle">up
         down
         proton.spin=-0.5
@@ -439,6 +439,7 @@ print(master_oogway.quote)
         - [x] Class `Particle`
         - [ ] Class `Temperature`
         - [ ] Class `PointMass`
+        - [ ] Class `ProjectileMotion`
 
 !!! opdracht-basis "Class `Temperature`"
     === "opdracht"        
@@ -463,20 +464,20 @@ print(master_oogway.quote)
         Vervang de `#!py ...`-statements door jouw code.
         ``` py
         class Temperature:
-            def __init__(self, temperature_celsius):
+            def __init__(self, temperature_celsius): 
                 ...
 
-            def to_celsius(self):
+            def to_celsius(self): 
                 ...
-            
+
             def to_kelvin(self):
                 # K = C + 273.15
                 ...
-            
+
             def to_fahrenheit(self):
                 # F = C * 9/5 + 32
                 ...
-            
+
             def update_temperature(self, temperature_celsius):
                 # update the stored temperature
                 ...
@@ -497,7 +498,7 @@ print(master_oogway.quote)
         print(f"{temperature.to_fahrenheit()=}")
         ```
         <pre>
-        <code>(ECPC) > python temperature.py
+        <code>(oefenopdrachten) > python temperature.py
         <span class="invisible" name="temperature">temperature.temperature=37
         temperature.to_celsius()=37
         temperature.to_kelvin()=310.15
@@ -521,6 +522,7 @@ print(master_oogway.quote)
         - [x] Class `Particle`
         - [x] Class `Temperature`
         - [ ] Class `PointMass`
+        - [ ] Class `ProjectileMotion`
 
 
 !!! opdracht-basis "Class `PointMass`"
@@ -561,7 +563,7 @@ print(master_oogway.quote)
         print(f"{m.get_kinetic_energy()=}")
         ```
         <pre>
-        <code>(ECPC) > python point_mass.py
+        <code>(oefenopdrachten) > python point_mass.py
         <span class="invisible" name="point_mass">m.update_position_after(0)=(1.0, 0.0)
         m.update_position_after(0.5)=(2.5, 0.0)
         m.update_position_after(0.5)=(4.0, 0.0)
@@ -587,6 +589,7 @@ print(master_oogway.quote)
         - [x] Class `Particle`
         - [x] Class `Temperature`
         - [x] Class `PointMass`
+        - [ ] Class `ProjectileMotion`
 
 
 !!! opdracht-basis "Class `ProjectileMotion`"
@@ -594,16 +597,17 @@ print(master_oogway.quote)
 
         <div class="grid-tree" markdown>
             <div>
-            Maak een nieuwe repository voor deze inleveropdracht. Je gaat een waterraket een aantal keer wegschieten met steeds een andere beginsnelheid en lanceerhoek. Je hebt een instance aangemaakt van de class `#!py ProjectileMotion`. De beginsnelheid en de lanceerhoek bewaar je steeds met de method `#!py add_launch_parameters()`. Om in een keer alle beginsnelheden op te vragen gebruik je de method `#!py get_initial_velocities()`. Om alle lanceerhoeken op te vragen gebruik je de method `#!py get_launch_angles()`. Op basis van de gegevens (en door de luchtweerstand te verwaarlozen) bepaal je de vluchtduur en het bereik van de raket. Je kunt de vluchtduur van alle vluchten opvragen met de method `#!py get_time_of_flights()` en het bereik van alle vluchten met `#!py get_flight_ranges()`. Zie het [tabblad check](#__tabbed_9_3) voor de nodige vergelijkingen.
+            Je gaat een waterraket een aantal keer wegschieten met steeds een andere beginsnelheid en lanceerhoek. Je hebt een instance aangemaakt van de class `#!py ProjectileMotion`. De beginsnelheid en de lanceerhoek bewaar je steeds met de method `#!py add_launch_parameters()`. Om in een keer alle beginsnelheden op te vragen gebruik je de method `#!py get_initial_velocities()`. Om alle lanceerhoeken op te vragen gebruik je de method `#!py get_launch_angles()`. Op basis van de gegevens (en door de luchtweerstand te verwaarlozen) bepaal je de vluchtduur en het bereik van de raket. Je kunt de vluchtduur van alle vluchten opvragen met de method `#!py get_time_of_flights()` en het bereik van alle vluchten met `#!py get_flight_ranges()`. Zie het [tabblad check](#__tabbed_9_3) voor de nodige vergelijkingen.
             </div>
             <div>
             {{folder}} `ECPC`  
             {{T}} {{github}} `oefenopdrachten`  
-            {{tab}} {{L}} {{dots}}  
-            {{T}} {{github}} `pythondaq`  
-            {{tab}} {{L}} {{dots}}  
-            {{L}} {{github}} `projectile-motion`  
+            {{tab}} {{T}} {{file}} `particle.py`  
+            {{tab}} {{T}} {{file}} `temperature.py`  
+            {{tab}} {{T}} {{file}} `point_mass.py`  
             {{tab}} {{T}} {{new_file}} `water_rocket.py`  
+            {{tab}} {{L}} {{dots}}  
+            {{L}} {{github}} `pythondaq`  
             {{tab}} {{L}} {{dots}}  
             </div>
         </div>
@@ -642,10 +646,9 @@ print(master_oogway.quote)
         print(f"{angles=}")
         print(f"{x=}")
         print(f"{t=}")
-
         ```
         <pre>
-        <code>(ECPC) > python water_rocket.py
+        <code>(oefenopdrachten) > python water_rocket.py
         <span class="invisible" name="water_rocket">v=[28, 11]
         angles=[68, 15]
         x=[55.51602063607072, 6.167176350662587]
@@ -656,7 +659,6 @@ print(master_oogway.quote)
     === "check"
         **Checkpunten**
 
-        - [ ] De code bevindt zich in een nieuwe GitHub-repository {{lightbulb}}.
         - [ ] De method `#!py add_launch_parameters` verwacht een beginsnelheid in meter per seconde en een lanceerhoek in graden.
         - [ ] De method `#!py get_initial_velocities` geeft een lijst terug met alle beginsnelheden van de ingevoerde parameters.
         - [ ] De method `#!py get_launch_angles` geeft een lijst terug met alle lanceerhoeken van de ingevoerde parameters.
@@ -671,6 +673,9 @@ print(master_oogway.quote)
 
         **Projecttraject**
 
+        - [x] Class `Particle`
+        - [x] Class `Temperature`
+        - [x] Class `PointMass`
         - [x] Class `ProjectileMotion`
 
 !!! opdracht-meer "Raise exception"
