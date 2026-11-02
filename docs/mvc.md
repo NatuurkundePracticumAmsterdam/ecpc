@@ -415,3 +415,6 @@ Doordat je de verschillende onderdelen van de MVC in aparte scripts hebt gezet, 
 
 ???+ opdracht-meer "Error!"
     Als de gebruiker in de {{file}}`run_experiment.py` per ongeluk een negatieve startwaarde of een negatief aantal metingen invult, gaat het niet goed. Gebruik [exceptions](vervolg-python.md#exceptions) om dergelijke gevallen af te vangen en een duidelijke error af te geven. 
+
+???+ opdracht-meer "Pythondaq: schildpad of raket? - vervolg"
+    Voor het [basisscript](basisscript.md) heb je voor het doen van herhaalmetingen gekozen voor de schildpad- of raketmethode. Nu je gebruikmaakt van de MVC-structuur, kun je eenvoudig onderzoeken wat er gebeurt wanneer je de andere methode gebruikt. Pas de method `scan()` aan, zodat deze de andere methode gebruikt. Wat verandert er? Is de code nu sneller? Blijft het resultaat hetzelfde?
