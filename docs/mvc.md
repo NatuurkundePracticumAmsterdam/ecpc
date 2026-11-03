@@ -53,7 +53,8 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs do
                 <li> De gebruiker zet met de method `#!py set_output_value()` een waarde van 828 op uitvoerkanaal 0. De gebruiker ziet de LED branden en weet daardoor dat de method werkt.</li>
                 <li> De gebruiker controleert met de method `#!py get_output_value()` de waarde op uitvoerkanaal 0, die nog steeds 828 zou moeten zijn. </li>
                 <li> De gebruiker vraagt met de method `#!py get_input_value()` de spanning op kanaal 1 op. Dit herhaalt de gebruiker vervolgens voor kanaal 2.</li>
-                <li> Met de method `#!py get_input_voltage()` vraagt de gebruiker de spanning van kanaal 1 op in volt. De gebruiker rekent de gegeven waarde van de method `#!py get_input_value()` op kanaal 1 om naar volt en ziet dat deze overeenkomt met de gegeven spanning door de method `#!py get_input_voltage()` op kanaal 1. </li>
+                <li> Met de method `#!py get_input_voltage()` vraagt de gebruiker de spanning van kanaal 1 op in Volt. De gebruiker rekent de gegeven waarde van de method `#!py get_input_value()` op kanaal 1 om naar volt en ziet dat deze overeenkomt met de gegeven spanning door de method `#!py get_input_voltage()` op kanaal 1. </li>
+                <li> De gebruiker test ook de methods `#!py set_output_voltage()` en `#!py get_output_voltage()` en ziet dat die ook netjes werken.</li>
             </ul>
             </div>
             <div>
@@ -82,14 +83,20 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs do
         #   def set_output_value
         #        set a value on the output channel
         #
+        #   def set_output_voltage
+        #        set a voltage on the output channel (in Volt)
+        #
         #   def get_output_value
         #        return the value of the output channel
+        #
+        #   def get_output_voltage
+        #        return the voltage of the output channel (in Volt)
         #      
         #   def get_input_value
         #        return the value of the input channel
         #
         #   def get_input_voltage
-        #        return voltage in volt of the input channel
+        #        return the voltage of the input channel (in Volt)
                 
         ```
         **Testcode**
@@ -137,9 +144,10 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs do
         - [ ] De `#!py __init__()`-method opent de communicatie met de Arduino.
         - [ ] Er is een method `#!py get_identification()` die de identificatiestring teruggeeft.
         - [ ] Aan de method `set_output_value()` moet een ADC-waarde worden meegegeven.
+        - [ ] Aan de method `set_output_voltage()` moet een spanning worden meegegeven in Volt.
         - [ ] De methods `set_output_value()` en `get_output_value()` communiceren standaard met kanaal 0.
         - [ ] Aan de methods `get_input_value()` en `get_input_voltage()` moet een kanaal worden meegegeven. 
-        - [ ] De methods `get_output_value()`, `get_input_value()` en `get_input_voltage` geven een ADC-waarde dan wel een spanning in volt terug.
+        - [ ] De methods `get_output_value()`, `get_input_value()` en `get_input_voltage` geven een ADC-waarde dan wel een spanning in Volt terug.
 
 
         **Projecttraject**
@@ -154,7 +162,7 @@ Je hebt nu een werkende controller, maar je gebruikt deze nog niet in je experim
 
 !!! opdracht-inlever "Pythondaq: controller implementeren"
     === "opdracht"
-        Kopieer de functie `list_resources()` en de class `ArduinoVISADevice` uit het bestand {{file}}`test_controller.py`. Voeg deze functie en class toe aan het bestand {{file}}`diode_experiment.py`. Pas de code daarna zo aan dat in het bestand {{file}}`diode_experiment.py` gebruikgemaakt wordt van de betreffende functie en de class met de bijhorende methods.
+        Kopieer de functie `list_resources()` en de class `ArduinoVISADevice` uit het bestand {{file}}`test_controller.py`. Voeg deze functie en class toe aan het bestand {{file}}`diode_experiment.py`. Pas de code daarna zo aan dat in het bestand {{file}}`diode_experiment.py` gebruikgemaakt wordt van de betreffende functie en de class met de bijhorende methods. Let op: als fysici werken we graag met fysische grootheden en eenheden. Je `ArduinoVISADevice` weet wat ADC values zijn, maar gebruik verder altijd de `set_output_voltage()` en `get_input_voltage()` etc. methods voor het doen van de metingen. Gebruik dus altijd spanningen in Volt in plaats van ADC values.
         
     === "code"
         **Pseudo-code**
@@ -168,7 +176,7 @@ Je hebt nu een werkende controller, maar je gebruikt deze nog niet in je experim
         # get list resources
         # connect to Arduino via class ArduinoVISADevice
         #
-        # set output voltage from 0 to max
+        # set output voltage from 0 to 3.3
         #   set number of repeated measurements
         #       measure voltages
         #       calculate voltage LED
