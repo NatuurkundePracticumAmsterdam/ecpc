@@ -433,5 +433,7 @@ Doordat je de verschillende onderdelen van de MVC in aparte scripts hebt gezet, 
 ???+ opdracht-meer "Error!"
     Als de gebruiker in de {{file}}`run_experiment.py` per ongeluk een negatieve startwaarde of een negatief aantal metingen invult, gaat het niet goed. Gebruik [exceptions](vervolg-python.md#exceptions) om dergelijke gevallen af te vangen en een duidelijke error af te geven. 
 
-???+ opdracht-meer "Pythondaq: schildpad of raket? - vervolg"
-    Voor het [basisscript](basisscript.md) heb je voor het doen van herhaalmetingen gekozen voor de schildpad- of raketmethode. Nu je gebruikmaakt van de MVC-structuur, kun je eenvoudig onderzoeken wat er gebeurt wanneer je de andere methode gebruikt. Pas de method `scan()` aan, zodat deze de andere methode gebruikt. Wat verandert er? Is de code nu sneller? Blijft het resultaat hetzelfde?
+???+ opdracht-meer "Pythondaq: schildpad of raket? — vervolg"
+    Voor het [basisscript](basisscript.md) heb je voor het doen van herhaalmetingen gekozen voor de schildpad- of raketmethode. Nu je gebruikmaakt van de MVC-structuur, kun je eenvoudig onderzoeken wat er gebeurt wanneer je de andere methode gebruikt. En het mooie is: nu alles in modules zit kun je _beide_ methodes in je repository zetten en met een import-statement kiezen welke je wilt gebruiken. Je wisselt makkelijk heen en weer!
+    
+    Hernoem en kopieer {{file}}`diode_experiment.py` zodat je een {{new_file}}`diode_experiment_snake.py` en een {{new_file}}`diode_experiment_rocket.py` hebt in plaats van de oorspronkelijke {{file}}`diode_experiment.py`. Koos je eerst voor de schildpad? Pas dan de `rocket` aan, of andersom. Herschrijf de method `scan()`, zodat deze de andere methode gebruikt. Door het import-statement in je view aan te passen wissel je makkelijk tussen de twee methodes. Wat verandert er als je wisselt? Is de code nu sneller? Blijft het resultaat hetzelfde?
