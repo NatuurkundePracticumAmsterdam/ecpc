@@ -274,7 +274,9 @@ Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de
 
 ???+ opdracht-meer "`#!py if __name__ == '__main__'`"
     === "opdracht"
-        Later wil je de functie `#!py list_resources()` netjes in het hele model-view-controller systeem vlechten zodat je als gebruiker de lijst kunt opvragen, maar voor nu wil je af en toe even zien aan welke poort de Arduino hangt. Wanneer je het script {{file}}`arduino_device.py` runt wordt er een lijst geprint met poorten. Dit gebeurt niet wanneer het bestand {{file}}`diode_experiment.py` wordt gerund. 
+        Later wil je de functie `#!py list_resources()` netjes in het hele model-view-controller systeem vlechten zodat je als gebruiker de lijst kunt opvragen, maar voor nu wil je af en toe even zien aan welke poort de Arduino hangt. Wanneer je het script {{file}}`arduino_device.py` runt wordt er een lijst geprint met poorten. Dit gebeurt niet wanneer het bestand {{file}}`diode_experiment.py` wordt gerund.
+
+        Let op: het `#!py if __name__ == '__main__'`-statement wordt heel veel gebruikt in Python modules. Om goed overzicht te bewaren is het belangrijk dat dit blok _altijd onderaan_ je script staat, en niet verstopt ergens tussendoor.
 
         !!! info "Statement onbekend"
             Nog niet bekend met het statement `#!py if __name__ == '__main__'`? Kijk dan voor meer informatie in de [paragraaf modules](vervolg-python.md#modules).
@@ -289,7 +291,7 @@ Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de
         #   ...
         #
         # get list resources when arduino_device.py is the main script 
-        # doesnot get list resources when arduino_device.py is imported as a module in another script
+        # does not get list resources when arduino_device.py is imported as a module in another script
 
         ```
         ``` py title="diode_experiment.py"
