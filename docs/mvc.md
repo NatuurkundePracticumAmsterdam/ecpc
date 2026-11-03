@@ -318,6 +318,21 @@ Als je de vorige opdracht succesvol hebt afgerond maakt het niet meer uit wat de
         - [ ] Er wordt een lijst met beschikbare poorten geprint wanneer {{file}}`arduino_device.py` wordt gerund.
         - [ ] De lijst met beschikbare poorten wordt _niet_ geprint wanneer {{file}}`diode_experiment.py` wordt gerund.
 
+!!! opdracht-meer "Rust en stilte"
+
+    Vind jij het ook zo vermoeiend dat elke keer als je het script start hij eerst een regel of zes aan waarschuwingen print met de mededeling dat je psutil en zeroconf moet installeren? We hebben die keuze al lang gemaakt: we gaan die niet installeren want we hebben ze niet nodig. En dus wil je die warnings niet zien. Dat kan met de `warnings` module. Deze module bevat een functie waarmee je specifieke warnings uit kunt schakelen:
+    ```py
+    import warnings
+    # andere imports
+
+    warnings.filterwarnings(action, message)
+
+    # rest van je code
+    ```
+    Met de parameter `action` kun je kiezen wat er met de warning moet gebeuren: maak er een error van (een crash met traceback), print ze eenmalig en negeer de rest, of negeer ze altijd. De argumenten die je mee kunt geven vind je [hier](https://docs.python.org/3/library/warnings.html#the-warnings-filter). De `message` parameter is de tekst van de waarschuwing die je wilt negeren. Let op: copy/paste de tekst van de warning _letter voor letter_ want als de `message` niet identiek is aan de tekst van de warning, dan heb je geen match en wordt de warning niet genegeerd.
+
+    Run de code in {{file}}`arduino_device.py` en bestudeer de warnings die je krijgt. Denk goed na over welk deel van de warning de `message` is en schrijf code om de warnings af te vangen. Rust en stilte!
+
 Nu je de _controller_ die de Arduino aanstuurt, hebt gemaakt en afgesplitst, blijft er nog een stuk code over. Het stuk code waar de plot en het CSV-bestand gemaakt worden kun je beschouwen als een _view_ en de rest van de code &mdash; waar de metingen worden uitgevoerd en de spanning $U$ en stroomsterkte $I$ worden berekend &mdash; is een _model_. Je gaat de code nog wat verder opsplitsen om dit duidelijk te maken én de onderdelen van model en view onderbrengen in verschillende bestanden &mdash; dat is uiteindelijk beter voor het overzicht.
 
 !!! opdracht-inlever "Pythondaq: model en view splitsen"
