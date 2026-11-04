@@ -440,6 +440,8 @@ print(master_oogway.quote)
         - [ ] Class `Temperature`
         - [ ] Class `PointMass`
         - [ ] Class `ProjectileMotion`
+        - [ ] Test je class
+        - [ ] Een extra paar ogen
 
 !!! opdracht-basis "Class `Temperature`"
     === "opdracht"        
@@ -523,6 +525,8 @@ print(master_oogway.quote)
         - [x] Class `Temperature`
         - [ ] Class `PointMass`
         - [ ] Class `ProjectileMotion`
+        - [ ] Test je class
+        - [ ] Een extra paar ogen
 
 
 !!! opdracht-basis "Class `PointMass`"
@@ -590,8 +594,10 @@ print(master_oogway.quote)
         - [x] Class `Temperature`
         - [x] Class `PointMass`
         - [ ] Class `ProjectileMotion`
+        - [ ] Test je class
+        - [ ] Een extra paar ogen
 
-
+<div id="opd:projectilemotion"></div>
 !!! opdracht-basis "Class `ProjectileMotion`"
     === "opdracht"
 
@@ -659,7 +665,9 @@ print(master_oogway.quote)
     === "check"
         **Checkpunten**
 
+        - [ ] Elke method heeft `#!py self` als eerste parameter.
         - [ ] De method `#!py add_launch_parameters` verwacht een beginsnelheid in meter per seconde en een lanceerhoek in graden.
+        - [ ] De method `#!py add_launch_parameters` voegt de beginsnelheid en de lanceerhoek toe aan geschikte lijsten.
         - [ ] De method `#!py get_initial_velocities` geeft een lijst terug met alle beginsnelheden van de ingevoerde parameters.
         - [ ] De method `#!py get_launch_angles` geeft een lijst terug met alle lanceerhoeken van de ingevoerde parameters.
         - [ ] De time-of-flight wordt berekend met 2 * v_y / g.
@@ -669,7 +677,7 @@ print(master_oogway.quote)
         - [ ] De lanceerhoek wordt in radialen meegegeven aan de trigonometrische functies.
         - [ ] De method `#!py get_time_of_flights` geeft een lijst terug met de vluchtduur in seconden corresponderend met de ingevoerde parameters. 
         - [ ] De method `#!py get_flight_ranges` geeft een lijst terug met het bereik in meters corresponderend met de ingevoerde parameters.
-
+        - [ ] Alleen variabelen die door meerdere methods worden gebruikt, zijn aan `#!py self` toegevoegd.
 
         **Projecttraject**
 
@@ -677,6 +685,102 @@ print(master_oogway.quote)
         - [x] Class `Temperature`
         - [x] Class `PointMass`
         - [x] Class `ProjectileMotion`
+        - [ ] Test je class
+        - [ ] Een extra paar ogen
+
+Je hebt nu geoefend met classes. Maar weet je ook zeker dat je class altijd doet wat het moet doen? Met extra tests krijg je daar inzicht in. Dat inzicht gebruik je daarna in je doorlopende project `pythondaq`. 
+
+<div id="opd:test-class"></div>
+!!! opdracht-basis "Test je class"
+
+    === "opdracht"
+
+        De [testcode](#__tabbed_9_2) uit de [opdracht Class `ProjectileMotion`](#opd:projectilemotion) is één manier om je class te testen. Daarmee weet je nog niet of je class ook goed werkt als je deze anders gebruikt. Bedenk daarom zelf twee nieuwe tests. Een fout vinden is hierbij een goed resultaat. Je kunt je code dan aanpassen voordat je er later bijvoorbeeld belangrijke metingen mee doet. 
+
+        Zet je tests onder de eerdere testcode in het bestand {{file}}`water_rocket.py`. Werk elke test als volgt uit:
+        
+        1. Schrijf op wat je wilt testen, op papier of als tijdelijk commentaar in je script.
+        2. Schrijf, voordat je de test uitvoert, op wat je verwacht dat er gebeurt. Ook dit kan op papier of als tijdelijk commentaar.
+        3. Voer de test uit.
+        4. Vergelijk je verwachting met het resultaat. Komen ze overeen? Zo niet, dan klopt je verwachting, je test of je class niet. Zoek uit welke van de drie. 
+
+    === "voorbeeld"
+
+        <div class="code-box"><button type="button" name="water_rocket" onclick="runScript('water_rocket')" class="run">{{ run }}</button><button type="button" name="water_rocket" onclick="runScript('water_rocket')" class="reload invisible">{{ reload }}</button> <b>water_rocket.py</b>
+        ``` py        
+        speedy = ProjectileMotion()
+        speedy.add_launch_parameters(v=28, angle=68)
+
+        # test: double the speed at the same angle
+        # expected: time of flight x2, flight range x4
+        speedy.add_launch_parameters(v=11, angle=15)
+        speedy.add_launch_parameters(v=22, angle=15)
+
+        v = speedy.get_initial_velocities()
+        angles = speedy.get_launch_angles()
+        x = speedy.get_flight_ranges()
+        t = speedy.get_time_of_flights()
+
+        print(f"{v=}")
+        print(f"{angles=}")
+        print(f"{x=}")
+        print(f"{t=}")
+        ```
+        <pre>
+        <code>(oefenopdrachten) > python water_rocket.py
+        <span class="invisible" name="water_rocket">v=[28, 11, 22]
+        angles=[68, 15, 15]
+        x=[55.51602064,  6.16717635, 24.6687054]
+        t=[5.29279265, 0.58043007, 1.16086014]</span>
+        </code></pre></div>
+
+    === "suggesties"
+
+        **Suggesties voor tests**
+
+        Om je op weg te helpen, vind je hieronder een lijst met mogelijke tests. Kies twee tests uit de lijst of bedenk zelf een test. Vink de tests aan die je hebt uitgevoerd.
+
+        - [ ] Vraag de resultaten op, voeg een lancering toe en vraag de resultaten opnieuw op. 
+        - [ ] Vraag de resultaten op van een instance waaraan je niets hebt toegevoegd. 
+        - [ ] Vraag dezelfde resultaten twee keer achter elkaar op. 
+        - [ ] Geef de argumenten van `#!py add_launch_parameters` met hun naam in een andere volgorde mee, bijvoorbeeld eerst `#!py angle` en dan `#!py v`.
+        - [ ] Vraag de resultaten in een andere volgorde op dan in de testcode. 
+        - [ ] Maak twee instances en voeg alleen aan de eerste een lancering toe. Vraag de resultaten op van beide instances.
+        - [ ] Probeer een ongebruikelijke hoek of snelheid, zoals -30° of snelheid 0. 
+        - [ ] Bedenk zelf een test, bijvoorbeeld op basis van iets dat je tegenkwam toen je de class schreef.
+
+        **Projecttraject**
+
+        - [x] Class `Particle`
+        - [x] Class `Temperature`
+        - [x] Class `PointMass`
+        - [x] Class `ProjectileMotion`
+        - [x] Test je class
+        - [ ] Een extra paar ogen
+
+!!! opdracht-basis "Een extra paar ogen"
+
+    === "opdracht"
+
+        Je hebt je class al getest, maar anderen kiezen soms andere tests en die tests leveren nieuwe inzichten op. Bekijk daarom samen met je assistent of de class goed werkt, ook in situaties die je misschien zelf niet hebt bedacht. 
+
+        Vraag de assistent je class te testen als je:
+
+        - [ ] alle [checkpunten](#__tabbed_9_3) hebt afgevinkt
+        - [ ] de [testcode](#__tabbed_9_2) hebt uitgevoerd
+        - [ ] twee [eigen tests](#opd:test-class) hebt uitgevoerd
+
+    === "check"
+
+        **Projecttraject**
+
+        - [x] Class `Particle`
+        - [x] Class `Temperature`
+        - [x] Class `PointMass`
+        - [x] Class `ProjectileMotion`
+        - [x] Test je class
+        - [x] Een extra paar ogen
+
 
 !!! opdracht-meer "Raise exception"
     Het is niet logisch om een lanceerhoek boven een bepaalde waarde in te voeren of om een negatieve beginsnelheid mee te geven. Zorg dat in die gevallen een error afgegeven wordt. Meer informatie hierover vind je in de [paragraaf Exceptions](vervolg-python.md#exceptions).
@@ -709,16 +813,16 @@ print(master_oogway.quote)
 
     !!! opdracht-meer "`#!py super().__init__()`"
         1. Maak een bestand aan waarin je de subclass `GiantTortoise` aanmaakt.
-        1. Zorg dat de volgende voorbeeldcode werkt:
+        2. Zorg dat de volgende voorbeeldcode werkt:
         ```py
         t = GiantTortoise()
         t.move(50)
         ```
-        1. Wat gebeurt er als je `#!py super().__init__()` weglaat?
+        3. Wat gebeurt er als je `#!py super().__init__()` weglaat?
     
 
     !!! opdracht-meer "Hawksbill turtle"
         1. Maak een subclass aan voor de Hawksbill turtle.
-        1. De Hawksbill turtle is een zeeschildpad. Maak de omgeving van de schildpad standaard blauw met `#!py self.screen.bgcolor("cyan")`.
-        1. Schrijf een method `#!py swim()` die de schildpad over het scherm laat bewegen. 
+        2. De Hawksbill turtle is een zeeschildpad. Maak de omgeving van de schildpad standaard blauw met `#!py self.screen.bgcolor("cyan")`.
+        3. Schrijf een method `#!py swim()` die de schildpad over het scherm laat bewegen. 
     
