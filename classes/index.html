@@ -1495,6 +1495,8 @@ proton.name='mooi proton'</span>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Class <code>Temperature</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Class <code>PointMass</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Class <code>ProjectileMotion</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Test je class</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Een extra paar ogen</li>
 </ul>
 </div>
 </div>
@@ -1583,6 +1585,8 @@ temperature.to_fahrenheit()=69.8</span>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Class <code>Temperature</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Class <code>PointMass</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Class <code>ProjectileMotion</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Test je class</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Een extra paar ogen</li>
 </ul>
 </div>
 </div>
@@ -1654,11 +1658,14 @@ m.get_kinetic_energy()=22.5</span>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Class <code>Temperature</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Class <code>PointMass</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Class <code>ProjectileMotion</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Test je class</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Een extra paar ogen</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
+<div id="opd:projectilemotion"></div>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Class <code>ProjectileMotion</code></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">opdracht</label><label for="__tabbed_9_2">code</label><label for="__tabbed_9_3">check</label></div>
@@ -1725,7 +1732,9 @@ t=[5.292792645845066, 0.5804300705663054]</span>
 <div class="tabbed-block">
 <p><strong>Checkpunten</strong></p>
 <ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Elke method heeft <code class="language-py highlight"><span class="bp">self</span></code> als eerste parameter.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De method <code class="language-py highlight"><span class="n">add_launch_parameters</span></code> verwacht een beginsnelheid in meter per seconde en een lanceerhoek in graden.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De method <code class="language-py highlight"><span class="n">add_launch_parameters</span></code> voegt de beginsnelheid en de lanceerhoek toe aan geschikte lijsten.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De method <code class="language-py highlight"><span class="n">get_initial_velocities</span></code> geeft een lijst terug met alle beginsnelheden van de ingevoerde parameters.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De method <code class="language-py highlight"><span class="n">get_launch_angles</span></code> geeft een lijst terug met alle lanceerhoeken van de ingevoerde parameters.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De time-of-flight wordt berekend met 2 * v_y / g.</li>
@@ -1735,6 +1744,7 @@ t=[5.292792645845066, 0.5804300705663054]</span>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De lanceerhoek wordt in radialen meegegeven aan de trigonometrische functies.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De method <code class="language-py highlight"><span class="n">get_time_of_flights</span></code> geeft een lijst terug met de vluchtduur in seconden corresponderend met de ingevoerde parameters. </li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De method <code class="language-py highlight"><span class="n">get_flight_ranges</span></code> geeft een lijst terug met het bereik in meters corresponderend met de ingevoerde parameters.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Alleen variabelen die door meerdere methods worden gebruikt, zijn aan <code class="language-py highlight"><span class="bp">self</span></code> toegevoegd.</li>
 </ul>
 <p><strong>Projecttraject</strong></p>
 <ul class="task-list">
@@ -1742,6 +1752,105 @@ t=[5.292792645845066, 0.5804300705663054]</span>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Class <code>Temperature</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Class <code>PointMass</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Class <code>ProjectileMotion</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Test je class</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Een extra paar ogen</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p>Je hebt nu geoefend met classes. Maar weet je ook zeker dat je class altijd doet wat het moet doen? Met extra tests krijg je daar inzicht in. Dat inzicht gebruik je daarna in je doorlopende project <code>pythondaq</code>. </p>
+<div id="opd:test-class"></div>
+<div class="admonition opdracht-basis">
+<p class="admonition-title">Test je class</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">opdracht</label><label for="__tabbed_10_2">voorbeeld</label><label for="__tabbed_10_3">suggesties</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>De <a href="#__tabbed_9_2">testcode</a> uit de <a href="#opd:projectilemotion">opdracht Class <code>ProjectileMotion</code></a> is één manier om je class te testen. Daarmee weet je nog niet of je class ook goed werkt als je deze anders gebruikt. Bedenk daarom zelf twee nieuwe tests. Een fout vinden is hierbij een goed resultaat. Je kunt je code dan aanpassen voordat je er later bijvoorbeeld belangrijke metingen mee doet. </p>
+<p>Zet je tests onder de eerdere testcode in het bestand <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M64 48h112v88c0 39.8 32.2 72 72 72h88v240c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16m160 19.9 92.1 92.1H248c-13.3 0-24-10.7-24-24zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V186.5c0-17-6.7-33.3-18.7-45.3L242.7 18.7C230.7 6.7 214.5 0 197.5 0zm106.2 295.6c8.6-10.1 7.5-25.2-2.6-33.8s-25.2-7.5-33.8 2.6l-48 56c-7.7 9-7.7 22.2 0 31.2l48 56c8.6 10.1 23.8 11.2 33.8 2.6s11.2-23.8 2.6-33.8L135.6 336zm80-31.2c-8.6-10.1-23.8-11.2-33.8-2.6s-11.2 23.8-2.6 33.8l34.6 40.4-34.6 40.4c-8.6 10.1-7.5 25.2 2.6 33.8s25.2 7.5 33.8-2.6l48-56c7.7-9 7.7-22.2 0-31.2z"/></svg></span><code>water_rocket.py</code>. Werk elke test als volgt uit:</p>
+<ol>
+<li>Schrijf op wat je wilt testen, op papier of als tijdelijk commentaar in je script.</li>
+<li>Schrijf, voordat je de test uitvoert, op wat je verwacht dat er gebeurt. Ook dit kan op papier of als tijdelijk commentaar.</li>
+<li>Voer de test uit.</li>
+<li>Vergelijk je verwachting met het resultaat. Komen ze overeen? Zo niet, dan klopt je verwachting, je test of je class niet. Zoek uit welke van de drie. </li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p><div class="code-box"><button type="button" name="water_rocket" onclick="runScript('water_rocket')" class="run"><svg class="run" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button><button type="button" name="water_rocket" onclick="runScript('water_rocket')" class="reload invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button> <b>water_rocket.py</b>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">speedy</span> <span class="o">=</span> <span class="n">ProjectileMotion</span><span class="p">()</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">speedy</span><span class="o">.</span><span class="n">add_launch_parameters</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="mi">28</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">68</span><span class="p">)</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="c1"># test: double the speed at the same angle</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="c1"># expected: time of flight x2, flight range x4</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="n">speedy</span><span class="o">.</span><span class="n">add_launch_parameters</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="n">speedy</span><span class="o">.</span><span class="n">add_launch_parameters</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="n">v</span> <span class="o">=</span> <span class="n">speedy</span><span class="o">.</span><span class="n">get_initial_velocities</span><span class="p">()</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="n">angles</span> <span class="o">=</span> <span class="n">speedy</span><span class="o">.</span><span class="n">get_launch_angles</span><span class="p">()</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="n">x</span> <span class="o">=</span> <span class="n">speedy</span><span class="o">.</span><span class="n">get_flight_ranges</span><span class="p">()</span>
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="n">t</span> <span class="o">=</span> <span class="n">speedy</span><span class="o">.</span><span class="n">get_time_of_flights</span><span class="p">()</span>
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">angles</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-23-17"><a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<pre>
+<code>(oefenopdrachten) &gt; python water_rocket.py
+<span class="invisible" name="water_rocket">v=[28, 11, 22]
+angles=[68, 15, 15]
+x=[55.51602064,  6.16717635, 24.6687054]
+t=[5.29279265, 0.58043007, 1.16086014]</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p><strong>Suggesties voor tests</strong></p>
+<p>Om je op weg te helpen, vind je hieronder een lijst met mogelijke tests. Kies twee tests uit de lijst of bedenk zelf een test. Vink de tests aan die je hebt uitgevoerd.</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Vraag de resultaten op, voeg een lancering toe en vraag de resultaten opnieuw op. </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Vraag de resultaten op van een instance waaraan je niets hebt toegevoegd. </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Vraag dezelfde resultaten twee keer achter elkaar op. </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Geef de argumenten van <code class="language-py highlight"><span class="n">add_launch_parameters</span></code> met hun naam in een andere volgorde mee, bijvoorbeeld eerst <code class="language-py highlight"><span class="n">angle</span></code> en dan <code class="language-py highlight"><span class="n">v</span></code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Vraag de resultaten in een andere volgorde op dan in de testcode. </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Maak twee instances en voeg alleen aan de eerste een lancering toe. Vraag de resultaten op van beide instances.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Probeer een ongebruikelijke hoek of snelheid, zoals -30° of snelheid 0. </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Bedenk zelf een test, bijvoorbeeld op basis van iets dat je tegenkwam toen je de class schreef.</li>
+</ul>
+<p><strong>Projecttraject</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Class <code>Particle</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Class <code>Temperature</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Class <code>PointMass</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Class <code>ProjectileMotion</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Test je class</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Een extra paar ogen</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition opdracht-basis">
+<p class="admonition-title">Een extra paar ogen</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">opdracht</label><label for="__tabbed_11_2">check</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Je hebt je class al getest, maar anderen kiezen soms andere tests en die tests leveren nieuwe inzichten op. Bekijk daarom samen met je assistent of de class goed werkt, ook in situaties die je misschien zelf niet hebt bedacht. </p>
+<p>Vraag de assistent je class te testen als je:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> alle <a href="#__tabbed_9_3">checkpunten</a> hebt afgevinkt</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> de <a href="#__tabbed_9_2">testcode</a> hebt uitgevoerd</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> twee <a href="#opd:test-class">eigen tests</a> hebt uitgevoerd</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><strong>Projecttraject</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Class <code>Particle</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Class <code>Temperature</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Class <code>PointMass</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Class <code>ProjectileMotion</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Test je class</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Een extra paar ogen</li>
 </ul>
 </div>
 </div>
@@ -1755,22 +1864,22 @@ t=[5.292792645845066, 0.5804300705663054]</span>
 <summary>Subclass</summary>
 <h2 id="subclasses">Subclasses<a class="headerlink" href="#subclasses" title="Permanent link">&para;</a></h2>
 <p>Je kunt behalve een class ook een <em>subclass</em> aanmaken. De class <code class="language-py highlight"><span class="n">Turtle</span></code> heeft hele handige methods maar je kunt een specifiekere class <code class="language-py highlight"><span class="n">GiantTortoise</span></code> maken.</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GiantTortoise</span><span class="p">(</span><span class="n">Turtle</span><span class="p">):</span>
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s2">&quot;turtle&quot;</span><span class="p">)</span>
-</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s2">&quot;dark green&quot;</span><span class="p">)</span>
-</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">turtlesize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>
-</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">distance</span><span class="p">):</span>
-</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>        <span class="n">steps</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>        <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>        <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">steps</span><span class="p">:</span>
-</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">tiltangle</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
-</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
-</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a>            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GiantTortoise</span><span class="p">(</span><span class="n">Turtle</span><span class="p">):</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s2">&quot;turtle&quot;</span><span class="p">)</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s2">&quot;dark green&quot;</span><span class="p">)</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">turtlesize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">distance</span><span class="p">):</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>        <span class="n">steps</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>        <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>        <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">steps</span><span class="p">:</span>
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">tiltangle</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
 </span></code></pre></div>
 <p>Door de parentclass <code class="language-py highlight"><span class="n">Turtle</span></code> tussen ronde haakjes mee te geven aan de nieuwe subclass <code class="language-py highlight"><span class="n">GiantTortoise</span></code> krijgt de subclass alle functionaliteit mee van de parentclass, waaronder alle methods zoals <code class="language-py highlight"><span class="n">forward</span><span class="p">()</span></code>. Als je in de <code class="language-py highlight"><span class="fm">__init__</span><span class="p">()</span></code>-method van de subclass methods of attributes wilt gebruiken van de parentclass, moet je ervoor zorgen dat de parentclass is geïnitialiseerd . Dit doe je met <code class="language-py highlight"><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span></code>. Hierbij verwijst <code class="language-py highlight"><span class="nb">super</span><span class="p">()</span></code> naar de parentclass en met <code class="language-py highlight"><span class="fm">__init__</span><span class="p">()</span></code> voer je de <code class="language-py highlight"><span class="fm">__init__</span><span class="p">()</span></code>-method van de parentclass uit. Nadat je in de <code class="language-py highlight"><span class="fm">__init__</span><span class="p">()</span></code>-method van de subclass de eigenschappen van de reuzenschildpad hebt gedefinieerd, kun je extra functionaliteit gaan toevoegen, bijvoorbeeld de manier van bewegen met de method <code class="language-py highlight"><span class="n">move</span><span class="p">()</span></code>. </p>
 <div class="admonition opdracht-meer">
@@ -1778,8 +1887,8 @@ t=[5.292792645845066, 0.5804300705663054]</span>
 <ol>
 <li>Maak een bestand aan waarin je de subclass <code>GiantTortoise</code> aanmaakt.</li>
 <li>Zorg dat de volgende voorbeeldcode werkt:
-<div class="language-py highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">t</span> <span class="o">=</span> <span class="n">GiantTortoise</span><span class="p">()</span>
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="n">t</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">t</span> <span class="o">=</span> <span class="n">GiantTortoise</span><span class="p">()</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="n">t</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
 </span></code></pre></div></li>
 <li>Wat gebeurt er als je <code class="language-py highlight"><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span></code> weglaat?</li>
 </ol>
