@@ -12,6 +12,10 @@ Docstrings staan tussen drie dubbele aanhalingstekens en hebben doorgaans een va
 def integers_up_to(number):
     """List integers up to a given number.
 
+    Return a list of integers starting from the number one and up to, but not
+    including, the supplied number argument. If number is zero or negative, an
+    empty list is returned.
+
     Args:
         number (int): list integers up to this number
 
@@ -29,9 +33,13 @@ help(integers_up_to)
 <pre>
 <code>(ECPC) > python integers_up_to.py
 <span class="invisible" name="integers_up_to_help">Help on function integers_up_to in module __main__:
-    
+
 integers_up_to(number)
     List integers up to a given number.
+
+    Return a list of integers starting from the number one and up to, but not
+    including, the supplied number argument. If number is zero or negative, an
+    empty list is returned.
 
     Args:
         number (int): list integers up to this number
@@ -75,7 +83,6 @@ def integers_up_to(number):
 ```
 
 Zo kun je gemakkelijk de docstring invullen. Je kunt met ++tab++ naar het volgende veld om de docstring snel in te vullen, zolang je niet op ++escape++ drukt. Het is mooi als je daarna onder de _summary_ nog een uitgebreidere uitleg geeft van een paar zinnen. Vergeet ook niet om de docstring zonodig bij te werken als je een functie aanpast. ![Klik hier](assets/eastereggs/ECPC-silver.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst als je een variabele selecteert en op 'F2' drukt, kun je de naam van de variabele aanpassen en wordt dit automatisch toegepast op alle plekken waar de variabele voorkomt. Probeer maar eens!"}
-
 
 !!! opdracht-inlever-thuis "Pythondaq: docstrings"
     === "opdracht"
