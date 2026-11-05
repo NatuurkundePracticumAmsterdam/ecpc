@@ -634,7 +634,8 @@ Natuurlijk willen we uv ook gaan gebruiken bij `pythondaq`. Je maakt nu alleen g
     1. Maak drie extra packages in de package {{folder}}`pythondaq` aan: {{folder}}`models`, {{folder}}`views` en {{folder}}`controllers`. Kijk nog even naar [paragraaf _Packages_](vervolg-python.md#packages) om te zien hoe de layout er dan ongeveer uit moet zien.
     2. Zet de modules in de juiste packages.
     3. Test je code zodat alle imports weer werken.
-    4. Schrijf in elke nieuwe {{new_file}}`__init__.py` the docstring voor dat package.
+    4. Schrijf in elke nieuwe {{new_file}}`__init__.py` the docstring voor dat package en geef de lijst van de bijbehorende modules.
+    5. Pas de docstring in {{file}}`pythondaq/__init__.py` aan. Geef hier niet langer de lijst met modules (want die zijn weg) maar de lijst met _subpackages_ models, views en controllers.
 
 
 ## Van script naar applicatie
