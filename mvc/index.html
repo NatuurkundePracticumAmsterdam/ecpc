@@ -1009,7 +1009,7 @@
         <li> De gebruiker vraagt een lijst met beschikbare poorten op met de functie <code class="language-py highlight"><span class="n">list_resources</span><span class="p">()</span></code>.</li> 
         <li> De gebruiker weet daarna aan welke poort de Arduino hangt en gebruikt deze poortnaam om een instance aan te maken van de class <code>ArduinoVISADevice</code>. Met deze class kan de gebruiker met de Arduino communiceren.</li> 
         <li> Met de method <code class="language-py highlight"><span class="n">get_identification</span><span class="p">()</span></code> vraagt de gebruiker de identificatiestring op. </li>
-        <li> De gebruiker zet met de method <code class="language-py highlight"><span class="n">set_output_value</span><span class="p">()</span></code> een waarde van 828 op uitvoerkanaal 0. De gebruiker ziet de LED branden en weet daardoor dat de method werkt.</li>
+        <li> De gebruiker zet met de method <code class="language-py highlight"><span class="n">set_output_value</span><span class="p">()</span></code> een waarde van 828 op uitvoerkanaal 0. De gebruiker controleert het antwoord van de Arduino en ziet de LED branden en weet daardoor dat de method werkt.</li>
         <li> De gebruiker controleert met de method <code class="language-py highlight"><span class="n">get_output_value</span><span class="p">()</span></code> de waarde op uitvoerkanaal 0, die nog steeds 828 zou moeten zijn. </li>
         <li> De gebruiker vraagt met de method <code class="language-py highlight"><span class="n">get_input_value</span><span class="p">()</span></code> de spanning op kanaal 1 op. Dit herhaalt de gebruiker vervolgens voor kanaal 2.</li>
         <li> Met de method <code class="language-py highlight"><span class="n">get_input_voltage</span><span class="p">()</span></code> vraagt de gebruiker de spanning van kanaal 1 op in Volt. De gebruiker rekent de gegeven waarde van de method <code class="language-py highlight"><span class="n">get_input_value</span><span class="p">()</span></code> op kanaal 1 om naar volt en ziet dat deze overeenkomt met de gegeven spanning door de method <code class="language-py highlight"><span class="n">get_input_voltage</span><span class="p">()</span></code> op kanaal 1. </li>
@@ -1039,10 +1039,10 @@
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1">#        return identification string of connected device</span>
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1">#</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1">#   def set_output_value</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1">#        set a value on the output channel</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1">#        set a value on the output channel and return the Arduino&#39;s response</span>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1">#</span>
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1">#   def set_output_voltage</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1">#        set a voltage on the output channel (in Volt)</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1">#        set a voltage on the output channel (in Volt) and return the Arduino&#39;s response</span>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1">#</span>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1">#   def get_output_value</span>
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1">#        return the value of the output channel</span>
