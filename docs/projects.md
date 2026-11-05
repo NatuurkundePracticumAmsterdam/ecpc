@@ -627,6 +627,9 @@ Natuurlijk willen we uv ook gaan gebruiken bij `pythondaq`. Je maakt nu alleen g
         - [ ] Pythondaq: test imports
         - [ ] Pythondaq: applicatie
 
+???+ opdracht-meer "Package docstrings"
+
+    We hebben het gehad over _module_ docstrings: bovenaan ieder Pythonbestand geef je een beschrijving van de module: waar kun je de module voor gebruiken? Wat voor classes of functies staan erin? We hebben nu een _package_ gemaakt en ook die heeft een docstring nodig. De package docstring plaats je in het {{file}}`__init__.py`-bestand. Je beschrijft daar wat het doel is van je pythondaq-package. Waarvoor kun je het gebruiken? Geef een kort overzicht van welke modules er in je package zitten zodat een gebruiker weet waar hij verder naar kan kijken.
 
 ???+ opdracht-meer "Model, view en controller packages"
     In grotere projecten is het gebruikelijk om model, view en controller niet alleen uit te splitsen in verschillende scripts, maar ook in aparte packages te zetten. Als je de [paarse opdracht _Pythondaq: schildpad of raket? — vervolg_](mvc.md#opdr:schild-raket-vervolg) hebt gedaan dan heb je nu al twee verschillende models. Als je meer instrumenten gebruikt heb je meer controllers. En later in deze cursus heb je drie (of meer) verschillende views. Dat blijft een stuk overzichtelijker als je ze verdeelt over packages.
