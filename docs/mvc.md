@@ -113,11 +113,8 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs do
         print(identification)
 
         # set OUTPUT voltage on channel 0 in Volt (0 - 3.3 V)
-        device.set_output_voltage(voltage=3.3)
-
-        # get OUTPUT voltage in ADC values (0 - 1023)
-        ch0_value = device.get_output_value()
-        print(f"{ch0_value=}")
+        response = device.set_output_voltage(voltage=3.3)
+        print(f"{response=}")
 
         # set OUTPUT voltage on channel 0 in ADC values (0 - 1023)
         device.set_output_value(value=828)
@@ -133,12 +130,15 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs do
         # get the previously set OUTPUT voltage on channel 0 in ADC values (0 - 1023)
         ch0_value = device.get_output_value()
         print(f"{ch0_value=}")
+
+        # turn of the LED
+        device.set_output_voltage(voltage=0)
         ```
         <pre>
         <code>(ECPC) > python test_controller.py
         <span class="invisible" name="basisscript_controller">('ASRL28::INSTR') 
         Arduino VISA firmware v1.2.0
-        ch0_value=1023
+        response='1023'
         ch2_value=258
         ch2_voltage=0.8226
         ch0_value=828</span>
