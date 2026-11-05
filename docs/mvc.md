@@ -171,6 +171,10 @@ Je hebt nu een werkende controller, maar je gebruikt deze nog niet in je experim
 !!! opdracht-inlever "Pythondaq: controller implementeren"
     === "opdracht"
         Kopieer de functie `list_resources()` en de class `ArduinoVISADevice` uit het bestand {{file}}`test_controller.py`. Voeg deze functie en class toe aan het bestand {{file}}`diode_experiment.py`. Pas de code daarna zo aan dat in het bestand {{file}}`diode_experiment.py` gebruikgemaakt wordt van de betreffende functie en de class met de bijhorende methods. Let op: als fysici werken we graag met fysische grootheden en eenheden. Je `ArduinoVISADevice` weet wat ADC values zijn, maar gebruik verder altijd de `set_output_voltage()` en `get_input_voltage()` etc. methods voor het doen van de metingen. Gebruik dus altijd spanningen in Volt in plaats van ADC values.
+
+        !!! info "Tip: kleine stapjes"
+
+            Je hebt voor het ophogen van de spanningen misschien een for-loop gebruikt met de `#!py range()`-functie. Bij die functie kun je de stapgrootte kiezen, zolang dat maar een geheel getal is. Dat is niet zo handig bij de spanningen waarop de Arduino werkt; je wilt kleinere stapjes. Met welke `#!py range()`-achtige functie kan dat? Overleg zonodig met je TA.
         
     === "code"
         **Pseudo-code**
