@@ -112,6 +112,13 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs do
         identification = device.get_identification()
         print(identification)
 
+        # set OUTPUT voltage on channel 0 in Volt (0 - 3.3 V)
+        device.set_output_voltage(voltage=3.3)
+
+        # get OUTPUT voltage in ADC values (0 - 1023)
+        ch0_value = device.get_output_value()
+        print(f"{ch0_value=}")
+
         # set OUTPUT voltage on channel 0 in ADC values (0 - 1023)
         device.set_output_value(value=828)
 
@@ -119,7 +126,7 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs do
         ch2_value = device.get_input_value(channel=2)
         print(f"{ch2_value=}")
 
-        # measure the voltage on INPUT channel 2 in volts (0 - 3.3 V)
+        # measure the voltage on INPUT channel 2 in Volt (0 - 3.3 V)
         ch2_voltage = device.get_input_voltage(channel=2)
         print(f"{ch2_voltage=}")
 
@@ -131,8 +138,9 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs do
         <code>(ECPC) > python test_controller.py
         <span class="invisible" name="basisscript_controller">('ASRL28::INSTR') 
         Arduino VISA firmware v1.2.0
-        ch2_value=224
-        ch2_voltage=0.7774193548387097
+        ch0_value=1023
+        ch2_value=258
+        ch2_voltage=0.8226
         ch0_value=828</span>
         </code></pre></div>
         
