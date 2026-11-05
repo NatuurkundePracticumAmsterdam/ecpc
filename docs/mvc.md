@@ -50,7 +50,7 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs do
                 <li> De gebruiker vraagt een lijst met beschikbare poorten op met de functie `#!py list_resources()`.</li> 
                 <li> De gebruiker weet daarna aan welke poort de Arduino hangt en gebruikt deze poortnaam om een instance aan te maken van de class `ArduinoVISADevice`. Met deze class kan de gebruiker met de Arduino communiceren.</li> 
                 <li> Met de method `#!py get_identification()` vraagt de gebruiker de identificatiestring op. </li>
-                <li> De gebruiker zet met de method `#!py set_output_value()` een waarde van 828 op uitvoerkanaal 0. De gebruiker ziet de LED branden en weet daardoor dat de method werkt.</li>
+                <li> De gebruiker zet met de method `#!py set_output_value()` een waarde van 828 op uitvoerkanaal 0. De gebruiker controleert het antwoord van de Arduino en ziet de LED branden en weet daardoor dat de method werkt.</li>
                 <li> De gebruiker controleert met de method `#!py get_output_value()` de waarde op uitvoerkanaal 0, die nog steeds 828 zou moeten zijn. </li>
                 <li> De gebruiker vraagt met de method `#!py get_input_value()` de spanning op kanaal 1 op. Dit herhaalt de gebruiker vervolgens voor kanaal 2.</li>
                 <li> Met de method `#!py get_input_voltage()` vraagt de gebruiker de spanning van kanaal 1 op in Volt. De gebruiker rekent de gegeven waarde van de method `#!py get_input_value()` op kanaal 1 om naar volt en ziet dat deze overeenkomt met de gegeven spanning door de method `#!py get_input_voltage()` op kanaal 1. </li>
@@ -81,10 +81,10 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs do
         #        return identification string of connected device
         #
         #   def set_output_value
-        #        set a value on the output channel
+        #        set a value on the output channel and return the Arduino's response
         #
         #   def set_output_voltage
-        #        set a voltage on the output channel (in Volt)
+        #        set a voltage on the output channel (in Volt) and return the Arduino's response
         #
         #   def get_output_value
         #        return the value of the output channel
