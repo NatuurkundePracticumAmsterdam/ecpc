@@ -54,7 +54,7 @@ Het opsplitsen van het {{file}}`diode_experiment.py` in MVC ga je stapsgewijs do
                 <li> De gebruiker controleert met de method `#!py get_output_value()` de waarde op uitvoerkanaal 0, die nog steeds 828 zou moeten zijn. </li>
                 <li> De gebruiker vraagt met de method `#!py get_input_value()` de spanning op kanaal 1 op. Dit herhaalt de gebruiker vervolgens voor kanaal 2.</li>
                 <li> Met de method `#!py get_input_voltage()` vraagt de gebruiker de spanning van kanaal 1 op in Volt. De gebruiker rekent de gegeven waarde van de method `#!py get_input_value()` op kanaal 1 om naar volt en ziet dat deze overeenkomt met de gegeven spanning door de method `#!py get_input_voltage()` op kanaal 1. </li>
-                <li> De gebruiker test ook de methods `#!py set_output_voltage()` en `#!py get_output_voltage()` en ziet dat die ook netjes werken.</li>
+                <li> De gebruiker test ook de methods `#!py set_output_voltage()` (zet een spanning _in Volt_ op uitvoerkanaal 0) en `#!py get_output_voltage()` (vraag de spanning _in Volt_ op het uitvoerkanaal) en ziet dat die ook netjes omrekenen en werken.</li>
             </ul>
             </div>
             <div>
