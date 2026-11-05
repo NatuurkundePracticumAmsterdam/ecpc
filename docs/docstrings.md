@@ -60,18 +60,18 @@ Om het gemakkelijker te maken om docstrings ook écht te gaan schrijven, zijn er
 Wanneer je voor de functie `#!py integers_up_to()` de docstring generator gebruikt, krijg je het volgende:
 ``` py
 def integers_up_to(number):
-"""_summary_
+    """_summary_
 
-Args:
-    number (_type_): _description_
+    Args:
+        number (_type_): _description_
 
-Returns:
-    _type_: _description_
-"""
-if number > 1:
-    return list(range(1, number))
-else:
-    return []
+    Returns:
+        _type_: _description_
+    """
+    if number > 1:
+        return list(range(1, number))
+    else:
+        return []
 ```
 
 Zo kun je gemakkelijk de docstring invullen. Je kunt met ++tab++ naar het volgende veld om de docstring snel in te vullen, zolang je niet op ++escape++ drukt. Het is mooi als je daarna onder de _summary_ nog een uitgebreidere uitleg geeft van een paar zinnen. Vergeet ook niet om de docstring zonodig bij te werken als je een functie aanpast. ![Klik hier](assets/eastereggs/ECPC-silver.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst als je een variabele selecteert en op 'F2' drukt, kun je de naam van de variabele aanpassen en wordt dit automatisch toegepast op alle plekken waar de variabele voorkomt. Probeer maar eens!"}
