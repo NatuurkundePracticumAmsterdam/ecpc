@@ -3,12 +3,25 @@ Documentatie is vaak een onderschoven kindje, maar is ontzettend belangrijk. Als
 
 Tot nu toe heb je waarschijnlijk gebruikgemaakt van `#!py # stukjes commentaar` om duidelijk te maken wat je code doet. Maar als je de applicatie aan het gebruiken bent en je wilt weten wat een bepaalde functie eigenlijk doet, moet je de code induiken op zoek naar de betreffende functie. Met _docstrings_ &mdash; documentatiestrings &mdash; is dat verleden tijd. De documentatie over een functie kan automatisch gegenereerd worden vanuit je code met behulp van de docstring. 
 
-Docstrings staan tussen drie dubbele aanhalingstekens en hebben doorgaans een vaste structuur:[^style-guide] De eerste regel van de docstring geeft een korte samenvatting, na de witregel komt een langere samenvatting. Met `Args:` worden alle argumenten opgesomd die aan de functie worden meegegeven en `Returns:` geeft aan wat de functie teruggeeft. Je kunt de documentatie opvragen met de `#!py help()`-functie. Zo vraag je bijvoorbeeld de documentatie van onderstaande functie op met `#!py help(integers_up_to)`. Dat geeft het resultaat zoals gegeven (druk op {{ run }}).
+Docstrings staan tussen drie dubbele aanhalingstekens en hebben doorgaans een vaste structuur:[^style-guide] de eerste regel van de docstring geeft een korte samenvatting, na de witregel komt een langere samenvatting. Je doet dit aan het begin van elke module (Pythonbestand), maar ook bij classes en bij functies.
+
+Bij functies worden met `Args:` alle argumenten opgesomd die aan de functie worden meegegeven en `Returns:` geeft aan wat de functie teruggeeft. Je kunt de documentatie opvragen met de `#!py help()`-functie. Zo vraag je bijvoorbeeld de documentatie van onderstaande functie op met `#!py help(integers_up_to)`. Dat geeft het resultaat zoals gegeven (druk op {{ run }}).
 
 [^style-guide]: Die vaste structuur wordt niet door Python afgedwongen, maar is een goed gebruik. Er worden verschillende stijlen gebruikt. Eén van de meest gebruikte stijlen is door programmeurs van Google bedacht.[@google_style_guide]
 
 <div class="code-box"><button type="button" name="integers_up_to_help" onclick="runScript('integers_up_to_help')" class="run">{{ run }}</button><button type="button" name="integers_up_to_help" onclick="runScript('integers_up_to_help')" class="reload invisible">{{ reload }}</button> integers_up_to.py
 ``` py
+"""Helper functions for listing numbers.
+
+This module currently contains a single helper function for listing numbers
+up to a given number. This is useful so you don't need to remember how
+`range()` works and so you will always get back a list instead of an iterator
+object. More functions may be included in the future.
+
+Disclaimer: this is an example. This module is not really that useful and we
+recommend to just use `range()` in your code.
+"""
+
 def integers_up_to(number):
     """List integers up to a given number.
 
