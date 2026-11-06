@@ -960,24 +960,40 @@
 <h1 id="docstrings">Docstrings<a class="headerlink" href="#docstrings" title="Permanent link">&para;</a></h1>
 <p>Documentatie is vaak een onderschoven kindje, maar is ontzettend belangrijk. Als je zelf informatie opzoekt over bijvoorbeeld een voor jou onbekende Pythonbibliotheek dan vind je het heel fijn als er een duidelijke tutorial is. Als je code schrijft die ook door andere mensen gebruikt moet worden dan is documentatie nodig. Als de code langer mee moet gaan dan zeg een paar weken, dan helemaal. Want over een paar weken ben jij <em>zelf</em> een ander persoon. Hoe vervelend het ook is, code die je nota bene zelf geschreven hebt, is over een paar weken niet meer glashelder. Je zult dan moeten uitzoeken hoe je ook alweer iets hebt gedaan of wat de gedachte erachter was.</p>
 <p>Tot nu toe heb je waarschijnlijk gebruikgemaakt van <code class="language-py highlight"><span class="c1"># stukjes commentaar</span></code> om duidelijk te maken wat je code doet. Maar als je de applicatie aan het gebruiken bent en je wilt weten wat een bepaalde functie eigenlijk doet, moet je de code induiken op zoek naar de betreffende functie. Met <em>docstrings</em> &mdash; documentatiestrings &mdash; is dat verleden tijd. De documentatie over een functie kan automatisch gegenereerd worden vanuit je code met behulp van de docstring. </p>
-<p>Docstrings staan tussen drie dubbele aanhalingstekens en hebben doorgaans een vaste structuur:<sup id="fnref:style-guide"><a class="footnote-ref" href="#fn:style-guide">1</a></sup> De eerste regel van de docstring geeft een korte samenvatting, na de witregel komt een langere samenvatting. Met <code>Args:</code> worden alle argumenten opgesomd die aan de functie worden meegegeven en <code>Returns:</code> geeft aan wat de functie teruggeeft. Je kunt de documentatie opvragen met de <code class="language-py highlight"><span class="n">help</span><span class="p">()</span></code>-functie. Zo vraag je bijvoorbeeld de documentatie van onderstaande functie op met <code class="language-py highlight"><span class="n">help</span><span class="p">(</span><span class="n">integers_up_to</span><span class="p">)</span></code>. Dat geeft het resultaat zoals gegeven (druk op <svg class="run" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>).</p>
+<p>Docstrings staan tussen drie dubbele aanhalingstekens en hebben doorgaans een vaste structuur:<sup id="fnref:style-guide"><a class="footnote-ref" href="#fn:style-guide">1</a></sup> de eerste regel van de docstring geeft een korte samenvatting, na de witregel komt een langere samenvatting. Je doet dit aan het begin van elke module (Pythonbestand), maar ook bij classes en bij functies.</p>
+<p>Bij functies worden met <code>Args:</code> alle argumenten opgesomd die aan de functie worden meegegeven. Ook wordt het verwachte <em>type</em> van het argument gegeven: <code>int</code>, <code>str</code>, <code>float</code>, <code>list</code>, enz. Dit is handig om te weten! Met <code>Returns:</code> geef je aan wat de functie teruggeeft. Je kunt de documentatie opvragen met de <code class="language-py highlight"><span class="n">help</span><span class="p">()</span></code>-functie. Zo vraag je bijvoorbeeld de documentatie van onderstaande functie op met <code class="language-py highlight"><span class="n">help</span><span class="p">(</span><span class="n">integers_up_to</span><span class="p">)</span></code>. Dat geeft het resultaat zoals gegeven (druk op <svg class="run" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>).</p>
 <div class="code-box"><button type="button" name="integers_up_to_help" onclick="runScript('integers_up_to_help')" class="run"><svg class="run" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button><button type="button" name="integers_up_to_help" onclick="runScript('integers_up_to_help')" class="reload invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button> integers_up_to.py
-<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">integers_up_to</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;List integers up to a given number.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="sd">    Args:</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="sd">        number (int): list integers up to this number</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="sd">    Returns:</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="sd">        list: containing the integers</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">number</span><span class="p">))</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="k">return</span> <span class="p">[]</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="sd">&quot;&quot;&quot;Helper functions for listing numbers.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="sd">This module currently contains a single helper function for listing numbers</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="sd">up to a given number. This is useful so you don&#39;t need to remember how</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="sd">`range()` works and so you will always get back a list instead of an iterator</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="sd">object. More functions may be included in the future.</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="sd">Disclaimer: this is an example. This module is not really that useful and we</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="sd">recommend to just use `range()` in your code.</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">integers_up_to</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;List integers up to a given number.</span>
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">help</span><span class="p">(</span><span class="n">integers_up_to</span><span class="p">)</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="sd">    Return a list of integers starting from the number one and up to, but not</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="sd">    including, the supplied number argument. If number is zero or negative, an</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="sd">    empty list is returned.</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="sd">    Args:</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="sd">        number (int): list integers up to this number.</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="sd">    Returns:</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="sd">        list: containing the integers.</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">number</span><span class="p">))</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>        <span class="k">return</span> <span class="p">[]</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="n">help</span><span class="p">(</span><span class="n">integers_up_to</span><span class="p">)</span>
 </span></code></pre></div>
 <pre>
 <code>(ECPC) > python integers_up_to.py
@@ -986,11 +1002,15 @@
 integers_up_to(number)
     List integers up to a given number.
 
+    Return a list of integers starting from the number one and up to, but not
+    including, the supplied number argument. If number is zero or negative, an
+    empty list is returned.
+
     Args:
-        number (int): list integers up to this number
+        number (int): list integers up to this number.
 
     Returns:
-        list: containing the integers</span>
+        list: containing the integers.</span>
 </code></pre></div>
 
 <p>Je zult misschien niet altijd de <code class="language-py highlight"><span class="n">help</span><span class="p">()</span></code>-functie gebruiken, maar gebruik zoveel mogelijk docstrings &mdash; ze helpen ook enorm als je de code leest. Het is extra werk maar het verdient zich dubbel en dwars terug. Je hoeft geen proza te schrijven, maar wees duidelijk. Lees voor meer voorbeelden en handvaten bijvoorbeeld de <em>Google Python Style Guide</em>.<sup id="fnref:google_style_guide"><a class="footnote-ref" href="#fn:google_style_guide">3</a></sup></p>
@@ -1014,18 +1034,18 @@ integers_up_to(number)
 </div>
 <p>Wanneer je voor de functie <code class="language-py highlight"><span class="n">integers_up_to</span><span class="p">()</span></code> de docstring generator gebruikt, krijg je het volgende:
 <div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">integers_up_to</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="sd">&quot;&quot;&quot;_summary_</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;_summary_</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="sd">Args:</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="sd">    number (_type_): _description_</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="sd">    Args:</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="sd">        number (_type_): _description_</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="sd">Returns:</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="sd">    _type_: _description_</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">number</span><span class="p">))</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="k">else</span><span class="p">:</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="k">return</span> <span class="p">[]</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="sd">    Returns:</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="sd">        _type_: _description_</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">number</span><span class="p">))</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        <span class="k">return</span> <span class="p">[]</span>
 </span></code></pre></div></p>
 <p>Zo kun je gemakkelijk de docstring invullen. Je kunt met <span class="keys"><kbd class="key-tab">Tab</kbd></span> naar het volgende veld om de docstring snel in te vullen, zolang je niet op <span class="keys"><kbd class="key-escape">Esc</kbd></span> drukt. Het is mooi als je daarna onder de <em>summary</em> nog een uitgebreidere uitleg geeft van een paar zinnen. Vergeet ook niet om de docstring zonodig bij te werken als je een functie aanpast. <img alt="Klik hier" data-message="Pssst als je een variabele selecteert en op 'F2' drukt, kun je de naam van de variabele aanpassen en wordt dit automatisch toegepast op alle plekken waar de variabele voorkomt. Probeer maar eens!" id="easterEggImage" src="../assets/eastereggs/ECPC-silver.svg" style="width:1.5%" /></p>
 <div class="admonition opdracht-inlever-thuis">
@@ -1086,6 +1106,34 @@ class ArduinoVISADevice(builtins.object)
 </div>
 </div>
 </div>
+<details class="opdracht-meer" open="open">
+<summary>Type hints</summary>
+<p>Je hebt in bovenstaande voorbeelden gezien dat je het verwachte type van het argument meegeeft in de docstring. Handig: dan weet je dat je in je functie geen <code>int(number)</code> hoeft te doen omdat number al een int is, en dan weet je ook dat je dus <em>niet</em> <code class="language-py highlight"><span class="n">integers_up_to</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">)</span></code> kunt doen want <code class="language-py highlight"><span class="s2">&quot;10&quot;</span></code> is een string, geen integer. Maar. Omdat je vrij bent om je docstring te schrijven op de manier zoals je wilt weet je editor dat <em>niet</em>. Je hebt vast al gemerkt dat als je aan het typen bent dat Visual Studio Code suggesties doet voor autocompletion. Let op: dit is wat anders dan AI; autocompletion geeft geen hele regels code, maar geeft je een lijstje van mogelijkheden uit je eigen code; zelf denken, maar het scheelt wel typewerk. Als je begint te typen <code class="language-py highlight"><span class="n">integ</span></code> dan doet Visual Studio Code de suggestie om daar <code class="language-py highlight"><span class="n">integers_up_to</span></code> van te maken; immers, er is een functie die zo heet. Hetzelfde doet het met methods. Als je een variabele <code class="language-py highlight"><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;pear&quot;</span><span class="p">]</span></code> hebt en je typt <code class="language-py highlight"><span class="n">fruits</span><span class="o">.</span></code> dan doet Visual Studio Code al zelf suggesties zoals <code class="language-py highlight"><span class="o">.</span><span class="n">append</span></code>, <code class="language-py highlight"><span class="o">.</span><span class="n">copy</span></code>, <code class="language-py highlight"><span class="o">.</span><span class="n">count</span></code>, etc. Allemaal methods van <em>list</em>, omdat Visual Studio Code wéét dat het een list is. Maar dat gaat mis als je argumenten meegeeft aan een functie. Visual Studio Code weet dat de functie een parameter heeft, maar niet wat het type is van de argumenten die je daaraan meegeeft. Maar daar kun je iets aan doen: met <em>type hints</em>. Bij type hints geef je het type niet expliciet in de docstring, maar direct bij de parameters. Return values geef je aan met een pijltje. Ons voorbeeld wordt:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">integers_up_to</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="sd">&quot;&quot;&quot;List integers up to a given number.</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="sd">Return a list of integers starting from the number one and up to, but not</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="sd">including, the supplied number argument. If number is zero or negative, an</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="sd">empty list is returned.</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="sd">Args:</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="sd">    number: list integers up to this number.</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="sd">Returns:</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="sd">    A list containing the integers.</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">number</span><span class="p">))</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    <span class="k">return</span> <span class="p">[]</span>
+</span></code></pre></div>
+Voordelen: autocomplete, maar ook direct waarschuwingen als je probeert een string en een integer op te tellen bijvoorbeeld. Want Visual Studio Code weet dan al dat dat niet gaat werken, nog voordat je je code runt en een error krijgt. Type hints worden tegenwoordig veel gebruikt.</p>
+<ol>
+<li>Lees een <a href="https://fastapi.tiangolo.com/python-types/">korte tutorial over type hints</a> (van FastAPI, maar de tutorial is algemeen).</li>
+<li>Kies <strong>File &gt; Preferences &gt; Settings</strong> of druk op ctrl-, (control-komma).</li>
+<li>Type in het zoekvenster: ``</li>
+</ol>
+</details>
 <details class="meer-leren" open="open">
 <summary>Material for MkDocs</summary>
 <h3 id="documentatie-met-material-for-mkdocs">Documentatie met <em>Material for MkDocs</em><a class="headerlink" href="#documentatie-met-material-for-mkdocs" title="Permanent link">&para;</a></h3>
