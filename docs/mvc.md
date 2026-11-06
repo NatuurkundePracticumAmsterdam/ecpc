@@ -365,7 +365,7 @@ Nu je de _controller_ die de Arduino aanstuurt, hebt gemaakt en afgesplitst, bli
             <br><br> 
             **Bij deze opdracht ga je dingen aanpassen, maar de meeste code heb je al geschreven. Schrijf dus _niet_ allerlei code opnieuw!**
             </br></br>
-            Om gegevens naar de Arduino te sturen maakt het model gebruik van de controller. De gegevens die het model terugkrijgt van de Arduino worden volgens de fysische relaties verwerkt tot de benodigde spanningen en stroomsterktes en doorgestuurd naar de view. De resultaten worden in een plot getoond en naar een CSV-bestand weggeschreven. De gebruiker test de door jou geschreven applicatie (view, model, controller) met de volgende handelingen:
+            Om gegevens naar de Arduino te sturen maakt het model gebruik van de controller. De gegevens die het model terugkrijgt van de Arduino worden volgens de fysische relaties verwerkt tot de benodigde spanningen en stroomsterktes en doorgestuurd naar de view. De resultaten worden geprint, in een plot getoond en naar een CSV-bestand weggeschreven. De gebruiker test de door jou geschreven applicatie (view, model, controller) met de volgende handelingen:
             <ul> 
                 <li> Het runnen van het bestand {{file}}`run_experiment.py` geeft een lijst van aangesloten instrumenten.</li>
                 <li> De gebruiker past in het bestand {{file}}`run_experiment.py` de poortnaam aan naar een poort waarop een Arduino is aangesloten. De instance van de class `#!py DiodeExperiment`, die uit het model wordt geïmporteerd, gebruikt deze poortnaam om de communicatie met de Arduino te openen. </li> 
