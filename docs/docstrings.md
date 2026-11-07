@@ -5,7 +5,7 @@ Tot nu toe heb je waarschijnlijk gebruikgemaakt van `#!py # stukjes commentaar` 
 
 Docstrings staan tussen drie dubbele aanhalingstekens en hebben doorgaans een vaste structuur:[^style-guide] de eerste regel van de docstring geeft een korte samenvatting, na de witregel komt een langere samenvatting. Je doet dit aan het begin van elke module (Pythonbestand), maar ook bij classes en bij functies.
 
-Bij functies worden met `Args:` alle argumenten opgesomd die aan de functie worden meegegeven en `Returns:` geeft aan wat de functie teruggeeft. Je kunt de documentatie opvragen met de `#!py help()`-functie. Zo vraag je bijvoorbeeld de documentatie van onderstaande functie op met `#!py help(integers_up_to)`. Dat geeft het resultaat zoals gegeven (druk op {{ run }}).
+Bij functies worden met `Args:` alle argumenten opgesomd die aan de functie worden meegegeven. Ook wordt het verwachte _type_ van het argument gegeven: `int`, `str`, `float`, `list`, enz. Dit is handig om te weten! Met `Returns:` geef je aan wat de functie teruggeeft. Je kunt de documentatie opvragen met de `#!py help()`-functie. Zo vraag je bijvoorbeeld de documentatie van onderstaande functie op met `#!py help(integers_up_to)`. Dat geeft het resultaat zoals gegeven (druk op {{ run }}).
 
 [^style-guide]: Die vaste structuur wordt niet door Python afgedwongen, maar is een goed gebruik. Er worden verschillende stijlen gebruikt. Eén van de meest gebruikte stijlen is door programmeurs van Google bedacht.[@google_style_guide]
 
@@ -30,10 +30,10 @@ def integers_up_to(number):
     empty list is returned.
 
     Args:
-        number (int): list integers up to this number
+        number (int): list integers up to this number.
 
     Returns:
-        list: containing the integers
+        list: containing the integers.
     """
     if number > 1:
         return list(range(1, number))
@@ -55,10 +55,10 @@ integers_up_to(number)
     empty list is returned.
 
     Args:
-        number (int): list integers up to this number
+        number (int): list integers up to this number.
 
     Returns:
-        list: containing the integers</span>
+        list: containing the integers.</span>
 </code></pre></div>
 
 Je zult misschien niet altijd de `#!py help()`-functie gebruiken, maar gebruik zoveel mogelijk docstrings &mdash; ze helpen ook enorm als je de code leest. Het is extra werk maar het verdient zich dubbel en dwars terug. Je hoeft geen proza te schrijven, maar wees duidelijk. Lees voor meer voorbeelden en handvaten bijvoorbeeld de _Google Python Style Guide_.[@google_style_guide]
@@ -152,6 +152,36 @@ Zo kun je gemakkelijk de docstring invullen. Je kunt met ++tab++ naar het volgen
         - [ ] Pythondaq: test imports
         - [ ] Pythondaq: applicatie
 
+???+ meer-leren "Type hints"
+
+    Je hebt in bovenstaande voorbeelden gezien dat je het verwachte type van het argument meegeeft in de docstring. Handig: dan weet je dat je in je functie geen `int(number)` hoeft te doen omdat number al een int is, en dan weet je ook dat je dus _niet_ `#!py integers_up_to("10")` kunt doen want `#!py "10"` is een string, geen integer. Maar. Omdat je vrij bent om je docstring te schrijven op de manier zoals je wilt weet je editor dat _niet_. Je hebt vast al gemerkt dat als je aan het typen bent dat Visual Studio Code suggesties doet voor autocompletion. Let op: dit is wat anders dan AI; autocompletion geeft geen hele regels code, maar geeft je een lijstje van mogelijkheden uit je eigen code; zelf denken, maar het scheelt wel typewerk. Als je begint te typen `#!py integ` dan doet Visual Studio Code de suggestie om daar `#!py integers_up_to` van te maken; immers, er is een functie die zo heet. Hetzelfde doet het met methods. Als je een variabele `#!py fruits = ["apple", "pear"]` hebt en je typt `#!py fruits.` dan doet Visual Studio Code al zelf suggesties zoals `#!py .append`, `#!py .copy`, `#!py .count`, etc. Allemaal methods van _list_, omdat Visual Studio Code wéét dat het een list is. Maar dat gaat mis als je argumenten meegeeft aan een functie. Visual Studio Code weet dat de functie een parameter heeft, maar niet wat het type is van de argumenten die je daaraan meegeeft. Maar daar kun je iets aan doen: met _type hints_. Bij type hints geef je het type niet expliciet in de docstring, maar direct bij de parameters. Return values geef je aan met een pijltje. Ons voorbeeld wordt (uitleg volgt):
+    ```py
+    def integers_up_to(number: int) -> list[int]:
+    """List integers up to a given number.
+
+    Return a list of integers starting from the number one and up to, but not
+    including, the supplied number argument. If number is zero or negative, an
+    empty list is returned.
+
+    Args:
+        number: list integers up to this number.
+
+    Returns:
+        A list containing the integers.
+    """
+    if number > 1:
+        return list(range(1, number))
+    else:
+        return []
+    ```
+    Hier is `number` dus een integer en de return value van de functie is altijd een list van integers. Voordelen: autocomplete, maar ook direct waarschuwingen als je probeert een string en een integer op te tellen bijvoorbeeld. Want Visual Studio Code weet dan al dat dat niet gaat werken, nog voordat je je code runt en een error krijgt. En die errors heb je vast zelf ook al gehad in je code! Type hints worden tegenwoordig veel gebruikt omdat het typewerk scheelt en omdat je waarschuwingen krijgt meteen terwijl je je code intypt en niet pas na een tijdje als je de code uitvoert.
+
+    !!! opdracht-meer "Type hints voor pythondaq"
+
+        1. Lees een [korte tutorial over type hints](https://fastapi.tiangolo.com/python-types/) (van FastAPI, maar de tutorial is algemeen).
+        1. Kies **File > Preferences > Settings** of druk op ctrl-, (control-komma).
+        1. Type in het zoekvenster: `auto docstring: docstring format` en kies `google-notypes`. Dit zorgt ervoor dat autodocstring niet meteen types in je docstring plaatst; deze komen immers in je functiedefinitie.
+        1. Voorzie de code van je pythondaq-project van type hints en haal die weg uit je docstring; daar zijn ze niet meer nodig. Maak je geen zorgen als je in tijdnood komt: je kunt altijd met type hints beginnen en het later uitbreiden en afmaken. Het hoeft niet in één keer af. Begin bij de 'onderste' laag: de controller, en werk dan verder 'omhoog'.
 
 ???+ meer-leren "Material for MkDocs"
 
