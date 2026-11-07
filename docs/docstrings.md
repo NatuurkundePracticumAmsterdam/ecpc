@@ -121,7 +121,7 @@ Zo kun je gemakkelijk de docstring invullen. Je kunt met ++tab++ naar het volgen
             help(ArduinoVISADevice)
         ```
         <pre>
-        <code>(ECPC) > python arduino_device.py
+        <code>(pythondaq) > python arduino_device.py
         <span class="invisible" name="arduino_device_help">Help on class ArduinoVISADevice in module __main__:
         class ArduinoVISADevice(builtins.object)
         |  Summary of class
