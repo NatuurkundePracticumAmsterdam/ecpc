@@ -361,7 +361,7 @@ Nu je de _controller_ die de Arduino aanstuurt, hebt gemaakt en afgesplitst, bli
     === "opdracht"
         <div class="grid-tree" markdown>
             <div>
-            Maak een bestand {{new_file}}`run_experiment.py` aan. Dit bestand fungeert als _view_. In de view staat de code voor het printen van de meetgegevens, maken van de plot en het genereren van het CSV-bestand. Daarnaast kan de gebruiker in de view een aantal dingen aanpassen, zoals het bereik en het aantal herhaalmetingen. De view importeert wat het nodig heeft uit het _model_, {{file}}`diode_experiment.py`. Het is de bedoeling dat in het model de code voor het uitvoeren van de metingen netjes in een class `#!py DiodeExperiment` zit, dit betekent dat je {{file}}`diode_experiment.py` zult moeten aanpassen. Het kan makkelijk zijn om {{file}}`diode_experiment.py` te kopiëren naar {{file}}`run_experiment.py` en dan in beide bestanden weg te halen wat daar niet hoort. Dat scheelt copy/pasten.
+            Maak een bestand {{new_file}}`run_experiment.py` aan. Dit bestand fungeert als _view_. In de view staat de code voor het printen van de (meet)gegevens, maken van de plot en het genereren van het CSV-bestand. Daarnaast kan de gebruiker in de view een aantal dingen aanpassen, zoals het bereik en het aantal herhaalmetingen. De view importeert wat het nodig heeft uit het _model_, {{file}}`diode_experiment.py`. Het is de bedoeling dat in het model de code voor het uitvoeren van de metingen netjes in een class `#!py DiodeExperiment` zit, dit betekent dat je {{file}}`diode_experiment.py` zult moeten aanpassen. Het kan makkelijk zijn om {{file}}`diode_experiment.py` te kopiëren naar {{file}}`run_experiment.py` en dan in beide bestanden weg te halen wat daar niet hoort. Dat scheelt copy/pasten.
             <br><br> 
             **Bij deze opdracht ga je dingen aanpassen, maar de meeste code heb je al geschreven. Schrijf dus _niet_ allerlei code opnieuw!**
             </br></br>
@@ -431,7 +431,7 @@ Nu je de _controller_ die de Arduino aanstuurt, hebt gemaakt en afgesplitst, bli
         - [ ] Het model, {{file}}`diode_experiment.py`, communiceert met de controller.
         - [ ] Het model bevat een class `DiodeExperiment`, deze class heeft onder andere een method `scan()`.
         - [ ] De view, {{file}}`run_experiment.py`, communiceert alleen met het model. 
-        - [ ] Runnen van {{file}}`run_experiment.py` zorgt ervoor dat een lijst met beschikbare poorten wordt gegeven en een meting wordt gestart.
+        - [ ] Runnen van {{file}}`run_experiment.py` zorgt ervoor dat een lijst met beschikbare poorten wordt gegeven, de identificatiestring wordt geprint en een meting wordt gestart.
         - [ ] De meetgegevens worden geprint in de terminal.
         - [ ] Er wordt een plot getoond van de gemiddelde spanning over en de gemiddelde stroomsterkte door de LED met de bijbehorende onzekerheden.
         - [ ] De gemiddelde spanning over en de gemiddelde stroomsterkte door de LED worden samen met de bijbehorende onzekerheden weggeschreven in een CSV-bestand.
