@@ -449,6 +449,19 @@ Nu je de _controller_ die de Arduino aanstuurt, hebt gemaakt en afgesplitst, bli
 
 Doordat je de verschillende onderdelen van de MVC in aparte scripts hebt gezet, is het oorspronkelijke script dat je gebruikte voor je meting steeds leger geworden. Als het goed is gaat de view (bijna) alleen maar over het starten van een meting en het weergeven en bewaren van de meetgegevens. In dit script komen verder geen berekeningen voor, deze staan immers beschreven in het model. Ook vind je in de view niets over welke commando's de Arduino firmware begrijpt, want dat staat beschreven in de controller. De splitsing van de code in de MVC-structuur maakt het veel makkelijker om in de vervolghoofdstukken een gebruiksvriendelijke applicatie te ontwikkelen waarmee je snel en eenvoudig metingen kunt doen.
 
+???+ opdracht-meer "Skip de kwaliteitscheck"
+    Hopelijk gebruik je intussen Ruff. Zo niet, dan heb je de [installatie-instructies](installatie.md) niet goed gevolgd, foei! Ruff waarschuwt als je overbodige code hebt staan. Met gele kriebels geeft hij aan dat er iets mis is... Hoogstwaarschijnlijk importeer je in {{file}}`diode_experiment.py` de functie `#!py list_devices()`, maar doe je daar niets mee. Het wordt alleen maar geïmporteerd zodat hij beschikbaar is en de _view_ die functie vervolgens weer kan gaan importeren vanuit het model. Ruff geeft dus een waarschuwing "unused import" maar die regel is wel nodig en kun je dus niet weghalen. Irritant. Skip de kwaliteitscheck met de _No Quality Assurance_ (no QA) speciale comment.
+
+    1. Beweeg je muis op de kriebels en je krijgt een pop-up. Lees de regels door op zoek naar de waarschuwing van Ruff.
+    1. Schrijf op (of onthoud) de code van deze soort waarschuwing. Je herkent die code aan één hoofdletter gevolgd door drie cijfers.
+    1. Voeg aan het eind van je import-regel-met-waarschuwing een commentaar toe in de vorm:
+       ```py
+       from ... import ...  # noqa: XXXX
+       ```
+       met in plaats van de kruisjes de code van de waarschuwing. Als het goed is zijn de kriebels dan weg.
+    
+    Je geeft hiermee dus expliciet aan dat Ruff zijn mond moet houden over _deze_ regel in het geval van _deze_ waarschuwing. Je weet wat je doet en het moet zich er niet mee bemoeien.
+
 ???+ opdracht-meer "User input"
     De gebruiker moet in de view het script aanpassen om bijvoorbeeld een meting met een ander bereik te doen. Maak gebruik van `#!py input()` om bij de gebruiker de start, stop en het aantal herhaalmetingen op te vragen.
 
