@@ -537,7 +537,7 @@ Het probleem is dat wanneer je met Python een script runt en je importeert iets,
 
     ### Wheels
 
-    Wanneer je klaar bent om jouw package te delen met andere gebruikers gebruik je het commando `build` om zogeheten _wheels_ te bouwen. Wheels zijn de bestanden die uv en pip downloaden en installeren wanneer je zegt `pip install PACKAGE`. Het is een soort ingepakte installer met alles wat er nodig is om het package te gebruiken.
+    Wanneer je klaar bent om jouw project te delen met andere gebruikers gebruik je het commando `build` om zogeheten _wheels_ te bouwen. Wheels zijn de bestanden die uv en pip downloaden en installeren wanneer je zegt `pip install PACKAGE`. Het is een soort ingepakte installer met alles wat er nodig is om het package te gebruiken.
 
     !!! opdracht-meer "Easystat: wheel"
         === "opdracht"
@@ -635,7 +635,7 @@ Natuurlijk willen we uv ook gaan gebruiken bij `pythondaq`. Je maakt nu alleen g
 ???+ opdracht-meer "Model, view en controller packages"
     In grotere projecten is het gebruikelijk om model, view en controller niet alleen uit te splitsen in verschillende scripts, maar ook in aparte packages te zetten. Als je de [paarse opdracht _Pythondaq: schildpad of raket? — vervolg_](mvc.md#opdr:schild-raket-vervolg) hebt gedaan dan heb je nu al twee verschillende models. Als je meer instrumenten gebruikt heb je meer controllers. En later in deze cursus heb je drie (of meer) verschillende views. Dat blijft een stuk overzichtelijker als je ze verdeelt over packages.
 
-    1. Maak drie extra packages in de package {{folder}}`pythondaq` aan: {{folder}}`models`, {{folder}}`views` en {{folder}}`controllers`. Kijk nog even naar [paragraaf _Packages_](vervolg-python.md#packages) om te zien hoe de layout er dan ongeveer uit moet zien.
+    1. Maak drie extra packages in de package {{folder}}`pythondaq` aan: {{folder}}`models`, {{folder}}`views` en {{folder}}`controllers`. **Let op: een _package_, geen _project_.** Kijk nog even naar [paragraaf _Packages_](vervolg-python.md#packages) om te zien hoe de layout er dan ongeveer uit moet zien. Je maakt alleen mappen en bestanden aan, en gebruikt _geen uv init_.
     2. Zet de modules in de juiste packages.
     3. Test je code zodat alle imports weer werken.
     4. Schrijf in elke nieuwe {{new_file}}`__init__.py` the docstring voor dat package en geef de lijst van de bijbehorende modules.
