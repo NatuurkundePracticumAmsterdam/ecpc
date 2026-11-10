@@ -81,7 +81,7 @@ Stel je wilt een package schrijven met wat handige functies om veelgebruikte sta
     === "opdracht"
         1. Open Github Desktop en ga naar **File > New repository ...**. Geef de repository de naam `easystat` en zet de repository in de map {{folder}}`ECPC`. Vink `Initialize this repository with a README` aan en kies bij `Git ignore` voor Python.
         2. Open de repository {{github}} `easystat` in Visual Studio Code (**Repository > Open in Visual Studio Code**).
-        3. Open een terminal in je Visual Studio Code-omgeving (**Terminal > New Terminal**). Maak het uv project aan met:
+        3. Open een terminal in je Visual Studio Code-omgeving (**Terminal > New Terminal en let op: kies Trust Folder & Continue**). Maak het uv project aan met:
         ``` ps1con title="Terminal"
         uv init --package
         ```
@@ -176,7 +176,7 @@ De sectie `[project.scripts]` zorgt ervoor dat je het script kunt aanroepen door
 !!! opdracht-basis "Easystat: virtual environment synchroniseren"
     === "opdracht"
         1. Hoewel we hierboven beweerden dat je `easystat` kunt intypen in de terminal en dat er dan een script draait, werkt dat hier (nog) niet. Probeer maar eens! Het werkt ook niet als je een nieuwe terminal opent. En... er staat niets tussen haakjes aan het begin van de opdrachtprompt. Blijkbaar is er nog geen virtual environment actief.
-        2. Open het bestand {{file}}`src/eaystat/__init__.py`. Rechtsonderin zie je inderdaad {{warning}}`Select Interpreter`. Als je daar op klikt, zie je alleen niet `Python 3.x.x (easystat)` in het rijtje staan... Druk op ++escape++ om het menu te verlaten.
+        2. Open het bestand {{file}}`src/eaystat/__init__.py`. Rechtsonderin zie je {{warning}}`Select Interpreter` óf een algemeen environment zoals `Python 3.13.18 (uv)` of misschien nog `base`, een leftover van conda. Als je daar op klikt om een environment voor eaystat te kiezen, dan zie je helaas niet iets als `easystat (3.13.x)` in het rijtje staan... Druk op ++escape++ om het menu te verlaten.
         3. Type in de terminal van Visual Studio Code: 
         <pre><code>> uv sync <button type="button" name="uv_sync" onclick="runScript('uv_sync')">{{ enter }}</button><button type="button" name="uv_sync" onclick="runScript('uv_sync')" class="invisible">{{ reload }}</button>
         <span class="invisible" name="uv_sync">Using CPython 3.14.5
@@ -185,7 +185,7 @@ De sectie `[project.scripts]` zorgt ervoor dat je het script kunt aanroepen door
         Installed 1 package in 47ms
         &nbsp;+ easystat==0.1.0 (from file:///C:/Users/David/Documents/ECPC/easystat)</span></code></pre>
         Wat dit gedaan heeft is het automatisch aanmaken van het virtual environment op basis van je projectinstellingen. Dus de Pythonversie die in {{file}}`.python-version` staat en eventuele dependencies die gedefinieerd zijn in je {{file_lines}}`pyproject.toml`.
-        4. Kies de nieuwe virtual environment.
+        4. Rechtsonderin zie je nu wél iets als `easystat (3.13.x)` -- dan heeft Visual Studio Code hem automatisch opgepikt -- en anders klik je en kies je het nieuwe virtual environment met easystat in de naam.
         5. Open een _nieuwe_ terminal en type `easystat`. Als het goed is werkt het nu wél!
         6. Commit in GitHub Desktop de wijzigingen die `uv sync` heeft gedaan (een `uv.lock` file, zie [later](#opd:uv.lock)).
 
