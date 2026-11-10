@@ -217,6 +217,7 @@ Nu ga je starten met de package. Je gaat een aantal keer de foutmelding `#!py Mo
 
 !!! opdracht-basis "Easystat: benodigde scripts aanmaken"
     === "opdracht"
+        **Let op: het is in deze opdracht belangrijk dat je niet zelf ModuleNotFoundErrors op gaat lossen door zelf packages te installeren. De opdrachten lopen in verschillende stappen langs de foutmeldingen en lossen die op de uv-project-manier op.**
         Maak de bestanden {{new_file}}`shortcuts.py`, {{new_file}}`measurements.py` en {{new_file}}`try_measurements.py` aan. Kopieer onderstaande code in de betreffende bestanden. In welke map moet elk bestand staan? Je moet in ieder geval nog één map zelf aanmaken.
        
         <div class="grid-tree" markdown>
@@ -306,7 +307,7 @@ In de eerste regel van {{file}}`try_measurements.py` importeer je de functie uit
 
 !!! opdracht-basis "Easystat: testen"
     === "opdracht"
-        Je bent heel benieuwd of je package al werkt. Je runt als eerste het bestand {{file}}`shortcuts.py` en... je krijgt een foutmelding.
+        Je bent heel benieuwd of je package al werkt. Je runt als eerste het bestand {{file}}`shortcuts.py` (het bestand met je handige functie) en... je krijgt een foutmelding.
     === "code"
         **Testcode**
         <div class="code-box"><button type="button" name="shortcuts_error" onclick="runScript('shortcuts_error')" class="run">{{ run }}</button><button type="button" name="shortcuts_error" onclick="runScript('shortcuts_error')" class="reload invisible">{{ reload }}</button> shortcuts.py
@@ -348,7 +349,7 @@ In de eerste regel van {{file}}`try_measurements.py` importeer je de functie uit
         - [ ] Easystat: commando testen
         - [ ] Easystat: applicatie runnen in terminal
     
-De beloofde `#!py ModuleNotFoundError`! Het package heeft `numpy` nodig en dat heb je nog niet geïnstalleerd in de virtual environment. Dat is ook de reden voor de kringeltjes onder `#!py numpy` in het bestand `shortcuts.py`. Het installeren van `#!py numpy` kun je handmatig doen, maar dan hebben straks andere gebruikers een probleem. Veel beter is het om netjes aan te geven dat het package `numpy` nodig heeft &mdash; als _dependency_.
+De beloofde `#!py ModuleNotFoundError`! Het package heeft `numpy` nodig en dat heb je nog niet geïnstalleerd in de virtual environment. Dat is ook de reden voor de kringeltjes onder `#!py numpy` in het bestand `shortcuts.py`. Het installeren van `#!py numpy` kun je handmatig doen, maar dan moeten al je gebruikers dat ook doen. Veel beter is het om netjes aan te geven dat het package `numpy` nodig heeft &mdash; als _dependency_.
 
 
 ### Dependencies toevoegen
