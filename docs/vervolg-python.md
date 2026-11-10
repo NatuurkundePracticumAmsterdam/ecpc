@@ -941,7 +941,7 @@ import scipy.test
 ```
 In bovenstaande code zijn `#!py numpy` en `#!py scipy` afzonderlijke namespaces. Ook zijn `#!py numpy.test` en `#!py scipy.test` afzonderlijke namespaces. De namen van bijvoorbeeld variabelen en functies binnen die modules zullen nooit met elkaar in conflict komen.
 
-Wij gaan in deze cursus onze code ook in packages stoppen. Op die manier kun je een softwarebibliotheek opbouwen voor je experiment en die code makkelijker delen met andere onderzoekers. Een pakket is opgebouwd zoals hieronder weergegeven:
+Wij gaan in deze cursus onze code ook in packages stoppen. Op die manier kun je een softwarebibliotheek opbouwen voor je experiment en die code makkelijker delen met andere onderzoekers. Een project is opgebouwd zoals hieronder weergegeven:
 
 <div id="fig:packagetree"></div>
 {{L}} {{github}} `my_project_folder`  
@@ -958,7 +958,7 @@ Wij gaan in deze cursus onze code ook in packages stoppen. Op die manier kun je 
 {{tab}} {{tab}} {{tab}} {{tab}} {{L}} {{file}} `module3.py`  
 {{tab}} {{tab}} {{tab}} {{L}} {{file}} `module4.py`  
 
-Iedere package bestaat uit een directory met een {{file}}`__init__.py`-bestand.[^init]
+Iedere package bestaat uit een directory met een {{file}}`__init__.py`-bestand,[^init] en packages mogen _in_ andere packages staan.
 
 [^init]: Dat bestand is vaak leeg, maar kan code bevatten die gerund wordt zodra het package wordt geïmporteerd.
 
@@ -992,7 +992,7 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 !!! opdracht-basis-thuis "Packages"
     In deze opdracht ga je oefenen met het aanmaken van packages, modules en het importeren en aanroepen daarvan.
     
-    1. Maak in de map {{folder}}`ECPC` een package {{folder}}`models` met twee modules: {{file}}`polynomials.py` en {{file}}`tests.py`.
+    1. Maak in de map {{folder}}`oefenopdrachten` een package {{folder}}`models` met twee modules: {{file}}`polynomials.py` en {{file}}`tests.py`.
     1. In de `#!py polynomials`-module maak je een functie `#!py line(x, a, b)` die de vergelijking voor een lijn voor ons berekent: $y = ax + b$.
     1. In de `#!py tests`-module maak je een functie `#!py test_line()` die het volgende doet:
             
@@ -1009,7 +1009,7 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
     ??? uitwerkingen
         De mappen structuur ziet er als volgt uit:
 
-        {{L}} {{folder}} `ECPC`  
+        {{L}} {{folder}} `oefenopdrachten`  
         {{tab}} {{T}} {{dots}}  
         {{tab}} {{T}} {{file}} `practice-packages.py`  
         {{tab}} {{L}} {{folder}} `models`  
