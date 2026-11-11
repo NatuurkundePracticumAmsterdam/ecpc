@@ -240,7 +240,6 @@ Nu ga je starten met de package. Je gaat een aantal keer de foutmelding `#!py Mo
             """Statistical functions related to measurements."""
 
             import numpy as np
-
             from shortcuts import stdev_of_mean
 
 
