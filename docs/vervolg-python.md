@@ -992,7 +992,7 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 !!! opdracht-basis-thuis "Packages"
     In deze opdracht ga je oefenen met het aanmaken van packages, modules en het importeren en aanroepen daarvan.
     
-    1. Maak in de map {{folder}}`oefenopdrachten` een package {{folder}}`models` met twee modules: {{file}}`polynomials.py` en {{file}}`tests.py`.
+    1. Maak in de map {{folder}}`oefenopdrachten` een package {{new_folder}}`models` met twee modules: {{new_file}}`polynomials.py` en {{new_file}}`tests.py`.
     1. In de `#!py polynomials`-module maak je een functie `#!py line(x, a, b)` die de vergelijking voor een lijn voor ons berekent: $y = ax + b$.
     1. In de `#!py tests`-module maak je een functie `#!py test_line()` die het volgende doet:
             
@@ -1000,7 +1000,7 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
         1. Vergelijk die berekende waarde met de waarde die het volgens jou moet zijn (met de hand nagerekend).
         1. Print `TEST PASSED` als het klopt, en `TEST FAILED` als het niet klopt.
             
-    1. Maak een bestand {{file}}`practice-packages.py` die:
+    1. Maak een bestand {{new_file}}`practice_packages.py` die:
             
         1. Een grafiek maakt van jouw lijn. Bepaal zelf het domein en de waardes voor $a$ en $b$.
         1. De test uitvoert door de `#!py test_line()`-functie aan te roepen.
@@ -1011,11 +1011,11 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
 
         {{L}} {{folder}} `oefenopdrachten`  
         {{tab}} {{T}} {{dots}}  
-        {{tab}} {{T}} {{file}} `practice-packages.py`  
-        {{tab}} {{L}} {{folder}} `models`  
-        {{tab}} {{tab}} {{T}} {{file}} `__init__.py`  
-        {{tab}} {{tab}} {{T}} {{file}} `polynomials.py`  
-        {{tab}} {{tab}} {{L}} {{file}} `tests.py`
+        {{tab}} {{T}} {{new_file}} `practice_packages.py`  
+        {{tab}} {{L}} {{new_folder}} `models`  
+        {{tab}} {{tab}} {{T}} {{new_file}} `__init__.py`  
+        {{tab}} {{tab}} {{T}} {{new_file}} `polynomials.py`  
+        {{tab}} {{tab}} {{L}} {{new_file}} `tests.py`
 
         ``` py title="polynomials.py"
         --8<-- "uitwerkingen-on/polynomials_on.py"
@@ -1023,7 +1023,7 @@ In deze cursus gaan we ook packages maken. Feitelijk hoeven we een python script
         ``` py title="tests.py"
         --8<-- "uitwerkingen-on/tests_on.py"
         ```
-        ``` py title="practice-packages.py"
+        ``` py title="practice_packages.py"
         --8<-- "uitwerkingen-on/packages_on.py"
         ```
 
