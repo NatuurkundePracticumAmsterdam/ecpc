@@ -579,20 +579,28 @@ def cmd_group():
 
 @cmd_group.command()
 @click.argument("package")
-def add(package):
-    print(f"Adding and installing {package}...")
+@click.option("-m", "--with-manager", default="uv")
+def add(package, with_manager):
+    if with_manager == "uv":
+        print(f"Adding and installing {package} using uv...")
+    else:
+        print("Only uv is supported by this application.")
 
 
 @cmd_group.command()
 @click.argument("package")
-def remove(package):
-    print(f"Removing {package}...")
+@click.option("-m", "--with-manager", default="uv")
+def remove(package, with_manager):
+    if with_manager == "uv":
+        print(f"Removing {package} using uv...")
+    else:
+        print("Only uv is supported by this application.")
 
 
 if __name__ == "__main__":
     cmd_group()
 ```
-In regel 22 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_group()` genoemd is en die redelijk bovenaan gedefinieerd wordt. In tegenstelling tot het {{file}}`hello.py`-script doet deze functie helemaal niets (`#!py pass`). Je vertelt aan click dat je een groep van commando's aan gaat maken met de `#!py @click.group()`-decorator in regel 4. Vervolgens ga je commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` &mdash; zie regels 9 en 15. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 9 en 11 maken samen het commando `add`. Verder werkt alles hetzelfde. Dus een argument toevoegen &mdash; zoals in regel 10 &mdash; is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken.
+In regel 30 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_group()` genoemd is en die redelijk bovenaan gedefinieerd wordt. In tegenstelling tot het {{file}}`hello.py`-script doet deze functie helemaal niets (`#!py pass`). Je vertelt aan click dat je een groep van commando's aan gaat maken met de `#!py @click.group()`-decorator in regel 4. Vervolgens ga je commando's binnen deze groep hangen door _niet_ de decorator `#!py @click.command()` te gebruiken, maar `#!py @cmd_group.command()` &mdash; zie regels 9 en 19. De namen van de commando's die worden aangemaakt zijn de namen van de functies. Dus regel 9 en 12 maken samen het commando `add`. Verder werkt alles hetzelfde. Dus een argument toevoegen &mdash; zoals in regel 10 &mdash; is gewoon met `#!py @click.argument()`. Hier hoef je geen `#!py cmd_group` te gebruiken. Idem voor de optie.
 
 
 !!! opdracht-basis "Fake uv"
@@ -790,7 +798,7 @@ In regel 22 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_grou
 
 Docstrings werken ook heel handig samen met Click. Ze worden gebruikt als je de helpfunctie aanroept. 
 !!! info
-    We gebruiken bij Click-functies niet de standaard structuur voor docstrings. Click laat de tekst standaard doorvloeien waardoor hij regels aan elkaar plakt en het algauw een onmogelijke brij aan informatie wordt. We kiezen daarom voor een samenvatting in een zin, zoals normaal, met in de toelichting die daarop volgt de ARGUMENTS in hoofdletters en in een lopende zin beschreven. Dit komt overeen met de notatie in de eerste regel van de automatisch gegenereerde helptekst die start met `Usage:`. We gebruiken dus _geen_ `Args:` en een lijstje met argumenten. Zie het voorbeeld hieronder.
+    We gebruiken bij Click-functies niet de standaard structuur voor docstrings. Click laat de tekst standaard doorvloeien waardoor hij regels aan elkaar plakt en het algauw een onmogelijke brij aan informatie wordt. We kiezen daarom voor een samenvatting in een zin, zoals normaal, met in de toelichting die daarop volgt de ARGUMENTS in hoofdletters en in een lopende zin beschreven. De eerste zin van de docstring geeft automatisch de gegenereerde helptekst die start met `Usage:`. We gebruiken dus _geen_ `Args:` en een lijstje met argumenten. Hoewel argumenten beschreven worden in de docstring, worden opties beschreven in de `help=`-teksten bij het definiëren van de optie. Je kunt wel in de docstring iets zeggen over de opties. Bijvoorbeeld om gebruikers erop te attenderen of om nog iets meer informatie te geven.
 
 Tijd om docstrings toe te voegen aan fake uv:
 
@@ -808,22 +816,48 @@ def cmd_group():
 
 @cmd_group.command()
 @click.argument("package")
-def add(package):
+@click.option(
+    "-m",
+    "--with-manager",
+    default="uv",
+    show_default=True,
+    help="Use the specified package manager to install the package.",
+)
+def add(package, with_manager):
     """Add a package to a uv project.
 
     PACKAGE is the package to add to the project.
+
+    You can choose which package manager to use for installation, but there is
+    only limited support available.
     """
-    print(f"Adding and installing {package}...")
+    if with_manager == "uv":
+        print(f"Adding and installing {package} using uv...")
+    else:
+        print("Only uv is supported by this application.")
 
 
 @cmd_group.command()
 @click.argument("package")
-def remove(package):
+@click.option(
+    "-m",
+    "--with-manager",
+    default="uv",
+    show_default=True,
+    help="Use the specified package manager to install the package.",
+)
+def remove(package, with_manager):
     """Remove a package from a uv project.
 
     PACKAGE is the package to remove.
+
+    You can choose which package manager to use for installation, but there is
+    only limited support available.
     """
-    print(f"Removing {package}...")
+    if with_manager == "uv":
+        print(f"Removing {package} using uv...")
+    else:
+        print("Only uv is supported by this application.")
 
 
 if __name__ == "__main__":
@@ -852,8 +886,13 @@ Daarna kun je uitleg vragen over de subcommando's, waarbij je de hele docstring 
 
   PACKAGE is the package to add to the project.
 
+  You can choose which package manager to use for installation, but there is
+  only limited support available.
+
 Options:
-  --help  Show this message and exit.</span>
+  -m, --with-manager TEXT  Use the specified package manager to install the
+                           package.  [default: uv]
+  --help                   Show this message and exit.</span>
 </code></pre>
 
 !!! opdracht-inlever "Smallangle: docstrings"
