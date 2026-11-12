@@ -3,7 +3,7 @@
 
 Vanaf de jaren '60 van de vorige eeuw werden computers _interactief_. Het was mogelijk om via een _terminal_ commando's aan de computer te geven en te wachten op een antwoord. In tegenstelling tot moderne gebruikersomgevingen waren deze volledig op tekst gebaseerd. Hoewel moderne besturingssystemen &mdash; of het nu computers, tablets of mobiele telefoons betreft &mdash; volledig grafisch zijn ingericht, is de tekstuele interface nooit verdwenen. Opdrachten geven door te typen is gewoon best wel handig en snel. Ook is het veel eenvoudiger om applicaties te ontwikkelen zonder grafische interface.
 
-Op ieder besturingssysteem &mdash; Linux, MacOS, Windows &mdash; is een _shell_, _terminal_ of _command prompt_ te vinden. Als je die opstart kun je op de zogeheten _command line_ opdrachten intypen. Veelal zijn dit commando's om door het bestandssysteem te navigeren en programma's op te starten.
+Op ieder besturingssysteem &mdash; Linux, macOS, Windows &mdash; is een _shell_, _terminal_ of _command prompt_ te vinden. Als je die opstart kun je op de zogeheten _command line_ opdrachten intypen. Veelal zijn dit commando's om door het bestandssysteem te navigeren en programma's op te starten.
 
 Wanneer je in Visual Studio Code een Pythonscript start dan opent het een terminal onderin het scherm.
 
@@ -242,7 +242,7 @@ if __name__ == "__main__":
         - [ ] Vlag toevoegen
 
 !!! warning
-    Let er op dat je bij `#!py @click.argument` de naam meegeeft die overeenkomt met de namen van de parameters van je functie. In dit geval heb je een argument `#!py "name"`, dit moet overeenkomen met de functiedefinitie `#!py def hello(name):`.
+    Let er op dat je bij `#!py @click.argument()` de naam meegeeft die overeenkomt met de namen van de parameters van je functie. In dit geval heb je een argument `#!py "name"`, dit moet overeenkomen met de functiedefinitie `#!py def hello(name):`.
 
 Argumenten zijn altijd verplicht en moeten in een vaste volgorde staan. Bij _opties_ is dat anders. Je geeft met mintekens aan dat je een optie meegeeft. Veel opties hebben een lange naam en een afkorting (bijvoorbeeld `--count` en `-c`). Opties kunnen zelf weer een argument hebben (bijvoorbeeld `--count 3`). Het is handig om een standaardwaarde te definiëren. In dat geval mag de gebruiker de optie weglaten. Je voegt een for-loop toe om de begroeting te herhalen.[^weggooivariabele]
 
@@ -641,7 +641,7 @@ In regel 22 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_grou
 
         - [x] Fake uv
 
-!!! opdracht-inlever "Smallangle: project aanmaken"
+!!! opdracht-basis "Smallangle: project aanmaken"
     === "opdracht"
         Met deze opdracht kun je testen hoe goed je het Python-jargon onder de knie hebt. Je zult het woord <q>smallangle</q> zó vaak tegenkomen dat het je duizelt &mdash; maar jij weet precies over welk onderdeel het gaat.
 
@@ -728,7 +728,7 @@ In regel 22 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_grou
         - [ ] Smallangle: docstrings
 
 <div id="opd:smallangle"></div>
-!!! opdracht-inlever "Smallangle: subcommando's en opties"
+!!! opdracht-basis "Smallangle: subcommando's en opties"
     === "opdracht"
         Je kunt met het commando `smallangle` en de subcommando's `sin` en `tan` een lijst genereren van getallen tussen de 0 en 2$\pi$ en de bijbehorende sinus dan wel tangens van deze getallen. Met de optie `-n` kun je het aantal stappen &mdash; het aantal $x$-waardes tussen 0 en $2\pi$ &mdash; kiezen. Als je de optie `-n` weglaat werkt de applicatie met een standaardwaarde.
 
@@ -856,7 +856,7 @@ Options:
   --help  Show this message and exit.</span>
 </code></pre>
 
-!!! opdracht-inlever "Smallangle: docstrings"
+!!! opdracht-basis "Smallangle: docstrings"
     === "opdracht"
         Je gebruikt het commando `smallangle --help` en leest de helptekst van de [_opdracht smallangle_](#opd:smallangle). De helptekst bevat zinvolle informatie die je in staat stelt om te begrijpen wat je met de applicatie kan doen. Je ziet dat er twee subcommando's zijn en bekijkt de helptekst van deze subcommando's met `smallangle sin --help` en daarna `smallangle tan --help`. Beide helpteksten stellen je in staat om de applicatie te begrijpen en te bedienen. 
 
