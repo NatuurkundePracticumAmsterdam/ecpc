@@ -985,6 +985,7 @@ In het [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplit
         - [ ] Pythondaq: subcommando's
         - [ ] Pythondaq: subcommando `scan`
         - [ ] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: stapgrootte
         - [ ] Pythondaq: subcommando `list`
         - [ ] Pythondaq: subcommando `info`
         - [ ] Pythondaq: poortnaam meegeven
@@ -997,7 +998,7 @@ In het [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplit
 
         <div class="grid-tree" markdown>
             <div>
-            Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand {{new_file}}`src/pythondaq/cli.py` eerst een opzetje maken waar je stap voor stap functionaliteit aan toevoegt. Het bestand {{file}}`run_experiment.py` maakt eerst een lijst van aangesloten apparaten en daarna wordt een scan uitgevoerd. Daarom zet je in {{file}}`cli.py` de subcommando's `list` en `scan` en zorg je dat ze voor nu alleen een stukje tekst printen.
+            Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand {{new_file}}`src/pythondaq/cli.py` eerst een opzetje maken waar je stap voor stap functionaliteit aan toevoegt. Het bestand {{file}}`run_experiment.py` maakt eerst een lijst van aangesloten apparaten en daarna wordt een scan uitgevoerd. Daarom zet je in {{file}}`cli.py` de subcommando's `list` en `scan` en zorg je dat ze voor nu alleen een stukje tekst printen. Ze doen dus verder niets, maar de structuur staat wel vast klaar.
             </br></br>
             De gebruiker test de subcommmando's `list` en `scan` met de volgende handelingen. De gebruiker typt in de terminal het commando `diode` met daarachter het subcommando `list` en ziet een tekst verschijnen: `Work in progress, list devices`. De gebruiker test vervolgens het subcommando `scan` en ziet de tekst `Work in progress, scan LED` verschijnen.
             </div>
@@ -1057,6 +1058,7 @@ In het [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplit
         - [x] Pythondaq: subcommando's
         - [ ] Pythondaq: subcommando `scan`
         - [ ] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: stapgrootte
         - [ ] Pythondaq: subcommando `list`
         - [ ] Pythondaq: subcommando `info`
         - [ ] Pythondaq: poortnaam meegeven
@@ -1076,7 +1078,7 @@ Je gaat je nu eerst richten op het uitvoeren van een volledige meetserie en het 
     === "opdracht"
         Pas het subcommando `scan` zo aan dat onderstaande functionaliteiten werken.
         </br></br>
-        De gebruiker test het subcommando `scan` met de volgende handelingen. De gebruiker typt het commando `diode scan` in de terminal. Aan de hand van de helptekst weet de gebruiker dat het met argumenten of opties mogelijk is om het spanningsbereik (in Volt) aan te passen. Er wordt een meting gestart die binnen het spanningsbereik blijft. De gebruiker ziet dat de stroomsterkte door en de spanning over de LED in de terminal worden geprint. De gebruiker start een nieuwe meting en geeft ditmaal met de optie `--output FILENAME` een naam voor een CSV-bestand mee. Dit keer worden de metingen ook opgeslagen als CSV-bestand onder de meegegeven bestandsnaam.
+        De gebruiker test het subcommando `scan` met de volgende handelingen. De gebruiker typt het commando `diode scan` in de terminal. Aan de hand van de helptekst weet de gebruiker dat het met argumenten of opties mogelijk is om het spanningsbereik (in Volt) aan te passen. Er wordt een meting gestart die binnen het spanningsbereik blijft. De gebruiker ziet dat na afloop van de meting de stroomsterktes door en de spanningen over de LED in de terminal worden geprint. De gebruiker start een nieuwe meting en geeft ditmaal met de optie `--output FILENAME` een naam voor een CSV-bestand mee. Dit keer worden de metingen ook opgeslagen als CSV-bestand onder de meegegeven bestandsnaam.
     === "code"
         **Pseudo-code**
         ```py
@@ -1100,6 +1102,7 @@ Je gaat je nu eerst richten op het uitvoeren van een volledige meetserie en het 
         - [x] Pythondaq: subcommando's
         - [x] Pythondaq: subcommando `scan`
         - [ ] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: stapgrootte
         - [ ] Pythondaq: subcommando `list`
         - [ ] Pythondaq: subcommando `info`
         - [ ] Pythondaq: poortnaam meegeven
@@ -1133,6 +1136,7 @@ Je gaat je nu eerst richten op het uitvoeren van een volledige meetserie en het 
         - [x] Pythondaq: subcommando's
         - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
+        - [ ] Pythondaq: stapgrootte
         - [ ] Pythondaq: subcommando `list`
         - [ ] Pythondaq: subcommando `info`
         - [ ] Pythondaq: poortnaam meegeven
@@ -1140,9 +1144,37 @@ Je gaat je nu eerst richten op het uitvoeren van een volledige meetserie en het 
         - [ ] Pythondaq: helpteksten
         - [ ] Pythondaq: alle subcommando's geïmplementeerd?
 
-???+ opdracht-meer "Pythondaq: stapgrootte"
-    Soms wil je snel een meting uitvoeren over het hele bereik, dan is het handig om minder punten te meten dan 1023 punten. Breid de applicatie uit zodat de gebruiker de stapgrootte kan aanpassen. 
+!!! opdracht-inlever "Pythondaq: stapgrootte"
+    === "opdracht"
+        Soms wil je snel een meting uitvoeren over het hele bereik en dan is het handig om met minder punten te meten. Breid de applicatie uit zodat de gebruiker de stapgrootte kan aanpassen, bijvoorbeeld een stapgrootte van 0.2 V.
+    === "code"
+        **Pseudo-code**
+        ```py
+        # subcommando scan with range in Volt, output CSV, repeat measurements en stapgrootte
+        # start scan with range, repeat measurements en stapgrootte
+        # print current, voltage and errors
+        # if output:
+        # create csv
+        ```
+    === "check"
+        **Checkpunten**
 
+        - [ ] De gebruiker kan de stapgrootte met een optie kiezen.
+        - [ ] Met een grotere stapgrootte gaat de meting inderdaad veel sneller.
+
+        **Projecttraject**
+
+        - [x] Pythondaq: subcommando's bedenken
+        - [x] Pythondaq: subcommando's
+        - [x] Pythondaq: subcommando `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: stapgrootte
+        - [ ] Pythondaq: subcommando `list`
+        - [ ] Pythondaq: subcommando `info`
+        - [ ] Pythondaq: poortnaam meegeven
+        - [ ] Pythondaq: vlag voor grafiek
+        - [ ] Pythondaq: helpteksten
+        - [ ] Pythondaq: alle subcommando's geïmplementeerd?
 
 ### Het meetinstrument kiezen
 
@@ -1170,6 +1202,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: subcommando's
         - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: stapgrootte
         - [x] Pythondaq: subcommando `list`
         - [ ] Pythondaq: subcommando `info`
         - [ ] Pythondaq: poortnaam meegeven
@@ -1209,6 +1242,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: subcommando's
         - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: stapgrootte
         - [x] Pythondaq: subcommando `list`
         - [x] Pythondaq: subcommando `info`
         - [ ] Pythondaq: poortnaam meegeven
@@ -1244,6 +1278,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: subcommando's
         - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: stapgrootte
         - [x] Pythondaq: subcommando `list`
         - [x] Pythondaq: subcommando `info`
         - [x] Pythondaq: poortnaam meegeven
@@ -1268,6 +1303,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: subcommando's
         - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: stapgrootte
         - [x] Pythondaq: subcommando `list`
         - [x] Pythondaq: subcommando `info`
         - [x] Pythondaq: poortnaam meegeven
@@ -1309,6 +1345,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: subcommando's
         - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: stapgrootte
         - [x] Pythondaq: subcommando `list`
         - [x] Pythondaq: subcommando `info`
         - [x] Pythondaq: poortnaam meegeven
@@ -1349,6 +1386,7 @@ Op dit punt heb je de functionaliteit van het snelle script uit een vorige hoofd
         - [x] Pythondaq: subcommando's
         - [x] Pythondaq: subcommando `scan`
         - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: stapgrootte
         - [x] Pythondaq: subcommando `list`
         - [x] Pythondaq: subcommando `info`
         - [x] Pythondaq: poortnaam meegeven
