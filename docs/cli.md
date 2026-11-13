@@ -800,9 +800,11 @@ In regel 30 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_grou
 
 Docstrings werken ook heel handig samen met Click. Ze worden gebruikt als je de helpfunctie aanroept. 
 !!! info
-    We gebruiken bij Click-functies niet de standaard structuur voor docstrings. Click laat de tekst standaard doorvloeien waardoor hij regels aan elkaar plakt en het algauw een onmogelijke brij aan informatie wordt. We kiezen daarom voor een samenvatting in een zin, zoals normaal, met in de toelichting die daarop volgt de ARGUMENTS in hoofdletters en in een lopende zin beschreven. De eerste zin van de docstring geeft automatisch de gegenereerde helptekst die start met `Usage:`. We gebruiken dus _geen_ `Args:` en een lijstje met argumenten. Hoewel argumenten beschreven worden in de docstring, worden opties beschreven in de `help=`-teksten bij het definiëren van de optie. Je kunt wel in de docstring iets zeggen over de opties. Bijvoorbeeld om gebruikers erop te attenderen of om nog iets meer informatie te geven.
+    We gebruiken bij Click-functies niet de standaard structuur voor docstrings. Click laat de tekst standaard doorvloeien waardoor hij regels aan elkaar plakt en het algauw een onmogelijke brij aan informatie wordt. We kiezen daarom voor een samenvatting in een zin, zoals normaal, met in de toelichting die daarop volgt de ARGUMENTS in hoofdletters en in een lopende zin beschreven. De eerste zin van de docstring geeft automatisch de gegenereerde helptekst die start met `Usage:`. We gebruiken dus _geen_ `Args:` en een lijstje met argumenten. Hoewel argumenten beschreven worden in de docstring, worden opties beschreven in de `help=`-teksten bij het definiëren van de optie. Je kunt wel in de docstring iets zeggen over de opties. Bijvoorbeeld om gebruikers erop te attenderen of om nog iets meer informatie te geven.[^docstrings-fake-uv]
 
-Tijd om docstrings toe te voegen aan fake uv:
+Tijd om docstrings toe te voegen aan fake uv:[^docstrings-fake-uv]
+
+[^docstrings-fake-uv]: We kiezen in de docstrings van de methods voor drie paragrafen: één zin met de helptekst, één paragraaf die de ARGUMENTEN beschrijft, en een laatste paragraaf die nog wat extra informatie geeft, bijvoorbeeld over opties. Dit is een veelgebruikt format, maar wordt niet universeel toegepast. Je zult dus ook andere formats tegenkomen.
 
 ``` py title="fake_uv.py"
 """A fake implementation of several uv commands."""
