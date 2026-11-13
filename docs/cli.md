@@ -938,7 +938,7 @@ Options:
 In het [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer je een command-line interface gaat bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals {{file}}`run_experiment.py`, een command-line interface en een grafische interface. Je gaat je nu richten op een command-line interface. Hiervoor maak je een nieuw bestand {{new_file}}`cli.py` aan wat je langzaam gaat opbouwen.
 
 <div id="opd:subcommandos"></div>
-!!! opdracht-basis "Pythondaq: subcommando's bedenken"
+!!! opdracht-inlever "Pythondaq: subcommando's bedenken"
     === "opdracht"
         Je gaat de pythondaq-applicatie straks verder uitbreiden, zodat er veel meer mogelijk is dan nu. Wat zou je willen dat de applicatie allemaal kan? Welke subcommando's wil je gaan aanmaken? Overleg met elkaar om goede ideeën uit te wisselen.
 
@@ -1302,7 +1302,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
 Op dit punt heb je de functionaliteit van het snelle script uit een vorige hoofdstuk uitgebreid. Dit was veel meer werk, maar het is veel flexibeler. Als je wilt meten met een andere Arduino, een ander bereik of een andere stapgrootte dan typ je gewoon een iets ander commando in de terminal. Je hoeft geen scripts meer aan te passen. Als je na een tijdje niet meer precies weet hoe het ook alweer werkte allemaal, kun je dat snel weer oppakken door `--help` aan te roepen.
 
-!!! opdracht-basis "Pythondaq: alle subcommando's implementeren"
+!!! opdracht-inlever "Pythondaq: alle subcommando's geïmplementeerd?"
     === "opdracht"
         Kijk nog eens terug naar het lijstje subcommando's die je in [opdracht _Subcommando's bedenken_](cli.md#opd:subcommandos) hebt opgeschreven. Heb je alles geïmplementeerd? Wat zou je willen dat je nog meer kan instellen? Als er tijd over is, kijk dan of dit lukt.
     
