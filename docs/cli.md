@@ -734,6 +734,7 @@ In regel 30 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_grou
         - [x] Smallangle: project aanmaken
         - [ ] Smallangle: subcommando's en opties
         - [ ] Smallangle: docstrings
+        - [ ] Smallangle: een frisse blik op je command-line interface
 
 <div id="opd:smallangle"></div>
 !!! opdracht-basis "Smallangle: subcommando's en opties"
@@ -786,6 +787,7 @@ In regel 30 roep je de hoofdfunctie aan die enigszins willekeurig `#!py cmd_grou
         - [x] Smallangle: project aanmaken
         - [x] Smallangle: subcommando's en opties
         - [ ] Smallangle: docstrings
+        - [ ] Smallangle: een frisse blik op je command-line interface
 
 ???+ opdracht-meer "Smallangle: kleine hoekbenadering"
     Met het commando `approx` en een argument $\epsilon$ moet het script de grootste hoek geven waarvoor nog geldt dat $\lvert x - \sin(x) \rvert \leq \epsilon$, ofwel de grootste hoek waarvoor de kleine hoekbenadering nog geldt met de opgegeven nauwkeurigheid. Doe dit op drie cijfers nauwkeurig (loop over .000, .001 en .002, etc. totdat de vergelijking niet meer geldt). Belangrijk: besteed geen tijd aan het analytisch oplossen van de vergelijking. Een voorbeeld van de uitvoer:
@@ -929,6 +931,35 @@ Options:
         - [x] Smallangle: project aanmaken
         - [x] Smallangle: subcommando's en opties
         - [x] Smallangle: docstrings
+        - [ ] Smallangle: een frisse blik op je command-line interface
+
+!!! opdracht-basis "Smallangle: een frisse blik op je command-line interface"
+
+    === "opdracht"
+
+        Je wilt weten of je command-line interface van smallangle prettig te gebruiken is. Daarom laat je een buurmens jouw interface testen. Controleer vooraf zelf of beide subcommando's werken met het standaard aantal stappen én met een zelfgekozen aantal stappen. Zo richt de test zich op de gebruiksvriendelijkheid van je interface en niet op de fouten die je zelf nog kunt vinden.
+
+        Een buurmens probeert twee opdrachten uit:
+
+        1. Voer één subcommando uit met het standaard aantal stappen.
+        2. Voer het andere subcommando uit met een zelfgekozen aantal stappen.
+
+        De buurmens gebruikt de helpteksten om uit te zoeken hoe de opdrachten uitgevoerd moeten worden, zonder vooraf uitleg van jou. Bespreek na het testen wat duidelijk was, waar twijfel ontstond en welke aanpassingen de command-line interface duidelijker kunnen maken.
+
+    === "check"
+
+        **Checkpunten**
+    
+        - [ ] Een buurmens heeft mijn command-line interface zonder uitleg vooraf getest.
+        - [ ] Ik heb de command-line interface van een buurmens getest en daarbij de helpteksten gebruikt.
+        - [ ] We hebben de feedback besproken en samen beoordeeld of de voorgestelde aanpassingen de gebruikerservaring verbeteren.
+
+        **Projecttraject**
+    
+        - [x] Smallangle: project aanmaken
+        - [x] Smallangle: subcommando's en opties
+        - [x] Smallangle: docstrings
+        - [x] Smallangle: een frisse blik op je command-line interface
 
 ???+ meer-leren "Uitgebreide documentatie en Click"
     In de documentatie van Click vind je meer informatie over het afbreken van zinnen (en het [voorkomen](https://click.palletsprojects.com/en/stable/documentation/#escaping-click-s-wrapping) daarvan). Ook vind je daar een manier om een uitgebreide docstring te schrijven [zonder](https://click.palletsprojects.com/en/stable/documentation/#truncating-help-texts) dat het een bende wordt.
