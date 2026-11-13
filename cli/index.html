@@ -1130,7 +1130,7 @@ Uitgesplitst in <mark><em>argumenten</em></mark> en <strong>opties</strong>, met
 </span></span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="hll"><span class="k">else</span><span class="p">:</span>
 </span></span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="hll">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CommandNotFoundError: No command &#39;</span><span class="si">{</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
 </span></span></code></pre></div></p>
-<p>Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de <em>standard library</em> van Python. Een hele handige &mdash; die níet in de <em>standard library</em> van Python zit, maar wél heel populair is &mdash; is Click.<sup id="fnref:click"><a class="footnote-ref" href="#fn:click">6</a></sup></p>
+<p>Als je meerdere opties en argumenten meegeeft dan wordt het veel werk om die in je script uit elkaar te plukken en ze goed te interpreteren. Om dat makkelijker te maken zijn er verschillende bibliotheken beschikbaar &mdash; waaronder een paar in de <em>standard library</em> van Python. Een hele handige &mdash; die níet in de <em>standard library</em> van Python zit, maar wél heel populair is &mdash; is Click.<sup id="fnref:click"><a class="footnote-ref" href="#fn:click">7</a></sup></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Click maakt gebruik van <em>decorators</em> (<code class="language-py highlight"><span class="nd">@decorator</span></code>). Om decorators te <em>gebruiken</em>, hoef je niet per se te weten hoe ze <em>werken</em>. Als je meer wilt weten over de werking ervan kijk dan de <a href="https://calmcode.io/decorators/introduction.html">calmcode tutorial over decorators</a>. Of lees het <a href="../vervolg-python/#meer:decorators">meer-leren blok over decorators</a> of de <a href="https://realpython.com/primer-on-python-decorators/">Primer on Python Decorators</a>.</p>
@@ -1897,9 +1897,9 @@ up to x = 0.854.</span>
 <p>Docstrings werken ook heel handig samen met Click. Ze worden gebruikt als je de helpfunctie aanroept. </p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>We gebruiken bij Click-functies niet de standaard structuur voor docstrings. Click laat de tekst standaard doorvloeien waardoor hij regels aan elkaar plakt en het algauw een onmogelijke brij aan informatie wordt. We kiezen daarom voor een samenvatting in een zin, zoals normaal, met in de toelichting die daarop volgt de ARGUMENTS in hoofdletters en in een lopende zin beschreven. De eerste zin van de docstring geeft automatisch de gegenereerde helptekst die start met <code>Usage:</code>. We gebruiken dus <em>geen</em> <code>Args:</code> en een lijstje met argumenten. Hoewel argumenten beschreven worden in de docstring, worden opties beschreven in de <code>help=</code>-teksten bij het definiëren van de optie. Je kunt wel in de docstring iets zeggen over de opties. Bijvoorbeeld om gebruikers erop te attenderen of om nog iets meer informatie te geven.</p>
+<p>We gebruiken bij Click-functies niet de standaard structuur voor docstrings. Click laat de tekst standaard doorvloeien waardoor hij regels aan elkaar plakt en het algauw een onmogelijke brij aan informatie wordt. We kiezen daarom voor een samenvatting in een zin, zoals normaal, met in de toelichting die daarop volgt de ARGUMENTS in hoofdletters en in een lopende zin beschreven. De eerste zin van de docstring geeft automatisch de gegenereerde helptekst die start met <code>Usage:</code>. We gebruiken dus <em>geen</em> <code>Args:</code> en een lijstje met argumenten. Hoewel argumenten beschreven worden in de docstring, worden opties beschreven in de <code>help=</code>-teksten bij het definiëren van de optie. Je kunt wel in de docstring iets zeggen over de opties. Bijvoorbeeld om gebruikers erop te attenderen of om nog iets meer informatie te geven.<sup id="fnref2:docstrings-fake-uv"><a class="footnote-ref" href="#fn:docstrings-fake-uv">6</a></sup></p>
 </div>
-<p>Tijd om docstrings toe te voegen aan fake uv:</p>
+<p>Tijd om docstrings toe te voegen aan fake uv:<sup id="fnref:docstrings-fake-uv"><a class="footnote-ref" href="#fn:docstrings-fake-uv">6</a></sup></p>
 <p><div class="language-py highlight"><span class="filename">fake_uv.py</span><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="sd">&quot;&quot;&quot;A fake implementation of several uv commands.&quot;&quot;&quot;</span>
 </span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
 </span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">click</span>
@@ -2089,6 +2089,7 @@ Commands:
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: subcommando's</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>scan</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: herhaalmetingen</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: stapgrootte</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>list</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>info</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: poortnaam meegeven</li>
@@ -2107,7 +2108,7 @@ Commands:
 <div class="tabbed-block">
 <p><div class="grid-tree" markdown>
     <div>
-    Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand <span style="color: green;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M64 48h112v88c0 39.8 32.2 72 72 72h88v240c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16m160 19.9 92.1 92.1H248c-13.3 0-24-10.7-24-24zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V186.5c0-17-6.7-33.3-18.7-45.3L242.7 18.7C230.7 6.7 214.5 0 197.5 0zm106.2 295.6c8.6-10.1 7.5-25.2-2.6-33.8s-25.2-7.5-33.8 2.6l-48 56c-7.7 9-7.7 22.2 0 31.2l48 56c8.6 10.1 23.8 11.2 33.8 2.6s11.2-23.8 2.6-33.8L135.6 336zm80-31.2c-8.6-10.1-23.8-11.2-33.8-2.6s-11.2 23.8-2.6 33.8l34.6 40.4-34.6 40.4c-8.6 10.1-7.5 25.2 2.6 33.8s25.2 7.5 33.8-2.6l48-56c7.7-9 7.7-22.2 0-31.2z"/></svg></span></span><code>src/pythondaq/cli.py</code> eerst een opzetje maken waar je stap voor stap functionaliteit aan toevoegt. Het bestand <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M64 48h112v88c0 39.8 32.2 72 72 72h88v240c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16m160 19.9 92.1 92.1H248c-13.3 0-24-10.7-24-24zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V186.5c0-17-6.7-33.3-18.7-45.3L242.7 18.7C230.7 6.7 214.5 0 197.5 0zm106.2 295.6c8.6-10.1 7.5-25.2-2.6-33.8s-25.2-7.5-33.8 2.6l-48 56c-7.7 9-7.7 22.2 0 31.2l48 56c8.6 10.1 23.8 11.2 33.8 2.6s11.2-23.8 2.6-33.8L135.6 336zm80-31.2c-8.6-10.1-23.8-11.2-33.8-2.6s-11.2 23.8-2.6 33.8l34.6 40.4-34.6 40.4c-8.6 10.1-7.5 25.2 2.6 33.8s25.2 7.5 33.8-2.6l48-56c7.7-9 7.7-22.2 0-31.2z"/></svg></span><code>run_experiment.py</code> maakt eerst een lijst van aangesloten apparaten en daarna wordt een scan uitgevoerd. Daarom zet je in <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M64 48h112v88c0 39.8 32.2 72 72 72h88v240c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16m160 19.9 92.1 92.1H248c-13.3 0-24-10.7-24-24zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V186.5c0-17-6.7-33.3-18.7-45.3L242.7 18.7C230.7 6.7 214.5 0 197.5 0zm106.2 295.6c8.6-10.1 7.5-25.2-2.6-33.8s-25.2-7.5-33.8 2.6l-48 56c-7.7 9-7.7 22.2 0 31.2l48 56c8.6 10.1 23.8 11.2 33.8 2.6s11.2-23.8 2.6-33.8L135.6 336zm80-31.2c-8.6-10.1-23.8-11.2-33.8-2.6s-11.2 23.8-2.6 33.8l34.6 40.4-34.6 40.4c-8.6 10.1-7.5 25.2 2.6 33.8s25.2 7.5 33.8-2.6l48-56c7.7-9 7.7-22.2 0-31.2z"/></svg></span><code>cli.py</code> de subcommando's <code>list</code> en <code>scan</code> en zorg je dat ze voor nu alleen een stukje tekst printen.
+    Om de command-line interface voor pythondaq te maken ga je in een nieuw bestand <span style="color: green;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M64 48h112v88c0 39.8 32.2 72 72 72h88v240c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16m160 19.9 92.1 92.1H248c-13.3 0-24-10.7-24-24zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V186.5c0-17-6.7-33.3-18.7-45.3L242.7 18.7C230.7 6.7 214.5 0 197.5 0zm106.2 295.6c8.6-10.1 7.5-25.2-2.6-33.8s-25.2-7.5-33.8 2.6l-48 56c-7.7 9-7.7 22.2 0 31.2l48 56c8.6 10.1 23.8 11.2 33.8 2.6s11.2-23.8 2.6-33.8L135.6 336zm80-31.2c-8.6-10.1-23.8-11.2-33.8-2.6s-11.2 23.8-2.6 33.8l34.6 40.4-34.6 40.4c-8.6 10.1-7.5 25.2 2.6 33.8s25.2 7.5 33.8-2.6l48-56c7.7-9 7.7-22.2 0-31.2z"/></svg></span></span><code>src/pythondaq/cli.py</code> eerst een opzetje maken waar je stap voor stap functionaliteit aan toevoegt. Het bestand <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M64 48h112v88c0 39.8 32.2 72 72 72h88v240c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16m160 19.9 92.1 92.1H248c-13.3 0-24-10.7-24-24zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V186.5c0-17-6.7-33.3-18.7-45.3L242.7 18.7C230.7 6.7 214.5 0 197.5 0zm106.2 295.6c8.6-10.1 7.5-25.2-2.6-33.8s-25.2-7.5-33.8 2.6l-48 56c-7.7 9-7.7 22.2 0 31.2l48 56c8.6 10.1 23.8 11.2 33.8 2.6s11.2-23.8 2.6-33.8L135.6 336zm80-31.2c-8.6-10.1-23.8-11.2-33.8-2.6s-11.2 23.8-2.6 33.8l34.6 40.4-34.6 40.4c-8.6 10.1-7.5 25.2 2.6 33.8s25.2 7.5 33.8-2.6l48-56c7.7-9 7.7-22.2 0-31.2z"/></svg></span><code>run_experiment.py</code> maakt eerst een lijst van aangesloten apparaten en daarna wordt een scan uitgevoerd. Daarom zet je in <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M64 48h112v88c0 39.8 32.2 72 72 72h88v240c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16m160 19.9 92.1 92.1H248c-13.3 0-24-10.7-24-24zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V186.5c0-17-6.7-33.3-18.7-45.3L242.7 18.7C230.7 6.7 214.5 0 197.5 0zm106.2 295.6c8.6-10.1 7.5-25.2-2.6-33.8s-25.2-7.5-33.8 2.6l-48 56c-7.7 9-7.7 22.2 0 31.2l48 56c8.6 10.1 23.8 11.2 33.8 2.6s11.2-23.8 2.6-33.8L135.6 336zm80-31.2c-8.6-10.1-23.8-11.2-33.8-2.6s-11.2 23.8-2.6 33.8l34.6 40.4-34.6 40.4c-8.6 10.1-7.5 25.2 2.6 33.8s25.2 7.5 33.8-2.6l48-56c7.7-9 7.7-22.2 0-31.2z"/></svg></span><code>cli.py</code> de subcommando's <code>list</code> en <code>scan</code> en zorg je dat ze voor nu alleen een stukje tekst printen. Ze doen dus verder niets, maar de structuur staat wel vast klaar.
     </br></br>
     De gebruiker test de subcommmando's <code>list</code> en <code>scan</code> met de volgende handelingen. De gebruiker typt in de terminal het commando <code>diode</code> met daarachter het subcommando <code>list</code> en ziet een tekst verschijnen: <code>Work in progress, list devices</code>. De gebruiker test vervolgens het subcommando <code>scan</code> en ziet de tekst <code>Work in progress, scan LED</code> verschijnen.
     </div>
@@ -2164,6 +2165,7 @@ In de code hierboven wordt een commando <code>import</code> aangemaakt &mdash; <
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando's</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>scan</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: herhaalmetingen</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: stapgrootte</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>list</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>info</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: poortnaam meegeven</li>
@@ -2188,7 +2190,7 @@ In de code hierboven wordt een commando <code>import</code> aangemaakt &mdash; <
 <div class="tabbed-block">
 <p>Pas het subcommando <code>scan</code> zo aan dat onderstaande functionaliteiten werken.
 </br></br>
-De gebruiker test het subcommando <code>scan</code> met de volgende handelingen. De gebruiker typt het commando <code>diode scan</code> in de terminal. Aan de hand van de helptekst weet de gebruiker dat het met argumenten of opties mogelijk is om het spanningsbereik (in Volt) aan te passen. Er wordt een meting gestart die binnen het spanningsbereik blijft. De gebruiker ziet dat de stroomsterkte door en de spanning over de LED in de terminal worden geprint. De gebruiker start een nieuwe meting en geeft ditmaal met de optie <code>--output FILENAME</code> een naam voor een CSV-bestand mee. Dit keer worden de metingen ook opgeslagen als CSV-bestand onder de meegegeven bestandsnaam.</p>
+De gebruiker test het subcommando <code>scan</code> met de volgende handelingen. De gebruiker typt het commando <code>diode scan</code> in de terminal. Aan de hand van de helptekst weet de gebruiker dat het met argumenten of opties mogelijk is om het spanningsbereik (in Volt) aan te passen. Er wordt een meting gestart die binnen het spanningsbereik blijft. De gebruiker ziet dat na afloop van de meting de stroomsterktes door en de spanningen over de LED in de terminal worden geprint. De gebruiker start een nieuwe meting en geeft ditmaal met de optie <code>--output FILENAME</code> een naam voor een CSV-bestand mee. Dit keer worden de metingen ook opgeslagen als CSV-bestand onder de meegegeven bestandsnaam.</p>
 </div>
 <div class="tabbed-block">
 <p><strong>Pseudo-code</strong>
@@ -2213,6 +2215,7 @@ De gebruiker test het subcommando <code>scan</code> met de volgende handelingen.
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando's</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>scan</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: herhaalmetingen</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: stapgrootte</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>list</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>info</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: poortnaam meegeven</li>
@@ -2254,6 +2257,7 @@ De gebruiker test de optie om het aantal herhaalmetingen te kiezen met de volgen
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando's</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>scan</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: herhaalmetingen</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: stapgrootte</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>list</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>info</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: poortnaam meegeven</li>
@@ -2265,15 +2269,51 @@ De gebruiker test de optie om het aantal herhaalmetingen te kiezen met de volgen
 </div>
 </div>
 </div>
-<details class="opdracht-meer" open="open">
-<summary>Pythondaq: stapgrootte</summary>
-<p>Soms wil je snel een meting uitvoeren over het hele bereik, dan is het handig om minder punten te meten dan 1023 punten. Breid de applicatie uit zodat de gebruiker de stapgrootte kan aanpassen. </p>
-</details>
+<div class="admonition opdracht-inlever">
+<p class="admonition-title">Pythondaq: stapgrootte</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="19:3"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio" /><input id="__tabbed_19_2" name="__tabbed_19" type="radio" /><input id="__tabbed_19_3" name="__tabbed_19" type="radio" /><div class="tabbed-labels"><label for="__tabbed_19_1">opdracht</label><label for="__tabbed_19_2">code</label><label for="__tabbed_19_3">check</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Soms wil je snel een meting uitvoeren over het hele bereik en dan is het handig om met minder punten te meten. Breid de applicatie uit zodat de gebruiker de stapgrootte kan aanpassen, bijvoorbeeld een stapgrootte van 0.2 V.</p>
+</div>
+<div class="tabbed-block">
+<p><strong>Pseudo-code</strong>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="c1"># subcommando scan with range in Volt, output CSV, repeat measurements en stapgrootte</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="c1"># start scan with range, repeat measurements en stapgrootte</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="c1"># print current, voltage and errors</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="c1"># if output:</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="c1"># create csv</span>
+</span></code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p><strong>Checkpunten</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De gebruiker kan de stapgrootte met een optie kiezen.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Met een grotere stapgrootte gaat de meting inderdaad veel sneller.</li>
+</ul>
+<p><strong>Projecttraject</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando's bedenken</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando's</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>scan</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: herhaalmetingen</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: stapgrootte</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>list</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>info</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: poortnaam meegeven</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: vlag voor grafiek</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: helpteksten</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: alle subcommando's geïmplementeerd?</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <h3 id="het-meetinstrument-kiezen">Het meetinstrument kiezen<a class="headerlink" href="#het-meetinstrument-kiezen" title="Permanent link">&para;</a></h3>
 <p>We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan heeft toegekend. Helaas kan &mdash; ook afhankelijk van het besturingssysteem &mdash; die naam veranderen als we de Arduino in een andere poort van onze computer steken of soms zelfs als we een andere Arduino op dezelfde poort koppelen. Met het commando <code>list</code> laten we alle apparaten zien die gevonden worden door de VISA drivers.</p>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Pythondaq: subcommando <code>list</code></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="19:3"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio" /><input id="__tabbed_19_2" name="__tabbed_19" type="radio" /><input id="__tabbed_19_3" name="__tabbed_19" type="radio" /><div class="tabbed-labels"><label for="__tabbed_19_1">opdracht</label><label for="__tabbed_19_2">code</label><label for="__tabbed_19_3">check</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="20:3"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio" /><input id="__tabbed_20_2" name="__tabbed_20" type="radio" /><input id="__tabbed_20_3" name="__tabbed_20" type="radio" /><div class="tabbed-labels"><label for="__tabbed_20_1">opdracht</label><label for="__tabbed_20_2">code</label><label for="__tabbed_20_3">check</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Pas het subcommando <code>list</code> aan.
@@ -2296,6 +2336,7 @@ De gebruiker test het subcommando <code>list</code> met de volgende handelingen.
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando's</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>scan</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: herhaalmetingen</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: stapgrootte</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>list</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>info</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: poortnaam meegeven</li>
@@ -2309,12 +2350,12 @@ De gebruiker test het subcommando <code>list</code> met de volgende handelingen.
 </div>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Pythondaq: subcommando <code>info</code></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="20:3"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio" /><input id="__tabbed_20_2" name="__tabbed_20" type="radio" /><input id="__tabbed_20_3" name="__tabbed_20" type="radio" /><div class="tabbed-labels"><label for="__tabbed_20_1">opdracht</label><label for="__tabbed_20_2">code</label><label for="__tabbed_20_3">check</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="21:3"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio" /><input id="__tabbed_21_2" name="__tabbed_21" type="radio" /><input id="__tabbed_21_3" name="__tabbed_21" type="radio" /><div class="tabbed-labels"><label for="__tabbed_21_1">opdracht</label><label for="__tabbed_21_2">code</label><label for="__tabbed_21_3">check</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Voeg een subcommando <code>info</code> toe.
 </br></br>
-De gebruiker test het subcommando <code>info</code> met de volgende handelingen. Eerst heeft de gebruiker met het commando <code>diode list</code> een lijst van aangesloten devices opgevraagd. De gebruiker wil weten wat de identificatiestring is van het apparaat dat aan een bepaalde poortnaam hangt. De gebruiker geeft daarom de poortnaam mee als argument aan het subcommando <code>info</code> waarna de identificatiestring van het instrument in de terminal wordt geprint. </p>
+De gebruiker test het subcommando <code>info</code> met de volgende handelingen. Eerst heeft de gebruiker met het commando <code>diode list</code> een lijst van aangesloten devices opgevraagd. De gebruiker wil weten wat de identificatiestring is van het apparaat dat aan een bepaalde poortnaam hangt. De gebruiker geeft daarom de poortnaam mee als argument aan het subcommando <code>info</code> waarna de identificatiestring van het instrument in de terminal wordt geprint. Let op: als je een poort probeert waar niet de Arduino aanhangt maar een ander apparaat, dan krijg je vaak geen identificatiestring terug maar bijvoorbeeld een timeout error. Dat is geen probleem. Je weet dan dat die poort niet je Arduino is.</p>
 <div class="admonition info">
 <p class="admonition-title">identificatiestring</p>
 <p>De identificatiestring van onze Arduino was <code>Arduino VISA firmware v1.2.0</code>. Je moet natuurlijk niet letterlijk deze string copy/pasten, maar de identificatie opvragen van het instrument. Welk firmwarecommando moest je daarvoor ook alweer gebruiken?</p>
@@ -2322,8 +2363,8 @@ De gebruiker test het subcommando <code>info</code> met de volgende handelingen.
 </div>
 <div class="tabbed-block">
 <p><strong>Pseudo-code</strong>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="c1"># subcommando info with device</span>
-</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="c1"># print identificationstring of device</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="c1"># subcommando info with device</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="c1"># print identificationstring of device</span>
 </span></code></pre></div>
 <strong>Testcode</strong>
 <pre><code>(pythondaq) &gt; diode info ASRL28::INSTR <button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="diode info ASRL28::INSTR" onclick="runScript('diode info ASRL28::INSTR')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
@@ -2342,6 +2383,7 @@ De gebruiker test het subcommando <code>info</code> met de volgende handelingen.
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando's</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>scan</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: herhaalmetingen</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: stapgrootte</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>list</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>info</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Pythondaq: poortnaam meegeven</li>
@@ -2355,14 +2397,14 @@ De gebruiker test het subcommando <code>info</code> met de volgende handelingen.
 </div>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Pythondaq: poortnaam meegeven</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="21:3"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio" /><input id="__tabbed_21_2" name="__tabbed_21" type="radio" /><input id="__tabbed_21_3" name="__tabbed_21" type="radio" /><div class="tabbed-labels"><label for="__tabbed_21_1">opdracht</label><label for="__tabbed_21_2">code</label><label for="__tabbed_21_3">check</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="22:3"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio" /><input id="__tabbed_22_2" name="__tabbed_22" type="radio" /><input id="__tabbed_22_3" name="__tabbed_22" type="radio" /><div class="tabbed-labels"><label for="__tabbed_22_1">opdracht</label><label for="__tabbed_22_2">code</label><label for="__tabbed_22_3">check</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Pas het subcommando <code>scan</code> aan zodat je kan aangeven met welke Arduino je een meting wilt uitvoeren. 
 </br></br>
 De gebruiker test het subcommando <code>scan</code> met de volgende handelingen. De gebruiker typt het commando <code>diode scan</code> in de terminal en vergeet daarbij een poortnaam mee te geven. De gebruiker ziet een foutmelding verschijnen want een poortnaam opgeven is verplicht.
 </br></br>
-De gebruiker vraagt met het subcommando <code>list</code> een lijst van aangesloten instrumenten op. Met het subcommando <code>info</code> is de gebruiker er achtergekomen wat de naam is van de poort waar de Arduino aanhangt. Vervolgens geeft de gebruiker deze poortnaam mee bij het subcommando <code>scan</code> om een meting op de (juiste) Arduino uit te laten voeren.
+De gebruiker vraagt met het subcommando <code>list</code> een lijst van aangesloten instrumenten op. Door een aantal poorten te proberen is de gebruiker er met het subcommando <code>info</code> achtergekomen wat de naam is van de poort waar de Arduino aanhangt. Vervolgens geeft de gebruiker deze poortnaam mee bij het subcommando <code>scan</code> om een meting op de (juiste) Arduino uit te laten voeren.
 </br></br>
 Tot slot leent de gebruiker een Arduino van een buurmens. De gebruiker sluit de tweede Arduino aan op de computer. Met <code>list</code> en <code>info</code> kijkt de gebruiker wat de poortnaam is van de tweede Arduino. Met het subcommando <code>scan</code> voert de gebruiker een meting uit en ziet dat het lampje van de tweede Arduino gaat branden en niet het lampje van de eerste Arduino. </p>
 </div>
@@ -2386,6 +2428,7 @@ Error: Missing argument 'DEVICE'.</span>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando's</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>scan</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: herhaalmetingen</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: stapgrootte</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>list</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>info</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: poortnaam meegeven</li>
@@ -2399,7 +2442,7 @@ Error: Missing argument 'DEVICE'.</span>
 </div>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Pythondaq: vlag voor grafiek</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="22:2"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio" /><input id="__tabbed_22_2" name="__tabbed_22" type="radio" /><div class="tabbed-labels"><label for="__tabbed_22_1">opdracht</label><label for="__tabbed_22_2">check</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="23:2"><input checked="checked" id="__tabbed_23_1" name="__tabbed_23" type="radio" /><input id="__tabbed_23_2" name="__tabbed_23" type="radio" /><div class="tabbed-labels"><label for="__tabbed_23_1">opdracht</label><label for="__tabbed_23_2">check</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Pas het subcommando <code>scan</code> aan zodat je met een <em>boolean flag</em> kan aangeven of er wel of niet een grafiek wordt getoond.
@@ -2417,6 +2460,7 @@ De gebruiker test het subcommando <code>scan</code> met de volgende handelingen.
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando's</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>scan</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: herhaalmetingen</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: stapgrootte</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>list</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>info</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: poortnaam meegeven</li>
@@ -2430,7 +2474,7 @@ De gebruiker test het subcommando <code>scan</code> met de volgende handelingen.
 </div>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Pythondaq: helpteksten</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="23:3"><input checked="checked" id="__tabbed_23_1" name="__tabbed_23" type="radio" /><input id="__tabbed_23_2" name="__tabbed_23" type="radio" /><input id="__tabbed_23_3" name="__tabbed_23" type="radio" /><div class="tabbed-labels"><label for="__tabbed_23_1">opdracht</label><label for="__tabbed_23_2">code</label><label for="__tabbed_23_3">check</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="24:3"><input checked="checked" id="__tabbed_24_1" name="__tabbed_24" type="radio" /><input id="__tabbed_24_2" name="__tabbed_24" type="radio" /><input id="__tabbed_24_3" name="__tabbed_24" type="radio" /><div class="tabbed-labels"><label for="__tabbed_24_1">opdracht</label><label for="__tabbed_24_2">code</label><label for="__tabbed_24_3">check</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Voeg helpteksten toe.
@@ -2439,10 +2483,10 @@ De gebruiker test de applicatie <code>diode</code> met de volgende handelingen. 
 </div>
 <div class="tabbed-block">
 <p><strong>Pseudo-code</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>&quot;&quot;&quot;Summary containing ARGUMENTs.
-</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>
-</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>ARGUMENT description of the argument.
-</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>&quot;&quot;&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>&quot;&quot;&quot;Summary containing ARGUMENTs.
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>ARGUMENT description of the argument.
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>&quot;&quot;&quot;
 </span></code></pre></div>
 <strong>Testcode</strong>
 <pre><code>(pythondaq) &gt; diode --help <button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')"><svg class="enter" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M21 10.5c0 4.14-3.36 7.5-7.5 7.5H11v4l-7-6l7-6v4h2.5c1.93 0 3.5-1.57 3.5-3.5V3h4z"/></svg></button><button type="button" name="diode --help_assignment" onclick="runScript('diode --help_assignment')" class="invisible"><svg class="reload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg></button>
@@ -2466,6 +2510,7 @@ De gebruiker test de applicatie <code>diode</code> met de volgende handelingen. 
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando's</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>scan</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: herhaalmetingen</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: stapgrootte</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>list</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>info</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: poortnaam meegeven</li>
@@ -2498,7 +2543,7 @@ ASRL/dev/cu.usbmodem143401::INSTR </span>
 <p>Op dit punt heb je de functionaliteit van het snelle script uit een vorige hoofdstuk uitgebreid. Dit was veel meer werk, maar het is veel flexibeler. Als je wilt meten met een andere Arduino, een ander bereik of een andere stapgrootte dan typ je gewoon een iets ander commando in de terminal. Je hoeft geen scripts meer aan te passen. Als je na een tijdje niet meer precies weet hoe het ook alweer werkte allemaal, kun je dat snel weer oppakken door <code>--help</code> aan te roepen.</p>
 <div class="admonition opdracht-inlever">
 <p class="admonition-title">Pythondaq: alle subcommando's geïmplementeerd?</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="24:2"><input checked="checked" id="__tabbed_24_1" name="__tabbed_24" type="radio" /><input id="__tabbed_24_2" name="__tabbed_24" type="radio" /><div class="tabbed-labels"><label for="__tabbed_24_1">opdracht</label><label for="__tabbed_24_2">check</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="25:2"><input checked="checked" id="__tabbed_25_1" name="__tabbed_25" type="radio" /><input id="__tabbed_25_2" name="__tabbed_25" type="radio" /><div class="tabbed-labels"><label for="__tabbed_25_1">opdracht</label><label for="__tabbed_25_2">check</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Kijk nog eens terug naar het lijstje subcommando's die je in <a href="./#opd:subcommandos">opdracht <em>Subcommando's bedenken</em></a> hebt opgeschreven. Heb je alles geïmplementeerd? Wat zou je willen dat je nog meer kan instellen? Als er tijd over is, kijk dan of dit lukt.</p>
@@ -2510,6 +2555,7 @@ ASRL/dev/cu.usbmodem143401::INSTR </span>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando's</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>scan</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: herhaalmetingen</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: stapgrootte</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>list</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: subcommando <code>info</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Pythondaq: poortnaam meegeven</li>
@@ -2524,8 +2570,8 @@ ASRL/dev/cu.usbmodem143401::INSTR </span>
 <details class="meer-leren" open="open">
 <summary>Rich</summary>
 <h2 id="een-interface-met-stijl">Een interface met stijl<a class="headerlink" href="#een-interface-met-stijl" title="Permanent link">&para;</a></h2>
-<p>Ook command-line interfaces gaan met hun tijd mee. Vroeger waren ze per definitie zwart/wit en statisch, maar tegenwoordig worden interfaces vaak opgeleukt met kleur, emoji's en bewegende progressbars. <em>Rich</em><sup id="fnref:rich"><a class="footnote-ref" href="#fn:rich">7</a></sup> is een project dat in recordtijd heel populair is geworden. Het bestaat pas sinds november 2019 en heeft precies twee jaar later meer dan 31000<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"/></svg></span> verzameld. Dat is <em>veel</em> &mdash; en de populariteit is sindsdien nog verder toegenomen.</p>
-<p>Rich is ontzettend uitgebreid en heeft heel veel mogelijkheden. Voor ons project kan het handig zijn om een progressbar te gebruiken of met Rich een tabel weer te geven. De documentatie<sup id="fnref:rich-docs"><a class="footnote-ref" href="#fn:rich-docs">8</a></sup> van Rich is best goed, maar kan lastig zijn om een mooi overzicht te krijgen. Een serie van korte video tutorials kun je vinden bij <a href="https://calmcode.io/rich/introduction.html">calmcode</a>. Iedere video duurt maar één tot twee minuten en laat mooi de mogelijkheden zien. Voor de functies die je wilt gebruiken kun je dan meer informatie opzoeken in de documentatie van Rich zelf.</p>
+<p>Ook command-line interfaces gaan met hun tijd mee. Vroeger waren ze per definitie zwart/wit en statisch, maar tegenwoordig worden interfaces vaak opgeleukt met kleur, emoji's en bewegende progressbars. <em>Rich</em><sup id="fnref:rich"><a class="footnote-ref" href="#fn:rich">8</a></sup> is een project dat in recordtijd heel populair is geworden. Het bestaat pas sinds november 2019 en heeft precies twee jaar later meer dan 31000<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"/></svg></span> verzameld. Dat is <em>veel</em> &mdash; en de populariteit is sindsdien nog verder toegenomen.</p>
+<p>Rich is ontzettend uitgebreid en heeft heel veel mogelijkheden. Voor ons project kan het handig zijn om een progressbar te gebruiken of met Rich een tabel weer te geven. De documentatie<sup id="fnref:rich-docs"><a class="footnote-ref" href="#fn:rich-docs">9</a></sup> van Rich is best goed, maar kan lastig zijn om een mooi overzicht te krijgen. Een serie van korte video tutorials kun je vinden bij <a href="https://calmcode.io/rich/introduction.html">calmcode</a>. Iedere video duurt maar één tot twee minuten en laat mooi de mogelijkheden zien. Voor de functies die je wilt gebruiken kun je dan meer informatie opzoeken in de documentatie van Rich zelf.</p>
 <div class="admonition opdracht-meer">
 <p class="admonition-title">Rich</p>
 <p>Verrijk je interface met Rich. Doe dit naar eigen wens en inzicht.</p>
@@ -2559,14 +2605,17 @@ ASRL/dev/cu.usbmodem143401::INSTR </span>
 <li id="fn:flag">
 <p>Zie voor meer informatie over flags de <a href="https://click.palletsprojects.com/en/stable/options/#boolean-flags">Click documentatie</a>.&#160;<a class="footnote-backref" href="#fnref:flag" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
+<li id="fn:docstrings-fake-uv">
+<p>We kiezen in de docstrings van de methods voor drie paragrafen: één zin met de helptekst, één paragraaf die de ARGUMENTEN beschrijft, en een laatste paragraaf die nog wat extra informatie geeft, bijvoorbeeld over opties. Dit is een veelgebruikt format, maar wordt niet universeel toegepast. Je zult dus ook andere formats tegenkomen.&#160;<a class="footnote-backref" href="#fnref:docstrings-fake-uv" title="Jump back to footnote 6 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:docstrings-fake-uv" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
 <li id="fn:click">
-<p>Pallets. Click. URL: <a href="https://click.palletsprojects.com/">https://click.palletsprojects.com/</a>.&#160;<a class="footnote-backref" href="#fnref:click" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>Pallets. Click. URL: <a href="https://click.palletsprojects.com/">https://click.palletsprojects.com/</a>.&#160;<a class="footnote-backref" href="#fnref:click" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 <li id="fn:rich">
-<p>Will McGugan. Rich. URL: <a href="https://github.com/willmcgugan/rich">https://github.com/willmcgugan/rich</a>.&#160;<a class="footnote-backref" href="#fnref:rich" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p>Will McGugan. Rich. URL: <a href="https://github.com/willmcgugan/rich">https://github.com/willmcgugan/rich</a>.&#160;<a class="footnote-backref" href="#fnref:rich" title="Jump back to footnote 8 in the text">&#8617;</a></p>
 </li>
 <li id="fn:rich-docs">
-<p>Will McGugan. Rich documentation. URL: <a href="https://rich.readthedocs.io/en/latest/">https://rich.readthedocs.io/en/latest/</a>.&#160;<a class="footnote-backref" href="#fnref:rich-docs" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<p>Will McGugan. Rich documentation. URL: <a href="https://rich.readthedocs.io/en/latest/">https://rich.readthedocs.io/en/latest/</a>.&#160;<a class="footnote-backref" href="#fnref:rich-docs" title="Jump back to footnote 9 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
