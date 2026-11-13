@@ -1181,7 +1181,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
     === "opdracht"
         Voeg een subcommando `info` toe.
         </br></br>
-        De gebruiker test het subcommando `info` met de volgende handelingen. Eerst heeft de gebruiker met het commando `diode list` een lijst van aangesloten devices opgevraagd. De gebruiker wil weten wat de identificatiestring is van het apparaat dat aan een bepaalde poortnaam hangt. De gebruiker geeft daarom de poortnaam mee als argument aan het subcommando `info` waarna de identificatiestring van het instrument in de terminal wordt geprint. 
+        De gebruiker test het subcommando `info` met de volgende handelingen. Eerst heeft de gebruiker met het commando `diode list` een lijst van aangesloten devices opgevraagd. De gebruiker wil weten wat de identificatiestring is van het apparaat dat aan een bepaalde poortnaam hangt. De gebruiker geeft daarom de poortnaam mee als argument aan het subcommando `info` waarna de identificatiestring van het instrument in de terminal wordt geprint. Let op: als je een poort probeert waar niet de Arduino aanhangt maar een ander apparaat, dan krijg je vaak geen identificatiestring terug maar bijvoorbeeld een timeout error. Dat is geen probleem. Je weet dan dat die poort niet je Arduino is.
 
         !!! info "identificatiestring"
             De identificatiestring van onze Arduino was `Arduino VISA firmware v1.2.0`. Je moet natuurlijk niet letterlijk deze string copy/pasten, maar de identificatie opvragen van het instrument. Welk firmwarecommando moest je daarvoor ook alweer gebruiken?
@@ -1222,7 +1222,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         </br></br>
         De gebruiker test het subcommando `scan` met de volgende handelingen. De gebruiker typt het commando `diode scan` in de terminal en vergeet daarbij een poortnaam mee te geven. De gebruiker ziet een foutmelding verschijnen want een poortnaam opgeven is verplicht.
         </br></br>
-        De gebruiker vraagt met het subcommando `list` een lijst van aangesloten instrumenten op. Met het subcommando `info` is de gebruiker er achtergekomen wat de naam is van de poort waar de Arduino aanhangt. Vervolgens geeft de gebruiker deze poortnaam mee bij het subcommando `scan` om een meting op de (juiste) Arduino uit te laten voeren.
+        De gebruiker vraagt met het subcommando `list` een lijst van aangesloten instrumenten op. Door een aantal poorten te proberen is de gebruiker er met het subcommando `info` achtergekomen wat de naam is van de poort waar de Arduino aanhangt. Vervolgens geeft de gebruiker deze poortnaam mee bij het subcommando `scan` om een meting op de (juiste) Arduino uit te laten voeren.
         </br></br>
         Tot slot leent de gebruiker een Arduino van een buurmens. De gebruiker sluit de tweede Arduino aan op de computer. Met `list` en `info` kijkt de gebruiker wat de poortnaam is van de tweede Arduino. Met het subcommando `scan` voert de gebruiker een meting uit en ziet dat het lampje van de tweede Arduino gaat branden en niet het lampje van de eerste Arduino. 
     === "code"
