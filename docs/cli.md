@@ -937,6 +937,9 @@ Options:
 
 In het [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplitst in model, view en controller. Wanneer je een command-line interface gaat bouwen dan is dat de softwarelaag tussen de gebruiker en de rest van de code. De command-line interface is dus een _view_. Het is helemaal niet gek om meerdere views te hebben, bijvoorbeeld een eenvoudig script zoals {{file}}`run_experiment.py`, een command-line interface en een grafische interface. Je gaat je nu richten op een command-line interface. Hiervoor maak je een nieuw bestand {{new_file}}`cli.py` aan wat je langzaam gaat opbouwen.
 
+!!! warning "Model-View-Controller"
+    Je gaat nu een nieuwe _view_ schrijven in {{new_file}}`cli.py`. Dat heeft eenzelfde rol als {{file}}`run_experiment.py`. Je kunt daar dus af en toe spieken wat voor regels code je nodig hebt. Hoewel we hergebruik aanmoedigen staat er niet zo heel veel code in {{file}}`run_experiment.py`. Ga dus niet proberen om code vanuit dat bestand met een `#!py import`-statement binnen te halen in {{new_file}}`cli.py`. Daar wordt je code vooral ingewikkeld van. Laat {{new_file}}`cli.py` alleen importeren vanuit {{file}}`diode_experiment.py`. Dus behoud de MVC-structuur! Meerdere views mogen naast elkaar bestaan, waarbij de gebruiker kiest welk bestand zij opstart. Dat betekent dat als je aanpassingen doet in het model, dat je na afloop ook nog even moet checken of je {{file}}`run_experiment.py` nog werkt. Zo niet, pas die dan ook aan. Je eindigt dan met een werkende {{new_file}}`cli.py` en een nog steeds werkende {{file}}`run_experiment.py`.
+
 <div id="opd:subcommandos"></div>
 !!! opdracht-inlever "Pythondaq: subcommando's bedenken"
     === "opdracht"
