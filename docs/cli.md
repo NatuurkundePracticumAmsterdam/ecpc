@@ -1436,7 +1436,7 @@ Op dit punt heb je de functionaliteit van het snelle script uit een vorige hoofd
     Rich is ontzettend uitgebreid en heeft heel veel mogelijkheden. Voor ons project kan het handig zijn om een progressbar te gebruiken of met Rich een tabel weer te geven. De documentatie[@rich-docs] van Rich is best goed, maar kan lastig zijn om een mooi overzicht te krijgen. Een serie van korte video tutorials kun je vinden bij [calmcode](https://calmcode.io/rich/introduction.html). Iedere video duurt maar één tot twee minuten en laat mooi de mogelijkheden zien. Voor de functies die je wilt gebruiken kun je dan meer informatie opzoeken in de documentatie van Rich zelf.
 
     !!! opdracht-meer "Rich"
-        Verrijk je interface met Rich. Doe dit naar eigen wens en inzicht.
+        Verrijk je interface met Rich. Doe dit naar eigen wens en inzicht. Let op: het kan gebeuren dat je de neiging hebt om nu dus wél dingen te printen in je model (bijvoorbeeld een progressbar). Dat is niet heel netjes, maar kun je prima doen om te testen hoe een progressbar werkt. Wil je het daarna weer netjes maken, dan zijn daar meerdere oplossingen voor. We hebben suggesties.
 
 
 ???+ meer-leren "Data-analyse"
