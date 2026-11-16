@@ -992,6 +992,7 @@ In het [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplit
         - [ ] Pythondaq: vlag voor grafiek
         - [ ] Pythondaq: helpteksten
         - [ ] Pythondaq: alle subcommando's geïmplementeerd?
+        - [ ] Pythondaq: veni, vidi, vici
 
 !!! opdracht-inlever "Pythondaq: subcommando's"
     === "opdracht"
@@ -1065,6 +1066,7 @@ In het [hoofdstuk _Model-View-Controller_](mvc.md) heb je `pythondaq` uitgesplit
         - [ ] Pythondaq: vlag voor grafiek
         - [ ] Pythondaq: helpteksten
         - [ ] Pythondaq: alle subcommando's geïmplementeerd?
+        - [ ] Pythondaq: veni, vidi, vici
  
 
 ### Het uitvoeren van een meetserie ![Klik hier](assets/eastereggs/ECPC-silver.svg){: id="easterEggImage" style="width:1.5%" data-message="Pssst met 'ALT' ingedrukt kun je met je linkermuisknop meerdere cursors creëren. Handig als je op meer plekken tegelijk hetzelfde wilt typen of weghalen! Probeer maar eens!"}
@@ -1109,6 +1111,7 @@ Je gaat je nu eerst richten op het uitvoeren van een volledige meetserie en het 
         - [ ] Pythondaq: vlag voor grafiek
         - [ ] Pythondaq: helpteksten
         - [ ] Pythondaq: alle subcommando's geïmplementeerd?
+        - [ ] Pythondaq: veni, vidi, vici
 
 !!! opdracht-inlever "Pythondaq: herhaalmetingen"
     === "opdracht"
@@ -1143,6 +1146,7 @@ Je gaat je nu eerst richten op het uitvoeren van een volledige meetserie en het 
         - [ ] Pythondaq: vlag voor grafiek
         - [ ] Pythondaq: helpteksten
         - [ ] Pythondaq: alle subcommando's geïmplementeerd?
+        - [ ] Pythondaq: veni, vidi, vici
 
 !!! opdracht-inlever "Pythondaq: stapgrootte"
     === "opdracht"
@@ -1175,6 +1179,7 @@ Je gaat je nu eerst richten op het uitvoeren van een volledige meetserie en het 
         - [ ] Pythondaq: vlag voor grafiek
         - [ ] Pythondaq: helpteksten
         - [ ] Pythondaq: alle subcommando's geïmplementeerd?
+        - [ ] Pythondaq: veni, vidi, vici
 
 ### Het meetinstrument kiezen
 
@@ -1209,6 +1214,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [ ] Pythondaq: vlag voor grafiek
         - [ ] Pythondaq: helpteksten
         - [ ] Pythondaq: alle subcommando's geïmplementeerd?
+        - [ ] Pythondaq: veni, vidi, vici
 
 !!! opdracht-inlever "Pythondaq: subcommando `info`"
     === "opdracht"
@@ -1249,6 +1255,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [ ] Pythondaq: vlag voor grafiek
         - [ ] Pythondaq: helpteksten
         - [ ] Pythondaq: alle subcommando's geïmplementeerd?
+        - [ ] Pythondaq: veni, vidi, vici
 
 !!! opdracht-inlever "Pythondaq: poortnaam meegeven"
     === "opdracht"
@@ -1285,6 +1292,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [ ] Pythondaq: vlag voor grafiek
         - [ ] Pythondaq: helpteksten
         - [ ] Pythondaq: alle subcommando's geïmplementeerd?
+        - [ ] Pythondaq: veni, vidi, vici
 
 
 !!! opdracht-inlever "Pythondaq: vlag voor grafiek"
@@ -1310,6 +1318,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: vlag voor grafiek
         - [ ] Pythondaq: helpteksten
         - [ ] Pythondaq: alle subcommando's geïmplementeerd?
+        - [ ] Pythondaq: veni, vidi, vici
 
 !!! opdracht-inlever "Pythondaq: helpteksten"
     === "opdracht"
@@ -1352,6 +1361,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
         - [x] Pythondaq: vlag voor grafiek
         - [x] Pythondaq: helpteksten
         - [ ] Pythondaq: alle subcommando's geïmplementeerd?
+        - [ ] Pythondaq: veni, vidi, vici
 
 ???+ opdracht-meer "Pythondaq: `list --search`"
     Breid het commando `list` uit met een optie `--search` waarmee je niet een lijst van _alle_ instrumenten krijgt, maar alleen de instrumenten die de zoekterm bevatten. Dus bijvoorbeeld:
@@ -1393,6 +1403,27 @@ Op dit punt heb je de functionaliteit van het snelle script uit een vorige hoofd
         - [x] Pythondaq: vlag voor grafiek
         - [x] Pythondaq: helpteksten
         - [x] Pythondaq: alle subcommando's geïmplementeerd?
+        - [ ] Pythondaq: veni, vidi, vici
+
+!!! opdracht-inlever "Pythondaq: veni, vidi, vici"
+    === "opdracht"
+        Je bent nu bijna bij het einde van dit hoofdstuk aangekomen. Je hebt daarbij een nieuwe view geschreven, maar kunt pas echt overwinnen als je oude view ook nog werkt. Test {{file}}`run_experiment.py` en als die niet meer (helemaal) werkt, los dan de problemen op.
+    
+    === "check"
+        **Projecttraject**
+
+        - [x] Pythondaq: subcommando's bedenken
+        - [x] Pythondaq: subcommando's
+        - [x] Pythondaq: subcommando `scan`
+        - [x] Pythondaq: herhaalmetingen
+        - [x] Pythondaq: stapgrootte
+        - [x] Pythondaq: subcommando `list`
+        - [x] Pythondaq: subcommando `info`
+        - [x] Pythondaq: poortnaam meegeven
+        - [x] Pythondaq: vlag voor grafiek
+        - [x] Pythondaq: helpteksten
+        - [x] Pythondaq: alle subcommando's geïmplementeerd?
+        - [x] Pythondaq: veni, vidi, vici
 
 
 ???+ meer-leren "Rich"
