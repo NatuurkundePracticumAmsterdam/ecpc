@@ -1241,6 +1241,7 @@ We kunnen de Arduino benaderen als we de naam weten die de VISA driver er aan he
 
         - [ ] De identificatiestring is met `diode info DEVICE` op te vragen.
         - [ ] De string is niet direct gecopypaste, maar wordt daadwerkelijk opgevraagd.
+        - [ ] De MVC-structuur is intact gebleven (let op de imports).
 
         **Projecttraject**
 
