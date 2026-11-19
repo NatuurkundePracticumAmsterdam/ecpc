@@ -908,18 +908,24 @@
 
 
 <h1 id="text-based-user-interfaces">Text-based user interfaces<a class="headerlink" href="#text-based-user-interfaces" title="Permanent link">&para;</a></h1>
-<p>De text-based user intefaces (TUI) of terminal user interface zijn de voorlopers van de graphical user interfaces die wel nog in een terminal worden uitgevoerd. Een populair framework waarmee je in Python een TUI kunt bouwen is <a href="https://textual.textualize.io">Textual</a>.</p>
+<p>De text-based user intefaces (TUI) of terminal user interface zijn oorspronkelijk de voorlopers van de graphical user interfaces die wel nog in een terminal worden uitgevoerd. Een populair framework waarmee je in Python een TUI kunt bouwen is <a href="https://textual.textualize.io">Textual</a>. Dit framework is recent ontwikkeld omdat TUIs weer steeds populairder worden. Grafische applicaties zijn mooi en handig, maar vaak ook groot, tijdrovend om te ontwikkelen en zijn vaak traag als ze niet op je eigen computer draaien, maar op een computer ergens op het internet (denk aan remote-desktop oplossingen).</p>
+<p>Vraag maar eens rond: aardig wat van de TA's op de zaal hebben ervaring met het draaien van berekeningen of simulaties op een computercluster van bijvoorbeeld het Nikhef. Je opent een terminal, logt in op een andere computer met SSH, en draait dan je code vanuit die terminal. Dat is dan bijna altijd een script of een command-line interface applicatie. Of... een TUI.</p>
+<p>Eén van de voordelen van een TUI is dat als je toch in de terminal bezig bent, met je vingers op het toetsenbord, dat je de TUI heel snel kunt bedienen zonder dat je naar een muis of trackpad hoeft te grijpen. Dat blijkt dan vaak sneller. Maar: het <em>kan</em> vaak wel, wat vooral handig is als je een applicatie nog niet zo goed kent.</p>
+<p>Als je een TUI maakt voor het pythondaq experiment, dan wil je wel graag kunnen plotten. Een goede oplossing voor Textual is <a href="https://davidfokkema.github.io/textual-plot/">textual-plot</a>. Hiermee kun je scatterplots maken met error bars waarbij je met de muis kunt zoomen en schuiven. Je kunt een demo runnen met:
+<div class="language-console highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="go">uvx textual-plot</span>
+</span></code></pre></div></p>
+<p><img alt="Screenshot textual-plot" src="../figures/screenshot-textual-plot.png" /></p>
 <details class="opdracht-meer" open="open">
 <summary>Textual installeren</summary>
-<p>Maak een nieuw virtual environment aan en installeer de benodigdheden voor Textual. Zie voor meer informatie de <a href="https://textual.textualize.io/getting_started/">documentatie</a></p>
+<p>Maak een nieuw project aan om te oefenen met Textual en installeer de benodigdheden. Zie voor meer informatie de <a href="https://textual.textualize.io/getting_started/">documentatie</a>.</p>
 </details>
 <details class="opdracht-meer" open="open">
 <summary>Stopwatch</summary>
-<p>Volg de tutorial van Textual om een stopwatch applicatie te maken.</p>
+<p>Volg de <a href="https://textual.textualize.io/tutorial/">tutorial van Textual</a> om een stopwatch applicatie te maken.</p>
 </details>
 <details class="opdracht-meer" open="open">
 <summary>Pythondaq: TUI</summary>
-<p>Maak met behulp van Textual een TUI voor Pythondaq.</p>
+<p>Nu je Textual beter kent, maak in je bestaande pythondaq project met behulp van Textual een TUI voor Pythondaq.</p>
 </details>
 
 
