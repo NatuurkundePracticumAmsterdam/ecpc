@@ -391,6 +391,9 @@ De knoppen zelf plaats je straks in een horizontale layout, dus die voeg je ook 
 De horizontale layout (voor de knoppen) moet je expliciet toevoegen aan de verticale layout zodat deze layout netjes verticaal onder het tekstveld verschijnt. 
 
 Als laatste verbind je de knoppen aan functies. Zodra je op een knop drukt wordt er een zogeheten _signal_ afgegeven. Die kun je verbinden met een _slot_. Er zijn verschillende soorten signalen. Het drukken op een knop zorgt voor een _clicked signal_, het veranderen van een getal in een keuzevenster geeft een _changed signal_. In dit geval verbind je één knop direct met een al bestaande method van het tekstveld `#!py clear()` en de andere knop met een eigen method `#!py add_button_clicked()`. De naam is geheel vrij te kiezen, maar boven de functiedefinitie moet je wel de `#!py @Slot()`-decorator gebruiken (voor meer informatie over decorators zie [paragraaf Decorators](vervolg-python.md#decorators)). PySide kan dan net wat efficiënter werken.
+
+!!! info "`#!py @Slot()` decorator"
+    Roep je een method aan met een `#!py .connect()`, een signal? Zet dan boven de method die wordt aangeroepen een `#!py @Slot()` regel. Het werkt _zonder_, maar net iets trager dus dat is zonde. Roep je een method _niet_ direct aan met een `#!py .connect()`? Dan is het geen slot en gebruik je dus ook niet een `#!py @Slot()` decorator.
    
 !!! opdracht-basis "Slots en signals"
     === "opdracht"
