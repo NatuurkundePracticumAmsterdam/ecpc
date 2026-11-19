@@ -1155,12 +1155,12 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
     === "opdracht"
         Pas de GUI aan zodat de applicatie opstart met een lege plot en widgets om de start-, stopwaardes en het aantal herhaalmetingen aan te passen en een startknop waarmee een (nieuwe) meting wordt uitgevoerd.
         </br></br>
-        De gebruiker test de GUI met de volgende handelingen. De gebruiker typt het commando in de terminal en er verschijnt een GUI met daarin een lege plot. De gebruiker vult verschillende waardes in voor de start, stop en het aantal herhaalmetingen en drukt daarna op de startknop. De gebruiker ziet dat de LED gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI.
+        De gebruiker test de GUI met de volgende handelingen. De gebruiker typt het commando in de terminal en er verschijnt een GUI met daarin een lege plot. De gebruiker vult verschillende waardes in voor de start, stop en stapgrootte **in Volt** en het aantal herhaalmetingen en drukt daarna op de startknop. De gebruiker ziet dat de LED gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI.
     === "code"
         **Pseudo-code**
         ```
         # create widgets in designer or in the script
-        # for start, stop, measurements and start scan
+        # for start, stop, step size, number of measurements and start scan
         
         # connect widgets to methods
 
@@ -1172,6 +1172,7 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
         - [ ] De applicatie start op met een lege plot.
         - [ ] In de applicatie kan de startwaarde in Volt worden aangepast.
         - [ ] In de applicatie kan de stopwaarde in Volt worden aangepast.
+        - [ ] In de applicatie kan de stapgrootte in Volt worden aangepast.
         - [ ] In de applicatie kan het aantal herhaalmetingen worden aangepast.
         - [ ] Drukken op de startknop laat een meting starten.
 
