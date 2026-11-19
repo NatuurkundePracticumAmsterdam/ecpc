@@ -1131,6 +1131,10 @@
 <li><code>pyqtgraph</code></li>
 </ol>
 <p>Dit wordt bij de opdrachten nog wel verteld, maar voor het overzicht staan ze ook hier.</p>
+<div class="admonition warning">
+<p class="admonition-title">Let op</p>
+<p>Installeer straks <em>niet</em> <code>pyside6</code> maar <code>pyside6-essentials</code>. PySide6 is een grote bibliotheek. De essentials zijn ongeveer 350 Mb groot; de volledige <code>pyside6</code> is 1,2 Gb groot, bijna vier keer zoveel!</p>
+</div>
 </div>
 <p>Een minimale Qt-applicatie ziet er als volgt uit:</p>
 <div id="code:minimal"></div>
@@ -1192,6 +1196,10 @@ Eerst importeer je een paar bibliotheken. Het draait uiteindelijk om de <code cl
     └── &bull;&bull;&bull;<br />
     </div>
 </div></p>
+<div class="admonition warning">
+<p class="admonition-title">Let op</p>
+<p>Installeer <em>niet</em> <code>pyside6</code> maar <code>pyside6-essentials</code>. PySide6 is een grote bibliotheek. De essentials zijn ongeveer 350&nbsp;Mb groot; de volledige <code>pyside6</code> is 1,2&nbsp;Gb groot, bijna vier keer zoveel!</p>
+</div>
 </div>
 <div class="tabbed-block">
 <p><strong>Pseudo-code</strong>
@@ -1558,6 +1566,10 @@ Allereerst definieer je een <code>__init__()</code>. Helaas gaat dat niet zomaar
 </div>
 <p>De horizontale layout (voor de knoppen) moet je expliciet toevoegen aan de verticale layout zodat deze layout netjes verticaal onder het tekstveld verschijnt. </p>
 <p>Als laatste verbind je de knoppen aan functies. Zodra je op een knop drukt wordt er een zogeheten <em>signal</em> afgegeven. Die kun je verbinden met een <em>slot</em>. Er zijn verschillende soorten signalen. Het drukken op een knop zorgt voor een <em>clicked signal</em>, het veranderen van een getal in een keuzevenster geeft een <em>changed signal</em>. In dit geval verbind je één knop direct met een al bestaande method van het tekstveld <code class="language-py highlight"><span class="n">clear</span><span class="p">()</span></code> en de andere knop met een eigen method <code class="language-py highlight"><span class="n">add_button_clicked</span><span class="p">()</span></code>. De naam is geheel vrij te kiezen, maar boven de functiedefinitie moet je wel de <code class="language-py highlight"><span class="nd">@Slot</span><span class="p">()</span></code>-decorator gebruiken (voor meer informatie over decorators zie <a href="../vervolg-python/#decorators">paragraaf Decorators</a>). PySide kan dan net wat efficiënter werken.</p>
+<div class="admonition info">
+<p class="admonition-title"><code class="language-py highlight"><span class="nd">@Slot</span><span class="p">()</span></code> decorator</p>
+<p>Roep je een method aan met een <code class="language-py highlight"><span class="o">.</span><span class="n">connect</span><span class="p">()</span></code>, een signal? Zet dan boven de method die wordt aangeroepen een <code class="language-py highlight"><span class="nd">@Slot</span><span class="p">()</span></code> regel. Het werkt <em>zonder</em>, maar net iets trager dus dat is zonde. Roep je een method <em>niet</em> direct aan met een <code class="language-py highlight"><span class="o">.</span><span class="n">connect</span><span class="p">()</span></code>? Dan is het geen slot en gebruik je dus ook niet een <code class="language-py highlight"><span class="nd">@Slot</span><span class="p">()</span></code> decorator.</p>
+</div>
 <div class="admonition opdracht-basis">
 <p class="admonition-title">Slots en signals</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">opdracht</label><label for="__tabbed_6_2">code</label><label for="__tabbed_6_3">check</label></div>
@@ -2241,7 +2253,7 @@ In deze code definieer je niet <code class="language-py highlight"><span class="
 </div>
 <h2 id="een-grafische-interface-voor-ons-experiment">Een grafische interface voor ons experiment<a class="headerlink" href="#een-grafische-interface-voor-ons-experiment" title="Permanent link">&para;</a></h2>
 <p>In het vorige hoofdstuk heb je een <em>tekst</em>-interface geschreven voor het experiment. Je gaat nu een <em>grafische</em> interface schrijven voor hetzelfde experiment.</p>
-<p>Je hebt tot nu toe veel moeite gedaan om de code te splitsen volgens het MVC-model: werken in laagjes, goed nadenken over wat waar hoort. Als dat netjes gelukt is kun je relatief makkelijk één van die laagjes vervangen. Je kunt bijvoorbeeld <code class="language-py highlight"><span class="n">ArduinoVISADevice</span></code> vervangen door een <code class="language-py highlight"><span class="n">RaspberryPiDevice</span></code> of een <code class="language-py highlight"><span class="n">PicoScopeDevice</span></code> <sup id="fnref:nieuwe-controller"><a class="footnote-ref" href="#fn:nieuwe-controller">7</a></sup>. Ook kun je een nieuwe applicatie schrijven voor het experiment. Je hoeft dan alleen een extra view te schrijven (de interface met de gebruiker) en de rest kun je hergebruiken. Misschien dat je hier en daar iets wilt aanpassen, maar zorg er dan voor dat je oude applicatie nog steeds werkt!</p>
+<p>Je hebt tot nu toe veel moeite gedaan om de code te splitsen volgens het MVC-model: werken in laagjes, goed nadenken over wat waar hoort. Als dat netjes gelukt is kun je relatief makkelijk één van die laagjes vervangen. Je kunt bijvoorbeeld <code class="language-py highlight"><span class="n">ArduinoVISADevice</span></code> vervangen door een <code class="language-py highlight"><span class="n">RaspberryPiDevice</span></code> of een <code class="language-py highlight"><span class="n">PicoScopeDevice</span></code>.<sup id="fnref:nieuwe-controller"><a class="footnote-ref" href="#fn:nieuwe-controller">7</a></sup> Ook kun je een nieuwe applicatie schrijven voor het experiment. Je hoeft dan alleen een extra view te schrijven (de interface met de gebruiker) en de rest kun je hergebruiken. Misschien dat je hier en daar iets wilt aanpassen, maar zorg er dan voor dat je oude applicatie nog steeds werkt!</p>
 <p>Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor het experiment.</p>
 <div class="admonition info">
 <p class="admonition-title">Programmeren of Designer?</p>
@@ -2412,12 +2424,12 @@ De gebruiker test de GUI met de volgende handelingen. De gebruiker maakt een nie
 <div class="tabbed-block">
 <p>Pas de GUI aan zodat de applicatie opstart met een lege plot en widgets om de start-, stopwaardes en het aantal herhaalmetingen aan te passen en een startknop waarmee een (nieuwe) meting wordt uitgevoerd.
 </br></br>
-De gebruiker test de GUI met de volgende handelingen. De gebruiker typt het commando in de terminal en er verschijnt een GUI met daarin een lege plot. De gebruiker vult verschillende waardes in voor de start, stop en het aantal herhaalmetingen en drukt daarna op de startknop. De gebruiker ziet dat de LED gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI.</p>
+De gebruiker test de GUI met de volgende handelingen. De gebruiker typt het commando in de terminal en er verschijnt een GUI met daarin een lege plot. De gebruiker vult verschillende waardes in voor de start, stop en stapgrootte <strong>in Volt</strong> en het aantal herhaalmetingen en drukt daarna op de startknop. De gebruiker ziet dat de LED gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI.</p>
 </div>
 <div class="tabbed-block">
 <p><strong>Pseudo-code</strong>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a># create widgets in designer or in the script
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a># for start, stop, measurements and start scan
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a># for start, stop, step size, number of measurements and start scan
 </span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>
 </span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a># connect widgets to methods
 </span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>
@@ -2430,6 +2442,7 @@ De gebruiker test de GUI met de volgende handelingen. De gebruiker typt het comm
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De applicatie start op met een lege plot.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> In de applicatie kan de startwaarde in Volt worden aangepast.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> In de applicatie kan de stopwaarde in Volt worden aangepast.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> In de applicatie kan de stapgrootte in Volt worden aangepast.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> In de applicatie kan het aantal herhaalmetingen worden aangepast.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Drukken op de startknop laat een meting starten.</li>
 </ul>
@@ -2515,9 +2528,9 @@ De gebruiker test de GUI met de volgende handelingen. De gebruiker typt het comm
 De gebruiker test de GUI met de volgende handelingen. De gebruiker typt het commando in de terminal en er verschijnt een GUI met daarin een lege plot. De gebruiker ziet ook een keuzemenu (<code class="language-py highlight"><span class="n">QComboBox</span></code>), de gebruiker klikt op het keuzemenu en ziet een lijstje van poorten verschijnen. De gebruiker selecteert de poort waarop de Arduino is aangesloten. De gebruiker start een meting en ziet de LED branden.
 </br></br>
 De gebruiker leent één (of twee, of drie) Arduino('s) bij de buren en sluit deze aan op de computer en start opnieuw de applicatie. Ditmaal ziet de gebruiker veel meer poorten in het keuzemenu staan. De gebruiker kiest een Arduino, start een meting en ziet een LED branden. De gebruiker selecteert daarna een andere Arduino, start een meting en ziet een ander LED branden. Hoe leuk <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.53 1.45-1.08 1.08 1.6 1.6q.33.375.33.87c0 .495-.11.64-.33.86L11.5 9.47l1 1.08 3.63-3.61c.53-.59.79-1.24.79-1.94s-.26-1.36-.79-1.95zm-3.98 2.02L9.47 4.55l.61.56c.22.22.33.52.33.89s-.11.67-.33.89l-.61.56 1.08 1.08.56-.61c.53-.59.8-1.23.8-1.92 0-.72-.27-1.37-.8-1.97zM21 5.06c-.69 0-1.33.27-1.92.8l-5.63 5.64 1.08 1 5.58-5.56c.25-.25.55-.38.89-.38s.64.13.89.38l.61.61 1.03-1.08-.56-.61c-.59-.53-1.25-.8-1.97-.8M7 8 2 22l14-5zm12 3.06c-.7 0-1.34.27-1.94.8l-1.59 1.59 1.08 1.08 1.59-1.59c.25-.25.53-.38.86-.38s.63.13.88.38l1.62 1.59 1.05-1.03-1.6-1.64c-.59-.53-1.25-.8-1.95-.8"/></svg></span>.</p>
-<div class="admonition meer-leren">
+<div class="admonition info">
 <p class="admonition-title">Arduino afsluiten</p>
-<p>Als je met meerdere Arduino's werkt kan het handig zijn om na afloop van de scan de communicatie met de Arduino weer te sluiten. In de <a href="../communicatie/#opd:pyvisaterminal"><em>opdracht Pyvisa in terminal</em></a> heb je al eens gewerkt met het commando <code>close</code>. Dit werkt ook voor pyvisa in een script. Je hebt in de controller de communicatie geopend met <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">rm</span><span class="o">.</span><span class="n">open_resource</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">read_termination</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">write_termination</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></code>, je kunt de communicatie met <code>self.device</code> in de controller sluiten met <code>self.device.close()</code>. Je kunt een method in de controller toevoegen die de communicatie sluit. Via het model kun je deze method aanroepen in de GUI.</p>
+<p>Als je met meerdere Arduino's werkt is het op sommige besturingssystemen nodig om na afloop van de scan de communicatie met de Arduino weer te sluiten. In de <a href="../communicatie/#opd:pyvisaterminal"><em>opdracht Pyvisa in terminal</em></a> heb je al eens gewerkt met het commando <code>close</code>. Dit werkt ook voor pyvisa in een script. Je hebt in de controller de communicatie geopend met <code class="language-py highlight"><span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">rm</span><span class="o">.</span><span class="n">open_resource</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">read_termination</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">write_termination</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></code>, je kunt de communicatie met <code>self.device</code> in de controller sluiten met <code>self.device.close()</code>. Je kunt een method in de controller toevoegen die de communicatie sluit. Via het model kun je deze method aanroepen in de GUI. Wil je nog een keer scannen? Dan moet de Arduino weer geopend worden. Tip: open de Arduino pas als je hem nodig hebt; dus niet in <code class="language-py highlight"><span class="n">DiodeExperiment</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span></code>, maar in de <code class="language-py highlight"><span class="n">scan</span><span class="p">()</span></code>-method, en sluit hem daar ook.</p>
 </div>
 </div>
 <div class="tabbed-block">
@@ -2526,7 +2539,8 @@ De gebruiker leent één (of twee, of drie) Arduino('s) bij de buren en sluit de
 </span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>
 </span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a># method start scan
 </span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>    # open communication with selected Arduino
-</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>    # start scan
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>    # perform scan
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>    # close communication with selected Arduino
 </span></code></pre></div></p>
 </div>
 <div class="tabbed-block">
@@ -2534,6 +2548,8 @@ De gebruiker leent één (of twee, of drie) Arduino('s) bij de buren en sluit de
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> In de applicatie kan een Arduino geselecteerd worden.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> De gekozen Arduino wordt gebruikt tijdens het uitvoeren van een scan.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Een scan kan twee keer achter elkaar met dezelfde Arduino uitgevoerd worden.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Een volgende scan kan gebruik maken van een andere Arduino.</li>
 </ul>
 <p><strong>Projecttraject</strong></p>
 <ul class="task-list">
