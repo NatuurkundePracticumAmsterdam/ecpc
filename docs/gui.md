@@ -1006,7 +1006,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
 
 In het vorige hoofdstuk heb je een _tekst_-interface geschreven voor het experiment. Je gaat nu een _grafische_ interface schrijven voor hetzelfde experiment.
 
-Je hebt tot nu toe veel moeite gedaan om de code te splitsen volgens het MVC-model: werken in laagjes, goed nadenken over wat waar hoort. Als dat netjes gelukt is kun je relatief makkelijk één van die laagjes vervangen. Je kunt bijvoorbeeld `#!py ArduinoVISADevice` vervangen door een `#!py RaspberryPiDevice` of een `#!py PicoScopeDevice` [^nieuwe-controller]. Ook kun je een nieuwe applicatie schrijven voor het experiment. Je hoeft dan alleen een extra view te schrijven (de interface met de gebruiker) en de rest kun je hergebruiken. Misschien dat je hier en daar iets wilt aanpassen, maar zorg er dan voor dat je oude applicatie nog steeds werkt!
+Je hebt tot nu toe veel moeite gedaan om de code te splitsen volgens het MVC-model: werken in laagjes, goed nadenken over wat waar hoort. Als dat netjes gelukt is kun je relatief makkelijk één van die laagjes vervangen. Je kunt bijvoorbeeld `#!py ArduinoVISADevice` vervangen door een `#!py RaspberryPiDevice` of een `#!py PicoScopeDevice`.[^nieuwe-controller] Ook kun je een nieuwe applicatie schrijven voor het experiment. Je hoeft dan alleen een extra view te schrijven (de interface met de gebruiker) en de rest kun je hergebruiken. Misschien dat je hier en daar iets wilt aanpassen, maar zorg er dan voor dat je oude applicatie nog steeds werkt!
 
 [^nieuwe-controller]: Je moet dan wel eerst nieuwe controllers schrijven (of krijgen van een collega) om deze nieuwe instrumenten aan te sturen. Maar als je die hebt kun je vrij eenvoudig wisselen.
 
