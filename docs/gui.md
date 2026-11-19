@@ -1255,9 +1255,8 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
         </br></br>
         De gebruiker leent één (of twee, of drie) Arduino('s) bij de buren en sluit deze aan op de computer en start opnieuw de applicatie. Ditmaal ziet de gebruiker veel meer poorten in het keuzemenu staan. De gebruiker kiest een Arduino, start een meting en ziet een LED branden. De gebruiker selecteert daarna een andere Arduino, start een meting en ziet een ander LED branden. Hoe leuk {{feesttoeter}}.
 
-        !!! meer-leren "Arduino afsluiten"
-            Als je met meerdere Arduino's werkt kan het handig zijn om na afloop van de scan de communicatie met de Arduino weer te sluiten. In de [_opdracht Pyvisa in terminal_](communicatie.md#opd:pyvisaterminal) heb je al eens gewerkt met het commando `close`. Dit werkt ook voor pyvisa in een script. Je hebt in de controller de communicatie geopend met `#!py self.device = rm.open_resource(port, read_termination="\r\n", write_termination="\n")`, je kunt de communicatie met `self.device` in de controller sluiten met `self.device.close()`. Je kunt een method in de controller toevoegen die de communicatie sluit. Via het model kun je deze method aanroepen in de GUI.
-
+        !!! info "Arduino afsluiten"
+            Als je met meerdere Arduino's werkt is het op sommige besturingssystemen nodig om na afloop van de scan de communicatie met de Arduino weer te sluiten. In de [_opdracht Pyvisa in terminal_](communicatie.md#opd:pyvisaterminal) heb je al eens gewerkt met het commando `close`. Dit werkt ook voor pyvisa in een script. Je hebt in de controller de communicatie geopend met `#!py self.device = rm.open_resource(port, read_termination="\r\n", write_termination="\n")`, je kunt de communicatie met `self.device` in de controller sluiten met `self.device.close()`. Je kunt een method in de controller toevoegen die de communicatie sluit. Via het model kun je deze method aanroepen in de GUI. Wil je nog een keer scannen? Dan moet de Arduino weer geopend worden. Tip: open de Arduino pas als je hem nodig hebt; dus niet in `#!py DiodeExperiment.__init__()`, maar in de `#!py scan()`-method, en sluit hem daar ook.
     === "code"
         **Pseudo-code**
         ```
@@ -1265,13 +1264,16 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
         
         # method start scan
             # open communication with selected Arduino
-            # start scan
+            # perform scan
+            # close communication with selected Arduino
         ```
     === "check"
         **Checkpunten**
     
         - [ ] In de applicatie kan een Arduino geselecteerd worden.
         - [ ] De gekozen Arduino wordt gebruikt tijdens het uitvoeren van een scan.
+        - [ ] Een scan kan twee keer achter elkaar met dezelfde Arduino uitgevoerd worden.
+        - [ ] Een volgende scan kan gebruik maken van een andere Arduino.
 
         **Projecttraject**
     
