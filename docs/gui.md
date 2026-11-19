@@ -15,6 +15,9 @@ Als je een grafische applicatie schrijft roep je functies aan van het besturings
 
     Dit wordt bij de opdrachten nog wel verteld, maar voor het overzicht staan ze ook hier.
 
+    !!! warning "Let op"
+        Installeer straks *niet* `pyside6` maar `pyside6-essentials`. PySide6 is een grote bibliotheek. De essentials zijn ongeveer 350 Mb groot; de volledige `pyside6` is 1,2 Gb groot, bijna vier keer zoveel!
+
 Een minimale Qt-applicatie ziet er als volgt uit:
 <div id="code:minimal"></div>
 
@@ -61,6 +64,10 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
             {{L}} {{dots}}  
             </div>
         </div>
+
+        !!! warning "Let op"
+            Installeer *niet* `pyside6` maar `pyside6-essentials`. PySide6 is een grote bibliotheek. De essentials zijn ongeveer 350&nbsp;Mb groot; de volledige `pyside6` is 1,2&nbsp;Gb groot, bijna vier keer zoveel!
+
 
     === "code"
         **Pseudo-code**
