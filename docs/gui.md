@@ -403,7 +403,7 @@ Als laatste verbind je de knoppen aan functies. Zodra je op een knop drukt wordt
             Bij het verbinden van het `#!py clicked`-signaal met `#!py clicked.connect()` geef je aan connect de methods `clear` en `add_text_button_clicked` mee _zonder_ deze aan te roepen (dat gebeurt later). Concreet betekent dit dat je de haakjes weglaat ([regel 33 en 34](#__codelineno-2-33)).
     === "code"
         **Pseudo-code**
-        ``` py hl_lines="3 26 27 29 30 31"
+        ``` py hl_lines="4 25 26 28 29 30"
         import sys
 
         from PySide6 import QtWidgets
@@ -879,7 +879,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
 
         <div id="code:designer"></div>
 
-        ``` py hl_lines="1"
+        ``` py 
         from ui_number_display_app import Ui_MainWindow
 
 
@@ -903,7 +903,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
 
     === "code"
         **Pseudo-code**
-        ``` py hl_lines="7 13 14 16 18-20"
+        ``` py hl_lines="6 12 13 15 17-19"
         import sys
 
         from PySide6 import QtWidgets
