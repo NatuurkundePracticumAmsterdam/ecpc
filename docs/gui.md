@@ -142,30 +142,37 @@ In de horizontale layout plaatsen we tweemaal een `button`:
 Het stuk programma om bovenstaande layout op te bouwen geven we hieronder weer. We bespreken hierna de code regel voor regel.
 <div id="code:layout"></div>
 
-``` py linenums="4" hl_lines="1"
+``` py linenums="4" 
 from PySide6.QtCore import Slot
 
 
 class UserInterface(QtWidgets.QMainWindow):
     def __init__(self):
-        # roep de __init__() aan van de parent class
+        # initialise the parent class 
         super().__init__()
 
-        # elk QMainWindow moet een central widget hebben
-        # hierbinnen maak je een layout en hang je andere widgets
+        # create central widget
+        # set central widget
         central_widget = QtWidgets.QWidget()
         self.setCentralWidget(central_widget)
 
-        # geef de central widget een verticale layout
+        # create vertical layout
+        # set layout of central widget as vertical layout
         vbox = QtWidgets.QVBoxLayout()
         central_widget.setLayout(vbox)
 
-        # voeg geneste layouts en widgets toe
+        # create textbox
+        # add textbox to vertical layout
         self.textedit = QtWidgets.QTextEdit()
         vbox.addWidget(self.textedit)
+
+        # create horizontal layout
+        # add horizontal layout to vertical layout
         hbox = QtWidgets.QHBoxLayout()
         vbox.addLayout(hbox)
 
+        # create widgets
+        # add widgets to horizontal layout
         clear_button = QtWidgets.QPushButton("Clear")
         hbox.addWidget(clear_button)
         add_text_button = QtWidgets.QPushButton("Add text")
@@ -175,6 +182,7 @@ class UserInterface(QtWidgets.QMainWindow):
         clear_button.clicked.connect(self.textedit.clear)
         add_text_button.clicked.connect(self.add_text_button_clicked)
 
+    # decorate method with Slot function
     @Slot()
     def add_text_button_clicked(self):
         self.textedit.append("You clicked me.")
