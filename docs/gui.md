@@ -53,13 +53,13 @@ Een aantal elementen uit dit programma (`#!py sys.argv`, `#!py sys.exit()`) zijn
 
         <div class="grid-tree" markdown>
             <div>
-            Je gaat de gegeven Python code voor een minimale GUI testen. In de repository {{github}}`oefenopdrachten` maak je een {{new_file}}`example-gui.py` aan en je zet daarin de Python code van bovenstaand voorbeeld. Je runt het bestand {{new_file}}`example-gui.py` en krijgt een foutmelding. Je installeert het pakket `pyside6-essentials` in je virtual environment {{lightbulb}} en runt je code nog een keer. Er verschijnt een leeg venster in beeld met als venstertitel `python` en de drie standaard vensterknoppen voor minimaliseren, maximaliseren en sluiten.
+            Je gaat de gegeven Python code voor een minimale GUI testen. In de repository {{github}}`oefenopdrachten` maak je een {{new_file}}`example_gui.py` aan en je zet daarin de Python code van bovenstaand voorbeeld. Je runt het bestand {{new_file}}`example_gui.py` en krijgt een foutmelding. Je installeert het pakket `pyside6-essentials` in je virtual environment {{lightbulb}} en runt je code nog een keer. Er verschijnt een leeg venster in beeld met als venstertitel `python` en de drie standaard vensterknoppen voor minimaliseren, maximaliseren en sluiten.
             </div>
             <div>
             {{folder}} `ECPC`  
             {{T}} {{github}} `pythondaq`  
             {{T}} {{github}} `oefenopdrachten`    
-            {{tab}} {{T}} {{new_file}} `example-gui.py`  
+            {{tab}} {{T}} {{new_file}} `example_gui.py`  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{dots}}  
             </div>
@@ -187,7 +187,7 @@ In de volgende opdrachten ga je zelf de hele applicatie opbouwen, zodat je preci
 
 !!! opdracht-basis "Parent class initialiseren"
     === "opdracht"
-        Je hebt gezien hoe je widgets aan de applicatie kunt toevoegen. Maar omdat het veel stappen in een keer zijn ga je de instructies stap voor stap volgen en steeds tussendoor testen. Je begint met het maken van een `#!py __init__()`-method voor de `#!py class UserInterface` en zorgt ervoor dat de parent class (`#!py QtWidgets.QMainWindow`) volledig wordt geïnitialiseerd. Je runt {{file}}`example-gui.py` en ziet dat er nog steeds een leeg venster wordt gestart. Je bent benieuwd of het initialiseren écht nodig is, daarom haal je de `#!py super()`-aanroep weg en kijk je wat er gebeurd als je {{file}}`example-gui.py` runt. Je zet `#!py super()`-aanroep heel gauw weer terug.
+        Je hebt gezien hoe je widgets aan de applicatie kunt toevoegen. Maar omdat het veel stappen in een keer zijn ga je de instructies stap voor stap volgen en steeds tussendoor testen. Je begint met het maken van een `#!py __init__()`-method voor de `#!py class UserInterface` en zorgt ervoor dat de parent class (`#!py QtWidgets.QMainWindow`) volledig wordt geïnitialiseerd. Je runt {{file}}`example_gui.py` en ziet dat er nog steeds een leeg venster wordt gestart. Je bent benieuwd of het initialiseren écht nodig is, daarom haal je de `#!py super()`-aanroep weg en kijk je wat er gebeurd als je {{file}}`example_gui.py` runt. Je zet `#!py super()`-aanroep heel gauw weer terug.
 
     === "code"
         **Pseudo-code**
@@ -230,7 +230,7 @@ Verder heeft iedere applicatie een centrale widget nodig. Niet-centrale widgets 
 
 !!! opdracht-basis "Central widget toevoegen"
     === "opdracht"
-        Nu de parent class wordt geïnitialiseerd kan je een widget aanmaken met `#!py QtWidgets.QWidget()`. Je noemt deze widget `#!py central_widget`. Deze widget stel je in als centrale widget met de method `#!py setCentralWidget()` van de class `#!py QtWidgets.QMainWindow`. Je runt {{file}}`example-gui.py` en ziet dat er nog steeds een leeg venster wordt gestart. 
+        Nu de parent class wordt geïnitialiseerd kan je een widget aanmaken met `#!py QtWidgets.QWidget()`. Je noemt deze widget `#!py central_widget`. Deze widget stel je in als centrale widget met de method `#!py setCentralWidget()` van de class `#!py QtWidgets.QMainWindow`. Je runt {{file}}`example_gui.py` en ziet dat er nog steeds een leeg venster wordt gestart. 
 
     === "code"
         **Pseudo-code**
@@ -276,7 +276,7 @@ Nu ga je layouts en widgets toevoegen. Layouts zorgen ervoor dat elementen netje
 
 !!! opdracht-basis "Tekstveld toevoegen"
     === "opdracht"
-        Omdat je het tekstveld en de knoppen onder elkaar wilt uitlijnen voeg je een verticale layout toe aan de `central_widget`. Je maakt een textbox aan en voegt deze toe aan de verticale layout. Je runt {{file}}`example-gui.py`en ziet een venster met een textbox verschijnen. Je typt een vrolijke tekst en sluit daarna het venster. 
+        Omdat je het tekstveld en de knoppen onder elkaar wilt uitlijnen voeg je een verticale layout toe aan de `central_widget`. Je maakt een textbox aan en voegt deze toe aan de verticale layout. Je runt {{file}}`example_gui.py`en ziet een venster met een textbox verschijnen. Je typt een vrolijke tekst en sluit daarna het venster. 
 
     === "code"
         **Pseudo-code**
@@ -328,7 +328,7 @@ De knoppen zelf plaats je straks in een horizontale layout, dus die voeg je ook 
 
 !!! opdracht-basis "Knoppen toevoegen"
     === "opdracht"
-        Omdat de knoppen naast elkaar moeten komen te staan voeg je een horizontale layout toe aan de verticale layout. Je maakt een `clear`-knop en een `add text`-knop en voegt deze toe aan de horizontale layout. Je runt {{file}}`example-gui.py`en ziet een venster met een tekstveld verschijnen met daaronder twee knoppen. Je drukt verwoed op de knoppen, maar er gebeurt niets.[^knop-stuk]
+        Omdat de knoppen naast elkaar moeten komen te staan voeg je een horizontale layout toe aan de verticale layout. Je maakt een `clear`-knop en een `add text`-knop en voegt deze toe aan de horizontale layout. Je runt {{file}}`example_gui.py`en ziet een venster met een tekstveld verschijnen met daaronder twee knoppen. Je drukt verwoed op de knoppen, maar er gebeurt niets.[^knop-stuk]
 
         [^knop-stuk]: Waarom doen de knoppen niets als je er op klikt?
     === "code"
@@ -397,7 +397,7 @@ Als laatste verbind je de knoppen aan functies. Zodra je op een knop drukt wordt
    
 !!! opdracht-basis "Slots en signals"
     === "opdracht"
-        Je gaat functionaliteit aan de knoppen verbinden. Je verbindt de `clear`-knop aan de `clear()`-method van `textedit`. Je maakt een eigen `Slot` met de naam `add_text_button_clicked` die een tekst aan het tekstveld toevoegt. Je vindt de tekst "You clicked me." maar suf en bedenkt zelf een andere leuke tekst. Je runt {{file}}`example-gui.py` en ziet een venster met een tekstveld verschijnen met daaronder twee knoppen. Je drukt op "Add text" en er verschijnt tekst in het tekstveld, daarna druk je op "Clear" en de tekst verdwijnt.
+        Je gaat functionaliteit aan de knoppen verbinden. Je verbindt de `clear`-knop aan de `clear()`-method van `textedit`. Je maakt een eigen `Slot` met de naam `add_text_button_clicked` die een tekst aan het tekstveld toevoegt. Je vindt de tekst "You clicked me." maar suf en bedenkt zelf een andere leuke tekst. Je runt {{file}}`example_gui.py` en ziet een venster met een tekstveld verschijnen met daaronder twee knoppen. Je drukt op "Add text" en er verschijnt tekst in het tekstveld, daarna druk je op "Clear" en de tekst verdwijnt.
 
         !!! info "() ontbreken bij `clear` en `add_text_button_clicked`"
             Bij het verbinden van het `#!py clicked`-signaal met `#!py clicked.connect()` geef je aan connect de methods `clear` en `add_text_button_clicked` mee _zonder_ deze aan te roepen (dat gebeurt later). Concreet betekent dit dat je de haakjes weglaat ([regel 33 en 34](#__codelineno-2-33)).
@@ -474,9 +474,9 @@ Er zijn veel verschillende widgets met eigen methods en signals. We hebben de ha
 
 !!! opdracht-basis "Extra knoppen toevoegen"
     === "opdracht"
-        Nu de minimale GUI werkt, wil je extra knoppen toevoegen. Je begint met een knop `Hello` die de tekst "Hello, world!" aan het tekstveld toevoegt. Je runt {{file}}`example-gui.py` en ziet dat de knop werkt. 
+        Nu de minimale GUI werkt, wil je extra knoppen toevoegen. Je begint met een knop `Hello` die de tekst "Hello, world!" aan het tekstveld toevoegt. Je runt {{file}}`example_gui.py` en ziet dat de knop werkt. 
         
-        Daarna voeg je een `quit`-knop toe die _onder_ de andere knoppen staat. Het signaal van deze knop verbind je met de method `#!py self.close()` zodat de applicatie wordt afgesloten. Je runt {{file}}`example-gui.py`, drukt nog een paar keer op de `hello`-knop en daarna op de `quit`-knop. Het venster is gesloten, de opdracht is voltooid {{feesttoeter}}
+        Daarna voeg je een `quit`-knop toe die _onder_ de andere knoppen staat. Het signaal van deze knop verbind je met de method `#!py self.close()` zodat de applicatie wordt afgesloten. Je runt {{file}}`example_gui.py`, drukt nog een paar keer op de `hello`-knop en daarna op de `quit`-knop. Het venster is gesloten, de opdracht is voltooid {{feesttoeter}}
     === "code"
         **Pseudo-code**
         ``` py
@@ -563,7 +563,7 @@ De documentatie van PySide6[^officialPySide6Doc] is niet super-intuïtief. Daaro
             {{folder}} `ECPC`  
             {{T}} {{github}} `pythondaq`  
             {{T}} {{github}} `oefenopdrachten`    
-            {{tab}} {{T}} {{new_file}} `number-display-gui.py`  
+            {{tab}} {{T}} {{new_file}} `number_display_gui.py`  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{dots}}  
             </div>
@@ -836,7 +836,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
             <div>
             {{folder}} `ECPC`  
             {{T}} {{github}} `oefenopdrachten`  
-            {{tab}} {{T}} {{file}} `number-display-gui.py`  
+            {{tab}} {{T}} {{file}} `number_display_gui.py`  
             {{tab}} {{T}} {{new_file_lines}} `number_display_app.ui`  
             {{tab}} {{L}} {{dots}}  
             {{L}} {{dots}} 
@@ -851,7 +851,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
         </code><span class="invisible" name="pyside6-uic number_display_app.ui --output ui_number_display_app.py">
         {{folder}} `ECPC`
         {{T}} {{github}} `oefenopdrachten`
-        &nbsp;&nbsp;&nbsp; {{T}} {{file}} `number-display-gui.py`
+        &nbsp;&nbsp;&nbsp; {{T}} {{file}} `number_display_gui.py`
         &nbsp;&nbsp;&nbsp; {{T}} {{file_lines}} `number_display_app.ui`
         &nbsp;&nbsp;&nbsp; {{T}} {{new_file}} `ui_number_display_app.py`
         &nbsp;&nbsp;&nbsp; {{L}} {{dots}}
@@ -875,7 +875,7 @@ Om het ontwerp te kunnen gebruiken moet je het ontwerp opslaan en vertalen naar 
 
 !!! opdracht-basis "Designer: ontwerp importeren"
     === "opdracht"
-        Maak een nieuw pythonbestand {{new_file}}`number-display-gui-designer.py`. Kopieer de code van de [opdracht number display](gui.md#opdracht:number-display) en vervang de volledige class door:
+        Maak een nieuw pythonbestand {{new_file}}`number_display_gui_designer.py`. Kopieer de code van de [opdracht number display](gui.md#opdracht:number-display) en vervang de volledige class door:
 
         <div id="code:designer"></div>
 
