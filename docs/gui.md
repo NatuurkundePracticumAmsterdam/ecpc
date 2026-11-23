@@ -643,7 +643,7 @@ class UserInterface(QtWidgets.QMainWindow):
 ```
 Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` om te zien wat ze doen. Leeg maken kan met `#!py self.plot_widget.clear()`.
 
-!!! opdracht-inlever "Functionplotter: plot"
+!!! opdracht-basis "Functionplotter: plot"
     === "opdracht"
 
         <div class="grid-tree" markdown>
@@ -690,7 +690,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
         - [x] Functionplotter: plot
         - [ ] Functionplotter: widgets
 
-!!! opdracht-inlever "Functionplotter: widgets"
+!!! opdracht-basis "Functionplotter: widgets"
     === "opdracht"
         Voer opnieuw het commando uit om de applicatie `functionplotter` te starten. Dit keer zorg je dat de applicatie de mogelijkheid krijgt om het domein van de plot aan te passen. Je ziet dan de sinusplot veranderen wanneer je de startwaarde verhoogt. Je kunt de startwaarde ook naar beneden aanpassen. Hetzelfde geldt voor de stopwaarde. Dan maak je nog een widget om het aantal punten (`num`) te kiezen waarmee de sinus wordt geplot. Speel eens met de widget en zie de sinus van hoekig naar mooi glad veranderen. Steeds als je een waarde aanpast moet de functie automatisch opnieuw geplot geworden.
     === "code"
