@@ -1105,7 +1105,7 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
 
 !!! opdracht-inlever "Pythondaq: plot scan"
     === "opdracht"
-        Pas de GUI aan zodat de applicatie een scan uitvoert en de metingen in een plot laat zien binnen het venster. Voor het gemak mag je de poortnaam, start- en stopwaardes en dergelijke <q>hard coded</q> in je script zetten. Later ga je ervoor zorgen dat de gebruiker alles kan instellen en zelf een scan kan starten, maar dat komt straks wel. 
+        Pas de GUI aan zodat de applicatie een scan uitvoert en de metingen in een plot laat zien binnen het venster. Voor het gemak mag je de poortnaam, start- en stopwaardes en aantal herhaalmetingen en de stapgrootte <q>hard coded</q> in je script zetten. Later ga je ervoor zorgen dat de gebruiker alles kan instellen en zelf een scan kan starten, maar dat komt straks wel. 
         </br></br>
         De gebruiker test de GUI met de volgende handelingen. De gebruiker maakt een nieuw virtual environment aan {{lightbulb}}. De gebruiker installeert de `pythondaq` package met uv sync {{lightbulb}}. De gebruiker kijkt in de {{file_lines}}`pyproject.toml` wat het commando is om de GUI op te starten. De gebruiker typt het commando in de terminal en ziet dat de LED gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI. 
 
@@ -1161,7 +1161,7 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
 
 !!! opdracht-inlever "Pythondaq: widgets"
     === "opdracht"
-        Pas de GUI aan zodat de applicatie opstart met een lege plot en widgets om de start-, stopwaardes en het aantal herhaalmetingen aan te passen en een startknop waarmee een (nieuwe) meting wordt uitgevoerd.
+        Pas de GUI aan zodat de applicatie opstart met een lege plot en widgets om de start-, stopwaardes en het aantal herhaalmetingen en de stapgrootte aan te passen en een startknop waarmee een (nieuwe) meting wordt uitgevoerd.
         </br></br>
         De gebruiker test de GUI met de volgende handelingen. De gebruiker typt het commando in de terminal en er verschijnt een GUI met daarin een lege plot. De gebruiker vult verschillende waardes in voor de start, stop en stapgrootte **in Volt** en het aantal herhaalmetingen en drukt daarna op de startknop. De gebruiker ziet dat de LED gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI.
     === "code"
@@ -1210,7 +1210,7 @@ Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder
     === "opdracht"
         Pas de GUI aan zodat de applicatie de metingen kan wegschrijven naar een CSV-bestand.
         </br></br>
-        De gebruiker test de GUI met de volgende handelingen. De gebruiker typt het commando in de terminal en er verschijnt een GUI met daarin een lege plot. De gebruiker vult verschillende waardes in voor de start, stop en het aantal herhaalmetingen en drukt op de startknop. De gebruiker ziet dat de LED gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI. De gebruiker ziet in de GUI een `Save`-knop en klikt daarop. Er verschijnt een dialoogvenster. De gebruiker kiest een locatie en typt een bestandsnaam en klikt op `Save` (of `Opslaan`). De gebruiker gaat op de computer naar de locatie waar het bestand opgeslagen zou zijn. De gebruiker opent het bestand en ziet de metingen staan. 
+        De gebruiker test de GUI met de volgende handelingen. De gebruiker typt het commando in de terminal en er verschijnt een GUI met daarin een lege plot. De gebruiker vult verschillende waardes in voor de start, stop en het aantal herhaalmetingen en de stapgrootte en drukt op de startknop. De gebruiker ziet dat de LED gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI. De gebruiker ziet in de GUI een `Save`-knop en klikt daarop. Er verschijnt een dialoogvenster. De gebruiker kiest een locatie en typt een bestandsnaam en klikt op `Save` (of `Opslaan`). De gebruiker gaat op de computer naar de locatie waar het bestand opgeslagen zou zijn. De gebruiker opent het bestand en ziet de metingen staan. 
     === "code"
         **Pseudo-code**
         ```
