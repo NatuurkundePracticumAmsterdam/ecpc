@@ -1020,6 +1020,34 @@ Je hebt tot nu toe veel moeite gedaan om de code te splitsen volgens het MVC-mod
 
 Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor het experiment.
 
+!!! opdracht-inlever "Pythondaq: schets van de interface"
+    === "opdracht"
+        Helemaal aan het eind van dit hoofdstuk, als je alle opdrachten gemaakt hebt en je grafische interface af is, kan zich de volgende (ideale) situatie voordoen bij een gebruiker van jouw applicatie:
+
+        > De gebruiker test de GUI met de volgende handelingen. De gebruiker typt het commando in de terminal en er verschijnt een GUI met daarin een lege plot. De gebruiker ziet ook een uitklapbare widget. De gebruiker klikt op de widget en ziet een lijstje van poorten verschijnen. De gebruiker selecteert de poort waarop de Arduino is aangesloten, vult verschillende waardes in voor de start, stop en het aantal herhaalmetingen en de stapgrootte en drukt op de startknop. De gebruiker ziet dat de LED gaat branden. Niet veel later ziet de gebruiker een grafiek met metingen verschijnen in de GUI. De gebruiker ziet in de GUI een `Save`-knop en klikt daarop. Er verschijnt een dialoogvenster. De gebruiker kiest een locatie en typt een bestandsnaam en klikt op `Save` (of `Opslaan`). De gebruiker gaat op de computer naar de locatie waar het bestand opgeslagen zou zijn. De gebruiker opent het CSV-bestand en ziet de metingen staan. 
+
+        In de volgende opdrachten ga je stap voor stap je applicatie opbouwen en uitbreiden om te zorgen dat alle bovenstaande functionaliteiten erin zitten. Je hebt daarvoor allerlei widgets nodig die je in een handige layout moet plaatsen. Het helpt enorm als je van tevoren een goed beeld hebt van wat je wilt gaan maken.
+
+        *Maak een schets van hoe je grafische interface er uit moet gaan zien. Waar komt de plot? Waar komende verschillende widgets voor start, stop, aantal herhaalmetingen en de stapgrootte? Waar kun je de poort van de Arduino kiezen? Waar komen de knoppen? Maak de schets het liefst met de hand (op papier of digitaal met pen) of gebruik een schetstool zoals [Excalidraw](https://excalidraw.com).*
+
+    === "check"
+        **Checkpunten**
+
+        - [ ] Je schets bevat een grote plot.
+        - [ ] Je schets bevat een widget om de poort te kiezen waaraan de Arduino hangt.
+        - [ ] Je schets bevat widgets om de startwaarde, stopwaarde, aantal herhaalmetingen en startgrootte in te voeren.
+        - [ ] Je schets bevat een knop om de meting te starten.
+        - [ ] Je schets bevat een knop om de meting te bewaren in een bestand.
+
+        **Projecttraject**
+
+        - [x] Pythondaq: schets van de interface    
+        - [ ] Pythondaq: leeg venster
+        - [ ] Pythondaq: plot scan
+        - [ ] Pythondaq: widgets
+        - [ ] Pythondaq: save 
+        - [ ] Pythondaq: selecteer Arduino
+
 !!! info "Programmeren of Designer?"
     Je mag zelf kiezen of je de grafische interface gaat ontwerpen met Designer of dat je hem volledig programmeert. Hieronder staan een paar handige tips en trucs voor als je besluit Designer te gebruiken.
 
@@ -1095,7 +1123,8 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
         - [ ] De GUI werkt ook na het installeren van de package `pythondaq` met uv in een nieuw virtual environment met Python. 
 
         **Projecttraject**
-    
+
+        - [x] Pythondaq: schets van de interface    
         - [x] Pythondaq: leeg venster
         - [ ] Pythondaq: plot scan
         - [ ] Pythondaq: widgets
@@ -1152,7 +1181,8 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
         - [ ] De resultaten van de meting worden geplot in het venster.
 
         **Projecttraject**
-    
+
+        - [x] Pythondaq: schets van de interface    
         - [x] Pythondaq: leeg venster
         - [x] Pythondaq: plot scan
         - [ ] Pythondaq: widgets
@@ -1185,7 +1215,8 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
         - [ ] Drukken op de startknop laat een meting starten.
 
         **Projecttraject**
-    
+
+        - [x] Pythondaq: schets van de interface    
         - [x] Pythondaq: leeg venster
         - [x] Pythondaq: plot scan
         - [x] Pythondaq: widgets
@@ -1229,7 +1260,8 @@ Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder
         - [ ] De metingen worden opgeslagen als CSV-bestand op de gegeven locatie en onder de gegeven bestandsnaam.
 
         **Projecttraject**
-    
+
+        - [x] Pythondaq: schets van de interface    
         - [x] Pythondaq: leeg venster
         - [x] Pythondaq: plot scan
         - [x] Pythondaq: widgets
@@ -1284,7 +1316,8 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
         - [ ] Een volgende scan kan gebruik maken van een andere Arduino.
 
         **Projecttraject**
-    
+
+        - [x] Pythondaq: schets van de interface    
         - [x] Pythondaq: leeg venster
         - [x] Pythondaq: plot scan
         - [x] Pythondaq: widgets
