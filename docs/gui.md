@@ -1069,7 +1069,7 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
             <div>
             Je gaat in stapjes een GUI maken voor de `pythondaq` applicatie. Maak daarvoor eerst een {{new_file}}`gui.py` waarin een leeg GUI venster wordt gemaakt. Zorg dat het lege venster ook wordt getoond zodra je een commando in de terminal intypt.
             </br></br>
-            De gebruiker test de GUI met de volgende handelingen. De gebruiker maakt een nieuw virtual environment aan {{lightbulb}}. De gebruiker installeert de `Pythondaq` package met uv sync {{lightbulb}}. De gebruiker kijkt in de {{file_lines}}`pyproject.toml` wat het commando is om de GUI op te starten. De gebruiker typt het commando in de terminal en ziet een leeg venster verschijnen. 
+            De gebruiker test de GUI met de volgende handelingen. De gebruiker maakt een nieuw virtual environment aan {{lightbulb}}. De gebruiker installeert de `pythondaq` package met uv sync {{lightbulb}}. De gebruiker kijkt in de {{file_lines}}`pyproject.toml` wat het commando is om de GUI op te starten. De gebruiker typt het commando in de terminal en ziet een leeg venster verschijnen. 
             </div>
             <div>
             {{folder}} `ECPC`  
