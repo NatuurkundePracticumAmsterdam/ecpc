@@ -39,7 +39,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()  
+    main()
 ```
 Eerst importeer je een paar bibliotheken. Het draait uiteindelijk om de `#!py UserInterface` class. De naam mag je zelf kiezen, zolang je maar aangeeft dat de class een subclass is van `#!py QtWidgets.QMainWindow`, het hoofdvenster van je applicatie (voor meer informatie zie [paragraaf subclasses](classes.md#subclasses)). In het hoofdgedeelte van het programma &mdash; gedefinieerd in de functie `#!py main()` &mdash; maak je eerst een instance van `#!py QtWidgets.QApplication`.[^sys-argv-Qt] Ook maak je een instance van de eigen class en roep je de `#!py show()`-method aan. Die heb je niet zelf geprogrammeerd; die zit in de parent class `#!py QMainWindow`. Als laatste roep je de `#!py exec()`-method aan van `#!py QApplication` en de uitvoer daarvan (een _exit code_) geef je mee aan de functie `#!py sys.exit()`. Dat betekent dat als het programma afsluit met een foutmelding, dat een foutcode wordt meegegeven aan het besturingssysteem. Iemand anders die een script schrijft kan die code afvangen en daar iets mee doen.
 
@@ -148,7 +148,7 @@ from PySide6.QtCore import Slot
 
 class UserInterface(QtWidgets.QMainWindow):
     def __init__(self):
-        # initialise the parent class 
+        # initialise the parent class
         super().__init__()
 
         # create central widget
@@ -493,10 +493,10 @@ Er zijn veel verschillende widgets met eigen methods en signals. We hebben de ha
 
         # connect hello button to add_hello_clicked method
         # connect quit button to self.close()
-        
+
         # decorate with Slot
         # def add_hello_clicked
-            # add Hello, world! to textbox        
+        # add Hello, world! to textbox
         ```
     === "check"
         **Checkpunten**
@@ -639,8 +639,8 @@ Om daadwerkelijk een functie te plotten kun je onderstaande code als basis gebru
 import numpy as np
 from numpy import pi
 
-class UserInterface(QtWidgets.QMainWindow):
 
+class UserInterface(QtWidgets.QMainWindow):
     ...
 
     def plot(self):
@@ -697,6 +697,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
     
         - [x] Functionplotter: plot
         - [ ] Functionplotter: widgets
+        - [ ] Functionplotter: de gebruikerstest
 
 !!! opdracht-basis "Functionplotter: widgets"
     === "opdracht"
@@ -731,6 +732,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
     
         - [x] Functionplotter: plot
         - [x] Functionplotter: widgets
+        - [ ] Functionplotter: de gebruikerstest
 
 ???+ opdracht-meer "Functionplotter: functie kiezen drop-down menu"
     Gebruik een `#!py QComboBox` om de functie te kunnen kiezen. Je moet hem _leeg_ toevoegen aan je interface en vult hem vanuit je programma. Zoek de widget op in de documentatie om uit te zoeken welke functie je moet gebruiken om keuzemogelijkheden toe te voegen en welk signaal je moet koppelen om te zorgen dat de plot opnieuw wordt uitgevoerd als je de functie aanpast. Geef de gebruiker de keuzes $\sin(x)$, $\cos(x)$, $\tan(x)$ en $\exp(x)$.
@@ -745,6 +747,29 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
 
     !!! waarschuwing 
         Gebruik _nooit_ zomaar `#!py eval()` op een string die iemand anders aanlevert. Anders kan iemand met typen in een tekstveld of het inlezen van een tekstbestand je computer wissen bijvoorbeeld, of malware installeren. Als je `#!py eval()` wilt gebruiken, lees dan de sectie _Minimizing the Security Issues of eval()_ in _Python eval(): Evaluate Expressions Dynamically_.[@eval] Maar _veel makkelijker_ is om `asteval` te gebruiken.
+
+!!! opdracht-basis "Functionplotter: de gebruikerstest"
+
+    === "opdracht"
+        Je hebt nu de GUI voor de functionplotter gemaakt. Laat een buurmens de gebruiksvriendelijkheid ervan testen. Controleer vooraf zelf of de GUI werkt zoals bedoeld. Zo richt de test zich vooral op het gebruiksgemak en niet op fouten in de code.
+        
+        Vraag een buurmens om de plot op verschillende manieren aan te passen. Diegene kiest zelf welke instellingen en waarden worden veranderd, maar past ten minste twee verschillende instellingen aan. Geef vooraf geen uitleg en help niet tijdens het testen. Bespreek na het testen wat duidelijk was, waar twijfel ontstond en welke aanpassingen de GUI duidelijker kunnen maken.
+
+    === "check"
+
+        **Checkpunten**
+    
+        - [ ] Een buurmens heeft mijn GUI getest zonder uitleg vooraf of hulp tijdens het testen.
+        - [ ] Ik heb de GUI van een buurmens getest en daarbij minstens twee verschillende instellingen aangepast.
+        - [ ] We hebben de feedback besproken en samen beoordeeld of de voorgestelde aanpassingen de gebruikerservaring verbeteren.
+
+        **Projecttraject**
+
+        - [x] Functionplotter: plot
+        - [x] Functionplotter: widgets
+        - [x] Functionplotter: de gebruikerstest
+    
+
 
 ## Een interface ontwerpen met Qt Designer
 
@@ -1376,10 +1401,11 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
                 self.experiment = Experiment()
 
             def plot(self):
-                """ Clear the plot widget and display experimental data. """
+                """Clear the plot widget and display experimental data."""
                 self.plot_widget.clear()
                 x, y = self.experiment.scan(0, np.pi, 50)
                 self.plot_widget.plot(x, y, symbol="o", symbolSize=5, pen=None)
+
 
         def main():
             app = QtWidgets.QApplication(sys.argv)
@@ -1389,7 +1415,7 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
 
 
         if __name__ == "__main__":
-            main()   
+            main()
         ```
 
     === "model.py"
@@ -1398,9 +1424,10 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
         import time
         import numpy as np
 
+
         class Experiment:
             def scan(self, start, stop, steps):
-                """ Perform a scan over a range with specified steps and return the scanned values. """
+                """Perform a scan over a range with specified steps and return the scanned values."""
                 x = np.linspace(start, stop, steps)
                 y = []
                 for u in x:
@@ -1468,11 +1495,10 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
 
         ``` py linenums="1" hl_lines="8-11"
         class UserInterface(QtWidgets.QMainWindow):
-
             ...
 
             def plot(self):
-                """ Clear the plot widget and display experimental data. """
+                """Clear the plot widget and display experimental data."""
                 self.plot_widget.clear()
                 self.experiment.scan(0, np.pi, 50)
                 self.plot_widget.plot(
@@ -1496,6 +1522,7 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
         ``` py linenums="1" hl_lines="4-9"
         import threading
 
+
         class Experiment:
             def start_scan(self, start, stop, steps):
                 """Start a new thread to execute a scan."""
@@ -1505,7 +1532,7 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
                 self._scan_thread.start()
 
             def scan(self, start, stop, steps):
-                """ Perform a scan over a range with specified steps and return the scanned values. """
+                """Perform a scan over a range with specified steps and return the scanned values."""
                 x = np.linspace(start, stop, steps)
                 self.x = []
                 self.y = []
@@ -1522,11 +1549,10 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
 
         ``` py linenums="1" hl_lines="8-9"
         class UserInterface(QtWidgets.QMainWindow):
-
             ...
 
             def plot(self):
-                """ Clear the plot widget and display experimental data. """
+                """Clear the plot widget and display experimental data."""
                 self.plot_widget.clear()
                 self.experiment.start_scan(0, np.pi, 50)
                 self.experiment._scan_thread.join()
@@ -1550,6 +1576,7 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
         ``` py linenums="1" hl_lines="1 9 13-17 19-20 26"
         from PySide6 import QtWidgets, QtCore
 
+
         class UserInterface(QtWidgets.QMainWindow):
             def __init__(self):
                 super().__init__()
@@ -1558,8 +1585,8 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
 
                 start_button.clicked.connect(self.start_scan)
 
-                ...            
-                
+                ...
+
                 # Plot timer
                 self.plot_timer = QtCore.QTimer()
                 # Roep iedere 100 ms de plotfunctie aan
@@ -1571,7 +1598,7 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
                 self.experiment.start_scan(0, np.pi, 50)
 
             def plot(self):
-                """ Clear the plot widget and display experimental data. """
+                """Clear the plot widget and display experimental data."""
                 self.plot_widget.clear()
                 # Twee regels code zijn verwijderd
                 self.plot_widget.plot(
