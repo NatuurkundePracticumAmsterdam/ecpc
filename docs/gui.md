@@ -1072,6 +1072,7 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
         - [ ] Pythondaq: widgets
         - [ ] Pythondaq: save 
         - [ ] Pythondaq: selecteer Arduino
+        - [ ] Pythondaq: test, één, twee, drie
 
 !!! info "Programmeren of Designer?"
     Je mag zelf kiezen of je de grafische interface gaat ontwerpen met Designer of dat je hem volledig programmeert. Hieronder staan een paar handige tips en trucs voor als je besluit Designer te gebruiken.
@@ -1155,6 +1156,7 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
         - [ ] Pythondaq: widgets
         - [ ] Pythondaq: save 
         - [ ] Pythondaq: selecteer Arduino 
+        - [ ] Pythondaq: test, één, twee, drie
 
 
 !!! opdracht-inlever "Pythondaq: plot scan"
@@ -1213,6 +1215,7 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
         - [ ] Pythondaq: widgets
         - [ ] Pythondaq: save 
         - [ ] Pythondaq: selecteer Arduino
+        - [ ] Pythondaq: test, één, twee, drie
 
 !!! opdracht-inlever "Pythondaq: widgets"
     === "opdracht"
@@ -1247,6 +1250,7 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
         - [x] Pythondaq: widgets
         - [ ] Pythondaq: save 
         - [ ] Pythondaq: selecteer Arduino 
+        - [ ] Pythondaq: test, één, twee, drie
 
 ### Bewaren van meetgegevens
 
@@ -1292,6 +1296,7 @@ Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder
         - [x] Pythondaq: widgets
         - [x] Pythondaq: save 
         - [ ] Pythondaq: selecteer Arduino 
+        - [ ] Pythondaq: test, één, twee, drie
 
 ???+ meer-leren "Menu's, taak- en statusbalken"
     
@@ -1348,6 +1353,34 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
         - [x] Pythondaq: widgets
         - [x] Pythondaq: save 
         - [x] Pythondaq: selecteer Arduino
+        - [ ] Pythondaq: test, één, twee, drie
+
+!!! opdracht-inlever "Pythondaq: test, één, twee, drie"
+    === "opdracht"
+        Je hebt nu ook een GUI voor `pythondaq` gemaakt. Laat een buurmens uitproberen hoe vanzelfsprekend de bediening hiervan is. Controleer vooraf zelf of de GUI werkt zoals bedoeld.
+
+        Laat een buurmens eerst de GUI bekijken, zonder uitleg van jou. Vraag wat die denkt ermee te kunnen doen en wat die als eerste zou proberen. Vergelijk de reactie met wat jij zelf voor ogen hebt. 
+
+        Geef daarna de buurmens de volgende opdracht: Voer met de GUI een meting uit en bekijk de resultaten. Kies zelf instellingen en waarden binnen de grenzen van de Arduino. Voer daarna nog een meting uit, waarbij je één of meer instellingen verandert. Geef geen uitleg over de bediening en help niet tijdens het testen.
+
+        Bespreek na afloop eerst wat je buurmens duidelijk vond en waar nog twijfel ontstond. Geef daarna aan op welk onderdeel jij specifiek feedback wilt en vraag wat je buurmens daarvan vindt. Bespreek samen welke feedback aanleiding geeft tot een aanpassing in je GUI. Voer daarna de aanpassingen door die jij als verbetering ziet. 
+
+    === "check"
+        - [ ] Een buurmens heeft mijn GUI getest zonder dat ik vooraf uitleg gaf of tijdens het testen hielp.
+        - [ ] We hebben de feedback besproken en samen beoordeeld welke voorgestelde aanpassingen de gebruikerservaring verbeteren.
+        - [ ] Ik heb de aanpassingen doorgevoerd die ik als een verbetering van mijn GUI zie. Bij voorstellen die ik niet overneem, kan ik toelichten waarom.
+
+        **Projecttraject**
+
+        - [x] Pythondaq: schets van de interface    
+        - [x] Pythondaq: leeg venster
+        - [x] Pythondaq: plot scan
+        - [x] Pythondaq: widgets
+        - [x] Pythondaq: save 
+        - [x] Pythondaq: selecteer Arduino
+        - [x] Pythondaq: test, één, twee, drie
+
+
 
 <!-- 
 ???+ opdracht-meer "Pythondaq: Exceptions"
