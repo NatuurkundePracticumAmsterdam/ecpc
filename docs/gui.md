@@ -701,7 +701,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
 
 !!! opdracht-basis "Functionplotter: widgets"
     === "opdracht"
-        Voer opnieuw het commando uit om de applicatie `functionplotter` te starten. Dit keer zorg je dat de applicatie de mogelijkheid krijgt om het domein van de plot aan te passen. Je ziet dan de sinusplot veranderen wanneer je de startwaarde verhoogt. Je kunt de startwaarde ook naar beneden aanpassen. Hetzelfde geldt voor de stopwaarde. Dan maak je nog een widget om het aantal punten (`num`) te kiezen waarmee de sinus wordt geplot. Speel eens met de widget en zie de sinus van hoekig naar mooi glad veranderen. Steeds als je een waarde aanpast moet de functie automatisch opnieuw geplot geworden.
+        Voer opnieuw het commando uit om de applicatie `functionplotter` te starten. Dit keer zorg je dat de applicatie de mogelijkheid krijgt om het domein van de plot aan te passen. Je ziet dan de sinusplot veranderen wanneer je de startwaarde verhoogt. Je kunt de startwaarde ook naar beneden aanpassen. Hetzelfde geldt voor de stopwaarde. Dan maak je nog een widget om het aantal punten (`num`) te kiezen waarmee de sinus wordt geplot. Speel eens met de widget en zie de sinus van hoekig naar mooi glad veranderen. Steeds als je een waarde aanpast moet de functie automatisch opnieuw geplot geworden. Voeg ook de benodigde docstrings toe aan je code.
     === "code"
         **Pseudo-code**
         ```
@@ -727,6 +727,7 @@ Je kunt uiteraard spelen met de instellingen zoals `#!py symbol` en `#!py pen` o
         - [ ] Het is mogelijk om de stopwaarde aan te passen.
         - [ ] Het is mogelijk om het aantal punten te kiezen waarmee de sin(x) functie wordt geplot.
         - [ ] Na het aanpassen van een waarde wordt de plot automatisch opnieuw geplot.
+        - [ ] Het bestand bevat alle benodigde docstrings.
 
         **Projecttraject**
     
@@ -1072,6 +1073,7 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
         - [ ] Pythondaq: widgets
         - [ ] Pythondaq: save 
         - [ ] Pythondaq: selecteer Arduino
+        - [ ] Pythondaq: check, dubbelcheck
         - [ ] Pythondaq: test, één, twee, drie
 
 !!! info "Programmeren of Designer?"
@@ -1156,6 +1158,7 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
         - [ ] Pythondaq: widgets
         - [ ] Pythondaq: save 
         - [ ] Pythondaq: selecteer Arduino 
+        - [ ] Pythondaq: check, dubbelcheck
         - [ ] Pythondaq: test, één, twee, drie
 
 
@@ -1215,6 +1218,7 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
         - [ ] Pythondaq: widgets
         - [ ] Pythondaq: save 
         - [ ] Pythondaq: selecteer Arduino
+        - [ ] Pythondaq: check, dubbelcheck
         - [ ] Pythondaq: test, één, twee, drie
 
 !!! opdracht-inlever "Pythondaq: widgets"
@@ -1250,6 +1254,7 @@ Je gaat nu &mdash; in stapjes &mdash; een grafische applicatie schrijven voor he
         - [x] Pythondaq: widgets
         - [ ] Pythondaq: save 
         - [ ] Pythondaq: selecteer Arduino 
+        - [ ] Pythondaq: check, dubbelcheck
         - [ ] Pythondaq: test, één, twee, drie
 
 ### Bewaren van meetgegevens
@@ -1296,6 +1301,7 @@ Het enige dat het dialoogvenster doet is de gebruiker laten kiezen waar en onder
         - [x] Pythondaq: widgets
         - [x] Pythondaq: save 
         - [ ] Pythondaq: selecteer Arduino 
+        - [ ] Pythondaq: check, dubbelcheck
         - [ ] Pythondaq: test, één, twee, drie
 
 ???+ meer-leren "Menu's, taak- en statusbalken"
@@ -1353,7 +1359,31 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
         - [x] Pythondaq: widgets
         - [x] Pythondaq: save 
         - [x] Pythondaq: selecteer Arduino
+        - [ ] Pythondaq: check, dubbelcheck
         - [ ] Pythondaq: test, één, twee, drie
+
+### De laatste checks
+
+!!! opdracht-inlever "Pythondaq: check, dubbelcheck"
+    === "opdracht"
+        Docstrings? Die heb je natuurlijk al geschreven :-) Loop `gui.py` toch nog even na en voeg ze toe waar ze nog ontbreken.
+
+    === "check"
+        **Checkpunten**
+
+        - [ ] Het bestand bevat alle benodigde docstrings.
+  
+        **Projecttraject**
+
+        - [x] Pythondaq: schets van de interface    
+        - [x] Pythondaq: leeg venster
+        - [x] Pythondaq: plot scan
+        - [x] Pythondaq: widgets
+        - [x] Pythondaq: save 
+        - [x] Pythondaq: selecteer Arduino
+        - [x] Pythondaq: check, dubbelcheck
+        - [ ] Pythondaq: test, één, twee, drie
+
 
 !!! opdracht-inlever "Pythondaq: test, één, twee, drie"
     === "opdracht"
@@ -1366,6 +1396,8 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
         Bespreek na afloop eerst wat je buurmens duidelijk vond en waar nog twijfel ontstond. Geef daarna aan op welk onderdeel jij specifiek feedback wilt en vraag wat je buurmens daarvan vindt. Bespreek samen welke feedback aanleiding geeft tot een aanpassing in je GUI. Voer daarna de aanpassingen door die jij als verbetering ziet. 
 
     === "check"
+        **Checkpunten**
+
         - [ ] Een buurmens heeft mijn GUI getest zonder dat ik vooraf uitleg gaf of tijdens het testen hielp.
         - [ ] We hebben de feedback besproken en samen beoordeeld welke voorgestelde aanpassingen de gebruikerservaring verbeteren.
         - [ ] Ik heb de aanpassingen doorgevoerd die ik als een verbetering van mijn GUI zie. Bij voorstellen die ik niet overneem, kan ik toelichten waarom.
@@ -1378,6 +1410,7 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
         - [x] Pythondaq: widgets
         - [x] Pythondaq: save 
         - [x] Pythondaq: selecteer Arduino
+        - [x] Pythondaq: check, dubbelcheck
         - [x] Pythondaq: test, één, twee, drie
 
 
