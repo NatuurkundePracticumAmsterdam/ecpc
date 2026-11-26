@@ -1362,6 +1362,9 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
         - [ ] Pythondaq: check, dubbelcheck
         - [ ] Pythondaq: test, één, twee, drie
 
+???+ opdracht-meer "Pythondaq: Exceptions"
+    Het is natuurlijk niet zo mooi wanneer je de verkeerde poort kiest en het programma crasht. Vang de exception af en geef een melding (gebruik bijvoorbeeld `#!py QDialog`) dat het device geen Arduino VISA device is. De gebruiker kan daarna een andere poort proberen.
+
 ### De laatste checks
 
 !!! opdracht-inlever "Pythondaq: check, dubbelcheck"
@@ -1415,9 +1418,6 @@ Je kunt je voorstellen dat mogelijkheid 2 de voorkeur heeft. Helaas is dit moeil
 
 
 
-<!-- 
-???+ opdracht-meer "Pythondaq: Exceptions"
-    Het is natuurlijk niet zo mooi wanneer je de verkeerde poort kiest en het programma crasht. Vang de exception af en geef een melding (gebruik bijvoorbeeld `#!py QDialog`) dat het device geen Arduino VISA device is. De gebruiker kan daarna een andere poort proberen. -->
 
 ???+ meer-leren "Threads"
 
